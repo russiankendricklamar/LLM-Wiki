@@ -3,7 +3,7 @@ import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-d
 import { motion, AnimatePresence } from 'motion/react';
 import { PageLayout } from './components/PageLayout';
 import { MarkdownRenderer } from './components/MarkdownRenderer';
-import { aboutMeEn, aboutMeRu, blackScholesMarkdown, blackScholesMarkdownRu } from './data/mockData';
+import { aboutMeEn, aboutMeRu, blackScholesMarkdown, blackScholesMarkdownRu, levyProcessMarkdownEn, levyProcessMarkdownRu } from './data/mockData';
 
 const PageContent = ({ category, title, content }: { category: string, title: string, content: string }) => (
   <motion.div
@@ -46,6 +46,16 @@ const AnimatedRoutes = ({ lang }: { lang: 'en' | 'ru' }) => {
               category={lang === 'en' ? 'Quantitative Finance' : 'Количественные финансы'} 
               title={lang === 'en' ? 'Black-Scholes Model' : 'Модель Блэка-Шоулза'} 
               content={lang === 'en' ? blackScholesMarkdown : blackScholesMarkdownRu} 
+            />
+          } 
+        />
+        <Route 
+          path="/finance/levy-processes" 
+          element={
+            <PageContent 
+              category={lang === 'en' ? 'Quantitative Finance' : 'Количественные финансы'} 
+              title={lang === 'en' ? 'Lévy Processes' : 'Процессы Леви'} 
+              content={lang === 'en' ? levyProcessMarkdownEn : levyProcessMarkdownRu} 
             />
           } 
         />
