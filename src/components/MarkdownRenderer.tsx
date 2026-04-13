@@ -5,9 +5,11 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { Check, Copy } from 'lucide-react';
+import { Check, Copy, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ChartRenderer } from './ChartRenderer';
+import { Link } from 'react-router-dom';
+import { getAllPages } from '@/lib/content-loader';
 
 // Import KaTeX CSS for math rendering
 import 'katex/dist/katex.min.css';
@@ -16,6 +18,56 @@ interface MarkdownRendererProps {
   content: string;
   className?: string;
 }
+
+const processWikilinks = (content: string) => {
+  const allPages = getAllPages();
+  
+  // Replace [[Page Name|Display Text]] or [[Page Name]]
+  return content.replace(/\[\[(.*?)(?:\|(.*?))?\]\]/g, (match, pageName, displayText) => {
+    const target = pageName.trim();
+    const display = (displayText || pageName).trim();
+    
+    // Find the page in our index by title or by the end of its path (filename)
+    const page = allPages.find(p => 
+      p.metadata.title.toLowerCase() === target.toLowerCase() ||
+      p.metadata.fullPath.toLowerCase().endsWith(`/${target.toLowerCase()}.md`) ||
+      p.metadata.fullPath.toLowerCase().endsWith(`/${target.toLowerCase()}`)
+    );
+    
+    if (page) {
+      return `[${display}](${page.metadata.slug})`;
+    }
+    
+    return `<span class="text-zinc-400 opacity-70">[[${display}]]</span>`;
+  });
+};
+
+const CustomLink = ({ href, children, ...props }: any) => {
+  const isInternal = href && (href.startsWith('/') || href.startsWith('#'));
+  
+  if (isInternal) {
+    return (
+      <Link 
+        to={href} 
+        className="font-medium text-blue-600 dark:text-blue-400 underline underline-offset-4 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+      >
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <a 
+      href={href} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1 font-medium text-blue-600 dark:text-blue-400 underline underline-offset-4 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+    >
+      {children}
+      <ExternalLink className="w-3 h-3" />
+    </a>
+  );
+};
 
 const CodeBlock = ({
   node,
@@ -127,6 +179,8 @@ const slugify = (text: string) => {
 };
 
 export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className }) => {
+  const processedContent = React.useMemo(() => processWikilinks(content), [content]);
+
   return (
     <div className={cn("prose prose-zinc dark:prose-invert max-w-none w-full", className)}>
       <ReactMarkdown
@@ -134,6 +188,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
         rehypePlugins={[rehypeKatex]}
         components={{
           code: CodeBlock,
+          a: CustomLink,
           h1: ({ node, children, ...props }) => {
             const id = slugify(extractText(children));
             return <h1 id={id} className="text-3xl font-semibold tracking-tight mt-8 mb-4 text-zinc-900 dark:text-zinc-50" {...props}>{children}</h1>;
@@ -169,7 +224,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
           tr: ({ node, ...props }) => <tr className="even:bg-zinc-50 dark:even:bg-zinc-900/20" {...props} />,
         }}
       >
-        {content}
+        {processedContent}
       </ReactMarkdown>
     </div>
   );
