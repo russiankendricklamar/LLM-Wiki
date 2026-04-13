@@ -16,22 +16,25 @@ const PageContent = ({ category, title, content, isHome, lang, slug }: { categor
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className={cn("mx-auto w-full", isGraphPage ? "max-w-none h-[calc(100vh-12rem)]" : "max-w-3xl")}
+      className={cn("mx-auto w-full", isGraphPage ? "max-w-none h-[calc(100vh-8rem)]" : "max-w-3xl")}
     >
-      <div className="mb-8 flex items-center justify-between">
-        <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
-          <span>{category}</span>
-          <span>/</span>
-          <span className="text-zinc-900 dark:text-zinc-100 font-medium">{title}</span>
+      {!isGraphPage && (
+        <div className="mb-8 flex items-center justify-between">
+          <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+            <span>{category}</span>
+            <span>/</span>
+            <span className="text-zinc-900 dark:text-zinc-100 font-medium">{title}</span>
+          </div>
         </div>
-      </div>
+      )}
 
       {isGraphPage ? (
-        <div className="flex flex-col h-full space-y-4">
+        <div className="flex flex-col h-full space-y-6">
           <div className="prose dark:prose-invert max-w-3xl">
-            <p>{content}</p>
+            <h1 className="text-4xl font-bold tracking-tight mb-2">{title}</h1>
+            <p className="text-zinc-500 dark:text-zinc-400 text-lg">{content}</p>
           </div>
-          <div className="flex-1 min-h-0 w-full">
+          <div className="flex-1 min-h-0 w-full mb-8">
             <KnowledgeGraph lang={lang} />
           </div>
         </div>
