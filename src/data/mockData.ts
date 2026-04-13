@@ -34,7 +34,7 @@ export const aboutMeMarkdown = `
 ## Контакты
 
 - **GitHub:** [github.com/russiankendricklamar](https://github.com/russiankendricklamar)
-- **LinkedIn:** [linkedin.com/in/egor-galkin](https://linkedin.com/in/egor-galkin)
+- **LinkedIn:** [linkedin.com/in/russiankendricklamar](https://www.linkedin.com/in/russiankendricklamar/?locale=ru)
 `;
 
 
