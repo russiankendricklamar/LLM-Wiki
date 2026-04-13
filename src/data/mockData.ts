@@ -5,23 +5,23 @@ export const aboutMeEn = `
 
 I am currently a **Principal Economist at the Bank of Russia**, where I focus on macroeconomic modeling and data-driven policy analysis. In my spare time, I work as a **Quantitative Analyst and AI Engineer**, bridging the gap between computational physics, financial mathematics, and state-of-the-art AI.
 
-[GitHub](https://github.com/russiankendricklamar) / [LinkedIn](https://www.linkedin.com/in/russiankendricklamar/?locale=ru) / [Email](mailto:egor@example.com)
+[GitHub](https://github.com/russiankendricklamar) / [LinkedIn](https://www.linkedin.com/in/russiankendrickmar/?locale=ru) / [Email](mailto:egor@example.com)
+
+<br/>
 
 ---
 
-## Bio
-
-Egor Galkin is an economist and engineer specializing in the intersection of macroeconomics, quantitative finance, and artificial intelligence. He currently serves as a Principal Economist at the Bank of Russia. Egor holds a degree in Computational Mathematics and Mathematical Physics from Bauman Moscow State Technical University. His work focuses on leveraging Large Language Models (LLMs) to automate financial analysis and developing rigorous quantitative frameworks for market modeling.
-
----
+<br/>
 
 ## Timeline
 
 - **2023 – Present**: **Principal Economist**, Bank of Russia. Macro-modeling and economic research.
-- **2021 – 2023**: **Quantitative Researcher**. Deep dive into stochastic calculus and volatility modeling.
-- **2017 – 2021**: **Student**, Bauman Moscow State Technical University. Focused on Computational Mathematics and Mathematical Physics (Department FN-11).
+
+<br/>
 
 ---
+
+<br/>
 
 ## Projects & Interests
 
@@ -29,20 +29,17 @@ Egor Galkin is an economist and engineer specializing in the intersection of mac
 - **AI in Finance**: Researching how LLMs (Claude, Gemini, Phi-4) can interpret macroeconomic protocols.
 - **Quantum Physics**: Exploring the computational parallels between quantum mechanics and financial derivatives.
 
+<br/>
+
 ---
+
+<br/>
 
 ## Technical Stack
 
 - **Models**: Anthropic (Claude 3.5 Sonnet), Gemini 2.0, Phi-4.
 - **Tools**: Python (Pandas, PyTorch, QuantLib), TypeScript, Perplexity.
 - **Methodologies**: Numerical Methods, Stochastic Calculus, RAG, AI Agents.
-
----
-
-## Misc
-
-- **Reading**: Sci-fi, Macro-history, Technical papers.
-- **Interests**: Physics, Chess, Complexity science.
 `;
 
 export const aboutMeRu = `
@@ -52,23 +49,23 @@ export const aboutMeRu = `
 
 В настоящее время я — **главный экономист в Банке России**, где занимаюсь макроэкономическим моделированием и анализом данных для экономической политики. В свободное время я работаю как **количественный аналитик и AI-инженер**, объединяя вычислительную физику, финансовую математику и современные технологии ИИ.
 
-[GitHub](https://github.com/russiankendricklamar) / [LinkedIn](https://www.linkedin.com/in/russiankendricklamar/?locale=ru) / [Email](mailto:egor@example.com)
+[GitHub](https://github.com/russiankendricklamar) / [LinkedIn](https://www.linkedin.com/in/russiankendrickmar/?locale=ru) / [Email](mailto:egor@example.com)
+
+<br/>
 
 ---
 
-## Биография
-
-Егор Галкин — экономист и инженер, специализирующийся на стыке макроэкономики, количественных финансов и искусственного интеллекта. Занимает должность главного экономиста в Банке России. Окончил МГТУ им. Н. Э. Баумана по специальности «Вычислительная математика и математическая физика». Его работа сосредоточена на использовании больших языковых моделей (LLM) для автоматизации финансового анализа и разработке строгих количественных фреймворков для моделирования рынков.
-
----
+<br/>
 
 ## Таймлайн
 
 - **2023 – Наст. время**: **Главный экономист**, Банк России. Макромоделирование и экономические исследования.
-- **2021 – 2023**: **Quantitative Researcher**. Глубокое изучение стохастического исчисления и моделирования волатильности.
-- **2017 – 2021**: **Студент**, МГТУ им. Н. Э. Баумана. Кафедра «Вычислительная математика и математическая физика» (ФН-11).
+
+<br/>
 
 ---
+
+<br/>
 
 ## Проекты и интересы
 
@@ -76,20 +73,17 @@ export const aboutMeRu = `
 - **AI в финансах**: Исследование того, как LLM (Claude, Gemini, Phi-4) могут интерпретировать макроэкономические протоколы.
 - **Квантовая физика**: Изучение вычислительных параллелей между квантовой механикой и производными финансовыми инструментами.
 
+<br/>
+
 ---
+
+<br/>
 
 ## Стек технологий
 
 - **Модели**: Anthropic (Claude 3.5 Sonnet), Gemini 2.0, Phi-4.
 - **Инструменты**: Python (Pandas, PyTorch, QuantLib), TypeScript, Perplexity.
 - **Методологии**: Численные методы, Стохастическое исчисление, RAG, AI-агенты.
-
----
-
-## Разное
-
-- **Чтение**: Научная фантастика, Макроистория, Технические статьи.
-- **Интересы**: Физика, Шахматы, Наука о сложности.
 `;
 
 
