@@ -125,7 +125,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
           blockquote: ({ node, ...props }) => (
             <blockquote className="mt-6 border-l-2 border-zinc-300 dark:border-zinc-700 pl-6 italic text-zinc-600 dark:text-zinc-400" {...props} />
           ),
-          hr: ({ node, ...props }) => <hr className="my-12 border-t-2 border-zinc-300 dark:border-zinc-100 opacity-100" {...props} />,
+          hr: ({ node, ...props }) => <hr className="my-12 h-0.5 border-none bg-zinc-300 dark:bg-zinc-100 opacity-100" {...props} />,
           table: ({ node, ...props }) => (
             <div className="my-6 w-full overflow-y-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
               <table className="w-full text-sm" {...props} />

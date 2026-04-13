@@ -28,11 +28,7 @@ I am currently a **Principal Economist at the Bank of Russia**, where I focus on
 - **AI in Finance**: Researching how LLMs (Claude, Gemini, Phi-4) can interpret macroeconomic protocols.
 - **Quantum Physics**: Exploring the computational parallels between quantum mechanics and financial derivatives.
 
-<br/>
-
 ---
-
-<br/>
 
 ## Technical Stack
 
@@ -71,11 +67,7 @@ export const aboutMeRu = `
 - **AI в финансах**: Исследование того, как LLM (Claude, Gemini, Phi-4) могут интерпретировать макроэкономические протоколы.
 - **Квантовая физика**: Изучение вычислительных параллелей между квантовой механикой и производными финансовыми инструментами.
 
-<br/>
-
 ---
-
-<br/>
 
 ## Стек технологий
 
