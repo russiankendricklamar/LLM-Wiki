@@ -115,10 +115,14 @@ export const getGraphData = (lang: 'en' | 'ru') => {
     // Regex to find [[wikilinks]]
     const matches = page.content.matchAll(/\[\[(.*?)\]\]/g);
     for (const match of matches) {
-      const targetId = match[1].trim();
-      // Ensure target exists in nodes
-      if (nodes.some(n => n.id === targetId)) {
-        links.push({ source: sourceId, target: targetId });
+      const targetFileName = match[1].trim();
+      
+      // Find a node whose ID contains the targetFileName
+      // e.g. targetFileName "black-scholes" matches node ID "finance/black-scholes"
+      const targetNode = nodes.find(n => n.id.endsWith(targetFileName) || n.id === targetFileName);
+      
+      if (targetNode) {
+        links.push({ source: sourceId, target: targetNode.id });
       }
     }
   });

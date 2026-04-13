@@ -5,6 +5,7 @@ import { PageLayout } from './components/PageLayout';
 import { MarkdownRenderer } from './components/MarkdownRenderer';
 import { KnowledgeGraph } from './components/KnowledgeGraph';
 import { getAllPages } from './lib/content-loader';
+import { cn } from './lib/utils';
 
 const PageContent = ({ category, title, content, isHome, lang, slug }: { category: string, title: string, content: string, isHome?: boolean, lang: 'en' | 'ru', slug: string }) => {
   const isGraphPage = slug === '/knowledge-graph';
