@@ -7,21 +7,13 @@ I am currently a **Principal Economist at the Bank of Russia**, where I focus on
 
 [GitHub](https://github.com/russiankendricklamar) / [LinkedIn](https://www.linkedin.com/in/russiankendrickmar/?locale=ru) / [Email](mailto:egor@example.com)
 
-<br/>
-
 ---
-
-<br/>
 
 ## Timeline
 
 - **2023 – Present**: **Principal Economist**, Bank of Russia. Macro-modeling and economic research.
 
-<br/>
-
 ---
-
-<br/>
 
 ## Projects
 
@@ -29,11 +21,7 @@ I am currently a **Principal Economist at the Bank of Russia**, where I focus on
 - **Ultima Thule**: A specialized application designed for seamless travel and exploration.
 - **LLM Wiki**: A digital garden for structuring knowledge on AI and Quant Finance.
 
-<br/>
-
 ---
-
-<br/>
 
 ## Interests
 
@@ -62,21 +50,13 @@ export const aboutMeRu = `
 
 [GitHub](https://github.com/russiankendricklamar) / [LinkedIn](https://www.linkedin.com/in/russiankendrickmar/?locale=ru) / [Email](mailto:egor@example.com)
 
-<br/>
-
 ---
-
-<br/>
 
 ## Таймлайн
 
 - **2023 – Наст. время**: **Главный экономист**, Банк России. Макромоделирование и экономические исследования.
 
-<br/>
-
 ---
-
-<br/>
 
 ## Проекты
 
@@ -84,11 +64,7 @@ export const aboutMeRu = `
 - **Ultima Thule**: Специализированное приложение для путешествий и исследований.
 - **LLM Wiki**: Персональная база знаний по ИИ и количественным финансам.
 
-<br/>
-
 ---
-
-<br/>
 
 ## Интересы
 
