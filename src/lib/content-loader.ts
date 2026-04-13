@@ -1,5 +1,3 @@
-import matter from 'gray-matter';
-
 export interface PageMetadata {
   title: string;
   category: string;
@@ -16,17 +14,53 @@ export interface PageContent {
 
 const rawFiles = import.meta.glob('../../obsidian-vault/**/*.md', { eager: true, query: '?raw', import: 'default' });
 
+// Simple frontmatter parser to avoid Node.js dependencies like 'gray-matter' or 'Buffer'
+const parseFrontmatter = (fileContent: string) => {
+  const match = fileContent.match(/^---\n([\s\S]+?)\n---\n([\s\S]*)$/);
+  if (!match) return { data: {} as any, content: fileContent };
+  
+  const yaml = match[1];
+  const content = match[2];
+  const data: any = {};
+  
+  yaml.split('\n').forEach(line => {
+    const firstColon = line.indexOf(':');
+    if (firstColon !== -1) {
+      const key = line.slice(0, firstColon).trim();
+      let value = line.slice(firstColon + 1).trim();
+      
+      // Remove quotes
+      if (value.startsWith('"') && value.endsWith('"')) value = value.slice(1, -1);
+      if (value.startsWith("'") && value.endsWith("'")) value = value.slice(1, -1);
+      
+      // Try to parse number
+      if (!isNaN(value as any) && value !== '') {
+        data[key] = Number(value);
+      } else {
+        data[key] = value;
+      }
+    }
+  });
+  
+  return { data, content };
+};
+
 export const getAllPages = (): PageContent[] => {
   return Object.entries(rawFiles).map(([filePath, rawContent]) => {
-    const { data, content } = matter(rawContent as string);
+    const { data, content } = parseFrontmatter(rawContent as string);
     
     // Generate a clean slug from filename:
-    // ../../obsidian-vault/finance/black-scholes-en.md -> /finance/black-scholes
+    // Any path containing /obsidian-vault/finance/black-scholes-en.md -> /finance/black-scholes
     let slug = filePath
-      .replace('../../obsidian-vault/', '/')
+      .replace(/^.*obsidian-vault/, '') // Remove everything before and including obsidian-vault
       .replace('.md', '')
       .replace(/-en$/, '')
       .replace(/-ru$/, '');
+
+    // Ensure slug starts with /
+    if (!slug.startsWith('/')) {
+      slug = '/' + slug;
+    }
 
     // Allow overriding slug in frontmatter
     if (data.slug) {
