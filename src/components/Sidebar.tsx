@@ -2,13 +2,16 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FileText } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { mockNavigation } from '@/data/mockData';
+import { mockNavigationRu, mockNavigationEn } from '@/data/mockData';
 
 interface SidebarProps {
   className?: string;
+  lang?: 'en' | 'ru';
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ className, lang = 'ru' }) => {
+  const navigation = lang === 'en' ? mockNavigationEn : mockNavigationRu;
+
   return (
     <aside className={cn("w-64 flex-shrink-0 border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 h-full overflow-y-auto", className)}>
       <div className="p-4">
@@ -20,7 +23,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
         </div>
 
         <nav className="space-y-6">
-          {mockNavigation.map((section, idx) => (
+          {navigation.map((section, idx) => (
             <div key={idx} className="space-y-2">
               <h4 className="px-2 text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
                 {section.title}

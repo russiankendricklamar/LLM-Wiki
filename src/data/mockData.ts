@@ -21,7 +21,7 @@ I am currently a **Principal Economist at the Bank of Russia**, where I focus on
 
 ## Projects
 
-- **Zeta Terminal**: A high-performance terminal interface for modern workflows.
+- **Zeta Terminal**: An advanced AI-native workspace for financial analysis and coding. It integrates real-time data, high-performance computing, and LLM assistance into a unified terminal environment.
 - **Ultima Thule**: A specialized application designed for seamless travel and exploration.
 - **LLM Wiki**: A digital garden for structuring knowledge on AI and Quant Finance.
 
@@ -64,7 +64,7 @@ export const aboutMeRu = `
 
 ## Проекты
 
-- **Zeta Terminal**: Высокопроизводительный терминальный интерфейс для современных рабочих процессов.
+- **Zeta Terminal**: Продвинутое AI-native рабочее пространство для финансового анализа и разработки. Интегрирует данные в реальном времени, высокопроизводительные вычисления и помощь LLM в единую терминальную среду.
 - **Ultima Thule**: Специализированное приложение для путешествий и исследований.
 - **LLM Wiki**: Персональная база знаний по ИИ и количественным финансам.
 
@@ -186,25 +186,32 @@ We also support GitHub Flavored Markdown tables:
 
 `;
 
-export const mockNavigation = [
+export const mockNavigationRu = [
   {
-    title: "Главная",
+    title: "Меню",
     items: [
       { title: "Обо мне", href: "/" },
     ],
   },
   {
-    title: "Getting Started",
+    title: "Количественные финансы",
     items: [
-      { title: "Introduction", href: "/intro" },
-      { title: "Installation", href: "/install" },
+      { title: "Модель Блэка-Шоулза", href: "/finance/black-scholes" },
+    ],
+  },
+];
+
+export const mockNavigationEn = [
+  {
+    title: "Menu",
+    items: [
+      { title: "About Me", href: "/" },
     ],
   },
   {
     title: "Quantitative Finance",
     items: [
       { title: "Black-Scholes Model", href: "/finance/black-scholes" },
-      { title: "Lévy Processes", href: "/finance/levy" },
     ],
   },
 ];
