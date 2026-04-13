@@ -3,7 +3,7 @@ import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-d
 import { motion, AnimatePresence } from 'motion/react';
 import { PageLayout } from './components/PageLayout';
 import { MarkdownRenderer } from './components/MarkdownRenderer';
-import { aboutMeEn, aboutMeRu, blackScholesMarkdown, blackScholesMarkdownRu, levyProcessMarkdownEn, levyProcessMarkdownRu } from './data/mockData';
+import { aboutMeEn, aboutMeRu, blackScholesMarkdown, blackScholesMarkdownRu, levyProcessMarkdownEn, levyProcessMarkdownRu, hestonModelMarkdownEn, hestonModelMarkdownRu } from './data/mockData';
 
 const PageContent = ({ category, title, content }: { category: string, title: string, content: string }) => (
   <motion.div
@@ -56,6 +56,16 @@ const AnimatedRoutes = ({ lang }: { lang: 'en' | 'ru' }) => {
               category={lang === 'en' ? 'Quantitative Finance' : 'Количественные финансы'} 
               title={lang === 'en' ? 'Lévy Processes' : 'Процессы Леви'} 
               content={lang === 'en' ? levyProcessMarkdownEn : levyProcessMarkdownRu} 
+            />
+          } 
+        />
+        <Route 
+          path="/finance/heston-model" 
+          element={
+            <PageContent 
+              category={lang === 'en' ? 'Quantitative Finance' : 'Количественные финансы'} 
+              title={lang === 'en' ? 'Heston Model' : 'Модель Хестона'} 
+              content={lang === 'en' ? hestonModelMarkdownEn : hestonModelMarkdownRu} 
             />
           } 
         />
