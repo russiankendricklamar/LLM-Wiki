@@ -11,10 +11,14 @@
             "id": "78837830d10fe161",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Граф"
+              "type": "markdown",
+              "state": {
+                "file": "ru/finance/avellaneda-stoikov.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "avellaneda-stoikov"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "ru/finance/avellaneda-stoikov.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Обратные ссылки"
+              "title": "Обратные ссылки для avellaneda-stoikov"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "ru/finance/avellaneda-stoikov.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Исходящие ссылки"
+              "title": "Исходящие ссылки из avellaneda-stoikov"
             }
           },
           {
@@ -164,6 +170,8 @@
   },
   "active": "78837830d10fe161",
   "lastOpenFiles": [
+    "ru/about/knowledge-graph.md",
+    "en/about/knowledge-graph.md",
     "ru/finance/avellaneda-stoikov.md",
     "ru/finance/fisher-transform.md",
     "ru/finance/sabr-model.md",
@@ -188,8 +196,6 @@
     "ru/finance/dv01.md",
     "ru/finance/xva.md",
     "ru/finance/copula-models.md",
-    "ru/finance/monte-carlo-method.md",
-    "ru/finance/shannon-entropy.md",
     "ru/finance",
     "ru/about",
     "ru",
