@@ -182,11 +182,115 @@ We also support GitHub Flavored Markdown tables:
 | Strike Price | $K$ | Price at which the option can be exercised |
 | Time to Maturity | $T$ | Time remaining until the option expires |
 | Risk-free Rate | $r$ | Constant interest rate |
-| Volatility | $\\sigma$ | Measure of the asset's price variation |
+| Volatility | $\sigma$ | Measure of the asset's price variation |
+
+`;
+
+export const blackScholesMarkdownRu = `
+# Модель Блэка-Шоулза
+
+
+**Модель Блэка-Шоулза** (Black-Scholes model), также известная как модель Блэка-Шоулза-Мертона, представляет собой математическую модель динамики финансового рынка, содержащего производные инвестиционные инструменты.
+
+## Уравнение Блэка-Шоулза
+
+Уравнение Блэка-Шоулза — это параболическое дифференциальное уравнение в частных производных, которое описывает цену опциона во времени. Уравнение имеет вид:
+
+$$
+\\frac{\\partial V}{\\partial t} + \\frac{1}{2}\\sigma^2 S^2 \\frac{\\partial^2 V}{\\partial S^2} + rS \\frac{\\partial V}{\\partial S} - rV = 0
+$$
+
+Где:
+- $V$ — цена опциона как функция цены акции $S$ и времени $t$
+- $r$ — безрисковая процентная ставка
+- $\\sigma$ — волатильность доходности акций
+
+## Формула Блэка-Шоулза
+
+Формулы для европейского колл-опциона $C$ и пут-опциона $P$ имеют вид:
+
+$$
+\\begin{aligned}
+C(S, t) &= N(d_1)S - N(d_2)Ke^{-r(T-t)} \\\\
+P(S, t) &= N(-d_2)Ke^{-r(T-t)} - N(-d_1)S
+\\end{aligned}
+$$
+
+Где $d_1$ и $d_2$ определяются как:
+
+$$
+\\begin{aligned}
+d_1 &= \\frac{\\ln(S/K) + (r + \\sigma^2/2)(T-t)}{\\sigma\\sqrt{T-t}} \\\\
+d_2 &= d_1 - \\sigma\\sqrt{T-t}
+\\end{aligned}
+$$
+
+А $N(x)$ — кумулятивная функция распределения стандартного нормального распределения.
+
+## Реализация на Python
+
+Ниже представлена реализация на Python для расчета цен европейских колл и пут опционов по формуле Блэка-Шоулза:
+
+\`\`\`python
+import numpy as np
+from scipy.stats import norm
+
+def black_scholes(S, K, T, r, sigma, option_type='call'):
+    """
+    Рассчитать цену опциона по модели Блэка-Шоулза.
+    """
+    d1 = (np.log(S / K) + (r + 0.5 * sigma ** 2) * T) / (sigma * np.sqrt(T))
+    d2 = d1 - sigma * np.sqrt(T)
+
+    if option_type == 'call':
+        price = S * norm.cdf(d1) - K * np.exp(-r * T) * norm.cdf(d2)
+    elif option_type == 'put':
+        price = K * np.exp(-r * T) * norm.cdf(-d2) - S * norm.cdf(-d1)
+    else:
+        raise ValueError("option_type должен быть 'call' или 'put'")
+
+    return price
+\`\`\`
+
+## Визуализация цены опциона
+
+Ниже представлена интерактивная визуализация цен опционов Call и Put для различных цен базового актива ($S$), при условии $K=100$, $T=1$, $r=0.05$ и $\\sigma=0.2$.
+
+\`\`\`chart
+{
+  "type": "line",
+  "xAxis": "spot",
+  "data": [
+    {"spot": "80", "call": 2.8, "put": 18.0},
+    {"spot": "90", "call": 6.5, "put": 11.5},
+    {"spot": "100", "call": 12.3, "put": 7.4},
+    {"spot": "110", "call": 19.8, "put": 4.5},
+    {"spot": "120", "call": 28.4, "put": 2.6}
+  ],
+  "lines": [
+    {"dataKey": "call", "stroke": "#10b981", "name": "Цена Call"},
+    {"dataKey": "put", "stroke": "#ef4444", "name": "Цена Put"}
+  ]
+}
+\`\`\`
+
+## Поддержка таблиц
+
+Мы также поддерживаем таблицы в формате GitHub Flavored Markdown:
+
+| Параметр | Символ | Описание |
+| :--- | :---: | :--- |
+| Цена спот | $S$ | Текущая цена базового актива |
+| Цена страйк | $K$ | Цена, по которой может быть исполнен опцион |
+| Время до погашения | $T$ | Время, оставшееся до истечения срока действия опциона |
+| Безрисковая ставка | $r$ | Постоянная процентная ставка |
+| Волатильность | $\sigma$ | Мера изменения цены актива |
 
 `;
 
 export const mockNavigationRu = [
+
+
   {
     title: "Меню",
     items: [

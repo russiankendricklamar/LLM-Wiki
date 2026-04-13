@@ -3,9 +3,9 @@ import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-d
 import { motion, AnimatePresence } from 'motion/react';
 import { PageLayout } from './components/PageLayout';
 import { MarkdownRenderer } from './components/MarkdownRenderer';
-import { aboutMeEn, aboutMeRu, blackScholesMarkdown } from './data/mockData';
+import { aboutMeEn, aboutMeRu, blackScholesMarkdown, blackScholesMarkdownRu } from './data/mockData';
 
-const PageContent = ({ category, title, content, children }: { category: string, title: string, content: string, children?: React.ReactNode }) => (
+const PageContent = ({ category, title, content }: { category: string, title: string, content: string }) => (
   <motion.div
     initial={{ opacity: 0, y: 15 }}
     animate={{ opacity: 1, y: 0 }}
@@ -19,44 +19,36 @@ const PageContent = ({ category, title, content, children }: { category: string,
         <span>/</span>
         <span className="text-zinc-900 dark:text-zinc-100 font-medium">{title}</span>
       </div>
-      {children}
     </div>
     <MarkdownRenderer content={content} />
   </motion.div>
 );
 
-const AboutPage = ({ lang, setLang }: { lang: 'en' | 'ru', setLang: (l: 'en' | 'ru') => void }) => {
-  return (
-    <PageContent 
-      category="Home" 
-      title={lang === 'en' ? 'About Me' : 'Обо мне'} 
-      content={lang === 'en' ? aboutMeEn : aboutMeRu}
-    >
-      <div className="flex gap-2 bg-zinc-100 dark:bg-zinc-800 p-1 rounded-md text-xs font-medium">
-        <button 
-          onClick={() => setLang('en')}
-          className={`px-2 py-1 rounded ${lang === 'en' ? 'bg-white dark:bg-zinc-700 shadow-sm text-zinc-900 dark:text-zinc-100' : 'text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300'}`}
-        >
-          EN
-        </button>
-        <button 
-          onClick={() => setLang('ru')}
-          className={`px-2 py-1 rounded ${lang === 'ru' ? 'bg-white dark:bg-zinc-700 shadow-sm text-zinc-900 dark:text-zinc-100' : 'text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300'}`}
-        >
-          RU
-        </button>
-      </div>
-    </PageContent>
-  );
-};
-
-const AnimatedRoutes = ({ lang, setLang }: { lang: 'en' | 'ru', setLang: (l: 'en' | 'ru') => void }) => {
+const AnimatedRoutes = ({ lang }: { lang: 'en' | 'ru' }) => {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<AboutPage lang={lang} setLang={setLang} />} />
-        <Route path="/finance/black-scholes" element={<PageContent category="Quantitative Finance" title="Black-Scholes Model" content={blackScholesMarkdown} />} />
+        <Route 
+          path="/" 
+          element={
+            <PageContent 
+              category={lang === 'en' ? 'Home' : 'Главная'} 
+              title={lang === 'en' ? 'About Me' : 'Обо мне'} 
+              content={lang === 'en' ? aboutMeEn : aboutMeRu} 
+            />
+          } 
+        />
+        <Route 
+          path="/finance/black-scholes" 
+          element={
+            <PageContent 
+              category={lang === 'en' ? 'Quantitative Finance' : 'Количественные финансы'} 
+              title={lang === 'en' ? 'Black-Scholes Model' : 'Модель Блэка-Шоулза'} 
+              content={lang === 'en' ? blackScholesMarkdown : blackScholesMarkdownRu} 
+            />
+          } 
+        />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AnimatePresence>
@@ -68,8 +60,8 @@ export default function App() {
 
   return (
     <HashRouter>
-      <PageLayout lang={lang}>
-        <AnimatedRoutes lang={lang} setLang={setLang} />
+      <PageLayout lang={lang} setLang={setLang}>
+        <AnimatedRoutes lang={lang} />
       </PageLayout>
     </HashRouter>
   );

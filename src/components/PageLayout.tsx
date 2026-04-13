@@ -8,9 +8,10 @@ import { cn } from '@/lib/utils';
 interface PageLayoutProps {
   children: React.ReactNode;
   lang?: 'en' | 'ru';
+  setLang?: (lang: 'en' | 'ru') => void;
 }
 
-export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru' }) => {
+export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', setLang }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true); // Default to dark mode for that Vercel/Linear feel
@@ -70,6 +71,32 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru' })
           </div>
 
           <div className="flex items-center gap-4 ml-auto">
+            {setLang && (
+              <div className="flex gap-1 bg-zinc-100 dark:bg-zinc-900 p-0.5 rounded-lg text-[10px] font-bold">
+                <button 
+                  onClick={() => setLang('en')}
+                  className={cn(
+                    "px-1.5 py-0.5 rounded-md transition-all",
+                    lang === 'en' 
+                      ? "bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-zinc-100" 
+                      : "text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300"
+                  )}
+                >
+                  EN
+                </button>
+                <button 
+                  onClick={() => setLang('ru')}
+                  className={cn(
+                    "px-1.5 py-0.5 rounded-md transition-all",
+                    lang === 'ru' 
+                      ? "bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-zinc-100" 
+                      : "text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300"
+                  )}
+                >
+                  RU
+                </button>
+              </div>
+            )}
             <button
               onClick={() => setIsSearchOpen(true)}
               className="flex items-center gap-2 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 px-3 py-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"

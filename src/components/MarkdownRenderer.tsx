@@ -106,6 +106,26 @@ const CodeBlock = ({
   );
 };
 
+const extractText = (children: React.ReactNode): string => {
+  if (typeof children === 'string' || typeof children === 'number') {
+    return String(children);
+  }
+  if (Array.isArray(children)) {
+    return children.map(extractText).join('');
+  }
+  if (React.isValidElement(children)) {
+    return extractText((children.props as any).children);
+  }
+  return '';
+};
+
+const slugify = (text: string) => {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\sа-яё-]/gi, '')
+    .replace(/\s+/g, '-');
+};
+
 export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className }) => {
   return (
     <div className={cn("prose prose-zinc dark:prose-invert max-w-none w-full", className)}>
@@ -114,9 +134,18 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
         rehypePlugins={[rehypeKatex]}
         components={{
           code: CodeBlock,
-          h1: ({ node, ...props }) => <h1 className="text-3xl font-semibold tracking-tight mt-8 mb-4 text-zinc-900 dark:text-zinc-50" {...props} />,
-          h2: ({ node, ...props }) => <h2 className="text-2xl font-semibold tracking-tight mt-10 mb-4 text-zinc-900 dark:text-zinc-50 pb-2 border-b border-zinc-200 dark:border-zinc-800" {...props} />,
-          h3: ({ node, ...props }) => <h3 className="text-xl font-semibold tracking-tight mt-8 mb-4 text-zinc-900 dark:text-zinc-50" {...props} />,
+          h1: ({ node, children, ...props }) => {
+            const id = slugify(extractText(children));
+            return <h1 id={id} className="text-3xl font-semibold tracking-tight mt-8 mb-4 text-zinc-900 dark:text-zinc-50" {...props}>{children}</h1>;
+          },
+          h2: ({ node, children, ...props }) => {
+            const id = slugify(extractText(children));
+            return <h2 id={id} className="text-2xl font-semibold tracking-tight mt-10 mb-4 text-zinc-900 dark:text-zinc-50 pb-2 border-b border-zinc-200 dark:border-zinc-800" {...props}>{children}</h2>;
+          },
+          h3: ({ node, children, ...props }) => {
+            const id = slugify(extractText(children));
+            return <h3 id={id} className="text-xl font-semibold tracking-tight mt-8 mb-4 text-zinc-900 dark:text-zinc-50" {...props}>{children}</h3>;
+          },
           p: ({ node, ...props }) => <p className="leading-7 [&:not(:first-child)]:mt-6 text-zinc-700 dark:text-zinc-300" {...props} />,
           ul: ({ node, ...props }) => <ul className="my-6 ml-6 list-disc [&>li]:mt-2 text-zinc-700 dark:text-zinc-300" {...props} />,
           ol: ({ node, ...props }) => <ol className="my-6 ml-6 list-decimal [&>li]:mt-2 text-zinc-700 dark:text-zinc-300" {...props} />,

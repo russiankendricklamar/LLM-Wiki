@@ -7,47 +7,49 @@ interface TocItem {
   level: number;
 }
 
-const tocData: TocItem[] = [
-  { title: "The Black-Scholes Equation", href: "#the-black-scholes-equation", level: 2 },
-  { title: "The Black-Scholes Formula", href: "#the-black-scholes-formula", level: 2 },
-  { title: "Python Implementation", href: "#python-implementation", level: 2 },
-  { title: "Tables Support", href: "#tables-support", level: 2 },
-];
-
 interface TableOfContentsProps {
   className?: string;
   lang?: 'en' | 'ru';
 }
 
 export const TableOfContents: React.FC<TableOfContentsProps> = ({ className, lang = 'ru' }) => {
-  const tocDataEn: TocItem[] = [
-    { title: "Timeline", href: "#timeline", level: 2 },
-    { title: "Projects", href: "#projects", level: 2 },
-    { title: "Interests", href: "#interests", level: 2 },
-    { title: "Technical Stack", href: "#technical-stack", level: 2 },
-  ];
+  const [headings, setHeadings] = React.useState<{ title: string; id: string; level: number }[]>([]);
 
-  const tocDataRu: TocItem[] = [
-    { title: "Таймлайн", href: "#таймлайн", level: 2 },
-    { title: "Проекты", href: "#проекты", level: 2 },
-    { title: "Интересы", href: "#интересы", level: 2 },
-    { title: "Стек технологий", href: "#стек-технологий", level: 2 },
-  ];
+  React.useEffect(() => {
+    const updateHeadings = () => {
+      const elements = Array.from(document.querySelectorAll('h2, h3'))
+        .map((el) => ({
+          title: (el as HTMLElement).innerText,
+          id: el.id,
+          level: parseInt(el.tagName.replace('H', '')),
+        }))
+        .filter((h) => h.id); // Only headings with IDs
+      
+      setHeadings(elements);
+    };
 
-  const currentToc = lang === 'en' ? tocDataEn : tocDataRu;
+    updateHeadings();
+
+    const observer = new MutationObserver(updateHeadings);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => observer.disconnect();
+  }, []); // Re-run when content changes is handled by observer
+
+  if (headings.length === 0) return null;
 
   return (
     <aside className={cn("w-64 flex-shrink-0 hidden xl:block", className)}>
-      <div className="sticky top-0 pt-8 pb-8 pr-4">
+      <div className="sticky top-20 pt-8 pb-8 pr-4">
         <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight">
           {lang === 'en' ? 'On this page' : 'На этой странице'}
         </h4>
         <nav>
           <ul className="space-y-2.5 text-sm">
-            {currentToc.map((item, idx) => (
+            {headings.map((item, idx) => (
               <li key={idx} style={{ paddingLeft: `${(item.level - 2) * 1}rem` }}>
                 <a
-                  href={item.href}
+                  href={`#${item.id}`}
                   className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors line-clamp-2"
                 >
                   {item.title}
