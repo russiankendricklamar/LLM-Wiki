@@ -11,7 +11,11 @@ I am currently a **Principal Economist at the Bank of Russia**, where I focus on
 
 ## Timeline
 
-- **2023 – Present**: **Principal Economist**, Bank of Russia. Macro-modeling and economic research.
+- **2025 – Present**: **Principal Economist / Risk Analyst**, Bank of Russia (Risk Analysis Service). Fair value of securities and derivatives (IFRS 9/13), process automation for valuation.
+- **2024 – 2025**: **Risk Manager**, Bank of Russia (Supervision of Systemically Important Banks). IRB model validation, econometric modeling, statistical testing, and credit risk methodology.
+- **2023 – 2024**: **Risk Analyst**, Bank of Russia (Risk Analysis Service). Valuation and risk assessment of financial instruments.
+- **2022 – 2023**: **Expert**, Bank of Russia (Banking Supervision). Financial statement analysis (IFRS/RAS), business strategy assessment, and risk monitoring.
+- **2019 – 2022**: **Event Manager**, BMSTU (Creative Industries). Financial literacy workshops (ESG, Personal Finance), budget management, and procurement.
 
 ---
 
@@ -50,7 +54,11 @@ export const aboutMeRu = `
 
 ## Таймлайн
 
-- **2023 – Наст. время**: **Главный экономист**, Банк России. Макромоделирование и экономические исследования.
+- **2025 – Наст. время**: **Главный экономист / Риск-аналитик**, Банк России (Служба анализа рисков). Оценка справедливой стоимости ЦБ и ПФИ (МСФО 9/13), автоматизация процессов оценки.
+- **2024 – 2025**: **Риск-менеджер**, Банк России (Департамент надзора за СЗКО). Валидация ПВР-моделей (IRB), эконометрическое моделирование, надзор за расчетом нормативов капитала.
+- **2023 – 2024**: **Риск-аналитик**, Банк России (Служба анализа рисков). Оценка рисков вложений в ценные бумаги и подготовка аналитических заключений.
+- **2022 – 2023**: **Эксперт**, Банк России (Служба текущего банковского надзора). Анализ отчетности (РСБУ/МСФО), оценка бизнес-моделей банков, мониторинг финансового состояния.
+- **2019 – 2022**: **Менеджер по организации мероприятий**, МГТУ им. Н. Э. Баумана. Мастер-классы по финансовой грамотности и ESG, управление бюджетом и закупками.
 
 ---
 
