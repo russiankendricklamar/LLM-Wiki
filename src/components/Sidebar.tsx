@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FileText } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { mockNavigationRu, mockNavigationEn } from '@/data/mockData';
+import { getNavigation } from '@/lib/content-loader';
 
 interface SidebarProps {
   className?: string;
@@ -10,7 +10,7 @@ interface SidebarProps {
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({ className, lang = 'ru' }) => {
-  const navigation = lang === 'en' ? mockNavigationEn : mockNavigationRu;
+  const navigation = getNavigation(lang);
 
   return (
     <aside className={cn("w-64 flex-shrink-0 border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 h-full overflow-y-auto", className)}>

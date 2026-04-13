@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Command } from 'cmdk';
 import { Search, FileText, Calculator, Code } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { useNavigate } from 'react-router-dom';
+import { getAllPages } from '@/lib/content-loader';
 
 interface SearchDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  lang?: 'en' | 'ru';
 }
 
-export const SearchDialog: React.FC<SearchDialogProps> = ({ open, onOpenChange }) => {
+export const SearchDialog: React.FC<SearchDialogProps> = ({ open, onOpenChange, lang = 'ru' }) => {
+  const navigate = useNavigate();
+  const allPages = getAllPages().filter(p => p.metadata.lang === lang);
+
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
@@ -20,6 +25,11 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({ open, onOpenChange }
     document.addEventListener('keydown', down);
     return () => document.removeEventListener('keydown', down);
   }, [open, onOpenChange]);
+
+  const onSelect = (path: string) => {
+    navigate(path);
+    onOpenChange(false);
+  };
 
   if (!open) return null;
 
@@ -35,29 +45,36 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({ open, onOpenChange }
             <Search className="mr-2 h-4 w-4 shrink-0 text-zinc-500 dark:text-zinc-400" />
             <Command.Input 
               autoFocus
-              placeholder="Search documentation..." 
+              placeholder={lang === 'en' ? "Search documentation..." : "Поиск по базе знаний..."} 
               className="flex h-12 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-zinc-500 dark:text-zinc-100 disabled:cursor-not-allowed disabled:opacity-50"
             />
           </div>
           <Command.List className="max-h-[300px] overflow-y-auto overflow-x-hidden p-2">
             <Command.Empty className="py-6 text-center text-sm text-zinc-500 dark:text-zinc-400">
-              No results found.
+              {lang === 'en' ? "No results found." : "Ничего не найдено."}
             </Command.Empty>
             
-            <Command.Group heading="Documentation" className="px-2 py-1.5 text-xs font-medium text-zinc-500 dark:text-zinc-400">
-              <Command.Item className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-800 aria-selected:text-zinc-900 dark:aria-selected:text-zinc-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 text-zinc-700 dark:text-zinc-300">
-                <FileText className="mr-2 h-4 w-4" />
-                <span>Introduction</span>
-              </Command.Item>
-              <Command.Item className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-800 aria-selected:text-zinc-900 dark:aria-selected:text-zinc-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 text-zinc-700 dark:text-zinc-300">
-                <Calculator className="mr-2 h-4 w-4" />
-                <span>Black-Scholes Model</span>
-              </Command.Item>
-              <Command.Item className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-800 aria-selected:text-zinc-900 dark:aria-selected:text-zinc-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 text-zinc-700 dark:text-zinc-300">
-                <Code className="mr-2 h-4 w-4" />
-                <span>Python Implementation</span>
-              </Command.Item>
-            </Command.Group>
+            {/* Categorize pages in search groups */}
+            {Array.from(new Set(allPages.map(p => p.metadata.category))).map(category => (
+              <Command.Group 
+                key={category} 
+                heading={category} 
+                className="px-2 py-1.5 text-xs font-medium text-zinc-500 dark:text-zinc-400"
+              >
+                {allPages
+                  .filter(p => p.metadata.category === category)
+                  .map(page => (
+                    <Command.Item 
+                      key={page.metadata.slug}
+                      onSelect={() => onSelect(page.metadata.slug)}
+                      className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-800 aria-selected:text-zinc-900 dark:aria-selected:text-zinc-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 text-zinc-700 dark:text-zinc-300 transition-colors"
+                    >
+                      <FileText className="mr-2 h-4 w-4 opacity-70" />
+                      <span>{page.metadata.title}</span>
+                    </Command.Item>
+                  ))}
+              </Command.Group>
+            ))}
           </Command.List>
         </Command>
       </div>

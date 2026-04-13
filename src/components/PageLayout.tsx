@@ -127,7 +127,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
         </main>
       </div>
 
-      <SearchDialog open={isSearchOpen} onOpenChange={setIsSearchOpen} />
+      <SearchDialog open={isSearchOpen} onOpenChange={setIsSearchOpen} lang={lang} />
     </div>
   );
 };
