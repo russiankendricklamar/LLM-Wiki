@@ -77,3 +77,9 @@ print(f"Показатель Херста: {h:.4f}")
 }
 ```
 ---
+
+
+## Связанные темы
+- [[fractional-fokker-planck]]
+- [[phase-space-reconstruction]]
+- [[lempel-ziv-complexity]]

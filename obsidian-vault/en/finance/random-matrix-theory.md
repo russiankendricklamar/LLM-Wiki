@@ -81,3 +81,7 @@ print("Eigenvalues above this threshold represent real economic signals.")
 
 Using RMT-denoised matrices significantly reduces "Markowitz optimization error." Portfolios built with these cleaned matrices exhibit much lower turnover and significantly better risk-adjusted returns (Sharpe Ratio) in real-world trading environments compared to those using raw historical correlations.
 ---
+
+
+## Related Topics
+- [[hierarchical-risk-parity]]

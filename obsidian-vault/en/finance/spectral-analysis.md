@@ -81,3 +81,9 @@ The chart below exemplifies a power spectrum where peaks represent dominant mark
 - **Non-stationarity**: Financial time series often have evolving properties, making classic Fourier analysis difficult (Wavelet analysis is often used instead).
 - **Data Length**: Detecting low-frequency (long-term) cycles requires a very long history of observations.
 - **Signal-to-Noise Ratio**: High market noise can mask real spectral peaks, leading to "ghost" cycles.
+
+
+## Related Topics
+- [[wavelet-transform]]
+- [[hilbert-huang-transform]]
+- [[fisher-transform]]

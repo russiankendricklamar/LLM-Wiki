@@ -103,3 +103,8 @@ def lsm_american_put(S0, K, T, r, sigma, steps, paths):
 - **Dimensionality**: Unlike Finite Difference methods, LSM scales well to multi-asset options (e.g., American basket options).
 - **Flexibility**: Can be applied to almost any underlying stochastic process (not just Black-Scholes).
 - **Simplicity**: Relatively easy to implement compared to complex PDE solvers for early exercise boundaries.
+
+
+## Related Topics
+- [[monte-carlo-method]]
+- [[black-scholes]]

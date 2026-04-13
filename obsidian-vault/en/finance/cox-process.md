@@ -89,3 +89,8 @@ L, arrivals = simulate_cox_process(T=1.0, steps=1000, kappa=2.0, theta=0.05, sig
 | **Variance** | Equal to Mean | Greater than Mean (Overdispersion) |
 | **Use Case** | Simple event flows | Market stress, credit events, HFT clustering |
 ---
+
+
+## Related Topics
+- [[levy-processes]]
+- [[cs01]]

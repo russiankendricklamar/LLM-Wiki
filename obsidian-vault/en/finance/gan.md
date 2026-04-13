@@ -82,3 +82,8 @@ for epoch in range(epochs):
 - **WGAN (Wasserstein GAN)**: Uses the Earth Mover's distance to improve training stability and prevent mode collapse.
 - **CGAN (Conditional GAN)**: Allows generating data conditioned on specific factors, such as "generate a high-volatility scenario during an interest rate hike."
 ---
+
+
+## Related Topics
+- [[monte-carlo-method]]
+- [[value-at-risk]]

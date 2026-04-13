@@ -88,3 +88,7 @@ print(f"Scale parameter beta: {beta:.4f}")
 | **POT** | All values above $u$ | GPD (Generalized Pareto) |
 | **Normal Dist** | Entire dataset | Gaussian (Fails in the tails) |
 | **Hill Estimator** | Tail tail behavior | Power Law |
+
+
+## Related Topics
+- [[value-at-risk]]

@@ -88,3 +88,7 @@ print(f"Параметр масштаба beta: {beta:.4f}")
 | **POT** | Все значения выше $u$ | GPD (Generalized Pareto) |
 | **Normal Dist** | Все данные | Gaussian (Неприменимо для хвостов) |
 | **Hill Estimator** | Только хвост | Степенной закон (Power Law) |
+
+
+## Связанные темы
+- [[value-at-risk]]

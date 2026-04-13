@@ -82,3 +82,7 @@ df['fisher'] = calculate_fisher(df['price'])
 - **High Resolution**: Provides very distinct peaks and troughs compared to standard oscillators.
 - **Statistical Filtering**: Effectively filters out price noise by focusing on extreme deviations from the recent mean.
 ---
+
+
+## Related Topics
+- [[spectral-analysis]]

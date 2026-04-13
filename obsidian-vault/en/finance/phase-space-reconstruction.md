@@ -91,3 +91,8 @@ ps_matrix = reconstruct_phase_space(prices, tau=5, m=3)
 - **Noise Sensitivity**: High-frequency market noise can easily obscure the underlying geometric structure of the attractor.
 - **Data Requirements**: High embedding dimensions require exponentially larger datasets to provide sufficient density in the phase space.
 ---
+
+
+## Related Topics
+- [[hidden-markov-models]]
+- [[hurst-exponent]]

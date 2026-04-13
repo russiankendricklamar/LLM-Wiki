@@ -98,3 +98,8 @@ def simulate_jump_diffusion(S0, T, r, sigma, lamb, mu_j, sigma_j, steps):
 | **Diffusion** | Continuous price movement | Normal market volatility |
 | **Jumps** | Sudden price discontinuities | Market shocks / news |
 | **Drift** | Average rate of return | Expected growth |
+
+
+## Related Topics
+- [[fractional-fokker-planck]]
+- [[cox-process]]

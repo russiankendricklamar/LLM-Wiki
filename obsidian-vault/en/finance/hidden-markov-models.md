@@ -83,3 +83,9 @@ print(model.transmat_)
 - **Risk Management**: De-risking portfolios when the model detects a transition into a high-volatility or high-risk regime.
 - **Trend Following**: Estimating the probability that a current market trend will persist in the next time step.
 ---
+
+
+## Related Topics
+- [[phase-space-reconstruction]]
+- [[shannon-entropy]]
+- [[avellaneda-stoikov]]

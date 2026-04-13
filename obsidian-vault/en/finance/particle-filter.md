@@ -87,3 +87,8 @@ def particle_filter_step(particles, weights, observation, sigma_obs):
 | **Distributions** | Any (Non-Gaussian) | Strictly Gaussian |
 | **Computation** | High (Scales with N) | Very Low |
 | **Accuracy** | Asymptotically Optimal | Optimal only for Linear/Gaussian |
+
+
+## Related Topics
+- [[heston-model]]
+- [[monte-carlo-method]]

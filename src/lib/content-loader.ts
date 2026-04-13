@@ -98,3 +98,30 @@ export const getNavigation = (lang: 'en' | 'ru') => {
       }))
   }));
 };
+
+export const getGraphData = (lang: 'en' | 'ru') => {
+  const pages = getAllPages().filter(p => p.metadata.lang === lang);
+  
+  const nodes = pages.map(page => ({
+    id: page.metadata.slug.replace(/^\//, ''),
+    name: page.metadata.title,
+    val: page.metadata.category === 'Home' || page.metadata.category === 'Главная' ? 2 : 1
+  }));
+
+  const links: { source: string, target: string }[] = [];
+  
+  pages.forEach(page => {
+    const sourceId = page.metadata.slug.replace(/^\//, '');
+    // Regex to find [[wikilinks]]
+    const matches = page.content.matchAll(/\[\[(.*?)\]\]/g);
+    for (const match of matches) {
+      const targetId = match[1].trim();
+      // Ensure target exists in nodes
+      if (nodes.some(n => n.id === targetId)) {
+        links.push({ source: sourceId, target: targetId });
+      }
+    }
+  });
+
+  return { nodes, links };
+};

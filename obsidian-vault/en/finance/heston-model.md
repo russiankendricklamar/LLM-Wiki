@@ -99,3 +99,9 @@ def simulate_heston(S0, v0, T, r, kappa, theta, xi, rho, steps):
 | **Asset Distribution** | Log-normal | Non-lognormal (Heavy tails) |
 | **Volatility Smile** | Flat | Captured via $\rho$ and $\xi$ |
 | **Complexity** | Low (Analytic) | High (Semi-analytic) |
+
+
+## Related Topics
+- [[black-scholes]]
+- [[sabr-model]]
+- [[particle-filter]]

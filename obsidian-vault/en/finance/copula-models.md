@@ -81,3 +81,8 @@ u, v = generate_clayton_samples(theta)
 | **t-Copula** | Both Tails | Robust risk management |
 | **Clayton** | Lower Tail | Modeling simultaneous market crashes |
 | **Gumbel** | Upper Tail | Modeling simultaneous market rallies |
+
+
+## Related Topics
+- [[value-at-risk]]
+- [[xva]]

@@ -89,3 +89,8 @@ print(f"Extracted {len(imfs)} IMFs from the signal.")
 - **Mode Mixing**: Occurs when signals of different scales appear in a single IMF, or a signal of a single scale appears in different IMFs.
 - **End Effects**: Instability at the beginning and end of the time series during the sifting process.
 ---
+
+
+## Related Topics
+- [[spectral-analysis]]
+- [[wavelet-transform]]

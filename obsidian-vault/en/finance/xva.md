@@ -86,3 +86,9 @@ print(f"Estimated CVA: ${result:.2f}")
 | **FVA** | Liquidity/Funding | Dependent on Basis |
 | **KVA** | Regulatory Capital | Decreases Price |
 | **MVA** | Initial Margin | Decreases Price |
+
+
+## Related Topics
+- [[swaps]]
+- [[cs01]]
+- [[copula-models]]

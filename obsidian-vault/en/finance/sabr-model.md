@@ -79,3 +79,9 @@ def sabr_vol(K, F, T, alpha, beta, rho, nu):
 - **Increase $\rho$**: Increases the skew (tilts the smile).
 - **Increase $\nu$**: Increases the "smile" effect (curvature).
 - **Change $\beta$**: Controls the backbone of the model (how the smile moves with the forward price).
+
+
+## Related Topics
+- [[heston-model]]
+- [[black-scholes]]
+- [[oas]]

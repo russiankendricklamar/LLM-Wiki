@@ -61,3 +61,8 @@ print(f"Option-Adjusted Spread: {oas} bps")
 ## Summary
 
 OAS is the "clean" spread. If the OAS of a bond is significantly higher than that of peers with similar credit ratings, the bond may be considered undervalued, as the higher spread isn't just a reflection of the embedded option's cost.
+
+
+## Related Topics
+- [[dv01]]
+- [[sabr-model]]

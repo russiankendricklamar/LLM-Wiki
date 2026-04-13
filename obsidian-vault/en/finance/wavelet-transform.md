@@ -76,3 +76,8 @@ scalogram = compute_cwt(signal)
 2.  **Multiscale Correlation**: Calculating "Wavelet Coherence" to see how correlation between assets (e.g., Gold vs. USD) varies across different time horizons.
 3.  **Regime Shift Detection**: Identifying the exact moment when market dynamics change frequency (e.g., transition from low-volatility stability to high-frequency panic).
 ---
+
+
+## Related Topics
+- [[spectral-analysis]]
+- [[hilbert-huang-transform]]

@@ -81,3 +81,9 @@ print(f"Option Price (Monte Carlo): ${price:.2f}")
 | **Flexibility** | Handles any complex payoff function | High computational cost |
 | **Multidimensionality** | Efficient for path-dependent or multi-asset options | Slow convergence rate ($1/\sqrt{N}$) |
 | **Simplicity** | Easy to parallelize across multiple CPUs/GPUs | Hard to value American-style (early exercise) options |
+
+
+## Related Topics
+- [[longstaff-schwartz]]
+- [[value-at-risk]]
+- [[black-scholes]]

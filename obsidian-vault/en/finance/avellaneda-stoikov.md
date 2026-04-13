@@ -92,3 +92,8 @@ print(f"Quotes shifted down: Bid {bid:.2f} / Ask {ask:.2f}")
 - **Volatility**: As $\sigma$ increases, the optimal spread widens to protect against larger price swings.
 - **Risk Aversion**: A higher $\gamma$ leads to more aggressive price skewing and wider spreads.
 ---
+
+
+## Related Topics
+- [[hidden-markov-models]]
+- [[monte-carlo-method]]

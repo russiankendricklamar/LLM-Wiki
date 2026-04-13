@@ -99,3 +99,9 @@ The table below summarizes the key parameters used in the Black-Scholes model:
 | Time to Maturity | $T$ | Time remaining until the option expires |
 | Risk-free Rate | $r$ | Constant interest rate |
 | Volatility | $\sigma$ | Measure of the asset's price variation |
+
+
+## Related Topics
+- [[heston-model]]
+- [[sabr-model]]
+- [[monte-carlo-method]]

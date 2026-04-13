@@ -93,3 +93,9 @@ The chart below shows a typical return distribution, where VaR marks the thresho
 | **Simplicity** | Easy to interpret in monetary terms | Does not measure the magnitude of "tail" losses (solved by Expected Shortfall) |
 | **Standardization** | Allows comparison across different portfolios | Heavily relies on the assumption of normality (for parametric method) |
 | **Regulation** | Used in Basel Accords | Often fails during extreme market crises |
+
+
+## Related Topics
+- [[extreme-value-theory]]
+- [[copula-models]]
+- [[monte-carlo-method]]

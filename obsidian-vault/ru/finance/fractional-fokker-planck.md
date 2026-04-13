@@ -85,3 +85,8 @@ t, x = simulate_ctrw(1000, 0.8)
 }
 ```
 ---
+
+
+## Связанные темы
+- [[hurst-exponent]]
+- [[levy-processes]]
