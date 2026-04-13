@@ -1,40 +1,48 @@
 export const aboutMeMarkdown = `
-# Галкин Егор
+# EGOR GALKIN
 
-### Главный экономист в Банке России | Количественный аналитик | AI-инженер
+**I like to build quantitative models and train LLM agents.**
 
-Привет! Я занимаюсь исследованиями и разработкой на стыке макроэкономики, количественных финансов и современных технологий искусственного интеллекта. Моя работа сосредоточена на создании инструментов и моделей, которые объединяют строгость математического анализа с возможностями современных LLM.
+I am currently a **Principal Economist at the Bank of Russia**, where I focus on macroeconomic modeling and data-driven policy analysis. In my spare time, I work as a **Quantitative Analyst and AI Engineer**, bridging the gap between computational physics, financial mathematics, and state-of-the-art AI.
 
-## Образование
+[GitHub](https://github.com/russiankendricklamar) / [LinkedIn](https://www.linkedin.com/in/russiankendricklamar/?locale=ru) / [Email](mailto:egor@example.com)
 
-- **МГТУ им. Н. Э. Баумана**
-  *Факультет «Фундаментальные науки» (ФН), Кафедра «Вычислительная математика и математическая физика»*
-  Фундаментальная подготовка в области численных методов, математического моделирования и теоретической физики заложила основу моего подхода к анализу сложных систем.
+---
 
-## Специализация
+## Bio
 
-- **Экономический анализ:** Работа в Банке России над макроэкономическим моделированием и анализом данных.
-- **Quantitative Finance:** Разработка математических моделей для финансовых рынков, анализ временных рядов и численные методы.
-- **Artificial Intelligence:** Проектирование систем на базе LLM, разработка AI-агентов и внедрение машинного обучения в аналитические процессы.
+Egor Galkin is an economist and engineer specializing in the intersection of macroeconomics, quantitative finance, and artificial intelligence. He currently serves as a Principal Economist at the Bank of Russia. Egor holds a degree in Computational Mathematics and Mathematical Physics from Bauman Moscow State Technical University. His work focuses on leveraging Large Language Models (LLMs) to automate financial analysis and developing rigorous quantitative frameworks for market modeling.
 
-## AI Stack & Инструментарий
+---
 
-В своей работе я отдаю предпочтение наиболее эффективным инструментам для анализа и разработки:
-- **Модели:** Anthropic (Claude 3.5 Sonnet), Gemini 1.5/2.0, Phi-4 (для локальных задач).
-- **Исследования:** Perplexity AI для глубокого поиска и агрегации знаний.
-- **Разработка:** Python (Pandas, PyTorch, QuantLib), TypeScript.
+## Timeline
 
-## Планы на Вики (Roadmap)
+- **2023 – Present**: **Principal Economist**, Bank of Russia. Macro-modeling and economic research.
+- **2021 – 2023**: **Quantitative Researcher**. Deep dive into stochastic calculus and volatility modeling.
+- **2017 – 2021**: **Student**, Bauman Moscow State Technical University. Focused on Computational Mathematics and Mathematical Physics (Department FN-11).
 
-Этот ресурс — моя персональная база знаний (Digital Garden). В ближайшее время я планирую опубликовать материалы по следующим темам:
-- **Применение AI в финансах:** Автоматизация аналитических отчетов и интерпретация макроэкономических данных.
-- **Quantitative Finance:** Глубокий разбор стохастического исчисления и моделей волатильности.
-- **Квантовая физика:** Заметки по вычислительным аспектам и связи с математическими методами в финансах.
+---
 
-## Контакты
+## Projects & Interests
 
-- **GitHub:** [github.com/russiankendricklamar](https://github.com/russiankendricklamar)
-- **LinkedIn:** [linkedin.com/in/russiankendricklamar](https://www.linkedin.com/in/russiankendricklamar/?locale=ru)
+- **LLM Wiki**: A digital garden for structuring knowledge on AI and Quant Finance.
+- **AI in Finance**: Researching how LLMs (Claude, Gemini, Phi-4) can interpret macroeconomic protocols.
+- **Quantum Physics**: Exploring the computational parallels between quantum mechanics and financial derivatives.
+
+---
+
+## Technical Stack
+
+- **Models**: Anthropic (Claude 3.5 Sonnet), Gemini 2.0, Phi-4.
+- **Tools**: Python (Pandas, PyTorch, QuantLib), TypeScript, Perplexity.
+- **Methodologies**: Numerical Methods, Stochastic Calculus, RAG, AI Agents.
+
+---
+
+## Misc
+
+- **Reading**: Sci-fi, Macro-history, Technical papers.
+- **Interests**: Physics, Chess, Complexity science.
 `;
 
 
