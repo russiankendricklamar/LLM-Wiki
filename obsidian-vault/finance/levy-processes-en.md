@@ -10,19 +10,19 @@ A **Lévy process** is a stochastic process with independent and stationary incr
 
 ## Definition and Properties
 
-A stochastic process  = \{X_t : t \ge 0\}$ is a Lévy process if:
-1.  = 0$ almost surely.
-2. **Independent increments**: For any  < t$,  - X_s$ is independent of $\{X_u : u \le s\}$.
-3. **Stationary increments**: For any  < t$,  - X_s$ is equal in distribution to {t-s}$.
+A stochastic process $X = \{X_t : t \ge 0\}$ is a Lévy process if:
+1. $X_0 = 0$ almost surely.
+2. **Independent increments**: For any $s < t$, $X_t - X_s$ is independent of $\{X_u : u \le s\}$.
+3. **Stationary increments**: For any $s < t$, $X_t - X_s$ is equal in distribution to $X_{t-s}$.
 4. **Continuity in probability**: For any $\epsilon > 0$, $\lim_{h \to 0} P(|X_{t+h} - X_t| > \epsilon) = 0$.
 
 ## The Lévy-Khintchine Representation
 
-Every Lévy process is uniquely determined by its characteristic exponent $\psi(\theta)$, defined by [e^{i\theta X_t}] = e^{t\psi(\theta)}$. The Lévy-Khintchine formula states:
+Every Lévy process is uniquely determined by its characteristic exponent $\psi(\theta)$, defined by $E[e^{i\theta X_t}] = e^{t\psi(\theta)}$. The Lévy-Khintchine formula states:
 
-39092
+$$
 \psi(\theta) = i\gamma\theta - \frac{1}{2}\sigma^2\theta^2 + \int_{\mathbb{R}\setminus\{0\}} (e^{i\theta x} - 1 - i\theta x \mathbf{1}_{|x|<1}) \nu(dx)
-39092
+$$
 
 Where:
 - $\gamma$ is the drift parameter.
