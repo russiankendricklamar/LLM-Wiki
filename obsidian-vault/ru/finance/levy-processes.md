@@ -71,22 +71,33 @@ def simulate_jump_diffusion(S0, T, r, sigma, lamb, mu_j, sigma_j, steps):
 ```chart
 {
   "type": "line",
+  "chartType": "area",
   "xAxis": "time",
   "data": [
-    {"time": "0.0", "price": 100.0},
-    {"time": "0.1", "price": 101.2},
-    {"time": "0.2", "price": 99.8},
-    {"time": "0.3", "price": 100.5},
-    {"time": "0.4", "price": 106.2},
-    {"time": "0.5", "price": 105.4},
-    {"time": "0.6", "price": 104.1},
-    {"time": "0.7", "price": 95.8},
-    {"time": "0.8", "price": 96.5},
-    {"time": "0.9", "price": 97.2},
-    {"time": "1.0", "price": 98.0}
+    {"time": "0.00", "price": 100.00},
+    {"time": "0.05", "price": 100.45},
+    {"time": "0.10", "price": 99.82},
+    {"time": "0.15", "price": 100.15},
+    {"time": "0.20", "price": 101.34},
+    {"time": "0.25", "price": 100.88},
+    {"time": "0.30", "price": 112.45},
+    {"time": "0.35", "price": 111.90},
+    {"time": "0.40", "price": 113.12},
+    {"time": "0.45", "price": 112.55},
+    {"time": "0.50", "price": 114.20},
+    {"time": "0.55", "price": 113.75},
+    {"time": "0.60", "price": 114.88},
+    {"time": "0.65", "price": 102.15},
+    {"time": "0.70", "price": 101.44},
+    {"time": "0.75", "price": 102.30},
+    {"time": "0.80", "price": 101.85},
+    {"time": "0.85", "price": 103.12},
+    {"time": "0.90", "price": 102.66},
+    {"time": "0.95", "price": 104.05},
+    {"time": "1.00", "price": 103.50}
   ],
   "lines": [
-    {"dataKey": "price", "stroke": "#3b82f6", "name": "Цена актива (со скачками)"}
+    {"dataKey": "price", "stroke": "#3b82f6", "name": "Цена актива (Jump-Diffusion)"}
   ]
 }
 ```
