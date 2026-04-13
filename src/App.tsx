@@ -15,7 +15,7 @@ const PageContent = ({ category, title, content, isHome, lang, slug }: { categor
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="max-w-3xl mx-auto"
+      className={cn("mx-auto w-full", isGraphPage ? "max-w-none h-[calc(100vh-12rem)]" : "max-w-3xl")}
     >
       <div className="mb-8 flex items-center justify-between">
         <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
@@ -26,11 +26,11 @@ const PageContent = ({ category, title, content, isHome, lang, slug }: { categor
       </div>
 
       {isGraphPage ? (
-        <div className="space-y-8">
-          <div className="prose dark:prose-invert">
+        <div className="flex flex-col h-full space-y-4">
+          <div className="prose dark:prose-invert max-w-3xl">
             <p>{content}</p>
           </div>
-          <div className="h-[600px] w-full">
+          <div className="flex-1 min-h-0 w-full">
             <KnowledgeGraph lang={lang} />
           </div>
         </div>

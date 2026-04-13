@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useMemo, useRef, useEffect, useState } from 'react';
 import ForceGraph3D from 'react-force-graph-3d';
 import { useNavigate } from 'react-router-dom';
 import { getGraphData } from '@/lib/content-loader';
@@ -11,10 +11,33 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   const navigate = useNavigate();
   const graphData = useMemo(() => getGraphData(lang), [lang]);
   const fgRef = useRef<any>();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    if (containerRef.current) {
+      setDimensions({
+        width: containerRef.current.offsetWidth,
+        height: containerRef.current.offsetHeight
+      });
+    }
+
+    const handleResize = () => {
+      if (containerRef.current) {
+        setDimensions({
+          width: containerRef.current.offsetWidth,
+          height: containerRef.current.offsetHeight
+        });
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
-    <div className="w-full h-[500px] rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 relative">
-      <div className="absolute top-4 left-4 z-10">
+    <div ref={containerRef} className="w-full h-full min-h-[600px] rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 relative">
+      <div className="absolute top-4 left-4 z-10 pointer-events-none">
         <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
           {lang === 'en' ? 'Knowledge Graph' : 'Граф знаний'}
         </h3>
@@ -23,24 +46,26 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
         </p>
       </div>
       
-      <ForceGraph3D
-        ref={fgRef}
-        graphData={graphData}
-        nodeLabel="name"
-        nodeAutoColorBy="val"
-        nodeRelSize={6}
-        linkDirectionalParticles={2}
-        linkDirectionalParticleSpeed={0.005}
-        backgroundColor="rgba(0,0,0,0)"
-        showNavInfo={false}
-        onNodeClick={(node: any) => {
-          // Navigate to the slug when a node is clicked
-          navigate(`/${node.id}`);
-        }}
-        // Styling nodes
-        nodeThreeObjectExtend={true}
-        linkColor={() => 'rgba(120, 120, 120, 0.3)'}
-      />
+      {dimensions.width > 0 && (
+        <ForceGraph3D
+          ref={fgRef}
+          width={dimensions.width}
+          height={dimensions.height}
+          graphData={graphData}
+          nodeLabel="name"
+          nodeAutoColorBy="val"
+          nodeRelSize={6}
+          linkDirectionalParticles={2}
+          linkDirectionalParticleSpeed={0.005}
+          backgroundColor="rgba(0,0,0,0)"
+          showNavInfo={false}
+          onNodeClick={(node: any) => {
+            navigate(`/${node.id}`);
+          }}
+          nodeThreeObjectExtend={true}
+          linkColor={() => 'rgba(120, 120, 120, 0.3)'}
+        />
+      )}
     </div>
   );
 };
