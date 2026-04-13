@@ -49,13 +49,15 @@ export const getAllPages = (): PageContent[] => {
   return Object.entries(rawFiles).map(([filePath, rawContent]) => {
     const { data, content } = parseFrontmatter(rawContent as string);
     
+    // Detect language from path (en or ru)
+    const isEnglish = filePath.includes('/obsidian-vault/en/');
+    const pathLang = isEnglish ? 'en' : 'ru';
+
     // Generate a clean slug from filename:
-    // Any path containing /obsidian-vault/finance/black-scholes-en.md -> /finance/black-scholes
+    // ../../obsidian-vault/en/finance/black-scholes.md -> /finance/black-scholes
     let slug = filePath
-      .replace(/^.*obsidian-vault/, '') // Remove everything before and including obsidian-vault
-      .replace('.md', '')
-      .replace(/-en$/, '')
-      .replace(/-ru$/, '');
+      .replace(/^.*obsidian-vault\/(en|ru)/, '') // Remove everything before and including obsidian-vault/en or /ru
+      .replace('.md', '');
 
     // Ensure slug starts with /
     if (!slug.startsWith('/')) {
@@ -71,7 +73,7 @@ export const getAllPages = (): PageContent[] => {
       metadata: {
         title: data.title || 'Untitled',
         category: data.category || 'General',
-        lang: (data.lang as 'en' | 'ru') || 'ru',
+        lang: (data.lang as 'en' | 'ru') || pathLang,
         order: data.order || 99,
         slug: slug,
         fullPath: filePath

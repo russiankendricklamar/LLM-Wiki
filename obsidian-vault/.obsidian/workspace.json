@@ -1,0 +1,200 @@
+{
+  "main": {
+    "id": "611f03d4880551f2",
+    "type": "split",
+    "children": [
+      {
+        "id": "3cf19a0e55a7c932",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "78837830d10fe161",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Граф"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8958364e159c0125",
+    "type": "split",
+    "children": [
+      {
+        "id": "05bff5d15128c549",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6841d86790fa96a5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Файловый менеджер"
+            }
+          },
+          {
+            "id": "c67d6415f3b4901e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Поиск"
+            }
+          },
+          {
+            "id": "1cb47cbfc143456f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Закладки"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "384e6c58b7a549a0",
+    "type": "split",
+    "children": [
+      {
+        "id": "9364bc27fad50a33",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1ddf098193015c4b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Обратные ссылки"
+            }
+          },
+          {
+            "id": "6a2e31e54669d1b9",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Исходящие ссылки"
+            }
+          },
+          {
+            "id": "ea0e247ebac255e5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Теги"
+            }
+          },
+          {
+            "id": "90a76d52c5596851",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Все свойства"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Меню быстрого перехода": false,
+      "graph:Граф": false,
+      "canvas:Создать новый холст": false,
+      "daily-notes:Сегодняшняя заметка": false,
+      "templates:Вставить шаблон": false,
+      "command-palette:Открыть палитру команд": false,
+      "bases:Создать новую базу": false
+    }
+  },
+  "active": "78837830d10fe161",
+  "lastOpenFiles": [
+    "ru/finance/fisher-transform.md",
+    "ru/finance/sabr-model.md",
+    "ru/finance/levy-processes.md",
+    "ru/finance/random-matrix-theory.md",
+    "ru/finance/cs01.md",
+    "ru/finance/particle-filter.md",
+    "ru/finance/phase-space-reconstruction.md",
+    "ru/finance/cox-process.md",
+    "ru/finance/lempel-ziv-complexity.md",
+    "ru/finance/longstaff-schwartz.md",
+    "ru/finance/extreme-value-theory.md",
+    "ru/finance/wavelet-transform.md",
+    "ru/finance/swaps.md",
+    "ru/finance/avellaneda-stoikov.md",
+    "ru/finance/hilbert-huang-transform.md",
+    "ru/finance/fractional-fokker-planck.md",
+    "ru/finance/hurst-exponent.md",
+    "ru/finance/black-scholes.md",
+    "ru/finance/oas.md",
+    "ru/finance/gan.md",
+    "ru/finance/heston-model.md",
+    "ru/finance/dv01.md",
+    "ru/finance/xva.md",
+    "ru/finance/copula-models.md",
+    "ru/finance/monte-carlo-method.md",
+    "ru/finance/shannon-entropy.md",
+    "ru/finance",
+    "ru/about",
+    "ru",
+    "en/finance",
+    "en/about",
+    "en"
+  ]
+}
