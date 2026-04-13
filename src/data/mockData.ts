@@ -5,7 +5,7 @@ export const aboutMeEn = `
 
 I am currently a **Principal Economist at the Bank of Russia**, where I focus on macroeconomic modeling and data-driven policy analysis. In my spare time, I work as a **Quantitative Analyst and AI Engineer**, bridging the gap between computational physics, financial mathematics, and state-of-the-art AI.
 
-[GitHub](https://github.com/russiankendricklamar) / [LinkedIn](https://www.linkedin.com/in/russiankendrickmar/?locale=ru) / [Email](mailto:egor@example.com)
+[GitHub](https://github.com/russiankendricklamar) / [LinkedIn](https://www.linkedin.com/in/russiankendricklamar/?locale=ru) / [Email](mailto:egor@example.com)
 
 ---
 
@@ -48,7 +48,7 @@ export const aboutMeRu = `
 
 В настоящее время я — **главный экономист в Банке России**, где занимаюсь макроэкономическим моделированием и анализом данных для экономической политики. В свободное время я работаю как **количественный аналитик и AI-инженер**, объединяя вычислительную физику, финансовую математику и современные технологии ИИ.
 
-[GitHub](https://github.com/russiankendricklamar) / [LinkedIn](https://www.linkedin.com/in/russiankendrickmar/?locale=ru) / [Email](mailto:egor@example.com)
+[GitHub](https://github.com/russiankendricklamar) / [LinkedIn](https://www.linkedin.com/in/russiankendricklamar/?locale=ru) / [Email](mailto:egor@example.com)
 
 ---
 
@@ -152,8 +152,6 @@ def black_scholes(S, K, T, r, sigma, option_type='call'):
 
 ## Option Price Visualization
 
-Below is an interactive visualization of Call and Put option prices across different underlying Spot Prices ($S$), assuming $K=100$, $T=1$, $r=0.05$, and $\sigma=0.2$.
-
 \`\`\`chart
 {
   "type": "line",
@@ -172,9 +170,9 @@ Below is an interactive visualization of Call and Put option prices across diffe
 }
 \`\`\`
 
-## Tables Support
+## Model Parameters
 
-We also support GitHub Flavored Markdown tables:
+The table below summarizes the key parameters used in the Black-Scholes model:
 
 | Parameter | Symbol | Description |
 | :--- | :---: | :--- |
@@ -182,7 +180,8 @@ We also support GitHub Flavored Markdown tables:
 | Strike Price | $K$ | Price at which the option can be exercised |
 | Time to Maturity | $T$ | Time remaining until the option expires |
 | Risk-free Rate | $r$ | Constant interest rate |
-| Volatility | $\sigma$ | Measure of the asset's price variation |
+| Volatility | $\\sigma$ | Measure of the asset's price variation |
+
 
 `;
 
@@ -254,8 +253,6 @@ def black_scholes(S, K, T, r, sigma, option_type='call'):
 
 ## Визуализация цены опциона
 
-Ниже представлена интерактивная визуализация цен опционов Call и Put для различных цен базового актива ($S$), при условии $K=100$, $T=1$, $r=0.05$ и $\\sigma=0.2$.
-
 \`\`\`chart
 {
   "type": "line",
@@ -274,9 +271,10 @@ def black_scholes(S, K, T, r, sigma, option_type='call'):
 }
 \`\`\`
 
-## Поддержка таблиц
 
-Мы также поддерживаем таблицы в формате GitHub Flavored Markdown:
+## Параметры модели
+
+В таблице ниже приведены основные параметры, используемые в модели Блэка-Шоулза:
 
 | Параметр | Символ | Описание |
 | :--- | :---: | :--- |
@@ -284,13 +282,12 @@ def black_scholes(S, K, T, r, sigma, option_type='call'):
 | Цена страйк | $K$ | Цена, по которой может быть исполнен опцион |
 | Время до погашения | $T$ | Время, оставшееся до истечения срока действия опциона |
 | Безрисковая ставка | $r$ | Постоянная процентная ставка |
-| Волатильность | $\sigma$ | Мера изменения цены актива |
+| Волатильность | $\\sigma$ | Мера изменения цены актива |
 
-`;
+
+\`;
 
 export const mockNavigationRu = [
-
-
   {
     title: "Меню",
     items: [
