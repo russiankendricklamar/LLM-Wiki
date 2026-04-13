@@ -25,8 +25,7 @@ const PageContent = ({ category, title, content, children }: { category: string,
   </motion.div>
 );
 
-const AboutPage = () => {
-  const [lang, setLang] = React.useState<'en' | 'ru'>('ru');
+const AboutPage = ({ lang, setLang }: { lang: 'en' | 'ru', setLang: (l: 'en' | 'ru') => void }) => {
   return (
     <PageContent 
       category="Home" 
@@ -51,12 +50,12 @@ const AboutPage = () => {
   );
 };
 
-const AnimatedRoutes = () => {
+const AnimatedRoutes = ({ lang, setLang }: { lang: 'en' | 'ru', setLang: (l: 'en' | 'ru') => void }) => {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<AboutPage />} />
+        <Route path="/" element={<AboutPage lang={lang} setLang={setLang} />} />
         <Route path="/finance/black-scholes" element={<PageContent category="Quantitative Finance" title="Black-Scholes Model" content={blackScholesMarkdown} />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
@@ -65,10 +64,12 @@ const AnimatedRoutes = () => {
 };
 
 export default function App() {
+  const [lang, setLang] = React.useState<'en' | 'ru'>('ru');
+
   return (
     <HashRouter>
-      <PageLayout>
-        <AnimatedRoutes />
+      <PageLayout lang={lang}>
+        <AnimatedRoutes lang={lang} setLang={setLang} />
       </PageLayout>
     </HashRouter>
   );

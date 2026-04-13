@@ -7,9 +7,10 @@ import { cn } from '@/lib/utils';
 
 interface PageLayoutProps {
   children: React.ReactNode;
+  lang?: 'en' | 'ru';
 }
 
-export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
+export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru' }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true); // Default to dark mode for that Vercel/Linear feel
@@ -74,7 +75,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
               className="flex items-center gap-2 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 px-3 py-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
             >
               <Search className="h-4 w-4" />
-              <span className="hidden sm:inline-block">Search documentation...</span>
+              <span className="hidden sm:inline-block">{lang === 'en' ? 'Search documentation...' : 'Поиск...'}</span>
               <kbd className="hidden sm:inline-block ml-2 rounded bg-zinc-200 dark:bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium text-zinc-600 dark:text-zinc-300">
                 <span className="text-xs">⌘</span>K
               </kbd>
@@ -94,7 +95,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
             <div className="flex-1 min-w-0 py-8 lg:py-12">
               {children}
             </div>
-            <TableOfContents />
+            <TableOfContents lang={lang} />
           </div>
         </main>
       </div>
