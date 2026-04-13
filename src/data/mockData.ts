@@ -23,7 +23,7 @@ I am currently a **Principal Economist at the Bank of Russia**, where I focus on
 
 - **Zeta Terminal**: An advanced AI-native workspace for financial analysis and coding. It integrates real-time data, high-performance computing, and LLM assistance into a unified terminal environment.
 - **Ultima Thule**: A specialized application designed for seamless travel and exploration.
-- **LLM Wiki**: A digital garden for structuring knowledge on AI and Quant Finance.
+- **LLM Wiki**: A digital garden for structuring knowledge on AI, Quant Finance, and Quantum Physics.
 
 ---
 
@@ -66,7 +66,7 @@ export const aboutMeRu = `
 
 - **Zeta Terminal**: Продвинутое AI-native рабочее пространство для финансового анализа и разработки. Интегрирует данные в реальном времени, высокопроизводительные вычисления и помощь LLM в единую терминальную среду.
 - **Ultima Thule**: Специализированное приложение для путешествий и исследований.
-- **LLM Wiki**: Персональная база знаний по ИИ и количественным финансам.
+- **LLM Wiki**: Персональная база знаний по ИИ, количественным финансам и квантовой физике.
 
 ---
 
