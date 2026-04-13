@@ -1,6 +1,6 @@
 ---
 title: "Частичный фильтр (Particle Filter)"
-category: "Количественные финансы"
+category: "Алгоритмы и ML"
 order: 16
 lang: "ru"
 ---

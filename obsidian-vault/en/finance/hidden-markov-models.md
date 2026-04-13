@@ -1,6 +1,6 @@
 ---
 title: "Hidden Markov Models (HMM)"
-category: "Quantitative Finance"
+category: "Algorithms and ML"
 order: 14
 lang: "en"
 ---

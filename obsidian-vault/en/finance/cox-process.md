@@ -1,6 +1,6 @@
 ---
 title: "Cox Process (Doubly Stochastic)"
-category: "Quantitative Finance"
+category: "Stochastic Processes"
 order: 18
 lang: "en"
 ---

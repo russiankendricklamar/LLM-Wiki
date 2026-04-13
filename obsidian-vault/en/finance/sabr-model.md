@@ -1,6 +1,6 @@
 ---
 title: "SABR Model"
-category: "Quantitative Finance"
+category: "Pricing Models"
 order: 4
 lang: "en"
 ---

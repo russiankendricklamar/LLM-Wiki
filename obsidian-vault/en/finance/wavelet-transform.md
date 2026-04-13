@@ -1,6 +1,6 @@
 ---
 title: "Wavelet Transform (CWT)"
-category: "Quantitative Finance"
+category: "Signal Analysis"
 order: 25
 lang: "en"
 ---

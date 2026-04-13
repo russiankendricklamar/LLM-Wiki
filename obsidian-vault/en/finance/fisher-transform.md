@@ -1,6 +1,6 @@
 ---
 title: "Fisher Transform"
-category: "Quantitative Finance"
+category: "Signal Analysis"
 order: 26
 lang: "en"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Hilbert-Huang Transform (HHT)"
-category: "Quantitative Finance"
+category: "Signal Analysis"
 order: 24
 lang: "en"
 ---

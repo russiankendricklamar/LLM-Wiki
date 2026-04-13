@@ -1,6 +1,6 @@
 ---
 title: "Types of Swaps"
-category: "Quantitative Finance"
+category: "Pricing Models"
 order: 11
 lang: "en"
 ---

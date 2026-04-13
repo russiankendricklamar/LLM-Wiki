@@ -1,6 +1,6 @@
 ---
 title: "Value at Risk (VaR)"
-category: "Количественные финансы"
+category: "Управление рисками"
 order: 5
 lang: "ru"
 ---

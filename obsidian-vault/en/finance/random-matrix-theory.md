@@ -1,6 +1,6 @@
 ---
 title: "Random Matrix Theory (RMT)"
-category: "Quantitative Finance"
+category: "Algorithms and ML"
 order: 27
 lang: "en"
 ---

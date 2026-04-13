@@ -1,6 +1,6 @@
 ---
 title: "Fractional Fokker-Planck Equation"
-category: "Quantitative Finance"
+category: "Stochastic Processes"
 order: 30
 lang: "en"
 ---

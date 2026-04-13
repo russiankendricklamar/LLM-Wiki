@@ -1,6 +1,6 @@
 ---
 title: "Процесс Кокса (Cox Process)"
-category: "Количественные финансы"
+category: "Стохастические процессы"
 order: 18
 lang: "ru"
 ---

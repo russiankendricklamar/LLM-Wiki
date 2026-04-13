@@ -1,6 +1,6 @@
 ---
 title: "Heston Model"
-category: "Quantitative Finance"
+category: "Pricing Models"
 order: 3
 lang: "en"
 ---

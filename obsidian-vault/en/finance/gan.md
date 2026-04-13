@@ -1,6 +1,6 @@
 ---
 title: "GANs in Finance"
-category: "Quantitative Finance"
+category: "Algorithms and ML"
 order: 22
 lang: "en"
 ---

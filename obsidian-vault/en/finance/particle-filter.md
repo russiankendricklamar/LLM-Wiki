@@ -1,6 +1,6 @@
 ---
 title: "Particle Filter (SMC)"
-category: "Quantitative Finance"
+category: "Algorithms and ML"
 order: 16
 lang: "en"
 ---

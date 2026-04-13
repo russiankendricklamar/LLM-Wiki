@@ -1,6 +1,6 @@
 ---
 title: "Spectral Analysis"
-category: "Quantitative Finance"
+category: "Signal Analysis"
 order: 15
 lang: "en"
 ---

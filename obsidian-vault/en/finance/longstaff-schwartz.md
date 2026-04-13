@@ -1,6 +1,6 @@
 ---
 title: "Longstaff-Schwartz Method (LSM)"
-category: "Quantitative Finance"
+category: "Algorithms and ML"
 order: 17
 lang: "en"
 ---

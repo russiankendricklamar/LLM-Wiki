@@ -1,6 +1,6 @@
 ---
 title: "Value at Risk (VaR)"
-category: "Quantitative Finance"
+category: "Risk Management"
 order: 5
 lang: "en"
 ---

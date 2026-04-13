@@ -1,6 +1,6 @@
 ---
 title: "Copula Models"
-category: "Quantitative Finance"
+category: "Pricing Models"
 order: 6
 lang: "en"
 ---

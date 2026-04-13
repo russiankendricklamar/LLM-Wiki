@@ -1,6 +1,6 @@
 ---
 title: "Phase Space Reconstruction"
-category: "Quantitative Finance"
+category: "Signal Analysis"
 order: 28
 lang: "en"
 ---

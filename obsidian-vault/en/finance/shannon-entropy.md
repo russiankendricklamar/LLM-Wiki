@@ -1,6 +1,6 @@
 ---
 title: "Shannon Entropy in Finance"
-category: "Quantitative Finance"
+category: "Algorithms and ML"
 order: 21
 lang: "en"
 ---

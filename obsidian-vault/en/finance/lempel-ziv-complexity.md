@@ -1,6 +1,6 @@
 ---
 title: "Lempel-Ziv Complexity"
-category: "Quantitative Finance"
+category: "Signal Analysis"
 order: 23
 lang: "en"
 ---

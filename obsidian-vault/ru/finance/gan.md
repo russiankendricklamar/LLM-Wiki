@@ -1,6 +1,6 @@
 ---
 title: "GAN в финансах"
-category: "Количественные финансы"
+category: "Алгоритмы и ML"
 order: 22
 lang: "ru"
 ---

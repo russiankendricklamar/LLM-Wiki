@@ -1,6 +1,6 @@
 ---
 title: "Option-Adjusted Spread (OAS)"
-category: "Quantitative Finance"
+category: "Risk Management"
 order: 10
 lang: "en"
 ---

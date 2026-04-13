@@ -1,6 +1,6 @@
 ---
 title: "Option-Adjusted Spread (OAS)"
-category: "Количественные финансы"
+category: "Управление рисками"
 order: 10
 lang: "ru"
 ---

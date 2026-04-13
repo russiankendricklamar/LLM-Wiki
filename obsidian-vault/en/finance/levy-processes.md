@@ -1,6 +1,6 @@
 ---
 title: "Lévy Processes"
-category: "Quantitative Finance"
+category: "Stochastic Processes"
 order: 2
 lang: "en"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Модель SABR"
-category: "Количественные финансы"
+category: "Модели ценообразования"
 order: 4
 lang: "ru"
 ---

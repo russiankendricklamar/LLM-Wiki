@@ -1,6 +1,6 @@
 ---
 title: "Extreme Value Theory (EVT)"
-category: "Quantitative Finance"
+category: "Risk Management"
 order: 7
 lang: "en"
 ---

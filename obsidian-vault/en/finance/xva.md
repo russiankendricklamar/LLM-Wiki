@@ -1,6 +1,6 @@
 ---
 title: "XVA (Valuation Adjustments)"
-category: "Quantitative Finance"
+category: "Risk Management"
 order: 12
 lang: "en"
 ---

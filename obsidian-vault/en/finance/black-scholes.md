@@ -1,6 +1,6 @@
 ---
 title: "Black-Scholes Model"
-category: "Quantitative Finance"
+category: "Pricing Models"
 order: 1
 lang: "en"
 ---

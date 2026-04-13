@@ -1,6 +1,6 @@
 ---
 title: "Monte Carlo Method"
-category: "Quantitative Finance"
+category: "Algorithms and ML"
 order: 13
 lang: "en"
 ---

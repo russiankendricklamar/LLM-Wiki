@@ -1,6 +1,6 @@
 ---
 title: "Hurst Exponent"
-category: "Quantitative Finance"
+category: "Stochastic Processes"
 order: 29
 lang: "en"
 ---

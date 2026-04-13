@@ -1,6 +1,6 @@
 ---
 title: "Hierarchical Risk Parity (HRP)"
-category: "Quantitative Finance"
+category: "Risk Management"
 order: 20
 lang: "en"
 ---
