@@ -4,7 +4,8 @@ A specialized digital garden for structuring knowledge on AI, Quantitative Finan
 
 ## 🚀 Features
 
--   **Automated Content**: Just drop a `.md` file in the content folder, and the site updates itself.
+-   **Obsidian-native**: The `obsidian-vault/` folder can be opened directly in Obsidian. Edit there, and your site updates automatically.
+-   **Automated Content**: Just drop a `.md` file in the vault, and the site updates itself.
 -   **Multi-language Support**: Seamless switching between English and Russian.
 -   **Advanced Rendering**: Full support for LaTeX math formulas, syntax highlighting, and interactive charts.
 -   **Dynamic Navigation**: Automatically generated sidebar and search indexing.
@@ -14,10 +15,16 @@ A specialized digital garden for structuring knowledge on AI, Quantitative Finan
 
 ## 📝 How to Add Content
 
-The project uses an automated system to turn Markdown files into interactive pages. You don't need to touch the code to add new articles.
+The project uses an automated system to turn Markdown files into interactive pages.
 
-### 1. Create a Markdown file
-Add a new file in the `src/content/` directory. You can create subdirectories to stay organized (e.g., `src/content/physics/`).
+### 1. Using Obsidian (Recommended)
+1. Open **Obsidian**.
+2. Select **"Open folder as vault"**.
+3. Choose the `obsidian-vault/` directory in this project root.
+4. Create or edit notes as usual.
+
+### 2. Manual creation
+Add a new file in the `obsidian-vault/` directory. You can create subdirectories to stay organized (e.g., `obsidian-vault/physics/`).
 
 -   **Filename Recommendation**: Use `-en.md` or `-ru.md` suffixes (e.g., `quantum-gravity-ru.md`).
 

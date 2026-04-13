@@ -14,16 +14,16 @@ export interface PageContent {
   content: string;
 }
 
-const rawFiles = import.meta.glob('../content/**/*.md', { eager: true, query: '?raw', import: 'default' });
+const rawFiles = import.meta.glob('../../obsidian-vault/**/*.md', { eager: true, query: '?raw', import: 'default' });
 
 export const getAllPages = (): PageContent[] => {
   return Object.entries(rawFiles).map(([filePath, rawContent]) => {
     const { data, content } = matter(rawContent as string);
     
     // Generate a clean slug from filename:
-    // ../content/finance/black-scholes-en.md -> /finance/black-scholes
+    // ../../obsidian-vault/finance/black-scholes-en.md -> /finance/black-scholes
     let slug = filePath
-      .replace('../content/', '/')
+      .replace('../../obsidian-vault/', '/')
       .replace('.md', '')
       .replace(/-en$/, '')
       .replace(/-ru$/, '');
