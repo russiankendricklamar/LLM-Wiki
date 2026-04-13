@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { PageLayout } from './components/PageLayout';
 import { MarkdownRenderer } from './components/MarkdownRenderer';
@@ -37,10 +37,10 @@ const AnimatedRoutes = () => {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <PageLayout>
         <AnimatedRoutes />
       </PageLayout>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
