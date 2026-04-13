@@ -23,9 +23,20 @@ I am currently a **Principal Economist at the Bank of Russia**, where I focus on
 
 <br/>
 
-## Projects & Interests
+## Projects
 
+- **Zeta Terminal**: A high-performance terminal interface for modern workflows.
+- **Ultima Thule**: A specialized application designed for seamless travel and exploration.
 - **LLM Wiki**: A digital garden for structuring knowledge on AI and Quant Finance.
+
+<br/>
+
+---
+
+<br/>
+
+## Interests
+
 - **AI in Finance**: Researching how LLMs (Claude, Gemini, Phi-4) can interpret macroeconomic protocols.
 - **Quantum Physics**: Exploring the computational parallels between quantum mechanics and financial derivatives.
 
@@ -67,9 +78,20 @@ export const aboutMeRu = `
 
 <br/>
 
-## Проекты и интересы
+## Проекты
 
+- **Zeta Terminal**: Высокопроизводительный терминальный интерфейс для современных рабочих процессов.
+- **Ultima Thule**: Специализированное приложение для путешествий и исследований.
 - **LLM Wiki**: Персональная база знаний по ИИ и количественным финансам.
+
+<br/>
+
+---
+
+<br/>
+
+## Интересы
+
 - **AI в финансах**: Исследование того, как LLM (Claude, Gemini, Phi-4) могут интерпретировать макроэкономические протоколы.
 - **Квантовая физика**: Изучение вычислительных параллелей между квантовой механикой и производными финансовыми инструментами.
 
