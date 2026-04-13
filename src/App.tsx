@@ -26,7 +26,7 @@ const PageContent = ({ category, title, content, children }: { category: string,
 );
 
 const AboutPage = () => {
-  const [lang, setLang] = React.useState<'en' | 'ru'>('en');
+  const [lang, setLang] = React.useState<'en' | 'ru'>('ru');
   return (
     <PageContent 
       category="Home" 
