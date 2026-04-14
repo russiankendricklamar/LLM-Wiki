@@ -14,20 +14,6 @@ interface PageLayoutProps {
   showSidebar?: boolean;
 }
 
-const NAV_LINKS = {
-  en: [
-    { to: '/', label: 'Home' },
-    { to: '/about', label: 'About' },
-    { to: '/projects', label: 'Projects' },
-    { to: '/knowledge-graph', label: 'Graph' },
-  ],
-  ru: [
-    { to: '/', label: 'Главная' },
-    { to: '/about', label: 'Обо мне' },
-    { to: '/projects', label: 'Проекты' },
-    { to: '/knowledge-graph', label: 'Граф' },
-  ],
-};
 
 export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', setLang, fullBleed = false, showSidebar = false }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -52,35 +38,15 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
       {/* Top Navigation Bar */}
       {!fullBleed && (
         <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/80 px-4 backdrop-blur-md sm:px-6 lg:px-10">
-          {/* Left: logo + nav links */}
-          <div className="flex items-center gap-6">
-            <NavLink to="/" className="flex items-center gap-2 shrink-0">
-              <div className="w-6 h-6 rounded bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center">
-                <Leaf className="h-3 w-3 text-white" />
-              </div>
-              <span className="font-semibold text-sm hidden sm:block">
-                {lang === 'en' ? 'Knowledge Garden' : 'Сад Знаний'}
-              </span>
-            </NavLink>
-
-            <nav className="hidden md:flex items-center gap-1">
-              {NAV_LINKS[lang].map(({ to, label }) => (
-                <NavLink
-                  key={to}
-                  to={to}
-                  end={to === '/'}
-                  className={({ isActive }) => cn(
-                    "px-3 py-1.5 rounded-md text-sm transition-colors",
-                    isActive
-                      ? "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-medium"
-                      : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100/60 dark:hover:bg-zinc-800/60"
-                  )}
-                >
-                  {label}
-                </NavLink>
-              ))}
-            </nav>
-          </div>
+          {/* Left: logo */}
+          <NavLink to="/" className="flex items-center gap-2 shrink-0">
+            <div className="w-6 h-6 rounded bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center">
+              <Leaf className="h-3 w-3 text-white" />
+            </div>
+            <span className="font-semibold text-sm hidden sm:block">
+              {lang === 'en' ? 'Knowledge Garden' : 'Сад Знаний'}
+            </span>
+          </NavLink>
 
           {/* Right: search + lang + dark mode */}
           <div className="flex items-center gap-3">
