@@ -13,6 +13,36 @@ While traditional factor investing relies on static or linear weighting, **Model
 
 [[rl-trader]], [[alpha-factor-discovery]]
 
+## Visualization
+
+```chart
+{
+  "type": "line",
+  "xAxis": "quarter",
+  "data": [
+    {"quarter": "Q1-20", "Value": 1.00, "Momentum": 1.00, "Quality": 1.00, "LowVol": 1.00, "RLAgent": 1.00},
+    {"quarter": "Q2-20", "Value": 0.78, "Momentum": 0.85, "Quality": 0.94, "LowVol": 0.91, "RLAgent": 0.95},
+    {"quarter": "Q3-20", "Value": 0.82, "Momentum": 1.02, "Quality": 0.98, "LowVol": 0.93, "RLAgent": 1.04},
+    {"quarter": "Q4-20", "Value": 0.95, "Momentum": 1.15, "Quality": 1.05, "LowVol": 0.96, "RLAgent": 1.14},
+    {"quarter": "Q1-21", "Value": 1.08, "Momentum": 1.09, "Quality": 1.10, "LowVol": 0.98, "RLAgent": 1.22},
+    {"quarter": "Q2-21", "Value": 1.13, "Momentum": 1.18, "Quality": 1.15, "LowVol": 1.02, "RLAgent": 1.31},
+    {"quarter": "Q3-21", "Value": 1.10, "Momentum": 1.24, "Quality": 1.20, "LowVol": 1.05, "RLAgent": 1.38},
+    {"quarter": "Q4-21", "Value": 1.06, "Momentum": 1.19, "Quality": 1.25, "LowVol": 1.08, "RLAgent": 1.44},
+    {"quarter": "Q1-22", "Value": 1.14, "Momentum": 1.08, "Quality": 1.18, "LowVol": 1.12, "RLAgent": 1.48},
+    {"quarter": "Q2-22", "Value": 1.09, "Momentum": 0.98, "Quality": 1.12, "LowVol": 1.15, "RLAgent": 1.45},
+    {"quarter": "Q3-22", "Value": 1.16, "Momentum": 1.05, "Quality": 1.14, "LowVol": 1.13, "RLAgent": 1.52},
+    {"quarter": "Q4-22", "Value": 1.21, "Momentum": 1.12, "Quality": 1.19, "LowVol": 1.10, "RLAgent": 1.61}
+  ],
+  "lines": [
+    {"dataKey": "Value",    "stroke": "#ef4444", "name": "Value"},
+    {"dataKey": "Momentum", "stroke": "#f59e0b", "name": "Momentum"},
+    {"dataKey": "Quality",  "stroke": "#10b981", "name": "Quality"},
+    {"dataKey": "LowVol",   "stroke": "#8b5cf6", "name": "Low Volatility"},
+    {"dataKey": "RLAgent",  "stroke": "#3b82f6", "name": "RL Agent (PPO)"}
+  ]
+}
+```
+
 ## Background and Motivation
 
 Classical factor investing (Fama-French, Carhart) uses linear regression to isolate factor exposures and applies static or slow-moving weights. These approaches fail to capture the well-documented time-variation in factor premia: Value underperforms in growth regimes, Momentum crashes in sharp reversals, and Low Volatility weakens during speculative bubbles.

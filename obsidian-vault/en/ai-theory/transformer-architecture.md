@@ -10,6 +10,34 @@ slug: "transformer-architecture"
 
 The **Transformer** (Vaswani et al. 2017, "Attention is All You Need") is a neural architecture built entirely on the **attention** mechanism, without convolutions or recurrences. In the five years following its publication, it displaced RNNs and LSTMs from most sequence-processing tasks, became the basis of [[llm|large language models]], and spread to vision (ViT), audio, generative models, and time series. The Transformer is now the single most widely used architecture in modern ML.
 
+## Visualization
+
+The chart compares attention complexity ($O(n^2)$) vs. linear attention ($O(n)$) in memory (GB) as sequence length grows, illustrating why efficient attention variants are needed for long contexts.
+
+```chart
+{
+  "type": "line",
+  "xAxis": "seq_len",
+  "data": [
+    {"seq_len": "512", "quadratic_mem": 0.13, "linear_mem": 0.05, "flash_mem": 0.07},
+    {"seq_len": "1K", "quadratic_mem": 0.5, "linear_mem": 0.09, "flash_mem": 0.11},
+    {"seq_len": "2K", "quadratic_mem": 2.0, "linear_mem": 0.18, "flash_mem": 0.19},
+    {"seq_len": "4K", "quadratic_mem": 8.0, "linear_mem": 0.35, "flash_mem": 0.36},
+    {"seq_len": "8K", "quadratic_mem": 32.0, "linear_mem": 0.70, "flash_mem": 0.72},
+    {"seq_len": "16K", "quadratic_mem": 128.0, "linear_mem": 1.40, "flash_mem": 1.44},
+    {"seq_len": "32K", "quadratic_mem": 512.0, "linear_mem": 2.80, "flash_mem": 2.88},
+    {"seq_len": "64K", "quadratic_mem": 2048.0, "linear_mem": 5.60, "flash_mem": 5.76},
+    {"seq_len": "128K", "quadratic_mem": 8192.0, "linear_mem": 11.2, "flash_mem": 11.5},
+    {"seq_len": "256K", "quadratic_mem": 32768.0, "linear_mem": 22.4, "flash_mem": 23.0}
+  ],
+  "lines": [
+    {"dataKey": "quadratic_mem", "stroke": "#ef4444", "name": "Standard attention O(n²) memory (GB)"},
+    {"dataKey": "flash_mem", "stroke": "#f59e0b", "name": "Flash Attention memory (GB)"},
+    {"dataKey": "linear_mem", "stroke": "#10b981", "name": "Linear attention O(n) memory (GB)"}
+  ]
+}
+```
+
 ## Why Not RNNs
 
 Classical recurrent networks process sequences one token at a time while maintaining a hidden state. This limits:

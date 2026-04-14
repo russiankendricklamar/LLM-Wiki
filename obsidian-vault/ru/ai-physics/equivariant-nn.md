@@ -18,6 +18,32 @@ slug: "equivariant-nn"
 
 Это принципиально отличается от аугментации данных, которая учит сеть быть приблизительно инвариантной, демонстрируя много повёрнутых копий тренировочных примеров. Эквивариантность обеспечивает точную встроенную гарантию. Практический результат впечатляет: эквивариантные сети достигают наилучших результатов в задачах предсказания молекулярных свойств, структуры белков и физики элементарных частиц при значительно меньшем числе параметров и обучающих примеров.
 
+## Визуализация
+
+```chart
+{
+  "type": "line",
+  "xAxis": "training_samples",
+  "data": [
+    {"training_samples": 10, "NequIP": 0.52, "SchNet": 0.91, "MLP": 0.95},
+    {"training_samples": 25, "NequIP": 0.31, "SchNet": 0.74, "MLP": 0.89},
+    {"training_samples": 50, "NequIP": 0.18, "SchNet": 0.58, "MLP": 0.79},
+    {"training_samples": 100, "NequIP": 0.09, "SchNet": 0.42, "MLP": 0.67},
+    {"training_samples": 250, "NequIP": 0.04, "SchNet": 0.27, "MLP": 0.51},
+    {"training_samples": 500, "NequIP": 0.02, "SchNet": 0.16, "MLP": 0.38},
+    {"training_samples": 1000, "NequIP": 0.01, "SchNet": 0.09, "MLP": 0.25},
+    {"training_samples": 2500, "NequIP": 0.008, "SchNet": 0.05, "MLP": 0.15},
+    {"training_samples": 5000, "NequIP": 0.006, "SchNet": 0.03, "MLP": 0.09},
+    {"training_samples": 10000, "NequIP": 0.005, "SchNet": 0.018, "MLP": 0.05}
+  ],
+  "lines": [
+    {"dataKey": "NequIP", "stroke": "#3b82f6", "name": "NequIP (E3-эквивариантная)"},
+    {"dataKey": "SchNet", "stroke": "#10b981", "name": "SchNet (инвариантная)"},
+    {"dataKey": "MLP", "stroke": "#ef4444", "name": "Обычный MLP"}
+  ]
+}
+```
+
 ## Математическая основа
 
 Пусть $G$ — группа, $\rho_{\text{вх}}: G \to GL(V_{\text{вх}})$, $\rho_{\text{вых}}: G \to GL(V_{\text{вых}})$ — линейные представления. Отображение $f: V_{\text{вх}} \to V_{\text{вых}}$ называется **$G$-эквивариантным**, если:

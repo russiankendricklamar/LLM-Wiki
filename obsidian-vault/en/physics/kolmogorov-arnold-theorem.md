@@ -8,6 +8,29 @@ slug: "kolmogorov-arnold-theorem"
 
 # Kolmogorov-Arnold Theorem
 
+## Visualization
+
+```chart
+{
+  "type": "line",
+  "xAxis": "n",
+  "data": [
+    {"n": 1, "ka_nodes": 3, "mlp_neurons": 10, "curse": 2},
+    {"n": 2, "ka_nodes": 5, "mlp_neurons": 30, "curse": 4},
+    {"n": 3, "ka_nodes": 7, "mlp_neurons": 80, "curse": 8},
+    {"n": 4, "ka_nodes": 9, "mlp_neurons": 180, "curse": 16},
+    {"n": 5, "ka_nodes": 11, "mlp_neurons": 350, "curse": 32},
+    {"n": 6, "ka_nodes": 13, "mlp_neurons": 600, "curse": 64},
+    {"n": 7, "ka_nodes": 15, "mlp_neurons": 950, "curse": 128},
+    {"n": 8, "ka_nodes": 17, "mlp_neurons": 1400, "curse": 256}
+  ],
+  "lines": [
+    {"dataKey": "ka_nodes", "stroke": "#10b981", "name": "KA inner nodes (2n+1)"},
+    {"dataKey": "curse", "stroke": "#ef4444", "name": "Curse of dimensionality (2ⁿ)"}
+  ]
+}
+```
+
 The **Kolmogorov-Arnold theorem** (1957) is a foundational result in function theory: every continuous function of several variables can be written as a finite superposition of functions of one variable. The theorem gave an unexpected resolution to Hilbert's thirteenth problem and reshaped our view of which computational operations are "fundamental". In the 21st century it has been revived as the theoretical backbone of [[kan|Kolmogorov-Arnold Networks]] in machine learning.
 
 ## Hilbert's thirteenth problem

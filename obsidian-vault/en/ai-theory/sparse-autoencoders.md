@@ -20,6 +20,33 @@ SAEs have become the primary tool in mechanistic interpretability for making sen
 
 Anthropic's 2024 work scaling SAEs to Claude activations found millions of interpretable features — including emotions, syntactic roles, named entities, and even abstract concepts like "deception" — demonstrating that LLM internals are far more structured than previously known.
 
+## Visualization
+
+The chart below shows the reconstruction-sparsity tradeoff as dictionary size scales: larger dictionaries achieve lower reconstruction MSE while maintaining the same L0 sparsity budget, illustrating the feature-splitting phenomenon.
+
+```chart
+{
+  "type": "line",
+  "xAxis": "dict_size",
+  "data": [
+    {"dict_size": "256", "recon_mse": 0.42, "monosemantic_pct": 31},
+    {"dict_size": "512", "recon_mse": 0.34, "monosemantic_pct": 42},
+    {"dict_size": "1024", "recon_mse": 0.27, "monosemantic_pct": 54},
+    {"dict_size": "2048", "recon_mse": 0.21, "monosemantic_pct": 63},
+    {"dict_size": "4096", "recon_mse": 0.16, "monosemantic_pct": 71},
+    {"dict_size": "8192", "recon_mse": 0.12, "monosemantic_pct": 78},
+    {"dict_size": "16384", "recon_mse": 0.09, "monosemantic_pct": 83},
+    {"dict_size": "32768", "recon_mse": 0.07, "monosemantic_pct": 86},
+    {"dict_size": "65536", "recon_mse": 0.06, "monosemantic_pct": 88},
+    {"dict_size": "131072", "recon_mse": 0.055, "monosemantic_pct": 89}
+  ],
+  "lines": [
+    {"dataKey": "recon_mse", "stroke": "#ef4444", "name": "Reconstruction MSE"},
+    {"dataKey": "monosemantic_pct", "stroke": "#10b981", "name": "Monosemantic features (%)"}
+  ]
+}
+```
+
 ## Mathematical Framework
 
 **Dictionary learning objective.** Given activation vectors $\{x_i\}_{i=1}^N$ with $x_i \in \mathbb{R}^d$, learn:

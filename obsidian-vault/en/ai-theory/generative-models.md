@@ -10,6 +10,30 @@ slug: "generative-models"
 
 **Generative models** are a class of machine-learning models that learn to represent the data distribution $p(x)$ and generate new samples from it. Unlike discriminative models that predict $p(y \mid x)$, generative ones let you **synthesise** — create images, text, sound, financial scenarios, molecules. Through the 2010s and 2020s they moved from modest VAEs and GANs to diffusion models and LLMs that rewrote the rules of the industry.
 
+## Visualization
+
+```chart
+{
+  "type": "bar",
+  "xAxis": "model",
+  "data": [
+    {"model": "VAE", "FID": 58, "sampling_steps": 1},
+    {"model": "GAN", "FID": 8, "sampling_steps": 1},
+    {"model": "Flow", "FID": 44, "sampling_steps": 1},
+    {"model": "DDPM", "FID": 3, "sampling_steps": 1000},
+    {"model": "DDIM", "FID": 4, "sampling_steps": 50},
+    {"model": "AR (PixelCNN)", "FID": 65, "sampling_steps": 1},
+    {"model": "Consistency", "FID": 6, "sampling_steps": 2}
+  ],
+  "lines": [
+    {"dataKey": "FID", "stroke": "#3b82f6", "name": "FID score (lower = better quality)"},
+    {"dataKey": "sampling_steps", "stroke": "#f59e0b", "name": "Sampling steps (log scale proxy)"}
+  ]
+}
+```
+
+*FID (Fréchet Inception Distance) measures sample quality — lower is better. Diffusion models achieve the best FID but require many sampling steps; consistency models close the gap with only 2 steps.*
+
 ## Problem Setup
 
 Given a training set $\{x_1, \ldots, x_N\} \sim p_{\text{data}}$, the goal is to build a model $p_\theta(x)$ close to $p_{\text{data}}$ and be able to:

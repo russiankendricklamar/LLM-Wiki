@@ -10,6 +10,35 @@ slug: "automatic-differentiation"
 
 **Автоматическое дифференцирование (AD, autodiff)** — это набор техник для точного вычисления производных произвольной программы за почти то же время, что и вычисление самой функции. В отличие от численного (конечные разности, $O(\epsilon)$ ошибка) и символьного (формула раздувается) дифференцирования, AD работает на уровне вычислительного графа и даёт градиенты с машинной точностью. Это фундамент современного глубокого обучения: без AD не было бы ни обратного распространения, ни PyTorch, ни PINNs.
 
+## Визуализация
+
+```chart
+{
+  "type": "line",
+  "xAxis": "outputs_m",
+  "data": [
+    {"outputs_m": 1, "forward_passes": 10, "reverse_passes": 1},
+    {"outputs_m": 2, "forward_passes": 10, "reverse_passes": 2},
+    {"outputs_m": 3, "forward_passes": 10, "reverse_passes": 3},
+    {"outputs_m": 4, "forward_passes": 10, "reverse_passes": 4},
+    {"outputs_m": 5, "forward_passes": 10, "reverse_passes": 5},
+    {"outputs_m": 6, "forward_passes": 10, "reverse_passes": 6},
+    {"outputs_m": 7, "forward_passes": 10, "reverse_passes": 7},
+    {"outputs_m": 8, "forward_passes": 10, "reverse_passes": 8},
+    {"outputs_m": 9, "forward_passes": 10, "reverse_passes": 9},
+    {"outputs_m": 10, "forward_passes": 10, "reverse_passes": 10},
+    {"outputs_m": 11, "forward_passes": 10, "reverse_passes": 11},
+    {"outputs_m": 12, "forward_passes": 10, "reverse_passes": 12}
+  ],
+  "lines": [
+    {"dataKey": "forward_passes", "stroke": "#3b82f6", "name": "Прямой режим (n=10 входов)"},
+    {"dataKey": "reverse_passes", "stroke": "#ef4444", "name": "Обратный режим (1 проход на выход)"}
+  ]
+}
+```
+
+*Прямой режим требует один проход на каждый вход; обратный — один проход на каждый выход. При 10 входах прямой режим всегда нуждается в 10 проходах — обратный выигрывает, когда выходов меньше, чем входов.*
+
 ## Идея: функция как вычислительный граф
 
 Любая программная функция $f: \mathbb{R}^n \to \mathbb{R}^m$ представима как композиция элементарных операций $+, -, \times, /, \sin, \exp, \log, \dots$. Эта декомпозиция образует **направленный ацикличный граф (DAG)**: вершины — промежуточные значения, рёбра — элементарные операции.

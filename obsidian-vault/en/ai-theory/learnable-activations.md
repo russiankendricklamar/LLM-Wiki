@@ -10,6 +10,38 @@ slug: "learnable-activations"
 
 **Learnable activation functions** are an architectural pattern in which the nonlinearities traditionally fixed (ReLU, $\tanh$, GELU) are replaced with parametrised families trained jointly with the weights. The idea dates back to the 1990s (Turkel's adaptive sigmoids, 1998), but interest exploded in the 2020s — first with Swish and KAF, then with **Kolmogorov-Arnold Networks (KANs)**, which moved learnable activations from the nodes to the edges and tied them to the [[kolmogorov-arnold-theorem|Kolmogorov-Arnold theorem]].
 
+## Visualization
+
+```chart
+{
+  "type": "line",
+  "xAxis": "x",
+  "data": [
+    {"x": -3.0, "ReLU": 0.0, "GELU": -0.04, "Swish": -0.10, "tanh": -1.00},
+    {"x": -2.5, "ReLU": 0.0, "GELU": -0.05, "Swish": -0.13, "tanh": -0.99},
+    {"x": -2.0, "ReLU": 0.0, "GELU": -0.05, "Swish": -0.15, "tanh": -0.96},
+    {"x": -1.5, "ReLU": 0.0, "GELU": -0.10, "Swish": -0.19, "tanh": -0.91},
+    {"x": -1.0, "ReLU": 0.0, "GELU": -0.16, "Swish": -0.27, "tanh": -0.76},
+    {"x": -0.5, "ReLU": 0.0, "GELU": -0.15, "Swish": -0.19, "tanh": -0.46},
+    {"x": 0.0,  "ReLU": 0.0, "GELU": 0.00,  "Swish": 0.00,  "tanh": 0.00},
+    {"x": 0.5,  "ReLU": 0.5, "GELU": 0.35,  "Swish": 0.31,  "tanh": 0.46},
+    {"x": 1.0,  "ReLU": 1.0, "GELU": 0.84,  "Swish": 0.73,  "tanh": 0.76},
+    {"x": 1.5,  "ReLU": 1.5, "GELU": 1.40,  "Swish": 1.31,  "tanh": 0.91},
+    {"x": 2.0,  "ReLU": 2.0, "GELU": 1.95,  "Swish": 1.76,  "tanh": 0.96},
+    {"x": 2.5,  "ReLU": 2.5, "GELU": 2.48,  "Swish": 2.28,  "tanh": 0.99},
+    {"x": 3.0,  "ReLU": 3.0, "GELU": 3.00,  "Swish": 2.76,  "tanh": 1.00}
+  ],
+  "lines": [
+    {"dataKey": "ReLU",  "stroke": "#ef4444", "name": "ReLU (fixed)"},
+    {"dataKey": "GELU",  "stroke": "#3b82f6", "name": "GELU (fixed, smooth)"},
+    {"dataKey": "Swish", "stroke": "#10b981", "name": "Swish β=1 (learnable β)"},
+    {"dataKey": "tanh",  "stroke": "#8b5cf6", "name": "tanh (fixed, bounded)"}
+  ]
+}
+```
+
+*Shape comparison of common activation functions. ReLU has a hard kink at 0; GELU and Swish are smooth approximations that allow gradient flow for slightly negative inputs. With learnable β, Swish can interpolate between linear and ReLU-like shapes.*
+
 ## Why not fixed activations
 
 Standard MLPs use fixed activations: ReLU, $\tanh$, GELU. They yield **universal approximation** — any continuous function can be approximated by a sufficiently wide two-layer network (Cybenko 1989, Hornik 1991). But universality does not imply efficiency: complex dependencies often require many neurons.

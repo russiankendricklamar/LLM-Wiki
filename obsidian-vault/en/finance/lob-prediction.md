@@ -9,6 +9,33 @@ slug: "lob-prediction"
 
 **Limit Order Book (LOB) Prediction** involves forecasting short-term price movements or trade directions using the depth and liquidity information of an order book. Unlike low-frequency strategies that use daily bars, LOB prediction operates at the millisecond or microsecond level, where the micro-structure of the market is most visible.
 
+## Visualization
+
+```chart
+{
+  "type": "area",
+  "xAxis": "tick",
+  "data": [
+    {"tick": "t-11", "OI": -0.42, "midDeviation": -0.8},
+    {"tick": "t-10", "OI": -0.28, "midDeviation": -0.5},
+    {"tick": "t-9",  "OI": -0.15, "midDeviation": -0.2},
+    {"tick": "t-8",  "OI":  0.05, "midDeviation":  0.1},
+    {"tick": "t-7",  "OI":  0.18, "midDeviation":  0.3},
+    {"tick": "t-6",  "OI":  0.31, "midDeviation":  0.5},
+    {"tick": "t-5",  "OI":  0.52, "midDeviation":  0.9},
+    {"tick": "t-4",  "OI":  0.63, "midDeviation":  1.2},
+    {"tick": "t-3",  "OI":  0.71, "midDeviation":  1.4},
+    {"tick": "t-2",  "OI":  0.58, "midDeviation":  1.1},
+    {"tick": "t-1",  "OI":  0.44, "midDeviation":  0.8},
+    {"tick": "t",    "OI":  0.36, "midDeviation":  0.7}
+  ],
+  "lines": [
+    {"dataKey": "OI",           "stroke": "#3b82f6", "name": "Order Imbalance (OI)"},
+    {"dataKey": "midDeviation", "stroke": "#ef4444", "name": "Mid-Price Deviation (ticks)"}
+  ]
+}
+```
+
 ## Background
 
 The limit order book is the complete record of all outstanding buy (bid) and sell (ask) limit orders at every price level. Modern electronic exchanges publish the top 5–20 levels of the book in real time. This fine-grained liquidity information contains predictive signals about imminent price movements that aggregate price data discards entirely.

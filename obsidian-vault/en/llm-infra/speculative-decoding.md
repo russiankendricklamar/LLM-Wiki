@@ -8,10 +8,6 @@ slug: "speculative-decoding"
 
 # Speculative Decoding
 
-## Prerequisites
-
-[[llm]]
-
 ## Overview
 
 Speculative decoding is an inference acceleration technique that achieves 2–4x speedup in autoregressive language model generation without any change to output quality. The core idea is simple: a fast, cheap "draft" model generates a short sequence of candidate tokens speculatively, and the large "target" model verifies all of them in a single parallel forward pass rather than generating them one by one.
@@ -182,14 +178,8 @@ Production note: frameworks like **vLLM** (v0.4+) and **TensorRT-LLM** include o
 
 ## Practical Applications
 
-- **Long-form generation:** research summaries, code generation — the longer the output, the more speedup compounds. Particularly valuable for [[chain-of-thought]] reasoning where hundreds of reasoning tokens are generated.
+- **Long-form generation:** research summaries, code generation — the longer the output, the more speedup compounds. Particularly valuable for chain-of-thought reasoning where hundreds of reasoning tokens are generated.
 - **Interactive assistants:** speculative decoding reduces both first-token latency and per-token latency, improving perceived responsiveness.
 - **On-device inference:** mobile and edge deployments where a tiny on-device draft model proposes tokens that a cloud target model verifies in one call, amortizing network round-trip cost.
 - **Cost reduction:** cloud inference pricing is often per-token of compute. Speculative decoding can reduce billed compute for long outputs by amortizing target model passes.
 
-## Related Topics
-
-- [[chain-of-thought]] — long reasoning chains are the primary beneficiary of speculative decoding speedups.
-- [[mcp]] — production inference stacks serving MCP-connected agents benefit from lower per-token latency.
-- [[tool-use]] — agent loops with interleaved generation and tool calls benefit from faster generation steps between calls.
-- [[rag]] — RAG-augmented generation produces longer outputs conditioned on retrieved context; speculative decoding reduces the generation cost.

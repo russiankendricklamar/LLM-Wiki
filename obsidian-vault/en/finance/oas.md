@@ -10,6 +10,30 @@ The **Option-Adjusted Spread (OAS)** is the yield spread relative to a benchmark
 
 OAS is a critical metric for fixed-income investors as it allows for the comparison of bonds with different optionality on an "apples-to-apples" basis by isolating the pure credit and liquidity risk premium.
 
+## Visualization
+
+Spread comparison across bond types: for callable bonds OAS < Z-Spread (option cost is positive), for putable bonds OAS > Z-Spread (option benefit is negative), while MBS shows the widest gap due to negative convexity from prepayment optionality.
+
+```chart
+{
+  "type": "bar",
+  "xAxis": "bond",
+  "data": [
+    {"bond": "IG Corp (bullet)", "G-Spread": 95, "Z-Spread": 105, "OAS": 103},
+    {"bond": "Callable Corp", "G-Spread": 140, "Z-Spread": 155, "OAS": 110},
+    {"bond": "Putable Corp", "G-Spread": 70, "Z-Spread": 75, "OAS": 95},
+    {"bond": "Agency MBS", "G-Spread": 145, "Z-Spread": 160, "OAS": 55},
+    {"bond": "HY Corp (bullet)", "G-Spread": 390, "Z-Spread": 410, "OAS": 405},
+    {"bond": "HY Callable", "G-Spread": 460, "Z-Spread": 490, "OAS": 380}
+  ],
+  "lines": [
+    {"dataKey": "G-Spread", "stroke": "#f59e0b", "name": "G-Spread (bps)"},
+    {"dataKey": "Z-Spread", "stroke": "#ef4444", "name": "Z-Spread (bps)"},
+    {"dataKey": "OAS", "stroke": "#3b82f6", "name": "OAS (bps)"}
+  ]
+}
+```
+
 ## Background and Motivation
 
 Fixed-income instruments frequently embed optionality: corporate bonds with call provisions, mortgage-backed securities (MBS) with prepayment options, convertible bonds, and structured products with embedded floors or caps. Comparing yields across these instruments without adjusting for the embedded option value conflates credit risk with optionality cost.

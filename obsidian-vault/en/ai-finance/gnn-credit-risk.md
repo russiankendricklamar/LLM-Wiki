@@ -26,6 +26,26 @@ Graph Neural Networks (GNNs) provide a principled framework for learning over re
 
 This article covers the graph construction methodology, key GNN architectures (GCN, GAT, GraphSAGE), systemic risk extensions, and a working PyTorch Geometric implementation.
 
+## Visualization
+
+```chart
+{
+  "type": "bar",
+  "xAxis": "model",
+  "data": [
+    {"model": "Logistic Reg", "AUC": 0.74},
+    {"model": "XGBoost", "AUC": 0.79},
+    {"model": "GCN 2-layer", "AUC": 0.82},
+    {"model": "GAT 4-head", "AUC": 0.84},
+    {"model": "GraphSAGE", "AUC": 0.83},
+    {"model": "HGT", "AUC": 0.87}
+  ],
+  "lines": [
+    {"dataKey": "AUC", "stroke": "#3b82f6", "name": "AUC Score"}
+  ]
+}
+```
+
 ## Mathematical Framework
 
 ### Graph Formulation

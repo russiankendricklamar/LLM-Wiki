@@ -18,6 +18,34 @@ slug: "hamiltonian-nn"
 
 Эта архитектура — яркий пример _индуктивного смещения из физики_: вместо того чтобы надеяться, что сеть выучит сохранение энергии из данных, архитектура кодирует его по конструкции. Результат — драматическое улучшение долгосрочных предсказаний.
 
+## Визуализация
+
+```chart
+{
+  "type": "line",
+  "xAxis": "time_steps",
+  "data": [
+    {"time_steps": 0, "HNN": 0.0, "NeuralODE": 0.0},
+    {"time_steps": 100, "HNN": 0.001, "NeuralODE": 0.012},
+    {"time_steps": 200, "HNN": 0.001, "NeuralODE": 0.031},
+    {"time_steps": 300, "HNN": 0.002, "NeuralODE": 0.058},
+    {"time_steps": 400, "HNN": 0.001, "NeuralODE": 0.094},
+    {"time_steps": 500, "HNN": 0.002, "NeuralODE": 0.142},
+    {"time_steps": 600, "HNN": 0.001, "NeuralODE": 0.201},
+    {"time_steps": 700, "HNN": 0.002, "NeuralODE": 0.271},
+    {"time_steps": 800, "HNN": 0.001, "NeuralODE": 0.354},
+    {"time_steps": 900, "HNN": 0.002, "NeuralODE": 0.449},
+    {"time_steps": 1000, "HNN": 0.001, "NeuralODE": 0.558},
+    {"time_steps": 1500, "HNN": 0.002, "NeuralODE": 1.12},
+    {"time_steps": 2000, "HNN": 0.002, "NeuralODE": 1.89}
+  ],
+  "lines": [
+    {"dataKey": "HNN", "stroke": "#3b82f6", "name": "HNN + симплектический интегратор"},
+    {"dataKey": "NeuralODE", "stroke": "#ef4444", "name": "Обычная Neural ODE"}
+  ]
+}
+```
+
 ## Математическая основа
 
 **Гамильтонова механика.** Для системы с обобщёнными координатами $q \in \mathbb{R}^n$ и импульсами $p \in \mathbb{R}^n$ гамильтониан $H(q, p)$ порождает эволюцию через уравнения Гамильтона:

@@ -9,6 +9,33 @@ slug: "numeraire-invariant-hedging"
 
 **Quadratic Hedging** (Mean-Variance Hedging) aims to minimize the variance of the hedging error at maturity. A critical property in advanced pricing is **Numeraire Invariance**, ensuring that the hedging strategy remains optimal regardless of whether we measure value in USD, EUR, or the asset itself.
 
+## Visualization
+
+Delta-hedging RMSE decreases as rebalancing frequency increases, converging toward zero in the complete GBM market. The residual at high frequency reflects only discretization error; in an incomplete market (stochastic vol) a non-zero floor $\mathbb{E}[L_T^2]^{1/2}$ remains.
+
+```chart
+{
+  "type": "line",
+  "xAxis": "steps",
+  "data": [
+    {"steps": "4", "RMSE": 2.41},
+    {"steps": "8", "RMSE": 1.85},
+    {"steps": "12", "RMSE": 1.52},
+    {"steps": "26", "RMSE": 1.09},
+    {"steps": "52", "RMSE": 0.78},
+    {"steps": "104", "RMSE": 0.57},
+    {"steps": "156", "RMSE": 0.47},
+    {"steps": "252", "RMSE": 0.38},
+    {"steps": "504", "RMSE": 0.27},
+    {"steps": "756", "RMSE": 0.22},
+    {"steps": "1008", "RMSE": 0.19}
+  ],
+  "lines": [
+    {"dataKey": "RMSE", "stroke": "#3b82f6", "name": "Hedging RMSE ($)"}
+  ]
+}
+```
+
 ## Background and Motivation
 
 In complete markets, every contingent claim can be replicated perfectly and the unique arbitrage-free price is independent of the numeraire. In incomplete markets — stochastic volatility, jump processes, discrete trading — perfect replication is impossible. The residual hedging error depends on the measurement currency unless the hedging criterion is properly formulated.

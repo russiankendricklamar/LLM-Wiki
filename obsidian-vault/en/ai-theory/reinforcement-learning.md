@@ -10,6 +10,35 @@ slug: "reinforcement-learning"
 
 **Reinforcement Learning (RL)** is the branch of machine learning in which an agent learns to act in an environment by maximising cumulative reward. Unlike supervised learning, the correct answer is not given in advance — the agent must discover it through trial, error and feedback. RL is the only paradigm that naturally describes sequential decision-making, where each action shapes the future options.
 
+## Visualization
+
+The chart below illustrates a typical RL training curve: cumulative episode reward grows as the agent learns a policy, with high variance early due to exploration and stabilising as exploitation takes over.
+
+```chart
+{
+  "type": "line",
+  "xAxis": "episode",
+  "data": [
+    {"episode": 0, "reward": -210, "smoothed": -210},
+    {"episode": 50, "reward": -180, "smoothed": -195},
+    {"episode": 100, "reward": -150, "smoothed": -175},
+    {"episode": 200, "reward": -80, "smoothed": -120},
+    {"episode": 300, "reward": -20, "smoothed": -55},
+    {"episode": 400, "reward": 40, "smoothed": 10},
+    {"episode": 500, "reward": 120, "smoothed": 80},
+    {"episode": 600, "reward": 175, "smoothed": 150},
+    {"episode": 700, "reward": 190, "smoothed": 185},
+    {"episode": 800, "reward": 200, "smoothed": 196},
+    {"episode": 900, "reward": 198, "smoothed": 199},
+    {"episode": 1000, "reward": 201, "smoothed": 200}
+  ],
+  "lines": [
+    {"dataKey": "reward", "stroke": "#f59e0b", "name": "Episode reward (raw)"},
+    {"dataKey": "smoothed", "stroke": "#3b82f6", "name": "Smoothed reward"}
+  ]
+}
+```
+
 ## Markov Decision Process
 
 The formal model of RL is a **Markov Decision Process (MDP)**, a tuple $(\mathcal{S}, \mathcal{A}, P, r, \gamma)$:

@@ -8,6 +8,29 @@ slug: group-theory
 
 # Group Theory in Physics
 
+## Visualization
+
+```chart
+{
+  "type": "bar",
+  "xAxis": "group",
+  "data": [
+    {"group": "U(1)", "dimension": 1, "generators": 1},
+    {"group": "SU(2)", "dimension": 3, "generators": 3},
+    {"group": "SU(3)", "dimension": 8, "generators": 8},
+    {"group": "SU(4)", "dimension": 15, "generators": 15},
+    {"group": "SU(5)", "dimension": 24, "generators": 24},
+    {"group": "SO(3)", "dimension": 3, "generators": 3},
+    {"group": "SO(4)", "dimension": 6, "generators": 6},
+    {"group": "G₂", "dimension": 14, "generators": 14}
+  ],
+  "lines": [
+    {"dataKey": "dimension", "stroke": "#3b82f6", "name": "Adjoint dimension (N²−1)"},
+    {"dataKey": "generators", "stroke": "#10b981", "name": "Number of generators"}
+  ]
+}
+```
+
 ## Theoretical Foundation
 Group theory is the mathematical language of symmetry in physics. A group is a set $G$ with a binary operation satisfying closure, associativity, identity, and invertibility. When symmetry groups act on physical systems, they constrain the allowed dynamics, relate apparently distinct phenomena, and organize the spectrum of particles and fields.
 

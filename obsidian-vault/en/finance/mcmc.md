@@ -11,6 +11,35 @@ growth: "budding"
 
 **Markov Chain Monte Carlo (MCMC)** is a class of algorithms for sampling from a probability distribution. By constructing a Markov chain that has the desired distribution as its equilibrium distribution, one can obtain a sample of the desired distribution by observing the chain after a number of steps.
 
+## Visualization
+
+```chart
+{
+  "type": "line",
+  "xAxis": "iteration",
+  "data": [
+    {"iteration": 0,    "chain1": 1.0,  "chain2": 3.5,  "true": 2.0},
+    {"iteration": 200,  "chain1": 1.4,  "chain2": 3.1,  "true": 2.0},
+    {"iteration": 400,  "chain1": 1.9,  "chain2": 2.7,  "true": 2.0},
+    {"iteration": 600,  "chain1": 2.3,  "chain2": 2.4,  "true": 2.0},
+    {"iteration": 800,  "chain1": 2.1,  "chain2": 2.2,  "true": 2.0},
+    {"iteration": 1000, "chain1": 1.8,  "chain2": 2.1,  "true": 2.0},
+    {"iteration": 1200, "chain1": 2.2,  "chain2": 1.9,  "true": 2.0},
+    {"iteration": 1400, "chain1": 2.0,  "chain2": 2.0,  "true": 2.0},
+    {"iteration": 1600, "chain1": 2.1,  "chain2": 2.1,  "true": 2.0},
+    {"iteration": 1800, "chain1": 1.9,  "chain2": 2.0,  "true": 2.0},
+    {"iteration": 2000, "chain1": 2.0,  "chain2": 1.9,  "true": 2.0},
+    {"iteration": 2200, "chain1": 2.1,  "chain2": 2.1,  "true": 2.0},
+    {"iteration": 2400, "chain1": 1.9,  "chain2": 2.0,  "true": 2.0}
+  ],
+  "lines": [
+    {"dataKey": "chain1", "stroke": "#3b82f6", "name": "Chain 1 (θ)"},
+    {"dataKey": "chain2", "stroke": "#ef4444", "name": "Chain 2 (θ)"},
+    {"dataKey": "true",   "stroke": "#10b981", "name": "True θ = 2.0"}
+  ]
+}
+```
+
 ## Background and Motivation
 
 MCMC was developed during the Manhattan Project (Metropolis et al., 1953) for computing high-dimensional integrals in statistical physics. It was later extended by Hastings (1970) and became central to Bayesian statistics in the 1990s when Gelfand and Smith demonstrated its applicability to posterior inference in hierarchical models.

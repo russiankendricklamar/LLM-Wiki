@@ -12,6 +12,30 @@ slug: "kolmogorov-complexity"
 
 [[pac-learning]]
 
+## Visualization
+
+```chart
+{
+  "type": "bar",
+  "xAxis": "string_type",
+  "data": [
+    {"string_type": "zeros", "raw_bytes": 1000, "zlib_bytes": 15, "bz2_bytes": 14},
+    {"string_type": "alternating", "raw_bytes": 1000, "zlib_bytes": 18, "bz2_bytes": 20},
+    {"string_type": "english_text", "raw_bytes": 1000, "zlib_bytes": 500, "bz2_bytes": 440},
+    {"string_type": "source_code", "raw_bytes": 1000, "zlib_bytes": 68, "bz2_bytes": 55},
+    {"string_type": "pi_digits", "raw_bytes": 1000, "zlib_bytes": 610, "bz2_bytes": 590},
+    {"string_type": "random", "raw_bytes": 1000, "zlib_bytes": 1015, "bz2_bytes": 1008}
+  ],
+  "lines": [
+    {"dataKey": "raw_bytes", "stroke": "#8b5cf6", "name": "Raw size (bytes)"},
+    {"dataKey": "zlib_bytes", "stroke": "#3b82f6", "name": "zlib compressed (bytes)"},
+    {"dataKey": "bz2_bytes", "stroke": "#10b981", "name": "bz2 compressed (bytes)"}
+  ]
+}
+```
+
+*Compressed size as a proxy for Kolmogorov complexity. Highly structured data (zeros, code) compresses dramatically; truly random data cannot be compressed below its raw size — incompressibility equals randomness.*
+
 ## Overview
 
 Kolmogorov complexity is the algorithmic measure of information content in a string or object: the length of the shortest program that produces it on a universal Turing machine. Developed independently by Solomonoff (1960), Kolmogorov (1963), and Chaitin (1966), it provides the foundation for algorithmic information theory — a theory of information that makes no reference to probability distributions, encoding schemes, or ensembles.

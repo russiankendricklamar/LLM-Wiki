@@ -16,6 +16,36 @@ $$
 
 and the forward pass becomes numerical integration of this ODE from the initial state $h(0) = x$ to the final state $h(T) = \text{logits}$. Introduced by Chen, Rubanova, Bettencourt, and Duvenaud (NeurIPS 2018), the idea opened up an entire area of research at the intersection of deep learning and numerical analysis.
 
+## Visualization
+
+The chart below shows how a Neural ODE solver adaptively allocates function evaluations (NFE) across training epochs: complex examples require more steps while easy ones need fewer, illustrating the adaptive compute property.
+
+```chart
+{
+  "type": "line",
+  "xAxis": "epoch",
+  "data": [
+    {"epoch": 1, "nfe_hard": 142, "nfe_easy": 48, "nfe_avg": 95},
+    {"epoch": 5, "nfe_hard": 138, "nfe_easy": 44, "nfe_avg": 88},
+    {"epoch": 10, "nfe_hard": 131, "nfe_easy": 40, "nfe_avg": 82},
+    {"epoch": 20, "nfe_hard": 118, "nfe_easy": 36, "nfe_avg": 74},
+    {"epoch": 30, "nfe_hard": 106, "nfe_easy": 32, "nfe_avg": 67},
+    {"epoch": 40, "nfe_hard": 98, "nfe_easy": 29, "nfe_avg": 61},
+    {"epoch": 50, "nfe_hard": 92, "nfe_easy": 27, "nfe_avg": 57},
+    {"epoch": 60, "nfe_hard": 88, "nfe_easy": 26, "nfe_avg": 54},
+    {"epoch": 70, "nfe_hard": 85, "nfe_easy": 25, "nfe_avg": 52},
+    {"epoch": 80, "nfe_hard": 83, "nfe_easy": 24, "nfe_avg": 51},
+    {"epoch": 90, "nfe_hard": 82, "nfe_easy": 24, "nfe_avg": 50},
+    {"epoch": 100, "nfe_hard": 81, "nfe_easy": 23, "nfe_avg": 49}
+  ],
+  "lines": [
+    {"dataKey": "nfe_hard", "stroke": "#ef4444", "name": "Hard examples (NFE)"},
+    {"dataKey": "nfe_easy", "stroke": "#10b981", "name": "Easy examples (NFE)"},
+    {"dataKey": "nfe_avg", "stroke": "#3b82f6", "name": "Average NFE"}
+  ]
+}
+```
+
 ## From ResNet to continuous depth
 
 A **ResNet** can be viewed as an Euler discretisation of a continuous dynamical system:

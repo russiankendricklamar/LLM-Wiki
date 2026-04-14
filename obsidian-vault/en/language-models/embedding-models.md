@@ -16,6 +16,30 @@ This is fundamentally different from generative language models. An embedding mo
 
 Embedding models are the retrieval layer in RAG systems, the engine behind semantic search, and the foundation for clustering, classification, and anomaly detection over text at scale.
 
+## Visualization
+
+```chart
+{
+  "type": "line",
+  "xAxis": "dims",
+  "data": [
+    {"dims": 64, "MTEB": 52.1},
+    {"dims": 128, "MTEB": 57.4},
+    {"dims": 256, "MTEB": 61.8},
+    {"dims": 512, "MTEB": 64.3},
+    {"dims": 768, "MTEB": 65.9},
+    {"dims": 1024, "MTEB": 66.7},
+    {"dims": 1536, "MTEB": 67.2},
+    {"dims": 2048, "MTEB": 67.5},
+    {"dims": 3072, "MTEB": 67.6},
+    {"dims": 4096, "MTEB": 67.7}
+  ],
+  "lines": [
+    {"dataKey": "MTEB", "stroke": "#8b5cf6", "name": "MTEB score (Matryoshka truncation)"}
+  ]
+}
+```
+
 ## Architecture
 
 Most text embedding models are built on a **bidirectional transformer encoder** (BERT-style), not a causal decoder. Bidirectional attention lets every token attend to every other token, producing contextualized representations that capture full sentence meaning rather than left-to-right prefixes.

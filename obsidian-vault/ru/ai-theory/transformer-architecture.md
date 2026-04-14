@@ -10,6 +10,34 @@ slug: "transformer-architecture"
 
 **Трансформер** (Vaswani et al. 2017, "Attention is All You Need") — архитектура нейронной сети, построенная целиком на механизме **внимания**, без свёрток и рекуррентных связей. За пять лет после публикации она вытеснила RNN и LSTM из большинства задач обработки последовательностей, стала основой [[llm|больших языковых моделей]], распространилась на зрение (ViT), аудио, генеративные модели и временные ряды. Трансформер — самая широко используемая архитектура в современном ML.
 
+## Визуализация
+
+График сравнивает потребление памяти (ГБ) для стандартного внимания $O(n^2)$, Flash Attention и линейного внимания $O(n)$ по мере роста длины последовательности — наглядно объясняя, зачем нужны эффективные варианты внимания.
+
+```chart
+{
+  "type": "line",
+  "xAxis": "seq_len",
+  "data": [
+    {"seq_len": "512", "quadratic_mem": 0.13, "linear_mem": 0.05, "flash_mem": 0.07},
+    {"seq_len": "1K", "quadratic_mem": 0.5, "linear_mem": 0.09, "flash_mem": 0.11},
+    {"seq_len": "2K", "quadratic_mem": 2.0, "linear_mem": 0.18, "flash_mem": 0.19},
+    {"seq_len": "4K", "quadratic_mem": 8.0, "linear_mem": 0.35, "flash_mem": 0.36},
+    {"seq_len": "8K", "quadratic_mem": 32.0, "linear_mem": 0.70, "flash_mem": 0.72},
+    {"seq_len": "16K", "quadratic_mem": 128.0, "linear_mem": 1.40, "flash_mem": 1.44},
+    {"seq_len": "32K", "quadratic_mem": 512.0, "linear_mem": 2.80, "flash_mem": 2.88},
+    {"seq_len": "64K", "quadratic_mem": 2048.0, "linear_mem": 5.60, "flash_mem": 5.76},
+    {"seq_len": "128K", "quadratic_mem": 8192.0, "linear_mem": 11.2, "flash_mem": 11.5},
+    {"seq_len": "256K", "quadratic_mem": 32768.0, "linear_mem": 22.4, "flash_mem": 23.0}
+  ],
+  "lines": [
+    {"dataKey": "quadratic_mem", "stroke": "#ef4444", "name": "Стандартное внимание O(n²), ГБ"},
+    {"dataKey": "flash_mem", "stroke": "#f59e0b", "name": "Flash Attention, ГБ"},
+    {"dataKey": "linear_mem", "stroke": "#10b981", "name": "Линейное внимание O(n), ГБ"}
+  ]
+}
+```
+
 ## Почему не RNN
 
 Классические рекуррентные сети обрабатывают последовательность токен за токеном, поддерживая скрытое состояние. Это ограничивает:

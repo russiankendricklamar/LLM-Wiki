@@ -8,6 +8,34 @@ lang: "en"
 
 The **Probability of Backtest Overfitting (PBO)** is a statistical framework used to quantify the likelihood that a strategy's performance is the result of selection bias during the optimization process rather than true alpha. It was popularized by Marcos Lopez de Prado and David Bailey to address the "reproducibility crisis" in quantitative finance.
 
+## Visualization
+
+As the number of strategy trials grows, the best in-sample Sharpe rises by pure luck while the Deflated Sharpe Ratio (DSR) falls toward zero — illustrating that selection bias inflates apparent alpha. PBO correspondingly rises above 0.5, signaling that the chosen strategy is most likely overfit.
+
+```chart
+{
+  "type": "line",
+  "xAxis": "trials",
+  "data": [
+    {"trials": "1",    "Best IS Sharpe": 0.52, "DSR": 0.82, "PBO": 0.22},
+    {"trials": "5",    "Best IS Sharpe": 0.88, "DSR": 0.65, "PBO": 0.31},
+    {"trials": "10",   "Best IS Sharpe": 1.05, "DSR": 0.54, "PBO": 0.38},
+    {"trials": "25",   "Best IS Sharpe": 1.28, "DSR": 0.41, "PBO": 0.47},
+    {"trials": "50",   "Best IS Sharpe": 1.47, "DSR": 0.29, "PBO": 0.55},
+    {"trials": "100",  "Best IS Sharpe": 1.66, "DSR": 0.19, "PBO": 0.62},
+    {"trials": "250",  "Best IS Sharpe": 1.91, "DSR": 0.10, "PBO": 0.71},
+    {"trials": "500",  "Best IS Sharpe": 2.10, "DSR": 0.05, "PBO": 0.78},
+    {"trials": "1000", "Best IS Sharpe": 2.30, "DSR": 0.02, "PBO": 0.84},
+    {"trials": "5000", "Best IS Sharpe": 2.71, "DSR": 0.00, "PBO": 0.93}
+  ],
+  "lines": [
+    {"dataKey": "Best IS Sharpe", "stroke": "#f59e0b", "name": "Best IS Sharpe (luck)"},
+    {"dataKey": "DSR",            "stroke": "#10b981", "name": "Deflated Sharpe Ratio"},
+    {"dataKey": "PBO",            "stroke": "#ef4444", "name": "PBO (overfitting prob.)"}
+  ]
+}
+```
+
 ## Background and Motivation
 
 The quant finance research process typically involves testing many variations of a strategy — different lookback windows, signal thresholds, rebalancing frequencies — and selecting the best-performing configuration based on a historical backtest. This process of trial and selection inflates the apparent performance of the chosen strategy, often dramatically.

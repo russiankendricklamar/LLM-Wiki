@@ -19,6 +19,31 @@ In 2016, Hawking, Perry, and Strominger (HPS) proposed a resolution through soft
 
 The proposal connects three previously separate developments: the BMS asymptotic symmetry group, the Hawking-Perry-Strominger charge algebra on the horizon, and the Pasterski triangle relating soft theorems, memory effects, and asymptotic symmetries. Soft hair does not fully resolve the information paradox — it does not specify how information is decoded from Hawking radiation — but it establishes that black holes have far more internal structure than the no-hair theorem suggests.
 
+## Visualization
+
+```chart
+{
+  "type": "line",
+  "xAxis": "modes",
+  "data": [
+    {"modes": 0,   "entropy": 0.0},
+    {"modes": 10,  "entropy": 2.3},
+    {"modes": 20,  "entropy": 4.6},
+    {"modes": 50,  "entropy": 11.5},
+    {"modes": 100, "entropy": 23.0},
+    {"modes": 200, "entropy": 46.1},
+    {"modes": 500, "entropy": 115.1},
+    {"modes": 1000,"entropy": 230.3},
+    {"modes": 2000,"entropy": 460.5},
+    {"modes": 5000,"entropy": 1151.3},
+    {"modes": 10000,"entropy": 2302.6}
+  ],
+  "lines": [
+    {"dataKey": "entropy", "stroke": "#ef4444", "name": "log(microstates) ~ N_modes"}
+  ]
+}
+```
+
 ## Mathematical Formulation
 The supertranslation charge on the future horizon $\mathcal{H}^+$ is:
 $$ Q_f^{\mathcal{H}} = \frac{1}{4\pi G}\int_{\mathcal{H}^+} d^2z\,\gamma_{z\bar{z}}\,f(z,\bar{z})\,T_{uu} $$

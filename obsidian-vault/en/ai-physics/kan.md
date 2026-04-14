@@ -18,6 +18,28 @@ Kolmogorov-Arnold Networks (KANs), introduced by Liu et al. (2024), are a neural
 
 KANs attracted widespread attention because they promised a path toward _neural networks that discover mathematical formulas_ — a long-standing goal in scientific machine learning. The architecture is closely tied to function approximation theory and provides a natural interface for extracting symbolic expressions from trained models.
 
+## Visualization
+
+```chart
+{
+  "type": "bar",
+  "xAxis": "task",
+  "data": [
+    {"task": "f = sin(πx)+y²", "KAN_params": 85, "MLP_params": 320},
+    {"task": "f = exp(x)·cos(y)", "KAN_params": 110, "MLP_params": 480},
+    {"task": "Feynman I.12.1", "KAN_params": 140, "MLP_params": 560},
+    {"task": "Feynman I.34.8", "KAN_params": 165, "MLP_params": 640},
+    {"task": "Feynman II.11.3", "KAN_params": 195, "MLP_params": 720},
+    {"task": "Heat equation", "KAN_params": 230, "MLP_params": 890},
+    {"task": "Wave equation", "KAN_params": 275, "MLP_params": 1050}
+  ],
+  "lines": [
+    {"dataKey": "KAN_params", "stroke": "#8b5cf6", "name": "KAN parameters"},
+    {"dataKey": "MLP_params", "stroke": "#ef4444", "name": "MLP parameters (same accuracy)"}
+  ]
+}
+```
+
 ## Mathematical Framework
 
 **Kolmogorov-Arnold Theorem (1957).** Every continuous multivariate function $f: [0,1]^n \to \mathbb{R}$ can be written as:

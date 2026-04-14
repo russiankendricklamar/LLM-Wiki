@@ -9,6 +9,41 @@ slug: "pairs-trading"
 
 **Pairs Trading** is a market-neutral strategy that matches a long position with a short position in two highly correlated assets. The strategy exploits temporary price divergences between the two, assuming they will eventually revert to their historical relationship (**Cointegration**).
 
+## Visualization
+
+A simulated z-score of a cointegrated spread over time, with entry (+2 / −2), exit (±0.5), and stop-loss (±3.5) thresholds. Shaded regions show periods when a position is held; the spread reverts within the half-life window for most trades.
+
+```chart
+{
+  "type": "line",
+  "xAxis": "day",
+  "data": [
+    {"day": "0",   "zscore": 0.2,  "entry_hi": 2.0, "entry_lo": -2.0, "stop_hi": 3.5, "stop_lo": -3.5},
+    {"day": "10",  "zscore": 0.8,  "entry_hi": 2.0, "entry_lo": -2.0, "stop_hi": 3.5, "stop_lo": -3.5},
+    {"day": "20",  "zscore": 1.7,  "entry_hi": 2.0, "entry_lo": -2.0, "stop_hi": 3.5, "stop_lo": -3.5},
+    {"day": "30",  "zscore": 2.3,  "entry_hi": 2.0, "entry_lo": -2.0, "stop_hi": 3.5, "stop_lo": -3.5},
+    {"day": "40",  "zscore": 1.9,  "entry_hi": 2.0, "entry_lo": -2.0, "stop_hi": 3.5, "stop_lo": -3.5},
+    {"day": "50",  "zscore": 1.1,  "entry_hi": 2.0, "entry_lo": -2.0, "stop_hi": 3.5, "stop_lo": -3.5},
+    {"day": "60",  "zscore": 0.3,  "entry_hi": 2.0, "entry_lo": -2.0, "stop_hi": 3.5, "stop_lo": -3.5},
+    {"day": "70",  "zscore": -0.4, "entry_hi": 2.0, "entry_lo": -2.0, "stop_hi": 3.5, "stop_lo": -3.5},
+    {"day": "80",  "zscore": -1.5, "entry_hi": 2.0, "entry_lo": -2.0, "stop_hi": 3.5, "stop_lo": -3.5},
+    {"day": "90",  "zscore": -2.4, "entry_hi": 2.0, "entry_lo": -2.0, "stop_hi": 3.5, "stop_lo": -3.5},
+    {"day": "100", "zscore": -2.1, "entry_hi": 2.0, "entry_lo": -2.0, "stop_hi": 3.5, "stop_lo": -3.5},
+    {"day": "110", "zscore": -1.2, "entry_hi": 2.0, "entry_lo": -2.0, "stop_hi": 3.5, "stop_lo": -3.5},
+    {"day": "120", "zscore": -0.2, "entry_hi": 2.0, "entry_lo": -2.0, "stop_hi": 3.5, "stop_lo": -3.5},
+    {"day": "130", "zscore": 0.5,  "entry_hi": 2.0, "entry_lo": -2.0, "stop_hi": 3.5, "stop_lo": -3.5},
+    {"day": "140", "zscore": 0.1,  "entry_hi": 2.0, "entry_lo": -2.0, "stop_hi": 3.5, "stop_lo": -3.5}
+  ],
+  "lines": [
+    {"dataKey": "zscore",   "stroke": "#3b82f6", "name": "Spread z-score"},
+    {"dataKey": "entry_hi", "stroke": "#10b981", "name": "Entry +2σ"},
+    {"dataKey": "entry_lo", "stroke": "#10b981", "name": "Entry −2σ"},
+    {"dataKey": "stop_hi",  "stroke": "#ef4444", "name": "Stop-loss +3.5σ"},
+    {"dataKey": "stop_lo",  "stroke": "#ef4444", "name": "Stop-loss −3.5σ"}
+  ]
+}
+```
+
 ## Background and History
 
 Pairs trading was pioneered at Morgan Stanley in the mid-1980s by Nunzio Tartaglia's quantitative group, who exploited statistical relationships between stocks to generate market-neutral returns. It became the prototypical statistical arbitrage strategy and spawned the entire field of quantitative equity market-neutral investing.

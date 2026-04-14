@@ -20,6 +20,28 @@ The consequence is striking: you can have a model with, say, 200 billion total p
 
 MoE is not a new idea — Jacobs et al. introduced it in 1991 — but it became practical for large-scale language modeling with Switch Transformer (2021) and has since become a dominant architecture for frontier models.
 
+## Visualization
+
+```chart
+{
+  "type": "bar",
+  "xAxis": "model",
+  "data": [
+    {"model": "Dense 7B", "total_params": 7, "active_params": 7},
+    {"model": "Dense 13B", "total_params": 13, "active_params": 13},
+    {"model": "Dense 70B", "total_params": 70, "active_params": 70},
+    {"model": "Mixtral 8×7B", "total_params": 47, "active_params": 13},
+    {"model": "Mixtral 8×22B", "total_params": 141, "active_params": 39},
+    {"model": "DeepSeek-V2", "total_params": 236, "active_params": 21},
+    {"model": "Grok-1", "total_params": 314, "active_params": 86}
+  ],
+  "lines": [
+    {"dataKey": "total_params", "stroke": "#ef4444", "name": "Total params (B)"},
+    {"dataKey": "active_params", "stroke": "#10b981", "name": "Active params per token (B)"}
+  ]
+}
+```
+
 ## Architecture
 
 In a transformer MoE, each standard FFN layer is replaced by an **MoE layer** consisting of:

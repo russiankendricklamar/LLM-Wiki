@@ -15,6 +15,33 @@ The formal study was revolutionized by Roger Penrose's conformal compactificatio
 
 Null infinity $\mathcal{I}^\pm$ is particularly important: it is the region reached by massless radiation (gravitational waves, photons) and is topologically $\mathbb{R} \times S^2$. The retarded time coordinate $u$ parametrizes $\mathcal{I}^+$, while advanced time $v$ parametrizes $\mathcal{I}^-$. All the physics of gravitational wave emission and the infrared structure of gravity is encoded in the behavior of fields near $\mathcal{I}^\pm$.
 
+## Visualization
+
+```chart
+{
+  "type": "line",
+  "xAxis": "u",
+  "data": [
+    {"u": -5.0, "M_B": 10.00},
+    {"u": -4.0, "M_B": 9.98},
+    {"u": -3.0, "M_B": 9.93},
+    {"u": -2.0, "M_B": 9.82},
+    {"u": -1.0, "M_B": 9.60},
+    {"u": 0.0,  "M_B": 9.20},
+    {"u": 1.0,  "M_B": 8.65},
+    {"u": 2.0,  "M_B": 8.05},
+    {"u": 3.0,  "M_B": 7.55},
+    {"u": 4.0,  "M_B": 7.20},
+    {"u": 5.0,  "M_B": 7.05},
+    {"u": 6.0,  "M_B": 7.01},
+    {"u": 7.0,  "M_B": 7.00}
+  ],
+  "lines": [
+    {"dataKey": "M_B", "stroke": "#3b82f6", "name": "Bondi mass M_B(u)"}
+  ]
+}
+```
+
 ## Mathematical Formulation
 A spacetime $(M, g)$ is asymptotically flat if there exists a conformal factor $\Omega$ such that $\tilde{g}_{\mu\nu} = \Omega^2 g_{\mu\nu}$ extends smoothly to the boundary $\mathcal{I}$ where $\Omega = 0$ and $d\Omega \neq 0$. In Bondi-Sachs coordinates $(u, r, z, \bar{z})$, the metric near $\mathcal{I}^+$ takes the asymptotic expansion:
 $$ ds^2 = -du^2 - 2\,du\,dr + r^2 \gamma_{z\bar{z}}\,dz\,d\bar{z} + \frac{2m_B}{r}du^2 + r C_{zz}\,dz^2 + r C_{\bar{z}\bar{z}}\,d\bar{z}^2 + \cdots $$

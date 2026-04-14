@@ -36,6 +36,32 @@ $$\mathcal{L}_{\text{data}} = \frac{1}{N_d}\sum_{k=1}^{N_d} \left|u_\theta(\math
 
 All PDE residuals are computed via automatic differentiation through $u_\theta$, so no finite-difference stencil is needed.
 
+## Visualization
+
+```chart
+{
+  "type": "line",
+  "xAxis": "x",
+  "data": [
+    {"x": 0.0, "PINN": 0.000, "Analytical": 0.000},
+    {"x": 0.1, "PINN": 0.294, "Analytical": 0.295},
+    {"x": 0.2, "PINN": 0.559, "Analytical": 0.559},
+    {"x": 0.3, "PINN": 0.770, "Analytical": 0.769},
+    {"x": 0.4, "PINN": 0.907, "Analytical": 0.906},
+    {"x": 0.5, "PINN": 0.965, "Analytical": 0.966},
+    {"x": 0.6, "PINN": 0.907, "Analytical": 0.906},
+    {"x": 0.7, "PINN": 0.771, "Analytical": 0.769},
+    {"x": 0.8, "PINN": 0.558, "Analytical": 0.559},
+    {"x": 0.9, "PINN": 0.294, "Analytical": 0.295},
+    {"x": 1.0, "PINN": 0.000, "Analytical": 0.000}
+  ],
+  "lines": [
+    {"dataKey": "PINN", "stroke": "#3b82f6", "name": "PINN solution u(x, t=0.1)"},
+    {"dataKey": "Analytical", "stroke": "#f59e0b", "name": "Analytical: sin(πx)·exp(−απ²t)"}
+  ]
+}
+```
+
 ## How It Works
 
 **Collocation sampling.** Residual points $\{(\mathbf{x}_i^r, t_i^r)\}$ are sampled randomly (or quasi-randomly via Latin hypercube, Sobol sequences) inside the domain. Dense near-boundary sampling often improves accuracy.

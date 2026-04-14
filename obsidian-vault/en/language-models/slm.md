@@ -18,6 +18,29 @@ A small language model occupies the regime below approximately 7 billion paramet
 
 The central question for SLMs is how to get as much capability as possible out of a small parameter budget. The answer involves rethinking the entire pipeline: what data the model trains on, how it is distilled from larger models, how attention is made efficient, and how weights are compressed.
 
+## Visualization
+
+```chart
+{
+  "type": "scatter",
+  "xAxis": "params_B",
+  "data": [
+    {"params_B": 0.5, "mmlu": 43.2, "model": "Phi-1.5"},
+    {"params_B": 1.3, "mmlu": 56.1, "model": "Phi-1"},
+    {"params_B": 2.7, "mmlu": 59.3, "model": "Phi-2"},
+    {"params_B": 3.8, "mmlu": 69.9, "model": "Phi-3-mini"},
+    {"params_B": 7, "mmlu": 68.4, "model": "Llama-3.2-7B"},
+    {"params_B": 7, "mmlu": 71.9, "model": "Mistral-7B"},
+    {"params_B": 7, "mmlu": 74.3, "model": "Qwen2.5-7B"},
+    {"params_B": 1.5, "mmlu": 66.5, "model": "Qwen2.5-1.5B"},
+    {"params_B": 3, "mmlu": 65.6, "model": "Gemma-2-2B"}
+  ],
+  "lines": [
+    {"dataKey": "mmlu", "stroke": "#10b981", "name": "MMLU score (%)"}
+  ]
+}
+```
+
 ## Architecture
 
 SLMs use the same decoder-only transformer backbone as LLMs but with architectural modifications that reduce memory and compute:

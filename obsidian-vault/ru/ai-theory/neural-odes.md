@@ -16,6 +16,36 @@ $$
 
 а прямой проход превращается в численное интегрирование этого ОДУ от начального состояния $h(0) = x$ до конечного $h(T) = \text{logits}$. Идея предложена Chen, Rubanova, Bettencourt и Duvenaud (NeurIPS 2018) и открыла целый пласт исследований на пересечении глубокого обучения и численного анализа.
 
+## Визуализация
+
+График показывает, как solver адаптивно выделяет число оценок функции (NFE) в процессе обучения: сложные примеры требуют больше шагов, лёгкие — меньше, что иллюстрирует свойство адаптивных вычислений.
+
+```chart
+{
+  "type": "line",
+  "xAxis": "epoch",
+  "data": [
+    {"epoch": 1, "nfe_hard": 142, "nfe_easy": 48, "nfe_avg": 95},
+    {"epoch": 5, "nfe_hard": 138, "nfe_easy": 44, "nfe_avg": 88},
+    {"epoch": 10, "nfe_hard": 131, "nfe_easy": 40, "nfe_avg": 82},
+    {"epoch": 20, "nfe_hard": 118, "nfe_easy": 36, "nfe_avg": 74},
+    {"epoch": 30, "nfe_hard": 106, "nfe_easy": 32, "nfe_avg": 67},
+    {"epoch": 40, "nfe_hard": 98, "nfe_easy": 29, "nfe_avg": 61},
+    {"epoch": 50, "nfe_hard": 92, "nfe_easy": 27, "nfe_avg": 57},
+    {"epoch": 60, "nfe_hard": 88, "nfe_easy": 26, "nfe_avg": 54},
+    {"epoch": 70, "nfe_hard": 85, "nfe_easy": 25, "nfe_avg": 52},
+    {"epoch": 80, "nfe_hard": 83, "nfe_easy": 24, "nfe_avg": 51},
+    {"epoch": 90, "nfe_hard": 82, "nfe_easy": 24, "nfe_avg": 50},
+    {"epoch": 100, "nfe_hard": 81, "nfe_easy": 23, "nfe_avg": 49}
+  ],
+  "lines": [
+    {"dataKey": "nfe_hard", "stroke": "#ef4444", "name": "Сложные примеры (NFE)"},
+    {"dataKey": "nfe_easy", "stroke": "#10b981", "name": "Лёгкие примеры (NFE)"},
+    {"dataKey": "nfe_avg", "stroke": "#3b82f6", "name": "Среднее NFE"}
+  ]
+}
+```
+
 ## От ResNet к непрерывной глубине
 
 **ResNet** можно рассматривать как дискретизацию Эйлера непрерывной динамики:

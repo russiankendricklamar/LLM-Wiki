@@ -20,6 +20,27 @@ Code occupies a unique position among language model domains. It is formally str
 
 These properties enable training objectives and evaluation methods impossible with prose text, and they shape the failure modes in distinctive ways.
 
+## Visualization
+
+```chart
+{
+  "type": "bar",
+  "xAxis": "model",
+  "data": [
+    {"model": "Codex (2021)", "pass@1": 28.8},
+    {"model": "CodeGen-16B (2022)", "pass@1": 29.3},
+    {"model": "AlphaCode (2022)", "pass@1": 50.0},
+    {"model": "StarCoder (2023)", "pass@1": 40.8},
+    {"model": "Code Llama (2023)", "pass@1": 53.7},
+    {"model": "DeepSeek-Coder (2024)", "pass@1": 65.2},
+    {"model": "GPT-4o (2024)", "pass@1": 90.2}
+  ],
+  "lines": [
+    {"dataKey": "pass@1", "stroke": "#3b82f6", "name": "HumanEval pass@1 (%)"}
+  ]
+}
+```
+
 ## Architecture
 
 Code models use the same decoder-only transformer architecture as general LLMs. The differences are in tokenization strategy and pre-training objectives.

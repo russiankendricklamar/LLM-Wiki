@@ -20,6 +20,28 @@ slug: "mixture-of-experts"
 
 MoE — не новая идея: Jacobs et al. ввели её в 1991 году, — но она стала практичной для крупномасштабного языкового моделирования со Switch Transformer (2021) и с тех пор стала доминирующей архитектурой во фронтирных моделях.
 
+## Визуализация
+
+```chart
+{
+  "type": "bar",
+  "xAxis": "model",
+  "data": [
+    {"model": "Dense 7B", "total_params": 7, "active_params": 7},
+    {"model": "Dense 13B", "total_params": 13, "active_params": 13},
+    {"model": "Dense 70B", "total_params": 70, "active_params": 70},
+    {"model": "Mixtral 8×7B", "total_params": 47, "active_params": 13},
+    {"model": "Mixtral 8×22B", "total_params": 141, "active_params": 39},
+    {"model": "DeepSeek-V2", "total_params": 236, "active_params": 21},
+    {"model": "Grok-1", "total_params": 314, "active_params": 86}
+  ],
+  "lines": [
+    {"dataKey": "total_params", "stroke": "#ef4444", "name": "Total params (B)"},
+    {"dataKey": "active_params", "stroke": "#10b981", "name": "Active params per token (B)"}
+  ]
+}
+```
+
 ## Архитектура
 
 В трансформере MoE каждый стандартный FFN-слой заменяется **MoE-слоем**, состоящим из:

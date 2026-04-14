@@ -8,6 +8,33 @@ slug: "hamiltonian-mechanics"
 
 # Hamiltonian Mechanics
 
+## Visualization
+
+```chart
+{
+  "type": "line",
+  "xAxis": "t",
+  "data": [
+    {"t": 0.0, "q": 1.0, "p": 0.0, "H": 0.5},
+    {"t": 0.6, "q": 0.83, "p": -0.56, "H": 0.5},
+    {"t": 1.2, "q": 0.36, "p": -0.93, "H": 0.5},
+    {"t": 1.9, "q": -0.24, "p": -0.97, "H": 0.5},
+    {"t": 2.5, "q": -0.73, "p": -0.68, "H": 0.5},
+    {"t": 3.1, "q": -1.00, "p": 0.0, "H": 0.5},
+    {"t": 3.7, "q": -0.83, "p": 0.56, "H": 0.5},
+    {"t": 4.4, "q": -0.36, "p": 0.93, "H": 0.5},
+    {"t": 5.0, "q": 0.24, "p": 0.97, "H": 0.5},
+    {"t": 5.6, "q": 0.73, "p": 0.68, "H": 0.5},
+    {"t": 6.3, "q": 1.0, "p": 0.0, "H": 0.5}
+  ],
+  "lines": [
+    {"dataKey": "q", "stroke": "#3b82f6", "name": "Position q(t)"},
+    {"dataKey": "p", "stroke": "#ef4444", "name": "Momentum p(t)"},
+    {"dataKey": "H", "stroke": "#10b981", "name": "Energy H (conserved)"}
+  ]
+}
+```
+
 **Hamiltonian mechanics** is a reformulation of classical mechanics in which the evolution of a system is described by a single scalar function — the **Hamiltonian** $H(q, p, t)$ — and a pair of symmetric first-order equations. Developed by Hamilton in the 1830s as a reinterpretation of Lagrangian mechanics, it has become the geometric language of classical physics, from which Liouville's theorem, perturbation theory, quantisation, and modern numerical integrators all naturally emerge.
 
 ## Phase space

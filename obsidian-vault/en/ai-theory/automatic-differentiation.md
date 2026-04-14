@@ -10,6 +10,35 @@ slug: "automatic-differentiation"
 
 **Automatic differentiation (AD, autodiff)** is a family of techniques for computing exact derivatives of an arbitrary program at essentially the same cost as evaluating the function itself. Unlike numerical differentiation (finite differences, $O(\epsilon)$ error) and symbolic differentiation (formula blowup), AD works on the computational graph and yields machine-precision gradients. It is the foundation of modern deep learning: without AD there would be no backpropagation, no PyTorch, no PINNs.
 
+## Visualization
+
+```chart
+{
+  "type": "line",
+  "xAxis": "outputs_m",
+  "data": [
+    {"outputs_m": 1, "forward_passes": 10, "reverse_passes": 1},
+    {"outputs_m": 2, "forward_passes": 10, "reverse_passes": 2},
+    {"outputs_m": 3, "forward_passes": 10, "reverse_passes": 3},
+    {"outputs_m": 4, "forward_passes": 10, "reverse_passes": 4},
+    {"outputs_m": 5, "forward_passes": 10, "reverse_passes": 5},
+    {"outputs_m": 6, "forward_passes": 10, "reverse_passes": 6},
+    {"outputs_m": 7, "forward_passes": 10, "reverse_passes": 7},
+    {"outputs_m": 8, "forward_passes": 10, "reverse_passes": 8},
+    {"outputs_m": 9, "forward_passes": 10, "reverse_passes": 9},
+    {"outputs_m": 10, "forward_passes": 10, "reverse_passes": 10},
+    {"outputs_m": 11, "forward_passes": 10, "reverse_passes": 11},
+    {"outputs_m": 12, "forward_passes": 10, "reverse_passes": 12}
+  ],
+  "lines": [
+    {"dataKey": "forward_passes", "stroke": "#3b82f6", "name": "Forward-mode passes (n=10 inputs)"},
+    {"dataKey": "reverse_passes", "stroke": "#ef4444", "name": "Reverse-mode passes (1 per output)"}
+  ]
+}
+```
+
+*Forward mode requires one pass per input; reverse mode requires one pass per output. With 10 inputs, forward mode needs 10 passes regardless of output count — reverse mode wins when outputs &lt; inputs.*
+
 ## The idea: function as a computational graph
 
 Any software function $f: \mathbb{R}^n \to \mathbb{R}^m$ can be decomposed into a composition of elementary operations $+, -, \times, /, \sin, \exp, \log, \dots$. This decomposition forms a **directed acyclic graph (DAG)**: nodes are intermediate values, edges are elementary operations.

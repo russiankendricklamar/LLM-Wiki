@@ -22,6 +22,27 @@ slug: "llm-financial-analysis"
 
 Данная статья рассматривает техническое обеспечение для развёртывания LLM в количественных финансовых рабочих процессах: специализированные доменные модели, RAG по архивам SEC, структурированный вывод в формате JSON для построения торговых сигналов, использование инструментов для работы с живыми данными и строгую оценку на финансовых бенчмарках.
 
+## Визуализация
+
+```chart
+{
+  "type": "bar",
+  "xAxis": "model",
+  "data": [
+    {"model": "Gen. BERT", "FinQA": 28, "Sentiment": 75},
+    {"model": "FinBERT", "FinQA": 31, "Sentiment": 88},
+    {"model": "BloombergGPT", "FinQA": 43, "Sentiment": 82},
+    {"model": "GPT-4 (no RAG)", "FinQA": 61, "Sentiment": 84},
+    {"model": "GPT-4 + RAG", "FinQA": 68, "Sentiment": 84},
+    {"model": "Claude 3.7 CoT", "FinQA": 71, "Sentiment": 85}
+  ],
+  "lines": [
+    {"dataKey": "FinQA", "stroke": "#3b82f6", "name": "FinQA Accuracy %"},
+    {"dataKey": "Sentiment", "stroke": "#10b981", "name": "Sentiment Accuracy %"}
+  ]
+}
+```
+
 ## Математический формализм
 
 ### Извлечение информации как условная генерация

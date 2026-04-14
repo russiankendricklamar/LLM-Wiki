@@ -9,6 +9,38 @@ slug: "ornstein-uhlenbeck-process"
 
 The **Ornstein-Uhlenbeck (OU) process** is a stochastic process that describes the velocity of a massive Brownian particle under the influence of friction. In finance, it is the standard model for **mean-reverting** behavior in spreads, interest rates, and volatility.
 
+## Visualization
+
+A simulated OU path ($\theta=2.0$, $\mu=0.5$, $\sigma=0.3$, $X_0=1.5$) illustrating mean reversion: large deviations are pulled back toward $\mu=0.5$ exponentially, with a half-life of $\approx 0.35$ years. The stationary band $\mu \pm \sigma_\infty$ contains roughly 68% of the probability mass.
+
+```chart
+{
+  "type": "line",
+  "xAxis": "t",
+  "data": [
+    {"t": "0.00", "X": 1.50, "mean": 0.50},
+    {"t": "0.10", "X": 1.31, "mean": 0.50},
+    {"t": "0.20", "X": 1.05, "mean": 0.50},
+    {"t": "0.30", "X": 0.92, "mean": 0.50},
+    {"t": "0.40", "X": 0.78, "mean": 0.50},
+    {"t": "0.50", "X": 0.63, "mean": 0.50},
+    {"t": "0.60", "X": 0.71, "mean": 0.50},
+    {"t": "0.70", "X": 0.44, "mean": 0.50},
+    {"t": "0.80", "X": 0.38, "mean": 0.50},
+    {"t": "0.90", "X": 0.55, "mean": 0.50},
+    {"t": "1.00", "X": 0.62, "mean": 0.50},
+    {"t": "1.10", "X": 0.49, "mean": 0.50},
+    {"t": "1.20", "X": 0.53, "mean": 0.50},
+    {"t": "1.30", "X": 0.41, "mean": 0.50},
+    {"t": "1.40", "X": 0.58, "mean": 0.50}
+  ],
+  "lines": [
+    {"dataKey": "X", "stroke": "#3b82f6", "name": "OU path X(t)"},
+    {"dataKey": "mean", "stroke": "#ef4444", "name": "Long-run mean μ"}
+  ]
+}
+```
+
 ## Background and History
 
 The OU process was introduced by Leonard Ornstein and George Uhlenbeck in 1930 to model the velocity of a Brownian particle subject to friction — the first mathematically rigorous model of a stationary Gaussian process. Its application to interest rate modeling was pioneered by Oldrich Vasicek (1977), who proposed an identical SDE for the short rate, producing the first analytically tractable term structure model.

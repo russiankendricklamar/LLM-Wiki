@@ -19,6 +19,28 @@ For decades the BMS group was regarded as an anomaly requiring gauge-fixing. The
 
 Extensions of the BMS group to include superrotations — infinite-dimensional generalizations of Lorentz transformations corresponding to arbitrary conformal transformations on the celestial sphere — further enlarge the symmetry to the full Virasoro $\times$ Virasoro algebra, connecting the BMS group to 2D conformal field theory and providing the kinematic foundation for [[celestial-holography]].
 
+## Visualization
+
+```chart
+{
+  "type": "bar",
+  "xAxis": "harmonic",
+  "data": [
+    {"harmonic": "ℓ=0 (time transl.)", "power": 0.0},
+    {"harmonic": "ℓ=1 (space transl.)", "power": 0.0},
+    {"harmonic": "ℓ=2", "power": 5.8},
+    {"harmonic": "ℓ=3", "power": 3.9},
+    {"harmonic": "ℓ=4", "power": 2.6},
+    {"harmonic": "ℓ=5", "power": 1.7},
+    {"harmonic": "ℓ=6", "power": 1.1},
+    {"harmonic": "ℓ=7", "power": 0.7}
+  ],
+  "lines": [
+    {"dataKey": "power", "stroke": "#10b981", "name": "Radiated power per supertranslation mode (arb. units)"}
+  ]
+}
+```
+
 ## Mathematical Formulation
 The BMS group is the semi-direct product of the Lorentz group (or its Virasoro extension) with the abelian group of supertranslations $\mathcal{S}$:
 $$ G_{\rm BMS} = \text{Lorentz} \ltimes \mathcal{S} $$

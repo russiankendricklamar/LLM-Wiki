@@ -10,6 +10,34 @@ slug: "graph-neural-networks"
 
 **Graph Neural Networks (GNN)** are a family of architectures that operate on graphs: nodes connected by edges. Unlike convolutions on regular grids (CNN) or sequences (RNN), GNNs generalise the idea of **message passing** to arbitrary relational structure. This generality makes GNNs a natural language for molecules, social networks, citation networks, transport networks, and credit exposures — anything most easily described as a graph.
 
+## Visualization
+
+```chart
+{
+  "type": "line",
+  "xAxis": "layers",
+  "data": [
+    {"layers": 1, "GCN": 72, "GAT": 74, "GraphSAGE": 71},
+    {"layers": 2, "GCN": 81, "GAT": 83, "GraphSAGE": 80},
+    {"layers": 3, "GCN": 80, "GAT": 82, "GraphSAGE": 80},
+    {"layers": 4, "GCN": 76, "GAT": 78, "GraphSAGE": 78},
+    {"layers": 5, "GCN": 70, "GAT": 73, "GraphSAGE": 75},
+    {"layers": 6, "GCN": 62, "GAT": 65, "GraphSAGE": 71},
+    {"layers": 7, "GCN": 54, "GAT": 57, "GraphSAGE": 66},
+    {"layers": 8, "GCN": 47, "GAT": 50, "GraphSAGE": 61},
+    {"layers": 9, "GCN": 41, "GAT": 44, "GraphSAGE": 57},
+    {"layers": 10, "GCN": 36, "GAT": 39, "GraphSAGE": 53}
+  ],
+  "lines": [
+    {"dataKey": "GCN", "stroke": "#3b82f6", "name": "GCN accuracy (%)"},
+    {"dataKey": "GAT", "stroke": "#8b5cf6", "name": "GAT accuracy (%)"},
+    {"dataKey": "GraphSAGE", "stroke": "#10b981", "name": "GraphSAGE accuracy (%)"}
+  ]
+}
+```
+
+*Node classification accuracy on Cora vs. GNN depth. All architectures peak at 2 layers then degrade — the over-smoothing effect: deeper networks collapse node representations toward a single vector.*
+
 ## Formulation and Notation
 
 A graph is a tuple $G = (\mathcal{V}, \mathcal{E})$, where:

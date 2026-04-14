@@ -19,6 +19,33 @@ The central idea is that the 4D S-matrix, which encodes all scattering processes
 
 Unlike AdS/CFT, where the dictionary is well-understood and the boundary theory is often an ordinary QFT, the celestial CFT is exotic: it is non-unitary (because Lorentz boosts are non-compact), its operator spectrum includes a continuous series of conformal dimensions, and the stress tensor and current algebras have unusual properties. Nevertheless, the framework has yielded concrete results: soft theorems become Ward identities, collinear limits become OPEs, and loop corrections produce Kac-Moody and w-algebra structures.
 
+## Visualization
+
+```chart
+{
+  "type": "line",
+  "xAxis": "lambda",
+  "data": [
+    {"lambda": -3.0, "amplitude": 0.05},
+    {"lambda": -2.5, "amplitude": 0.12},
+    {"lambda": -2.0, "amplitude": 0.28},
+    {"lambda": -1.5, "amplitude": 0.55},
+    {"lambda": -1.0, "amplitude": 0.88},
+    {"lambda": -0.5, "amplitude": 1.00},
+    {"lambda": 0.0,  "amplitude": 0.88},
+    {"lambda": 0.5,  "amplitude": 0.55},
+    {"lambda": 1.0,  "amplitude": 0.28},
+    {"lambda": 1.5,  "amplitude": 0.12},
+    {"lambda": 2.0,  "amplitude": 0.05},
+    {"lambda": 2.5,  "amplitude": 0.02},
+    {"lambda": 3.0,  "amplitude": 0.01}
+  ],
+  "lines": [
+    {"dataKey": "amplitude", "stroke": "#8b5cf6", "name": "Celestial amplitude |M̃(1+iλ)| vs conformal dimension λ"}
+  ]
+}
+```
+
 ## Mathematical Formulation
 The core of the celestial dictionary is the Mellin transform, which maps the energy $\omega$ of a bulk particle to the conformal dimension $\Delta$ of a celestial operator:
 $$ \widetilde{\mathcal{M}}(\Delta_i, z_i, \bar{z}_i) = \prod_i \int_0^\infty d\omega_i\, \omega_i^{\Delta_i - 1} \mathcal{M}(\omega_i, z_i, \bar{z}_i) $$

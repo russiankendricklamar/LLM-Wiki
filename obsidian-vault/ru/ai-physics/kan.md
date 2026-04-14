@@ -18,6 +18,28 @@ slug: "kan"
 
 KAN привлекли широкое внимание, поскольку предложили путь к _нейронным сетям, открывающим математические формулы_ — давней цели научного машинного обучения. Архитектура тесно связана с теорией аппроксимации функций.
 
+## Визуализация
+
+```chart
+{
+  "type": "bar",
+  "xAxis": "task",
+  "data": [
+    {"task": "f = sin(πx)+y²", "KAN_params": 85, "MLP_params": 320},
+    {"task": "f = exp(x)·cos(y)", "KAN_params": 110, "MLP_params": 480},
+    {"task": "Feynman I.12.1", "KAN_params": 140, "MLP_params": 560},
+    {"task": "Feynman I.34.8", "KAN_params": 165, "MLP_params": 640},
+    {"task": "Feynman II.11.3", "KAN_params": 195, "MLP_params": 720},
+    {"task": "Heat equation", "KAN_params": 230, "MLP_params": 890},
+    {"task": "Wave equation", "KAN_params": 275, "MLP_params": 1050}
+  ],
+  "lines": [
+    {"dataKey": "KAN_params", "stroke": "#8b5cf6", "name": "Параметры KAN"},
+    {"dataKey": "MLP_params", "stroke": "#ef4444", "name": "Параметры MLP (та же точность)"}
+  ]
+}
+```
+
 ## Математическая основа
 
 **Теорема Колмогорова-Арнольда (1957).** Любую непрерывную многомерную функцию $f: [0,1]^n \to \mathbb{R}$ можно записать как:

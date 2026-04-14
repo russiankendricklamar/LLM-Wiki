@@ -18,6 +18,32 @@ Equivariant neural networks encode symmetry constraints directly into their arch
 
 This is in contrast to data augmentation, which teaches a network to be approximately invariant by showing many rotated copies of training examples. Equivariance provides an exact, built-in guarantee. The practical payoff is dramatic: equivariant networks achieve state-of-the-art results on molecular property prediction, protein structure, and particle physics tasks with orders of magnitude fewer parameters and training examples than non-equivariant baselines.
 
+## Visualization
+
+```chart
+{
+  "type": "line",
+  "xAxis": "training_samples",
+  "data": [
+    {"training_samples": 10, "NequIP": 0.52, "SchNet": 0.91, "MLP": 0.95},
+    {"training_samples": 25, "NequIP": 0.31, "SchNet": 0.74, "MLP": 0.89},
+    {"training_samples": 50, "NequIP": 0.18, "SchNet": 0.58, "MLP": 0.79},
+    {"training_samples": 100, "NequIP": 0.09, "SchNet": 0.42, "MLP": 0.67},
+    {"training_samples": 250, "NequIP": 0.04, "SchNet": 0.27, "MLP": 0.51},
+    {"training_samples": 500, "NequIP": 0.02, "SchNet": 0.16, "MLP": 0.38},
+    {"training_samples": 1000, "NequIP": 0.01, "SchNet": 0.09, "MLP": 0.25},
+    {"training_samples": 2500, "NequIP": 0.008, "SchNet": 0.05, "MLP": 0.15},
+    {"training_samples": 5000, "NequIP": 0.006, "SchNet": 0.03, "MLP": 0.09},
+    {"training_samples": 10000, "NequIP": 0.005, "SchNet": 0.018, "MLP": 0.05}
+  ],
+  "lines": [
+    {"dataKey": "NequIP", "stroke": "#3b82f6", "name": "NequIP (E3-equivariant)"},
+    {"dataKey": "SchNet", "stroke": "#10b981", "name": "SchNet (invariant)"},
+    {"dataKey": "MLP", "stroke": "#ef4444", "name": "Plain MLP"}
+  ]
+}
+```
+
 ## Mathematical Framework
 
 Let $G$ be a group and $\rho_{\text{in}}: G \to GL(V_{\text{in}})$, $\rho_{\text{out}}: G \to GL(V_{\text{out}})$ be linear representations. A map $f: V_{\text{in}} \to V_{\text{out}}$ is **$G$-equivariant** if:

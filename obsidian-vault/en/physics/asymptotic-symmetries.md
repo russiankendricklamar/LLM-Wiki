@@ -15,6 +15,27 @@ The discovery of asymptotic symmetries in gravity dates to Bondi, van der Burg, 
 
 The modern renaissance, driven by work of Strominger, Campiglia, Laddha, and others, has extended asymptotic symmetries to include superrotations (infinite-dimensional extensions of Lorentz transformations), w-algebra symmetries, and higher-spin generalizations. Each new symmetry comes with associated conserved charges, soft theorems, and memory effects, building out the full infrared structure of gauge theories and gravity.
 
+## Visualization
+
+```chart
+{
+  "type": "bar",
+  "xAxis": "mode",
+  "data": [
+    {"mode": "ℓ=0", "charge": 8.2},
+    {"mode": "ℓ=1", "charge": 6.5},
+    {"mode": "ℓ=2", "charge": 4.8},
+    {"mode": "ℓ=3", "charge": 3.1},
+    {"mode": "ℓ=4", "charge": 2.0},
+    {"mode": "ℓ=5", "charge": 1.2},
+    {"mode": "ℓ=6", "charge": 0.7}
+  ],
+  "lines": [
+    {"dataKey": "charge", "stroke": "#8b5cf6", "name": "Supertranslation charge Q_f (arb. units)"}
+  ]
+}
+```
+
 ## Mathematical Formulation
 An asymptotic symmetry is a diffeomorphism $\xi^\mu$ that preserves the asymptotic form of the metric. In Bondi-Sachs gauge, the falloff conditions near $\mathcal{I}^+$ require:
 $$ \mathcal{L}_\xi g_{\mu\nu} = \mathcal{O}(\text{prescribed falloff rates}) $$

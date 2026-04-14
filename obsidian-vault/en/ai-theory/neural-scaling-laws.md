@@ -18,6 +18,34 @@ Neural scaling laws are empirical and theoretical relationships describing how m
 
 The central finding is surprisingly clean: for autoregressive language models, test loss decreases as a power law in $N$, $D$, and $C$ over many orders of magnitude. This predictability has made scaling laws the foundation of "scaling as a strategy" — the bet that more compute reliably produces better AI.
 
+## Visualization
+
+The chart below shows how cross-entropy loss decreases as a power law with compute (FLOPs), comparing the Kaplan et al. (2020) and Chinchilla (2022) optimal training frontiers.
+
+```chart
+{
+  "type": "line",
+  "xAxis": "log10_flops",
+  "data": [
+    {"log10_flops": 18, "kaplan_loss": 3.92, "chinchilla_loss": 3.85},
+    {"log10_flops": 19, "kaplan_loss": 3.65, "chinchilla_loss": 3.52},
+    {"log10_flops": 20, "kaplan_loss": 3.42, "chinchilla_loss": 3.24},
+    {"log10_flops": 21, "kaplan_loss": 3.21, "chinchilla_loss": 2.99},
+    {"log10_flops": 22, "kaplan_loss": 3.03, "chinchilla_loss": 2.77},
+    {"log10_flops": 23, "kaplan_loss": 2.88, "chinchilla_loss": 2.58},
+    {"log10_flops": 24, "kaplan_loss": 2.75, "chinchilla_loss": 2.42},
+    {"log10_flops": 25, "kaplan_loss": 2.64, "chinchilla_loss": 2.28},
+    {"log10_flops": 26, "kaplan_loss": 2.55, "chinchilla_loss": 2.16},
+    {"log10_flops": 27, "kaplan_loss": 2.47, "chinchilla_loss": 2.06},
+    {"log10_flops": 28, "kaplan_loss": 2.40, "chinchilla_loss": 1.97}
+  ],
+  "lines": [
+    {"dataKey": "kaplan_loss", "stroke": "#ef4444", "name": "Kaplan 2020 (undertrained)"},
+    {"dataKey": "chinchilla_loss", "stroke": "#3b82f6", "name": "Chinchilla 2022 (compute-optimal)"}
+  ]
+}
+```
+
 ## Mathematical Framework
 
 **Kaplan et al. (2020) scaling laws.** Holding other factors fixed:

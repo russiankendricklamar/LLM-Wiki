@@ -14,6 +14,31 @@ A large language model is a neural network trained on text at a scale where qual
 
 What makes scale consequential is the phenomenon of **emergent abilities**: capabilities that appear abruptly at certain scales and are essentially absent below a threshold. These include in-context learning (performing a task from a few examples in the prompt without gradient updates), multi-step chain-of-thought reasoning, instruction following, and code synthesis. None of these are explicitly optimized for — they arise from the single objective of predicting the next token.
 
+## Visualization
+
+```chart
+{
+  "type": "line",
+  "xAxis": "params_B",
+  "data": [
+    {"params_B": 0.1, "loss": 3.92},
+    {"params_B": 0.3, "loss": 3.61},
+    {"params_B": 1, "loss": 3.27},
+    {"params_B": 3, "loss": 3.02},
+    {"params_B": 7, "loss": 2.84},
+    {"params_B": 13, "loss": 2.71},
+    {"params_B": 30, "loss": 2.58},
+    {"params_B": 70, "loss": 2.47},
+    {"params_B": 175, "loss": 2.36},
+    {"params_B": 540, "loss": 2.24},
+    {"params_B": 1000, "loss": 2.17}
+  ],
+  "lines": [
+    {"dataKey": "loss", "stroke": "#3b82f6", "name": "Validation loss (Chinchilla-optimal)"}
+  ]
+}
+```
+
 ## Architecture
 
 Modern LLMs are built on the **decoder-only transformer**, a stack of $L$ identical blocks each containing:

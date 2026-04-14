@@ -12,6 +12,28 @@ lang: "en"
 
 [[alpha-factor-discovery]]
 
+## Visualization
+
+```chart
+{
+  "type": "bar",
+  "xAxis": "threshold",
+  "data": [
+    {"threshold": "No filter", "precision": 0.51, "recall": 0.98, "f1": 0.67},
+    {"threshold": "τ = 0.50",  "precision": 0.54, "recall": 0.91, "f1": 0.68},
+    {"threshold": "τ = 0.55",  "precision": 0.61, "recall": 0.82, "f1": 0.70},
+    {"threshold": "τ = 0.60",  "precision": 0.68, "recall": 0.71, "f1": 0.70},
+    {"threshold": "τ = 0.65",  "precision": 0.74, "recall": 0.60, "f1": 0.66},
+    {"threshold": "τ = 0.70",  "precision": 0.81, "recall": 0.46, "f1": 0.59}
+  ],
+  "lines": [
+    {"dataKey": "precision", "stroke": "#3b82f6", "name": "Precision"},
+    {"dataKey": "recall",    "stroke": "#ef4444", "name": "Recall"},
+    {"dataKey": "f1",        "stroke": "#10b981", "name": "F1 Score"}
+  ]
+}
+```
+
 ## Background and Motivation
 
 Traditional supervised learning in finance combines direction prediction and position sizing into a single model. This conflation creates problems: a model optimized for directional accuracy may generate many small, correct predictions alongside a few large, wrong ones that dominate the P&L. Lopez de Prado introduced meta-labeling in "Advances in Financial Machine Learning" (2018) to address this by separating the two concerns.

@@ -12,6 +12,32 @@ slug: memory-effects
 
 [[gravitational-memory]], [[soft-theorems]]
 
+## Visualization
+
+```chart
+{
+  "type": "line",
+  "xAxis": "t",
+  "data": [
+    {"t": -5, "E_rad": 0.0, "delta_v": 0.0},
+    {"t": -4, "E_rad": 0.02, "delta_v": 0.01},
+    {"t": -3, "E_rad": 0.08, "delta_v": 0.04},
+    {"t": -2, "E_rad": 0.25, "delta_v": 0.14},
+    {"t": -1, "E_rad": 0.60, "delta_v": 0.37},
+    {"t": 0,  "E_rad": 1.00, "delta_v": 0.62},
+    {"t": 1,  "E_rad": 0.60, "delta_v": 0.87},
+    {"t": 2,  "E_rad": 0.25, "delta_v": 0.97},
+    {"t": 3,  "E_rad": 0.08, "delta_v": 1.00},
+    {"t": 4,  "E_rad": 0.02, "delta_v": 1.00},
+    {"t": 5,  "E_rad": 0.0,  "delta_v": 1.00}
+  ],
+  "lines": [
+    {"dataKey": "E_rad", "stroke": "#f59e0b", "name": "Radiation flux F(t)"},
+    {"dataKey": "delta_v", "stroke": "#3b82f6", "name": "Cumulative velocity kick Δv (memory)"}
+  ]
+}
+```
+
 ## Theoretical Foundation
 Memory effects refer to the permanent changes in the state of a detector or the geometry of spacetime after the passage of a radiation burst. These are infrared phenomena, occurring at zero frequency, and represent genuine physical transitions between distinct vacuum states of the theory. While [[gravitational-memory]] is the most famous, there exist analogous effects in all gauge theories: electromagnetic memory (a permanent velocity kick to charged particles), color memory in QCD (a permanent rotation in color space), and even a proposed supertranslation memory in superstring theory.
 

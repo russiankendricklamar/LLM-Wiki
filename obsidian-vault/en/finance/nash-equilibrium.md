@@ -8,6 +8,25 @@ lang: "en"
 
 **Nash Equilibrium** is a fundamental concept in game theory where no player can benefit by changing their strategy while the other players keep theirs unchanged. It represents a state of stability in a non-cooperative game.
 
+## Visualization
+
+```chart
+{
+  "type": "bar",
+  "xAxis": "strategy",
+  "data": [
+    {"strategy": "(C, C)", "Player1": -1, "Player2": -1},
+    {"strategy": "(C, D)", "Player1": -3, "Player2":  0},
+    {"strategy": "(D, C)", "Player1":  0, "Player2": -3},
+    {"strategy": "(D, D)", "Player1": -2, "Player2": -2}
+  ],
+  "lines": [
+    {"dataKey": "Player1", "stroke": "#3b82f6", "name": "Player 1 Payoff"},
+    {"dataKey": "Player2", "stroke": "#ef4444", "name": "Player 2 Payoff"}
+  ]
+}
+```
+
 ## Background and History
 
 John Nash proved in his 1950 doctoral dissertation that every finite game has at least one equilibrium in mixed strategies — a result that earned him the Nobel Memorial Prize in Economic Sciences in 1994. Prior work by von Neumann and Morgenstern (1944) had established the minimax theorem for zero-sum games, but Nash's contribution extended equilibrium analysis to the far richer class of non-zero-sum games.
