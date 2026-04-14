@@ -12,3 +12,5 @@ coverage/
 !public/
 !public/projects/*.png
 !public/projects/*.jpg
+.vercel
+.env*.local
