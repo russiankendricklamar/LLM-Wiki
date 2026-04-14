@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, ArrowRight, FolderGit2, BookOpen, UserCircle2 } from 'lucide-react';
@@ -39,41 +39,53 @@ const COPY = {
   },
 };
 
-// Direction-aware slide animation for the featured carousel
-const slideVariants = {
+const AUTO_ADVANCE_MS = 4500;
+
+// Cinematic crossfade + zoom — no horizontal slide
+const imageVariants = {
+  enter: { opacity: 0, scale: 1.07 },
+  center: { opacity: 1, scale: 1 },
+  exit: { opacity: 0, scale: 0.97 },
+};
+
+// Text reveals from below on advance, from above on back
+const textVariants = {
   enter: (direction: number) => ({
-    x: direction > 0 ? 80 : -80,
+    y: direction > 0 ? 18 : -18,
     opacity: 0,
-    scale: 0.96,
   }),
-  center: {
-    x: 0,
-    opacity: 1,
-    scale: 1,
-  },
+  center: { y: 0, opacity: 1 },
   exit: (direction: number) => ({
-    x: direction > 0 ? -80 : 80,
+    y: direction > 0 ? -18 : 18,
     opacity: 0,
-    scale: 0.98,
   }),
 };
 
 export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
   const copy = COPY[lang];
   const featured = getFeaturedItems(lang);
-  // [index, direction] — direction tracks last navigation for slide animation
   const [[index, direction], setState] = useState<[number, number]>([0, 1]);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const hasFeatured = featured.length > 0;
   const n = featured.length;
+  const hasFeatured = n > 0;
   const safeIndex = hasFeatured ? ((index % n) + n) % n : 0;
   const current = hasFeatured ? featured[safeIndex] : null;
 
-  const paginate = (dir: number) => setState([index + dir, dir]);
+  const paginate = useCallback((dir: number) => {
+    setState(([prev]) => [prev + dir, dir]);
+  }, []);
+
+  // Auto-advance — resets whenever slide changes or pause state changes
+  useEffect(() => {
+    if (isPaused || !hasFeatured) return;
+    const id = setInterval(() => paginate(1), AUTO_ADVANCE_MS);
+    return () => clearInterval(id);
+  }, [isPaused, hasFeatured, safeIndex, paginate]);
 
   return (
     <div className="relative h-[calc(100vh-3.5rem)] w-full overflow-hidden bg-zinc-950 text-zinc-50">
-      {/* Background image — drop /hero-bg.jpg in public/ to swap */}
+      {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -81,9 +93,7 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
             "linear-gradient(115deg, rgba(10,12,16,0.92) 0%, rgba(10,12,16,0.55) 45%, rgba(10,12,16,0.25) 70%, rgba(10,12,16,0.85) 100%), url('/hero-bg.jpg')",
         }}
       />
-      {/* Fallback gradient layer (shows through if image missing) */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_30%_40%,rgba(30,58,138,0.35),transparent_60%),radial-gradient(ellipse_at_80%_80%,rgba(16,185,129,0.12),transparent_55%),linear-gradient(180deg,#050608_0%,#0a0c10_100%)]" />
-      {/* Grain overlay */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay"
         style={{
@@ -93,7 +103,8 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
       />
 
       <div className="relative z-10 grid h-full grid-cols-1 gap-8 px-6 pb-10 pt-8 sm:px-10 lg:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)] lg:gap-10 lg:px-14 lg:pt-12 xl:gap-14 xl:px-20">
-        {/* LEFT — personal intro column. min-w-0 + min-h-0 prevents grid item from overflowing. */}
+
+        {/* LEFT — personal intro */}
         <div className="flex min-w-0 min-h-0 flex-col justify-between">
           <div className="flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] text-zinc-400">
             <UserCircle2 className="h-3.5 w-3.5 shrink-0" />
@@ -129,7 +140,6 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
             </motion.div>
           </div>
 
-          {/* CTA row: About me (primary) + Projects + Knowledge base */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -163,15 +173,17 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
           </motion.div>
         </div>
 
-        {/* RIGHT — featured card */}
+        {/* RIGHT — featured carousel */}
         {hasFeatured && current && (
           <motion.aside
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
             className="flex h-full min-h-0 min-w-0 flex-col rounded-[32px] border border-white/10 bg-black/55 p-5 backdrop-blur-xl lg:p-6"
           >
-            {/* Header: eyebrow + arrows */}
+            {/* Header: eyebrow + progress + arrows */}
             <div className="flex items-start justify-between gap-4">
               <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-400 leading-snug">
                 <div>{copy.featuredEyebrow}</div>
@@ -195,20 +207,34 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
               </div>
             </div>
 
-            {/* Image area — fills available vertical space */}
+            {/* Progress bar — key resets the animation on every slide change */}
+            <div className="mt-3 h-px w-full overflow-hidden rounded-full bg-white/10">
+              <motion.div
+                key={`progress-${safeIndex}-${isPaused}`}
+                className="h-full origin-left bg-white/50"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: isPaused ? 0 : 1 }}
+                transition={
+                  isPaused
+                    ? { duration: 0 }
+                    : { duration: AUTO_ADVANCE_MS / 1000, ease: 'linear' }
+                }
+              />
+            </div>
+
+            {/* Image area */}
             <div className="relative mt-4 flex-1 min-h-0 overflow-hidden rounded-[24px]">
               <AnimatePresence mode="wait" custom={direction} initial={false}>
                 <motion.div
                   key={current.metadata.slug}
                   custom={direction}
-                  variants={slideVariants}
+                  variants={imageVariants}
                   initial="enter"
                   animate="center"
                   exit="exit"
                   transition={{
-                    x: { type: 'spring', stiffness: 260, damping: 30 },
-                    opacity: { duration: 0.35 },
-                    scale: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+                    opacity: { duration: 0.5, ease: 'easeInOut' },
+                    scale: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
                   }}
                   className="absolute inset-0"
                 >
@@ -216,8 +242,6 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
                     <div
                       className="h-full w-full bg-cover bg-center"
                       style={{
-                        // Stacked background: image on top, gradient underneath.
-                        // If the image file is missing the gradient still renders as placeholder.
                         backgroundImage: current.metadata.image
                           ? `url('${current.metadata.image}'), linear-gradient(135deg,#1e3a8a 0%,#0f172a 50%,#064e3b 100%)`
                           : 'linear-gradient(135deg,#1e3a8a 0%,#0f172a 50%,#064e3b 100%)',
@@ -225,8 +249,14 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
                     >
                       <div className="h-full w-full bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
                     </div>
-                    {/* Type badge — distinguishes articles from projects in the mixed carousel */}
-                    <div className="absolute left-4 top-4">
+
+                    {/* Type badge */}
+                    <motion.div
+                      className="absolute left-4 top-4"
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2, duration: 0.35 }}
+                    >
                       <span
                         className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em] backdrop-blur-md ${
                           current.metadata.type === 'project'
@@ -236,27 +266,24 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
                       >
                         {current.metadata.type === 'project' ? copy.typeProject : copy.typeArticle}
                       </span>
-                    </div>
+                    </motion.div>
                   </Link>
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            {/* Title + counter — animates in unison with the image */}
+            {/* Title + counter */}
             <div className="mt-4 flex items-end justify-between gap-3">
               <div className="min-w-0 flex-1 overflow-hidden">
                 <AnimatePresence mode="wait" custom={direction} initial={false}>
                   <motion.div
                     key={current.metadata.slug + ':text'}
                     custom={direction}
-                    variants={slideVariants}
+                    variants={textVariants}
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    transition={{
-                      x: { type: 'spring', stiffness: 260, damping: 30 },
-                      opacity: { duration: 0.3 },
-                    }}
+                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                     className="min-w-0"
                   >
                     <div className="truncate text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-500">
@@ -271,8 +298,24 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
                   </motion.div>
                 </AnimatePresence>
               </div>
-              <div className="shrink-0 self-end pb-1 text-right text-[11px] font-semibold tracking-[0.15em] text-zinc-500">
-                {copy.counter(safeIndex, n)}
+
+              {/* Dot indicators */}
+              <div className="flex shrink-0 items-center gap-1.5 self-start pt-1">
+                {featured.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setState([i, i > safeIndex ? 1 : -1])}
+                    aria-label={`Slide ${i + 1}`}
+                    className="group relative h-1.5 rounded-full transition-all duration-300 focus:outline-none"
+                    style={{ width: i === safeIndex ? 20 : 6 }}
+                  >
+                    <span
+                      className={`absolute inset-0 rounded-full transition-all duration-300 ${
+                        i === safeIndex ? 'bg-white/80' : 'bg-white/25 group-hover:bg-white/40'
+                      }`}
+                    />
+                  </button>
+                ))}
               </div>
             </div>
 
