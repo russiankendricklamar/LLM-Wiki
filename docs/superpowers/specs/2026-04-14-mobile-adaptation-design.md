@@ -101,11 +101,11 @@ Requirements:
 - `<Sidebar>` inside the desktop `<main>` layout: wrap in `hidden lg:block`. On `< lg`, the drawer is the sole sidebar surface.
 - Logo text ("Knowledge Garden" / "Сад Знаний"): currently `hidden sm:block`. Change to always visible (the icon alone reads as orphaned). Size is already `text-sm`.
 - Main content padding is already responsive (`px-4 sm:px-6 lg:px-8 xl:px-12`) — no change.
-- Add a new optional prop `scrollable?: boolean`. When `fullBleed && !scrollable`, behavior is unchanged (desktop hero). When `fullBleed && scrollable`, the hero container scrolls inside `<main>` instead of being locked to viewport height. This is the hook HomeHero uses on mobile.
+- **`fullBleed` mode `<main>`:** change from `overflow-hidden` to `overflow-hidden lg:overflow-hidden max-lg:overflow-y-auto` — on `< lg`, the main scroll container is allowed to scroll, which is what HomeHero relies on (see 5.2). On `lg+`, the current viewport-locked behavior is bit-identical. No new props introduced.
 
 ### 5.2 `HomeHero.tsx`
 
-- Take a `scrollable` prop from `RouterShell`. On mobile (`< lg`), pass `scrollable=true` to `PageLayout` via a `useMediaQuery('(min-width: 1024px)')` check OR simpler: always make the hero scrollable on its own internal breakpoint and let `PageLayout` unconditionally allow scroll on `< lg`.
+- **Scroll strategy (CSS-only, no JS breakpoint check):** `PageLayout` unconditionally allows scroll in its `<main>` on `< lg`. HomeHero's own root container uses mobile-first classes so that on mobile it is tall-and-scrollable and on `lg+` it is viewport-locked (bit-identical to today). No `useMediaQuery` in HomeHero — the entire switch is Tailwind responsive classes. This keeps the component pure and avoids a hydration-time layout flash.
 - Root container: `h-full` → `min-h-full lg:h-full`, add `overflow-y-auto lg:overflow-hidden`.
 - Grid: existing `grid-cols-1 … lg:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)]` stays. Mobile already gets 1 column.
 - Title `EXPLORE / BUILD / RELEASE`: `fontSize: clamp(2.25rem, 12vw, 9.5rem)` (currently `clamp(3rem, 9vw, 9.5rem)`). Lower bound drops to 2.25rem so it fits on 375px without overflow. Multiplier bumped slightly so it still fills wider phones.
