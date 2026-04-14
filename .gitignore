@@ -10,3 +10,5 @@ coverage/
 *.png
 *.jpg
 !public/
+!public/projects/*.png
+!public/projects/*.jpg
