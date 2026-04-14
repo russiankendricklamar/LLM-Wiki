@@ -1,11 +1,18 @@
 ---
 title: "Deep RL for Trade Execution"
-category: "AI × Finance"
+category: "Scientific ML"
 order: 5
 lang: "en"
 slug: "deep-rl-execution"
 ---
 # Deep RL for Trade Execution
+
+## Two Sides
+
+This method sits at the intersection of two larger topics, each covered by its own article:
+
+- **Finance:** [[optimal-execution]] — the classical execution theory (Almgren-Chriss, Hamilton-Jacobi-Bellman), optimal scheduling, and the market-impact model.
+- **AI:** [[reinforcement-learning]] — generic reinforcement learning, MDPs, Q-learning, policy gradient, PPO/SAC; the mathematical framework that is adapted to execution.
 
 ## Prerequisites
 

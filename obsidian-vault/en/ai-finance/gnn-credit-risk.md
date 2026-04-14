@@ -1,11 +1,18 @@
 ---
 title: "Graph Neural Networks for Credit Risk"
-category: "AI × Finance"
+category: "Scientific ML"
 order: 3
 lang: "en"
 slug: "gnn-credit-risk"
 ---
 # Graph Neural Networks for Credit Risk
+
+## Two Sides
+
+This method sits at the intersection of two larger topics, each covered by its own article:
+
+- **Finance:** [[copula-models]] — the classical parametric approach to default dependence and systemic risk; copulas model joint tails but ignore the network structure of exposures.
+- **AI:** [[graph-neural-networks]] — the general class of GNNs (GCN, GraphSAGE, GAT, GIN), message passing on arbitrary relational structure.
 
 ## Prerequisites
 

@@ -1,11 +1,18 @@
 ---
 title: "LLM for Financial Analysis"
-category: "AI × Finance"
+category: "Scientific ML"
 order: 1
 lang: "en"
 slug: "llm-financial-analysis"
 ---
 # LLM for Financial Analysis
+
+## Two Sides
+
+This method sits at the intersection of two larger topics, each covered by its own article:
+
+- **Finance:** [[news-sentiment-trading]] — trading on textual signals, event-driven analysis, fact extraction from 10-Ks and earnings call transcripts.
+- **AI:** [[llm]] + [[rag]] — the underlying language models and retrieval-augmented generation; foundational techniques that are specialised to the financial domain.
 
 ## Overview
 

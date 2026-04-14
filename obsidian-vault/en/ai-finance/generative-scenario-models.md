@@ -1,11 +1,18 @@
 ---
 title: "Generative Models for Scenario Generation"
-category: "AI × Finance"
+category: "Scientific ML"
 order: 4
 lang: "en"
 slug: "generative-scenario-models"
 ---
 # Generative Models for Scenario Generation
+
+## Two Sides
+
+This method sits at the intersection of two larger topics, each covered by its own article:
+
+- **Finance:** [[adversarial-stress-testing]] — stress testing and adverse-scenario construction for VaR, CVaR, and regulatory requirements (FRTB, ICAAP).
+- **AI:** [[generative-models]] — the general class of generative models (VAE, GAN, Normalizing Flows, Diffusion) trained to represent data distributions.
 
 ## Prerequisites
 

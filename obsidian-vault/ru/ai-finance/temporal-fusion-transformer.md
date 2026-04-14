@@ -1,11 +1,18 @@
 ---
 title: "Temporal Fusion Transformer"
-category: "AI × Финансы"
+category: "Научное ML"
 order: 2
 lang: "ru"
 slug: "temporal-fusion-transformer"
 ---
 # Temporal Fusion Transformer
+
+## Две стороны
+
+Этот метод — пересечение двух больших тем, каждой из которых посвящена отдельная статья:
+
+- **Финансы:** [[volatility-forecasting]] — классическое прогнозирование волатильности (GARCH, HAR-RV, реализованная волатильность), задача, которую TFT решает на многогоризонтном масштабе.
+- **AI:** [[transformer-architecture]] — общая архитектура трансформера, self-attention и multi-head; TFT адаптирует её для гетерогенных временных рядов и квантильного прогноза.
 
 ## Обзор
 
