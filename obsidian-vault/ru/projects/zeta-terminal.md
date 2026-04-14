@@ -9,7 +9,7 @@ year: "2025"
 tech: "Python, TypeScript, QuantLib, Claude, FastAPI"
 image: "/projects/zeta-terminal.png"
 demo: "https://go.zetaterminal.dev"
-featured: false
+featured: true
 description: "AI-native рабочее пространство для финансового анализа и количественных исследований — данные в реальном времени, помощь LLM и высокопроизводительные вычисления в одном терминале."
 ---
 

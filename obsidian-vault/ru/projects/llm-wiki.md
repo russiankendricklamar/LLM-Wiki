@@ -11,7 +11,7 @@ tech: "React 19, TypeScript, Vite, Tailwind 4, Obsidian"
 github: "https://github.com/russiankendricklamar/LLM-Wiki"
 demo: "https://github.com/russiankendricklamar/LLM-Wiki"
 image: "/projects/llm-wiki.svg"
-featured: true
+featured: false
 description: "Двуязычная wiki квантовых финансов, физики и LLM. Контент живёт как Obsidian vault, рендерится как SPA на React + Vite."
 ---
 
