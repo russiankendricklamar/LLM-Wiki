@@ -4,6 +4,8 @@ category: "Risk Management"
 order: 150
 lang: "en"
 slug: "kelly-criterion"
+featured: true
+image: "/featured/kelly.jpg"
 ---
 # Kelly Criterion
 

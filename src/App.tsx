@@ -4,11 +4,30 @@ import { motion, AnimatePresence } from 'motion/react';
 import { PageLayout } from './components/PageLayout';
 import { MarkdownRenderer } from './components/MarkdownRenderer';
 import { KnowledgeGraph } from './components/KnowledgeGraph';
+import { HomeHero } from './components/HomeHero';
+import { ProjectsPage } from './components/ProjectsPage';
 import { getAllPages } from './lib/content-loader';
 import { cn } from './lib/utils';
 
-const PageContent = ({ category, title, content, isHome, lang, slug }: { category: string, title: string, content: string, isHome?: boolean, lang: 'en' | 'ru', slug: string }) => {
+// Growth state metadata — surfaced as a small badge on article pages
+const GROWTH_LABEL = {
+  seedling: { en: 'Seedling', ru: 'Росток', emoji: '🌱', tone: 'text-emerald-600 dark:text-emerald-300 bg-emerald-500/10 border-emerald-500/20' },
+  budding: { en: 'Budding', ru: 'Бутон', emoji: '🌿', tone: 'text-lime-600 dark:text-lime-300 bg-lime-500/10 border-lime-500/20' },
+  evergreen: { en: 'Evergreen', ru: 'Вечнозелёный', emoji: '🌳', tone: 'text-teal-600 dark:text-teal-300 bg-teal-500/10 border-teal-500/20' },
+} as const;
+
+interface PageContentProps {
+  category: string;
+  title: string;
+  content: string;
+  lang: 'en' | 'ru';
+  slug: string;
+  growth?: 'seedling' | 'budding' | 'evergreen';
+}
+
+const PageContent = ({ category, title, content, lang, slug, growth }: PageContentProps) => {
   const isGraphPage = slug === '/knowledge-graph';
+  const growthInfo = growth ? GROWTH_LABEL[growth] : null;
 
   return (
     <motion.div
@@ -19,12 +38,21 @@ const PageContent = ({ category, title, content, isHome, lang, slug }: { categor
       className={cn("mx-auto w-full", isGraphPage ? "max-w-none h-[calc(100vh-8rem)]" : "max-w-3xl")}
     >
       {!isGraphPage && (
-        <div className="mb-8 flex items-center justify-between">
+        <div className="mb-8 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
             <span>{category}</span>
             <span>/</span>
             <span className="text-zinc-900 dark:text-zinc-100 font-medium">{title}</span>
           </div>
+          {growthInfo && (
+            <span className={cn(
+              "shrink-0 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold",
+              growthInfo.tone
+            )}>
+              <span>{growthInfo.emoji}</span>
+              <span>{growthInfo[lang]}</span>
+            </span>
+          )}
         </div>
       )}
 
@@ -47,48 +75,32 @@ const PageContent = ({ category, title, content, isHome, lang, slug }: { categor
 
 const AnimatedRoutes = ({ lang }: { lang: 'en' | 'ru' }) => {
   const location = useLocation();
-  const allPages = getAllPages();
-  const currentPages = allPages.filter(p => p.metadata.lang === lang);
-
-  // Find the "Home" page for the current language
-  const homePage = currentPages.find(p => p.metadata.order === 1 && (p.metadata.category === 'Home' || p.metadata.category === 'Главная'));
+  const currentPages = getAllPages().filter(p => p.metadata.lang === lang);
 
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname + lang}>
-        {/* Index route */}
-        <Route 
-          path="/" 
-          element={
-            homePage ? (
-              <PageContent 
-                category={homePage.metadata.category} 
-                title={homePage.metadata.title} 
-                content={homePage.content}
-                isHome={true}
-                lang={lang}
-                slug={homePage.metadata.slug}
-              />
-            ) : (
-              <div className="text-center py-20 text-zinc-500">No home page found for {lang}</div>
-            )
-          } 
-        />
+        {/* Index route — cinematic hero landing */}
+        <Route path="/" element={<HomeHero lang={lang} />} />
+
+        {/* Projects index — grid of all projects */}
+        <Route path="/projects" element={<ProjectsPage lang={lang} />} />
 
         {/* Dynamic routes */}
         {currentPages.map(page => (
-          <Route 
+          <Route
             key={page.metadata.slug}
-            path={page.metadata.slug} 
+            path={page.metadata.slug}
             element={
-              <PageContent 
-                category={page.metadata.category} 
-                title={page.metadata.title} 
+              <PageContent
+                category={page.metadata.category}
+                title={page.metadata.title}
                 content={page.content}
                 lang={lang}
                 slug={page.metadata.slug}
+                growth={page.metadata.growth}
               />
-            } 
+            }
           />
         ))}
 
@@ -98,14 +110,23 @@ const AnimatedRoutes = ({ lang }: { lang: 'en' | 'ru' }) => {
   );
 };
 
+const RouterShell = ({ lang, setLang }: { lang: 'en' | 'ru'; setLang: (lang: 'en' | 'ru') => void }) => {
+  const location = useLocation();
+  const isHome = location.pathname === '/' || location.pathname === '';
+
+  return (
+    <PageLayout lang={lang} setLang={setLang} fullBleed={isHome}>
+      <AnimatedRoutes lang={lang} />
+    </PageLayout>
+  );
+};
+
 export default function App() {
   const [lang, setLang] = React.useState<'en' | 'ru'>('ru');
 
   return (
     <HashRouter>
-      <PageLayout lang={lang} setLang={setLang}>
-        <AnimatedRoutes lang={lang} />
-      </PageLayout>
+      <RouterShell lang={lang} setLang={setLang} />
     </HashRouter>
   );
 }

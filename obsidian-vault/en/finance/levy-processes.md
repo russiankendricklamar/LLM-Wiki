@@ -3,6 +3,9 @@ title: "Lévy Processes"
 category: "Stochastic Processes"
 order: 2
 lang: "en"
+featured: true
+image: "/featured/levy.jpg"
+growth: "evergreen"
 ---
 # Lévy Processes
 

@@ -28,12 +28,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ className, lang = 'ru' }) => {
   return (
     <aside className={cn("w-80 flex-shrink-0 border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 h-full overflow-y-auto", className)}>
       <div className="p-4">
-        <div className="flex items-center gap-2 mb-6 px-2">
-          <div className="w-8 h-8 rounded-md bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center">
-            <span className="text-zinc-50 dark:text-zinc-900 font-bold text-lg">W</span>
+        <NavLink to="/" className="flex items-center gap-2 mb-6 px-2 group">
+          <div className="w-8 h-8 rounded-md bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center shadow-inner shadow-emerald-300/20">
+            <span className="text-white font-bold text-base leading-none">🌿</span>
           </div>
-          <span className="font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight">LLM Wiki</span>
-        </div>
+          <span className="font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+            {lang === 'en' ? 'Knowledge Garden' : 'Сад Знаний'}
+          </span>
+        </NavLink>
 
         <nav className="space-y-1">
           {navigation.map((section, idx) => {

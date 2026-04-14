@@ -3,6 +3,9 @@ title: "Процессы Леви"
 category: "Стохастические процессы"
 order: 2
 lang: "ru"
+featured: true
+image: "/featured/levy.jpg"
+growth: "evergreen"
 ---
 # Процессы Леви
 

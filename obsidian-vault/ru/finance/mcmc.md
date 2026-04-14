@@ -3,6 +3,9 @@ title: "Марковские цепи Монте-Карло (MCMC)"
 category: "Алгоритмы и ML"
 order: 111
 lang: "ru"
+featured: true
+image: "/featured/mcmc.jpg"
+growth: "budding"
 ---
 # Марковские цепи Монте-Карло (MCMC)
 

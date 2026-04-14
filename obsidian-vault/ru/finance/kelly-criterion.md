@@ -4,6 +4,8 @@ category: "Управление рисками"
 order: 150
 lang: "ru"
 slug: "kelly-criterion"
+featured: true
+image: "/featured/kelly.jpg"
 ---
 # Критерий Келли
 

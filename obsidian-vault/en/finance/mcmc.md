@@ -3,6 +3,9 @@ title: "Markov Chain Monte Carlo (MCMC)"
 category: "Algorithms and ML"
 order: 111
 lang: "en"
+featured: true
+image: "/featured/mcmc.jpg"
+growth: "budding"
 ---
 # Markov Chain Monte Carlo (MCMC)
 

@@ -9,9 +9,10 @@ interface PageLayoutProps {
   children: React.ReactNode;
   lang?: 'en' | 'ru';
   setLang?: (lang: 'en' | 'ru') => void;
+  fullBleed?: boolean;
 }
 
-export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', setLang }) => {
+export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', setLang, fullBleed = false }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true); // Default to dark mode for that Vercel/Linear feel
@@ -43,13 +44,15 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
         />
       )}
 
-      {/* Sidebar */}
-      <div className={cn(
-        "fixed inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0",
-        isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-      )}>
-        <Sidebar lang={lang} />
-      </div>
+      {/* Sidebar (hidden in full-bleed mode, e.g. on the home hero) */}
+      {!fullBleed && (
+        <div className={cn(
+          "fixed inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0",
+          isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+        )}>
+          <Sidebar lang={lang} />
+        </div>
+      )}
 
       {/* Main Content Area */}
       <div className="flex flex-1 flex-col min-w-0 overflow-hidden">
@@ -63,10 +66,10 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
               <Menu className="h-5 w-5" />
             </button>
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center">
-                <span className="text-zinc-50 dark:text-zinc-900 font-bold text-xs">W</span>
+              <div className="w-6 h-6 rounded bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center">
+                <span className="text-white text-[11px] leading-none">🌿</span>
               </div>
-              <span className="font-semibold text-sm">LLM Wiki</span>
+              <span className="font-semibold text-sm">{lang === 'en' ? 'Knowledge Garden' : 'Сад Знаний'}</span>
             </div>
           </div>
 
@@ -117,13 +120,17 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
         </header>
 
         {/* Scrollable Content */}
-        <main className="flex-1 overflow-y-auto">
-          <div className="mx-auto flex max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex-1 min-w-0 py-8 lg:py-12">
-              {children}
+        <main className={cn("flex-1", fullBleed ? "overflow-hidden" : "overflow-y-auto")}>
+          {fullBleed ? (
+            children
+          ) : (
+            <div className="mx-auto flex max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="flex-1 min-w-0 py-8 lg:py-12">
+                {children}
+              </div>
+              <TableOfContents lang={lang} />
             </div>
-            <TableOfContents lang={lang} />
-          </div>
+          )}
         </main>
       </div>
 

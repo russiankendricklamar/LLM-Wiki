@@ -1,3 +1,7 @@
+export type ContentType = 'article' | 'project';
+export type GrowthState = 'seedling' | 'budding' | 'evergreen';
+export type ProjectStatus = 'active' | 'shipped' | 'wip' | 'archived';
+
 export interface PageMetadata {
   title: string;
   category: string;
@@ -5,6 +9,19 @@ export interface PageMetadata {
   order?: number;
   slug: string;
   fullPath: string;
+  featured?: boolean;
+  image?: string;
+  description?: string;
+  // Content type — 'project' for /projects pages, 'article' for everything else
+  type: ContentType;
+  // Article-only: maturity in the digital garden
+  growth?: GrowthState;
+  // Project-only fields
+  status?: ProjectStatus;
+  tech?: string;
+  github?: string;
+  demo?: string;
+  year?: string;
 }
 
 export interface PageContent {
@@ -33,8 +50,12 @@ const parseFrontmatter = (fileContent: string) => {
       if (value.startsWith('"') && value.endsWith('"')) value = value.slice(1, -1);
       if (value.startsWith("'") && value.endsWith("'")) value = value.slice(1, -1);
       
-      // Try to parse number
-      if (!isNaN(value as any) && value !== '') {
+      // Parse booleans, numbers, or keep as string
+      if (value === 'true') {
+        data[key] = true;
+      } else if (value === 'false') {
+        data[key] = false;
+      } else if (!isNaN(value as any) && value !== '') {
         data[key] = Number(value);
       } else {
         data[key] = value;
@@ -69,6 +90,10 @@ export const getAllPages = (): PageContent[] => {
       slug = data.slug.startsWith('/') ? data.slug : `/${data.slug}`;
     }
 
+    // Detect content type: explicit `type: project` in frontmatter, or path-based fallback
+    const isProjectPath = filePath.includes('/projects/') || slug.startsWith('/projects');
+    const type: ContentType = data.type === 'project' || isProjectPath ? 'project' : 'article';
+
     return {
       metadata: {
         title: data.title || 'Untitled',
@@ -76,11 +101,38 @@ export const getAllPages = (): PageContent[] => {
         lang: (data.lang as 'en' | 'ru') || pathLang,
         order: data.order || 99,
         slug: slug,
-        fullPath: filePath
+        fullPath: filePath,
+        featured: data.featured === true,
+        image: data.image || undefined,
+        description: data.description || undefined,
+        type,
+        growth: (data.growth as GrowthState) || undefined,
+        status: (data.status as ProjectStatus) || undefined,
+        tech: data.tech || undefined,
+        github: data.github || undefined,
+        demo: data.demo || undefined,
+        year: data.year !== undefined ? String(data.year) : undefined,
       },
       content
     };
   });
+};
+
+export const getFeaturedPages = (lang: 'en' | 'ru'): PageContent[] => {
+  return getAllPages()
+    .filter(p => p.metadata.lang === lang && p.metadata.featured)
+    .sort((a, b) => (a.metadata.order || 99) - (b.metadata.order || 99));
+};
+
+export const getProjects = (lang: 'en' | 'ru'): PageContent[] => {
+  return getAllPages()
+    .filter(p => p.metadata.lang === lang && p.metadata.type === 'project')
+    .sort((a, b) => (a.metadata.order || 99) - (b.metadata.order || 99));
+};
+
+// Mixed featured items — articles + projects together, used in the home hero carousel
+export const getFeaturedItems = (lang: 'en' | 'ru'): PageContent[] => {
+  return getFeaturedPages(lang);
 };
 
 export const getNavigation = (lang: 'en' | 'ru') => {
