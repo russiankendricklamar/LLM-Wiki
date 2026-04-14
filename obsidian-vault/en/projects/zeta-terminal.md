@@ -92,6 +92,50 @@ It is explicitly not a retail product.
 - **Compute**: C++ native modules via pybind11 for hot paths
 - **Deployment**: `zetaterminal.dev` (frontend) + `api.zetaterminal.dev` (backend), both on Railway with Cloudflare DNS
 
+## Development
+
+The project progresses in focused sprints ("batches") — each batch closes a specific cluster of gaps vs Bloomberg/Aladdin. Early development was broad (building core modules); from April 2026 the methodology shifted to depth: 5 tightly scoped analytical pages per batch, each shipping with reference math, full UI, and TypeScript-clean code.
+
+```chart
+{
+  "chartType": "bar",
+  "xAxis": "milestone",
+  "data": [
+    {"milestone": "v1.0", "pages": 10},
+    {"milestone": "v2.0 Feb'26", "pages": 8},
+    {"milestone": "v3.0 Mar'26", "pages": 5},
+    {"milestone": "Marathon B1", "pages": 15},
+    {"milestone": "Marathon B2-3", "pages": 10},
+    {"milestone": "Batch 4-5", "pages": 10}
+  ],
+  "lines": [
+    {"dataKey": "pages", "name": "Pages shipped", "stroke": "#3b82f6"}
+  ]
+}
+```
+
+Current coverage against Bloomberg Terminal / BlackRock Aladdin as the benchmark (100%):
+
+```chart
+{
+  "chartType": "bar",
+  "xAxis": "domain",
+  "data": [
+    {"domain": "Options", "coverage": 85},
+    {"domain": "Fixed Income", "coverage": 80},
+    {"domain": "Credit Risk", "coverage": 75},
+    {"domain": "Structured", "coverage": 70},
+    {"domain": "Systemic", "coverage": 70},
+    {"domain": "Portfolio", "coverage": 65},
+    {"domain": "Attribution", "coverage": 50},
+    {"domain": "Execution", "coverage": 30}
+  ],
+  "lines": [
+    {"dataKey": "coverage", "name": "% vs Bloomberg/Aladdin", "stroke": "#10b981"}
+  ]
+}
+```
+
 ## Status
 
 Active development. The platform is live at [zetaterminal.dev](https://zetaterminal.dev). Major milestones completed:
