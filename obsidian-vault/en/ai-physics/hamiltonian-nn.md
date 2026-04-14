@@ -1,6 +1,6 @@
 ---
 title: "Hamiltonian Neural Networks"
-category: "AI × Physics"
+category: "Scientific ML"
 order: 3
 lang: "en"
 slug: "hamiltonian-nn"
@@ -168,8 +168,17 @@ def symplectic_rollout(model, q0, p0, n_steps=200, dt=0.05):
 - **Robotics:** Control of Hamiltonian mechanical systems (robot arms, legged robots) with provable energy bounds.
 - **Finance:** Leveraging Hamiltonian structures in stochastic volatility models; connections to [[geometric-brownian-motion]] via symplectic geometry of the path space.
 
+## The two sides of an HNN
+
+An HNN is the meeting point of two large topics, each with its own standalone article:
+
+- **Physics:** [[hamiltonian-mechanics]] — phase space, the symplectic form, Hamilton's equations, Liouville's theorem, the link to quantisation.
+- **AI:** [[neural-odes]] — the class of continuous-depth architectures, adjoint-sensitivity training, and the general framework HNN specialises.
+
 ## Related Topics
 
+- [[hamiltonian-mechanics]] — the physical theory an HNN learns
+- [[neural-odes]] — the broader ODE architecture HNN specialises
 - [[schrodinger-equation]] — quantum Hamiltonian; HNN ideas extend to quantum systems
 - [[uncertainty-principle]] — phase-space uncertainty connects to symplectic geometry
 - [[geometric-brownian-motion]] — stochastic version of Hamiltonian dynamics in finance

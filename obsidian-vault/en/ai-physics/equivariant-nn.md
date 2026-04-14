@@ -1,7 +1,7 @@
 ---
 title: "Equivariant Neural Networks"
-category: "AI × Physics"
-order: 2
+category: "AI Theory"
+order: 9
 lang: "en"
 slug: "equivariant-nn"
 ---
@@ -144,9 +144,16 @@ print(f"Equivariance error: {error.item():.2e}")  # Should be ~1e-6
 - **Crystal property prediction:** Equivariant GNNs for bandgap and formation energy prediction.
 - **Robotics:** SE(3)-equivariant policies for manipulation tasks that must generalise across object orientations.
 
+## The two sides
+
+Equivariant networks sit at the intersection of two large topics:
+
+- **Physics / mathematics:** [[group-theory]] — Lie groups, their representations, irreducible representations, Clebsch-Gordan coefficients. All the tensor arithmetic used in equivariant networks is borrowed from the representation theory developed for quantum mechanics and particle physics.
+- **AI:** this article — a neural network architecture in which symmetry constraints are built in by construction. In practice: Clebsch-Gordan tensor products as equivariant "kernels" and spherical harmonics as directional filters.
+
 ## Related Topics
 
-- [[group-theory]] — mathematical foundation of symmetry groups and representations
+- [[group-theory]] — group theory as the mathematical foundation of equivariance
 - [[scattering-amplitudes]] — Lorentz symmetry and on-shell methods in particle physics
 - [[qft-basic]] — quantum field theory, where symmetries define particle content
 - [[pinns]] — complementary physics-constrained networks using PDE residuals

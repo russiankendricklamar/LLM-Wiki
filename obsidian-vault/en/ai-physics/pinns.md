@@ -1,6 +1,6 @@
 ---
 title: "Physics-Informed Neural Networks (PINNs)"
-category: "AI × Physics"
+category: "Scientific ML"
 order: 1
 lang: "en"
 slug: "pinns"
@@ -151,8 +151,17 @@ for step in range(5000):
 - **Anomalous diffusion:** Solving fractional PDEs like the [[fractional-fokker-planck]] equation where integer-order FDM struggles.
 - **Geophysics:** Seismic wave propagation; subsurface flow modelling.
 
+## The two sides of a PINN
+
+A PINN is the meeting point of two large topics, each with its own standalone article:
+
+- **Physics:** [[partial-differential-equations]] — classification, canonical equations (heat, wave, Schrödinger, Navier-Stokes), boundary conditions, solution methods.
+- **AI:** [[automatic-differentiation]] — how modern frameworks compute exact derivatives of arbitrary functions on a computational graph; the thing without which a PDE residual could never enter a loss.
+
 ## Related Topics
 
+- [[partial-differential-equations]] — the PDE theory that PINNs solve
+- [[automatic-differentiation]] — the AI core making the PDE residual differentiable
 - [[schrodinger-equation]] — canonical quantum PDE solvable with PINNs
 - [[black-scholes]] — financial PDE application
 - [[fractional-fokker-planck]] — fractional PDE application

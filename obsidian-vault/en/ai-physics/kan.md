@@ -1,6 +1,6 @@
 ---
 title: "Kolmogorov-Arnold Networks (KAN)"
-category: "AI × Physics"
+category: "Scientific ML"
 order: 4
 lang: "en"
 slug: "kan"
@@ -134,8 +134,17 @@ results2 = model.train(dataset, opt="LBFGS", steps=100)
 - **Neuroscience:** Modelling neural tuning curves with interpretable parametric forms.
 - **Spectral analysis:** Discovering spectral relationships in physical systems.
 
+## The two sides of KAN
+
+A KAN is the meeting point of two large topics, each with its own standalone article:
+
+- **Mathematics:** [[kolmogorov-arnold-theorem]] — the 1957 theorem representing multivariate continuous functions as a finite superposition of univariate ones, which resolved Hilbert's thirteenth problem.
+- **AI:** [[learnable-activations]] — learnable B-spline activations as a general technique beyond KAN, including connections to normalising flows and interpretability.
+
 ## Related Topics
 
+- [[kolmogorov-arnold-theorem]] — mathematical foundation of KAN
+- [[learnable-activations]] — the broader learnable-activation pattern that KAN belongs to
 - [[qft-basic]] — physics domain where symbolic equation discovery is valuable
 - [[conformal-field-theory]] — symmetry-constrained theories where KAT decompositions may reveal structure
 - [[spectral-analysis]] — spectral methods related to B-spline approximation

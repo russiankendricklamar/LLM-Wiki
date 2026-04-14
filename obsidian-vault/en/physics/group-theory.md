@@ -47,7 +47,12 @@ Group theory underlies the symmetry structure of holographic dualities. In AdS$_
 
 The infinite-dimensional [[bms-group]] is the asymptotic symmetry group of flat spacetime; its representation theory classifies the soft degrees of freedom. Understanding the unitary representations of the BMS group is a key open problem in quantum gravity, directly connected to the classification of scattering states and the information content of gravitational radiation.
 
+## Applications in Machine Learning
+
+Lie-group representation theory has found direct application in deep learning. [[equivariant-nn|Equivariant neural networks]] build symmetry constraints into their architecture: features transform as irreducible representations of $SO(3)$ and convolutions are defined via Clebsch-Gordan tensor products. This allows models for molecular dynamics (NequIP, MACE), protein structure prediction (AlphaFold), and particle physics to achieve high precision from very little training data — the symmetry group is known exactly and does not need to be learned.
+
 ## See Also
 * [[bms-group]]
 * [[asymptotic-symmetries]]
 * [[quantum-entanglement]]
+* [[equivariant-nn]]
