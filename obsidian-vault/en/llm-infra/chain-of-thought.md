@@ -8,6 +8,10 @@ slug: "chain-of-thought"
 
 # Chain-of-Thought Reasoning
 
+## Prerequisites
+
+[[llm]]
+
 ## Overview
 
 Chain-of-Thought (CoT) prompting is a technique that elicits step-by-step intermediate reasoning from language models before they produce a final answer. Instead of going directly from question to answer, the model is guided — or trained — to articulate a chain of logical steps, much like a human working through scratch paper. This dramatically improves performance on tasks requiring arithmetic, symbolic manipulation, commonsense reasoning, and multi-step inference.

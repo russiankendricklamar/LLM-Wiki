@@ -2,7 +2,7 @@
 title: Корпускулярно-волновой дуализм
 category: physics
 lang: ru
-order: 201
+order: 1
 slug: wave-particle-duality
 ---
 

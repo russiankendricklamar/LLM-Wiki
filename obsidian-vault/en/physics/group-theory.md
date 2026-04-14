@@ -2,7 +2,7 @@
 title: Group Theory
 category: Gravity & Geometry
 lang: en
-order: 223
+order: 7
 slug: group-theory
 ---
 

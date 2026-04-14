@@ -1,12 +1,16 @@
 ---
 title: "Hamiltonian Neural Networks"
 category: "AI × Physics"
-order: 4
+order: 3
 lang: "en"
 slug: "hamiltonian-nn"
 ---
 
 # Hamiltonian Neural Networks
+
+## Prerequisites
+
+[[pinns]]
 
 ## Overview
 

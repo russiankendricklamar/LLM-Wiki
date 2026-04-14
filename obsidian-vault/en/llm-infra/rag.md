@@ -8,6 +8,10 @@ slug: "rag"
 
 # RAG (Retrieval-Augmented Generation)
 
+## Prerequisites
+
+[[llm]], [[embedding-models]]
+
 ## Overview
 
 Retrieval-Augmented Generation (RAG) is an architectural pattern that enhances large language model outputs by supplying relevant external documents at inference time. Instead of relying solely on knowledge encoded during pre-training, a RAG system first retrieves a small set of relevant passages from a corpus, then conditions the model's generation on those passages alongside the original query.

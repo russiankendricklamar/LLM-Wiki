@@ -2,11 +2,15 @@
 title: QFT: Basic Level
 category: Theoretical Physics
 lang: en
-order: 221
+order: 8
 slug: qft-basic
 ---
 
 # Quantum Field Theory (QFT): Basic Level
+
+## Prerequisites
+
+[[wave-particle-duality]], [[schrodinger-equation]], [[group-theory]]
 
 ## Theoretical Foundation
 Quantum Field Theory provides the theoretical framework for combining quantum mechanics and special relativity. It treats particles not as fundamental objects but as localized excitations of underlying quantum fields that permeate all of spacetime. This shift from a particle picture to a field picture resolves the tension between quantum mechanics (which treats particle number as fixed) and special relativity (which allows particle creation and annihilation via $E = mc^2$).

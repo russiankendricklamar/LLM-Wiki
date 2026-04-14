@@ -2,7 +2,7 @@
 title: Асимптотическое пространство-время
 category: physics
 lang: ru
-order: 214
+order: 19
 slug: asymptotic-spacetime
 ---
 

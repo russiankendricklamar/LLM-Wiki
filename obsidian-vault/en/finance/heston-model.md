@@ -1,12 +1,16 @@
 ---
 title: "Heston Model"
 category: "Pricing Models"
-order: 3
+order: 8
 lang: "en"
 ---
 # Heston Model
 
 The **Heston model** (Steven Heston, 1993) is the most widely used stochastic volatility model in quantitative finance. It extends Black-Scholes by allowing the instantaneous variance $v_t$ to follow a mean-reverting CIR process correlated with the asset price. This produces the **volatility smile and skew** observed in options markets — phenomena that Black-Scholes with constant volatility cannot explain.
+
+## Prerequisites
+
+[[black-scholes]], [[geometric-brownian-motion]]
 
 ## Background
 

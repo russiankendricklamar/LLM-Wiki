@@ -1,13 +1,17 @@
 ---
 title: "Systematic Portfolio Trading via Convex Optimization"
 category: "Risk Management"
-order: 144
+order: 71
 lang: "en"
 slug: "convex-optimization-trading"
 ---
 # Systematic Portfolio Trading via Convex Optimization
 
 Modern systematic trading relies on **Convex Optimization** to find the optimal set of portfolio weights that maximize utility while satisfying a complex set of real-world constraints. Unlike the simple closed-form Markowitz solution, convex optimization handles transaction costs, turnover limits, and sector neutrality within a unified framework.
+
+## Prerequisites
+
+[[portfolio-optimization-ml]], [[hierarchical-risk-parity]]
 
 ## Overview & Background
 

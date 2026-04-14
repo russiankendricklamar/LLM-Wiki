@@ -1,7 +1,7 @@
 ---
 title: "Cox Process (Doubly Stochastic)"
 category: "Stochastic Processes"
-order: 18
+order: 6
 lang: "en"
 ---
 # Cox Process (Doubly Stochastic)

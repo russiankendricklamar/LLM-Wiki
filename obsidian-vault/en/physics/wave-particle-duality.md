@@ -2,7 +2,7 @@
 title: Wave-Particle Duality
 category: physics
 lang: en
-order: 201
+order: 1
 slug: wave-particle-duality
 ---
 

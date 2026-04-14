@@ -1,12 +1,16 @@
 ---
 title: "Intraday Volatility via Realized Kernels"
 category: "Signal Analysis"
-order: 104
+order: 40
 lang: "en"
 ---
 # Intraday Volatility Forecasting via Realized Kernels
 
 **Realized Kernels** are a class of estimators designed to measure the integrated volatility of an asset price while being robust to **Market Microstructure Noise (MMN)**. Traditional realized variance (RV) fails at high frequencies (e.g., 1-second intervals) because bid-ask bounce, rounding errors, and latency bias the estimate upward. The realized kernel was introduced by Barndorff-Nielsen, Hansen, Lunde, and Shephard (2008) and remains the gold standard for tick-level volatility measurement.
+
+## Prerequisites
+
+[[brownian-motion]], [[geometric-brownian-motion]], [[spectral-analysis]]
 
 ## Background
 

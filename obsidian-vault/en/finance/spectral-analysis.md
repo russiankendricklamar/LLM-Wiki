@@ -1,7 +1,7 @@
 ---
 title: "Spectral Analysis"
 category: "Signal Analysis"
-order: 15
+order: 29
 lang: "en"
 ---
 # Spectral Analysis

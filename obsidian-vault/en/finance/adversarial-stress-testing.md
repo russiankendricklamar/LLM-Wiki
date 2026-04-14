@@ -1,12 +1,16 @@
 ---
 title: "Adversarial Stress Testing"
 category: "Risk Management"
-order: 107
+order: 69
 lang: "en"
 ---
 # Adversarial Stress Testing via Generative Models
 
 **Adversarial Stress Testing** is a modern risk management technique that uses generative models (like GANs or VAEs) to identify the "worst-case" scenarios that are both plausible and damaging to a specific portfolio. Unlike traditional stress tests (e.g., "replaying 2008"), adversarial tests adapt to the portfolio's specific vulnerabilities.
+
+## Prerequisites
+
+[[value-at-risk]], [[monte-carlo-method]], [[extreme-value-theory]]
 
 ## Overview & Background
 

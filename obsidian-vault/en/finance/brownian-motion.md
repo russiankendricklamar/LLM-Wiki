@@ -1,7 +1,7 @@
 ---
 title: "Brownian Motion"
 category: "Stochastic Processes"
-order: 170
+order: 1
 lang: "en"
 slug: "brownian-motion"
 ---

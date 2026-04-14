@@ -1,12 +1,16 @@
 ---
 title: "Kolmogorov Complexity"
 category: "AI Theory"
-order: 3
+order: 2
 lang: "en"
 slug: "kolmogorov-complexity"
 ---
 
 # Kolmogorov Complexity
+
+## Prerequisites
+
+[[pac-learning]]
 
 ## Overview
 

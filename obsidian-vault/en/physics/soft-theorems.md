@@ -2,11 +2,15 @@
 title: Soft Theorems
 category: physics
 lang: en
-order: 210
+order: 12
 slug: soft-theorems
 ---
 
 # Soft Theorems
+
+## Prerequisites
+
+[[scattering-amplitudes]], [[asymptotic-symmetries]]
 
 ## Theoretical Foundation
 Soft theorems describe the universal behavior of scattering amplitudes when the energy of one external particle — a photon, gluon, or graviton — goes to zero (the "soft limit"). Originally discovered by Low (1958) for photons and Weinberg (1965) for gravitons, these theorems state that the amplitude for emitting an additional zero-energy particle factorizes into a universal soft factor multiplied by the amplitude without that particle. They are exact statements, not approximations, following from gauge invariance and Lorentz symmetry.

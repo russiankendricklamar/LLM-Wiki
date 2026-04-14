@@ -1,12 +1,16 @@
 ---
 title: "Singular Spectral Analysis (SSA)"
 category: "Signal Analysis"
-order: 110
+order: 33
 lang: "en"
 ---
 # Singular Spectral Analysis (SSA)
 
 **Singular Spectral Analysis (SSA)** is a non-parametric method for decomposing and forecasting time series by extracting additive components — trends, oscillations, and noise — without assuming a fixed functional form. Developed independently by Broomhead and King (1986) in dynamical systems and Vautard and Ghil (1989) in climate science, SSA is particularly well-suited for non-stationary financial data where Fourier methods suffer from spectral leakage and model misspecification.
+
+## Prerequisites
+
+[[spectral-analysis]], [[wavelet-transform]]
 
 ## Background
 

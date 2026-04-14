@@ -1,12 +1,16 @@
 ---
 title: "SABR Model"
 category: "Pricing Models"
-order: 4
+order: 9
 lang: "en"
 ---
 # SABR Model
 
 The **SABR model** (Stochastic Alpha, Beta, Rho) is a stochastic volatility model introduced by Hagan, Kumar, Lesniewski, and Woodward in 2002. It is the industry standard for quoting and interpolating the implied volatility smile in interest rate and FX options markets. Its primary advantage is an analytic approximation formula that maps model parameters directly to Black-Scholes implied volatilities, enabling extremely fast calibration and hedging.
+
+## Prerequisites
+
+[[black-scholes]], [[heston-model]]
 
 ## Background
 

@@ -1,13 +1,17 @@
 ---
 title: "ARCH Models"
 category: "Stochastic Processes"
-order: 168
+order: 10
 lang: "en"
 slug: "arch-models"
 ---
 # ARCH Models
 
 The **Autoregressive Conditional Heteroskedasticity (ARCH)** model, introduced by Robert Engle in 1982 (Nobel Prize 2003), revolutionized financial econometrics by providing a rigorous framework for modeling time-varying volatility — one of the most robust stylized facts of financial returns.
+
+## Prerequisites
+
+[[ar-models]], [[arma-models]]
 
 ## Overview & Background
 

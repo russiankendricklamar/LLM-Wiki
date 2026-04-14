@@ -1,7 +1,7 @@
 ---
 title: "Lévy Processes"
 category: "Stochastic Processes"
-order: 2
+order: 4
 lang: "en"
 featured: true
 image: "/featured/levy.jpg"

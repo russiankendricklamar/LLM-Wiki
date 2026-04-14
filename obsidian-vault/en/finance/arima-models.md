@@ -1,13 +1,17 @@
 ---
 title: "ARIMA (Integrated ARMA)"
 category: "Signal Analysis"
-order: 167
+order: 14
 lang: "en"
 slug: "arima-models"
 ---
 # ARIMA Models
 
 The **Autoregressive Integrated Moving Average (ARIMA)** model is a generalization of the ARMA model that handles non-stationary time series through differencing. It is the workhorse of univariate time-series forecasting and an essential tool in quantitative finance for modeling price-adjacent quantities that exhibit trends or unit-root behavior.
+
+## Prerequisites
+
+[[ar-models]], [[arma-models]]
 
 ## Overview & Background
 

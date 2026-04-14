@@ -1,7 +1,7 @@
 ---
 title: "Ornstein-Uhlenbeck Process"
 category: "Stochastic Processes"
-order: 151
+order: 3
 lang: "en"
 slug: "ornstein-uhlenbeck-process"
 ---

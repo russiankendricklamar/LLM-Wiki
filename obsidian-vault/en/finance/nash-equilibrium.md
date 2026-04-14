@@ -1,7 +1,7 @@
 ---
 title: "Nash Equilibrium"
 category: "Algorithms and ML"
-order: 113
+order: 56
 lang: "en"
 ---
 # Nash Equilibrium

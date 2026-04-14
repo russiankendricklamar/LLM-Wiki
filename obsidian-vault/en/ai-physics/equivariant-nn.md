@@ -8,6 +8,10 @@ slug: "equivariant-nn"
 
 # Equivariant Neural Networks
 
+## Prerequisites
+
+[[pinns]]
+
 ## Overview
 
 Equivariant neural networks encode symmetry constraints directly into their architecture. When the input undergoes a symmetry transformation (rotation, reflection, permutation), the network output transforms in a corresponding, predictable way — rather than requiring the network to re-learn the symmetry from data.

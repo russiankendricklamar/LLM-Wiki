@@ -2,7 +2,7 @@
 title: Heisenberg Uncertainty Principle
 category: physics
 lang: en
-order: 203
+order: 3
 slug: uncertainty-principle
 ---
 

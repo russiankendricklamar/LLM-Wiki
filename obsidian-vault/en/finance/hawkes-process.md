@@ -1,7 +1,7 @@
 ---
 title: "Hawkes Process"
 category: "Stochastic Processes"
-order: 101
+order: 5
 lang: "en"
 ---
 # Hawkes Process

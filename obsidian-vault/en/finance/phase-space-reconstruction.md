@@ -1,12 +1,16 @@
 ---
 title: "Phase Space Reconstruction"
 category: "Signal Analysis"
-order: 28
+order: 34
 lang: "en"
 ---
 # Phase Space Reconstruction
 
 **Phase Space Reconstruction** is a technique from non-linear dynamics and chaos theory that allows for the recovery of a multi-dimensional portrait of a system using only a single observed time series (e.g., stock prices). In quantitative finance, it is used to uncover deterministic chaos and build non-linear predictive models.
+
+## Prerequisites
+
+[[spectral-analysis]], [[hurst-exponent]]
 
 ## Background and Motivation
 

@@ -2,7 +2,7 @@
 title: Gravitational Waves & General Relativity
 category: Gravity & Geometry
 lang: en
-order: 222
+order: 10
 slug: gravitational-waves-gr
 ---
 

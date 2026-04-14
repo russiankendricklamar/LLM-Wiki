@@ -1,7 +1,7 @@
 ---
 title: "Markov Chain Monte Carlo (MCMC)"
 category: "Algorithms and ML"
-order: 111
+order: 25
 lang: "en"
 featured: true
 image: "/featured/mcmc.jpg"

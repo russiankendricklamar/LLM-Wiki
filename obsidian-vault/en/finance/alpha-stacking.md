@@ -1,12 +1,16 @@
 ---
 title: "Orthogonal Alpha Stacking"
 category: "Algorithms and ML"
-order: 106
+order: 59
 lang: "en"
 ---
 # Orthogonal Alpha Stacking & Residualization
 
 **Orthogonal Alpha Stacking** is a technique used in quantitative portfolio management to combine multiple predictive signals (alphas) such that they provide incremental value. If two signals are highly correlated, adding the second signal provides no new information; residualization ensures each signal is "unique."
+
+## Prerequisites
+
+[[alpha-factor-discovery]], [[meta-labeling]]
 
 ## Overview & Background
 

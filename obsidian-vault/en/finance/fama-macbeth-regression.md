@@ -1,7 +1,7 @@
 ---
 title: "Fama-MacBeth Regression"
 category: "Algorithms and ML"
-order: 162
+order: 50
 lang: "en"
 slug: "fama-macbeth-regression"
 ---

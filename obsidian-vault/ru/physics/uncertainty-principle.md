@@ -2,7 +2,7 @@
 title: Принцип неопределённости Гейзенберга
 category: physics
 lang: ru
-order: 203
+order: 3
 slug: uncertainty-principle
 ---
 

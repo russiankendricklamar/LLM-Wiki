@@ -1,13 +1,17 @@
 ---
 title: "ARMA (Autoregressive Moving Average)"
 category: "Signal Analysis"
-order: 166
+order: 13
 lang: "en"
 slug: "arma-models"
 ---
 # ARMA Models
 
 The **Autoregressive Moving Average (ARMA)** model provides a parsimonious description of a stationary stochastic process in terms of two polynomials: one for the autoregression (AR) and one for the moving average (MA). ARMA is the canonical linear time-series model and serves as the mean-equation component in many compound financial models.
+
+## Prerequisites
+
+[[ar-models]]
 
 ## Overview & Background
 

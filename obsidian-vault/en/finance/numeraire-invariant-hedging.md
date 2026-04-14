@@ -1,7 +1,7 @@
 ---
 title: "Numeraire-Invariant Quadratic Hedging"
 category: "Pricing Models"
-order: 146
+order: 52
 lang: "en"
 slug: "numeraire-invariant-hedging"
 ---

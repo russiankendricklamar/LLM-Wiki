@@ -1,13 +1,17 @@
 ---
 title: "Geometric Brownian Motion"
 category: "Stochastic Processes"
-order: 171
+order: 2
 lang: "en"
 slug: "geometric-brownian-motion"
 ---
 # Geometric Brownian Motion
 
 **Geometric Brownian Motion (GBM)** is a continuous-time stochastic process in which the logarithm of the randomly varying quantity follows a Brownian motion with drift. It is the foundational model for equity prices in the Black-Scholes framework and the benchmark against which all more complex models are compared.
+
+## Prerequisites
+
+[[brownian-motion]]
 
 ## Background
 

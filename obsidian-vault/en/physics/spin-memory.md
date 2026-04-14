@@ -2,11 +2,15 @@
 title: Spin Memory
 category: physics
 lang: en
-order: 216
+order: 17
 slug: spin-memory
 ---
 
 # Spin Memory
+
+## Prerequisites
+
+[[memory-effects]], [[gravitational-memory]]
 
 ## Theoretical Foundation
 Spin memory is a subleading gravitational memory effect, distinct from the leading displacement memory. While the displacement (ordinary) memory causes a permanent change in the relative position of test masses after a gravitational wave burst, the spin memory effect causes a permanent change in the relative timing or rotational phase of test masses arranged in a circular orbit. It was identified by Pasterski, Strominger, and Zhiboedov (2016) as the third vertex in a subleading Pasterski triangle, alongside the subleading soft graviton theorem and superrotation asymptotic symmetries.

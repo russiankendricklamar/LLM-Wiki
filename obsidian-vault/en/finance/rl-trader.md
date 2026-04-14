@@ -1,7 +1,7 @@
 ---
 title: "Reinforcement Learning (RL) Trader"
 category: "Algorithms and ML"
-order: 123
+order: 66
 lang: "en"
 slug: "rl-trader"
 ---

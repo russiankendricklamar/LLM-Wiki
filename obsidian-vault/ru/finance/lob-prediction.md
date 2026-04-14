@@ -1,7 +1,7 @@
 ---
 title: "Прогнозирование книги заявок (LOB)"
 category: "Алгоритмы и ML"
-order: 122
+order: 41
 lang: "ru"
 slug: "lob-prediction"
 ---

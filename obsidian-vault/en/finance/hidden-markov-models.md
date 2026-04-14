@@ -1,7 +1,7 @@
 ---
 title: "Hidden Markov Models (HMM)"
 category: "Algorithms and ML"
-order: 14
+order: 28
 lang: "en"
 ---
 # Hidden Markov Models (HMM)

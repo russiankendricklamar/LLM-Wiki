@@ -2,7 +2,7 @@
 title: Волновая функция Ψ и уравнение Шрёдингера
 category: physics
 lang: ru
-order: 202
+order: 2
 slug: schrodinger-equation
 ---
 

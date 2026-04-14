@@ -1,7 +1,7 @@
 ---
 title: "Kelly Criterion"
 category: "Risk Management"
-order: 150
+order: 16
 lang: "en"
 slug: "kelly-criterion"
 featured: true

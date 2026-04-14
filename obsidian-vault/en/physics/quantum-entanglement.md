@@ -2,7 +2,7 @@
 title: Quantum Entanglement
 category: physics
 lang: en
-order: 205
+order: 6
 slug: quantum-entanglement
 ---
 

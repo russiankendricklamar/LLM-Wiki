@@ -1,7 +1,7 @@
 ---
 title: "Capacity & Market Impact Scaling"
 category: "Risk Management"
-order: 108
+order: 44
 lang: "en"
 ---
 # Capacity & Market Impact Scaling Laws

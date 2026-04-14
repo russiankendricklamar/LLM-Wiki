@@ -1,11 +1,15 @@
 ---
 title: "Graph Neural Networks for Credit Risk"
 category: "AI × Finance"
-order: 5
+order: 3
 lang: "en"
 slug: "gnn-credit-risk"
 ---
 # Graph Neural Networks for Credit Risk
+
+## Prerequisites
+
+[[llm-financial-analysis]]
 
 ## Overview
 

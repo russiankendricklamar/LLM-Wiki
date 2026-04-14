@@ -2,11 +2,15 @@
 title: Gravitational Memory
 category: physics
 lang: en
-order: 207
+order: 11
 slug: gravitational-memory
 ---
 
 # Gravitational Memory
+
+## Prerequisites
+
+[[gravitational-waves-gr]], [[soft-theorems]]
 
 ## Theoretical Foundation
 Gravitational memory is a permanent, non-oscillatory change in the relative displacement of test masses following the passage of a gravitational wave burst. First identified by Zel'dovich and Polnarev (1974) in the linear approximation and later by Christodoulou (1991) in full nonlinear general relativity, the effect represents a genuine transition between two distinct vacua of the gravitational field — two physically inequivalent flat spacetimes related by a BMS supertranslation.

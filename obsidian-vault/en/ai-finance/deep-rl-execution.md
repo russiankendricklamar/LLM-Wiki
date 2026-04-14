@@ -1,11 +1,15 @@
 ---
 title: "Deep RL for Trade Execution"
 category: "AI × Finance"
-order: 4
+order: 5
 lang: "en"
 slug: "deep-rl-execution"
 ---
 # Deep RL for Trade Execution
+
+## Prerequisites
+
+[[temporal-fusion-transformer]], [[rl-trader]]
 
 ## Overview
 

@@ -1,7 +1,7 @@
 ---
 title: "Регрессия Фама-Макбета"
 category: "Алгоритмы и ML"
-order: 162
+order: 50
 lang: "ru"
 slug: "fama-macbeth-regression"
 ---

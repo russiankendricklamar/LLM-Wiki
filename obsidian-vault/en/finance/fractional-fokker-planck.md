@@ -1,12 +1,16 @@
 ---
 title: "Fractional Fokker-Planck Equation"
 category: "Stochastic Processes"
-order: 30
+order: 38
 lang: "en"
 ---
 # Fractional Fokker-Planck Equation (FFPE)
 
 The **Fractional Fokker-Planck Equation (FFPE)** is a generalization of the classical Fokker-Planck equation (also known as the Kolmogorov forward equation) used to describe the time evolution of the probability density function of a physical or financial system. By incorporating fractional-order derivatives, the FFPE provides a framework for modeling **anomalous diffusion** — processes where variance does not grow linearly with time, as observed empirically in many financial markets.
+
+## Prerequisites
+
+[[brownian-motion]], [[hurst-exponent]], [[mcmc]]
 
 ## Background
 

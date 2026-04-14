@@ -1,7 +1,7 @@
 ---
 title: "Particle Filter (SMC)"
 category: "Algorithms and ML"
-order: 16
+order: 26
 lang: "en"
 ---
 # Particle Filter (SMC)
@@ -9,6 +9,10 @@ lang: "en"
 A **Particle Filter**, also known as **Sequential Monte Carlo** (SMC), is a sophisticated signal processing algorithm that uses a set of "particles" (random samples) to represent the posterior distribution of a system's hidden state.
 
 Unlike the classical Kalman Filter, the Particle Filter does not require the system to be linear or the noise to be Gaussian. This flexibility makes it ideal for modeling complex financial processes such as stochastic volatility, regime switching, or non-linear asset dynamics.
+
+## Prerequisites
+
+[[monte-carlo-method]], [[hidden-markov-models]]
 
 ## Background and Motivation
 

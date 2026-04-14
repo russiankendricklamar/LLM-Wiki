@@ -1,7 +1,7 @@
 ---
 title: "Limit Order Book (LOB) Prediction"
 category: "Algorithms and ML"
-order: 122
+order: 41
 lang: "en"
 slug: "lob-prediction"
 ---

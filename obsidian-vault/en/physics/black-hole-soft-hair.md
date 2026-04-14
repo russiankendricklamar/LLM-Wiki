@@ -2,11 +2,15 @@
 title: Black Hole Soft Hair
 category: physics
 lang: en
-order: 209
+order: 15
 slug: black-hole-soft-hair
 ---
 
 # Black Hole Soft Hair
+
+## Prerequisites
+
+[[soft-theorems]], [[bms-group]]
 
 ## Theoretical Foundation
 The classical "No-Hair Theorem" states that stationary black holes in general relativity are completely characterized by just three parameters: mass $M$, electric charge $Q$, and angular momentum $J$. All other information about the matter that formed the black hole is supposedly lost. This poses a profound problem: if a black hole evaporates via Hawking radiation, the outgoing radiation appears thermal and carries no information about the initial state, apparently violating quantum mechanical unitarity.

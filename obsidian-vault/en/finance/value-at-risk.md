@@ -1,7 +1,7 @@
 ---
 title: "Value at Risk (VaR)"
 category: "Risk Management"
-order: 5
+order: 15
 lang: "en"
 ---
 # Value at Risk (VaR)

@@ -35,7 +35,9 @@ const processWikilinks = (content: string) => {
     );
     
     if (page) {
-      return `[${display}](${page.metadata.slug})`;
+      // Use page title as display text when no explicit display text was given
+      const linkText = displayText ? displayText.trim() : page.metadata.title;
+      return `[${linkText}](${page.metadata.slug})`;
     }
     
     return `<span class="text-zinc-400 opacity-70">[[${display}]]</span>`;

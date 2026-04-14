@@ -1,7 +1,7 @@
 ---
 title: "TS vs CS Factor Analysis"
 category: "Algorithms and ML"
-order: 145
+order: 51
 lang: "en"
 slug: "ts-cs-factor-analysis"
 ---

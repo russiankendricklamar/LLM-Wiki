@@ -1,7 +1,7 @@
 ---
 title: "AR (Autoregressive) Models"
 category: "Signal Analysis"
-order: 165
+order: 12
 lang: "en"
 slug: "ar-models"
 ---

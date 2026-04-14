@@ -1,7 +1,7 @@
 ---
 title: "GANs in Finance"
 category: "Algorithms and ML"
-order: 22
+order: 74
 lang: "en"
 ---
 # Generative Adversarial Networks (GANs)

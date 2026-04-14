@@ -1,7 +1,7 @@
 ---
 title: "News Sentiment Trading System"
 category: "Algorithms and ML"
-order: 124
+order: 65
 lang: "en"
 slug: "news-sentiment-trading"
 ---

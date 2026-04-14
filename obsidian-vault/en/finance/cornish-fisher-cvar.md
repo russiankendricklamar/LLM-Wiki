@@ -1,13 +1,17 @@
 ---
 title: "Cornish-Fisher CVaR"
 category: "Risk Management"
-order: 161
+order: 17
 lang: "en"
 slug: "cornish-fisher-cvar"
 ---
 # Cornish-Fisher CVaR
 
 The **Cornish-Fisher expansion** is used to adjust the Value-at-Risk (VaR) and Conditional Value-at-Risk (CVaR) for non-normal distributions by accounting for skewness and excess kurtosis. It provides a semi-parametric bridge between the tractable normal distribution and the fat-tailed, skewed return distributions observed in practice.
+
+## Prerequisites
+
+[[value-at-risk]], [[extreme-value-theory]]
 
 ## Overview & Background
 

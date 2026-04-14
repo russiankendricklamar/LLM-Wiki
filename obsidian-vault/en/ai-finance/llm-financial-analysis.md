@@ -1,7 +1,7 @@
 ---
 title: "LLM for Financial Analysis"
 category: "AI × Finance"
-order: 2
+order: 1
 lang: "en"
 slug: "llm-financial-analysis"
 ---

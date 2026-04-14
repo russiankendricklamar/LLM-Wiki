@@ -1,12 +1,16 @@
 ---
 title: "Kolmogorov-Arnold Networks (KAN)"
 category: "AI × Physics"
-order: 3
+order: 4
 lang: "en"
 slug: "kan"
 ---
 
 # Kolmogorov-Arnold Networks (KAN)
+
+## Prerequisites
+
+[[pinns]]
 
 ## Overview
 

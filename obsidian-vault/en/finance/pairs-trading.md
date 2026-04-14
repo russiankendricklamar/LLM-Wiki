@@ -1,7 +1,7 @@
 ---
 title: "Pairs Trading Strategy"
 category: "Pricing Models"
-order: 126
+order: 62
 lang: "en"
 slug: "pairs-trading"
 ---

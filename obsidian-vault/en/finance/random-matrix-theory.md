@@ -1,7 +1,7 @@
 ---
 title: "Random Matrix Theory (RMT)"
 category: "Algorithms and ML"
-order: 27
+order: 47
 lang: "en"
 ---
 # Random Matrix Theory (RMT)

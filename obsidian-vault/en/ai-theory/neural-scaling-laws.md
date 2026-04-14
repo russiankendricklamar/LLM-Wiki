@@ -1,12 +1,16 @@
 ---
 title: "Neural Scaling Laws"
 category: "AI Theory"
-order: 4
+order: 3
 lang: "en"
 slug: "neural-scaling-laws"
 ---
 
 # Neural Scaling Laws
+
+## Prerequisites
+
+[[pac-learning]]
 
 ## Overview
 

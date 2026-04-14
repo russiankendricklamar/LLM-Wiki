@@ -1,7 +1,7 @@
 ---
 title: "Процессы Леви"
 category: "Стохастические процессы"
-order: 2
+order: 4
 lang: "ru"
 featured: true
 image: "/featured/levy.jpg"

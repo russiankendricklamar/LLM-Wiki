@@ -1,7 +1,7 @@
 ---
 title: "Temporal Fusion Transformer"
 category: "AI × Finance"
-order: 1
+order: 2
 lang: "en"
 slug: "temporal-fusion-transformer"
 ---

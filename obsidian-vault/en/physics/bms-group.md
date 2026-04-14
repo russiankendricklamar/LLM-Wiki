@@ -2,11 +2,15 @@
 title: BMS Group
 category: physics
 lang: en
-order: 215
+order: 14
 slug: bms-group
 ---
 
 # BMS Group
+
+## Prerequisites
+
+[[asymptotic-symmetries]], [[group-theory]]
 
 ## Theoretical Foundation
 The BMS (Bondi-Metzner-Sachs) group is the asymptotic symmetry group of asymptotically flat spacetimes at null infinity. Discovered independently by Bondi, van der Burg, and Metzner and by Sachs in 1962, it was originally expected to reduce to the ten-parameter Poincaré group — translations and Lorentz transformations — but turned out to be vastly larger: an infinite-dimensional group containing an infinite family of angle-dependent time translations called supertranslations.

@@ -1,7 +1,7 @@
 ---
 title: "Fisher Transform"
 category: "Signal Analysis"
-order: 26
+order: 32
 lang: "en"
 ---
 # The Fisher Transform

@@ -1,7 +1,7 @@
 ---
 title: "Alpha Factor Discovery"
 category: "Algorithms and ML"
-order: 121
+order: 58
 lang: "en"
 slug: "alpha-factor-discovery"
 ---

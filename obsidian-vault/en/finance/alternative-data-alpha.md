@@ -1,7 +1,7 @@
 ---
 title: "Alternative Data Alpha"
 category: "Algorithms and ML"
-order: 129
+order: 60
 lang: "en"
 slug: "alternative-data-alpha"
 ---

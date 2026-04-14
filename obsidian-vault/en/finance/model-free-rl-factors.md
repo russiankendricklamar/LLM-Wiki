@@ -1,13 +1,17 @@
 ---
 title: "Model-Free RL for Factor Portfolios"
 category: "Algorithms and ML"
-order: 142
+order: 67
 lang: "en"
 slug: "model-free-rl-factors"
 ---
 # Model-Free RL for Factor Portfolios
 
 While traditional factor investing relies on static or linear weighting, **Model-Free Reinforcement Learning (RL)** allows for dynamic, non-linear factor allocation. The agent learns an optimal policy $\pi(a|s)$ to rotate between factors (e.g., Value, Momentum, Quality) based on market states without requiring a structural model of the economy.
+
+## Prerequisites
+
+[[rl-trader]], [[alpha-factor-discovery]]
 
 ## Background and Motivation
 

@@ -2,7 +2,7 @@
 title: Superposition & Collapse
 category: physics
 lang: en
-order: 204
+order: 4
 slug: superposition-collapse
 ---
 

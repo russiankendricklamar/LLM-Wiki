@@ -1,13 +1,17 @@
 ---
 title: "Convolutional Volatility Resolution Clustering (CVRC)"
 category: "Algorithms and ML"
-order: 131
+order: 73
 lang: "en"
 slug: "convolutional-volatility-resolution-clustering"
 ---
 # Convolutional Volatility Resolution Clustering (CVRC)
 
 **Convolutional Volatility Resolution Clustering (CVRC)** is a deep learning approach that leverages Convolutional Neural Networks (CNNs) to extract multi-resolution spatial features from volatility surfaces. By treating the time-frequency representation of volatility as a "volatility map" (image), CVRC identifies latent regime clusters through unsupervised learning, enabling more robust tail-risk estimation and adaptive trading strategies.
+
+## Prerequisites
+
+[[spectral-analysis]], [[wavelet-transform]], [[garch-models]]
 
 ## Overview & Background
 

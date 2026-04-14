@@ -1,7 +1,7 @@
 ---
 title: "XVA (Valuation Adjustments)"
 category: "Risk Management"
-order: 12
+order: 22
 lang: "en"
 ---
 # XVA (Valuation Adjustments)

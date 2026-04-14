@@ -2,7 +2,7 @@
 title: Асимптотические симметрии
 category: physics
 lang: ru
-order: 211
+order: 13
 slug: asymptotic-symmetries
 ---
 

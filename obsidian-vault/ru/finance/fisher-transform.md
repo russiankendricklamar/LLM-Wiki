@@ -1,7 +1,7 @@
 ---
 title: "Преобразование Фишера"
 category: "Анализ сигналов"
-order: 26
+order: 32
 lang: "ru"
 ---
 # Преобразование Фишера (Fisher Transform)

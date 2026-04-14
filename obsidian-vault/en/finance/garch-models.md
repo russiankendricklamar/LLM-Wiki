@@ -1,13 +1,17 @@
 ---
 title: "GARCH Models"
 category: "Stochastic Processes"
-order: 169
+order: 11
 lang: "en"
 slug: "garch-models"
 ---
 # GARCH Models
 
 The **Generalized Autoregressive Conditional Heteroskedasticity (GARCH)** model, introduced by Tim Bollerslev in 1986 as an extension of Robert Engle's ARCH (1982), is the workhorse model for volatility forecasting in quantitative finance. It captures the empirical fact that asset return volatility clusters: large moves tend to be followed by large moves, and calm periods by calm periods.
+
+## Prerequisites
+
+[[arch-models]]
 
 ## Historical Background
 

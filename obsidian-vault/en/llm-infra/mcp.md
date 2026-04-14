@@ -8,6 +8,10 @@ slug: "mcp"
 
 # MCP (Model Context Protocol)
 
+## Prerequisites
+
+[[llm]], [[tool-use]]
+
 ## Overview
 
 The Model Context Protocol (MCP) is an open standard introduced by Anthropic in November 2024 that defines a uniform interface for connecting language models to external tools, data sources, and services. Where ad-hoc [[tool-use]] requires each application to define its own function schemas and execution layer, MCP establishes a vendor-neutral protocol so that any compliant LLM client can connect to any compliant MCP server without bespoke integration work.

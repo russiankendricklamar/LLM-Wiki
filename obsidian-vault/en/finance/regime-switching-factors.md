@@ -1,7 +1,7 @@
 ---
 title: "Regime-Switching Factor Strategies"
 category: "Algorithms and ML"
-order: 147
+order: 68
 lang: "en"
 slug: "regime-switching-factors"
 ---

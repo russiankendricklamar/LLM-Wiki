@@ -2,11 +2,15 @@
 title: Pasterski's Triangle Theory
 category: physics
 lang: en
-order: 208
+order: 20
 slug: pasterski-triangle
 ---
 
 # Pasterski's Triangle Theory
+
+## Prerequisites
+
+[[soft-theorems]], [[scattering-amplitudes]], [[bms-group]]
 
 ## Theoretical Foundation
 Pasterski's Triangle is a profound synthesis in theoretical physics establishing a three-way equivalence between soft theorems, asymptotic symmetries, and memory effects in gauge theories and gravity. Assembled through work of Strominger, Pasterski, He, Mitra, Zhiboedov, and others from 2014 onward, the triangle demonstrates that the infrared structure of scattering — long considered a technical nuisance of divergent soft factors — is in fact a window into the deep symmetry structure of quantum field theory and gravity.

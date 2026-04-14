@@ -1,12 +1,16 @@
 ---
 title: "Mechanistic Interpretability"
 category: "AI Theory"
-order: 2
+order: 4
 lang: "en"
 slug: "mechanistic-interpretability"
 ---
 
 # Mechanistic Interpretability
+
+## Prerequisites
+
+[[pac-learning]], [[neural-scaling-laws]]
 
 ## Overview
 

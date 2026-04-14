@@ -1,7 +1,7 @@
 ---
 title: "Fraud Detection for Transactions"
 category: "Risk Management"
-order: 127
+order: 63
 lang: "en"
 slug: "fraud-detection"
 ---

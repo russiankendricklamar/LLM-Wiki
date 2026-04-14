@@ -10,7 +10,7 @@ year: "2026"
 tech: "React 19, TypeScript, Vite, Tailwind 4, Obsidian"
 github: "https://github.com/russiankendricklamar/LLM-Wiki"
 demo: "https://github.com/russiankendricklamar/LLM-Wiki"
-image: "/projects/llm-wiki.jpg"
+image: "/projects/llm-wiki.svg"
 featured: true
 description: "Bilingual wiki on quant finance, physics and LLMs. The content lives as an Obsidian vault and renders as a React + Vite SPA."
 ---

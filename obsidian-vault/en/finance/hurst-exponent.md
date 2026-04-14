@@ -1,7 +1,7 @@
 ---
 title: "Hurst Exponent"
 category: "Stochastic Processes"
-order: 29
+order: 37
 lang: "en"
 ---
 # Hurst Exponent (H)

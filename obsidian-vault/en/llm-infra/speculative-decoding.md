@@ -8,6 +8,10 @@ slug: "speculative-decoding"
 
 # Speculative Decoding
 
+## Prerequisites
+
+[[llm]]
+
 ## Overview
 
 Speculative decoding is an inference acceleration technique that achieves 2–4x speedup in autoregressive language model generation without any change to output quality. The core idea is simple: a fast, cheap "draft" model generates a short sequence of candidate tokens speculatively, and the large "target" model verifies all of them in a single parallel forward pass rather than generating them one by one.

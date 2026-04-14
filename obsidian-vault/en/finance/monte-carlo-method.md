@@ -1,7 +1,7 @@
 ---
 title: "Monte Carlo Method"
 category: "Algorithms and ML"
-order: 13
+order: 24
 lang: "en"
 ---
 # Monte Carlo Method

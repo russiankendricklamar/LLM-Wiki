@@ -1,12 +1,16 @@
 ---
 title: "Meta-Labeling Framework"
 category: "Algorithms and ML"
-order: 105
+order: 57
 lang: "en"
 ---
 # Meta-Labeling Framework (Marcos Lopez de Prado)
 
 **Meta-Labeling** is a machine learning technique introduced by Marcos Lopez de Prado to improve the performance of financial models. It decouples the decision of **side** (buy/sell) from the decision of **size** (bet/no-bet), allowing for better risk management and reduced false positives.
+
+## Prerequisites
+
+[[alpha-factor-discovery]]
 
 ## Background and Motivation
 

@@ -1,7 +1,7 @@
 ---
 title: "Lempel-Ziv Complexity"
 category: "Signal Analysis"
-order: 23
+order: 36
 lang: "en"
 ---
 # Lempel-Ziv Complexity (LZ)

@@ -1,7 +1,7 @@
 ---
 title: "Hierarchical Risk Parity (HRP)"
 category: "Risk Management"
-order: 20
+order: 45
 lang: "en"
 ---
 # Hierarchical Risk Parity (HRP)

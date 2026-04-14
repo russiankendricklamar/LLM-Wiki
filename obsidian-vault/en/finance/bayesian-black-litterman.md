@@ -1,13 +1,17 @@
 ---
 title: "Bayesian Black-Litterman Portfolio Optimization"
 category: "Risk Management"
-order: 140
+order: 46
 lang: "en"
 slug: "bayesian-black-litterman"
 ---
 # Bayesian Black-Litterman Portfolio Optimization
 
 The **Black-Litterman (BL) model** is a sophisticated portfolio construction method that overcomes the sensitivity of Markowitz's mean-variance optimization to input estimates. By combining an **Equilibrium Market Prior** with **Subjective Investor Views**, it produces stable, diversified portfolios.
+
+## Prerequisites
+
+[[hierarchical-risk-parity]], [[mcmc]]
 
 ## Overview & Background
 

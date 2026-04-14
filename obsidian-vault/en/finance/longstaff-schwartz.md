@@ -1,12 +1,16 @@
 ---
 title: "Longstaff-Schwartz Method (LSM)"
 category: "Algorithms and ML"
-order: 17
+order: 27
 lang: "en"
 ---
 # Longstaff-Schwartz Method (LSM)
 
 The **Longstaff-Schwartz Method** (also known as Least Squares Monte Carlo or LSM) is a powerful algorithm used to price American options and other path-dependent financial derivatives with early exercise features using Monte Carlo simulation.
+
+## Prerequisites
+
+[[monte-carlo-method]], [[black-scholes]]
 
 ## Background
 

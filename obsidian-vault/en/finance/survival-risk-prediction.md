@@ -1,7 +1,7 @@
 ---
 title: "Survival-Based Risk Prediction"
 category: "Risk Management"
-order: 141
+order: 70
 lang: "en"
 slug: "survival-risk-prediction"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Cross-Impact & Optimal Execution"
 category: "Algorithms and ML"
-order: 102
+order: 43
 lang: "en"
 ---
 # Cross-Impact & Optimal Execution (Almgren-Chriss)

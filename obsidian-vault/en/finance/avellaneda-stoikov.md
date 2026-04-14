@@ -1,7 +1,7 @@
 ---
 title: "Avellaneda-Stoikov Model"
 category: "Quantitative Finance"
-order: 19
+order: 42
 lang: "en"
 ---
 # Avellaneda-Stoikov Model

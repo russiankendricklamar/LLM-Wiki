@@ -1,7 +1,7 @@
 ---
 title: "Volatility Forecasting (GARCH, HAR)"
 category: "Stochastic Processes"
-order: 125
+order: 61
 lang: "en"
 slug: "volatility-forecasting"
 ---

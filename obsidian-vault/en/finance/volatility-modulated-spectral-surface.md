@@ -1,13 +1,17 @@
 ---
 title: "Volatility-Modulated Spectral Surface (VMSS)"
 category: "Signal Analysis"
-order: 130
+order: 72
 lang: "en"
 slug: "volatility-modulated-spectral-surface"
 ---
 # Volatility-Modulated Spectral Surface (VMSS)
 
 **Volatility-Modulated Spectral Surface (VMSS)** is an advanced signal-processing framework that maps the spectral energy distribution of financial time series while explicitly accounting for heteroskedasticity. Unlike static Fourier analysis, VMSS constructs a 3D representation — time, frequency, and normalized spectral power — where each frequency component is rescaled by local volatility, revealing structural market patterns that would otherwise be masked by volatility clustering.
+
+## Prerequisites
+
+[[spectral-analysis]], [[garch-models]], [[wavelet-transform]]
 
 ## Background
 

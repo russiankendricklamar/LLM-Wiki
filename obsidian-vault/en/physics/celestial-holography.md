@@ -2,11 +2,15 @@
 title: Celestial Holography
 category: physics
 lang: en
-order: 217
+order: 21
 slug: celestial-holography
 ---
 
 # Celestial Holography
+
+## Prerequisites
+
+[[conformal-field-theory]], [[bms-group]], [[scattering-amplitudes]]
 
 ## Theoretical Foundation
 Celestial holography is a proposed dual description of quantum gravity in 4D asymptotically flat spacetimes in terms of a 2D Conformal Field Theory (CFT) living on the celestial sphere at null infinity. Pioneered by Strominger, Pasterski, and collaborators in the 2010s, it aims to extend the holographic principle — so far most concretely realized in AdS/CFT — to flat spacetime and thus to the real universe.

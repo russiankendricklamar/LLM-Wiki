@@ -1,11 +1,15 @@
 ---
 title: "Generative Models for Scenario Generation"
 category: "AI × Finance"
-order: 3
+order: 4
 lang: "en"
 slug: "generative-scenario-models"
 ---
 # Generative Models for Scenario Generation
+
+## Prerequisites
+
+[[temporal-fusion-transformer]], [[monte-carlo-method]]
 
 ## Overview
 

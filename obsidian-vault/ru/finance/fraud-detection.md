@@ -1,7 +1,7 @@
 ---
 title: "Обнаружение мошенничества (Fraud Detection)"
 category: "Управление рисками"
-order: 127
+order: 63
 lang: "ru"
 slug: "fraud-detection"
 ---

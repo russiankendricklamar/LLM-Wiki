@@ -2,7 +2,7 @@
 title: Wave Function & Schrodinger Equation
 category: physics
 lang: en
-order: 202
+order: 2
 slug: schrodinger-equation
 ---
 

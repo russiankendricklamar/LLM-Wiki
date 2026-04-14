@@ -1,12 +1,16 @@
 ---
 title: "Eigenportfolio Construction via RMT"
 category: "Risk Management"
-order: 103
+order: 48
 lang: "en"
 ---
 # Eigenportfolio Construction via RMT
 
 **Eigenportfolios** are a set of uncorrelated portfolios derived from the eigenvectors of a correlation or covariance matrix. When combined with **Random Matrix Theory (RMT)**, this method allows for the creation of robust investment factors that are filtered for noise. First proposed in the context of financial data by Laloux et al. (1999) and Plerou et al. (1999), it has become a standard tool in systematic portfolio construction.
+
+## Prerequisites
+
+[[random-matrix-theory]], [[hierarchical-risk-parity]]
 
 ## Background and Motivation
 

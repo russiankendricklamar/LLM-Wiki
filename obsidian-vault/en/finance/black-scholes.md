@@ -1,7 +1,7 @@
 ---
 title: "Black-Scholes Model"
 category: "Pricing Models"
-order: 1
+order: 7
 lang: "en"
 ---
 # Black-Scholes Model

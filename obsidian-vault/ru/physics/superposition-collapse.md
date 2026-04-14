@@ -2,7 +2,7 @@
 title: Суперпозиция и коллапс
 category: physics
 lang: ru
-order: 204
+order: 4
 slug: superposition-collapse
 ---
 

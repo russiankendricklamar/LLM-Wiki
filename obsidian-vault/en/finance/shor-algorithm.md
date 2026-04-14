@@ -1,7 +1,7 @@
 ---
 title: "Shor's Algorithm"
 category: "Algorithms and ML"
-order: 114
+order: 76
 lang: "en"
 ---
 # Shor's Algorithm

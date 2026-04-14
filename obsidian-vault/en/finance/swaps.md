@@ -1,7 +1,7 @@
 ---
 title: "Types of Swaps"
 category: "Pricing Models"
-order: 11
+order: 23
 lang: "en"
 ---
 # Types of Swaps

@@ -1,7 +1,7 @@
 ---
 title: "Copula Models"
 category: "Pricing Models"
-order: 6
+order: 53
 lang: "en"
 ---
 # Copula Models

@@ -1,7 +1,7 @@
 ---
 title: "Extreme Value Theory (EVT)"
 category: "Risk Management"
-order: 7
+order: 18
 lang: "en"
 ---
 # Extreme Value Theory (EVT)

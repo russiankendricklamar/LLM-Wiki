@@ -1,7 +1,7 @@
 ---
 title: "Shannon Entropy in Finance"
 category: "Algorithms and ML"
-order: 21
+order: 35
 lang: "en"
 ---
 # Shannon Entropy in Finance

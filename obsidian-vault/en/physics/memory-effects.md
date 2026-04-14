@@ -2,11 +2,15 @@
 title: Memory Effects
 category: physics
 lang: en
-order: 212
+order: 16
 slug: memory-effects
 ---
 
 # Memory Effects
+
+## Prerequisites
+
+[[gravitational-memory]], [[soft-theorems]]
 
 ## Theoretical Foundation
 Memory effects refer to the permanent changes in the state of a detector or the geometry of spacetime after the passage of a radiation burst. These are infrared phenomena, occurring at zero frequency, and represent genuine physical transitions between distinct vacuum states of the theory. While [[gravitational-memory]] is the most famous, there exist analogous effects in all gauge theories: electromagnetic memory (a permanent velocity kick to charged particles), color memory in QCD (a permanent rotation in color space), and even a proposed supertranslation memory in superstring theory.
