@@ -30,6 +30,20 @@ const ABOUT = {
       { label: 'Infrastructure', items: ['Docker', 'Vite', 'GitHub Actions', 'OpenMP'] },
       { label: 'Finance', items: ['MOEX API', 'CBR', 'Bloomberg', 'IFRS 9/13', 'QuantLib'] },
     ],
+    researchTitle: 'Research',
+    researchProject: {
+      title: 'Domain-Specific SLM for Quantitative Finance',
+      badge: 'Zeta Terminal',
+      desc: 'Fine-tuned Microsoft Phi-4-mini (3.8B params) on Apple Silicon via MLX into a structured risk intelligence engine — not a chatbot, but a machine-readable stress scenario generator that calls tools, cites regulations, and never hallucinates numbers.',
+      stats: [
+        { value: '93.3%', label: 'Tool-Use Accuracy' },
+        { value: '98 yrs', label: 'Market Data' },
+        { value: '134', label: 'Financial Crises' },
+        { value: '+25.6pp', label: 'vs V1 Overall' },
+      ],
+      techniques: ['Tool-Use SFT', 'RAFT', 'CoT Distillation', 'KTO', 'Anti-Forgetting Mix', 'LoRA Routing', 'C++ via pybind11'],
+      infra: 'Apple M5 Pro 48 GB · MLX · 3 LoRA adapters (regulatory / pricing / analysis)',
+    },
     interestsTitle: 'Interests',
     interests: [
       { title: 'LLM Agents in Finance', desc: 'Building multi-agent systems that interpret macroeconomic protocols, automate IFRS 9 valuation workflows, and generate structured risk reports.' },
@@ -69,6 +83,20 @@ const ABOUT = {
       { label: 'Инфраструктура', items: ['Docker', 'Vite', 'GitHub Actions', 'OpenMP'] },
       { label: 'Финансы', items: ['MOEX API', 'ЦБ РФ', 'Bloomberg', 'МСФО 9/13', 'QuantLib'] },
     ],
+    researchTitle: 'Исследования',
+    researchProject: {
+      title: 'Domain-specific SLM для количественных финансов',
+      badge: 'Zeta Terminal',
+      desc: 'Дообучил Microsoft Phi-4-mini (3.8B параметров) на Apple Silicon через MLX в структурированный движок риск-аналитики — не чат-бот, а машиночитаемый генератор стресс-сценариев: вызывает инструменты, цитирует НПА, не галлюцинирует в числах.',
+      stats: [
+        { value: '93.3%', label: 'точность Tool-Use' },
+        { value: '98 лет', label: 'рыночных данных' },
+        { value: '134', label: 'финансовых кризиса' },
+        { value: '+25.6пп', label: 'vs V1 общий счёт' },
+      ],
+      techniques: ['Tool-Use SFT', 'RAFT', 'CoT Distillation', 'KTO', 'Anti-Forgetting Mix', 'LoRA Routing', 'C++ через pybind11'],
+      infra: 'Apple M5 Pro 48 ГБ · MLX · 3 LoRA-адаптера (regulatory / pricing / analysis)',
+    },
     interestsTitle: 'Интересы',
     interests: [
       { title: 'LLM-агенты в финансах', desc: 'Строю мульти-агентные системы, которые интерпретируют макроэкономические протоколы, автоматизируют оценку по МСФО 9 и генерируют структурированные риск-отчёты.' },
@@ -217,6 +245,40 @@ export const AboutPage: React.FC<AboutPageProps> = ({ lang }) => {
           </div>
         </section>
       </div>
+
+      {/* ── Research ── */}
+      <section>
+        <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+          {d.researchTitle}
+        </h2>
+        <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 p-5 space-y-4">
+          <div className="flex items-start justify-between gap-4 flex-wrap">
+            <div className="flex-1 min-w-0">
+              <p className="text-base font-bold text-zinc-900 dark:text-zinc-100">{d.researchProject.title}</p>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">{d.researchProject.desc}</p>
+            </div>
+            <span className="shrink-0 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              {d.researchProject.badge}
+            </span>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {d.researchProject.stats.map((stat) => (
+              <div key={stat.label} className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-3 text-center">
+                <p className="text-lg font-black text-zinc-900 dark:text-zinc-100">{stat.value}</p>
+                <p className="text-[10px] text-zinc-500 dark:text-zinc-500 uppercase tracking-wider mt-0.5">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            {d.researchProject.techniques.map((tech) => (
+              <span key={tech} className="rounded-md bg-zinc-100 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700 px-2 py-0.5 text-[11px] font-medium text-zinc-600 dark:text-zinc-300">
+                {tech}
+              </span>
+            ))}
+          </div>
+          <p className="text-[11px] text-zinc-400 dark:text-zinc-500 font-mono">{d.researchProject.infra}</p>
+        </div>
+      </section>
 
       {/* ── Interests ── */}
       <section>
