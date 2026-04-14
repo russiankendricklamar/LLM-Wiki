@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+
+  <!-- White background -->
+  <rect width="800" height="500" fill="#ffffff"/>
+
+  <!-- Top navy bar -->
+  <rect width="800" height="6" fill="#0a2973"/>
+
+  <!-- ZETA TERMINAL brand -->
+  <text x="32" y="44" font-size="13" font-weight="800" letter-spacing="3" fill="#0a0a0a">ZETA TERMINAL</text>
+
+  <!-- Badge top right -->
+  <rect x="596" y="22" width="172" height="26" rx="0" fill="none" stroke="#0a2973" stroke-width="1.5"/>
+  <text x="682" y="39" text-anchor="middle" font-size="9" font-weight="700" letter-spacing="1.5" fill="#0a2973">AI-АНАЛИТИЧЕСКИЙ ДВИЖОК</text>
+
+  <!-- Main heading -->
+  <text x="32" y="102" font-size="28" font-weight="900" fill="#0a0a0a">Дообучили </text>
+  <text x="198" y="102" font-size="28" font-weight="900" fill="#1a4de6">Phi-4-mini</text>
+  <text x="32" y="136" font-size="28" font-weight="900" fill="#0a0a0a">для финансовой риск-аналитики</text>
+
+  <!-- Subtitle -->
+  <text x="32" y="162" font-size="11" fill="#6b7280">Не чат-бот — structured JSON движок, обученный на 98 годах рыночных данных,</text>
+  <text x="32" y="178" font-size="11" fill="#6b7280">134 кризисах и 5000+ нормативных документах ЦБ.</text>
+
+  <!-- ══════ GRID ROW 1 ══════ -->
+
+  <!-- Box 1 -->
+  <rect x="32" y="198" width="232" height="100" fill="none" stroke="#0a0a0a" stroke-width="1.2"/>
+  <text x="48" y="220" font-size="8" font-weight="700" letter-spacing="2" fill="#1a4de6">ОБУЧАЮЩИЕ ДАННЫЕ</text>
+  <text x="48" y="256" font-size="36" font-weight="900" fill="#0a0a0a">61</text>
+  <text x="48" y="275" font-size="9.5" fill="#6b7280">Инструмент за 98 лет истории</text>
+  <text x="48" y="289" font-size="9.5" fill="#6b7280">S&amp;P 500 с 1928, MOEX с 2005</text>
+
+  <!-- Box 2 -->
+  <rect x="276" y="198" width="232" height="100" fill="none" stroke="#0a0a0a" stroke-width="1.2"/>
+  <text x="292" y="220" font-size="8" font-weight="700" letter-spacing="2" fill="#1a4de6">КРИЗИСЫ</text>
+  <text x="292" y="256" font-size="36" font-weight="900" fill="#0a0a0a">134</text>
+  <text x="292" y="275" font-size="9.5" fill="#6b7280">Великая Депрессия — 2026</text>
+  <text x="292" y="289" font-size="9.5" fill="#6b7280">Глобальные, валютные, банковские</text>
+
+  <!-- Box 3 -->
+  <rect x="520" y="198" width="248" height="100" fill="none" stroke="#0a0a0a" stroke-width="1.2"/>
+  <text x="536" y="220" font-size="8" font-weight="700" letter-spacing="2" fill="#1a4de6">НПА ЦБ РФ</text>
+  <text x="536" y="256" font-size="36" font-weight="900" fill="#0a0a0a">5000+</text>
+  <text x="536" y="275" font-size="9.5" fill="#6b7280">Инструкции, положения, указания</text>
+  <text x="536" y="289" font-size="9.5" fill="#6b7280">Basel III, нормативы Н1–Н25</text>
+
+  <!-- ══════ GRID ROW 2 ══════ -->
+
+  <!-- Box 4 -->
+  <rect x="32" y="308" width="232" height="100" fill="none" stroke="#0a0a0a" stroke-width="1.2"/>
+  <text x="48" y="330" font-size="8" font-weight="700" letter-spacing="2" fill="#1a4de6">НОВОСТНОЙ ПОТОК</text>
+  <text x="48" y="366" font-size="36" font-weight="900" fill="#0a0a0a">61K</text>
+  <text x="48" y="385" font-size="9.5" fill="#6b7280">Bloomberg, Reuters, Lenta.ru</text>
+  <text x="48" y="399" font-size="9.5" fill="#6b7280">2006–2026, фильтр по market impact</text>
+
+  <!-- Box 5 -->
+  <rect x="276" y="308" width="232" height="100" fill="none" stroke="#0a0a0a" stroke-width="1.2"/>
+  <text x="292" y="330" font-size="8" font-weight="700" letter-spacing="2" fill="#1a4de6">ЗАЯВЛЕНИЯ ЦБ</text>
+  <text x="292" y="366" font-size="36" font-weight="900" fill="#0a0a0a">284</text>
+  <text x="292" y="385" font-size="9.5" fill="#6b7280">ЦБ РФ, ФРС, BoJ, ЕЦБ</text>
+  <text x="292" y="399" font-size="9.5" fill="#6b7280">Классификация hawkish / dovish</text>
+
+  <!-- Box 6 -->
+  <rect x="520" y="308" width="248" height="100" fill="none" stroke="#0a0a0a" stroke-width="1.2"/>
+  <text x="536" y="330" font-size="8" font-weight="700" letter-spacing="2" fill="#1a4de6">C++ УСКОРЕНИЕ</text>
+  <text x="536" y="366" font-size="36" font-weight="900" fill="#0a0a0a">5000x</text>
+  <text x="536" y="385" font-size="9.5" fill="#6b7280">Batch YTM облигаций</text>
+  <text x="536" y="399" font-size="9.5" fill="#6b7280">MC 80x, GARCH 240x, HMM 1700x</text>
+
+  <!-- ══════ TAGS ROW ══════ -->
+  <!-- Blue-bordered tags -->
+  <rect x="32" y="422" width="84" height="22" fill="none" stroke="#1a4de6" stroke-width="1.2"/>
+  <text x="74" y="437" text-anchor="middle" font-size="8.5" font-weight="600" fill="#1a4de6">Tool-Use SFT</text>
+
+  <rect x="124" y="422" width="50" height="22" fill="none" stroke="#1a4de6" stroke-width="1.2"/>
+  <text x="149" y="437" text-anchor="middle" font-size="8.5" font-weight="600" fill="#1a4de6">RAFT</text>
+
+  <rect x="182" y="422" width="110" height="22" fill="none" stroke="#1a4de6" stroke-width="1.2"/>
+  <text x="237" y="437" text-anchor="middle" font-size="8.5" font-weight="600" fill="#1a4de6">CoT Distillation</text>
+
+  <rect x="300" y="422" width="100" height="22" fill="none" stroke="#1a4de6" stroke-width="1.2"/>
+  <text x="350" y="437" text-anchor="middle" font-size="8.5" font-weight="600" fill="#1a4de6">KTO Alignment</text>
+
+  <!-- Grey-bordered tags -->
+  <rect x="408" y="422" width="98" height="22" fill="none" stroke="#d1d5db" stroke-width="1"/>
+  <text x="457" y="437" text-anchor="middle" font-size="8.5" fill="#6b7280">Anti-Forgetting</text>
+
+  <rect x="514" y="422" width="90" height="22" fill="none" stroke="#d1d5db" stroke-width="1"/>
+  <text x="559" y="437" text-anchor="middle" font-size="8.5" fill="#6b7280">LoRA Routing</text>
+
+  <rect x="612" y="422" width="122" height="22" fill="none" stroke="#d1d5db" stroke-width="1"/>
+  <text x="673" y="437" text-anchor="middle" font-size="8.5" fill="#6b7280">MLX on Apple Silicon</text>
+
+  <!-- ══════ FOOTER ══════ -->
+  <line x1="32" y1="462" x2="768" y2="462" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="32" y="480" font-size="9.5" fill="#6b7280">Обучено на </text>
+  <text x="90" y="480" font-size="9.5" font-weight="700" fill="#0a0a0a">Apple M5 Pro 48GB</text>
+  <text x="205" y="480" font-size="9.5" fill="#6b7280"> · </text>
+  <text x="216" y="480" font-size="9.5" font-weight="700" fill="#0a0a0a">Microsoft Phi-4-mini 3.8B</text>
+  <text x="360" y="480" font-size="9.5" fill="#6b7280"> · </text>
+  <text x="371" y="480" font-size="9.5" font-weight="700" fill="#0a0a0a">MLX</text>
+  <text x="768" y="480" text-anchor="end" font-size="9.5" font-weight="700" fill="#1a4de6">zetaterminal.dev</text>
+
+</svg>

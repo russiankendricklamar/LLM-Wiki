@@ -8,7 +8,7 @@ status: "wip"
 year: "2025"
 tech: "Python, TypeScript, QuantLib, Claude, FastAPI"
 featured: false
-image: "/projects/zeta-terminal.jpg"
+image: "/projects/zeta-terminal.svg"
 description: "AI-native рабочее пространство для финансового анализа и количественных исследований — данные в реальном времени, помощь LLM и высокопроизводительные вычисления в одном терминале."
 ---
 
