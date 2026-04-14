@@ -81,25 +81,22 @@ export const Sidebar: React.FC<SidebarProps> = ({ className, lang = 'ru' }) => {
 
         <div className="mb-3 border-t border-zinc-200 dark:border-zinc-800" />
 
-        <nav className="space-y-0.5">
+        <nav className="space-y-1">
           {navigation.map((section, idx) => {
             const isOpen = openSections[section.title];
 
             return (
-              <div key={idx}>
+              <div key={idx} className="space-y-1">
                 <button
                   onClick={() => toggleSection(section.title)}
-                  className="w-full flex items-center gap-1.5 rounded-md px-2 py-1.5 text-left text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200/40 dark:hover:bg-zinc-800/40 transition-colors group"
+                  className="w-full flex items-center justify-between gap-2 px-2 py-2 text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors group"
                 >
+                  <span className="flex-1 text-left leading-snug">{section.title}</span>
                   {isOpen ? (
-                    <ChevronDown className="w-3.5 h-3.5 shrink-0 text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-200" />
+                    <ChevronDown className="w-3.5 h-3.5 shrink-0 opacity-50 group-hover:opacity-100" />
                   ) : (
-                    <ChevronRight className="w-3.5 h-3.5 shrink-0 text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-200" />
+                    <ChevronRight className="w-3.5 h-3.5 shrink-0 opacity-50 group-hover:opacity-100" />
                   )}
-                  <span className="flex-1 text-[13px] font-medium leading-snug">{section.title}</span>
-                  <span className="shrink-0 rounded bg-zinc-200/60 dark:bg-zinc-800/60 px-1.5 py-px text-[10px] font-medium tabular-nums text-zinc-500 dark:text-zinc-400">
-                    {section.items.length}
-                  </span>
                 </button>
 
                 <AnimatePresence initial={false}>
