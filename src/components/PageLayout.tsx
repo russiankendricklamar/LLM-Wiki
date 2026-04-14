@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Search, Moon, Sun } from 'lucide-react';
-import { TableOfContents } from './TableOfContents';
 import { SearchDialog } from './SearchDialog';
 import { Footer } from './Footer';
 import { cn } from '@/lib/utils';
@@ -136,11 +135,10 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
           children
         ) : (
           <>
-            <div className="mx-auto flex max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="w-full px-4 sm:px-6 lg:px-10 xl:px-16">
               <div className="flex-1 min-w-0 py-8 lg:py-12">
                 {children}
               </div>
-              <TableOfContents lang={lang} />
             </div>
             <Footer lang={lang} />
           </>
