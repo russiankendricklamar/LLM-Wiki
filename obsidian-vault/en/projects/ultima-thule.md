@@ -5,35 +5,42 @@ order: 3
 lang: "en"
 type: "project"
 status: "wip"
-year: "2025"
-tech: "React Native, TypeScript, Supabase"
+year: "2026"
+tech: "Swift, SwiftUI, SwiftData, ARKit, Supabase"
 featured: false
 image: "/projects/ultima-thule.jpg"
-description: "A travel and exploration app built for curious wanderers — intelligent trip planning, offline maps, and curated local discovery."
+description: "Native iOS travel planner — AI itinerary generator, real-time flight tracking, smart packing, AR navigation, and offline maps. Your entire trip in one place."
 ---
 
 # Ultima Thule
 
-**Ultima Thule** is a travel and exploration application designed for people who want to go off the beaten path. The name comes from the ancient Greek concept of a distant, mysterious land at the edge of the known world.
+**Ultima Thule** is a native iOS travel planning app. It combines an AI itinerary generator, real-time flight tracking, smart packing lists, offline maps, and AR navigation in one place. All external APIs are routed through a Supabase Edge Function proxy — works from any country without VPNs.
 
-## Concept
+## Motivation
 
-Most travel apps optimize for efficiency — fastest route, most popular restaurant, cheapest hotel. Ultima Thule is built for exploration: discovering obscure historical sites, finding the right context for a place, and planning journeys around curiosity rather than convenience.
+Planning a trip is scattered across 6+ apps: flights, hotels, routes, expenses, weather, documents — no unified hub, no personalisation, no offline. Ultima Thule eliminates that chaos.
 
 ## Features
 
-- **Intelligent itinerary builder**: generates trip plans based on interests, not just proximity
-- **Offline-first maps**: full trip data cached for areas with poor connectivity
-- **Contextual discovery**: historical, cultural, and geographical context for every location
-- **Journey journaling**: document your explorations with notes, photos, and geotags
+- **AI Trip Generator**: 4-step wizard — AI builds a day-by-day itinerary based on interests, travel style, and budget; real flight prices via Aviasales
+- **Flight tracking**: live status, delays, and gates via AirLabs; OCR booking scan and Gmail/Yandex Mail parsing
+- **Smart packing**: AI-generated packing list tailored to the specific trip, climate, and traveller profile
+- **Travel journal**: drag-and-drop photo book, geotags, notes, export
+- **AR navigation**: ARKit overlay with directional pointers to waypoints
+- **Offline access**: MKMapSnapshotter caches map tiles; weather and place data stored locally
 
-## Stack
+## Architecture
 
-- **Mobile**: React Native with Expo
-- **Backend**: Supabase (PostgreSQL + Edge Functions)
-- **Maps**: Mapbox GL for custom styled maps
-- **AI layer**: Claude for context generation and itinerary suggestions
+- **UI**: SwiftUI + SwiftData (local persistence)
+- **Backend**: Supabase — auth (Apple/Google/Email), sync, photo storage, Edge Functions as unified API proxy
+- **AI layer**: Gemini (primary), Claude, GPT-4 — via cloud proxy, no keys in the app
+- **Maps**: MapKit + CoreLocation + GeofenceManager
+- **AR**: ARKit + RealityKit
 
 ## Status
 
-MVP in development. Core map and itinerary features are functional; AI-powered context generation is being integrated.
+Active development, 26 sessions. All core modules implemented; UX polish and Live Activities integration in progress.
+
+## Related
+- [[supabase]]
+- [[swift]]
