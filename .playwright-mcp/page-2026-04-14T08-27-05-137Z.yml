@@ -1,0 +1,52 @@
+- main [ref=e4]:
+  - generic [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - img [ref=e11]
+        - generic [ref=e15]: КВАНТ-АНАЛИТИК · AI-ИНЖЕНЕР
+      - generic [ref=e16]:
+        - heading "ГАЛКИН ЕГОР" [level=1] [ref=e17]:
+          - generic [ref=e18]: ГАЛКИН
+          - generic [ref=e19]: ЕГОР
+        - paragraph [ref=e22]: Строю количественные модели и LLM-агентов. Главный экономист в Банке России — на стыке вычислительной физики, финансовой математики и современного ИИ.
+      - generic [ref=e23]:
+        - link "Обо мне" [ref=e24] [cursor=pointer]:
+          - /url: "#/about"
+          - img [ref=e25]
+          - generic [ref=e29]: Обо мне
+          - img [ref=e30]
+        - link "Проекты" [ref=e32] [cursor=pointer]:
+          - /url: "#/projects"
+          - img [ref=e33]
+          - generic [ref=e38]: Проекты
+        - link "База знаний" [ref=e39] [cursor=pointer]:
+          - /url: "#/knowledge-graph"
+          - img [ref=e40]
+          - generic [ref=e42]: База знаний
+    - complementary [ref=e43]:
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - generic [ref=e46]: ВЫБЕРИ ТЕМУ,
+          - generic [ref=e47]: ЧТОБЫ ПОГРУЗИТЬСЯ
+        - generic [ref=e48]:
+          - button "Previous" [ref=e49]:
+            - img [ref=e50]
+          - button "Next" [ref=e52]:
+            - img [ref=e53]
+      - link "СТАТЬЯ" [ref=e59] [cursor=pointer]:
+        - /url: "#/finance/levy-processes"
+        - generic [ref=e63]: СТАТЬЯ
+      - generic [ref=e64]:
+        - generic [ref=e66]:
+          - generic [ref=e67]: Стохастические процессы
+          - link "Процессы Леви" [ref=e68] [cursor=pointer]:
+            - /url: "#/finance/levy-processes"
+        - generic [ref=e69]:
+          - button "Slide 1" [ref=e70]
+          - button "Slide 2" [ref=e72]
+          - button "Slide 3" [ref=e74]
+          - button "Slide 4" [ref=e76]
+      - link "Подробнее" [ref=e78] [cursor=pointer]:
+        - /url: "#/finance/levy-processes"
+        - text: Подробнее
+        - img [ref=e79]

@@ -1,0 +1,140 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "🌿 Сад Знаний" [ref=e6] [cursor=pointer]:
+        - /url: "#/"
+        - generic [ref=e8]: 🌿
+        - generic [ref=e9]: Сад Знаний
+      - navigation [ref=e10]:
+        - link "Главная" [ref=e11] [cursor=pointer]:
+          - /url: "#/"
+        - link "Обо мне" [ref=e12] [cursor=pointer]:
+          - /url: "#/about"
+        - link "Проекты" [ref=e13] [cursor=pointer]:
+          - /url: "#/projects"
+        - link "Граф" [ref=e14] [cursor=pointer]:
+          - /url: "#/knowledge-graph"
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - button "EN" [ref=e17]
+        - button "RU" [ref=e18]
+      - button "Поиск... ⌘K" [ref=e19]:
+        - img [ref=e20]
+        - generic [ref=e23]: Поиск...
+        - generic [ref=e24]: ⌘K
+      - button [ref=e25]:
+        - img [ref=e26]
+  - main [ref=e32]:
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - generic [ref=e37]: ПРОЕКТЫ
+        - heading "Что я построил" [level=1] [ref=e38]
+        - paragraph [ref=e39]: Растущая коллекция экспериментов, инструментов и пет-проектов. Что-то выпущено, что-то в работе.
+      - generic [ref=e40]:
+        - article [ref=e41]:
+          - link [ref=e42] [cursor=pointer]:
+            - /url: "#/projects/llm-wiki"
+          - generic [ref=e44]:
+            - generic [ref=e45]:
+              - generic [ref=e46]: Активный
+              - generic [ref=e47]: "2026"
+            - link "LLM-Wiki" [ref=e48] [cursor=pointer]:
+              - /url: "#/projects/llm-wiki"
+              - heading "LLM-Wiki" [level=2] [ref=e49]
+            - paragraph [ref=e50]: Двуязычная wiki квантовых финансов, физики и LLM. Контент живёт как Obsidian vault, рендерится как SPA на React + Vite.
+            - generic [ref=e51]:
+              - generic [ref=e52]: React 19
+              - generic [ref=e53]: TypeScript
+              - generic [ref=e54]: Vite
+              - generic [ref=e55]: Tailwind 4
+              - generic [ref=e56]: Obsidian
+            - generic [ref=e57]:
+              - link "Открыть проект" [ref=e58] [cursor=pointer]:
+                - /url: "#/projects/llm-wiki"
+                - text: Открыть проект
+                - img [ref=e60]
+              - generic [ref=e63]:
+                - link "Код" [ref=e64] [cursor=pointer]:
+                  - /url: https://github.com/russiankendricklamar/LLM-Wiki
+                  - img [ref=e65]
+                - link "Демо" [ref=e68] [cursor=pointer]:
+                  - /url: https://github.com/russiankendricklamar/LLM-Wiki
+                  - img [ref=e69]
+        - article [ref=e73]:
+          - link [ref=e74] [cursor=pointer]:
+            - /url: "#/projects/zeta-terminal"
+          - generic [ref=e76]:
+            - generic [ref=e77]:
+              - generic [ref=e78]: В работе
+              - generic [ref=e79]: "2025"
+            - link "Zeta Terminal" [ref=e80] [cursor=pointer]:
+              - /url: "#/projects/zeta-terminal"
+              - heading "Zeta Terminal" [level=2] [ref=e81]
+            - paragraph [ref=e82]: AI-native рабочее пространство для финансового анализа и количественных исследований — данные в реальном времени, помощь LLM и высокопроизводительные вычисления в одном терминале.
+            - generic [ref=e83]:
+              - generic [ref=e84]: Python
+              - generic [ref=e85]: TypeScript
+              - generic [ref=e86]: QuantLib
+              - generic [ref=e87]: Claude
+              - generic [ref=e88]: FastAPI
+            - link "Открыть проект" [ref=e90] [cursor=pointer]:
+              - /url: "#/projects/zeta-terminal"
+              - text: Открыть проект
+              - img [ref=e92]
+        - article [ref=e95]:
+          - link [ref=e96] [cursor=pointer]:
+            - /url: "#/projects/ultima-thule"
+          - generic [ref=e98]:
+            - generic [ref=e99]:
+              - generic [ref=e100]: В работе
+              - generic [ref=e101]: "2025"
+            - link "Ultima Thule" [ref=e102] [cursor=pointer]:
+              - /url: "#/projects/ultima-thule"
+              - heading "Ultima Thule" [level=2] [ref=e103]
+            - paragraph [ref=e104]: Приложение для путешествий и исследований для любопытных странников — умное планирование маршрутов, офлайн-карты и кураторские местные открытия.
+            - generic [ref=e105]:
+              - generic [ref=e106]: React Native
+              - generic [ref=e107]: TypeScript
+              - generic [ref=e108]: Supabase
+            - link "Открыть проект" [ref=e110] [cursor=pointer]:
+              - /url: "#/projects/ultima-thule"
+              - text: Открыть проект
+              - img [ref=e112]
+        - article [ref=e115]:
+          - link [ref=e116] [cursor=pointer]:
+            - /url: "#/projects/example"
+          - generic [ref=e118]:
+            - generic [ref=e119]:
+              - generic [ref=e120]: В работе
+              - generic [ref=e121]: "2026"
+            - link "Название проекта" [ref=e122] [cursor=pointer]:
+              - /url: "#/projects/example"
+              - heading "Название проекта" [level=2] [ref=e123]
+            - paragraph [ref=e124]: Замените этот текст коротким описанием проекта (1-2 предложения).
+            - generic [ref=e125]:
+              - generic [ref=e126]: Python
+              - generic [ref=e127]: PyTorch
+              - generic [ref=e128]: FastAPI
+            - generic [ref=e129]:
+              - link "Открыть проект" [ref=e130] [cursor=pointer]:
+                - /url: "#/projects/example"
+                - text: Открыть проект
+                - img [ref=e132]
+              - link "Код" [ref=e136] [cursor=pointer]:
+                - /url: https://github.com/your-handle/your-repo
+                - img [ref=e137]
+    - generic [ref=e140]:
+      - generic [ref=e141]: © 2026 Egor Galkin
+      - generic [ref=e142]:
+        - link "GitHub" [ref=e143] [cursor=pointer]:
+          - /url: https://github.com/russiankendricklamar
+          - img [ref=e144]
+          - generic [ref=e147]: GitHub
+        - link "LinkedIn" [ref=e148] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/russiankendricklamar/?locale=ru
+          - img [ref=e149]
+          - generic [ref=e153]: LinkedIn
+        - link "Email" [ref=e154] [cursor=pointer]:
+          - /url: mailto:egor@example.com
+          - img [ref=e155]
+          - generic [ref=e158]: Написать
