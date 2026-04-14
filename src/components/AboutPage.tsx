@@ -138,7 +138,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ lang }) => {
 
         <div className="flex flex-col gap-3">
           <div>
-            <h1 className="text-3xl font-black tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
+            <h1
+              className="font-black tracking-tight text-zinc-900 dark:text-white"
+              style={{ fontSize: 'clamp(2rem, 9vw, 5rem)' }}
+            >
               {d.name}
             </h1>
             <p className="mt-1 text-sm font-medium text-zinc-500 dark:text-zinc-400">{d.role1}</p>
@@ -285,7 +288,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ lang }) => {
         <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
           {d.interestsTitle}
         </h2>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {d.interests.map((item, i) => (
             <motion.div
               key={i}
