@@ -70,8 +70,8 @@ export const ChartRenderer = ({ config }: { config: any }) => {
         return (
           <BarChart data={data} margin={{ top: 20, right: 30, bottom: 20, left: 10 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#52525b" opacity={0.1} vertical={false} />
-            <XAxis dataKey={xAxis} {...commonProps} dy={10} minTickGap={30} />
-            <YAxis {...commonProps} dx={-10} domain={yDomain} tickFormatter={(v) => v.toFixed(1)} />
+            <XAxis dataKey={xAxis} {...commonProps} dy={10} minTickGap={30} tick={{ fontSize: 11 }} interval="preserveStartEnd" />
+            <YAxis {...commonProps} dx={-10} domain={yDomain} tickFormatter={(v) => v.toFixed(1)} tick={{ fontSize: 11 }} />
             <Tooltip contentStyle={tooltipStyle} itemStyle={{ color: '#e4e4e7', fontSize: '12px' }} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
             <Legend verticalAlign="top" align="right" height={36} iconType="circle" wrapperStyle={{ fontSize: '12px', color: '#a1a1aa' }} />
             {lines.map((line: any, i: number) => (
@@ -134,7 +134,7 @@ export const ChartRenderer = ({ config }: { config: any }) => {
   };
 
   return (
-    <div className="w-full h-[350px] my-10 p-6 bg-white dark:bg-zinc-900/30 border border-zinc-200 dark:border-zinc-800/50 rounded-2xl shadow-sm backdrop-blur-sm">
+    <div className="w-full h-[240px] sm:h-[350px] my-10 p-6 bg-white dark:bg-zinc-900/30 border border-zinc-200 dark:border-zinc-800/50 rounded-2xl shadow-sm backdrop-blur-sm">
       <ResponsiveContainer width="100%" height="100%">
         {renderChart()}
       </ResponsiveContainer>
