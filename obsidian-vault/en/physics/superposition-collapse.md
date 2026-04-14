@@ -1,6 +1,6 @@
 ---
 title: Superposition & Collapse
-category: physics
+category: "Physics"
 lang: en
 order: 4
 slug: superposition-collapse

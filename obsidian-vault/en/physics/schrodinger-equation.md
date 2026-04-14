@@ -1,6 +1,6 @@
 ---
 title: Wave Function & Schrodinger Equation
-category: physics
+category: "Physics"
 lang: en
 order: 2
 slug: schrodinger-equation

@@ -1,6 +1,6 @@
 ---
 title: BMS-группа
-category: physics
+category: "Физика"
 lang: ru
 order: 14
 slug: bms-group

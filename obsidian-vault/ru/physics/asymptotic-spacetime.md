@@ -1,6 +1,6 @@
 ---
 title: Асимптотическое пространство-время
-category: physics
+category: "Физика"
 lang: ru
 order: 19
 slug: asymptotic-spacetime

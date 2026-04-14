@@ -1,6 +1,6 @@
 ---
 title: Memory Effects
-category: physics
+category: "Physics"
 lang: en
 order: 16
 slug: memory-effects

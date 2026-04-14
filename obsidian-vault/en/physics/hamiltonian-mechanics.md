@@ -1,6 +1,6 @@
 ---
 title: "Hamiltonian Mechanics"
-category: physics
+category: "Physics"
 order: 23
 lang: "en"
 slug: "hamiltonian-mechanics"

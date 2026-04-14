@@ -1,6 +1,6 @@
 ---
 title: Теория групп
-category: Гравитация и Геометрия
+category: "Физика"
 lang: ru
 order: 7
 slug: group-theory

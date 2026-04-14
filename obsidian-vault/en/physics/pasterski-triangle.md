@@ -1,6 +1,6 @@
 ---
 title: Pasterski's Triangle Theory
-category: physics
+category: "Physics"
 lang: en
 order: 20
 slug: pasterski-triangle

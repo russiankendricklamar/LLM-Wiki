@@ -1,6 +1,6 @@
 ---
 title: Принцип Паули и квантование
-category: physics
+category: "Физика"
 lang: ru
 order: 5
 slug: pauli-exclusion-quantization

@@ -1,6 +1,6 @@
 ---
 title: "Partial Differential Equations"
-category: physics
+category: "Physics"
 order: 22
 lang: "en"
 slug: "partial-differential-equations"

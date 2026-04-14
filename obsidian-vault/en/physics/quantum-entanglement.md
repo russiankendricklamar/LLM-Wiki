@@ -1,6 +1,6 @@
 ---
 title: Quantum Entanglement
-category: physics
+category: "Physics"
 lang: en
 order: 6
 slug: quantum-entanglement

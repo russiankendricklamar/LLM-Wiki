@@ -1,6 +1,6 @@
 ---
 title: Gravitational Waves & General Relativity
-category: Gravity & Geometry
+category: "Physics"
 lang: en
 order: 10
 slug: gravitational-waves-gr

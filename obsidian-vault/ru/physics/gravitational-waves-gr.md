@@ -1,6 +1,6 @@
 ---
 title: Гравитационные волны и ОТО
-category: Гравитация и Геометрия
+category: "Физика"
 lang: ru
 order: 10
 slug: gravitational-waves-gr

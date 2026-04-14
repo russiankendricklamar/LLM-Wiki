@@ -1,6 +1,6 @@
 ---
 title: Celestial Holography
-category: physics
+category: "Physics"
 lang: en
 order: 21
 slug: celestial-holography

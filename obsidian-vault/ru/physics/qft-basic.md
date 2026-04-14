@@ -1,6 +1,6 @@
 ---
 title: КТП: Базовый уровень
-category: Теоретическая физика
+category: "Физика"
 lang: ru
 order: 8
 slug: qft-basic

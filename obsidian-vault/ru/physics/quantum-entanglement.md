@@ -1,6 +1,6 @@
 ---
 title: Квантовая запутанность
-category: physics
+category: "Физика"
 lang: ru
 order: 6
 slug: quantum-entanglement

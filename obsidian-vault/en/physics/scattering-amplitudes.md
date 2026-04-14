@@ -1,6 +1,6 @@
 ---
 title: Scattering Amplitudes & S-matrix
-category: physics
+category: "Physics"
 lang: en
 order: 18
 slug: scattering-amplitudes

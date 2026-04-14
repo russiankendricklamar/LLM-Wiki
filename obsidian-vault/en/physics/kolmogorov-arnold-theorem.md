@@ -1,6 +1,6 @@
 ---
 title: "Kolmogorov-Arnold Theorem"
-category: "Mathematics"
+category: "Physics"
 order: 1
 lang: "en"
 slug: "kolmogorov-arnold-theorem"

@@ -1,6 +1,6 @@
 ---
 title: «Теория Треугольника» Сабрины Пастерски
-category: physics
+category: "Физика"
 lang: ru
 order: 20
 slug: pasterski-triangle

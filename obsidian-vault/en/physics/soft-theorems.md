@@ -1,6 +1,6 @@
 ---
 title: Soft Theorems
-category: physics
+category: "Physics"
 lang: en
 order: 12
 slug: soft-theorems

@@ -1,6 +1,6 @@
 ---
 title: Heisenberg Uncertainty Principle
-category: physics
+category: "Physics"
 lang: en
 order: 3
 slug: uncertainty-principle

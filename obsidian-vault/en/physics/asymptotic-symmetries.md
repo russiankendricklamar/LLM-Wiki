@@ -1,6 +1,6 @@
 ---
 title: Asymptotic Symmetries
-category: physics
+category: "Physics"
 lang: en
 order: 13
 slug: asymptotic-symmetries

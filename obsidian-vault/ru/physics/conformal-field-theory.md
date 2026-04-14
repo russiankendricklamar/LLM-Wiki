@@ -1,6 +1,6 @@
 ---
 title: Конформная теория поля (CFT)
-category: Теоретическая физика
+category: "Физика"
 lang: ru
 order: 9
 slug: conformal-field-theory

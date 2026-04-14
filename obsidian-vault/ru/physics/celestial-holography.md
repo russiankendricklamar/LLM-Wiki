@@ -1,6 +1,6 @@
 ---
 title: Небесная голография
-category: physics
+category: "Физика"
 lang: ru
 order: 21
 slug: celestial-holography

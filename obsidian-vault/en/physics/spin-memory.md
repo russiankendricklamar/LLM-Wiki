@@ -1,6 +1,6 @@
 ---
 title: Spin Memory
-category: physics
+category: "Physics"
 lang: en
 order: 17
 slug: spin-memory

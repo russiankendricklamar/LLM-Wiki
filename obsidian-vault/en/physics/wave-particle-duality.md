@@ -1,6 +1,6 @@
 ---
 title: Wave-Particle Duality
-category: physics
+category: "Physics"
 lang: en
 order: 1
 slug: wave-particle-duality

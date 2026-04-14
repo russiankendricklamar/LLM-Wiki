@@ -1,6 +1,6 @@
 ---
 title: «Мягкие волосы чёрной дыры»
-category: physics
+category: "Физика"
 lang: ru
 order: 15
 slug: black-hole-soft-hair

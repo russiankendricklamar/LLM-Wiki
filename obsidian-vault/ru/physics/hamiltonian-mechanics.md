@@ -1,6 +1,6 @@
 ---
 title: "Гамильтонова механика"
-category: physics
+category: "Физика"
 order: 23
 lang: "ru"
 slug: "hamiltonian-mechanics"

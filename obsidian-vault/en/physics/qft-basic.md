@@ -1,6 +1,6 @@
 ---
 title: QFT: Basic Level
-category: Theoretical Physics
+category: "Physics"
 lang: en
 order: 8
 slug: qft-basic

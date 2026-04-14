@@ -1,6 +1,6 @@
 ---
 title: Conformal Field Theory (CFT)
-category: Theoretical Physics
+category: "Physics"
 lang: en
 order: 9
 slug: conformal-field-theory

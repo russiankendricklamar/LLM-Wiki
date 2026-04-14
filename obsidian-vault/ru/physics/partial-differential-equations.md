@@ -1,6 +1,6 @@
 ---
 title: "Уравнения в частных производных"
-category: physics
+category: "Физика"
 order: 22
 lang: "ru"
 slug: "partial-differential-equations"

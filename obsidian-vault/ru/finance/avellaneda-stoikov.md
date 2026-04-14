@@ -1,6 +1,6 @@
 ---
 title: "Модель Авелланеды-Стойкова"
-category: "Количественные финансы"
+category: "Модели ценообразования"
 order: 42
 lang: "ru"
 slug: "avellaneda-stoikov"

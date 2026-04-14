@@ -1,6 +1,6 @@
 ---
 title: "Avellaneda-Stoikov Model"
-category: "Quantitative Finance"
+category: "Pricing Models"
 order: 42
 lang: "en"
 ---

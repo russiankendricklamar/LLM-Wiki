@@ -1,6 +1,6 @@
 ---
 title: Asymptotic Spacetime
-category: physics
+category: "Physics"
 lang: en
 order: 19
 slug: asymptotic-spacetime

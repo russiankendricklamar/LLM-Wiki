@@ -1,6 +1,6 @@
 ---
 title: Эффекты памяти
-category: physics
+category: "Физика"
 lang: ru
 order: 16
 slug: memory-effects

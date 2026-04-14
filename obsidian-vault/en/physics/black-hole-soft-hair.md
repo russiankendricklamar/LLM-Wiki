@@ -1,6 +1,6 @@
 ---
 title: Black Hole Soft Hair
-category: physics
+category: "Physics"
 lang: en
 order: 15
 slug: black-hole-soft-hair

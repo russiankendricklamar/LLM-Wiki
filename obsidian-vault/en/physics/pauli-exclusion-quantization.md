@@ -1,6 +1,6 @@
 ---
 title: Pauli Exclusion Principle & Quantization
-category: physics
+category: "Physics"
 lang: en
 order: 5
 slug: pauli-exclusion-quantization

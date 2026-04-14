@@ -1,6 +1,6 @@
 ---
 title: BMS Group
-category: physics
+category: "Physics"
 lang: en
 order: 14
 slug: bms-group

@@ -1,6 +1,6 @@
 ---
 title: Мягкие теоремы
-category: physics
+category: "Физика"
 lang: ru
 order: 12
 slug: soft-theorems

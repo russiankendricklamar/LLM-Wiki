@@ -1,6 +1,6 @@
 ---
 title: Group Theory
-category: Gravity & Geometry
+category: "Physics"
 lang: en
 order: 7
 slug: group-theory

@@ -1,6 +1,6 @@
 ---
 title: "Теорема Колмогорова-Арнольда"
-category: "Математика"
+category: "Физика"
 order: 1
 lang: "ru"
 slug: "kolmogorov-arnold-theorem"
