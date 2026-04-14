@@ -121,7 +121,7 @@ const CodeBlock = ({
             )}
           </button>
         </div>
-        <div className="p-4 overflow-x-auto text-sm">
+        <div className="p-3 sm:p-4 overflow-x-auto text-sm">
           <SyntaxHighlighter
             {...props}
             style={vscDarkPlus}
@@ -212,7 +212,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
           ),
           hr: ({ node, ...props }) => <hr className="my-12 h-0.5 border-none bg-zinc-300 dark:bg-zinc-100 opacity-100" {...props} />,
           table: ({ node, ...props }) => (
-            <div className="my-6 w-full overflow-y-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
+            <div className="my-6 w-full overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-800">
               <table className="w-full text-sm" {...props} />
             </div>
           ),
