@@ -1,0 +1,245 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
+import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
+
+interface AboutPageProps {
+  lang: 'en' | 'ru';
+}
+
+const ABOUT = {
+  en: {
+    name: 'EGOR GALKIN',
+    role1: 'Principal Economist · Bank of Russia',
+    role2: 'Quant Analyst · AI Engineer',
+    bio: 'I build quantitative models and LLM agents. At the Bank of Russia I focus on macroeconomic modelling and fair value assessment of financial instruments. On the side I research the intersection of computational physics, financial mathematics, and modern AI.',
+    timelineTitle: 'Career',
+    timeline: [
+      { period: '2025 — present', role: 'Principal Economist / Risk Analyst', org: 'Bank of Russia', desc: 'Fair value of securities and derivatives (IFRS 9/13), process automation for valuation.' },
+      { period: '2024 — 2025', role: 'Risk Manager', org: 'Bank of Russia', desc: 'IRB model validation, econometric modelling, capital requirements supervision.' },
+      { period: '2023 — 2024', role: 'Risk Analyst', org: 'Bank of Russia', desc: 'Risk assessment of financial instruments, analytical reporting.' },
+      { period: '2022 — 2023', role: 'Expert', org: 'Bank of Russia', desc: 'Financial statement analysis (IFRS/RAS), bank business model assessment.' },
+      { period: '2019 — 2022', role: 'Event Manager', org: 'BMSTU', desc: 'Financial literacy workshops (ESG, Personal Finance), budget management.' },
+    ],
+    techTitle: 'Tech Stack',
+    techSections: [
+      { label: 'Models', items: ['Claude', 'Gemini', 'Phi-4'] },
+      { label: 'Languages', items: ['Python', 'TypeScript'] },
+      { label: 'Libraries', items: ['Pandas', 'PyTorch', 'QuantLib'] },
+      { label: 'Methods', items: ['Stochastic Calculus', 'Numerical Methods', 'RAG', 'AI Agents'] },
+    ],
+    interestsTitle: 'Interests',
+    interests: [
+      { title: 'AI in Finance', desc: 'Exploring how LLMs can interpret macroeconomic protocols and automate quantitative analysis workflows.' },
+      { title: 'Quantum Physics', desc: 'Studying computational parallels between quantum mechanics and financial derivatives pricing.' },
+    ],
+    projectsTitle: 'Projects',
+    viewAll: 'View all projects',
+    socials: {
+      github: 'https://github.com/russiankendricklamar',
+      linkedin: 'https://www.linkedin.com/in/russiankendricklamar/?locale=ru',
+      email: 'mailto:egor@example.com',
+    },
+  },
+  ru: {
+    name: 'ГАЛКИН ЕГОР',
+    role1: 'Главный экономист · Банк России',
+    role2: 'Квант-аналитик · AI-инженер',
+    bio: 'Строю количественные модели и LLM-агентов. В Банке России занимаюсь макроэкономическим моделированием и оценкой справедливой стоимости финансовых инструментов. Параллельно исследую пересечение вычислительной физики, финансовой математики и современного ИИ.',
+    timelineTitle: 'Карьера',
+    timeline: [
+      { period: '2025 — сейчас', role: 'Главный экономист / Риск-аналитик', org: 'Банк России', desc: 'Оценка справедливой стоимости ЦБ и ПФИ (МСФО 9/13), автоматизация процессов оценки.' },
+      { period: '2024 — 2025', role: 'Риск-менеджер', org: 'Банк России', desc: 'Валидация ПВР-моделей (IRB), эконометрическое моделирование, надзор за нормативами капитала.' },
+      { period: '2023 — 2024', role: 'Риск-аналитик', org: 'Банк России', desc: 'Оценка рисков вложений в ценные бумаги, подготовка аналитических заключений.' },
+      { period: '2022 — 2023', role: 'Эксперт', org: 'Банк России', desc: 'Анализ отчётности (РСБУ/МСФО), оценка бизнес-моделей банков.' },
+      { period: '2019 — 2022', role: 'Менеджер по мероприятиям', org: 'МГТУ им. Баумана', desc: 'Мастер-классы по финансовой грамотности и ESG, управление бюджетом.' },
+    ],
+    techTitle: 'Стек технологий',
+    techSections: [
+      { label: 'Модели', items: ['Claude', 'Gemini', 'Phi-4'] },
+      { label: 'Языки', items: ['Python', 'TypeScript'] },
+      { label: 'Библиотеки', items: ['Pandas', 'PyTorch', 'QuantLib'] },
+      { label: 'Методологии', items: ['Стохастическое исчисление', 'Численные методы', 'RAG', 'AI-агенты'] },
+    ],
+    interestsTitle: 'Интересы',
+    interests: [
+      { title: 'AI в финансах', desc: 'Исследую, как LLM могут интерпретировать макроэкономические протоколы и автоматизировать процессы количественного анализа.' },
+      { title: 'Квантовая физика', desc: 'Изучаю вычислительные параллели между квантовой механикой и оценкой производных финансовых инструментов.' },
+    ],
+    projectsTitle: 'Проекты',
+    viewAll: 'Все проекты',
+    socials: {
+      github: 'https://github.com/russiankendricklamar',
+      linkedin: 'https://www.linkedin.com/in/russiankendricklamar/?locale=ru',
+      email: 'mailto:egor@example.com',
+    },
+  },
+};
+
+export const AboutPage: React.FC<AboutPageProps> = ({ lang }) => {
+  const d = ABOUT[lang];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+      className="mx-auto max-w-3xl space-y-12"
+    >
+      {/* ── Hero card ── */}
+      <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
+        {/* Avatar placeholder */}
+        <div className="shrink-0">
+          <div className="h-24 w-24 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center shadow-lg shadow-emerald-900/30 sm:h-28 sm:w-28">
+            <span className="text-4xl font-black text-white leading-none select-none">Е</span>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <div>
+            <h1 className="text-3xl font-black tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
+              {d.name}
+            </h1>
+            <p className="mt-1 text-sm font-medium text-zinc-500 dark:text-zinc-400">{d.role1}</p>
+            <p className="text-sm font-medium text-emerald-600 dark:text-emerald-400">{d.role2}</p>
+          </div>
+
+          <p className="max-w-lg text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+            {d.bio}
+          </p>
+
+          {/* Social links */}
+          <div className="flex items-center gap-4">
+            <a
+              href={d.socials.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            >
+              <Github className="h-4 w-4" />
+              <span>GitHub</span>
+            </a>
+            <a
+              href={d.socials.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            >
+              <Linkedin className="h-4 w-4" />
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href={d.socials.email}
+              className="flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            >
+              <Mail className="h-4 w-4" />
+              <span>Email</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Timeline + Tech Stack ── */}
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_auto]">
+        {/* Timeline */}
+        <section>
+          <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+            {d.timelineTitle}
+          </h2>
+          <ol className="space-y-5">
+            {d.timeline.map((item, i) => (
+              <motion.li
+                key={i}
+                initial={{ opacity: 0, x: -12 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.1 + i * 0.07 }}
+                className="relative flex gap-4"
+              >
+                {/* Timeline line */}
+                {i < d.timeline.length - 1 && (
+                  <div className="absolute left-[5px] top-5 h-full w-px bg-zinc-200 dark:bg-zinc-800" />
+                )}
+                {/* Dot */}
+                <div className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full border-2 border-emerald-500 bg-white dark:bg-zinc-950" />
+                <div className="min-w-0 pb-1">
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+                    {item.period}
+                  </p>
+                  <p className="mt-0.5 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                    {item.role}
+                    <span className="ml-1.5 font-normal text-zinc-500 dark:text-zinc-400">· {item.org}</span>
+                  </p>
+                  <p className="mt-0.5 text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.li>
+            ))}
+          </ol>
+        </section>
+
+        {/* Tech Stack */}
+        <section className="lg:w-52 xl:w-60">
+          <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+            {d.techTitle}
+          </h2>
+          <div className="space-y-4">
+            {d.techSections.map((section) => (
+              <div key={section.label}>
+                <p className="mb-1.5 text-[11px] font-semibold text-zinc-500 dark:text-zinc-500">
+                  {section.label}
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {section.items.map((item) => (
+                    <span
+                      key={item}
+                      className="inline-block rounded-md border border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800/60 px-2 py-0.5 text-[11px] font-medium text-zinc-700 dark:text-zinc-300"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      {/* ── Interests ── */}
+      <section>
+        <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+          {d.interestsTitle}
+        </h2>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {d.interests.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
+              className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 p-4"
+            >
+              <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{item.title}</p>
+              <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Projects CTA ── */}
+      <section>
+        <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+          {d.projectsTitle}
+        </h2>
+        <Link
+          to="/projects"
+          className="group inline-flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-900/50 px-5 py-3 text-sm font-medium text-zinc-700 dark:text-zinc-300 transition hover:border-emerald-500/50 hover:text-emerald-600 dark:hover:text-emerald-400"
+        >
+          {d.viewAll}
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </Link>
+      </section>
+    </motion.div>
+  );
+};

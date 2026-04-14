@@ -6,6 +6,7 @@ import { MarkdownRenderer } from './components/MarkdownRenderer';
 import { KnowledgeGraph } from './components/KnowledgeGraph';
 import { HomeHero } from './components/HomeHero';
 import { ProjectsPage } from './components/ProjectsPage';
+import { AboutPage } from './components/AboutPage';
 import { getAllPages } from './lib/content-loader';
 import { cn } from './lib/utils';
 
@@ -82,6 +83,9 @@ const AnimatedRoutes = ({ lang }: { lang: 'en' | 'ru' }) => {
       <Routes location={location} key={location.pathname + lang}>
         {/* Index route — cinematic hero landing */}
         <Route path="/" element={<HomeHero lang={lang} />} />
+
+        {/* About page — rich personal profile layout */}
+        <Route path="/about" element={<AboutPage lang={lang} />} />
 
         {/* Projects index — grid of all projects */}
         <Route path="/projects" element={<ProjectsPage lang={lang} />} />

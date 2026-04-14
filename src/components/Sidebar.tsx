@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FileText, ChevronDown, ChevronRight } from 'lucide-react';
+import { FileText, ChevronDown, ChevronRight, UserCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { getNavigation } from '@/lib/content-loader';
@@ -36,6 +36,36 @@ export const Sidebar: React.FC<SidebarProps> = ({ className, lang = 'ru' }) => {
             {lang === 'en' ? 'Knowledge Garden' : 'Сад Знаний'}
           </span>
         </NavLink>
+
+        {/* Personal shortcuts — always visible above category nav */}
+        <div className="mb-4 flex flex-col gap-1">
+          <NavLink
+            to="/about"
+            className={({ isActive }) => cn(
+              "flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors",
+              isActive
+                ? "bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-900 dark:text-zinc-100 font-medium"
+                : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/30 dark:hover:bg-zinc-800/30 hover:text-zinc-900 dark:hover:text-zinc-100"
+            )}
+          >
+            <UserCircle2 className="w-4 h-4 opacity-70" />
+            {lang === 'en' ? 'About Me' : 'Обо мне'}
+          </NavLink>
+          <NavLink
+            to="/projects"
+            className={({ isActive }) => cn(
+              "flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors",
+              isActive
+                ? "bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-900 dark:text-zinc-100 font-medium"
+                : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/30 dark:hover:bg-zinc-800/30 hover:text-zinc-900 dark:hover:text-zinc-100"
+            )}
+          >
+            <FileText className="w-4 h-4 opacity-70" />
+            {lang === 'en' ? 'Projects' : 'Проекты'}
+          </NavLink>
+        </div>
+
+        <div className="mb-3 border-t border-zinc-200 dark:border-zinc-800" />
 
         <nav className="space-y-1">
           {navigation.map((section, idx) => {

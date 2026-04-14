@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, ArrowRight, Sparkles, Compass, FolderGit2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, FolderGit2, BookOpen, UserCircle2 } from 'lucide-react';
 import { getFeaturedItems } from '../lib/content-loader';
 
 interface HomeHeroProps {
@@ -10,12 +10,12 @@ interface HomeHeroProps {
 
 const COPY = {
   en: {
-    eyebrow: 'KNOWLEDGE GARDEN',
-    titleLines: ['EXPLORE', 'KNOWLEDGE', 'FRONTIERS'],
-    subtitle: 'A garden of notes on quant finance, physics, large language models — and the projects I build along the way.',
-    ctaEnter: 'Enter the garden',
-    ctaGraph: 'Knowledge graph',
+    eyebrow: 'QUANT ANALYST · AI ENGINEER',
+    titleLines: ['EGOR', 'GALKIN'],
+    subtitle: 'I build quantitative models and LLM agents. Principal Economist at the Bank of Russia — bridging computational physics, financial mathematics and modern AI.',
+    ctaAbout: 'About me',
     ctaProjects: 'Projects',
+    ctaKnowledge: 'Knowledge base',
     featuredEyebrow: 'PICK A TOPIC TO',
     featuredEyebrow2: 'DIVE INTO',
     readArticle: 'Read more',
@@ -24,12 +24,12 @@ const COPY = {
     counter: (i: number, n: number) => `${String(i + 1).padStart(2, '0')} / ${String(n).padStart(2, '0')}`,
   },
   ru: {
-    eyebrow: 'САД ЗНАНИЙ',
-    titleLines: ['ИССЛЕДУЙ', 'ГРАНИЦЫ', 'ЗНАНИЯ'],
-    subtitle: 'Сад заметок о квант-финансах, физике, больших языковых моделях — и проекты, которые рождаются по пути.',
-    ctaEnter: 'Войти в сад',
-    ctaGraph: 'Граф знаний',
+    eyebrow: 'КВАНТ-АНАЛИТИК · AI-ИНЖЕНЕР',
+    titleLines: ['ГАЛКИН', 'ЕГОР'],
+    subtitle: 'Строю количественные модели и LLM-агентов. Главный экономист в Банке России — на стыке вычислительной физики, финансовой математики и современного ИИ.',
+    ctaAbout: 'Обо мне',
     ctaProjects: 'Проекты',
+    ctaKnowledge: 'База знаний',
     featuredEyebrow: 'ВЫБЕРИ ТЕМУ,',
     featuredEyebrow2: 'ЧТОБЫ ПОГРУЗИТЬСЯ',
     readArticle: 'Подробнее',
@@ -93,10 +93,10 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
       />
 
       <div className="relative z-10 grid h-full grid-cols-1 gap-8 px-6 pb-10 pt-8 sm:px-10 lg:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)] lg:gap-10 lg:px-14 lg:pt-12 xl:gap-14 xl:px-20">
-        {/* LEFT — headline column. min-w-0 + min-h-0 prevents grid item from overflowing. */}
+        {/* LEFT — personal intro column. min-w-0 + min-h-0 prevents grid item from overflowing. */}
         <div className="flex min-w-0 min-h-0 flex-col justify-between">
           <div className="flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] text-zinc-400">
-            <Sparkles className="h-3.5 w-3.5 shrink-0" />
+            <UserCircle2 className="h-3.5 w-3.5 shrink-0" />
             <span>{copy.eyebrow}</span>
           </div>
 
@@ -129,7 +129,7 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
             </motion.div>
           </div>
 
-          {/* Search-widget-style CTA row (mirrors reference layout) */}
+          {/* CTA row: About me (primary) + Projects + Knowledge base */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -137,11 +137,12 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
             className="flex flex-wrap items-center gap-3"
           >
             <Link
-              to="/knowledge-graph"
-              className="group flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-zinc-200 backdrop-blur-md transition hover:bg-white/10"
+              to="/about"
+              className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-2xl bg-white px-6 py-4 text-sm font-semibold text-zinc-900 shadow-xl shadow-black/30 transition hover:bg-zinc-100"
             >
-              <Compass className="h-4 w-4 text-zinc-400 transition group-hover:text-white" />
-              <span className="font-medium">{copy.ctaGraph}</span>
+              <UserCircle2 className="h-4 w-4" />
+              <span>{copy.ctaAbout}</span>
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
 
             <Link
@@ -153,11 +154,11 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
             </Link>
 
             <Link
-              to={current?.metadata.slug ?? '/knowledge-graph'}
-              className="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl bg-white px-7 py-4 text-sm font-semibold text-zinc-900 shadow-xl shadow-black/30 transition hover:bg-zinc-100"
+              to="/knowledge-graph"
+              className="group flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-zinc-200 backdrop-blur-md transition hover:bg-white/10"
             >
-              <span className="relative z-10">{copy.ctaEnter}</span>
-              <ArrowRight className="relative z-10 ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <BookOpen className="h-4 w-4 text-zinc-400 transition group-hover:text-white" />
+              <span className="font-medium">{copy.ctaKnowledge}</span>
             </Link>
           </motion.div>
         </div>

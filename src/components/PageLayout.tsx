@@ -3,6 +3,7 @@ import { Menu, Search, Moon, Sun } from 'lucide-react';
 import { Sidebar } from './Sidebar';
 import { TableOfContents } from './TableOfContents';
 import { SearchDialog } from './SearchDialog';
+import { Footer } from './Footer';
 import { cn } from '@/lib/utils';
 
 interface PageLayoutProps {
@@ -124,12 +125,15 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
           {fullBleed ? (
             children
           ) : (
-            <div className="mx-auto flex max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="flex-1 min-w-0 py-8 lg:py-12">
-                {children}
+            <>
+              <div className="mx-auto flex max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="flex-1 min-w-0 py-8 lg:py-12">
+                  {children}
+                </div>
+                <TableOfContents lang={lang} />
               </div>
-              <TableOfContents lang={lang} />
-            </div>
+              <Footer lang={lang} />
+            </>
           )}
         </main>
       </div>
