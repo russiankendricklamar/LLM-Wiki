@@ -205,7 +205,6 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
           ul: ({ node, ...props }) => <ul className="my-6 ml-6 list-disc [&>li]:mt-2 text-zinc-700 dark:text-zinc-300" {...props} />,
           ol: ({ node, ...props }) => <ol className="my-6 ml-6 list-decimal [&>li]:mt-2 text-zinc-700 dark:text-zinc-300" {...props} />,
           li: ({ node, ...props }) => <li className="text-zinc-700 dark:text-zinc-300" {...props} />,
-          a: ({ node, ...props }) => <a className="font-medium text-blue-600 dark:text-blue-400 underline underline-offset-4 hover:text-blue-800 dark:hover:text-blue-300" {...props} />,
           blockquote: ({ node, ...props }) => (
             <blockquote className="mt-6 border-l-2 border-zinc-300 dark:border-zinc-700 pl-6 italic text-zinc-600 dark:text-zinc-400" {...props} />
           ),
