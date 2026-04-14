@@ -72,7 +72,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ lang }) => {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="mx-auto w-full max-w-6xl"
+      className="w-full"
     >
       {/* Header */}
       <motion.header
@@ -97,7 +97,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ lang }) => {
       ) : (
         /* Grid fires stagger once the container scrolls into view */
         <motion.div
-          className="grid gap-6 sm:grid-cols-2"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
           variants={gridVariants}
           initial="hidden"
           whileInView="visible"
