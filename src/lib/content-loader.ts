@@ -151,9 +151,13 @@ export const getNavigation = (lang: 'en' | 'ru') => {
   }));
 };
 
+const GRAPH_EXCLUDED_CATEGORIES = new Set(['Projects', 'Проекты', 'Home', 'Главная']);
+
 export const getGraphData = (lang: 'en' | 'ru') => {
-  const pages = getAllPages().filter(p => p.metadata.lang === lang);
-  
+  const pages = getAllPages()
+    .filter(p => p.metadata.lang === lang)
+    .filter(p => !GRAPH_EXCLUDED_CATEGORIES.has(p.metadata.category));
+
   const nodes = pages.map(page => ({
     id: page.metadata.slug.replace(/^\//, ''),
     name: page.metadata.title,

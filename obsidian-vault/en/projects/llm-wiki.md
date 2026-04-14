@@ -54,7 +54,7 @@ A new source lands in the vault — a paper, a chapter, a talk transcript. The a
 
 - extracts key formulas, definitions, dates, names;
 - creates or updates 5–15 pages in the categories the material touches;
-- wires up wiki links in both directions so that new edges appear in the [[knowledge-graph|knowledge graph]];
+- wires up wiki links in both directions so that new edges appear in the knowledge graph;
 - refreshes the category index.
 
 One source turns into a spreading set of edits rather than a single detached note.
