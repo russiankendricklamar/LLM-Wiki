@@ -1,8 +1,42 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, ArrowRight, FolderGit2, BookOpen, UserCircle2, GithubIcon, Network } from 'lucide-react';
+import { ArrowLeft, ArrowRight, FolderGit2, BookOpen, UserCircle2, GithubIcon, Network, Link2, Clock, Sparkles } from 'lucide-react';
 import { getFeaturedItems } from '../lib/content-loader';
+
+// Extract the first meaningful paragraph from markdown content, stripping formatting
+const extractDescription = (content: string): string => {
+  const lines = content.split('\n');
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    if (trimmed.startsWith('#')) continue;
+    if (trimmed.startsWith('$$')) continue;
+    if (trimmed.startsWith('```')) continue;
+    return trimmed
+      .replace(/\*\*([^*]+)\*\*/g, '$1')
+      .replace(/\*([^*]+)\*/g, '$1')
+      .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, slug, alias) => alias || slug)
+      .replace(/`([^`]+)`/g, '$1')
+      .replace(/\$([^$]+)\$/g, '$1')
+      .trim();
+  }
+  return '';
+};
+
+const countWikilinks = (content: string): number =>
+  (content.match(/\[\[/g) || []).length;
+
+const readingTime = (content: string): number => {
+  const words = content.trim().split(/\s+/).length;
+  return Math.max(1, Math.round(words / 200));
+};
+
+const GROWTH_LABEL: Record<string, { en: string; ru: string }> = {
+  seedling:  { en: 'SEEDLING',  ru: 'РОСТОК' },
+  budding:   { en: 'BUDDING',   ru: 'РАЗВИТАЯ' },
+  evergreen: { en: 'EVERGREEN', ru: 'ЗРЕЛАЯ' },
+};
 
 interface HomeHeroProps {
   lang: 'en' | 'ru';
@@ -112,7 +146,7 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
   }, [isPaused, hasFeatured, safeIndex, paginate]);
 
   return (
-    <div className="relative h-[calc(100vh-3.5rem)] w-full overflow-hidden bg-zinc-950 text-zinc-50">
+    <div className="relative h-full w-full overflow-hidden bg-zinc-950 text-zinc-50">
       {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -233,7 +267,7 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
-            className="flex h-full min-h-0 min-w-0 flex-col rounded-[32px] border border-white/10 bg-black/55 p-5 backdrop-blur-xl lg:p-6"
+            className="flex min-h-0 min-w-0 flex-col self-center rounded-[32px] border border-white/10 bg-black/55 p-5 backdrop-blur-xl lg:p-6"
           >
             {/* Header: eyebrow + progress + arrows */}
             <div className="flex items-start justify-between gap-4">
@@ -274,8 +308,8 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
               />
             </div>
 
-            {/* Image area */}
-            <div className="relative mt-4 flex-1 min-h-0 overflow-hidden rounded-[24px]">
+            {/* Image area — square frame, matches square cover images perfectly */}
+            <div className="relative mt-4 w-full aspect-square overflow-hidden rounded-[24px]">
               <AnimatePresence mode="wait" custom={direction} initial={false}>
                 <motion.div
                   key={current.metadata.slug}
@@ -292,36 +326,92 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
                 >
                   <Link to={current.metadata.slug} className="relative block h-full w-full">
                     {current.metadata.type === 'project' && current.metadata.image ? (
-                      <div
-                        className="h-full w-full bg-cover bg-center"
-                        style={{ backgroundImage: `url('${current.metadata.image}')` }}
-                      >
-                        <div className="h-full w-full bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
-                      </div>
+                      <img
+                        src={current.metadata.image}
+                        alt={current.metadata.title}
+                        className="h-full w-full object-cover"
+                      />
                     ) : (() => {
                         const style = getCategoryStyle(current.metadata.category);
+                        const desc = extractDescription(current.content);
+                        const links = countWikilinks(current.content);
+                        const mins = readingTime(current.content);
+                        const growth = current.metadata.growth;
+                        const growthText = growth ? GROWTH_LABEL[growth]?.[lang] : null;
                         return (
                           <div
-                            className="relative h-full w-full overflow-hidden flex flex-col items-center justify-center p-6 gap-3"
+                            className="relative h-full w-full overflow-hidden flex flex-col p-6 lg:p-7"
                             style={{ background: style.bg }}
                           >
-                            <span
-                              className="text-[10px] font-bold uppercase tracking-[0.2em]"
-                              style={{ color: style.accent, opacity: 0.85 }}
-                            >
-                              {current.metadata.category}
-                            </span>
-                            <span
-                              className="text-center font-black leading-[0.9] tracking-tight text-white break-words"
-                              style={{ fontSize: 'clamp(1.6rem, 4vw, 2.8rem)' }}
-                            >
-                              {current.metadata.title}
-                            </span>
+                            {/* Subtle pattern overlay */}
                             <div
-                              className="mt-1 h-0.5 w-12 rounded-full"
-                              style={{ background: style.accent }}
+                              className="absolute inset-0 pointer-events-none opacity-[0.06]"
+                              style={{
+                                backgroundImage:
+                                  'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+                                backgroundSize: '24px 24px',
+                              }}
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+
+                            {/* Top row — category + growth badge (offset below the floating type badge) */}
+                            <div className="relative mt-9 flex items-start justify-between gap-3">
+                              <span
+                                className="text-[10px] font-bold uppercase tracking-[0.22em]"
+                                style={{ color: style.accent, opacity: 0.95 }}
+                              >
+                                {current.metadata.category}
+                              </span>
+                              {growthText && (
+                                <span
+                                  className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.14em]"
+                                  style={{
+                                    color: style.accent,
+                                    borderColor: style.accent + '55',
+                                    background: 'rgba(0,0,0,0.25)',
+                                  }}
+                                >
+                                  <Sparkles className="h-2.5 w-2.5" />
+                                  {growthText}
+                                </span>
+                              )}
+                            </div>
+
+                            {/* Title + accent bar */}
+                            <div className="relative mt-5">
+                              <h3
+                                className="font-black leading-[0.95] tracking-tight text-white break-words"
+                                style={{ fontSize: 'clamp(1.35rem, 2.8vw, 2.1rem)' }}
+                              >
+                                {current.metadata.title}
+                              </h3>
+                              <div
+                                className="mt-3 h-0.5 w-10 rounded-full"
+                                style={{ background: style.accent }}
+                              />
+                            </div>
+
+                            {/* Description */}
+                            {desc && (
+                              <p className="relative mt-4 line-clamp-5 text-[12px] leading-relaxed text-white/75">
+                                {desc}
+                              </p>
+                            )}
+
+                            {/* Spacer */}
+                            <div className="flex-1" />
+
+                            {/* Meta bar — links count + reading time */}
+                            <div className="relative mt-4 flex items-center gap-4 border-t border-white/10 pt-3 text-[10px] font-medium tracking-wide text-white/60">
+                              <span className="inline-flex items-center gap-1.5">
+                                <Link2 className="h-3 w-3" style={{ color: style.accent }} />
+                                {links} {lang === 'ru' ? 'связей' : 'links'}
+                              </span>
+                              <span className="inline-flex items-center gap-1.5">
+                                <Clock className="h-3 w-3" style={{ color: style.accent }} />
+                                {mins} {lang === 'ru' ? 'мин' : 'min'}
+                              </span>
+                            </div>
+
                           </div>
                         );
                       })()}
