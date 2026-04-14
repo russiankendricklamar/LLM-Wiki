@@ -20,12 +20,10 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   useEffect(() => {
     setIsClient(true);
     const updateDimensions = () => {
-      if (containerRef.current) {
-        setDimensions({
-          width: containerRef.current.offsetWidth,
-          height: containerRef.current.offsetHeight
-        });
-      }
+      setDimensions({
+        width: containerRef.current?.offsetWidth || window.innerWidth,
+        height: window.innerHeight - 56,
+      });
     };
 
     updateDimensions();

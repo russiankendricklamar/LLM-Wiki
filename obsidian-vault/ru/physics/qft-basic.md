@@ -32,3 +32,4 @@ $$ \phi(x) = \int \frac{d^3k}{(2\pi)^3 \sqrt{2\omega_\mathbf{k}}} (a_\mathbf{k} 
 * [[schrodinger-equation]]
 * [[scattering-amplitudes]]
 * [[pauli-exclusion-quantization]]
+* [[monte-carlo-method]]

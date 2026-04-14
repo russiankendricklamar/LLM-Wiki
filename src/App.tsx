@@ -12,9 +12,9 @@ import { cn } from './lib/utils';
 
 // Growth state metadata — surfaced as a small badge on article pages
 const GROWTH_LABEL = {
-  seedling: { en: 'Seedling', ru: 'Росток', emoji: '🌱', tone: 'text-emerald-600 dark:text-emerald-300 bg-emerald-500/10 border-emerald-500/20' },
-  budding: { en: 'Budding', ru: 'Бутон', emoji: '🌿', tone: 'text-lime-600 dark:text-lime-300 bg-lime-500/10 border-lime-500/20' },
-  evergreen: { en: 'Evergreen', ru: 'Вечнозелёный', emoji: '🌳', tone: 'text-teal-600 dark:text-teal-300 bg-teal-500/10 border-teal-500/20' },
+  seedling: { en: 'Seedling', ru: 'Росток', tone: 'text-emerald-600 dark:text-emerald-300 bg-emerald-500/10 border-emerald-500/20' },
+  budding: { en: 'Budding', ru: 'Бутон', tone: 'text-lime-600 dark:text-lime-300 bg-lime-500/10 border-lime-500/20' },
+  evergreen: { en: 'Evergreen', ru: 'Вечнозелёный', tone: 'text-teal-600 dark:text-teal-300 bg-teal-500/10 border-teal-500/20' },
 } as const;
 
 interface PageContentProps {
@@ -36,7 +36,7 @@ const PageContent = ({ category, title, content, lang, slug, growth }: PageConte
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className={cn("mx-auto w-full", isGraphPage ? "max-w-none h-[calc(100vh-8rem)]" : "max-w-3xl")}
+      className="w-full"
     >
       {!isGraphPage && (
         <div className="mb-8 flex items-center justify-between gap-4">
@@ -50,7 +50,6 @@ const PageContent = ({ category, title, content, lang, slug, growth }: PageConte
               "shrink-0 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold",
               growthInfo.tone
             )}>
-              <span>{growthInfo.emoji}</span>
               <span>{growthInfo[lang]}</span>
             </span>
           )}
@@ -117,9 +116,10 @@ const AnimatedRoutes = ({ lang }: { lang: 'en' | 'ru' }) => {
 const RouterShell = ({ lang, setLang }: { lang: 'en' | 'ru'; setLang: (lang: 'en' | 'ru') => void }) => {
   const location = useLocation();
   const isHome = location.pathname === '/' || location.pathname === '';
+  const isSpecialPage = ['/', '', '/about', '/projects', '/knowledge-graph'].includes(location.pathname);
 
   return (
-    <PageLayout lang={lang} setLang={setLang} fullBleed={isHome}>
+    <PageLayout lang={lang} setLang={setLang} fullBleed={isHome} showSidebar={!isSpecialPage}>
       <AnimatedRoutes lang={lang} />
     </PageLayout>
   );

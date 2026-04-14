@@ -85,7 +85,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ lang }) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
-      className="mx-auto max-w-3xl space-y-12"
+      className="w-full space-y-12"
     >
       {/* ── Hero card ── */}
       <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">

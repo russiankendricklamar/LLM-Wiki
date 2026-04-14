@@ -87,3 +87,4 @@ print(f"Цена опциона (Monte Carlo): ${price:.2f}")
 - [[longstaff-schwartz]]
 - [[value-at-risk]]
 - [[black-scholes]]
+- [[qft-basic]]

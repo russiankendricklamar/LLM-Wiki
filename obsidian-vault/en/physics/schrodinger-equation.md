@@ -23,3 +23,4 @@ The Schrödinger equation enforces unitary evolution, a concept critical to the 
 ## See Also
 * [[wave-particle-duality]]
 * [[superposition-collapse]]
+* [[brownian-motion]]

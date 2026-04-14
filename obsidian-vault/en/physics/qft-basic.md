@@ -32,3 +32,4 @@ Perturbative calculations of the S-matrix are performed using Feynman diagrams, 
 * [[schrodinger-equation]]
 * [[scattering-amplitudes]]
 * [[pauli-exclusion-quantization]]
+* [[monte-carlo-method]]

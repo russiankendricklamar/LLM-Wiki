@@ -23,3 +23,4 @@ $$ i\hbar \frac{\partial}{\partial t} \Psi(\mathbf{r}, t) = \left[ -\frac{\hbar^
 ## См. также
 * [[wave-particle-duality]]
 * [[superposition-collapse]]
+* [[brownian-motion]]

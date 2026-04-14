@@ -37,3 +37,4 @@ def simulate_brownian_motion(T, n_steps):
 - [[levy-processes]]
 - [[black-scholes]]
 - [[mcmc]]
+- [[schrodinger-equation]]

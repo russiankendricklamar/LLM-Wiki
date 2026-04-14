@@ -81,3 +81,4 @@ print(f"Собственные значения выше {high:.4f} содерж
 
 ## Связанные темы
 - [[hierarchical-risk-parity]]
+- [[quantum-entanglement]]

@@ -85,3 +85,4 @@ Using RMT-denoised matrices significantly reduces "Markowitz optimization error.
 
 ## Related Topics
 - [[hierarchical-risk-parity]]
+- [[quantum-entanglement]]

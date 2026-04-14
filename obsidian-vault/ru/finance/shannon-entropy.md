@@ -83,3 +83,4 @@ print(f"Энтропия (хвостатый/хаотичный рынок): {ca
 ## Связанные темы
 - [[lempel-ziv-complexity]]
 - [[hidden-markov-models]]
+- [[quantum-entanglement]]

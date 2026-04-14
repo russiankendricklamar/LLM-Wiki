@@ -23,3 +23,5 @@ $$ S_E = - \text{Tr}(\rho_A \ln \rho_A) $$
 ## См. также
 * [[superposition-collapse]]
 * [[black-hole-soft-hair]]
+* [[random-matrix-theory]]
+* [[shannon-entropy]]
