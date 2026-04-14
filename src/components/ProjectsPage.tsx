@@ -97,7 +97,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ lang }) => {
       ) : (
         /* Grid fires stagger once the container scrolls into view */
         <motion.div
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6"
           variants={gridVariants}
           initial="hidden"
           whileInView="visible"
