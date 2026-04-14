@@ -8,7 +8,7 @@ status: "wip"
 year: "2026"
 tech: "Swift, SwiftUI, SwiftData, ARKit, Supabase"
 featured: false
-image: "/projects/ultima-thule.jpg"
+image: "/projects/ultima-thule.svg"
 description: "Native iOS travel planner — AI itinerary generator, real-time flight tracking, smart packing, AR navigation, and offline maps. Your entire trip in one place."
 ---
 
