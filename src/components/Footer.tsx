@@ -7,7 +7,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ lang = 'ru' }) => {
   return (
-    <footer className="border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-8 py-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <footer className="border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-8 py-5 flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
       <span className="text-xs text-zinc-400 dark:text-zinc-500">
         © 2026 Egor Galkin
       </span>
