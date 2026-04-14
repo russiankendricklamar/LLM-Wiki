@@ -116,10 +116,12 @@ const AnimatedRoutes = ({ lang }: { lang: 'en' | 'ru' }) => {
 const RouterShell = ({ lang, setLang }: { lang: 'en' | 'ru'; setLang: (lang: 'en' | 'ru') => void }) => {
   const location = useLocation();
   const isHome = location.pathname === '/' || location.pathname === '';
-  const isSpecialPage = ['/', '', '/about', '/projects', '/knowledge-graph'].includes(location.pathname);
+  const isGraph = location.pathname === '/knowledge-graph';
+  // Sidebar everywhere except home (fullBleed hero) and the immersive graph page
+  const showSidebar = !isHome && !isGraph;
 
   return (
-    <PageLayout lang={lang} setLang={setLang} fullBleed={isHome} showSidebar={!isSpecialPage}>
+    <PageLayout lang={lang} setLang={setLang} fullBleed={isHome} showSidebar={showSidebar}>
       <AnimatedRoutes lang={lang} />
     </PageLayout>
   );
