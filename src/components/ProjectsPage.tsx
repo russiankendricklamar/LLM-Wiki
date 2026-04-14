@@ -37,6 +37,32 @@ const STATUS_LABEL: Record<ProjectStatus, { en: string; ru: string; tone: string
   archived: { en: 'Archived', ru: 'Архив', tone: 'text-zinc-400 bg-zinc-500/10 border-zinc-400/20' },
 };
 
+// Container stagger — children inherit delay via variants
+const gridVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 32, scale: 0.97 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+  },
+};
+
+const tagVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1 },
+};
+
 export const ProjectsPage: React.FC<ProjectsPageProps> = ({ lang }) => {
   const copy = COPY[lang];
   const projects = getProjects(lang);
@@ -48,7 +74,13 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ lang }) => {
       transition={{ duration: 0.4, ease: 'easeOut' }}
       className="mx-auto w-full max-w-6xl"
     >
-      <header className="mb-12">
+      {/* Header */}
+      <motion.header
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className="mb-12"
+      >
         <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
           {copy.eyebrow}
         </div>
@@ -56,15 +88,22 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ lang }) => {
           {copy.title}
         </h1>
         <p className="mt-4 max-w-xl text-base text-zinc-600 dark:text-zinc-400">{copy.subtitle}</p>
-      </header>
+      </motion.header>
 
       {projects.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-zinc-300 dark:border-zinc-700 p-12 text-center text-sm text-zinc-500">
           {copy.empty}
         </div>
       ) : (
-        <div className="grid gap-6 sm:grid-cols-2">
-          {projects.map((project, idx) => {
+        /* Grid fires stagger once the container scrolls into view */
+        <motion.div
+          className="grid gap-6 sm:grid-cols-2"
+          variants={gridVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+        >
+          {projects.map((project) => {
             const m = project.metadata;
             const techList = m.tech ? m.tech.split(',').map(t => t.trim()).filter(Boolean) : [];
             const statusInfo = m.status ? STATUS_LABEL[m.status] : null;
@@ -72,20 +111,33 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ lang }) => {
             return (
               <motion.article
                 key={m.slug}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.05 * idx, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative flex flex-col overflow-hidden rounded-3xl border border-zinc-200 bg-white transition hover:border-zinc-300 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-900/60 dark:hover:border-zinc-700"
+                variants={cardVariants}
+                whileHover={{ y: -6, transition: { duration: 0.25, ease: 'easeOut' } }}
+                className="group relative flex flex-col overflow-hidden rounded-3xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900/60"
+                style={{ willChange: 'transform' }}
               >
-                {/* Cover image */}
+                {/* Animated glow border on hover — pseudo-element via box-shadow */}
+                <motion.div
+                  className="pointer-events-none absolute inset-0 rounded-3xl"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  style={{
+                    boxShadow: '0 0 0 1px rgba(99,102,241,0.35), 0 8px 32px rgba(99,102,241,0.12)',
+                  }}
+                />
+
+                {/* Cover image with zoom */}
                 <Link to={m.slug} className="block aspect-[16/10] overflow-hidden">
-                  <div
-                    className="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.04]"
+                  <motion.div
+                    className="h-full w-full bg-cover bg-center"
                     style={{
                       backgroundImage: m.image
                         ? `url('${m.image}'), linear-gradient(135deg,#1e3a8a 0%,#0f172a 50%,#064e3b 100%)`
                         : 'linear-gradient(135deg,#1e3a8a 0%,#0f172a 50%,#064e3b 100%)',
                     }}
+                    whileHover={{ scale: 1.06 }}
+                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                   />
                 </Link>
 
@@ -113,49 +165,65 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ lang }) => {
                     </p>
                   )}
 
+                  {/* Tech tags — stagger within each card on card's whileInView */}
                   {techList.length > 0 && (
-                    <div className="mt-4 flex flex-wrap gap-1.5">
+                    <motion.div
+                      className="mt-4 flex flex-wrap gap-1.5"
+                      variants={{ visible: { transition: { staggerChildren: 0.05, delayChildren: 0.2 } } }}
+                    >
                       {techList.map(tech => (
-                        <span
+                        <motion.span
                           key={tech}
+                          variants={tagVariants}
+                          transition={{ duration: 0.3, ease: 'easeOut' }}
                           className="rounded-md bg-zinc-100 px-2 py-0.5 text-[11px] font-medium text-zinc-600 dark:bg-zinc-800/80 dark:text-zinc-300"
                         >
                           {tech}
-                        </span>
+                        </motion.span>
                       ))}
-                    </div>
+                    </motion.div>
                   )}
 
                   <div className="mt-auto flex items-center justify-between gap-3 pt-6">
                     <Link
                       to={m.slug}
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-900 hover:gap-2 dark:text-white"
+                      className="group/link inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-900 dark:text-white"
                     >
                       {copy.open}
-                      <ArrowUpRight className="h-4 w-4 transition-transform" />
+                      <motion.span
+                        className="inline-flex"
+                        whileHover={{ x: 3, y: -3 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                      >
+                        <ArrowUpRight className="h-4 w-4" />
+                      </motion.span>
                     </Link>
                     <div className="flex items-center gap-2">
                       {m.github && (
-                        <a
+                        <motion.a
                           href={m.github}
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={copy.code}
+                          whileHover={{ scale: 1.12 }}
+                          whileTap={{ scale: 0.95 }}
                           className="grid h-9 w-9 place-items-center rounded-full border border-zinc-200 text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
                         >
                           <Github className="h-4 w-4" />
-                        </a>
+                        </motion.a>
                       )}
                       {m.demo && (
-                        <a
+                        <motion.a
                           href={m.demo}
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={copy.demo}
+                          whileHover={{ scale: 1.12 }}
+                          whileTap={{ scale: 0.95 }}
                           className="grid h-9 w-9 place-items-center rounded-full border border-zinc-200 text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
                         >
                           <ExternalLink className="h-4 w-4" />
-                        </a>
+                        </motion.a>
                       )}
                     </div>
                   </div>
@@ -163,7 +231,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ lang }) => {
               </motion.article>
             );
           })}
-        </div>
+        </motion.div>
       )}
     </motion.div>
   );
