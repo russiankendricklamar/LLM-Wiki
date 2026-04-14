@@ -138,6 +138,33 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
     setState(([prev]) => [prev + dir, dir]);
   }, []);
 
+  const resumeTimerRef = React.useRef<number | null>(null);
+
+  const handleDragStart = () => {
+    if (resumeTimerRef.current) {
+      window.clearTimeout(resumeTimerRef.current);
+      resumeTimerRef.current = null;
+    }
+    setIsPaused(true);
+  };
+
+  const handleDragEnd = (_: unknown, info: { offset: { x: number; y: number } }) => {
+    const THRESHOLD = 50;
+    if (Math.abs(info.offset.x) > THRESHOLD && Math.abs(info.offset.y) < 40) {
+      paginate(info.offset.x < 0 ? 1 : -1);
+    }
+    resumeTimerRef.current = window.setTimeout(() => {
+      setIsPaused(false);
+      resumeTimerRef.current = null;
+    }, 3000);
+  };
+
+  React.useEffect(() => {
+    return () => {
+      if (resumeTimerRef.current) window.clearTimeout(resumeTimerRef.current);
+    };
+  }, []);
+
   // Auto-advance — resets whenever slide changes or pause state changes
   useEffect(() => {
     if (isPaused || !hasFeatured) return;
@@ -146,7 +173,7 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
   }, [isPaused, hasFeatured, safeIndex, paginate]);
 
   return (
-    <div className="relative h-full w-full overflow-hidden bg-zinc-950 text-zinc-50">
+    <div className="relative min-h-full w-full overflow-y-auto lg:h-full lg:overflow-hidden bg-zinc-950 text-zinc-50">
       {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -173,10 +200,10 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
             <span>{copy.eyebrow}</span>
           </div>
 
-          <div className="flex flex-1 flex-col justify-center py-6">
+          <div className="flex flex-1 flex-col justify-center py-4 lg:py-6">
             <h1
               className="font-black leading-[0.85] tracking-[-0.05em] text-white"
-              style={{ fontSize: 'clamp(3rem, 9vw, 9.5rem)' }}
+              style={{ fontSize: 'clamp(2.25rem, 12vw, 9.5rem)' }}
             >
               {copy.titleLines.map((line, i) => (
                 <motion.div
@@ -200,13 +227,26 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
               <div className="mt-1 h-px w-8 shrink-0 bg-zinc-400/60" />
               <p className="text-sm text-zinc-300/90 leading-relaxed">{copy.subtitle}</p>
             </motion.div>
+
+            <motion.a
+              href="https://github.com/russiankendricklamar"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="mt-4 inline-flex items-center gap-2 text-sm text-zinc-300 hover:text-white transition-colors lg:hidden"
+            >
+              <GithubIcon className="h-4 w-4" />
+              <span className="underline underline-offset-4">github.com/russiankendricklamar</span>
+            </motion.a>
           </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex items-stretch gap-3"
+            className="hidden lg:flex items-stretch gap-3"
           >
             {/* About — 2×2 tall primary button */}
             <Link
@@ -256,6 +296,43 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
                 <span className="font-medium">{copy.ctaGraph}</span>
               </Link>
             </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="grid grid-cols-2 gap-3 lg:hidden"
+          >
+            <Link
+              to="/about"
+              className="group relative flex flex-col items-start gap-2 overflow-hidden rounded-2xl bg-white px-4 py-4 font-semibold text-zinc-900 shadow-xl shadow-black/30 transition hover:bg-zinc-100"
+            >
+              <UserCircle2 className="h-5 w-5" />
+              <span className="text-sm">{copy.ctaAbout}</span>
+              <ArrowRight className="h-4 w-4 self-end transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              to="/projects"
+              className="group flex flex-col items-start gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm text-zinc-200 backdrop-blur-md transition hover:bg-white/10"
+            >
+              <FolderGit2 className="h-4 w-4 text-zinc-400 transition group-hover:text-white" />
+              <span className="font-medium">{copy.ctaProjects}</span>
+            </Link>
+            <Link
+              to="/knowledge-graph"
+              className="group flex flex-col items-start gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm text-zinc-200 backdrop-blur-md transition hover:bg-white/10"
+            >
+              <BookOpen className="h-4 w-4 text-zinc-400 transition group-hover:text-white" />
+              <span className="font-medium">{copy.ctaKnowledge}</span>
+            </Link>
+            <Link
+              to="/knowledge-graph"
+              className="group flex flex-col items-start gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm text-zinc-200 backdrop-blur-md transition hover:bg-white/10"
+            >
+              <Network className="h-4 w-4 text-zinc-400 transition group-hover:text-white" />
+              <span className="font-medium">{copy.ctaGraph}</span>
+            </Link>
           </motion.div>
         </div>
 
@@ -322,7 +399,13 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
                     opacity: { duration: 0.5, ease: 'easeInOut' },
                     scale: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
                   }}
-                  className="absolute inset-0"
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.2}
+                  dragDirectionLock
+                  onDragStart={handleDragStart}
+                  onDragEnd={handleDragEnd}
+                  className="absolute inset-0 cursor-grab active:cursor-grabbing"
                 >
                   <Link to={current.metadata.slug} className="relative block h-full w-full">
                     {current.metadata.type === 'project' && current.metadata.image ? (
