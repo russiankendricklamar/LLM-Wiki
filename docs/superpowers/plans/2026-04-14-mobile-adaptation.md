@@ -534,6 +534,10 @@ Immediately after its closing `</motion.div>`, add a new small inline GitHub lin
 
 - [ ] **Step 5: Build the mobile 2×2 CTA grid**
 
+> **Import check before starting this step:** All icons referenced below (`UserCircle2`, `FolderGit2`, `BookOpen`, `Network`, `ArrowRight`, `GithubIcon`) are already imported at the top of `HomeHero.tsx` for the desktop layout — no new imports needed. Just verify with `grep -n "^import" src/components/HomeHero.tsx` if unsure.
+>
+> **Note on apparent duplication:** The 2×2 grid has TWO tiles that both link to `/knowledge-graph` (`ctaKnowledge` and `ctaGraph`). This is intentional and matches the existing desktop 3-stack layout in the same component — `BookOpen` is framed as "Knowledge base" (enter the wiki) and `Network` as "Graph" (the 3D/2D visualization entry point). They happen to share a route today because the knowledge base and graph are served from the same page. Do NOT "fix" this by replacing one of the `to=` values.
+
 The existing CTA row is wrapped in:
 
 ```tsx
@@ -832,6 +836,8 @@ const ForceGraph2DLazy = React.lazy(() =>
   import('react-force-graph-2d').then(m => ({ default: m.default }))
 );
 ```
+
+> **Path alias confirmation:** The `@/` import alias IS configured in this repo (see `src/components/PageLayout.tsx` which does `import { cn } from '@/lib/utils'`). Use `@/hooks/use-media-query` as shown above. If you see a TypeScript error about module resolution, fall back to the relative path `../hooks/use-media-query` — but you shouldn't need to.
 
 - [ ] **Step 3: Pick the renderer at runtime**
 
