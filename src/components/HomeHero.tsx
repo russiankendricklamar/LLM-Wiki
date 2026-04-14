@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, ArrowRight, FolderGit2, BookOpen, UserCircle2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, FolderGit2, BookOpen, UserCircle2, GithubIcon, Network } from 'lucide-react';
 import { getFeaturedItems } from '../lib/content-loader';
 
 interface HomeHeroProps {
@@ -11,11 +11,12 @@ interface HomeHeroProps {
 const COPY = {
   en: {
     eyebrow: 'QUANT ANALYST · AI ENGINEER',
-    titleLines: ['EGOR', 'GALKIN'],
+    titleLines: ['EXPLORE', 'BUILD', 'RELEASE'],
     subtitle: 'I build quantitative models and LLM agents. Principal Economist at the Bank of Russia — bridging computational physics, financial mathematics and modern AI.',
     ctaAbout: 'About me',
     ctaProjects: 'Projects',
     ctaKnowledge: 'Knowledge base',
+    ctaGraph: 'Graph',
     featuredEyebrow: 'PICK A TOPIC TO',
     featuredEyebrow2: 'DIVE INTO',
     readArticle: 'Read more',
@@ -24,12 +25,13 @@ const COPY = {
     counter: (i: number, n: number) => `${String(i + 1).padStart(2, '0')} / ${String(n).padStart(2, '0')}`,
   },
   ru: {
-    eyebrow: 'КВАНТ-АНАЛИТИК · AI-ИНЖЕНЕР',
-    titleLines: ['ГАЛКИН', 'ЕГОР'],
-    subtitle: 'Строю количественные модели и LLM-агентов. Главный экономист в Банке России — на стыке вычислительной физики, финансовой математики и современного ИИ.',
+    eyebrow: 'КОЛИЧЕСТВЕННЫЙ АНАЛИТИК · AI-ИНЖЕНЕР',
+    titleLines: ['EXPLORE', 'BUILD', 'RELEASE'],
+    subtitle: 'Строю количественные модели и LLM-агентов. Главный экономист в Банке России — на стыке квантовой физики, финансовой математики и современного ИИ.',
     ctaAbout: 'Обо мне',
     ctaProjects: 'Проекты',
     ctaKnowledge: 'База знаний',
+    ctaGraph: 'Граф',
     featuredEyebrow: 'ВЫБЕРИ ТЕМУ,',
     featuredEyebrow2: 'ЧТОБЫ ПОГРУЗИТЬСЯ',
     readArticle: 'Подробнее',
@@ -40,6 +42,32 @@ const COPY = {
 };
 
 const AUTO_ADVANCE_MS = 4500;
+
+// Category → gradient + accent colour for imageless cards
+const CATEGORY_STYLES: Record<string, { bg: string; accent: string }> = {
+  finance:               { bg: 'linear-gradient(135deg,#1e4080 0%,#0d1a3a 100%)', accent: '#93c5fd' },
+  финансы:               { bg: 'linear-gradient(135deg,#1e4080 0%,#0d1a3a 100%)', accent: '#93c5fd' },
+  physics:               { bg: 'linear-gradient(135deg,#4a1a9e 0%,#1a0a3a 100%)', accent: '#c4b5fd' },
+  физика:                { bg: 'linear-gradient(135deg,#4a1a9e 0%,#1a0a3a 100%)', accent: '#c4b5fd' },
+  'stochastic processes':{ bg: 'linear-gradient(135deg,#0a6648 0%,#061a12 100%)', accent: '#6ee7b7' },
+  'стохастические процессы':{ bg: 'linear-gradient(135deg,#0a6648 0%,#061a12 100%)', accent: '#6ee7b7' },
+  'machine learning':    { bg: 'linear-gradient(135deg,#b04010 0%,#1c0a04 100%)', accent: '#fcd34d' },
+  'машинное обучение':   { bg: 'linear-gradient(135deg,#b04010 0%,#1c0a04 100%)', accent: '#fcd34d' },
+  'risk management':     { bg: 'linear-gradient(135deg,#7f1d1d 0%,#1c0505 100%)', accent: '#fca5a5' },
+  'управление рисками':  { bg: 'linear-gradient(135deg,#7f1d1d 0%,#1c0505 100%)', accent: '#fca5a5' },
+  'llm':                 { bg: 'linear-gradient(135deg,#1a3d2e 0%,#0a1a12 100%)', accent: '#86efac' },
+  'large language models':{ bg: 'linear-gradient(135deg,#1a3d2e 0%,#0a1a12 100%)', accent: '#86efac' },
+  'большие языковые модели':{ bg: 'linear-gradient(135deg,#1a3d2e 0%,#0a1a12 100%)', accent: '#86efac' },
+  'algorithms':            { bg: 'linear-gradient(135deg,#0e3460 0%,#070d1a 100%)', accent: '#7dd3fc' },
+  'алгоритмы и мл':        { bg: 'linear-gradient(135deg,#0e3460 0%,#070d1a 100%)', accent: '#7dd3fc' },
+  'algorithms & ml':       { bg: 'linear-gradient(135deg,#0e3460 0%,#070d1a 100%)', accent: '#7dd3fc' },
+  'quantum physics':       { bg: 'linear-gradient(135deg,#1a0a5e 0%,#08041a 100%)', accent: '#a5b4fc' },
+  'квантовая физика':      { bg: 'linear-gradient(135deg,#1a0a5e 0%,#08041a 100%)', accent: '#a5b4fc' },
+};
+
+const getCategoryStyle = (category: string) =>
+  CATEGORY_STYLES[category.toLowerCase()] ??
+  { bg: 'linear-gradient(135deg,#1e3a8a 0%,#0f172a 55%,#064e3b 100%)', accent: '#a5f3fc' };
 
 // Cinematic crossfade + zoom — no horizontal slide
 const imageVariants = {
@@ -114,7 +142,7 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
           <div className="flex flex-1 flex-col justify-center py-6">
             <h1
               className="font-black leading-[0.85] tracking-[-0.05em] text-white"
-              style={{ fontSize: 'clamp(2.5rem, 7vw, 7.25rem)' }}
+              style={{ fontSize: 'clamp(3rem, 9vw, 9.5rem)' }}
             >
               {copy.titleLines.map((line, i) => (
                 <motion.div
@@ -144,32 +172,56 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex flex-wrap items-center gap-3"
+            className="flex items-stretch gap-3"
           >
+            {/* About — 2×2 tall primary button */}
             <Link
               to="/about"
-              className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-2xl bg-white px-6 py-4 text-sm font-semibold text-zinc-900 shadow-xl shadow-black/30 transition hover:bg-zinc-100"
+              className="group relative inline-flex flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl bg-white px-7 font-semibold text-zinc-900 shadow-xl shadow-black/30 transition hover:bg-zinc-100"
+              style={{ minWidth: '6rem' }}
             >
-              <UserCircle2 className="h-4 w-4" />
-              <span>{copy.ctaAbout}</span>
+              <UserCircle2 className="h-5 w-5" />
+              <span className="text-sm">{copy.ctaAbout}</span>
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
 
-            <Link
-              to="/projects"
-              className="group flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-zinc-200 backdrop-blur-md transition hover:bg-white/10"
-            >
-              <FolderGit2 className="h-4 w-4 text-zinc-400 transition group-hover:text-white" />
-              <span className="font-medium">{copy.ctaProjects}</span>
-            </Link>
+            {/* Stack 1: Projects + Knowledge */}
+            <div className="flex w-36 flex-col gap-3">
+              <Link
+                to="/projects"
+                className="group flex flex-1 items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-zinc-200 backdrop-blur-md transition hover:bg-white/10"
+              >
+                <FolderGit2 className="h-4 w-4 shrink-0 text-zinc-400 transition group-hover:text-white" />
+                <span className="font-medium">{copy.ctaProjects}</span>
+              </Link>
+              <Link
+                to="/knowledge-graph"
+                className="group flex flex-1 items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-zinc-200 backdrop-blur-md transition hover:bg-white/10"
+              >
+                <BookOpen className="h-4 w-4 shrink-0 text-zinc-400 transition group-hover:text-white" />
+                <span className="font-medium">{copy.ctaKnowledge}</span>
+              </Link>
+            </div>
 
-            <Link
-              to="/knowledge-graph"
-              className="group flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-zinc-200 backdrop-blur-md transition hover:bg-white/10"
-            >
-              <BookOpen className="h-4 w-4 text-zinc-400 transition group-hover:text-white" />
-              <span className="font-medium">{copy.ctaKnowledge}</span>
-            </Link>
+            {/* Stack 2: GitHub + Graph */}
+            <div className="flex w-36 flex-col gap-3">
+              <a
+                href="https://github.com/russiankendricklamar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-1 items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-zinc-200 backdrop-blur-md transition hover:bg-white/10"
+              >
+                <GithubIcon className="h-4 w-4 shrink-0 text-zinc-400 transition group-hover:text-white" />
+                <span className="font-medium">GitHub</span>
+              </a>
+              <Link
+                to="/knowledge-graph"
+                className="group flex flex-1 items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-zinc-200 backdrop-blur-md transition hover:bg-white/10"
+              >
+                <Network className="h-4 w-4 shrink-0 text-zinc-400 transition group-hover:text-white" />
+                <span className="font-medium">{copy.ctaGraph}</span>
+              </Link>
+            </div>
           </motion.div>
         </div>
 
@@ -239,16 +291,40 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
                   className="absolute inset-0"
                 >
                   <Link to={current.metadata.slug} className="relative block h-full w-full">
-                    <div
-                      className="h-full w-full bg-cover bg-center"
-                      style={{
-                        backgroundImage: current.metadata.image
-                          ? `url('${current.metadata.image}'), linear-gradient(135deg,#1e3a8a 0%,#0f172a 50%,#064e3b 100%)`
-                          : 'linear-gradient(135deg,#1e3a8a 0%,#0f172a 50%,#064e3b 100%)',
-                      }}
-                    >
-                      <div className="h-full w-full bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
-                    </div>
+                    {current.metadata.type === 'project' && current.metadata.image ? (
+                      <div
+                        className="h-full w-full bg-cover bg-center"
+                        style={{ backgroundImage: `url('${current.metadata.image}')` }}
+                      >
+                        <div className="h-full w-full bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
+                      </div>
+                    ) : (() => {
+                        const style = getCategoryStyle(current.metadata.category);
+                        return (
+                          <div
+                            className="relative h-full w-full overflow-hidden flex flex-col items-center justify-center p-6 gap-3"
+                            style={{ background: style.bg }}
+                          >
+                            <span
+                              className="text-[10px] font-bold uppercase tracking-[0.2em]"
+                              style={{ color: style.accent, opacity: 0.85 }}
+                            >
+                              {current.metadata.category}
+                            </span>
+                            <span
+                              className="text-center font-black leading-[0.9] tracking-tight text-white break-words"
+                              style={{ fontSize: 'clamp(1.6rem, 4vw, 2.8rem)' }}
+                            >
+                              {current.metadata.title}
+                            </span>
+                            <div
+                              className="mt-1 h-0.5 w-12 rounded-full"
+                              style={{ background: style.accent }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                          </div>
+                        );
+                      })()}
 
                     {/* Type badge */}
                     <motion.div
