@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Search, Moon, Sun, Leaf } from 'lucide-react';
+import { Search, Moon, Sun, Leaf, Menu } from 'lucide-react';
 import { SearchDialog } from './SearchDialog';
 import { Footer } from './Footer';
 import { Sidebar } from './Sidebar';
+import { MobileNavDrawer } from './MobileNavDrawer';
 import { cn } from '@/lib/utils';
 
 interface PageLayoutProps {
@@ -17,6 +18,7 @@ interface PageLayoutProps {
 
 export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', setLang, fullBleed = false, showSidebar = false }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const saved = localStorage.getItem('theme');
     return saved !== null ? saved === 'dark' : true;
@@ -38,15 +40,26 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
       {/* Top Navigation Bar */}
       {!fullBleed && (
         <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/80 px-4 backdrop-blur-md sm:px-6 lg:px-10">
-          {/* Left: logo */}
-          <NavLink to="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-6 h-6 rounded bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center">
-              <Leaf className="h-3 w-3 text-white" />
-            </div>
-            <span className="font-semibold text-sm hidden sm:block">
-              {lang === 'en' ? 'Knowledge Garden' : 'Сад Знаний'}
-            </span>
-          </NavLink>
+          {/* Left: hamburger + logo */}
+          <div className="flex items-center">
+            {showSidebar && (
+              <button
+                onClick={() => setIsDrawerOpen(true)}
+                aria-label={lang === 'en' ? 'Open navigation' : 'Открыть навигацию'}
+                className="lg:hidden -ml-1 mr-1 p-2 text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+              >
+                <Menu className="h-5 w-5" />
+              </button>
+            )}
+            <NavLink to="/" className="flex items-center gap-2 shrink-0">
+              <div className="w-6 h-6 rounded bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center">
+                <Leaf className="h-3 w-3 text-white" />
+              </div>
+              <span className="font-semibold text-sm">
+                {lang === 'en' ? 'Knowledge Garden' : 'Сад Знаний'}
+              </span>
+            </NavLink>
+          </div>
 
           {/* Right: search + lang + dark mode */}
           <div className="flex items-center gap-3">
@@ -99,7 +112,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
       {/* Scrollable Content */}
       {showSidebar && !fullBleed ? (
         <main className="flex flex-1 overflow-hidden">
-          <Sidebar lang={lang} />
+          <Sidebar lang={lang} className="hidden lg:block" />
           <div className="flex flex-1 flex-col overflow-y-auto">
             <div className="flex-1 px-4 sm:px-6 lg:px-8 xl:px-12 py-8 lg:py-12">
               {children}
@@ -108,7 +121,10 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
           </div>
         </main>
       ) : (
-        <main className={cn("flex flex-1 flex-col", fullBleed ? "overflow-hidden" : "overflow-y-auto")}>
+        <main className={cn(
+          "flex flex-1 flex-col",
+          fullBleed ? "overflow-y-auto lg:overflow-hidden" : "overflow-y-auto"
+        )}>
           {fullBleed ? (
             children
           ) : (
@@ -125,6 +141,11 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
       )}
 
       <SearchDialog open={isSearchOpen} onOpenChange={setIsSearchOpen} lang={lang} />
+      <MobileNavDrawer
+        open={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        lang={lang}
+      />
     </div>
   );
 };
