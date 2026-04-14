@@ -1,13 +1,27 @@
-import React, { useMemo, useRef, useEffect, useState, Suspense, lazy } from 'react';
+import React, { useMemo, useRef, useEffect, useState, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getGraphData } from '@/lib/content-loader';
+import { useMediaQuery } from '@/hooks/use-media-query';
 import * as THREE from 'three';
 
-const ForceGraph3D = lazy(() => import('react-force-graph-3d'));
+const ForceGraph3DLazy = React.lazy(() =>
+  import('react-force-graph-3d').then(m => ({ default: m.default }))
+);
+const ForceGraph2DLazy = React.lazy(() =>
+  import('react-force-graph-2d').then(m => ({ default: m.default }))
+);
 
 interface KnowledgeGraphProps {
   lang: 'en' | 'ru';
 }
+
+const GraphSkeleton: React.FC = () => (
+  <div className="flex h-full w-full items-center justify-center bg-zinc-50 dark:bg-zinc-950">
+    <div className="text-sm text-zinc-500 dark:text-zinc-400 animate-pulse">
+      Loading graph…
+    </div>
+  </div>
+);
 
 export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   const navigate = useNavigate();
@@ -16,6 +30,8 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [isClient, setIsClient] = useState(false);
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+  const [showHint, setShowHint] = useState(true);
 
   useEffect(() => {
     setIsClient(true);
@@ -28,19 +44,29 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
 
     updateDimensions();
     window.addEventListener('resize', updateDimensions);
-    
-    // Zoom to fit after data is loaded
+
+    return () => {
+      window.removeEventListener('resize', updateDimensions);
+    };
+  }, [graphData]);
+
+  // 3D-only: zoomToFit relies on the ForceGraph3D ref API
+  useEffect(() => {
+    if (!isDesktop) return;
     const timer = setTimeout(() => {
       if (fgRef.current) {
         fgRef.current.zoomToFit(400);
       }
     }, 1000);
+    return () => clearTimeout(timer);
+  }, [graphData, isDesktop]);
 
-    return () => {
-      window.removeEventListener('resize', updateDimensions);
-      clearTimeout(timer);
-    };
-  }, [graphData]);
+  // Auto-dismiss the mobile touch hint after 3.5s
+  useEffect(() => {
+    if (!showHint) return;
+    const timer = window.setTimeout(() => setShowHint(false), 3500);
+    return () => window.clearTimeout(timer);
+  }, [showHint]);
 
   const nodeColor = (node: any) => {
     if (node.val > 1.5) return '#60a5fa'; // Blue for hubs
@@ -73,41 +99,64 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
           {lang === 'en' ? 'Explore interconnected concepts in 3D' : 'Изучайте связи между концепциями в 3D'}
         </p>
       </div>
-      
+
       <div className="absolute bottom-6 right-6 z-10 text-[10px] text-zinc-400 font-mono tracking-widest uppercase opacity-40">
         {graphData.nodes.length} Nodes • {graphData.links.length} Links
       </div>
-      
-      <Suspense fallback={
-        <div className="w-full h-full flex flex-col items-center justify-center text-zinc-500 gap-4">
-          <div className="w-8 h-8 border-2 border-zinc-300 dark:border-zinc-700 border-t-zinc-900 dark:border-t-zinc-100 rounded-full animate-spin" />
-          <div className="text-sm font-medium animate-pulse">
-            {lang === 'en' ? 'Initializing 3D Universe...' : 'Инициализация 3D вселенной...'}
-          </div>
+
+      {!isDesktop && showHint && (
+        <div className="pointer-events-none absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded-full bg-black/60 px-3 py-1.5 text-[11px] font-medium text-white backdrop-blur-sm">
+          Pinch to zoom · drag to pan
         </div>
-      }>
+      )}
+
+      <Suspense fallback={<GraphSkeleton />}>
         {dimensions.width > 0 && (
-          <ForceGraph3D
-            ref={fgRef}
-            width={dimensions.width}
-            height={dimensions.height}
-            graphData={graphData}
-            nodeLabel="name"
-            nodeThreeObject={nodeThreeObject}
-            linkDirectionalParticles={1}
-            linkDirectionalParticleSpeed={0.003}
-            linkDirectionalParticleWidth={2}
-            linkDirectionalParticleColor={() => '#60a5fa'}
-            backgroundColor="rgba(0,0,0,0)"
-            showNavInfo={false}
-            onNodeClick={(node: any) => {
-              navigate(`/${node.id}`);
-            }}
-            linkColor={() => 'rgba(113, 113, 122, 0.2)'}
-            linkWidth={0.5}
-            enableNodeDrag={false}
-            enableNavigationControls={true}
-          />
+          isDesktop ? (
+            <ForceGraph3DLazy
+              ref={fgRef}
+              width={dimensions.width}
+              height={dimensions.height}
+              graphData={graphData as any}
+              nodeLabel="name"
+              nodeThreeObject={nodeThreeObject}
+              linkDirectionalParticles={1}
+              linkDirectionalParticleSpeed={0.003}
+              linkDirectionalParticleWidth={2}
+              linkDirectionalParticleColor={() => '#60a5fa'}
+              backgroundColor="rgba(0,0,0,0)"
+              showNavInfo={false}
+              onNodeClick={(node: any) => {
+                navigate(`/${node.id}`);
+              }}
+              linkColor={() => 'rgba(113, 113, 122, 0.2)'}
+              linkWidth={0.5}
+              enableNodeDrag={false}
+              enableNavigationControls={true}
+            />
+          ) : (
+            <ForceGraph2DLazy
+              width={dimensions.width}
+              height={dimensions.height}
+              graphData={graphData as any}
+              nodeLabel="name"
+              nodeColor={nodeColor}
+              nodeRelSize={4}
+              linkDirectionalParticles={1}
+              linkDirectionalParticleSpeed={0.003}
+              linkDirectionalParticleWidth={2}
+              linkDirectionalParticleColor={() => '#60a5fa'}
+              backgroundColor="rgba(0,0,0,0)"
+              onNodeClick={(node: any) => {
+                navigate(`/${node.id}`);
+              }}
+              linkColor={() => 'rgba(113, 113, 122, 0.2)'}
+              linkWidth={0.5}
+              enableNodeDrag={false}
+              cooldownTicks={100}
+              d3VelocityDecay={0.3}
+            />
+          )
         )}
       </Suspense>
     </div>
