@@ -47,8 +47,15 @@ Solovay (1970) proved that in a model of set theory **without** the full Axiom o
 
 This shows AC is not merely a technical convenience but has profound geometric consequences.
 
+## Echoes in physics
+
+The Banach-Tarski paradox is mathematically distant from physics, but it shares a deep family resemblance with the way **measure theory and symmetry transformations break down at the quantum level**. In quantum field theory, [[anomalies|anomalies]] arise when a classical symmetry of the action fails to be a symmetry of the path-integral *measure* — formally, the Jacobian of the symmetry transformation is non-trivial, and conserved currents acquire calculable extra terms. Just as the Banach-Tarski decomposition exploits the fact that no rotation-invariant measure can extend to *all* subsets of $\mathbb{R}^3$ (when the Axiom of Choice is in play), QFT anomalies exploit the fact that no regulator can simultaneously preserve every classical symmetry of the integration measure.
+
+The ingredient is the same: continuous group action on a space, plus a measure that refuses to be invariant under it. Banach-Tarski is the cleanest classical illustration of how badly that can go.
+
 ## Related Articles
 
 - [[godel-incompleteness|Gödel's Incompleteness Theorems]] — independence of axioms
 - [[cantor-diagonal|Cantor's Diagonal Argument]] — non-constructive mathematics
 - [[non-euclidean-geometry|Non-Euclidean Geometry]] — other counterintuitive geometries
+- [[anomalies]] — measure-non-invariance of classical symmetries in QFT

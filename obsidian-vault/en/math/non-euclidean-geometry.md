@@ -73,13 +73,18 @@ def gaussian_curvature(f, x: float, y: float, h: float = 1e-5) -> float:
 
 ## Connection to Physics
 
-**General relativity** (Einstein, 1915) — spacetime has variable curvature determined by matter:
+The deepest application of non-Euclidean geometry is **[[general-relativity|general relativity]]** (Einstein, 1915), in which spacetime is a 4-dimensional pseudo-Riemannian manifold whose curvature is determined by mass-energy:
 
 $$G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}$$
 
-Geodesics in curved spacetime are trajectories of freely falling bodies. Non-Euclidean geometry turned out to describe physical reality.
+Geodesics in curved spacetime are the trajectories of freely falling bodies. Riemannian geometry — built precisely to handle the intrinsic curvature described by Gauss's *Theorema Egregium* — turned out to be the natural language of gravity. Without the work of Riemann, [[gravitational-waves-gr|gravitational waves]] and the [[asymptotic-spacetime|asymptotic structure of spacetime]] would have no formalism.
+
+The conformal compactifications underlying [[bms-group|the BMS group]] and [[celestial-holography|celestial holography]] also live in non-Euclidean territory: the celestial sphere at null infinity is a Riemann sphere with its own conformal geometry.
 
 ## Related Articles
 
+- [[general-relativity]] — the physical theory built on Riemannian geometry
+- [[gravitational-waves-gr]] — propagating curvature of spacetime
 - [[godel-incompleteness|Gödel's Incompleteness Theorems]] — axiomatic independence
 - [[banach-tarski|Banach-Tarski Paradox]] — geometry and the Axiom of Choice
+- [[asymptotic-spacetime]] — conformal completion at null infinity

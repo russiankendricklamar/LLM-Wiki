@@ -185,3 +185,24 @@ Production note: frameworks like **vLLM** (v0.4+) and **TensorRT-LLM** include o
 - **On-device inference:** mobile and edge deployments where a tiny on-device draft model proposes tokens that a cloud target model verifies in one call, amortizing network round-trip cost.
 - **Cost reduction:** cloud inference pricing is often per-token of compute. Speculative decoding can reduce billed compute for long outputs by amortizing target model passes.
 
+## Where this sits in the broader inference stack
+
+Speculative decoding is one of three orthogonal levers for cheaper / faster transformer inference, all of which exploit different bottlenecks of the underlying [[transformer-architecture|transformer architecture]]:
+
+- **Architecture-level**: [[mixture-of-experts|Mixture-of-Experts]] activates only a fraction of model weights per token, trading parameter count for compute per token. Speculative decoding is fully compatible with MoE — both can stack.
+- **Algorithm-level**: speculative decoding amortises memory-bandwidth cost across $k$ candidate tokens at constant model weight transfer.
+- **Compute-economics level**: [[neural-scaling-laws|neural scaling laws]] dictate the optimum compute/parameter ratio at a given budget. Speculative decoding shifts the cost curve at the inference end without retraining.
+
+The three levers are typically combined in production stacks: an MoE target model verifies drafts produced by a dense small model, on hardware whose memory bandwidth is the binding constraint that speculative decoding was designed to beat.
+
+For [[chain-of-thought|extended-thinking models]] that emit hundreds of internal reasoning tokens before any user-visible output, speculative decoding is doubly valuable — the speedup compounds linearly with reasoning length, which is why production reasoning models (Claude extended thinking, o1/o3) lean on it heavily.
+
+## Related Topics
+
+- [[transformer-architecture]] — the autoregressive bottleneck speculative decoding exists to relieve.
+- [[mixture-of-experts]] — orthogonal architectural lever, fully stackable with speculative decoding.
+- [[neural-scaling-laws]] — compute-economics frame for inference-time optimisations.
+- [[chain-of-thought]] — extended-thinking models generate long reasoning traces; the speedup compounds linearly with chain length.
+- [[rag]] — RAG and speculative decoding stack cleanly in production inference stacks.
+- [[mcp]] — MCP-heavy agents have long contexts where the speedup matters most.
+

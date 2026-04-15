@@ -195,9 +195,25 @@ print(program_of_thought(problem))
 - **Legal reasoning:** identifying relevant precedents, then reasoning to an opinion.
 - **Educational tutoring:** showing work step by step rather than presenting only the final answer.
 
+## Theoretical limits
+
+CoT pushes a transformer to use more inference-time compute on a hard problem, but it does not change *which* problems are solvable in principle. The Cantor-Gödel-Turing line of arguments puts a hard ceiling on this:
+
+- **[[godel-incompleteness|Gödel's incompleteness theorems]]** imply that for any sufficiently expressive formal system there are true statements no chain of derivations can ever output. No length of chain-of-thought can cross that wall.
+- **[[cantor-diagonal|Cantor's diagonal argument]]** is the prototype of every "you can't enumerate all of these from inside" result; the same shape proves Turing's halting problem and Chaitin's incompleteness.
+- **[[kolmogorov-complexity|Kolmogorov complexity]]** is the algorithmic version: most binary strings have no description shorter than themselves, so no compression — no matter how clever the reasoning chain — can recover them. CoT cannot magic up information that was never in the prompt or weights.
+
+Empirically, [[mechanistic-interpretability|mechanistic interpretability]] studies what reasoning circuits actually exist inside a transformer and where they break down. The boundary between an LLM's interpretable reasoning circuits and the underivable statements they cannot reach is the modern empirical face of the same wall Gödel and Cantor discovered.
+
+This is why CoT, ToT, and PoT are best understood as **search-time amortisation of a fixed information budget** rather than mechanisms that lift the underlying decidability ceiling.
+
 ## Related Topics
 
 - [[tool-use]] — ReAct interleaves CoT reasoning steps with tool calls to ground reasoning in external observations.
 - [[speculative-decoding]] — extended thinking models generate long reasoning chains; speculative decoding can accelerate this generation.
 - [[rag]] — multi-hop reasoning over retrieved documents benefits from structured CoT decomposition.
 - [[mcp]] — reasoning steps in an agent loop may trigger MCP tool invocations.
+- [[godel-incompleteness]] — formal limits of any reasoning system.
+- [[cantor-diagonal]] — diagonal arguments and uncomputability.
+- [[kolmogorov-complexity]] — information-theoretic floor on what reasoning can recover.
+- [[mechanistic-interpretability]] — what reasoning circuits look like inside the model.

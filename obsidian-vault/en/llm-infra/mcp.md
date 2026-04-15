@@ -223,9 +223,22 @@ To connect this server to Claude Desktop, add to `claude_desktop_config.json`:
 - **DevOps agents:** MCP servers for Kubernetes, Datadog, PagerDuty — an agent can diagnose and remediate incidents by composing these servers.
 - **Data science workflows:** MCP servers for database access, Python execution (sandboxed), and plotting tools create a uniform interface for analytical agents.
 
+## MCP for quantitative finance
+
+MCP turns out to be a particularly natural fit for **quantitative finance workflows**, where the value is precisely in giving an LLM access to live, authoritative data sources without baking them into the prompt or the weights. In production [[llm-financial-analysis|LLM financial analysis]] systems, MCP servers typically wrap:
+
+- **Market-data feeds** (MOEX, Bloomberg, internal tick stores) so a model can ask "what's the current implied vol surface for the AAPL October chain" and get a structured response.
+- **QuantLib-backed pricers** so the model can call a Heston or Black-Scholes pricer rather than guessing a number.
+- **Regulatory document corpora** (Положение 483-П, IFRS 13 guidance, FATF advisories) exposed as MCP resource servers — the model retrieves the exact text of the relevant clause when reasoning about compliance.
+- **Internal valuation memos and risk dashboards**, gated by the same access controls as for human users.
+
+The architectural payoff is that the same regulatory and risk MCP servers can serve a Claude-based assistant, an in-house fine-tuned [[slm|SLM]], or any other compliant client without rewriting integration code — exactly the property the protocol was designed for.
+
 ## Related Topics
 
 - [[tool-use]] — MCP is the standardized evolution of ad-hoc function calling.
 - [[rag]] — retrieval backends can be wrapped as MCP resource servers, enabling uniform retrieval access.
 - [[chain-of-thought]] — agent loops using MCP tools benefit from structured reasoning to sequence tool calls correctly.
 - [[speculative-decoding]] — orthogonal to MCP but relevant in production inference stacks where MCP-heavy agents have long context windows.
+- [[llm-financial-analysis]] — MCP-backed market data, pricers, and regulatory corpora for finance.
+- [[slm]] — small in-house models gain regulator-grade tool access via the same MCP servers as frontier models.

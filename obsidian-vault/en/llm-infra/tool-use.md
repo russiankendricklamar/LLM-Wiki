@@ -231,9 +231,23 @@ Sandboxing strategies:
 - **Financial copilots:** retrieve prices, compute metrics, summarize filings — see also [[rag]] over financial documents.
 - **DevOps agents:** parse CI logs, open GitHub issues, trigger deploys.
 
+## Tool-use as agent action space
+
+Tool-use is the bridge from a language model that generates text to an **agent** that can act on the world. Once you accept that "decide which tool to call" is a learned policy, the same theoretical apparatus that governs reinforcement learning applies: the LLM is a policy, tool calls are actions, observations are tool returns, and the reward is task completion. This frames CoT-style reasoning between tool calls as **inference-time planning** in an MDP.
+
+This view directly connects tool-use to the broader RL literature:
+
+- **[[deep-rl-execution|Deep RL for execution]]** in quantitative trading is built on the same action-observation loop — a model decides "buy this slice now / wait / cancel" given current order-book state, and the reward is realised P&L. Replacing the trading policy with an LLM-with-tools is a literal substitution.
+- **[[reinforcement-learning|Reinforcement learning]]** as a discipline supplies the formal framework (MDPs, Bellman equations, policy gradients) that turns "tool-use accuracy" into a single optimisable objective. Modern reasoning models are trained with exactly this loop: reward the trace that ends in a correct answer.
+
+In quantitative finance, tool-use is what makes [[llm-financial-analysis|LLM-driven financial analysis]] practical: the model can call a QuantLib pricer, fetch a CBR reference rate, or run a Python regression as part of producing a single answer, instead of pretending to have computed those numbers from its weights.
+
 ## Related Topics
 
 - [[rag]] — retrieval can be implemented as a tool, enabling the model to decide when to search.
 - [[chain-of-thought]] — ReAct interleaves reasoning (CoT) with tool actions.
 - [[mcp]] — standardizes tool definition and transport across providers and clients.
 - [[speculative-decoding]] — irrelevant to tool selection but affects the speed of the generation steps between tool calls.
+- [[reinforcement-learning]] — formal framework for "decide which action to take next."
+- [[deep-rl-execution]] — same action-observation loop applied to trade execution.
+- [[llm-financial-analysis]] — production tool-use for grounded financial analysis.

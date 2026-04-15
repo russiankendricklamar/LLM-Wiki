@@ -86,7 +86,16 @@ def self_reference_demo():
 | Chaitin | Most mathematical truths are random and unprovable |
 | AI limits | No algorithm can decide all mathematical truths |
 
+## Connection to computability and AI
+
+Gödel's diagonalization is the same trick that Turing used five years later to prove the **halting problem** is undecidable, and that Chaitin used to define the random real $\Omega$ — the probability that a random program halts. **[[kolmogorov-complexity|Kolmogorov complexity]]** is therefore literally Gödel-incomplete: for almost every binary string, no formal system can prove what its shortest description is. The arithmetic limits of provability and the algorithmic limits of compressibility are two views of the same wall.
+
+For language models, this matters concretely. [[chain-of-thought|Chain-of-thought reasoning]] gives an LLM more steps to produce derivations, but it does not move the wall — there are arithmetic statements whose proofs no chain of finite length can ever output. The hard ceiling on what a transformer can decide via reasoning is *exactly* the Gödel ceiling. The boundary between [[mechanistic-interpretability|interpretable reasoning circuits]] and the underivable statements they cannot reach is the modern empirical face of the first incompleteness theorem.
+
 ## Related Articles
 
 - [[cantor-diagonal|Cantor's Diagonal Argument]] — self-reference in set theory
 - [[banach-tarski|Banach-Tarski Paradox]] — axiom of choice consequences
+- [[kolmogorov-complexity]] — algorithmic version of incompleteness
+- [[chain-of-thought]] — Gödel ceiling on LLM derivability
+- [[information-paradox]] — self-referential limits of black-hole semi-classical descriptions

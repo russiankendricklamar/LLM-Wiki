@@ -192,9 +192,23 @@ These four metrics form a diagnostic grid. Low faithfulness suggests the LLM is 
 - **Financial research:** earnings reports, regulatory filings, market data — see connections to quantitative workflows.
 - **Medical:** clinical guidelines, drug interaction databases, diagnostic decision support.
 
+## The information theory underneath
+
+A RAG system is, at heart, an **information-theoretic** machine. The retriever's job is to maximise the mutual information between the supplied passages and the answer the model will eventually produce — every other architectural choice (chunk size, embedding model, reranker depth) trades off precision against recall against latency around that single quantity.
+
+This connects RAG to two measures from outside the LLM world:
+
+- **[[shannon-entropy|Shannon entropy]]** quantifies how much *uncertainty* the model has about an answer before retrieval; a successful retrieval reduces that entropy in proportion to the relevance of the passages it surfaces.
+- **[[kolmogorov-complexity|Kolmogorov complexity]]** explains *why* RAG can never be a perfect substitute for parameters: most facts have descriptions almost as long as themselves, so no compression scheme — neither weights nor a vector index — can store them all. RAG decides which low-complexity neighbourhood of the corpus to dereference at query time, but it cannot rewrite the algorithmic information content of the answer.
+
+In quantitative finance, the same RAG pattern grounds [[llm-financial-analysis|LLM-driven financial analysis]] in primary sources (10-Ks, regulatory filings, internal valuation memos), where hallucinated numbers are unacceptable and citation traceability is a hard requirement.
+
 ## Related Topics
 
 - [[tool-use]] — RAG retrieval can be expressed as a tool call, enabling iterative and agentic retrieval patterns.
 - [[chain-of-thought]] — multi-hop reasoning over retrieved passages benefits from explicit reasoning steps.
 - [[mcp]] — Model Context Protocol provides a standardized interface for attaching retrieval backends to any compliant LLM client.
 - [[speculative-decoding]] — orthogonal to RAG but used together in production inference stacks to reduce latency.
+- [[shannon-entropy]] — information-theoretic basis of retrieval relevance.
+- [[kolmogorov-complexity]] — algorithmic floor on how much knowledge can be retrieved vs parameterised.
+- [[llm-financial-analysis]] — RAG grounding for financial analysis with traceable sources.

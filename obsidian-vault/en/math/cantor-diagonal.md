@@ -65,7 +65,20 @@ def show_diagonal(n: int = 8) -> None:
     print("y differs from every x_i at position i → not in the list!")
 ```
 
+## Diagonalization beyond set theory
+
+Cantor's trick is the prototype for almost every "you can't enumerate that" result in mathematics and computer science. The same shape of argument gives:
+
+- **Turing's halting problem** — the set of halting programs cannot be decided by a single program (diagonalize over alleged deciders).
+- **[[godel-incompleteness|Gödel's incompleteness theorems]]** — the set of provable statements cannot coincide with the set of true ones (diagonalize over provability predicates).
+- **[[kolmogorov-complexity|Kolmogorov complexity]]** — there is no computable function that returns the shortest description of every binary string (diagonalize over shortest-program enumerators).
+- **Self-reference in [[chain-of-thought|chain-of-thought reasoning]]** — an LLM that tries to enumerate all "thoughts it could have" runs into a Cantor wall: there are inputs whose reasoning trace cannot be predicted by any finite shortcut.
+
+The diagonal argument is therefore not a niche set-theoretic curiosity — it is the structural reason why computation, formal logic, and machine learning all hit the same brand of unreachable horizon.
+
 ## Related Articles
 
 - [[godel-incompleteness|Gödel's Incompleteness Theorems]] — diagonalization in logic
 - [[banach-tarski|Banach-Tarski Paradox]] — another counterintuitive result
+- [[kolmogorov-complexity]] — uncomputability of shortest descriptions
+- [[chain-of-thought]] — limits of enumerable LLM reasoning traces
