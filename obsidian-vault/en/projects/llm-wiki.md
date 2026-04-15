@@ -9,7 +9,6 @@ status: "active"
 year: "2026"
 tech: "React 19, TypeScript, Vite, Tailwind 4, Obsidian"
 github: "https://github.com/russiankendricklamar/LLM-Wiki"
-demo: "https://github.com/russiankendricklamar/LLM-Wiki"
 image: "/projects/llm-wiki.svg"
 featured: false
 description: "A bilingual Knowledge Garden on quant finance, physics and LLMs. The vault lives in Obsidian, the render is React + Vite, and the methodology is adapted from Karpathy's LLM Wiki essay."
