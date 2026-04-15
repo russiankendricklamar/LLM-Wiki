@@ -184,7 +184,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
   const processedContent = React.useMemo(() => processWikilinks(content), [content]);
 
   return (
-    <div className={cn("prose prose-zinc dark:prose-invert max-w-none w-full", className)}>
+    <div className={cn("prose prose-zinc dark:prose-invert max-w-none w-full break-words", className)}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[rehypeKatex]}

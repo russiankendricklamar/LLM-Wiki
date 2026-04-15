@@ -32,10 +32,12 @@ The bottleneck that speculative decoding addresses is well understood: large aut
 
 Let $p(x \mid \text{ctx})$ be the target distribution and $q(x \mid \text{ctx})$ the draft distribution. The accept/reject scheme samples from a modified distribution:
 
-$$\tilde{p}(x) = \begin{cases}
+$$
+\tilde{p}(x) = \begin{cases}
 q(x) & \text{with probability } \min\!\left(1, \frac{p(x)}{q(x)}\right) \\
 \text{reject, resample from } p'(x) & \text{otherwise}
-\end{cases}$$
+\end{cases}
+$$
 
 where the corrective residual distribution is:
 

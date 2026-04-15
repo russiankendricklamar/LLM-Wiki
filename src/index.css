@@ -43,4 +43,13 @@
     padding: 0.25rem 0;
     max-width: 100%;
   }
+
+  /* Inline math: prevent overflow, allow horizontal scroll on wide expressions */
+  .prose .katex {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
