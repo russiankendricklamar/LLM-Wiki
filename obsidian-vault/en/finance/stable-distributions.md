@@ -3,12 +3,9 @@ title: "Stable Distributions and α-Stable Processes"
 category: "Stochastic Processes"
 order: 141
 lang: "en"
-slug: "stable-distributions"
 ---
 
 # Stable Distributions and α-Stable Processes
-
-## Overview
 
 Stable distributions are a natural generalization of the normal distribution that preserves the key "stability under summation" property while allowing **heavy tails** and **asymmetry**. They were introduced by Paul Lévy in 1925 and gained financial currency thanks to Benoît Mandelbrot, who showed in 1963 that cotton-futures returns are far better described by a stable distribution with $\alpha \approx 1.7$ than by a normal one.
 
@@ -94,7 +91,7 @@ In real practice, instead of stable distributions one usually uses:
 
 Stable distributions remain the **conceptual starting point**: they show that the normal model is not merely empirically inadequate but theoretically incomplete — it misses an entire family of possible limit distributions.
 
-## Related Topics
+## Related Articles
 
 - [[brownian-motion]] — special case $\alpha = 2$.
 - [[levy-esscher-continuous]] — α-stable processes as a class of Lévy processes.

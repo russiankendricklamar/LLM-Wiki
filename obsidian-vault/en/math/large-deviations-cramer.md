@@ -3,12 +3,9 @@ title: "Large Deviations and Cramer's Theorem"
 category: "Mathematics"
 order: 17
 lang: "en"
-slug: "large-deviations-cramer"
 ---
 
 # Large Deviations and Cramer's Theorem
-
-## Overview
 
 Large Deviations Theory (LDT) is the fourth and subtlest level of limit theorems for sums of independent variables, after the [[law-of-large-numbers|LLN]] (order $1$), the [[central-limit-theorem|CLT]] (order $\sqrt{n}$), and the [[law-iterated-logarithm|LIL]] (order $\sqrt{n \log\log n}$).
 
@@ -139,7 +136,7 @@ The hierarchy is now complete:
 
 The LLN gives "where it goes," the CLT "typical fluctuation," the LIL "maximum fluctuation," large deviations "how rare are extreme values." Four different resolutions of the same object.
 
-## Related Topics
+## Related Articles
 
 - [[law-of-large-numbers]] — zeroth order.
 - [[central-limit-theorem]] — first order (Cramer's theorem cannot be proved via CLT).

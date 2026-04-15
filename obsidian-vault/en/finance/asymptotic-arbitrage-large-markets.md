@@ -3,12 +3,9 @@ title: "Asymptotic Arbitrage and Large Markets"
 category: "Pricing Models"
 order: 129
 lang: "en"
-slug: "asymptotic-arbitrage-large-markets"
 ---
 
 # Asymptotic Arbitrage and Large Markets
-
-## Overview
 
 What happens to the notion of [[arbitrage-definition|arbitrage]] when the number of traded assets grows to infinity? This is not a scholastic question — real economies trade enormous numbers of instruments, and Ross's APT (Arbitrage Pricing Theory, 1976) is in principle formulated in the limit $N \to \infty$.
 
@@ -68,7 +65,7 @@ In practice AA appears in models that are **formally arbitrage-free** at each st
 
 In each case AA theory says: the model is technically arbitrage-free but this is illusory — adding enough assets makes "arbitrage" possible in the limit.
 
-## Related Topics
+## Related Articles
 
 - [[arbitrage-definition]] — the classical definition that AA generalizes asymptotically.
 - [[ftap-first-fundamental-theorem]] — finite-dimensional analogue of the Kabanov-Kramkov theorem.

@@ -3,12 +3,9 @@ title: "Stefan Problem and American Options"
 category: "Pricing Models"
 order: 135
 lang: "en"
-slug: "stefan-problem-american"
 ---
 
 # Stefan Problem and American Options
-
-## Overview
 
 In continuous time, [[optimal-stopping-american|optimal stopping]] for an American option becomes a Black-Scholes PDE with an **obstacle** — the classical **Stefan problem**. The free boundary separating the "holding region" from the "exercise region" is itself an unknown function whose location is determined simultaneously with the price.
 
@@ -88,7 +85,7 @@ On a non-dividend stock the American **call** has the same price as the European
 
 With dividends the situation changes: dividends can make early exercise of a call optimal, and a non-trivial free boundary appears.
 
-## Related Topics
+## Related Articles
 
 - [[optimal-stopping-american]] — discrete version (Snell) and theoretical foundation.
 - [[black-scholes]] — the PDE solved by $V$ in the holding region.

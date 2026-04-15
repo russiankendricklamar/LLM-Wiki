@@ -3,12 +3,9 @@ title: "Kolmogorov's Probability Axioms"
 category: "Mathematics"
 order: 5
 lang: "en"
-slug: "kolmogorov-probability-axioms"
 ---
 
 # Kolmogorov's Probability Axioms
-
-## Overview
 
 In 1933 Andrey Nikolaevich Kolmogorov published "Grundbegriffe der Wahrscheinlichkeitsrechnung" (Foundations of the Theory of Probability), in which he **rigorously** axiomatized the notion of probability via measure theory. Before this, probability was a collection of heuristics and paradoxes; after it became a branch of analysis as rigorous as geometry after Euclid or algebra after Hilbert.
 
@@ -86,7 +83,7 @@ Kolmogorov's axiomatization is part of the broader modernist movement in 1920s-3
 
 In this sense Kolmogorov's theory is the final step in turning probability from "reasoning about chance" into a branch of pure mathematics.
 
-## Related Topics
+## Related Articles
 
 - [[sigma-algebra-measurability]] — formal apparatus of events and measurability.
 - [[conditional-expectation-sigma]] — generalization of expectation through σ-algebras.

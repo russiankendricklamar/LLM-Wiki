@@ -3,12 +3,9 @@ title: "(B,S)-Market and Self-Financing Strategies"
 category: "Pricing Models"
 order: 120
 lang: "en"
-slug: "bs-market-self-financing"
 ---
 
 # (B,S)-Market and Self-Financing Strategies
-
-## Overview
 
 The `(B,S)`-market is the canonical discrete-time financial market model in [[shiryaev-stochastic-finance|Shiryaev's textbook]] (Vol. 2, Ch. V, §1). It is the minimal setting in which it makes sense to talk about portfolios, profits, arbitrage, and hedging: one risk-free bank account `B` and one (or several) risky asset `S` evolving on a filtered probability space.
 
@@ -75,7 +72,7 @@ The [[ftap-first-fundamental-theorem|first fundamental theorem]] states: the mar
 
 The [[complete-incomplete-markets|second fundamental theorem]] states: the market is complete if and only if such a martingale measure is unique. Completeness means that any required payoff can be replicated as $X^\pi_T$ by some self-financing strategy.
 
-## Related Topics
+## Related Articles
 
 - [[arbitrage-definition]] — definition of arbitrage in the (B,S) model.
 - [[ftap-first-fundamental-theorem]] — martingale criterion for no-arbitrage.

@@ -3,12 +3,9 @@ title: "Optimal Stopping and American Options"
 category: "Pricing Models"
 order: 127
 lang: "en"
-slug: "optimal-stopping-american"
 ---
 
 # Optimal Stopping and American Options
-
-## Overview
 
 An American option differs from a European one by a single feature — it can be exercised **at any time** before expiry, not just at maturity. This freedom turns the pricing problem from computing an expectation into an **optimal stopping problem**: the option holder picks a random time $\tau$ to maximize the discounted expected payoff.
 
@@ -70,7 +67,7 @@ Detailed discussion in the article [[stefan-problem-american|Stefan problem and 
 
 On a non-dividend stock the American **call** has the same price as the European one (Merton's famous result: the optimal stopping time for a call is always $\tau = N$, i.e. wait until maturity). For the **put**, however, early exercise can be optimal, and the American put is **strictly more expensive** than the European one. It is for the put that the Stefan problem is non-trivial.
 
-## Related Topics
+## Related Articles
 
 - [[ftap-first-fundamental-theorem]] — the martingale measure under which the expectation is taken.
 - [[optional-decomposition]] — Doob-Meyer for the Snell envelope as the basis of the hedge.

@@ -3,12 +3,9 @@ title: "Law of Large Numbers"
 category: "Mathematics"
 order: 11
 lang: "en"
-slug: "law-of-large-numbers"
 ---
 
 # Law of Large Numbers
-
-## Overview
 
 The Law of Large Numbers (LLN) is the earliest and most fundamental statement in probability theory. It formalizes the intuition that **frequencies converge to probabilities**: tossing a fair coin many times, the fraction of heads approaches $1/2$. Jakob Bernoulli proved the first version in 1713 — for the binomial distribution; it is called the "Golden Theorem" of probability theory.
 
@@ -112,7 +109,7 @@ The LLN is about **convergence**, not **rates**. From "$S_n/n \to \mu$" one cann
 
 The LLN also **does not say** that the observed frequency "must" approach the probability — it is a statement about a **set of trajectories of probability 1**, not about every individual trajectory. There exist (a measure-zero set) trajectories on which $S_n/n$ does not converge to $\mu$.
 
-## Related Topics
+## Related Articles
 
 - [[kolmogorov-probability-axioms]] — foundation on which the LLN is stated and proved.
 - [[central-limit-theorem]] — exact rate of convergence in the LLN.

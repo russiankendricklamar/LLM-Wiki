@@ -3,12 +3,9 @@ title: "Arbitrage and Its Absence"
 category: "Pricing Models"
 order: 121
 lang: "en"
-slug: "arbitrage-definition"
 ---
 
 # Arbitrage and Its Absence
-
-## Overview
 
 "Arbitrage" is the technical heart of all modern financial mathematics. In [[shiryaev-stochastic-finance|Shiryaev (Vol. 2, Ch. V, §2)]] the notion is introduced rigorously and then exploited again and again as the **main filter**: market models that admit arbitrage are deemed unrealistic and unfit as foundations for pricing theory. Every pricing formula — Black-Scholes, Bachelier, binomial — is a consequence of the requirement "the model must be arbitrage-free."
 
@@ -65,7 +62,7 @@ In real markets arbitrage opportunities appear and disappear instantly — algor
 
 Conversely, many observed "anomalies" (statistical arbitrage, mean-reversion strategies) are not arbitrage in the strict sense — they carry risk and can lose money. These strategies live outside the FTAP picture and require their own risk models.
 
-## Related Topics
+## Related Articles
 
 - [[bs-market-self-financing]] — the model in which arbitrage is defined.
 - [[ftap-first-fundamental-theorem]] — martingale characterization of NA.

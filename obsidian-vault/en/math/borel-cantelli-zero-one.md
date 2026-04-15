@@ -3,12 +3,9 @@ title: "Borel-Cantelli Lemmas and Zero-One Laws"
 category: "Mathematics"
 order: 12
 lang: "en"
-slug: "borel-cantelli-zero-one"
 ---
 
 # Borel-Cantelli Lemmas and Zero-One Laws
-
-## Overview
 
 The Borel-Cantelli lemmas and the related **zero-one laws** are the main technical tools for working with **infinite** events: "infinitely often," "eventually," "always after some moment." They state that for a wide class of such events the probability takes only the values 0 or 1 — no "intermediate" $0.42$ ever occurs.
 
@@ -116,7 +113,7 @@ The 0-1 law has an "information-theoretic" interpretation: tail events carry **z
 
 In machine learning this becomes the concept of **"stationary" features**: features invariant under the length of training data behave deterministically (rather than randomly).
 
-## Related Topics
+## Related Articles
 
 - [[kolmogorov-probability-axioms]] — framework in which 0-1 laws are stated.
 - [[law-of-large-numbers]] — main application of Borel-Cantelli.

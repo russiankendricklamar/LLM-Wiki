@@ -3,12 +3,9 @@ title: "Hyperbolic Distributions and Processes"
 category: "Stochastic Processes"
 order: 142
 lang: "en"
-slug: "hyperbolic-distributions"
 ---
 
 # Hyperbolic Distributions and Processes
-
-## Overview
 
 Hyperbolic distributions are a parametric family introduced by Ole Barndorff-Nielsen in 1977 to describe distributions of sand-grain sizes in dunes. Since the 1990s they have been widely applied in financial mathematics as a **golden middle** between the normal distribution (too thin tails) and stable ones (infinite variance).
 
@@ -97,7 +94,7 @@ Technically hyperbolic distributions are **not stable** in the Lévy sense: a su
 
 In this sense hyperbolic distributions are a **"hand-crafted" compromise** that does not follow from a generalized CLT but is constructed specifically for practical needs.
 
-## Related Topics
+## Related Articles
 
 - [[stable-distributions]] — pure alternative with CLT theoretical justification but infinite moments.
 - [[levy-esscher-continuous]] — Lévy processes into which GH increments embed.

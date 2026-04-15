@@ -3,12 +3,9 @@ title: "σ-Algebras and Measurability"
 category: "Mathematics"
 order: 6
 lang: "en"
-slug: "sigma-algebra-measurability"
 ---
 
 # σ-Algebras and Measurability
-
-## Overview
 
 A σ-algebra is the formalization of "information": which subsets of the sample space we **can distinguish** at the current state of knowledge. In [[kolmogorov-probability-axioms|Kolmogorov's axiomatization]] probability is defined not on every subset of $\Omega$ but only on elements of a σ-algebra $\mathcal{F}$. This technical restriction turns out to be deeply meaningful: a σ-algebra carries the meaning of "what we know," and the time-evolution of σ-algebras is what financial mathematics calls a **filtration**.
 
@@ -90,7 +87,7 @@ In [[shannon-entropy|Shannon's information theory]] a σ-algebra plays the role 
 
 In machine learning this becomes the concept of **"representation"**: an embedding of an input $X$ is a sub-σ-algebra w.r.t. which we form a prediction. The richer the embedding (larger σ-algebra), the more accurately we can predict — but the greater the overfitting risk.
 
-## Related Topics
+## Related Articles
 
 - [[kolmogorov-probability-axioms]] — general axiomatics in which σ-algebra is a fundamental object.
 - [[conditional-expectation-sigma]] — main use of σ-algebras in probability.

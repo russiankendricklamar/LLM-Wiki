@@ -3,12 +3,9 @@ title: "Self-Similarity and Fractality of Financial Series"
 category: "Stochastic Processes"
 order: 143
 lang: "en"
-slug: "self-similarity-fractality"
 ---
 
 # Self-Similarity and Fractality of Financial Series
-
-## Overview
 
 The idea that **financial time series are self-similar** goes back to Benoît Mandelbrot, who in the 1960s noticed that stock price charts "look the same" at different time scales — second, minute, hour, and day charts are indistinguishable without axis labels. Mandelbrot turned this qualitative observation into a quantitative program: introducing fractal price models, measuring fractal dimension, generalizing [[brownian-motion|Brownian motion]] to **fractional Brownian motion**.
 
@@ -88,7 +85,7 @@ Empirics (Gatheral-Jaisson-Rosenbaum, 2018) showed that rough models **calibrate
 
 From [[shiryaev-stochastic-finance|Shiryaev's]] perspective this is a modern continuation of the 1990s program: Mandelbrot's fractal ideas turned out to be the right language for what was empirically obvious — real volatility is neither constant nor "classical" stochastic, but has nontrivial fractal structure.
 
-## Related Topics
+## Related Articles
 
 - [[brownian-motion]] — special case of fBm with $H = 1/2$.
 - [[hurst-exponent]] — practical estimation of the Hurst exponent.

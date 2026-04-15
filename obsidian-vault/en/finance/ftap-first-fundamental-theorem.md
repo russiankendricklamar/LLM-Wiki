@@ -3,12 +3,9 @@ title: "First Fundamental Theorem (FTAP)"
 category: "Pricing Models"
 order: 122
 lang: "en"
-slug: "ftap-first-fundamental-theorem"
 ---
 
 # First Fundamental Theorem (FTAP)
-
-## Overview
 
 The First Fundamental Theorem of Asset Pricing (FTAP) is the central result of [[shiryaev-stochastic-finance|Shiryaev Vol. 2]], linking two notions that at first sight live in different universes: the economic condition of [[arbitrage-definition|no-arbitrage]] and the probabilistic existence of a martingale measure. The theorem says they are equivalent.
 
@@ -71,7 +68,7 @@ Discussed in the article on [[semimartingale-models|semimartingale models]].
 
 The idea "no-arbitrage prices = expectations under a risk-neutral measure" was first formulated by Cox-Ross-Rubinstein (1979) for the binomial [[crr-model|CRR model]] and extended to general discrete settings by Harrison and Pliska (1981). The full continuous-time theory belongs to Delbaen and Schachermayer (1994-2006). Shiryaev in Vol. 2 gives an elegant self-contained discrete treatment via conditional Esscher.
 
-## Related Topics
+## Related Articles
 
 - [[arbitrage-definition]] — the definition the whole theorem rests on.
 - [[bs-market-self-financing]] — the model in which FTAP is formulated.

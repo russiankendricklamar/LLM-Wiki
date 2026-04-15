@@ -3,12 +3,9 @@ title: "Characteristic Functions"
 category: "Mathematics"
 order: 8
 lang: "en"
-slug: "characteristic-functions"
 ---
 
 # Characteristic Functions
-
-## Overview
 
 A characteristic function is the **Fourier transform of a probability measure**. For a random variable $X$ with distribution $\mu_X$:
 
@@ -131,7 +128,7 @@ For non-negative integer-valued variables one also uses the **probability genera
 
 Advantage of $\varphi_X = \mathbb{E}[e^{itX}]$ over $M_X$: the characteristic function is **always defined** (since $|e^{itX}| = 1$), while $M_X$ may diverge at infinity.
 
-## Related Topics
+## Related Articles
 
 - [[kolmogorov-probability-axioms]] — framework in which $\varphi_X$ is defined.
 - [[central-limit-theorem]] — main application.

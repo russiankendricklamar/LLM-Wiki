@@ -3,12 +3,9 @@ title: "CAPM (Capital Asset Pricing Model)"
 category: "Pricing Models"
 order: 139
 lang: "en"
-slug: "capm"
 ---
 
 # CAPM (Capital Asset Pricing Model)
-
-## Overview
 
 The Capital Asset Pricing Model (CAPM) is an equilibrium theory of asset pricing independently proposed by Sharpe (1964), Lintner (1965), and Mossin (1966) on top of [[markowitz-mean-variance|Markowitz's portfolio theory]]. CAPM gives the **first quantitative formula** for the expected return of a risky asset in terms of a single factor — market risk.
 
@@ -86,7 +83,7 @@ In CAPM beta is the only risk measure; all idiosyncratic volatility is diversifi
 
 CAPM requires the strongest assumptions and gives the most concrete answer. APT is weaker and less concrete. FTAP is the most general and not tied to equilibrium.
 
-## Related Topics
+## Related Articles
 
 - [[markowitz-mean-variance]] — the foundation on which CAPM is built.
 - [[apt-ross]] — multi-factor generalization without equilibrium.

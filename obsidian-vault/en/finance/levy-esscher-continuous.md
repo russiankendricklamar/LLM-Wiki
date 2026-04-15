@@ -3,12 +3,9 @@ title: "Lévy Processes and the Continuous Esscher Transform"
 category: "Pricing Models"
 order: 132
 lang: "en"
-slug: "levy-esscher-continuous"
 ---
 
 # Lévy Processes and the Continuous Esscher Transform
-
-## Overview
 
 Lévy processes are the broadest "homogeneous" class of [[semimartingale-models|semimartingales]]. They are processes with independent and stationary increments, generalizing both [[brownian-motion|Brownian motion]] (purely continuous) and the Poisson process (purely jump). Every other independent-increments process is built by combining these.
 
@@ -101,7 +98,7 @@ Lévy models are calibrated to the **implied volatility surface**: parameters $(
 
 In practice Variance Gamma and CGMY often calibrate well at short maturities, while Merton's jump-diffusion fits markets with rare but large jumps.
 
-## Related Topics
+## Related Articles
 
 - [[semimartingale-models]] — general class of which Lévy is a special case.
 - [[girsanov-semimartingales]] — general Girsanov, to which Esscher reduces in the Lévy case.

@@ -3,12 +3,9 @@ title: "Discrete Girsanov and the Esscher Transform"
 category: "Pricing Models"
 order: 126
 lang: "en"
-slug: "discrete-girsanov-esscher"
 ---
 
 # Discrete Girsanov and the Esscher Transform
-
-## Overview
 
 The [[ftap-first-fundamental-theorem|first fundamental theorem]] asserts the existence of an equivalent martingale measure but does not say **how** to build it. In discrete time Shiryaev ([[shiryaev-stochastic-finance|Vol. 2, Ch. V, §3]]) gives two explicit recipes: a discrete **Girsanov** theorem for the conditionally Gaussian case and an **Esscher transform** for the general one.
 
@@ -77,7 +74,7 @@ In an [[complete-incomplete-markets|incomplete model]] the equation $M_k(\theta_
 
 In models with jumps the **minimum Esscher measure** (with the smallest $\theta$) is often singled out as canonical — it minimizes the relative entropy of $\mathbb{Q}$ with respect to $\mathbb{P}$ and in a sense changes the historical model the least.
 
-## Related Topics
+## Related Articles
 
 - [[ftap-first-fundamental-theorem]] — the theorem for which Esscher provides a constructive proof.
 - [[crr-model]] — simplest example where conditional Esscher reduces to a single parameter $q$.

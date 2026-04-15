@@ -3,12 +3,9 @@ title: "Weak Convergence and Prokhorov's Theorem"
 category: "Mathematics"
 order: 9
 lang: "en"
-slug: "weak-convergence-prokhorov"
 ---
 
 # Weak Convergence and Prokhorov's Theorem
-
-## Overview
 
 "Convergence in distribution" is the subtlest of the convergence notions in probability theory. Random variables can "approach" a limit in many different ways: almost surely, in probability, in $L^p$, in distribution. The weakest of these — **weak convergence of distributions** — turns out to be simultaneously the most important for limit theorems (CLT, LLN, [[asymptotic-arbitrage-large-markets|convergence of financial models]]).
 
@@ -94,7 +91,7 @@ Weak convergence is the weakest, but precisely for that reason it is the most ge
 
 **5. Bayesian statistics:** posterior distributions converge to the point mass of the true parameter as $n \to \infty$ — weak convergence with refinements (Bernstein-von Mises).
 
-## Related Topics
+## Related Articles
 
 - [[characteristic-functions]] — main tool for verifying weak convergence.
 - [[central-limit-theorem]] — main example of weak convergence in practice.

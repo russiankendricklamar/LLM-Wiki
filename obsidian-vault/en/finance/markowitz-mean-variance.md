@@ -3,12 +3,9 @@ title: "Markowitz Mean-Variance Portfolio Theory"
 category: "Pricing Models"
 order: 138
 lang: "en"
-slug: "markowitz-mean-variance"
 ---
 
 # Markowitz Mean-Variance Portfolio Theory
-
-## Overview
 
 Markowitz portfolio theory (1952) is the first mathematically rigorous theory of diversification. Harry Markowitz proposed that **a rational investor should jointly optimize expected return and risk** (interpreted as variance) and showed how to do so as a quadratic optimization problem. He received the Nobel Prize in 1990 for this work.
 
@@ -88,7 +85,7 @@ Markowitz launched a conceptual revolution: before him "investment analysis" was
 
 From [[shiryaev-stochastic-finance|Shiryaev's]] viewpoint Markowitz is the prototypical **pre-stochastic** theory: everything formulated via moments, no processes, no martingales. This is the "statics" of financial mathematics that was later embedded in the dynamic martingale language.
 
-## Related Topics
+## Related Articles
 
 - [[capm]] — equilibrium pricing model, a direct consequence of adding a risk-free asset to Markowitz.
 - [[apt-ross]] — arbitrage alternative not requiring equilibrium.

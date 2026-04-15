@@ -3,12 +3,9 @@ title: "Several Derivations of the Black-Scholes Formula"
 category: "Pricing Models"
 order: 134
 lang: "en"
-slug: "black-scholes-derivations"
 ---
 
 # Several Derivations of the Black-Scholes Formula
-
-## Overview
 
 The [[black-scholes|Black-Scholes formula]] is the most studied object in financial mathematics, and at least **four fundamentally different derivations** of it are known. Each illuminates a different facet of the model and arrives at the same answer
 
@@ -97,7 +94,7 @@ All four derivations rely on the **same assumptions**: $S$ is [[geometric-browni
 
 In reality **none** of these assumptions holds exactly. So the BS formula is used as a **baseline reference** (via the implied-volatility concept) rather than literal truth. All more elaborate models ([[heston-model|Heston]], [[levy-esscher-continuous|Lévy]], Dupire local volatility) are corrections to BS that explain how observed prices deviate from it.
 
-## Related Topics
+## Related Articles
 
 - [[black-scholes]] — main article on the formula and the Greeks.
 - [[bachelier-formula]] — historical and additive analogue.

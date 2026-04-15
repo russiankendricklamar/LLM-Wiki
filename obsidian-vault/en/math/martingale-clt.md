@@ -3,12 +3,9 @@ title: "Central Limit Theorem for Martingales"
 category: "Mathematics"
 order: 20
 lang: "en"
-slug: "martingale-clt"
 ---
 
 # Central Limit Theorem for Martingales
-
-## Overview
 
 The classical [[central-limit-theorem|CLT]] requires **independence** of the summands. But in many applications — statistics of dependent data, stochastic approximation, parameter estimation for time series, finance — the natural sequences are not independent but form **martingale differences**. They have their own central limit theorem, and it is this theorem that powers the asymptotic theory of modern econometrics.
 
@@ -100,7 +97,7 @@ For ergodic stationary processes one often uses **martingale approximation** (Go
 - The normalization $\sum \sigma_k^2 \to \sigma^2$ requires control over the conditional variances. In stochastic-volatility models this can be non-trivial.
 - The limit need not be Gaussian: when the conditions fail, one can obtain "mixed normal" distributions (with random variance).
 
-## Related Topics
+## Related Articles
 
 - [[central-limit-theorem]] — classical CLT for independent sums.
 - [[discrete-martingales]] — general martingale theory.

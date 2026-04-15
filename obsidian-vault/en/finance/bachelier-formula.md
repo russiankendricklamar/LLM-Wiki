@@ -3,12 +3,9 @@ title: "Bachelier Formula"
 category: "Pricing Models"
 order: 133
 lang: "en"
-slug: "bachelier-formula"
 ---
 
 # Bachelier Formula
-
-## Overview
 
 The Bachelier formula is the **historical predecessor** of the [[black-scholes|Black-Scholes formula]], published by Louis Bachelier in his doctoral thesis "Théorie de la spéculation" in 1900 — **73 years** before Black, Scholes, and Merton. It is the first rational option-pricing formula in history derived from a stochastic model of the underlying.
 
@@ -84,7 +81,7 @@ The work was ignored by his contemporaries: by mathematicians (as insufficiently
 
 Samuelson himself acknowledged that **"everything in Black-Scholes is already in Bachelier"** — except for one decisive change: the use of a logarithmic rather than additive scale.
 
-## Related Topics
+## Related Articles
 
 - [[black-scholes]] — log-normal heir of Bachelier.
 - [[brownian-motion]] — stochastic foundation of both models.

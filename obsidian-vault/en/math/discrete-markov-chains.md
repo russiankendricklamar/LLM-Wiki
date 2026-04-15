@@ -3,12 +3,9 @@ title: "Discrete Markov Chains"
 category: "Mathematics"
 order: 16
 lang: "en"
-slug: "discrete-markov-chains"
 ---
 
 # Discrete Markov Chains
-
-## Overview
 
 A Markov chain is a stochastic process whose **future depends only on the present**, not on the full history. This is the oldest (A. A. Markov, 1906) and most widely used model of a "stochastic process with one-step memory." It is enough to cover a wide range of real-world systems — random walks, Google PageRank, Metropolis-Hastings, equilibrium models in physics.
 
@@ -116,7 +113,7 @@ $$M_n = f(X_n) - n \cdot 0 = f(X_n)$$
 
 is a martingale. These connections allow applying [[discrete-martingales|martingale methods]] to Markov problems — stopping theorems, Doob's inequalities, etc.
 
-## Related Topics
+## Related Articles
 
 - [[discrete-martingales]] — kindred theory; martingales and Markov chains often overlap.
 - [[ergodic-theorems-birkhoff]] — the Markov-chain case is a special case of the ergodic theorem.

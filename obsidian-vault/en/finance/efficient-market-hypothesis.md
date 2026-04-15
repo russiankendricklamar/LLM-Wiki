@@ -3,12 +3,9 @@ title: "Efficient Market Hypothesis (EMH)"
 category: "Pricing Models"
 order: 137
 lang: "en"
-slug: "efficient-market-hypothesis"
 ---
 
 # Efficient Market Hypothesis (EMH)
-
-## Overview
 
 The Efficient Market Hypothesis (EMH) is the central classical theory of financial economics, formulated by Eugene Fama in the 1960s on top of earlier ideas of Cootner, Samuelson, and Bachelier. Its content: **at any moment financial asset prices fully reflect all available information**, so no information-based strategy can systematically generate excess returns.
 
@@ -63,7 +60,7 @@ The Grossman-Stiglitz paradox (1980): **if EMH were absolutely true**, no one wo
 
 Modern high-frequency and stat-arb strategies are a practical confirmation of AMH: they make money on tiny and rapidly disappearing inefficiencies, and each successful strategy shrinks the remaining "pie."
 
-## Related Topics
+## Related Articles
 
 - [[ftap-first-fundamental-theorem]] — mathematical generalization of EMH via martingale measures.
 - [[bachelier-formula]] — historical origin of the random-walk-of-prices idea.

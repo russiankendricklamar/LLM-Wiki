@@ -3,12 +3,9 @@ title: "Spectral Representation of Stationary Processes"
 category: "Mathematics"
 order: 19
 lang: "en"
-slug: "spectral-representation-processes"
 ---
 
 # Spectral Representation of Stationary Processes
-
-## Overview
 
 The Wiener-Khintchine theorem (see [[stationary-wide-spectral]]) describes how the **autocovariance** of a stationary process decomposes into a Fourier series. But there is a stronger statement: the **process itself** (not just its covariance) can be written as a stochastic integral against an orthogonal random measure. This is the **spectral representation**.
 
@@ -123,7 +120,7 @@ The spectral representation exists only for **stationary** processes. Non-statio
 - **Wavelet transforms**.
 - **[[hilbert-huang-transform|Hilbert-Huang transform]]** — empirical decomposition for strongly non-stationary data.
 
-## Related Topics
+## Related Articles
 
 - [[stationary-wide-spectral]] — base theory of spectral densities.
 - [[ergodic-theorems-birkhoff]] — ergodic theory of stationary processes.

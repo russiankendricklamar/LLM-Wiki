@@ -3,12 +3,9 @@ title: "Lundberg-Cramer Ruin Theorem"
 category: "Mathematics"
 order: 21
 lang: "en"
-slug: "lundberg-cramer-ruin"
 ---
 
 # Lundberg-Cramer Ruin Theorem
-
-## Overview
 
 Ruin theory is the classical branch of actuarial mathematics studying the probability that an insurance company's capital falls below zero under random claim payments. It is one of the earliest examples of probabilistic methods applied to finance and **one of the first applications of [[large-deviations-cramer|large deviations theory]]** before it was formally established.
 
@@ -130,7 +127,7 @@ Probability of ruin: $\psi(u) = \frac{\lambda\mu}{c} e^{-R u}$. This is the only
 - The model is purely diffusive: random fluctuations of capital from investments are ignored.
 - A deterministic premium rate is a simplification; in reality premiums depend on market conditions.
 
-## Related Topics
+## Related Articles
 
 - [[large-deviations-cramer]] — general theory to which Lundberg-Cramer reduces.
 - Poisson process — base ingredient of the model.

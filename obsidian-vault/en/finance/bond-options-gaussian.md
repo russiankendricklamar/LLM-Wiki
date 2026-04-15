@@ -3,12 +3,9 @@ title: "Bond Options in Gaussian Models"
 category: "Pricing Models"
 order: 136
 lang: "en"
-slug: "bond-options-gaussian"
 ---
 
 # Bond Options in Gaussian Models
-
-## Overview
 
 Stock options are priced in Black-Scholes under the assumption that the **asset** is random while the **discount rate** is deterministic. For bond options both these assumptions must be inverted: the bond price at any moment is rigidly determined by the short rate, and the rate itself is a stochastic process. This requires a completely different modelling approach.
 
@@ -98,7 +95,7 @@ No closed-form analytics; finite differences or a binomial tree on the rate (Ho-
 
 One-factor Gaussian models (Vasicek, Hull-White) are only the starting point. Multi-factor extensions (Hull-White 2-factor, Cox-Ingersoll-Ross, [[cir-hull-white|CIR]]) admit correlated shocks at different parts of the yield curve. The fully general framework is the **HJM framework** (Heath-Jarrow-Morton, 1992), modelling the evolution of the entire forward curve as a multi-dimensional diffusion. Gaussian models are the special case of HJM with deterministic volatility.
 
-## Related Topics
+## Related Articles
 
 - [[black-scholes]] — canonical formula whose analogue is obtained for bonds.
 - [[cir-hull-white]] — close cousins among short-rate models.

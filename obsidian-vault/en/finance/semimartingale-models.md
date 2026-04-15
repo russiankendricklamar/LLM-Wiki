@@ -3,12 +3,9 @@ title: "Semimartingale Models and Predictable Characteristics"
 category: "Pricing Models"
 order: 130
 lang: "en"
-slug: "semimartingale-models"
 ---
 
 # Semimartingale Models and Predictable Characteristics
-
-## Overview
 
 When [[shiryaev-stochastic-finance|Shiryaev]] moves to continuous time in **Vol. 2, Chapter VII**, he immediately postulates: asset prices must be **semimartingales**. This is not a whim or maximal generality for its own sake — it is exactly the **minimal** requirement for the stochastic integral (i.e. [[bs-market-self-financing|self-financing capital]]) to be defined meaningfully for a wide class of predictable strategies.
 
@@ -77,7 +74,7 @@ A change of measure $\mathbb{P} \to \mathbb{Q}$ transforms the triplet: $(B^\mat
 
 Exact transformation formulas in [[girsanov-semimartingales|Girsanov for semimartingales]].
 
-## Related Topics
+## Related Articles
 
 - [[ftap-first-fundamental-theorem]] — finite/discrete predecessor.
 - [[girsanov-semimartingales]] — how the triplet transforms under change of measure.

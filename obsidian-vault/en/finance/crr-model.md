@@ -3,12 +3,9 @@ title: "Cox-Ross-Rubinstein Binomial Model (CRR)"
 category: "Pricing Models"
 order: 123
 lang: "en"
-slug: "crr-model"
 ---
 
 # Cox-Ross-Rubinstein Binomial Model (CRR)
-
-## Overview
 
 The Cox-Ross-Rubinstein model (1979) is the simplest non-trivial arbitrage-free and **complete** [[bs-market-self-financing|(B,S)-model]]. In [[shiryaev-stochastic-finance|Shiryaev (Vol. 2, Ch. V, §1d)]] it plays the role of a worked example: the unique martingale measure is computed explicitly, the replicating portfolio is built explicitly, and the binomial option-pricing formula falls out directly — and in the limit converges to the [[black-scholes|Black-Scholes formula]].
 
@@ -92,7 +89,7 @@ This is the most transparent existing derivation of BS.
 
 CRR is surprisingly often used in industry not as a "toy" but as a **working tool** for stock options with discrete dividends and for American options: the tree recursion extends easily to checking the early-exercise condition, which PDE methods do not handle as visually.
 
-## Related Topics
+## Related Articles
 
 - [[bs-market-self-financing]] — the general model CRR is a special case of.
 - [[arbitrage-definition]] — in CRR no-arbitrage reduces to $d < 1+r < u$.

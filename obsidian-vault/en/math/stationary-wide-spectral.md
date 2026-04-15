@@ -3,12 +3,9 @@ title: "Wide-Sense Stationary Processes and Spectral Density"
 category: "Mathematics"
 order: 18
 lang: "en"
-slug: "stationary-wide-spectral"
 ---
 
 # Wide-Sense Stationary Processes and Spectral Density
-
-## Overview
 
 Wide-sense (second-order, covariance) stationarity is weaker than strict stationarity from [[ergodic-theorems-birkhoff|ergodic theory]]: it requires not that all distributions coincide under shift, but only that **the first two moments coincide**.
 
@@ -114,7 +111,7 @@ Wide-sense stationarity is **insufficient** for many purposes:
 
 In such cases one needs either stronger assumptions (strict stationarity + ergodicity) or weaker tools (copulas, robustness bounds).
 
-## Related Topics
+## Related Articles
 
 - [[ergodic-theorems-birkhoff]] — strict stationarity.
 - [[spectral-representation-processes]] — spectral representation of the process itself, not just its covariance.

@@ -3,12 +3,9 @@ title: "Stylized Facts of Financial Returns"
 category: "Risk Management"
 order: 144
 lang: "en"
-slug: "stylized-facts-returns"
 ---
 
 # Stylized Facts of Financial Returns
-
-## Overview
 
 "Stylized facts" are robust statistical regularities observed across financial markets — different assets, different exchanges, and different epochs. They are called "stylized" because they hold **universally** — despite the specifics of every individual market, the basic properties of log-returns are the same.
 
@@ -105,7 +102,7 @@ In practical modelling no one tries to build a "single correct" model that captu
 
 This is **not a theoretical defect** but a recognition that different tasks require different approximations to reality.
 
-## Related Topics
+## Related Articles
 
 - [[efficient-market-hypothesis]] — theoretical context that fact 1 supports while facts 3-5 challenge.
 - [[stable-distributions]] — theoretical motivation for heavy tails via the generalized CLT.

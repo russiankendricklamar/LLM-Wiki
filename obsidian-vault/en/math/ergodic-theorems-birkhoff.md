@@ -3,12 +3,9 @@ title: "Birkhoff-Khintchine Ergodic Theorem"
 category: "Mathematics"
 order: 14
 lang: "en"
-slug: "ergodic-theorems-birkhoff"
 ---
 
 # Birkhoff-Khintchine Ergodic Theorem
-
-## Overview
 
 The ergodic theorem extends the [[law-of-large-numbers|Law of Large Numbers]] to **dependent** sequences. It states: if a stochastic process is **stationary** (statistical properties do not change in time) and **ergodic** (long trajectories "explore" the entire state space), then the time average equals the ensemble average.
 
@@ -106,7 +103,7 @@ Kolmogorov-Sinai entropy of a dynamical system measures its "informational compl
 
 In machine learning this becomes the concept of **"ergodic accessibility"** in Reinforcement Learning: ergodicity of the environment guarantees that the agent "sees" all states often enough for value estimates to converge.
 
-## Related Topics
+## Related Articles
 
 - [[law-of-large-numbers]] — special case for i.i.d.
 - [[central-limit-theorem]] — kindred statement for dependent processes in the ergodic framework.

@@ -3,12 +3,9 @@ title: "Girsanov's Theorem for Semimartingales"
 category: "Pricing Models"
 order: 131
 lang: "en"
-slug: "girsanov-semimartingales"
 ---
 
 # Girsanov's Theorem for Semimartingales
-
-## Overview
 
 Girsanov's theorem is the working tool of financial mathematics par excellence: it explains **what exactly** the "risk-neutral measure" does to the dynamics of prices. Shiryaev ([[shiryaev-stochastic-finance|Vol. 2, Ch. VII, §3b and §3g]]) formulates it in maximum generality — for arbitrary semimartingales — and shows how the [[semimartingale-models|predictable triplet]] $(B, C, \nu)$ transforms under an equivalent change $\mathbb{P} \to \mathbb{Q}$.
 
@@ -75,7 +72,7 @@ $$\mathbb{E}\!\left[ \exp\!\left( \frac{1}{2} \int_0^T \theta^2_s \, ds \right) 
 
 In the semimartingale version it is generalized to Karatzas-Kardaras conditions or one localizes (work with local martingales, choose appropriate stopping). In practical financial models with bounded volatility these conditions hold automatically.
 
-## Related Topics
+## Related Articles
 
 - [[discrete-girsanov-esscher]] — discrete analogue of which Girsanov is the limit.
 - [[semimartingale-models]] — framework in which the semimartingale version is formulated.

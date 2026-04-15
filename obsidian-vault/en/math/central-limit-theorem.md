@@ -3,12 +3,9 @@ title: "Central Limit Theorem"
 category: "Mathematics"
 order: 10
 lang: "en"
-slug: "central-limit-theorem"
 ---
 
 # Central Limit Theorem
-
-## Overview
 
 The Central Limit Theorem (CLT) is the most important statement in all of probability theory. It explains why **the normal distribution is everywhere**: whenever an observable is the sum of a large number of small **independent** random contributions, its distribution tends to be Gaussian — regardless of how the individual contributions are distributed.
 
@@ -124,7 +121,7 @@ Laplace stated a CLT in the mid-19th century for the binomial distribution (de M
 
 From the **history of mathematics** viewpoint the CLT is the prime example of how an "empirical observation" (the normal distribution is everywhere) becomes a rigorous mathematical theorem. It is a model case of what Kolmogorov called "the correspondence between statistical and axiomatic approaches."
 
-## Related Topics
+## Related Articles
 
 - [[characteristic-functions]] — main technical tool of the proof.
 - [[weak-convergence-prokhorov]] — convergence in which the CLT is stated.

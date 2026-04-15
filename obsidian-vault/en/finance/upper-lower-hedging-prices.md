@@ -3,12 +3,9 @@ title: "Upper and Lower Hedging Prices"
 category: "Pricing Models"
 order: 125
 lang: "en"
-slug: "upper-lower-hedging-prices"
 ---
 
 # Upper and Lower Hedging Prices
-
-## Overview
 
 On an [[complete-incomplete-markets|incomplete market]] there is no ordinary "arbitrage price" of a derivative: the equivalent martingale measures form an entire convex set, and each yields a different price. So what does "fair price" even mean, and how do we compute it?
 
@@ -71,7 +68,7 @@ In a trinomial "up / mid / down" model this is a linear-programming exercise at 
 
 Real prices typically lie **below** $\Pi^+_0$: the hedger takes some risk and accepts a smaller premium than the absolute super-hedge. This is where utility functions, minimum-entropy martingale measures, and **utility indifference pricing** enter — but they take us beyond pure arbitrage theory.
 
-## Related Topics
+## Related Articles
 
 - [[complete-incomplete-markets]] — where this interval is needed and where it collapses to a point.
 - [[ftap-first-fundamental-theorem]] — describes the set $\mathcal{M}^e$ over which sup/inf is taken.

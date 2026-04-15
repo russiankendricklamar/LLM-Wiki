@@ -3,12 +3,9 @@ title: "Law of the Iterated Logarithm"
 category: "Mathematics"
 order: 13
 lang: "en"
-slug: "law-iterated-logarithm"
 ---
 
 # Law of the Iterated Logarithm
-
-## Overview
 
 The Law of the Iterated Logarithm (LIL) is the most precise of the classical limit theorems of probability theory. It sits between the [[law-of-large-numbers|strong law of large numbers]] (saying $S_n/n \to 0$) and the [[central-limit-theorem|central limit theorem]] (describing the typical fluctuation of $S_n$ as $\sigma\sqrt{n}$). The LIL precisely describes the **oracle maximum** of the fluctuations of $S_n$ as $n \to \infty$.
 
@@ -100,7 +97,7 @@ Khintchine (1924) and Kolmogorov (1929) are the principal authors. The LIL is on
 
 The LIL marked the "maturity" of probability theory as a branch of mathematics: questions stopped being "what happens on average" and became "what is the precise maximum of fluctuations" — and the answer turned out to involve the strange combination $\sqrt{n \log\log n}$.
 
-## Related Topics
+## Related Articles
 
 - [[law-of-large-numbers]] — zeroth order: $S_n/n \to 0$.
 - [[central-limit-theorem]] — first order: typical fluctuation $\sqrt{n}$.

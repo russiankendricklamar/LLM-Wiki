@@ -3,12 +3,9 @@ title: "Discrete Martingales"
 category: "Mathematics"
 order: 15
 lang: "en"
-slug: "discrete-martingales"
 ---
 
 # Discrete Martingales
-
-## Overview
 
 A martingale is the mathematical model of a **"fair game"**: a process whose expected next value, given all available information, equals the current value. The notion goes back to the "Martingale system" in 18th-century gambling, but its rigorous theory was built by Joseph L. Doob in the 1940s.
 
@@ -118,7 +115,7 @@ The discrete version is especially convenient for understanding **the origin** o
 
 **5. Actuarial science.** Martingale method in ruin problems: the capital process of an insurance company is a martingale under a suitable measure.
 
-## Related Topics
+## Related Articles
 
 - [[conditional-expectation-sigma]] — fundamental object on which the definition of a martingale rests.
 - [[sigma-algebra-measurability]] — filtration as structural foundation.

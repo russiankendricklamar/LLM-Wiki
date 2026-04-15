@@ -3,12 +3,9 @@ title: "Optimal Stopping of Markov Chains"
 category: "Mathematics"
 order: 22
 lang: "en"
-slug: "optimal-stopping-markov"
 ---
 
 # Optimal Stopping of Markov Chains
-
-## Overview
 
 Optimal stopping theory sits at the intersection of probability, dynamic programming, and finance. Given a random process $(X_n)$ and a payoff function $g$, find a stopping time $\tau$ (a random time depending on the observed history) maximizing the expected payoff $\mathbb{E}[g(X_\tau)]$.
 
@@ -143,7 +140,7 @@ Numerical methods for VIs: PSOR, projection methods, finite differences with ear
 - Optimal stopping assumes a known process structure; under uncertainty one needs Bayesian extensions.
 - Problems with multi-component payoffs (multi-stopping, stopping of multiple processes) require more elaborate techniques.
 
-## Related Topics
+## Related Articles
 
 - [[discrete-markov-chains]] — base structure (value functions are defined for Markov chains).
 - [[discrete-martingales]] — supermartingale representation of the value.

@@ -3,12 +3,9 @@ title: "Complete and Incomplete Markets. Second Fundamental Theorem"
 category: "Pricing Models"
 order: 124
 lang: "en"
-slug: "complete-incomplete-markets"
 ---
 
 # Complete and Incomplete Markets. Second Fundamental Theorem
-
-## Overview
 
 If the [[ftap-first-fundamental-theorem|first fundamental theorem]] tells us "when a market model makes sense," the **second** fundamental theorem tells us "when every claim in that model can be replicated exactly." This is a qualitative leap: on a complete market the price of a derivative is unique (and equals the cost of its replicating portfolio); on an incomplete market a unique price does not exist in principle.
 
@@ -77,7 +74,7 @@ Shiryaev discusses three approaches in detail:
 
 Each approach is an **additional choice** that the market itself does not make. Pure arbitrage theory ends here and risk management begins.
 
-## Related Topics
+## Related Articles
 
 - [[bs-market-self-financing]] — the model in which completeness is defined.
 - [[ftap-first-fundamental-theorem]] — the first theorem, of which this is the dual.
