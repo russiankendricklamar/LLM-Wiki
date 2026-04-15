@@ -4,7 +4,7 @@ category: "Проекты"
 order: 4
 lang: "ru"
 type: "project"
-status: "active"
+status: "shipped"
 image: "/projects/j-cole-fall-off.png"
 year: "2026"
 tech: "React 19, TypeScript, Vite, Framer Motion"
