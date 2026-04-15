@@ -147,9 +147,9 @@ Numerical methods for VIs: PSOR, projection methods, finite differences with ear
 
 - [[discrete-markov-chains]] — base structure (value functions are defined for Markov chains).
 - [[discrete-martingales]] — supermartingale representation of the value.
-- [[dynamic-programming]] — general methodology.
-- [[american-options]] — main financial application.
+- dynamic programming — general methodology.
+- [[optimal-stopping-american]] — main financial application.
 - [[crr-model]] — binomial model for discrete optimal stopping.
-- [[black-scholes-pde]] — continuous analogue as a variational inequality.
+- [[black-scholes-derivations]] — continuous analogue as a variational inequality.
 - [[reinforcement-learning]] — generalization to MDPs with actions and rewards.
 - [[shiryaev-probability]] — source textbook, rich in examples.

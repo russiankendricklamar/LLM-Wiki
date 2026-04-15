@@ -107,6 +107,6 @@ $$S_n = \sum_{k=1}^n \xi_{n,k} \xrightarrow{d} \mathcal{N}(0, \sigma^2).$$
 - [[law-of-large-numbers]] — мартингальный закон больших чисел.
 - [[ergodic-theorems-birkhoff]] — альтернативный подход для стационарных процессов.
 - [[brownian-motion]] — предельный процесс в функциональной ЦПТ.
-- [[stochastic-gradient-descent]] — применение в оптимизации и ML.
-- [[maximum-likelihood]] — стандартное применение в статистике.
+- stochastic gradient descent — применение в оптимизации и ML.
+- maximum likelihood — стандартное применение в статистике.
 - [[arch-models]], [[garch-models]] — оценка параметров волатильных моделей.

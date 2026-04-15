@@ -107,6 +107,6 @@ For ergodic stationary processes one often uses **martingale approximation** (Go
 - [[law-of-large-numbers]] — martingale law of large numbers.
 - [[ergodic-theorems-birkhoff]] — alternative approach for stationary processes.
 - [[brownian-motion]] — limit process in the functional CLT.
-- [[stochastic-gradient-descent]] — application in optimization and ML.
-- [[maximum-likelihood]] — standard application in statistics.
+- stochastic gradient descent — application in optimization and ML.
+- maximum likelihood — standard application in statistics.
 - [[arch-models]], [[garch-models]] — parameter estimation for volatility models.

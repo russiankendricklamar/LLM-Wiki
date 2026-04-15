@@ -27,7 +27,7 @@ where:
 - $u$ is the initial capital,
 - $c$ is the constant premium income rate,
 - $S(t) = \sum_{i=1}^{N(t)} X_i$ is the aggregate claim amount up to time $t$,
-- $N(t)$ is a [[poisson-process|Poisson process]] with intensity $\lambda$ (claim arrival times),
+- $N(t)$ is a Poisson process with intensity $\lambda$ (claim arrival times),
 - $X_i$ are i.i.d. positive random variables (individual claim sizes) with distribution function $F$ and mean $\mu$.
 
 **Probability of ruin:**
@@ -133,7 +133,7 @@ Probability of ruin: $\psi(u) = \frac{\lambda\mu}{c} e^{-R u}$. This is the only
 ## Related Topics
 
 - [[large-deviations-cramer]] — general theory to which Lundberg-Cramer reduces.
-- [[poisson-process]] — base ingredient of the model.
+- Poisson process — base ingredient of the model.
 - [[discrete-martingales]] — the martingale $e^{-RU(t)}$ is the key to the proof.
 - [[stable-distributions]] — heavy-tail regime, alternative approach.
 - [[extreme-value-theory]] — another paradigm for rare events.
