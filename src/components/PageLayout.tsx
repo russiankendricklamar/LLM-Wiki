@@ -113,7 +113,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
       {showSidebar && !fullBleed ? (
         <main className="flex flex-1 overflow-hidden">
           <Sidebar lang={lang} className="hidden lg:block" />
-          <div className="flex flex-1 flex-col overflow-y-auto">
+          <div className="flex min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden">
             <div className="flex-1 px-4 sm:px-6 lg:px-8 xl:px-12 py-8 lg:py-12">
               {children}
             </div>

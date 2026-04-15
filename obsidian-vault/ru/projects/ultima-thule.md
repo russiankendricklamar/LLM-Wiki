@@ -7,7 +7,7 @@ type: "project"
 status: "wip"
 year: "2026"
 tech: "Swift, SwiftUI, SwiftData, ARKit, MapKit, Supabase, Gemini"
-featured: true
+featured: false
 image: "/projects/ultima-thule.png"
 description: "Нативное iOS-приложение для путешествий — AI-генератор маршрутов, трекинг рейсов, умная паковка, AR-навигация, пошаговая навигация с Dynamic Island и офлайн-карты. Весь трип в одном месте."
 ---
