@@ -4,7 +4,7 @@ category: "Projects"
 order: 2
 lang: "en"
 type: "project"
-status: "shipped"
+status: "wip"
 image: "/projects/samizdat.png"
 year: "2026"
 tech: "React 19, TypeScript, Vite, Tailwind 4, Motion"
