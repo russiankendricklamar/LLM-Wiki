@@ -1,7 +1,7 @@
 ---
 title: "Zeta Terminal"
 category: "Проекты"
-order: 2
+order: 3
 lang: "ru"
 type: "project"
 status: "wip"

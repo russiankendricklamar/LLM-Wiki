@@ -1,7 +1,7 @@
 ---
 title: "Ultima Thule"
 category: "Projects"
-order: 3
+order: 4
 lang: "en"
 type: "project"
 status: "wip"

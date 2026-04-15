@@ -1,7 +1,7 @@
 ---
 title: "Музыкальные итоги 2025"
 category: "Проекты"
-order: 5
+order: 6
 lang: "ru"
 type: "project"
 status: "shipped"

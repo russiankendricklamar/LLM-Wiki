@@ -1,7 +1,7 @@
 ---
 title: "Ultima Thule"
 category: "Проекты"
-order: 3
+order: 4
 lang: "ru"
 type: "project"
 status: "wip"
