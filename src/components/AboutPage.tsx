@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Github, Linkedin, Mail, ArrowRight, Network } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowRight, Network, FileDown } from 'lucide-react';
 import { getNavigation } from '../lib/content-loader';
 
 const WIKI_EXCLUDED_CATEGORIES = new Set([
@@ -78,6 +78,8 @@ const ABOUT = {
     wikiStatsTotal: 'articles across',
     wikiStatsCategories: 'categories',
     wikiStatsViewGraph: 'Open knowledge graph',
+    cvDownload: 'Download CV',
+    cvFile: '/cv/galkin-egor-cv-en.pdf',
     socials: {
       github: 'https://github.com/russiankendricklamar',
       linkedin: 'https://www.linkedin.com/in/russiankendricklamar/?locale=ru',
@@ -147,6 +149,8 @@ const ABOUT = {
     wikiStatsTotal: 'статей в',
     wikiStatsCategories: 'категориях',
     wikiStatsViewGraph: 'Открыть граф знаний',
+    cvDownload: 'Скачать резюме',
+    cvFile: '/cv/galkin-egor-cv.pdf',
     socials: {
       github: 'https://github.com/russiankendricklamar',
       linkedin: 'https://www.linkedin.com/in/russiankendricklamar/?locale=ru',
@@ -202,8 +206,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ lang }) => {
             {d.bio}
           </p>
 
-          {/* Social links */}
-          <div className="flex items-center gap-4">
+          {/* Social links + CV download */}
+          <div className="flex items-center gap-4 flex-wrap">
             <a
               href={d.socials.github}
               target="_blank"
@@ -228,6 +232,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ lang }) => {
             >
               <Mail className="h-4 w-4" />
               <span>Email</span>
+            </a>
+            <a
+              href={d.cvFile}
+              download
+              className="group inline-flex items-center gap-1.5 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-colors"
+            >
+              <FileDown className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5" />
+              <span>{d.cvDownload}</span>
             </a>
           </div>
         </div>

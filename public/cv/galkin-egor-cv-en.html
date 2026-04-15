@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Egor Galkin — CV</title>
+<style>
+  @page {
+    size: A4;
+    margin: 7mm 9mm;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-size: 7.8pt;
+    line-height: 1.34;
+    color: #18181b;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { max-width: 210mm; margin: 0 auto; }
+
+  /* ── Header ── */
+  header.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1.5px solid #18181b;
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+  }
+  header.hero h1 {
+    font-size: 21pt;
+    font-weight: 900;
+    letter-spacing: -0.4px;
+    line-height: 1;
+    color: #18181b;
+  }
+  header.hero .role {
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: #059669;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    margin-top: 4px;
+  }
+  header.hero .contacts {
+    text-align: right;
+    font-size: 7.2pt;
+    color: #52525b;
+    line-height: 1.55;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  header.hero .contacts a { color: #18181b; text-decoration: none; }
+  header.hero .contacts strong { color: #18181b; }
+
+  /* ── Summary ── */
+  .summary {
+    background: #fafafa;
+    border-left: 2.5px solid #059669;
+    padding: 6px 10px;
+    font-size: 7.8pt;
+    line-height: 1.45;
+    margin-bottom: 8px;
+    color: #27272a;
+  }
+  .summary strong { color: #059669; font-weight: 700; }
+
+  /* ── Two-column body ── */
+  .body {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+    gap: 12px;
+  }
+
+  /* ── Section heading ── */
+  h2 {
+    font-size: 6.8pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: #71717a;
+    margin: 0 0 5px 0;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #e4e4e7;
+  }
+  section { margin-bottom: 8px; }
+  section:last-child { margin-bottom: 0; }
+
+  /* ── Job entry ── */
+  .job {
+    margin-bottom: 6px;
+    page-break-inside: avoid;
+  }
+  .job:last-child { margin-bottom: 0; }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1px;
+  }
+  .job-title {
+    font-size: 8.2pt;
+    font-weight: 700;
+    color: #18181b;
+  }
+  .job-period {
+    font-size: 6.5pt;
+    font-weight: 600;
+    color: #71717a;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+  }
+  .job-org {
+    font-size: 7.2pt;
+    color: #52525b;
+    font-style: italic;
+    margin-bottom: 2px;
+  }
+  .job ul { list-style: none; padding-left: 0; }
+  .job ul li {
+    font-size: 7.4pt;
+    line-height: 1.42;
+    color: #27272a;
+    padding-left: 9px;
+    position: relative;
+    margin-bottom: 1px;
+  }
+  .job ul li::before {
+    content: "▸";
+    color: #059669;
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+  .job ul li strong { color: #18181b; font-weight: 700; }
+
+  /* ── Achievements ── */
+  .achievements { list-style: none; padding: 0; }
+  .achievements li {
+    font-size: 7.4pt;
+    line-height: 1.42;
+    margin-bottom: 3px;
+    padding-left: 12px;
+    position: relative;
+    color: #27272a;
+  }
+  .achievements li::before {
+    content: "★";
+    color: #059669;
+    position: absolute;
+    left: 0;
+    font-size: 7.5pt;
+  }
+  .achievements li strong { color: #18181b; font-weight: 700; }
+  .achievements .metric {
+    color: #059669;
+    font-weight: 800;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar section .skill-group { margin-bottom: 5px; }
+  .sidebar section .skill-group:last-child { margin-bottom: 0; }
+  .skill-label {
+    font-size: 6pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: #71717a;
+    margin-bottom: 2px;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 3px;
+  }
+  .skill-tags span {
+    display: inline-block;
+    font-size: 6.4pt;
+    background: #f4f4f5;
+    border: 1px solid #e4e4e7;
+    color: #3f3f46;
+    padding: 0 4px;
+    border-radius: 2px;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    line-height: 1.5;
+  }
+
+  .edu-item { margin-bottom: 4px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-degree { font-size: 7.2pt; font-weight: 700; color: #18181b; }
+  .edu-school { font-size: 6.8pt; color: #52525b; }
+  .edu-period {
+    font-size: 6.4pt;
+    color: #71717a;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  .research-item {
+    font-size: 7pt;
+    line-height: 1.4;
+    margin-bottom: 4px;
+    color: #27272a;
+  }
+  .research-item:last-child { margin-bottom: 0; }
+  .research-item .research-title {
+    font-weight: 700;
+    color: #18181b;
+    display: block;
+  }
+
+  .lang-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 7pt;
+    color: #27272a;
+    margin-bottom: 1px;
+  }
+  .lang-row span:last-child {
+    color: #71717a;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 6.4pt;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <div>
+      <h1>EGOR GALKIN</h1>
+      <div class="role">Quant Researcher · AI Risk Engineer</div>
+    </div>
+    <div class="contacts">
+      <div><strong>+7 927 006-94-24</strong></div>
+      <div><a href="mailto:79270069424@yandex.com">79270069424@yandex.com</a></div>
+      <div>Moscow · Age 24</div>
+      <div>github.com/russiankendricklamar</div>
+      <div>llm-wiki.vercel.app</div>
+    </div>
+  </header>
+
+  <div class="summary">
+    Quant researcher at the intersection of regulatory risk management and applied ML.
+    <strong>3 years at the Bank of Russia</strong>: validation of IRB credit-risk models, fair-value
+    assessment of derivatives under IFRS 13, and valuation-process automation. In parallel, I fine-tune
+    a domain-specific SLM (Phi-4-mini → <strong>93.3% tool-use</strong>) and maintain an open-source
+    bilingual wiki of <strong>400+ articles</strong> on stochastic calculus, quantum field theory, and
+    quantitative finance.
+  </div>
+
+  <div class="body">
+
+    <main class="main">
+
+      <section>
+        <h2>Key Achievements</h2>
+        <ul class="achievements">
+          <li><strong>Fine-tuned Microsoft Phi-4-mini (3.8B)</strong> to <span class="metric">93.3% tool-use accuracy</span> on Apple M5 Pro via MLX, +25.6 pp over baseline. Tool-Use SFT, RAFT, CoT distillation, KTO, LoRA Routing (3 adapters), C++ via pybind11.</li>
+          <li><strong>Validated IRB credit-risk models (PD/LGD/EAD)</strong> of systemically important banks under Bank of Russia Regulation 483-P: backtesting, discriminatory power, population stability — identified methodological deviations affecting capital adequacy ratios.</li>
+          <li><strong>Automated fair-value assessment of derivatives</strong> under IFRS 13 (Level 2/3) with Python + QuantLib: interest-rate swaps, barrier options, structured notes.</li>
+          <li><strong>Accelerated quantitative engines</strong> (GARCH, HMM, Monte Carlo) by <span class="metric">200×+</span> with C++ extensions (pybind11) and parallel computation (OpenMP).</li>
+          <li><strong>LLM Wiki</strong> — open-source bilingual knowledge base of <span class="metric">400+ articles</span> on quant finance, stochastic calculus, QFT, and LLMs. Obsidian vault → React SPA with 3D force-graph visualisation.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Experience &nbsp;·&nbsp; 6 years 5 months</h2>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Risk Analyst · Risk Analysis Service</div>
+            <div class="job-period">May 2025 → present</div>
+          </div>
+          <div class="job-org">Central Bank of the Russian Federation, Moscow</div>
+          <ul>
+            <li>Authored <strong>fair-value opinions on securities and derivatives</strong> (IFRS 13/9), used in supervisory decisions for credit and non-credit financial institutions.</li>
+            <li>Built a <strong>fair-value automation pipeline</strong> in Python + QuantLib for the Level 2/3 portfolio: interest-rate swaps, barrier options, structured notes, FX forwards.</li>
+            <li>Assessed the reliability of FV estimates for assets carrying market risk; ran <strong>marketability checks</strong> on financial-market operations and flagged price deviations from benchmarks.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Risk Manager · Supervision of Systemically Important Banks (IRB)</div>
+            <div class="job-period">Feb 2024 → May 2025</div>
+          </div>
+          <div class="job-org">Central Bank of the Russian Federation, Moscow</div>
+          <ul>
+            <li>Validated <strong>credit-risk models</strong> (PD/LGD/EAD) of systemically important banks under Bank of Russia Regulation 483-P — feeding capital adequacy calculations.</li>
+            <li>Ran <strong>statistical tests on rating systems</strong>: PD backtesting, discriminatory power (Gini, AUC), population stability, calibration tests; econometric modelling on large credit-history datasets.</li>
+            <li>Participated in <strong>Bank of Russia Working Groups</strong> on practical assessment of IRB models and in developing the methodology for evaluating IRB-model quality.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Risk Analyst · Risk Analysis Service</div>
+            <div class="job-period">Sep 2023 → Feb 2024</div>
+          </div>
+          <div class="job-org">Central Bank of the Russian Federation, Moscow</div>
+          <ul>
+            <li>Produced <strong>fair-value opinions on financial instruments</strong> (IFRS 13/9), including illiquid positions and instruments without an active market.</li>
+            <li>Authored analytical opinions on the risk of securities holdings, with detailed analysis of issuer and counterparty financial position.</li>
+            <li>Contributed to the <strong>first cycle of FV-process automation</strong> — laid the foundation for the pipeline subsequently rolled out across the Service.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Expert · Banking Supervision Service</div>
+            <div class="job-period">Dec 2022 → Jul 2023</div>
+          </div>
+          <div class="job-org">Central Bank of the Russian Federation, Moscow</div>
+          <ul>
+            <li>Performed <strong>express analysis of credit-institution reporting</strong> (RAS/IFRS): balance-sheet structure, P&amp;L, asset and liability quality.</li>
+            <li>Assessed <strong>business models and growth strategies</strong> of banks and non-bank credit institutions; identified the activities most exposed to risk.</li>
+            <li>Applied Bank of Russia regulations (<strong>590-P, 611-P, 199-I, 86-FZ</strong>); evaluated risk-management quality, internal controls, and borrower investment projects.</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+
+    <aside class="sidebar">
+
+      <section>
+        <h2>Stack</h2>
+        <div class="skill-group">
+          <div class="skill-label">ML / AI</div>
+          <div class="skill-tags">
+            <span>PyTorch</span><span>MLX</span><span>Transformers</span><span>LoRA</span><span>QLoRA</span><span>RAFT</span><span>KTO</span><span>Tool-Use SFT</span><span>Claude</span><span>Phi-4</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Quant</div>
+          <div class="skill-tags">
+            <span>QuantLib</span><span>Monte Carlo</span><span>GARCH</span><span>HMM</span><span>Itô calculus</span><span>Heston</span><span>Lévy</span><span>Copulas</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Languages</div>
+          <div class="skill-tags">
+            <span>Python</span><span>C++</span><span>pybind11</span><span>OpenMP</span><span>TypeScript</span><span>SQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Data / Infra</div>
+          <div class="skill-tags">
+            <span>Pandas</span><span>NumPy</span><span>SciPy</span><span>FastAPI</span><span>Docker</span><span>React</span><span>MOEX API</span><span>Bloomberg</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Regulatory</div>
+          <div class="skill-tags">
+            <span>IFRS 13</span><span>IFRS 9</span><span>IRB</span><span>483-P</span><span>199-I</span><span>590-P</span><span>611-P</span><span>86-FZ</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="edu-item">
+          <div class="edu-degree">MSc · Stochastic Modelling in Economics &amp; Finance</div>
+          <div class="edu-school">HSE University · Faculty of Economic Sciences</div>
+          <div class="edu-period">2024 → 2026</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">BSc · Mathematical Modelling in Economics</div>
+          <div class="edu-school">Bauman Moscow State Technical University</div>
+          <div class="edu-period">2019 → 2024</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Research</h2>
+        <div class="research-item">
+          <span class="research-title">Central-Bank Inflation Targeting</span>
+          Monetary-policy reaction functions to inflation-expectation shocks — Taylor rules, DSGE estimation, regime robustness under structural breaks.
+        </div>
+        <div class="research-item">
+          <span class="research-title">Non-Gaussian Models for Structured-Product FV</span>
+          Heavy-tailed and jump-augmented models (SV, Lévy, jump-diffusion) vs the log-normal benchmark for path-dependent and barrier payoffs under IFRS 13.
+        </div>
+        <div class="research-item">
+          <span class="research-title">MSc Thesis (HSE)</span>
+          "Volatility Surface Construction as a Pricing Tool for Non-Linear Derivatives".
+        </div>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+        <div class="research-item">
+          <span class="research-title">Zeta Terminal</span>
+          AI-native financial workspace: real-time data + QuantLib + LLM agents. Python, TypeScript, FastAPI, Claude, MLX.
+        </div>
+        <div class="research-item">
+          <span class="research-title">Ultima Thule</span>
+          Travel &amp; exploration app: smart itineraries, offline maps, contextual place discovery. React Native, Supabase, Mapbox.
+        </div>
+        <div class="research-item">
+          <span class="research-title">LLM Wiki (open-source)</span>
+          400+ bilingual articles on quant finance, QFT, and LLMs. Obsidian vault → React SPA with 3D force-graph.
+        </div>
+      </section>
+
+      <section>
+        <h2>Languages</h2>
+        <div class="lang-row"><span>Russian</span><span>native</span></div>
+        <div class="lang-row"><span>English</span><span>B2 · technical</span></div>
+      </section>
+
+    </aside>
+
+  </div>
+
+</div>
+</body>
+</html>
