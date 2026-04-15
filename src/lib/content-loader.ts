@@ -173,7 +173,7 @@ export const getGraphData = (lang: 'en' | 'ru') => {
     // Regex to find [[wikilinks]]
     const matches = page.content.matchAll(/\[\[(.*?)\]\]/g);
     for (const match of matches) {
-      const targetFileName = match[1].trim();
+      const targetFileName = match[1].split('|')[0].trim();
       
       // Find a node whose ID contains the targetFileName
       // e.g. targetFileName "black-scholes" matches node ID "finance/black-scholes"
