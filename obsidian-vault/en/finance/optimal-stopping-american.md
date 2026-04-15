@@ -9,7 +9,7 @@ lang: "en"
 
 An American option differs from a European one by a single feature — it can be exercised **at any time** before expiry, not just at maturity. This freedom turns the pricing problem from computing an expectation into an **optimal stopping problem**: the option holder picks a random time $\tau$ to maximize the discounted expected payoff.
 
-Shiryaev ([[shiryaev-stochastic-finance|Vol. 2, Ch. VI, §2]]) gives an exhaustive treatment via the **supermartingale characterization** — the Snell construction. This is one of the most elegant pieces of the entire volume.
+Shiryaev gives an exhaustive treatment via the **supermartingale characterization** — the Snell construction. This is one of the most elegant pieces of the entire volume.
 
 ## The payoff
 
@@ -29,7 +29,7 @@ The key object is the **Snell envelope** of the discounted payoff sequence $\wid
 
 **Definition.** The Snell envelope $V = (V_n)_{n=0}^N$ is defined by backward induction:
 
-$$V_N = \widetilde{G}_N, \qquad V_n = \max\!\left( \widetilde{G}_n, \; \mathbb{E}^\mathbb{Q}[V_{n+1} \mid \mathcal{F}_n] \right), \quad n < N.$$
+$$V_N = \widetilde{G}_N, \qquad V_n = \max\!\left(\widetilde{G}_n, \; \mathbb{E}^\mathbb{Q}[V_{n+1} \mid \mathcal{F}_n] \right), \quad n < N.$$
 
 Interpretation: at each step the holder compares "exercise now" ($\widetilde{G}_n$) with "hold and continue" ($\mathbb{E}^\mathbb{Q}[V_{n+1} \mid \mathcal{F}_n]$) and picks the larger.
 

@@ -9,7 +9,7 @@ lang: "en"
 
 On an [[complete-incomplete-markets|incomplete market]] there is no ordinary "arbitrage price" of a derivative: the equivalent martingale measures form an entire convex set, and each yields a different price. So what does "fair price" even mean, and how do we compute it?
 
-Shiryaev ([[shiryaev-stochastic-finance|Vol. 2, Ch. V, §1b and Ch. VI, §1c]]) answers via **upper and lower hedging prices** — the two endpoints of the interval that contains every price consistent with no-arbitrage. This is a fully rigorous generalization: the price becomes not a number but an **interval**.
+Shiryaev answers via **upper and lower hedging prices** — the two endpoints of the interval that contains every price consistent with no-arbitrage. This is a fully rigorous generalization: the price becomes not a number but an **interval**.
 
 ## Definitions
 

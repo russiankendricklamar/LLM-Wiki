@@ -9,7 +9,7 @@ lang: "en"
 
 In continuous time, [[optimal-stopping-american|optimal stopping]] for an American option becomes a Black-Scholes PDE with an **obstacle** — the classical **Stefan problem**. The free boundary separating the "holding region" from the "exercise region" is itself an unknown function whose location is determined simultaneously with the price.
 
-Shiryaev ([[shiryaev-stochastic-finance|Vol. 2, Ch. VIII, §3b-3c]]) devotes a detailed section to this. The Stefan problem is one of the oldest topics in applied mathematics (going back to Joseph Stefan's 1889 work on melting ice), and financial options are a modern application of it on equal footing with the classical heat-transfer problems.
+Shiryaev devotes a detailed section to this. The Stefan problem is one of the oldest topics in applied mathematics (going back to Joseph Stefan's 1889 work on melting ice), and financial options are a modern application of it on equal footing with the classical heat-transfer problems.
 
 ## Setup for the American put
 

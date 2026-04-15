@@ -9,7 +9,7 @@ lang: "en"
 
 A σ-algebra is the formalization of "information": which subsets of the sample space we **can distinguish** at the current state of knowledge. In [[kolmogorov-probability-axioms|Kolmogorov's axiomatization]] probability is defined not on every subset of $\Omega$ but only on elements of a σ-algebra $\mathcal{F}$. This technical restriction turns out to be deeply meaningful: a σ-algebra carries the meaning of "what we know," and the time-evolution of σ-algebras is what financial mathematics calls a **filtration**.
 
-This topic fills §§2-3 of Chapter II of Shiryaev's [[shiryaev-probability|"Probability"]]. Without an understanding of σ-algebras, a correct definition of [[conditional-expectation-sigma|conditional expectation]] is impossible — and without that, no martingale theory, no FTAP, no stochastic calculus.
+This topic fills of Shiryaev's [[shiryaev-probability|"Probability"]]. Without an understanding of σ-algebras, a correct definition of [[conditional-expectation-sigma|conditional expectation]] is impossible — and without that, no martingale theory, no FTAP, no stochastic calculus.
 
 ## Definition
 

@@ -15,7 +15,7 @@ with
 
 $$d_1 = \frac{\log(S_0/K) + (r + \sigma^2/2) T}{\sigma\sqrt{T}}, \qquad d_2 = d_1 - \sigma\sqrt{T}.$$
 
-[[shiryaev-stochastic-finance|Shiryaev]] (Vol. 2, Ch. VIII, §1b-1d) gives several derivations in parallel to show that the BS formula is not tied to one axiomatization but is a robust consequence of completely different lines of reasoning.
+[[shiryaev-stochastic-finance|Shiryaev]] gives several derivations in parallel to show that the BS formula is not tied to one axiomatization but is a robust consequence of completely different lines of reasoning.
 
 A tour of the four derivations follows.
 
@@ -25,11 +25,11 @@ A tour of the four derivations follows.
 
 Let $V(t, S)$ be the option price as a function of time and underlying. By Itô:
 
-$$dV = \left( \frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} \right) dt + \frac{\partial V}{\partial S} \, dS.$$
+$$dV = \left(\frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} \right) dt + \frac{\partial V}{\partial S} \, dS.$$
 
 The portfolio "long option − delta shares": $\Pi = V - \frac{\partial V}{\partial S} S$. Holding $\partial V/\partial S$ momentarily constant:
 
-$$d\Pi = dV - \frac{\partial V}{\partial S} dS = \left( \frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} \right) dt.$$
+$$d\Pi = dV - \frac{\partial V}{\partial S} dS = \left(\frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} \right) dt.$$
 
 This is **deterministic** (no $dW$), hence riskless, hence $d\Pi/\Pi = r \, dt$. Plugging in yields the Black-Scholes equation:
 
@@ -47,7 +47,7 @@ $$C_0 = e^{-rT} \mathbb{E}^\mathbb{Q}[(S_T - K)^+].$$
 
 Under $\mathbb{Q}$ the price $S_T$ is log-normal:
 
-$$\log S_T \sim \mathcal{N}\!\left( \log S_0 + (r - \sigma^2/2) T, \; \sigma^2 T \right).$$
+$$\log S_T \sim \mathcal{N}\!\left(\log S_0 + (r - \sigma^2/2) T, \; \sigma^2 T \right).$$
 
 Direct integration:
 
@@ -57,7 +57,7 @@ Discounting by $e^{-rT}$ gives BS. This derivation is **one page**. It does not 
 
 **What this shows:** the structure "BS formula = log-normal expectation." It generalizes immediately to any payoff $h(S_T)$:
 
-$$C_0(h) = e^{-rT} \int_0^\infty h(s) \cdot \frac{1}{s\sigma\sqrt{T}} \phi\!\left( \frac{\log s - \log S_0 - (r-\sigma^2/2)T}{\sigma\sqrt{T}} \right) ds.$$
+$$C_0(h) = e^{-rT} \int_0^\infty h(s) \cdot \frac{1}{s\sigma\sqrt{T}} \phi\!\left(\frac{\log s - \log S_0 - (r-\sigma^2/2)T}{\sigma\sqrt{T}} \right) ds.$$
 
 ## Derivation 3: Binomial limit (CRR)
 
@@ -92,7 +92,7 @@ In real practice all four are used: the PDE supplies the Greeks (delta, gamma, v
 
 All four derivations rely on the **same assumptions**: $S$ is [[geometric-brownian-motion|GBM]] with **constant** volatility $\sigma$, the risk-free rate $r$ is constant, no dividends, trading is continuous and frictionless.
 
-In reality **none** of these assumptions holds exactly. So the BS formula is used as a **baseline reference** (via the implied-volatility concept) rather than literal truth. All more elaborate models ([[heston-model|Heston]], [[levy-esscher-continuous|Lévy]], Dupire local volatility) are corrections to BS that explain how observed prices deviate from it.
+In reality **none** of these assumptions holds exactly. So the BS formula is used as a **baseline reference** (via the implied-volatility concept) rather than literal truth. All more elaborate models are corrections to BS that explain how observed prices deviate from it.
 
 ## Related Articles
 

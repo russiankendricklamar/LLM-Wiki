@@ -9,15 +9,13 @@ lang: "en"
 
 Large Deviations Theory (LDT) is the fourth and subtlest level of limit theorems for sums of independent variables, after the [[law-of-large-numbers|LLN]] (order $1$), the [[central-limit-theorem|CLT]] (order $\sqrt{n}$), and the [[law-iterated-logarithm|LIL]] (order $\sqrt{n \log\log n}$).
 
-The LLN says $\mathbb{P}(S_n/n > x) \to 0$ for $x > \mathbb{E}[X]$; the CLT gives a typical fluctuation $\sigma/\sqrt{n}$. But **how fast** does $\mathbb{P}(S_n/n > x)$ go to zero? Large deviations theory answers: **exponentially fast**, and gives the exact exponent.
-
-§5 of Chapter IV of Shiryaev's [[shiryaev-probability|"Probability"]] contains the classical Cramer theorem. The same approach — exponential tail bounds — underlies **concentration of measure**, statistical mechanics (large deviations from the thermodynamic limit), information theory (Sanov's theorem), and modern machine learning (Hoeffding-Bernstein-type bounds).
+The LLN says $\mathbb{P}(S_n/n > x) \to 0$ for $x > \mathbb{E}[X]$; the CLT gives a typical fluctuation $\sigma/\sqrt{n}$. But **how fast** does $\mathbb{P}(S_n/n > x)$ go to zero? Large deviations theory answers: **exponentially fast**, and gives the exact exponent. of Shiryaev's [[shiryaev-probability|"Probability"]] contains the classical Cramer theorem. The same approach — exponential tail bounds — underlies **concentration of measure**, statistical mechanics (large deviations from the thermodynamic limit), information theory (Sanov's theorem), and modern machine learning (Hoeffding-Bernstein-type bounds).
 
 ## Setup
 
 Let $X_1, X_2, \ldots$ be i.i.d. with $\mathbb{E}[X_1] = \mu$. We are interested in the probability that the mean $S_n/n$ **strongly** deviates from the expectation:
 
-$$\mathbb{P}\!\left( \frac{S_n}{n} \geq x \right), \quad x > \mu.$$
+$$\mathbb{P}\!\left(\frac{S_n}{n} \geq x \right), \quad x > \mu.$$
 
 By the LLN this probability tends to zero. By the CLT at rate $\sim \frac{1}{\sqrt{n}} e^{-n(x - \mu)^2 / (2\sigma^2)}$ for small deviations (when $x$ is close to $\mu$). But for **large** $x$ the Gaussian approximation is inaccurate — a deeper theory is needed.
 
@@ -31,7 +29,7 @@ The logarithm of the moment generating function. $\Lambda$ is convex with $\Lamb
 
 The **Cramer rate function** is the Legendre transform of $\Lambda$:
 
-$$I(x) = \sup_{\theta} \big( \theta x - \Lambda(\theta) \big).$$
+$$I(x) = \sup_{\theta} \big(\theta x - \Lambda(\theta) \big).$$
 
 The function $I$ is:
 - Non-negative: $I(x) \geq 0$.
@@ -45,7 +43,7 @@ Shape of $I$ near $\mu$: $I(x) \approx (x - \mu)^2 / (2\sigma^2)$ — quadratic,
 
 **Theorem (Cramer, 1938).** Let $X_1, X_2, \ldots$ be i.i.d. with finite cumulant generating function in a neighbourhood of zero. Then for every $x > \mu$:
 
-$$\lim_{n \to \infty} \frac{1}{n} \log \mathbb{P}\!\left( \frac{S_n}{n} \geq x \right) = -I(x).$$
+$$\lim_{n \to \infty} \frac{1}{n} \log \mathbb{P}\!\left(\frac{S_n}{n} \geq x \right) = -I(x).$$
 
 Equivalently: $\mathbb{P}(S_n/n \geq x) \approx e^{-n I(x)}$ up to logarithmic corrections.
 

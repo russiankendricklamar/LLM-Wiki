@@ -9,7 +9,7 @@ lang: "en"
 
 The Wiener-Khintchine theorem (see [[stationary-wide-spectral]]) describes how the **autocovariance** of a stationary process decomposes into a Fourier series. But there is a stronger statement: the **process itself** (not just its covariance) can be written as a stochastic integral against an orthogonal random measure. This is the **spectral representation**.
 
-It underpins frequency-domain analysis of time series, the theory of linear filtering, forecasting, ARMA models, and modern econometrics and signal processing. Chapter VI of Shiryaev's [[shiryaev-probability|"Probability"]] devotes a section to this result.
+It underpins frequency-domain analysis of time series, the theory of linear filtering, forecasting, ARMA models, and modern econometrics and signal processing. Shiryaev's [[shiryaev-probability|"Probability"]] devotes a section to this result.
 
 ## Orthogonal random measure
 

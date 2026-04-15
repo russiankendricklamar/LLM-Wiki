@@ -7,7 +7,7 @@ lang: "en"
 
 # Girsanov's Theorem for Semimartingales
 
-Girsanov's theorem is the working tool of financial mathematics par excellence: it explains **what exactly** the "risk-neutral measure" does to the dynamics of prices. Shiryaev ([[shiryaev-stochastic-finance|Vol. 2, Ch. VII, §3b and §3g]]) formulates it in maximum generality — for arbitrary semimartingales — and shows how the [[semimartingale-models|predictable triplet]] $(B, C, \nu)$ transforms under an equivalent change $\mathbb{P} \to \mathbb{Q}$.
+Girsanov's theorem is the working tool of financial mathematics par excellence: it explains **what exactly** the "risk-neutral measure" does to the dynamics of prices. Shiryaev formulates it in maximum generality — for arbitrary semimartingales — and shows how the [[semimartingale-models|predictable triplet]] $(B, C, \nu)$ transforms under an equivalent change $\mathbb{P} \to \mathbb{Q}$.
 
 The short version: **the quadratic variation $C$ is preserved**, while the **drift $B$ and jump compensator $\nu$ change**. Every European option pricing formula in continuous-time models is a consequence of this transformation.
 
@@ -17,7 +17,7 @@ The simplest and most famous version, for Brownian motion.
 
 **Theorem (Girsanov, 1960).** Let $W$ be standard Brownian motion under $\mathbb{P}$, and let $(\theta_t)_{t \geq 0}$ be a predictable process with $\int_0^T \theta^2_s \, ds < \infty$ a.s. Define the measure $\mathbb{Q}$ via
 
-$$\frac{d\mathbb{Q}}{d\mathbb{P}}\bigg|_{\mathcal{F}_T} = Z_T = \exp\!\left( \int_0^T \theta_s \, dW_s - \frac{1}{2} \int_0^T \theta^2_s \, ds \right).$$
+$$\frac{d\mathbb{Q}}{d\mathbb{P}}\bigg|_{\mathcal{F}_T} = Z_T = \exp\!\left(\int_0^T \theta_s \, dW_s - \frac{1}{2} \int_0^T \theta^2_s \, ds \right).$$
 
 Under **Novikov's condition** ($\mathbb{E}[\exp(\frac{1}{2} \int_0^T \theta^2_s \, ds)] < \infty$), $Z$ is a martingale, $\mathbb{Q}$ is a probability measure, and the process
 
@@ -68,7 +68,7 @@ In a purely diffusive model (no jumps) $Y \equiv 1$ automatically, and the only 
 
 For $Z = \exp(\int \theta \, dW - \frac{1}{2} \int \theta^2 \, ds)$ to be a true martingale (not a strict supermartingale), one needs **Novikov's condition**:
 
-$$\mathbb{E}\!\left[ \exp\!\left( \frac{1}{2} \int_0^T \theta^2_s \, ds \right) \right] < \infty.$$
+$$\mathbb{E}\!\left[ \exp\!\left(\frac{1}{2} \int_0^T \theta^2_s \, ds \right) \right] < \infty.$$
 
 In the semimartingale version it is generalized to Karatzas-Kardaras conditions or one localizes (work with local martingales, choose appropriate stopping). In practical financial models with bounded volatility these conditions hold automatically.
 

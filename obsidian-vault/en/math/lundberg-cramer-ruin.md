@@ -11,7 +11,7 @@ Ruin theory is the classical branch of actuarial mathematics studying the probab
 
 Lundberg's result (1903) and its modern formulation by Cramer (1930s) gives the base formula linking the probability of ruin to the exponential moment of the claim distribution. A beautiful example of martingale theory and exponential bounds answering a question of practical importance.
 
-Shiryaev includes this theorem in Chapter VII of [[shiryaev-probability|"Probability"]] as an application of martingale methods.
+Shiryaev includes this theorem in [[shiryaev-probability|"Probability"]] as an application of martingale methods.
 
 ## The Cramer-Lundberg model
 
@@ -84,7 +84,7 @@ The moment generating function $\mathbb{E}[e^{\theta X}]$ appearing in the defin
 
 **1. Exponential claims.** If $X_i \sim \text{Exp}(1/\mu)$, then $\mathbb{E}[e^{\theta X}] = 1/(1 - \mu\theta)$ for $\theta < 1/\mu$. Substituting into the definition of $R$:
 
-$$\lambda \left( \frac{1}{1 - \mu R} - 1 \right) = c R,$$
+$$\lambda \left(\frac{1}{1 - \mu R} - 1 \right) = c R,$$
 
 which after simplification gives
 

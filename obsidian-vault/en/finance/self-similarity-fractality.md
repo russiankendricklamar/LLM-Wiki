@@ -9,7 +9,7 @@ lang: "en"
 
 The idea that **financial time series are self-similar** goes back to Benoît Mandelbrot, who in the 1960s noticed that stock price charts "look the same" at different time scales — second, minute, hour, and day charts are indistinguishable without axis labels. Mandelbrot turned this qualitative observation into a quantitative program: introducing fractal price models, measuring fractal dimension, generalizing [[brownian-motion|Brownian motion]] to **fractional Brownian motion**.
 
-[[shiryaev-stochastic-finance|Shiryaev]] (Vol. 1, Ch. III, §2) devotes a detailed section to this. Self-similarity and fractality are not just an aesthetic observation but a **technical tool** for modelling long memory, volatility clustering, and heavy tails in a unified framework.
+[[shiryaev-stochastic-finance|Shiryaev]] devotes a detailed section to this. Self-similarity and fractality are not just an aesthetic observation but a **technical tool** for modelling long memory, volatility clustering, and heavy tails in a unified framework.
 
 ## Self-similar processes
 
@@ -33,7 +33,7 @@ This is the same scaling invariance as in physics of diffusion (Einstein's law $
 
 **Definition.** $B^H$ is a Gaussian process with $B^H_0 = 0$, $\mathbb{E}[B^H_t] = 0$, and covariance
 
-$$\mathbb{E}[B^H_s \cdot B^H_t] = \frac{1}{2}\!\big( |s|^{2H} + |t|^{2H} - |s - t|^{2H} \big).$$
+$$\mathbb{E}[B^H_s \cdot B^H_t] = \frac{1}{2}\!\big(|s|^{2H} + |t|^{2H} - |s - t|^{2H} \big).$$
 
 Properties:
 

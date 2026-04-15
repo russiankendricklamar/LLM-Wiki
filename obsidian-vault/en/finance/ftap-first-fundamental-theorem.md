@@ -7,7 +7,7 @@ lang: "en"
 
 # First Fundamental Theorem (FTAP)
 
-The First Fundamental Theorem of Asset Pricing (FTAP) is the central result of [[shiryaev-stochastic-finance|Shiryaev Vol. 2]], linking two notions that at first sight live in different universes: the economic condition of [[arbitrage-definition|no-arbitrage]] and the probabilistic existence of a martingale measure. The theorem says they are equivalent.
+The First Fundamental Theorem of Asset Pricing (FTAP) is the central result of [[shiryaev-stochastic-finance|Shiryaev]], linking two notions that at first sight live in different universes: the economic condition of [[arbitrage-definition|no-arbitrage]] and the probabilistic existence of a martingale measure. The theorem says they are equivalent.
 
 This statement is so foundational that the entire modern theory of derivative pricing is built on top of it: every time you see a formula "option price = $\mathbb{E}^\mathbb{Q}[\text{payoff}]$," you are seeing FTAP at work.
 
@@ -46,7 +46,7 @@ NA means $\mathcal{K} \cap L^0_+ = \{0\}$. After suitable truncation (to land in
 
 This functional, normalised, is the Radon-Nikodym density $d\mathbb{Q}/d\mathbb{P}$ of the desired measure. The separation condition rewrites exactly as the martingale property of $\widetilde{S}$ under $\mathbb{Q}$.
 
-Shiryaev's alternative path ([[shiryaev-stochastic-finance|Vol. 2, Ch. V, §2d]]) goes through **conditional Esscher transforms**: at each time $n$ a conditionally equivalent measure is built making $\Delta \widetilde{S}_{n+1}$ a martingale increment; these conditional measures are then glued into a global EMM.
+Shiryaev's alternative path goes through **conditional Esscher transforms**: at each time $n$ a conditionally equivalent measure is built making $\Delta \widetilde{S}_{n+1}$ a martingale increment; these conditional measures are then glued into a global EMM.
 
 ## Pricing a derivative via the martingale measure
 
@@ -66,7 +66,7 @@ Discussed in the article on [[semimartingale-models|semimartingale models]].
 
 ## Historical note
 
-The idea "no-arbitrage prices = expectations under a risk-neutral measure" was first formulated by Cox-Ross-Rubinstein (1979) for the binomial [[crr-model|CRR model]] and extended to general discrete settings by Harrison and Pliska (1981). The full continuous-time theory belongs to Delbaen and Schachermayer (1994-2006). Shiryaev in Vol. 2 gives an elegant self-contained discrete treatment via conditional Esscher.
+The idea "no-arbitrage prices = expectations under a risk-neutral measure" was first formulated by Cox-Ross-Rubinstein (1979) for the binomial [[crr-model|CRR model]] and extended to general discrete settings by Harrison and Pliska (1981). The full continuous-time theory belongs to Delbaen and Schachermayer (1994-2006). Shiryaev in gives an elegant self-contained discrete treatment via conditional Esscher.
 
 ## Related Articles
 

@@ -12,7 +12,7 @@ slug: "optional-decomposition"
 
 The optional decomposition is the technical heart of super-hedging on [[complete-incomplete-markets|incomplete markets]]. It generalises the classical Doob-Meyer decomposition (which works under one measure) to the case where the candidate measure is an entire family $\mathcal{M}^e$ of equivalent martingale measures.
 
-The result was proved by Kramkov in 1996 ([[shiryaev-stochastic-finance|Vol. 2, Ch. VI, §2d]]) and became the key to the dual formula for the [[upper-lower-hedging-prices|upper hedging price]]: $\Pi^+_0(H) = \sup_{\mathbb{Q} \in \mathcal{M}^e} \mathbb{E}^\mathbb{Q}[H/B_N]$.
+The result was proved by Kramkov in 1996 and presented in [[shiryaev-stochastic-finance|Shiryaev]] — it became the key to the dual formula for the [[upper-lower-hedging-prices|upper hedging price]]: $\Pi^+_0(H) = \sup_{\mathbb{Q} \in \mathcal{M}^e} \mathbb{E}^\mathbb{Q}[H/B_N]$.
 
 ## Doob-Meyer recap
 

@@ -17,7 +17,7 @@ lang: "ru"
 
 ЦПТ — глобальный «фактор сжатия» сложности: какими бы разными ни были исходные распределения, **их большие суммы выглядят одинаково**.
 
-В § 4 главы III [[shiryaev-probability|«Вероятности»]] Ширяева изложена строгая формулировка и классическое доказательство через [[characteristic-functions|характеристические функции]].
+В [[shiryaev-probability|«Вероятности»]] Ширяева изложена строгая формулировка и классическое доказательство через [[characteristic-functions|характеристические функции]].
 
 ## Классическая формулировка
 
@@ -36,7 +36,7 @@ $$\frac{S_n - n\mu}{\sigma\sqrt{n}} \xrightarrow{d} \mathcal{N}(0, 1),$$
 1. Можно считать $\mu = 0$, $\sigma^2 = 1$ (иначе нормируем).
 2. Характеристическая функция нормированной суммы:
 
-$$\varphi_{S_n / \sqrt{n}}(t) = \mathbb{E}[e^{it S_n / \sqrt{n}}] = \prod_{k=1}^n \mathbb{E}[e^{it X_k / \sqrt{n}}] = \big( \varphi_X(t/\sqrt{n}) \big)^n.$$
+$$\varphi_{S_n / \sqrt{n}}(t) = \mathbb{E}[e^{it S_n / \sqrt{n}}] = \prod_{k=1}^n \mathbb{E}[e^{it X_k / \sqrt{n}}] = \big(\varphi_X(t/\sqrt{n}) \big)^n.$$
 
 3. Разлагаем $\varphi_X$ в ряд Тейлора в нуле:
 
@@ -50,7 +50,7 @@ $$\varphi_X(t/\sqrt{n}) = 1 - \frac{t^2}{2n} + o(1/n).$$
 
 5. Возводим в степень $n$:
 
-$$\big( 1 - \frac{t^2}{2n} + o(1/n) \big)^n \to e^{-t^2/2}.$$
+$$\big(1 - \frac{t^2}{2n} + o(1/n) \big)^n \to e^{-t^2/2}.$$
 
 6. Это характеристическая функция $\mathcal{N}(0, 1)$. По теореме непрерывности Леви $S_n/\sqrt{n} \xrightarrow{d} \mathcal{N}(0, 1)$. ∎
 
@@ -76,7 +76,7 @@ $$\frac{1}{B_n^2} \sum_{k=1}^n \mathbb{E}\big[ X_{n,k}^2 \cdot \mathbf{1}_{|X_{n
 
 **Теорема Берри-Эссеена (1941).** При $\mathbb{E}[|X|^3] < \infty$:
 
-$$\sup_{x} \left| \mathbb{P}\!\left( \frac{S_n}{\sigma\sqrt{n}} \leq x \right) - \Phi(x) \right| \leq \frac{C \cdot \mathbb{E}[|X - \mu|^3]}{\sigma^3 \sqrt{n}}.$$
+$$\sup_{x} \left| \mathbb{P}\!\left(\frac{S_n}{\sigma\sqrt{n}} \leq x \right) - \Phi(x) \right| \leq \frac{C \cdot \mathbb{E}[|X - \mu|^3]}{\sigma^3 \sqrt{n}}.$$
 
 То есть сходимость к нормальному распределению идёт со скоростью $1/\sqrt{n}$, а константа зависит от третьего абсолютного момента (мера «асимметрии» исходного распределения). Чем «более нормальное» $X$, тем меньше константа.
 

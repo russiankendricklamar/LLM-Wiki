@@ -7,7 +7,7 @@ lang: "en"
 
 # Cox-Ross-Rubinstein Binomial Model (CRR)
 
-The Cox-Ross-Rubinstein model (1979) is the simplest non-trivial arbitrage-free and **complete** [[bs-market-self-financing|(B,S)-model]]. In [[shiryaev-stochastic-finance|Shiryaev (Vol. 2, Ch. V, §1d)]] it plays the role of a worked example: the unique martingale measure is computed explicitly, the replicating portfolio is built explicitly, and the binomial option-pricing formula falls out directly — and in the limit converges to the [[black-scholes|Black-Scholes formula]].
+The Cox-Ross-Rubinstein model (1979) is the simplest non-trivial arbitrage-free and **complete** [[bs-market-self-financing|(B,S)-model]]. In [[shiryaev-stochastic-finance|Shiryaev]] it plays the role of a worked example: the unique martingale measure is computed explicitly, the replicating portfolio is built explicitly, and the binomial option-pricing formula falls out directly — and in the limit converges to the [[black-scholes|Black-Scholes formula]].
 
 CRR is the "arithmetic" of arbitrage theory: everything that requires functional analysis and separation theorems in the general case here reduces to a single linear equation.
 
@@ -55,7 +55,7 @@ Since the solution is unique, by the [[complete-incomplete-markets|second fundam
 
 For a claim $H = h(S_N)$ (e.g. a call $h(S) = (S - K)^+$) the arbitrage price is
 
-$$\Pi_0(H) = (1+r)^{-N} \cdot \mathbb{E}^\mathbb{Q}[h(S_N)] = (1+r)^{-N} \sum_{k=0}^{N} \binom{N}{k} q^k (1-q)^{N-k} \cdot h\!\left( S_0 u^k d^{N-k} \right).$$
+$$\Pi_0(H) = (1+r)^{-N} \cdot \mathbb{E}^\mathbb{Q}[h(S_N)] = (1+r)^{-N} \sum_{k=0}^{N} \binom{N}{k} q^k (1-q)^{N-k} \cdot h\!\left(S_0 u^k d^{N-k} \right).$$
 
 This is the **binomial formula** for the option price. For a call it takes the form
 

@@ -9,7 +9,7 @@ lang: "en"
 
 Hyperbolic distributions are a parametric family introduced by Ole Barndorff-Nielsen in 1977 to describe distributions of sand-grain sizes in dunes. Since the 1990s they have been widely applied in financial mathematics as a **golden middle** between the normal distribution (too thin tails) and stable ones (infinite variance).
 
-[[shiryaev-stochastic-finance|Shiryaev]] (Vol. 1, Ch. III, §1d) includes them in the section on non-Gaussian distributions because they offer **heavy tails, finite moments of all orders, and analytical formulas** simultaneously — a rare combination for practical applications.
+[[shiryaev-stochastic-finance|Shiryaev]] includes them in the section on non-Gaussian distributions because they offer **heavy tails, finite moments of all orders, and analytical formulas** simultaneously — a rare combination for practical applications.
 
 ## Definition
 
@@ -26,7 +26,7 @@ with $\alpha > |\beta| \geq 0$, $\delta > 0$, $\mu \in \mathbb{R}$. The paramete
 
 The full density includes a normalizing constant with the modified Bessel function $K_1$:
 
-$$p(x) = \frac{\sqrt{\alpha^2 - \beta^2}}{2\alpha\delta K_1(\delta\sqrt{\alpha^2 - \beta^2})} \exp\!\big( -\alpha\sqrt{\delta^2 + (x-\mu)^2} + \beta(x-\mu) \big).$$
+$$p(x) = \frac{\sqrt{\alpha^2 - \beta^2}}{2\alpha\delta K_1(\delta\sqrt{\alpha^2 - \beta^2})} \exp\!\big(-\alpha\sqrt{\delta^2 + (x-\mu)^2} + \beta(x-\mu) \big).$$
 
 ## Tail behaviour
 
@@ -42,7 +42,7 @@ The main advantage: **all moments are finite**. This distinguishes hyperbolic di
 
 **Generalized Hyperbolic (GH)** — extension adding one more parameter $\lambda$:
 
-$$p(x) \propto (\delta^2 + (x-\mu)^2)^{(\lambda - 1/2)/2} \cdot K_{\lambda - 1/2}\!\big( \alpha\sqrt{\delta^2 + (x-\mu)^2} \big) \cdot e^{\beta(x-\mu)}.$$
+$$p(x) \propto (\delta^2 + (x-\mu)^2)^{(\lambda - 1/2)/2} \cdot K_{\lambda - 1/2}\!\big(\alpha\sqrt{\delta^2 + (x-\mu)^2} \big) \cdot e^{\beta(x-\mu)}.$$
 
 This family contains as special cases:
 
@@ -61,7 +61,7 @@ $$S_t = S_0 \cdot e^{L^{GH}_t}.$$
 
 Since $L^{GH}$ is a Lévy process, it has independent stationary increments, allowing a fully analytical description of the characteristic function:
 
-$$\phi_t(u) = \mathbb{E}[e^{iu L^{GH}_t}] = \big( \phi_1(u) \big)^t.$$
+$$\phi_t(u) = \mathbb{E}[e^{iu L^{GH}_t}] = \big(\phi_1(u) \big)^t.$$
 
 This gives a direct route to option pricing via [[fft|FFT]] (Carr-Madan).
 

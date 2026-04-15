@@ -9,7 +9,7 @@ lang: "en"
 
 The Capital Asset Pricing Model (CAPM) is an equilibrium theory of asset pricing independently proposed by Sharpe (1964), Lintner (1965), and Mossin (1966) on top of [[markowitz-mean-variance|Markowitz's portfolio theory]]. CAPM gives the **first quantitative formula** for the expected return of a risky asset in terms of a single factor — market risk.
 
-[[shiryaev-stochastic-finance|Shiryaev]] (Vol. 1, Ch. I, §2c) presents CAPM as the "second chapter" of neoclassical financial theory, after Markowitz and before Ross's arbitrage theory. It remains the **starting point** of any work on factor investing: alpha, beta, the Treynor ratio, Jensen's alpha — all of these belong to CAPM's vocabulary.
+[[shiryaev-stochastic-finance|Shiryaev]] presents CAPM as the "second chapter" of neoclassical financial theory, after Markowitz and before Ross's arbitrage theory. It remains the **starting point** of any work on factor investing: alpha, beta, the Treynor ratio, Jensen's alpha — all of these belong to CAPM's vocabulary.
 
 ## The core equation
 

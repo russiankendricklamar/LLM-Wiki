@@ -9,7 +9,7 @@ lang: "en"
 
 If the [[ftap-first-fundamental-theorem|first fundamental theorem]] tells us "when a market model makes sense," the **second** fundamental theorem tells us "when every claim in that model can be replicated exactly." This is a qualitative leap: on a complete market the price of a derivative is unique (and equals the cost of its replicating portfolio); on an incomplete market a unique price does not exist in principle.
 
-Shiryaev ([[shiryaev-stochastic-finance|Vol. 2, Ch. V, §2e]]) presents both theorems in parallel, which makes it visible that **completeness** is a structural property of the pair "filtration $+$ price," not of any one measure.
+Shiryaev presents both theorems in parallel, which makes it visible that **completeness** is a structural property of the pair "filtration $+$ price," not of any one measure.
 
 ## Definition
 
@@ -54,14 +54,14 @@ All such prices lie in an interval $[\Pi^-_0(H), \Pi^+_0(H)]$ whose endpoints ar
 ## Examples of complete and incomplete markets
 
 **Complete:**
-- [[crr-model|CRR (binomial)]] — two noise states, two price paths, one EMM.
+- [[crr-model|CRR binomial]] — two noise states, two price paths, one EMM.
 - [[geometric-brownian-motion|GBM in Black-Scholes]] — one Brownian motion, unique EMM, every payoff replicable.
 - A finite market on which the number of "independent" noise sources equals the number of traded assets.
 
 **Incomplete:**
 - Trinomial model (three states, one asset) — two equations on $q_u, q_m, q_d$, one extra direction, an entire line of EMMs.
 - [[heston-model|Heston model]] — stochastic volatility as a non-traded risk factor; one stock, two noises.
-- Models with jumps ([[levy-esscher-continuous|Lévy processes]]) — one Brownian plus a Poisson piece and the market becomes incomplete.
+- Models with jumps — one Brownian plus a Poisson piece and the market becomes incomplete.
 - Every real market.
 
 ## What to do on an incomplete market

@@ -7,9 +7,7 @@ lang: "en"
 
 # Central Limit Theorem for Martingales
 
-The classical [[central-limit-theorem|CLT]] requires **independence** of the summands. But in many applications — statistics of dependent data, stochastic approximation, parameter estimation for time series, finance — the natural sequences are not independent but form **martingale differences**. They have their own central limit theorem, and it is this theorem that powers the asymptotic theory of modern econometrics.
-
-Chapter VII of Shiryaev's [[shiryaev-probability|"Probability"]] gives a detailed treatment of the martingale CLT and its technical variants. It is one of the principal tools of modern mathematical statistics and stochastic processes.
+The classical [[central-limit-theorem|CLT]] requires **independence** of the summands. But in many applications — statistics of dependent data, stochastic approximation, parameter estimation for time series, finance — the natural sequences are not independent but form **martingale differences**. They have their own central limit theorem, and it is this theorem that powers the asymptotic theory of modern econometrics. Shiryaev's [[shiryaev-probability|"Probability"]] gives a detailed treatment of the martingale CLT and its technical variants. It is one of the principal tools of modern mathematical statistics and stochastic processes.
 
 ## Setup
 

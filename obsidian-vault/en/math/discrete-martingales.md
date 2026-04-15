@@ -7,9 +7,7 @@ lang: "en"
 
 # Discrete Martingales
 
-A martingale is the mathematical model of a **"fair game"**: a process whose expected next value, given all available information, equals the current value. The notion goes back to the "Martingale system" in 18th-century gambling, but its rigorous theory was built by Joseph L. Doob in the 1940s.
-
-§§1-9 of Chapter VII of Shiryaev's [[shiryaev-probability|"Probability"]] is the most thorough accessible exposition of discrete martingale theory in Russian. Without this machinery there would be no modern limit theorems, no optimal stopping, no [[ftap-first-fundamental-theorem|FTAP]] and financial mathematics, and no reinforcement learning.
+A martingale is the mathematical model of a **"fair game"**: a process whose expected next value, given all available information, equals the current value. The notion goes back to the "Martingale system" in 18th-century gambling, but its rigorous theory was built by Joseph L. Doob in the 1940s. of Shiryaev's [[shiryaev-probability|"Probability"]] is the most thorough accessible exposition of discrete martingale theory in Russian. Without this machinery there would be no modern limit theorems, no optimal stopping, no [[ftap-first-fundamental-theorem|FTAP]] and financial mathematics, and no reinforcement learning.
 
 ## Definition
 
@@ -44,13 +42,13 @@ In finance: an asset price under the historical measure is a submartingale (posi
 
 **Doob's maximal inequality.** For a non-negative submartingale $(X_n)$:
 
-$$\mathbb{P}\!\left( \max_{k \leq n} X_k \geq \lambda \right) \leq \frac{\mathbb{E}[X_n]}{\lambda}.$$
+$$\mathbb{P}\!\left(\max_{k \leq n} X_k \geq \lambda \right) \leq \frac{\mathbb{E}[X_n]}{\lambda}.$$
 
 This generalizes Markov's inequality from a single value to a maximum over a trajectory. Crucial because many theorems (like the [[law-iterated-logarithm|law of the iterated logarithm]]) require control of the maximum.
 
 **Doob's $L^p$ inequality.** For a non-negative submartingale with $X_n \in L^p$, $p > 1$:
 
-$$\mathbb{E}\!\left[ \max_{k \leq n} X_k^p \right] \leq \left( \frac{p}{p-1} \right)^p \mathbb{E}[X_n^p].$$
+$$\mathbb{E}\!\left[ \max_{k \leq n} X_k^p \right] \leq \left(\frac{p}{p-1} \right)^p \mathbb{E}[X_n^p].$$
 
 Moments of the maximum are controlled by moments of a single value. The "magic" of martingale theory: passing to the maximum costs only a multiplicative constant.
 
@@ -95,7 +93,7 @@ This is the **discrete analogue of the Doob-Meyer decomposition** for continuous
 
 ## Discrete Itô formula
 
-In §9 of Chapter VII Shiryaev gives a **discrete analogue of Itô's formula**: for a function $f$ and a martingale $M$:
+In Shiryaev gives a **discrete analogue of Itô's formula**: for a function $f$ and a martingale $M$:
 
 $$f(M_n) = f(M_0) + \sum_{k=1}^n f'(M_{k-1}) \Delta M_k + \frac{1}{2} \sum_{k=1}^n f''(\xi_k) (\Delta M_k)^2,$$
 

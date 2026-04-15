@@ -9,7 +9,7 @@ lang: "en"
 
 Stable distributions are a natural generalization of the normal distribution that preserves the key "stability under summation" property while allowing **heavy tails** and **asymmetry**. They were introduced by Paul Lévy in 1925 and gained financial currency thanks to Benoît Mandelbrot, who showed in 1963 that cotton-futures returns are far better described by a stable distribution with $\alpha \approx 1.7$ than by a normal one.
 
-[[shiryaev-stochastic-finance|Shiryaev]] (Vol. 1, Ch. III, §1a-1c) devotes a substantial section to them — because stable distributions provide the **first mathematically rigorous way** to describe heavy tails of financial returns, and because they generate an entire class of [[levy-esscher-continuous|Lévy processes]] more general than Brownian motion.
+[[shiryaev-stochastic-finance|Shiryaev]] devotes a substantial section to them — because stable distributions provide the **first mathematically rigorous way** to describe heavy tails of financial returns, and because they generate an entire class of [[levy-esscher-continuous|Lévy processes]] more general than Brownian motion.
 
 ## The stability property
 
@@ -38,13 +38,13 @@ This is power-law (Pareto-like) decay, dramatically slower than the exponential 
 - For $\alpha < 1$ even the mean $\mathbb{E}[X] = \infty$.
 - Only for $\alpha = 2$ does the distribution become normal (with finite variance).
 
-Empirical $\alpha$ for financial returns: equities — $\alpha \approx 1.5{-}1.8$, FX — $\alpha \approx 1.7{-}1.9$, bitcoin — $\alpha \approx 1.3{-}1.5$ depending on the period. All are strictly below 2 — so the variance is formally infinite and any mean-variance optimization ([[markowitz-mean-variance|Markowitz]]) is theoretically inapplicable.
+Empirical $\alpha$ for financial returns: equities — $\alpha \approx 1.5{-}1.8$, FX — $\alpha \approx 1.7{-}1.9$, bitcoin — $\alpha \approx 1.3{-}1.5$ depending on the period. All are strictly below 2 — so the variance is formally infinite and any mean-variance optimization is theoretically inapplicable.
 
 ## Characteristic function
 
 The closed form of the density of a stable distribution is known only in three cases ($\alpha = 2$ — normal, $\alpha = 1$ — Cauchy, $\alpha = 1/2$ — Lévy). But the **characteristic function** has a general form:
 
-$$\log \phi(t) = i\mu t - \sigma^\alpha |t|^\alpha \!\left( 1 - i\beta \cdot \text{sign}(t) \cdot \tan(\pi\alpha/2) \right), \quad \alpha \neq 1.$$
+$$\log \phi(t) = i\mu t - \sigma^\alpha |t|^\alpha \!\left(1 - i\beta \cdot \text{sign}(t) \cdot \tan(\pi\alpha/2) \right), \quad \alpha \neq 1.$$
 
 (For $\alpha = 1$ a logarithmic correction modifies the formula.)
 

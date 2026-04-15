@@ -7,9 +7,7 @@ lang: "en"
 
 # Weak Convergence and Prokhorov's Theorem
 
-"Convergence in distribution" is the subtlest of the convergence notions in probability theory. Random variables can "approach" a limit in many different ways: almost surely, in probability, in $L^p$, in distribution. The weakest of these — **weak convergence of distributions** — turns out to be simultaneously the most important for limit theorems (CLT, LLN, [[asymptotic-arbitrage-large-markets|convergence of financial models]]).
-
-Chapter III of Shiryaev's [[shiryaev-probability|"Probability"]] is devoted entirely to weak convergence and the theorems around it — most importantly, **Prokhorov's compactness theorem**.
+"Convergence in distribution" is the subtlest of the convergence notions in probability theory. Random variables can "approach" a limit in many different ways: almost surely, in probability, in $L^p$, in distribution. The weakest of these — **weak convergence of distributions** — turns out to be simultaneously the most important for limit theorems (CLT, LLN, [[asymptotic-arbitrage-large-markets|convergence of financial models]]). Shiryaev's [[shiryaev-probability|"Probability"]] is devoted entirely to weak convergence and the theorems around it — most importantly, **Prokhorov's compactness theorem**.
 
 ## Definition
 

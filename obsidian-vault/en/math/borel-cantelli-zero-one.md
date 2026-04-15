@@ -7,9 +7,7 @@ lang: "en"
 
 # Borel-Cantelli Lemmas and Zero-One Laws
 
-The Borel-Cantelli lemmas and the related **zero-one laws** are the main technical tools for working with **infinite** events: "infinitely often," "eventually," "always after some moment." They state that for a wide class of such events the probability takes only the values 0 or 1 — no "intermediate" $0.42$ ever occurs.
-
-§1 of Chapter IV of Shiryaev's [[shiryaev-probability|"Probability"]] is devoted to zero-one laws, and the Borel-Cantelli lemmas are used in §3 to prove the strong [[law-of-large-numbers|Law of Large Numbers]].
+The Borel-Cantelli lemmas and the related **zero-one laws** are the main technical tools for working with **infinite** events: "infinitely often," "eventually," "always after some moment." They state that for a wide class of such events the probability takes only the values 0 or 1 — no "intermediate" $0.42$ ever occurs. of Shiryaev's [[shiryaev-probability|"Probability"]] is devoted to zero-one laws, and the Borel-Cantelli lemmas are used in to prove the strong [[law-of-large-numbers|Law of Large Numbers]].
 
 It is the "zen of probability theory": some events **inevitably happen always or never**, and the role of the theorem is to determine which of the two occurs.
 
@@ -29,7 +27,7 @@ So "the events $A_n$ happen infinitely often" has probability zero.
 
 **Proof** — direct: for any $N$,
 
-$$\mathbb{P}(\limsup_n A_n) \leq \mathbb{P}\!\left( \bigcup_{k \geq N} A_k \right) \leq \sum_{k \geq N} \mathbb{P}(A_k) \to 0.$$
+$$\mathbb{P}(\limsup_n A_n) \leq \mathbb{P}\!\left(\bigcup_{k \geq N} A_k \right) \leq \sum_{k \geq N} \mathbb{P}(A_k) \to 0.$$
 
 **Lemma 2 (reverse Borel-Cantelli).** If the $A_n$ are **independent** and $\sum_{n=1}^\infty \mathbb{P}(A_n) = \infty$, then
 

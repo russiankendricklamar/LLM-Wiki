@@ -9,7 +9,7 @@ lang: "en"
 
 In 1933 Andrey Nikolaevich Kolmogorov published "Grundbegriffe der Wahrscheinlichkeitsrechnung" (Foundations of the Theory of Probability), in which he **rigorously** axiomatized the notion of probability via measure theory. Before this, probability was a collection of heuristics and paradoxes; after it became a branch of analysis as rigorous as geometry after Euclid or algebra after Hilbert.
 
-This axiomatization fills §§1-3 of Chapter II of Shiryaev's [[shiryaev-probability|"Probability"]] textbook, and it underlies everything I have already written about martingales, Girsanov, FTAP, and stochastic calculus. Without it the terms "event," "probability," "random variable" would not be rigorously defined.
+This axiomatization fills of Shiryaev's [[shiryaev-probability|"Probability"]] textbook, and it underlies everything I have already written about martingales, Girsanov, FTAP, and stochastic calculus. Without it the terms "event," "probability," "random variable" would not be rigorously defined.
 
 ## The basic construction
 
@@ -27,7 +27,7 @@ A **probability space** is a triple $(\Omega, \mathcal{F}, \mathbb{P})$, where:
 
 **Axiom 3 (countable additivity, σ-additivity).** For any countable sequence of **pairwise disjoint** events $A_1, A_2, \ldots \in \mathcal{F}$:
 
-$$\mathbb{P}\!\left( \bigcup_{i=1}^\infty A_i \right) = \sum_{i=1}^\infty \mathbb{P}(A_i).$$
+$$\mathbb{P}\!\left(\bigcup_{i=1}^\infty A_i \right) = \sum_{i=1}^\infty \mathbb{P}(A_i).$$
 
 That is all. From these three axioms the **entire** theory of probability is derived.
 

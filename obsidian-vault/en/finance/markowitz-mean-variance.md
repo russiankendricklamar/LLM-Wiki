@@ -9,7 +9,7 @@ lang: "en"
 
 Markowitz portfolio theory (1952) is the first mathematically rigorous theory of diversification. Harry Markowitz proposed that **a rational investor should jointly optimize expected return and risk** (interpreted as variance) and showed how to do so as a quadratic optimization problem. He received the Nobel Prize in 1990 for this work.
 
-[[shiryaev-stochastic-finance|Shiryaev]] (Vol. 1, Ch. I, §2b) includes Markowitz as the first "calculation" in the neoclassical theory of finance. It is a **pre-arbitrage** model: it does not invoke no-arbitrage or martingale measures, relying only on statistical moments of returns.
+[[shiryaev-stochastic-finance|Shiryaev]] includes Markowitz as the first "calculation" in the neoclassical theory of finance. It is a **pre-arbitrage** model: it does not invoke no-arbitrage or martingale measures, relying only on statistical moments of returns.
 
 ## Setup
 
@@ -29,7 +29,7 @@ $$\min_w \; w^\top \Sigma w \quad \text{s.t.} \quad w^\top \mu = \mu_0, \; w^\to
 
 This is a **quadratic optimization** with two linear constraints. The Lagrangian solution:
 
-$$w^* = \frac{1}{D} \big( (C \cdot \mu_0 - B) \, \Sigma^{-1} \mathbf{1} + (A - B \cdot \mu_0) \, \Sigma^{-1} \mu \big),$$
+$$w^* = \frac{1}{D} \big((C \cdot \mu_0 - B) \, \Sigma^{-1} \mathbf{1} + (A - B \cdot \mu_0) \, \Sigma^{-1} \mu \big),$$
 
 with $A = \mathbf{1}^\top \Sigma^{-1} \mathbf{1}$, $B = \mathbf{1}^\top \Sigma^{-1} \mu$, $C = \mu^\top \Sigma^{-1} \mu$, $D = AC - B^2$.
 

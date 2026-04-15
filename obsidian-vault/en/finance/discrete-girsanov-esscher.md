@@ -7,7 +7,7 @@ lang: "en"
 
 # Discrete Girsanov and the Esscher Transform
 
-The [[ftap-first-fundamental-theorem|first fundamental theorem]] asserts the existence of an equivalent martingale measure but does not say **how** to build it. In discrete time Shiryaev ([[shiryaev-stochastic-finance|Vol. 2, Ch. V, §3]]) gives two explicit recipes: a discrete **Girsanov** theorem for the conditionally Gaussian case and an **Esscher transform** for the general one.
+The [[ftap-first-fundamental-theorem|first fundamental theorem]] asserts the existence of an equivalent martingale measure but does not say **how** to build it. In discrete time Shiryaev gives two explicit recipes: a discrete **Girsanov** theorem for the conditionally Gaussian case and an **Esscher transform** for the general one.
 
 Both methods are essentially the same idea: "shift" the conditional distribution of the price increment so that the new distribution becomes a martingale. They differ only in how the shift is parametrized.
 
@@ -23,7 +23,7 @@ For the discounted price $\widetilde{S}_n = S_n e^{-rn}$ to become a martingale 
 
 **Discrete Girsanov theorem.** The change-of-measure density on $\mathcal{F}_N$:
 
-$$\frac{d\mathbb{Q}}{d\mathbb{P}}\bigg|_{\mathcal{F}_N} = \prod_{n=1}^{N} \exp\!\left( \theta_n \cdot Z_n - \tfrac{1}{2} \theta_n^2 \right),$$
+$$\frac{d\mathbb{Q}}{d\mathbb{P}}\bigg|_{\mathcal{F}_N} = \prod_{n=1}^{N} \exp\!\left(\theta_n \cdot Z_n - \tfrac{1}{2} \theta_n^2 \right),$$
 
 where $Z_n = (\log(S_n/S_{n-1}) - \mu_n) / \sigma_n$ are standardized increments, and
 
@@ -62,7 +62,7 @@ Under standard conditions (mgf finite in a neighbourhood of zero) this equation 
 - **Girsanov** is convenient when the model is explicitly Gaussian (binomial, Black-Scholes, Vasicek). It immediately yields a **mean shift** as the answer.
 - **Esscher** works for **arbitrary** discrete cases: discrete distributions, jumps, heavy tails. It becomes especially valuable in models with [[levy-esscher-continuous|Lévy processes]], where Gaussianity is replaced by a wider class of infinitely divisible distributions.
 
-In §3d Shiryaev shows that for the conditionally Gaussian case the two methods give the same EMM — Esscher reduces to Girsanov.
+In Shiryaev shows that for the conditionally Gaussian case the two methods give the same EMM — Esscher reduces to Girsanov.
 
 ## Connection to [[ftap-first-fundamental-theorem|FTAP]]
 

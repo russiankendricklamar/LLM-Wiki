@@ -9,7 +9,7 @@ lang: "en"
 
 Optimal stopping theory sits at the intersection of probability, dynamic programming, and finance. Given a random process $(X_n)$ and a payoff function $g$, find a stopping time $\tau$ (a random time depending on the observed history) maximizing the expected payoff $\mathbb{E}[g(X_\tau)]$.
 
-This is the precise mathematical framework for problems like "when to sell a stock," "when to exercise an American option," "when to stop an experiment." Chapter VIII of Shiryaev's [[shiryaev-probability|"Probability"]] contains a complete treatment for Markov chains — and Shiryaev himself was one of the main classics of the theory (his book "Statistical Sequential Analysis" is an early monograph on the subject).
+This is the precise mathematical framework for problems like "when to sell a stock," "when to exercise an American option," "when to stop an experiment." Shiryaev's [[shiryaev-probability|"Probability"]] contains a complete treatment for Markov chains — and Shiryaev himself was one of the main classics of the theory (his book "Statistical Sequential Analysis" is an early monograph on the subject).
 
 ## Setup
 
@@ -39,7 +39,7 @@ A generalization of the Snell envelope for Markov chains.
 
 **Theorem.** The value $V$ satisfies the **Bellman optimality equation**:
 
-$$V(i) = \max\!\left( g(i), \sum_j p_{ij} V(j) \right).$$
+$$V(i) = \max\!\left(g(i), \sum_j p_{ij} V(j) \right).$$
 
 Two choices: **stop now** (value $g(i)$) or **continue one step** (expected value $\sum_j p_{ij} V(j)$). Take the max.
 
@@ -57,7 +57,7 @@ $$\tau^* = \inf\{n \geq 0 : X_n \in D\}$$
 
 For a finite horizon $n$ the problem is solved by direct backward induction:
 
-$$V_n(i) = g(i), \quad V_{k-1}(i) = \max\!\left( g(i), \sum_j p_{ij} V_k(j) \right).$$
+$$V_n(i) = g(i), \quad V_{k-1}(i) = \max\!\left(g(i), \sum_j p_{ij} V_k(j) \right).$$
 
 Start at the last moment, work backwards. This is **dynamic programming** in its purest form. The connection to Bellman, Bollob ás, Howard comes from here.
 
@@ -65,7 +65,7 @@ Start at the last moment, work backwards. This is **dynamic programming** in its
 
 For the infinite horizon, the Bellman equation is a **fixed point** of the operator
 
-$$(T V)(i) = \max\!\left( g(i), \sum_j p_{ij} V(j) \right).$$
+$$(T V)(i) = \max\!\left(g(i), \sum_j p_{ij} V(j) \right).$$
 
 **Theorem.** If $g$ is bounded and the chain is "sufficiently regular" (e.g. finite), then the iterations $V_{n+1} = T V_n$, starting from $V_0 = g$, converge to $V$.
 

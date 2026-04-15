@@ -11,9 +11,7 @@ A characteristic function is the **Fourier transform of a probability measure**.
 
 $$\varphi_X(t) = \mathbb{E}[e^{itX}] = \int_{-\infty}^{\infty} e^{itx} \, d\mu_X(x).$$
 
-It is one of the most powerful tools in probability theory: a characteristic function **fully determines the distribution** (uniqueness theorem), simplifies proofs of limit theorems (via Lévy's continuity theorem), and gives a direct route to moments and cumulants.
-
-§12 of Chapter II of Shiryaev's [[shiryaev-probability|"Probability"]] studies it in detail. Applications: classical proof of the [[central-limit-theorem|CLT]], Lévy-Khintchine formula for infinitely divisible distributions, stable distributions, [[levy-esscher-continuous|Lévy processes]], the characteristic function of [[brownian-motion|Brownian motion]].
+It is one of the most powerful tools in probability theory: a characteristic function **fully determines the distribution** (uniqueness theorem), simplifies proofs of limit theorems (via Lévy's continuity theorem), and gives a direct route to moments and cumulants. of Shiryaev's [[shiryaev-probability|"Probability"]] studies it in detail. Applications: classical proof of the [[central-limit-theorem|CLT]], Lévy-Khintchine formula for infinitely divisible distributions, stable distributions, [[levy-esscher-continuous|Lévy processes]], the characteristic function of [[brownian-motion|Brownian motion]].
 
 ## Basic properties
 
@@ -104,7 +102,7 @@ A distribution is **infinitely divisible** if for every $n$ it can be written as
 
 **Lévy-Khintchine formula.** Infinitely divisible distributions have characteristic functions of the form
 
-$$\log \varphi(t) = i\beta t - \frac{1}{2}\sigma^2 t^2 + \int_{\mathbb{R}}\!\big( e^{itx} - 1 - itx \mathbf{1}_{|x|\leq 1} \big) \, \pi(dx),$$
+$$\log \varphi(t) = i\beta t - \frac{1}{2}\sigma^2 t^2 + \int_{\mathbb{R}}\!\big(e^{itx} - 1 - itx \mathbf{1}_{|x|\leq 1} \big) \, \pi(dx),$$
 
 where $(\beta, \sigma^2, \pi)$ is the **Lévy-Khintchine triplet**: drift, diffusion component, and Lévy jump measure.
 
@@ -118,7 +116,7 @@ $$\varphi_X(t) = \mathbb{E}[e^{i \langle t, X \rangle}] = \mathbb{E}[\exp(i (t_1
 
 All basic properties carry over: uniqueness, continuity theorem, moment expansion. In particular, a **Gaussian vector** $X \sim \mathcal{N}(\mu, \Sigma)$ has characteristic function
 
-$$\varphi_X(t) = \exp\!\big( i\langle\mu, t\rangle - \tfrac{1}{2}\langle t, \Sigma t\rangle \big).$$
+$$\varphi_X(t) = \exp\!\big(i\langle\mu, t\rangle - \tfrac{1}{2}\langle t, \Sigma t\rangle \big).$$
 
 Multivariate characteristic functions are the standard tool for verifying **joint normality**.
 

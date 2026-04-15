@@ -9,7 +9,7 @@ lang: "en"
 
 Lévy processes are the broadest "homogeneous" class of [[semimartingale-models|semimartingales]]. They are processes with independent and stationary increments, generalizing both [[brownian-motion|Brownian motion]] (purely continuous) and the Poisson process (purely jump). Every other independent-increments process is built by combining these.
 
-In finance, Lévy processes are used as **price models with heavy tails and jumps**. [[shiryaev-stochastic-finance|Shiryaev]] (Vol. 2, Ch. VII, §3c) devotes a section to their financial application: the central result is the construction of a martingale measure via the **continuous-time Esscher transform**.
+In finance, Lévy processes are used as **price models with heavy tails and jumps**. [[shiryaev-stochastic-finance|Shiryaev]] devotes a section to their financial application: the central result is the construction of a martingale measure via the **continuous-time Esscher transform**.
 
 ## Definition
 
@@ -25,11 +25,11 @@ This axiomatizes "time-homogeneous random motion." Every Lévy process is a semi
 
 **Lévy-Khintchine formula.** The characteristic function of $L_t$ has the form
 
-$$\mathbb{E}[e^{i\xi L_t}] = \exp\!\left( t \cdot \psi(\xi) \right),$$
+$$\mathbb{E}[e^{i\xi L_t}] = \exp\!\left(t \cdot \psi(\xi) \right),$$
 
 where the **Lévy exponent** is
 
-$$\psi(\xi) = i\beta\xi - \frac{1}{2}\sigma^2\xi^2 + \int_{\mathbb{R}} \!\big( e^{i\xi x} - 1 - i\xi x \mathbf{1}_{|x|\leq 1} \big) \, \pi(dx).$$
+$$\psi(\xi) = i\beta\xi - \frac{1}{2}\sigma^2\xi^2 + \int_{\mathbb{R}} \!\big(e^{i\xi x} - 1 - i\xi x \mathbf{1}_{|x|\leq 1} \big) \, \pi(dx).$$
 
 The triplet $(\beta, \sigma^2, \pi)$ fully characterizes the process:
 

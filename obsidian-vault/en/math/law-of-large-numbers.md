@@ -9,9 +9,7 @@ lang: "en"
 
 The Law of Large Numbers (LLN) is the earliest and most fundamental statement in probability theory. It formalizes the intuition that **frequencies converge to probabilities**: tossing a fair coin many times, the fraction of heads approaches $1/2$. Jakob Bernoulli proved the first version in 1713 — for the binomial distribution; it is called the "Golden Theorem" of probability theory.
 
-The LLN exists in two principal forms: **weak** (convergence in probability) and **strong** (almost-sure convergence). The strong LLN is one of the deepest theorems of elementary probability.
-
-§5 of Chapter I and §3 of Chapter IV of Shiryaev's [[shiryaev-probability|"Probability"]] examine them in detail.
+The LLN exists in two principal forms: **weak** (convergence in probability) and **strong** (almost-sure convergence). The strong LLN is one of the deepest theorems of elementary probability. and of Shiryaev's [[shiryaev-probability|"Probability"]] examine them in detail.
 
 ## Weak law of large numbers
 
@@ -21,7 +19,7 @@ $$\frac{S_n}{n} = \frac{X_1 + X_2 + \ldots + X_n}{n} \xrightarrow{p} \mu,$$
 
 where $\xrightarrow{p}$ denotes convergence in probability: for every $\varepsilon > 0$,
 
-$$\mathbb{P}\!\left( \left| \frac{S_n}{n} - \mu \right| > \varepsilon \right) \to 0 \quad \text{as } n \to \infty.$$
+$$\mathbb{P}\!\left(\left| \frac{S_n}{n} - \mu \right| > \varepsilon \right) \to 0 \quad \text{as } n \to \infty.$$
 
 The arithmetic mean approaches the expectation, and the probability of any deviation larger than $\varepsilon$ tends to zero.
 
@@ -29,7 +27,7 @@ The arithmetic mean approaches the expectation, and the probability of any devia
 
 Under the additional assumption $\sigma^2 = \text{Var}(X) < \infty$ the proof is one line. By Chebyshev's inequality:
 
-$$\mathbb{P}\!\left( \left| \frac{S_n}{n} - \mu \right| > \varepsilon \right) \leq \frac{\text{Var}(S_n / n)}{\varepsilon^2} = \frac{\sigma^2 / n}{\varepsilon^2} \to 0.$$
+$$\mathbb{P}\!\left(\left| \frac{S_n}{n} - \mu \right| > \varepsilon \right) \leq \frac{\text{Var}(S_n / n)}{\varepsilon^2} = \frac{\sigma^2 / n}{\varepsilon^2} \to 0.$$
 
 The variance of the average decays as $1/n$ (since the summands are independent), so the probability of a large deviation tends to zero. ∎
 
@@ -43,7 +41,7 @@ $$\frac{S_n}{n} \xrightarrow{\text{a.s.}} \mu,$$
 
 i.e.
 
-$$\mathbb{P}\!\left( \lim_{n \to \infty} \frac{S_n}{n} = \mu \right) = 1.$$
+$$\mathbb{P}\!\left(\lim_{n \to \infty} \frac{S_n}{n} = \mu \right) = 1.$$
 
 This is **substantially stronger** than the weak LLN. The weak LLN says "the probability of a large deviation is small at every fixed $n$"; the strong says **the trajectory itself** $(S_n/n)$ converges a.s. to $\mu$. Every realization (every $\omega$) gives a convergent sequence.
 
@@ -53,7 +51,7 @@ Kolmogorov's proof of the strong LLN is non-trivial, unlike the weak version. St
 
 1. **Kolmogorov's inequality** — a generalization of Chebyshev to the maximum of partial sums:
 
-$$\mathbb{P}\!\left( \max_{k \leq n} |S_k - n\mu| > t \right) \leq \frac{n \sigma^2}{t^2}.$$
+$$\mathbb{P}\!\left(\max_{k \leq n} |S_k - n\mu| > t \right) \leq \frac{n \sigma^2}{t^2}.$$
 
 2. From this, the **Hájek-Rényi inequality** for normalized partial sums.
 
@@ -87,7 +85,7 @@ By the strong LLN this estimate converges to $I$ a.s. as $n \to \infty$. The rat
 
 **Hoeffding's law of large numbers** (for bounded $|X_i| \leq C$): gives an explicit **exponential** deviation bound
 
-$$\mathbb{P}\!\left( \left| \frac{S_n}{n} - \mu \right| > \varepsilon \right) \leq 2 e^{-2 n \varepsilon^2 / C^2}.$$
+$$\mathbb{P}\!\left(\left| \frac{S_n}{n} - \mu \right| > \varepsilon \right) \leq 2 e^{-2 n \varepsilon^2 / C^2}.$$
 
 Far stronger than the polynomial Chebyshev bound, and the foundation of **concentration of measure** in modern probability and machine learning.
 

@@ -15,9 +15,7 @@ This explains why:
 - Asset prices over short horizons are roughly normal (sum of many small trades).
 - Noise in physical detectors is roughly normal.
 
-The CLT is the universal "complexity compactor": however different the underlying distributions, **their large sums look the same**.
-
-§4 of Chapter III of Shiryaev's [[shiryaev-probability|"Probability"]] gives the rigorous statement and the classical proof via [[characteristic-functions|characteristic functions]].
+The CLT is the universal "complexity compactor": however different the underlying distributions, **their large sums look the same**. of Shiryaev's [[shiryaev-probability|"Probability"]] gives the rigorous statement and the classical proof via [[characteristic-functions|characteristic functions]].
 
 ## Classical statement
 
@@ -36,7 +34,7 @@ The standard Lindeberg-Lévy route:
 1. WLOG $\mu = 0$, $\sigma^2 = 1$.
 2. Characteristic function of the normalized sum:
 
-$$\varphi_{S_n / \sqrt{n}}(t) = \mathbb{E}[e^{it S_n / \sqrt{n}}] = \prod_{k=1}^n \mathbb{E}[e^{it X_k / \sqrt{n}}] = \big( \varphi_X(t/\sqrt{n}) \big)^n.$$
+$$\varphi_{S_n / \sqrt{n}}(t) = \mathbb{E}[e^{it S_n / \sqrt{n}}] = \prod_{k=1}^n \mathbb{E}[e^{it X_k / \sqrt{n}}] = \big(\varphi_X(t/\sqrt{n}) \big)^n.$$
 
 3. Taylor-expand $\varphi_X$ at zero:
 
@@ -50,7 +48,7 @@ $$\varphi_X(t/\sqrt{n}) = 1 - \frac{t^2}{2n} + o(1/n).$$
 
 5. Take the $n$-th power:
 
-$$\big( 1 - \frac{t^2}{2n} + o(1/n) \big)^n \to e^{-t^2/2}.$$
+$$\big(1 - \frac{t^2}{2n} + o(1/n) \big)^n \to e^{-t^2/2}.$$
 
 6. This is the characteristic function of $\mathcal{N}(0, 1)$. By Lévy's continuity theorem $S_n/\sqrt{n} \xrightarrow{d} \mathcal{N}(0, 1)$. ∎
 
@@ -76,7 +74,7 @@ The CLT in its classical form says "in the limit," with no statement about the *
 
 **Berry-Esseen theorem (1941).** When $\mathbb{E}[|X|^3] < \infty$:
 
-$$\sup_{x} \left| \mathbb{P}\!\left( \frac{S_n}{\sigma\sqrt{n}} \leq x \right) - \Phi(x) \right| \leq \frac{C \cdot \mathbb{E}[|X - \mu|^3]}{\sigma^3 \sqrt{n}}.$$
+$$\sup_{x} \left| \mathbb{P}\!\left(\frac{S_n}{\sigma\sqrt{n}} \leq x \right) - \Phi(x) \right| \leq \frac{C \cdot \mathbb{E}[|X - \mu|^3]}{\sigma^3 \sqrt{n}}.$$
 
 So convergence to the normal goes at rate $1/\sqrt{n}$, with a constant depending on the third absolute moment (a measure of the "asymmetry" of the underlying distribution). The closer to normal $X$ is, the smaller the constant.
 

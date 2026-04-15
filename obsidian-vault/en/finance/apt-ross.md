@@ -9,7 +9,7 @@ lang: "en"
 
 Arbitrage Pricing Theory (APT) is an asset pricing model proposed by Stephen Ross in 1976 as an **alternative to [[capm|CAPM]]**. The key idea: instead of an equilibrium argument (homogeneous investor expectations and mean-variance optimization), Ross uses **no asymptotic arbitrage in a large market** as the only assumption.
 
-This makes APT a **weaker but more universal** theory: it requires neither investor rationality nor homogeneity, and admits multiple risk factors instead of a single "market" one. [[shiryaev-stochastic-finance|Shiryaev]] (Vol. 1, Ch. I, §2d) presents APT as the theoretical bridge between classical CAPM and the modern theory of [[asymptotic-arbitrage-large-markets|large markets]].
+This makes APT a **weaker but more universal** theory: it requires neither investor rationality nor homogeneity, and admits multiple risk factors instead of a single "market" one. [[shiryaev-stochastic-finance|Shiryaev]] presents APT as the theoretical bridge between classical CAPM and the modern theory of [[asymptotic-arbitrage-large-markets|large markets]].
 
 ## Setup
 
@@ -73,7 +73,7 @@ Modern methods (LASSO, Elastic Net, machine learning) try to automatically selec
 
 ## Connection to large markets
 
-APT is the **first** place in financial mathematics where an argument relies on infinitely many assets. This line was later formalized by Kabanov and Kramkov ([[asymptotic-arbitrage-large-markets|large financial markets]]) and led to the notions of asymptotic arbitrage, contiguity, and a generalized FTAP in the limit. APT can be viewed as the "engineering predecessor" of this more general theory.
+APT is the **first** place in financial mathematics where an argument relies on infinitely many assets. This line was later formalized by Kabanov and Kramkov and led to the notions of asymptotic arbitrage, contiguity, and a generalized FTAP in the limit. APT can be viewed as the "engineering predecessor" of this more general theory.
 
 From the [[ftap-first-fundamental-theorem|FTAP]] viewpoint, APT is a statement about the special structure of the martingale measure in factor models: in the $n \to \infty$ limit the EMM "focuses" on factor risk-neutrality, while idiosyncratic components become uncompensated.
 

@@ -9,7 +9,7 @@ lang: "en"
 
 What happens to the notion of [[arbitrage-definition|arbitrage]] when the number of traded assets grows to infinity? This is not a scholastic question — real economies trade enormous numbers of instruments, and Ross's APT (Arbitrage Pricing Theory, 1976) is in principle formulated in the limit $N \to \infty$.
 
-Shiryaev ([[shiryaev-stochastic-finance|Vol. 2, Ch. VI, §3]]) formalizes this limit via the notion of a **large financial market** — an infinite sequence of arbitrage-free markets $(S^k)_{k \geq 1}$ — and introduces **asymptotic arbitrage**: a strategy that on the $k$-th market is not arbitrage but in the limit $k \to \infty$ becomes "ever better."
+Shiryaev formalizes this limit via the notion of a **large financial market** — an infinite sequence of arbitrage-free markets $(S^k)_{k \geq 1}$ — and introduces **asymptotic arbitrage**: a strategy that on the $k$-th market is not arbitrage but in the limit $k \to \infty$ becomes "ever better."
 
 ## The large market
 
@@ -53,7 +53,7 @@ Formally: the discrepancy $\sum_i (\alpha_i - \lambda \beta_i)^2$ must be bounde
 
 Contiguity is also responsible for **model convergence**: when approximating the [[black-scholes|continuous Black-Scholes model]] by a sequence of [[crr-model|binomial models]] with steps $\Delta t = T/k$, contiguity of the historical and risk-neutral measure sequences ensures that binomial option prices converge to BS prices.
 
-Without contiguity this convergence could fail (the limit measure might "forget" null sets). Shiryaev in §3c-3d uses contiguity precisely for this purpose.
+Without contiguity this convergence could fail (the limit measure might "forget" null sets). Shiryaev in uses contiguity precisely for this purpose.
 
 ## Practical significance
 

@@ -9,7 +9,7 @@ lang: "en"
 
 The Bachelier formula is the **historical predecessor** of the [[black-scholes|Black-Scholes formula]], published by Louis Bachelier in his doctoral thesis "Théorie de la spéculation" in 1900 — **73 years** before Black, Scholes, and Merton. It is the first rational option-pricing formula in history derived from a stochastic model of the underlying.
 
-[[shiryaev-stochastic-finance|Shiryaev]] (Vol. 2, Ch. VIII, §1a) opens the continuous-time chapter with Bachelier — partly out of historical respect, partly because the Bachelier model has been **revived** in modern practice for markets where prices can go negative (e.g. oil in 2020 or interest rates near zero).
+[[shiryaev-stochastic-finance|Shiryaev]] opens the continuous-time chapter with Bachelier — partly out of historical respect, partly because the Bachelier model has been **revived** in modern practice for markets where prices can go negative (e.g. oil in 2020 or interest rates near zero).
 
 ## Bachelier's model
 
@@ -32,7 +32,7 @@ A European call with strike $K$ and maturity $T$ has payoff $H = (S_T - K)^+$. U
 
 Let $S_T \sim \mathcal{N}(S_0, \sigma^2 T)$ (under $\mathbb{Q}$, $r = 0$). Set $d = (S_0 - K)/(\sigma\sqrt{T})$. Then
 
-$$C_0 = \mathbb{E}^\mathbb{Q}[(S_T - K)^+] = \int_K^\infty (s - K) \cdot \frac{1}{\sigma\sqrt{T}} \phi\!\left( \frac{s - S_0}{\sigma\sqrt{T}} \right) ds,$$
+$$C_0 = \mathbb{E}^\mathbb{Q}[(S_T - K)^+] = \int_K^\infty (s - K) \cdot \frac{1}{\sigma\sqrt{T}} \phi\!\left(\frac{s - S_0}{\sigma\sqrt{T}} \right) ds,$$
 
 where $\phi$ is the standard normal density. Computing the integral (standard trick: split into $\int s \, dF$ and $-K \int dF$):
 
