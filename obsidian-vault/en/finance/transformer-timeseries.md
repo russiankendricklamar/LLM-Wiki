@@ -1,6 +1,6 @@
 ---
 title: "Transformers for Time Series"
-category: "Algorithms & ML"
+category: "Algorithms and ML"
 order: 106
 lang: "en"
 ---

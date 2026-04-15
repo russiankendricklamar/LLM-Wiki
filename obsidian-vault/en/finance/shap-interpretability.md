@@ -1,6 +1,6 @@
 ---
 title: "SHAP and ML Model Interpretability"
-category: "Algorithms & ML"
+category: "Algorithms and ML"
 order: 108
 lang: "en"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Online Learning and Multi-Armed Bandits"
-category: "Algorithms & ML"
+category: "Algorithms and ML"
 order: 115
 lang: "en"
 ---

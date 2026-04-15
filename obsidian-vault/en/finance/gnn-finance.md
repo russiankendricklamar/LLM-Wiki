@@ -1,6 +1,6 @@
 ---
 title: "Graph Neural Networks in Finance"
-category: "Algorithms & ML"
+category: "Algorithms and ML"
 order: 114
 lang: "en"
 ---

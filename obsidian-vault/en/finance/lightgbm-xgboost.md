@@ -1,6 +1,6 @@
 ---
 title: "LightGBM and XGBoost for Factor Signals"
-category: "Algorithms & ML"
+category: "Algorithms and ML"
 order: 109
 lang: "en"
 ---
