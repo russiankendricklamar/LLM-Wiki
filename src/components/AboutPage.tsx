@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowRight, Network } from 'lucide-react';
+import { getNavigation } from '../lib/content-loader';
+
+const WIKI_EXCLUDED_CATEGORIES = new Set([
+  'Home', 'Главная',
+  'Projects', 'Проекты',
+  'About', 'About Me', 'Обо мне', 'О себе',
+]);
 
 interface AboutPageProps {
   lang: 'en' | 'ru';
@@ -44,6 +51,16 @@ const ABOUT = {
       techniques: ['Tool-Use SFT', 'RAFT', 'CoT Distillation', 'KTO', 'Anti-Forgetting Mix', 'LoRA Routing', 'C++ via pybind11'],
       infra: 'Apple M5 Pro 48 GB · MLX · 3 LoRA adapters (regulatory / pricing / analysis)',
     },
+    additionalResearch: [
+      {
+        title: 'Mathematical modelling of central-bank inflation targeting',
+        desc: 'Monetary-policy reaction functions under inflation-expectation shocks in small open economies — Taylor rules, DSGE estimation, and regime robustness under structural breaks.',
+      },
+      {
+        title: 'Non-Gaussian models for structured-product fair value',
+        desc: 'Benchmarking heavy-tailed and jump-augmented models (stochastic volatility, Lévy processes, jump-diffusion) against the log-normal baseline for path-dependent and barrier payoffs under IFRS 13.',
+      },
+    ],
     interestsTitle: 'Interests',
     interests: [
       { title: 'LLM Agents in Finance', desc: 'Building multi-agent systems that interpret macroeconomic protocols, automate IFRS 9 valuation workflows, and generate structured risk reports.' },
@@ -52,9 +69,15 @@ const ABOUT = {
       { title: 'Quantitative Risk', desc: 'VaR, stress testing, derivatives pricing under IFRS 9/13, systemic risk via DebtRank, and contagion modelling with network theory.' },
       { title: 'Signal Processing', desc: 'Applying Kalman filters, Hilbert-Huang transforms, wavelet decomposition, and singular spectral analysis to market microstructure data.' },
       { title: 'High-Performance Computing', desc: 'Accelerating GARCH, HMM, and Monte Carlo engines 200x+ with C++ extensions via pybind11 and parallel computation with OpenMP.' },
+      { title: 'Quantum Gravity & Information', desc: 'Hawking radiation, the black hole information paradox, Page curves, and the island formula — how unitarity is restored where quantum fields meet event horizons.' },
+      { title: 'Digital Gardening', desc: 'Running this site as an Obsidian vault rendered into a living knowledge graph — markdown-first, bilingual, wikilinks resolved client-side, 3D force-graph visualisation.' },
     ],
     projectsTitle: 'Projects',
     viewAll: 'View all projects',
+    wikiStatsTitle: 'Knowledge Base',
+    wikiStatsTotal: 'articles across',
+    wikiStatsCategories: 'categories',
+    wikiStatsViewGraph: 'Open knowledge graph',
     socials: {
       github: 'https://github.com/russiankendricklamar',
       linkedin: 'https://www.linkedin.com/in/russiankendricklamar/?locale=ru',
@@ -97,6 +120,16 @@ const ABOUT = {
       techniques: ['Tool-Use SFT', 'RAFT', 'CoT Distillation', 'KTO', 'Anti-Forgetting Mix', 'LoRA Routing', 'C++ через pybind11'],
       infra: 'Apple M5 Pro 48 ГБ · MLX · 3 LoRA-адаптера (regulatory / pricing / analysis)',
     },
+    additionalResearch: [
+      {
+        title: 'Математическое моделирование таргетирования инфляции ЦБ',
+        desc: 'Функции реакции денежно-кредитной политики на шоки инфляционных ожиданий в малых открытых экономиках — правила Тейлора, оценка DSGE-моделей, устойчивость режима таргетирования при структурных разрывах.',
+      },
+      {
+        title: 'Не-Гауссовские модели для оценки справедливой стоимости структурных продуктов',
+        desc: 'Сравнение моделей с тяжёлыми хвостами и скачками (стохастическая волатильность, процессы Леви, jump-diffusion) с лог-нормальным бенчмарком для путевых и барьерных выплат в рамках МСФО 13.',
+      },
+    ],
     interestsTitle: 'Интересы',
     interests: [
       { title: 'LLM-агенты в финансах', desc: 'Строю мульти-агентные системы, которые интерпретируют макроэкономические протоколы, автоматизируют оценку по МСФО 9 и генерируют структурированные риск-отчёты.' },
@@ -105,9 +138,15 @@ const ABOUT = {
       { title: 'Количественный риск', desc: 'VaR, стресс-тесты, оценка деривативов по МСФО 9/13, системный риск через DebtRank и моделирование контагиона в сетях.' },
       { title: 'Обработка сигналов', desc: 'Фильтры Калмана, преобразование Гильберта-Хуанга, вейвлеты и сингулярный спектральный анализ применительно к микроструктуре рынка.' },
       { title: 'Высокопроизводительные вычисления', desc: 'Ускорение движков GARCH, HMM и Монте-Карло в 200+ раз с помощью расширений C++ через pybind11 и параллельных вычислений на OpenMP.' },
+      { title: 'Квантовая гравитация и информация', desc: 'Излучение Хокинга, парадокс информации чёрных дыр, кривая Пейджа и формула островов — как восстанавливается унитарность там, где квантовые поля встречаются с горизонтами событий.' },
+      { title: 'Цифровое садоводство', desc: 'Веду эту вики как Obsidian-вольт, рендерящийся в живой граф знаний — markdown-first, билингв, с wikilinks на клиенте и 3D force-graph визуализацией.' },
     ],
     projectsTitle: 'Проекты',
     viewAll: 'Все проекты',
+    wikiStatsTitle: 'База знаний',
+    wikiStatsTotal: 'статей в',
+    wikiStatsCategories: 'категориях',
+    wikiStatsViewGraph: 'Открыть граф знаний',
     socials: {
       github: 'https://github.com/russiankendricklamar',
       linkedin: 'https://www.linkedin.com/in/russiankendricklamar/?locale=ru',
@@ -118,6 +157,17 @@ const ABOUT = {
 
 export const AboutPage: React.FC<AboutPageProps> = ({ lang }) => {
   const d = ABOUT[lang];
+
+  const wikiStats = React.useMemo(() => {
+    const nav = getNavigation(lang);
+    const categories = nav
+      .filter(cat => !WIKI_EXCLUDED_CATEGORIES.has(cat.title))
+      .map(cat => ({ label: cat.title, count: cat.items.length }))
+      .filter(c => c.count > 0)
+      .sort((a, b) => b.count - a.count);
+    const total = categories.reduce((sum, c) => sum + c.count, 0);
+    return { categories, total };
+  }, [lang]);
 
   return (
     <motion.div
@@ -281,6 +331,21 @@ export const AboutPage: React.FC<AboutPageProps> = ({ lang }) => {
           </div>
           <p className="text-[11px] text-zinc-400 dark:text-zinc-500 font-mono">{d.researchProject.infra}</p>
         </div>
+
+        <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+          {d.additionalResearch.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
+              className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 p-4"
+            >
+              <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 leading-snug">{item.title}</p>
+              <p className="mt-1.5 text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
       {/* ── Interests ── */}
@@ -301,6 +366,42 @@ export const AboutPage: React.FC<AboutPageProps> = ({ lang }) => {
               <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* ── Wiki stats ── */}
+      <section>
+        <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+          {d.wikiStatsTitle}
+        </h2>
+        <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 p-5">
+          <p className="text-sm text-zinc-600 dark:text-zinc-300">
+            <span className="text-2xl font-black text-zinc-900 dark:text-zinc-100 align-middle">{wikiStats.total}</span>
+            <span className="ml-2">{d.wikiStatsTotal}</span>
+            <span className="ml-1 font-bold text-zinc-900 dark:text-zinc-100">{wikiStats.categories.length}</span>
+            <span className="ml-1">{d.wikiStatsCategories}</span>
+          </p>
+
+          <div className="mt-4 flex flex-wrap gap-2">
+            {wikiStats.categories.map(cat => (
+              <div
+                key={cat.label}
+                className="inline-flex items-baseline gap-1.5 rounded-md border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-2.5 py-1"
+              >
+                <span className="text-[11px] font-medium text-zinc-600 dark:text-zinc-300">{cat.label}</span>
+                <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 tabular-nums">{cat.count}</span>
+              </div>
+            ))}
+          </div>
+
+          <Link
+            to="/knowledge-graph"
+            className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 transition-colors"
+          >
+            <Network className="h-3.5 w-3.5" />
+            {d.wikiStatsViewGraph}
+            <ArrowRight className="h-3 w-3" />
+          </Link>
         </div>
       </section>
 
