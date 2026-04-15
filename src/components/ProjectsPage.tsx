@@ -185,19 +185,23 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ lang }) => {
                   )}
 
                   <div className="mt-auto flex items-center justify-between gap-3 pt-6">
-                    <Link
-                      to={m.slug}
-                      className="group/link inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-900 dark:text-white"
-                    >
-                      {copy.open}
-                      <motion.span
-                        className="inline-flex"
-                        whileHover={{ x: 3, y: -3 }}
-                        transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                    {m.hideOpen ? (
+                      <span />
+                    ) : (
+                      <Link
+                        to={m.slug}
+                        className="group/link inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-900 dark:text-white"
                       >
-                        <ArrowUpRight className="h-4 w-4" />
-                      </motion.span>
-                    </Link>
+                        {copy.open}
+                        <motion.span
+                          className="inline-flex"
+                          whileHover={{ x: 3, y: -3 }}
+                          transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                        >
+                          <ArrowUpRight className="h-4 w-4" />
+                        </motion.span>
+                      </Link>
+                    )}
                     <div className="flex items-center gap-2">
                       {m.github && (
                         <motion.a

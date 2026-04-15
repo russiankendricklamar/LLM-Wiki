@@ -22,6 +22,7 @@ export interface PageMetadata {
   github?: string;
   demo?: string;
   year?: string;
+  hideOpen?: boolean;
 }
 
 export interface PageContent {
@@ -112,6 +113,7 @@ export const getAllPages = (): PageContent[] => {
         github: data.github || undefined,
         demo: data.demo || undefined,
         year: data.year !== undefined ? String(data.year) : undefined,
+        hideOpen: data.hideOpen === true,
       },
       content
     };
