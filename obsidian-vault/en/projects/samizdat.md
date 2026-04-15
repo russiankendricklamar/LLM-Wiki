@@ -1,5 +1,5 @@
 ---
-title: "Samizdat"
+title: "Кто живёт в панельке Хаски?"
 category: "Projects"
 order: 2
 lang: "en"
@@ -13,7 +13,7 @@ url: "https://russiankendricklamar.github.io/samizdat/"
 description: "A brutalist samizdat zine about Russian rap: 'Who lives in Husky's panelka?' — staged 1970s print, concrete, red and black, LUBOK borders, and an 'APPROVED' stamp."
 ---
 
-# Samizdat
+# Кто живёт в панельке Хаски?
 
 **A brutalist samizdat zine about Russian rap.** A single-page site built as a staged print publication — 1970s typography, pasted text blocks, LUBOK borders, a red "APPROVED" stamp, and the headline: *"Who lives in Husky's panelka?"*.
 
