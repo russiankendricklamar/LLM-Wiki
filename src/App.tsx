@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { PageLayout } from './components/PageLayout';
 import { MarkdownRenderer } from './components/MarkdownRenderer';
@@ -131,8 +131,8 @@ export default function App() {
   const [lang, setLang] = React.useState<'en' | 'ru'>('ru');
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <RouterShell lang={lang} setLang={setLang} />
-    </HashRouter>
+    </BrowserRouter>
   );
 }
