@@ -67,8 +67,11 @@ const parseFrontmatter = (fileContent: string) => {
   return { data, content };
 };
 
+let _cachedPages: PageContent[] | null = null;
+
 export const getAllPages = (): PageContent[] => {
-  return Object.entries(rawFiles).map(([filePath, rawContent]) => {
+  if (_cachedPages) return _cachedPages;
+  _cachedPages = Object.entries(rawFiles).map(([filePath, rawContent]) => {
     const { data, content } = parseFrontmatter(rawContent as string);
     
     // Detect language from path (en or ru)
@@ -118,6 +121,7 @@ export const getAllPages = (): PageContent[] => {
       content
     };
   });
+  return _cachedPages;
 };
 
 /**
