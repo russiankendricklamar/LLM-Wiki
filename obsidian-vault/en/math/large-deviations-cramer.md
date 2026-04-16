@@ -9,7 +9,7 @@ lang: "en"
 
 Large Deviations Theory (LDT) is the fourth and subtlest level of limit theorems for sums of independent variables, after the [[law-of-large-numbers|LLN]] (order $1$), the [[central-limit-theorem|CLT]] (order $\sqrt{n}$), and the [[law-iterated-logarithm|LIL]] (order $\sqrt{n \log\log n}$).
 
-The LLN says $\mathbb{P}(S_n/n > x) \to 0$ for $x > \mathbb{E}[X]$; the CLT gives a typical fluctuation $\sigma/\sqrt{n}$. But **how fast** does $\mathbb{P}(S_n/n > x)$ go to zero? Large deviations theory answers: **exponentially fast**, and gives the exact exponent. of Shiryaev's [[shiryaev-probability|"Probability"]] contains the classical Cramer theorem. The same approach — exponential tail bounds — underlies **concentration of measure**, statistical mechanics (large deviations from the thermodynamic limit), information theory (Sanov's theorem), and modern machine learning (Hoeffding-Bernstein-type bounds).
+The LLN says $\mathbb{P}(S_n/n > x) \to 0$ for $x > \mathbb{E}[X]$; the CLT gives a typical fluctuation $\sigma/\sqrt{n}$. But **how fast** does $\mathbb{P}(S_n/n > x)$ go to zero? Large deviations theory answers: **exponentially fast**, and gives the exact exponent. of Shiryaev's "Probability" contains the classical Cramer theorem. The same approach — exponential tail bounds — underlies **concentration of measure**, statistical mechanics (large deviations from the thermodynamic limit), information theory (Sanov's theorem), and modern machine learning (Hoeffding-Bernstein-type bounds).
 
 ## Setup
 

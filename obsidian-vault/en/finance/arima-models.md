@@ -227,3 +227,4 @@ fit = fit_arima_model(log_prices, p=p, d=d, q=q)
 - [[levy-processes]]
 - [[arma-models]]
 - [[ar-models]]
+- [[cointegration]] — ARIMA with cointegration for multivariate series

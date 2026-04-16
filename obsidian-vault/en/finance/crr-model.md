@@ -7,7 +7,7 @@ lang: "en"
 
 # Cox-Ross-Rubinstein Binomial Model (CRR)
 
-The Cox-Ross-Rubinstein model (1979) is the simplest non-trivial arbitrage-free and **complete** [[bs-market-self-financing|(B,S)-model]]. In [[shiryaev-stochastic-finance|Shiryaev]] it plays the role of a worked example: the unique martingale measure is computed explicitly, the replicating portfolio is built explicitly, and the binomial option-pricing formula falls out directly — and in the limit converges to the [[black-scholes|Black-Scholes formula]].
+The Cox-Ross-Rubinstein model (1979) is the simplest non-trivial arbitrage-free and **complete** [[bs-market-self-financing|(B,S)-model]]. In Shiryaev it plays the role of a worked example: the unique martingale measure is computed explicitly, the replicating portfolio is built explicitly, and the binomial option-pricing formula falls out directly — and in the limit converges to the [[black-scholes|Black-Scholes formula]].
 
 CRR is the "arithmetic" of arbitrage theory: everything that requires functional analysis and separation theorems in the general case here reduces to a single linear equation.
 

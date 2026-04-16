@@ -7,7 +7,7 @@ lang: "en"
 
 # Arbitrage and Its Absence
 
-"Arbitrage" is the technical heart of all modern financial mathematics. In [[shiryaev-stochastic-finance|Shiryaev]] the notion is introduced rigorously and then exploited again and again as the **main filter**: market models that admit arbitrage are deemed unrealistic and unfit as foundations for pricing theory. Every pricing formula — Black-Scholes, Bachelier, binomial — is a consequence of the requirement "the model must be arbitrage-free."
+"Arbitrage" is the technical heart of all modern financial mathematics. In Shiryaev the notion is introduced rigorously and then exploited again and again as the **main filter**: market models that admit arbitrage are deemed unrealistic and unfit as foundations for pricing theory. Every pricing formula — Black-Scholes, Bachelier, binomial — is a consequence of the requirement "the model must be arbitrage-free."
 
 ## Intuition
 
@@ -48,7 +48,7 @@ In discrete time NA suffices for the entire theory. In **continuous** time subtl
 - **NFLVR (No Free Lunch with Vanishing Risk)** — Delbaen and Schachermayer, 1994. Forbids not only arbitrage but also sequences of "almost-arbitrages" whose risk vanishes in the limit. This is the right condition for semimartingale models.
 - **NA1 / NUPBR (No Unbounded Profit with Bounded Risk)** — weaker than NFLVR, but sufficient for the existence of a numéraire and for pricing.
 
-In discrete time all these conditions reduce to classical NA — and [[shiryaev-stochastic-finance|Shiryaev]] confines himself to NA in.
+In discrete time all these conditions reduce to classical NA — and Shiryaev confines himself to NA in.
 
 ## Why bother: the first fundamental theorem
 

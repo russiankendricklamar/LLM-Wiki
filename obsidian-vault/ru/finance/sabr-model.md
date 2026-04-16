@@ -198,3 +198,4 @@ for k, mkt, fit in zip(strikes, market_vols, fitted):
 - [[black-scholes]]
 - [[oas]]
 - [[xva]]
+- [[asymptotic-expansion-finance]] — методы разложений за формулой подразумеваемой волатильности SABR

@@ -124,3 +124,4 @@ or a two-factor parameterization $\rho_{ij} = \rho_\infty + (1 - \rho_\infty) e^
 - [[black-scholes]]
 - [[monte-carlo-method]]
 - [[swaps]]
+- [[hjm-framework]] — the HJM framework from which LMM is derived

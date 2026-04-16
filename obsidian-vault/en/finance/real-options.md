@@ -116,3 +116,4 @@ For finite-lived projects, there is no closed-form solution in general. Numerica
 - [[brownian-motion]]
 - [[heston-model]]
 - [[swaps]]
+- [[energy-commodity-derivatives]] — real options applied to energy and commodity markets

@@ -9,7 +9,7 @@ lang: "en"
 
 Stock options are priced in Black-Scholes under the assumption that the **asset** is random while the **discount rate** is deterministic. For bond options both these assumptions must be inverted: the bond price at any moment is rigidly determined by the short rate, and the rate itself is a stochastic process. This requires a completely different modelling approach.
 
-[[shiryaev-stochastic-finance|Shiryaev]] devotes a separate section to this, focusing on **one-factor Gaussian models** — Vasicek and Hull-White — where the rate evolves as an Ornstein-Uhlenbeck process and admits closed-form bond-option formulas.
+Shiryaev devotes a separate section to this, focusing on **one-factor Gaussian models** — Vasicek and Hull-White — where the rate evolves as an Ornstein-Uhlenbeck process and admits closed-form bond-option formulas.
 
 ## The Vasicek model
 

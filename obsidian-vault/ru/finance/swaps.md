@@ -199,3 +199,5 @@ print(f"DV01:                            ${result['dv01']:,.0f}")
 - [[cs01]]
 - [[dv01]]
 - [[value-at-risk]]
+- [[bootstrapping-yield-curve]] — построение дисконтных кривых из свопов
+- [[cost-of-carry]] — carry и roll-down в портфелях свопов

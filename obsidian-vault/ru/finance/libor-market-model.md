@@ -124,3 +124,4 @@ $$
 - [[black-scholes]]
 - [[monte-carlo-method]]
 - [[swaps]]
+- [[hjm-framework]] — фреймворк HJM, из которого выводится LMM

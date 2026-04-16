@@ -9,7 +9,7 @@ lang: "en"
 
 Stable distributions are a natural generalization of the normal distribution that preserves the key "stability under summation" property while allowing **heavy tails** and **asymmetry**. They were introduced by Paul Lévy in 1925 and gained financial currency thanks to Benoît Mandelbrot, who showed in 1963 that cotton-futures returns are far better described by a stable distribution with $\alpha \approx 1.7$ than by a normal one.
 
-[[shiryaev-stochastic-finance|Shiryaev]] devotes a substantial section to them — because stable distributions provide the **first mathematically rigorous way** to describe heavy tails of financial returns, and because they generate an entire class of [[levy-esscher-continuous|Lévy processes]] more general than Brownian motion.
+Shiryaev devotes a substantial section to them — because stable distributions provide the **first mathematically rigorous way** to describe heavy tails of financial returns, and because they generate an entire class of [[levy-esscher-continuous|Lévy processes]] more general than Brownian motion.
 
 ## The stability property
 

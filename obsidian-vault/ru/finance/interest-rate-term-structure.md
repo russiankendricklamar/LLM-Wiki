@@ -100,8 +100,8 @@ $$
 
 | Модель | Динамика | Факторы |
 |:-------|:---------|:--------|
-| [[short-rate-models\|Vasicek]] | $dr = a(b-r)\,dt + \sigma\,dW$ | 1 (гауссовский с возвратом к среднему) |
-| [[short-rate-models\|CIR]] | $dr = a(b-r)\,dt + \sigma\sqrt{r}\,dW$ | 1 (неотрицательный) |
+| [[short-rate-models|Vasicek]] | $dr = a(b-r)\,dt + \sigma\,dW$ | 1 (гауссовский с возвратом к среднему) |
+| [[short-rate-models|CIR]] | $dr = a(b-r)\,dt + \sigma\sqrt{r}\,dW$ | 1 (неотрицательный) |
 | Многофакторный | $d\mathbf{X} = \mathbf{K}(\boldsymbol{\theta} - \mathbf{X})\,dt + \boldsymbol{\Sigma}\,d\mathbf{W}$ | 2-3 (уровень, наклон, кривизна) |
 
 Цена облигации в аффинных моделях:

@@ -113,3 +113,4 @@ This classification is fundamental for understanding when solutions are global (
 - [[semimartingale-models]] — SDEs as semimartingales.
 - [[doleans-dade-exponential]] — the stochastic exponential solving a linear SDE.
 - [[conditionally-gaussian-processes]] — linear SDEs with random coefficients.
+- [[martingale-problem]] — Stroock-Varadhan formulation of weak solutions via martingales.

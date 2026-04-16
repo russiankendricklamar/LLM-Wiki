@@ -15,7 +15,7 @@ This explains why:
 - Asset prices over short horizons are roughly normal (sum of many small trades).
 - Noise in physical detectors is roughly normal.
 
-The CLT is the universal "complexity compactor": however different the underlying distributions, **their large sums look the same**. of Shiryaev's [[shiryaev-probability|"Probability"]] gives the rigorous statement and the classical proof via [[characteristic-functions|characteristic functions]].
+The CLT is the universal "complexity compactor": however different the underlying distributions, **their large sums look the same**. of Shiryaev's "Probability" gives the rigorous statement and the classical proof via [[characteristic-functions|characteristic functions]].
 
 ## Classical statement
 
@@ -129,3 +129,5 @@ From the **history of mathematics** viewpoint the CLT is the prime example of ho
 - [[stable-distributions]] — generalized CLT for heavy tails.
 - [[stylized-facts-returns]] — where the classical CLT fails on financial data.
 - [[crr-model]] — limit transition CRR → BS as an example of the CLT in finance.
+- [[local-limit-theorems]] — pointwise refinements of the CLT for lattice and non-lattice distributions.
+- [[poisson-approximation]] — Poisson limit as a complement to the Gaussian CLT for rare events.

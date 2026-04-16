@@ -9,7 +9,7 @@ lang: "en"
 
 The Bachelier formula is the **historical predecessor** of the [[black-scholes|Black-Scholes formula]], published by Louis Bachelier in his doctoral thesis "Théorie de la spéculation" in 1900 — **73 years** before Black, Scholes, and Merton. It is the first rational option-pricing formula in history derived from a stochastic model of the underlying.
 
-[[shiryaev-stochastic-finance|Shiryaev]] opens the continuous-time chapter with Bachelier — partly out of historical respect, partly because the Bachelier model has been **revived** in modern practice for markets where prices can go negative (e.g. oil in 2020 or interest rates near zero).
+Shiryaev opens the continuous-time chapter with Bachelier — partly out of historical respect, partly because the Bachelier model has been **revived** in modern practice for markets where prices can go negative (e.g. oil in 2020 or interest rates near zero).
 
 ## Bachelier's model
 

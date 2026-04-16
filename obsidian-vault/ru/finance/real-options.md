@@ -116,3 +116,4 @@ $$
 - [[brownian-motion]]
 - [[heston-model]]
 - [[swaps]]
+- [[energy-commodity-derivatives]] — реальные опционы на энергетических и сырьевых рынках

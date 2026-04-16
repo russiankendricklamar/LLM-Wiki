@@ -7,7 +7,7 @@ lang: "en"
 
 # First Fundamental Theorem (FTAP)
 
-The First Fundamental Theorem of Asset Pricing (FTAP) is the central result of [[shiryaev-stochastic-finance|Shiryaev]], linking two notions that at first sight live in different universes: the economic condition of [[arbitrage-definition|no-arbitrage]] and the probabilistic existence of a martingale measure. The theorem says they are equivalent.
+The First Fundamental Theorem of Asset Pricing (FTAP) is the central result of Shiryaev, linking two notions that at first sight live in different universes: the economic condition of [[arbitrage-definition|no-arbitrage]] and the probabilistic existence of a martingale measure. The theorem says they are equivalent.
 
 This statement is so foundational that the entire modern theory of derivative pricing is built on top of it: every time you see a formula "option price = $\mathbb{E}^\mathbb{Q}[\text{payoff}]$," you are seeing FTAP at work.
 

@@ -9,7 +9,7 @@ lang: "en"
 
 The Law of Large Numbers (LLN) is the earliest and most fundamental statement in probability theory. It formalizes the intuition that **frequencies converge to probabilities**: tossing a fair coin many times, the fraction of heads approaches $1/2$. Jakob Bernoulli proved the first version in 1713 — for the binomial distribution; it is called the "Golden Theorem" of probability theory.
 
-The LLN exists in two principal forms: **weak** (convergence in probability) and **strong** (almost-sure convergence). The strong LLN is one of the deepest theorems of elementary probability. and of Shiryaev's [[shiryaev-probability|"Probability"]] examine them in detail.
+The LLN exists in two principal forms: **weak** (convergence in probability) and **strong** (almost-sure convergence). The strong LLN is one of the deepest theorems of elementary probability. and of Shiryaev's "Probability" examine them in detail.
 
 ## Weak law of large numbers
 

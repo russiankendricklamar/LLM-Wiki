@@ -269,3 +269,4 @@ Robustness can be tested using [[monte-carlo-method]] to simulate thousands of "
 - [[monte-carlo-method]]
 - [[ornstein-uhlenbeck-process]]
 - [[particle-filter]]
+- [[cointegration]] — formal Engle-Granger and Johansen tests for pair selection

@@ -98,3 +98,4 @@ This criterion converts the analytic problem of tightness into checkable conditi
 - [[semimartingale-models]] — predictable characteristics driving the convergence.
 - [[convergence-semimartingales]] — the full Jacod-Shiryaev convergence theorem.
 - [[levy-processes]] — limits of compound Poisson approximations.
+- [[triangular-arrays-processes]] — functional limits for triangular array schemes.

@@ -9,7 +9,7 @@ lang: "en"
 
 The ergodic theorem extends the [[law-of-large-numbers|Law of Large Numbers]] to **dependent** sequences. It states: if a stochastic process is **stationary** (statistical properties do not change in time) and **ergodic** (long trajectories "explore" the entire state space), then the time average equals the ensemble average.
 
-This is the central theorem of **ergodic theory** — the branch of mathematics joining dynamical systems, statistical mechanics, and probability. Birkhoff in 1931 proved it for continuous dynamical systems; Khintchine in 1933 for discrete ones. Shiryaev's [[shiryaev-probability|"Probability"]] is devoted to ergodic theory.
+This is the central theorem of **ergodic theory** — the branch of mathematics joining dynamical systems, statistical mechanics, and probability. Birkhoff in 1931 proved it for continuous dynamical systems; Khintchine in 1933 for discrete ones. Shiryaev's "Probability" is devoted to ergodic theory.
 
 The ergodic theorem is the mathematical basis for why **long observation of one system** gives the same information as **one observation of a large ensemble**. This is a statement in the spirit of the physical notion of "equilibrium."
 
@@ -113,3 +113,4 @@ In machine learning this becomes the concept of **"ergodic accessibility"** in R
 - [[shannon-entropy]] — connection to Kolmogorov-Sinai entropy.
 - [[arch-models]], [[garch-models]] — econometric models for which ergodicity is required.
 - [[kolmogorov-probability-axioms]] — foundation.
+- [[stochastic-recursive-sequences]] — ergodic theory applied to iterated random maps.

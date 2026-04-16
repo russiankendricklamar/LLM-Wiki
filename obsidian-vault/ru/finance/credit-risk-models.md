@@ -203,3 +203,4 @@ print(f"5-летняя дефолтная облигация: {bond_px:.4f}")
 - [[xva]]
 - [[black-scholes]]
 - [[value-at-risk]]
+- [[credit-migration]] — матрицы переходов и динамика рейтингов

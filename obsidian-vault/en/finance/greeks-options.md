@@ -117,3 +117,5 @@ where $n_B$ is the quantity of hedge option $B$ and $n_S$ is the residual stock 
 - [[option-strategies]]
 - [[heston-model]]
 - [[geometric-brownian-motion]]
+- [[exotic-options]] — Greeks for barrier, Asian, and other non-vanilla payoffs
+- [[delta-hedging-practice]] — practical implementation of delta-neutral portfolios

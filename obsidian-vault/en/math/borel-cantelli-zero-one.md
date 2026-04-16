@@ -7,7 +7,7 @@ lang: "en"
 
 # Borel-Cantelli Lemmas and Zero-One Laws
 
-The Borel-Cantelli lemmas and the related **zero-one laws** are the main technical tools for working with **infinite** events: "infinitely often," "eventually," "always after some moment." They state that for a wide class of such events the probability takes only the values 0 or 1 — no "intermediate" $0.42$ ever occurs. of Shiryaev's [[shiryaev-probability|"Probability"]] is devoted to zero-one laws, and the Borel-Cantelli lemmas are used in to prove the strong [[law-of-large-numbers|Law of Large Numbers]].
+The Borel-Cantelli lemmas and the related **zero-one laws** are the main technical tools for working with **infinite** events: "infinitely often," "eventually," "always after some moment." They state that for a wide class of such events the probability takes only the values 0 or 1 — no "intermediate" $0.42$ ever occurs. of Shiryaev's "Probability" is devoted to zero-one laws, and the Borel-Cantelli lemmas are used in to prove the strong [[law-of-large-numbers|Law of Large Numbers]].
 
 It is the "zen of probability theory": some events **inevitably happen always or never**, and the role of the theorem is to determine which of the two occurs.
 
@@ -120,3 +120,4 @@ In machine learning this becomes the concept of **"stationary" features**: featu
 - [[ergodic-theorems-birkhoff]] — generalization via ergodicity.
 - [[characteristic-functions]] — parallel technique for limit theorems.
 - [[brownian-motion]] — Blumenthal's 0-1 law as the continuous analogue.
+- [[glivenko-cantelli]] — uniform convergence of the empirical CDF, a consequence of Borel-Cantelli.

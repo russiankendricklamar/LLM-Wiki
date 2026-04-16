@@ -114,3 +114,4 @@ Le Cam's third lemma then transfers the convergence from $Q^n$ to $P^n$. This is
 - [[hellinger-processes]] — Hellinger processes for absolute continuity criteria.
 - [[weak-convergence-prokhorov]] — Prokhorov's theorem underlying the proof.
 - [[characteristic-functions]] — the analytic tool for identifying limits.
+- [[convergence-stochastic-integrals]] — convergence of stochastic integrals w.r.t. converging semimartingales.

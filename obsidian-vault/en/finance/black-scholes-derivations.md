@@ -15,7 +15,7 @@ with
 
 $$d_1 = \frac{\log(S_0/K) + (r + \sigma^2/2) T}{\sigma\sqrt{T}}, \qquad d_2 = d_1 - \sigma\sqrt{T}.$$
 
-[[shiryaev-stochastic-finance|Shiryaev]] gives several derivations in parallel to show that the BS formula is not tied to one axiomatization but is a robust consequence of completely different lines of reasoning.
+Shiryaev gives several derivations in parallel to show that the BS formula is not tied to one axiomatization but is a robust consequence of completely different lines of reasoning.
 
 A tour of the four derivations follows.
 

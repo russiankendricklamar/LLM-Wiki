@@ -9,7 +9,7 @@ lang: "en"
 
 Arbitrage Pricing Theory (APT) is an asset pricing model proposed by Stephen Ross in 1976 as an **alternative to [[capm|CAPM]]**. The key idea: instead of an equilibrium argument (homogeneous investor expectations and mean-variance optimization), Ross uses **no asymptotic arbitrage in a large market** as the only assumption.
 
-This makes APT a **weaker but more universal** theory: it requires neither investor rationality nor homogeneity, and admits multiple risk factors instead of a single "market" one. [[shiryaev-stochastic-finance|Shiryaev]] presents APT as the theoretical bridge between classical CAPM and the modern theory of [[asymptotic-arbitrage-large-markets|large markets]].
+This makes APT a **weaker but more universal** theory: it requires neither investor rationality nor homogeneity, and admits multiple risk factors instead of a single "market" one. Shiryaev presents APT as the theoretical bridge between classical CAPM and the modern theory of [[asymptotic-arbitrage-large-markets|large markets]].
 
 ## Setup
 

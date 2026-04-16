@@ -7,7 +7,7 @@ lang: "en"
 
 # Discrete Markov Chains
 
-A Markov chain is a stochastic process whose **future depends only on the present**, not on the full history. This is the oldest (A. A. Markov, 1906) and most widely used model of a "stochastic process with one-step memory." It is enough to cover a wide range of real-world systems — random walks, Google PageRank, Metropolis-Hastings, equilibrium models in physics. Shiryaev's [[shiryaev-probability|"Probability"]] is the most complete introduction to discrete Markov chains in Russian. It is a specially expanded chapter: in the third edition it was rewritten almost from scratch, with detailed theory of stationary distributions and optimal stopping.
+A Markov chain is a stochastic process whose **future depends only on the present**, not on the full history. This is the oldest (A. A. Markov, 1906) and most widely used model of a "stochastic process with one-step memory." It is enough to cover a wide range of real-world systems — random walks, Google PageRank, Metropolis-Hastings, equilibrium models in physics. Shiryaev's "Probability" is the most complete introduction to discrete Markov chains in Russian. It is a specially expanded chapter: in the third edition it was rewritten almost from scratch, with detailed theory of stationary distributions and optimal stopping.
 
 ## Definition
 
@@ -122,3 +122,4 @@ is a martingale. These connections allow applying [[discrete-martingales|marting
 - [[hidden-markov-models]] — practical application in econometrics and NLP.
 - [[reinforcement-learning]] — RL environment as a Markov MDP.
 - [[crr-model]] — financial model as a Markov chain on two states.
+- [[kolmogorov-equations-ctmc]] — Kolmogorov forward/backward equations for continuous-time chains.

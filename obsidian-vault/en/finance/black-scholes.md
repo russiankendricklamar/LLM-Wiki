@@ -229,3 +229,5 @@ for T in maturities:
 - [[monte-carlo-method]]
 - [[brownian-motion]]
 - [[geometric-brownian-motion]]
+- [[exotic-options]] — extensions beyond vanilla European payoffs
+- [[numerical-pde-finance]] — finite-difference and FEM solvers for the BS PDE

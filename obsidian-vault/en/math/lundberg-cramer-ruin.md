@@ -11,7 +11,7 @@ Ruin theory is the classical branch of actuarial mathematics studying the probab
 
 Lundberg's result (1903) and its modern formulation by Cramer (1930s) gives the base formula linking the probability of ruin to the exponential moment of the claim distribution. A beautiful example of martingale theory and exponential bounds answering a question of practical importance.
 
-Shiryaev includes this theorem in [[shiryaev-probability|"Probability"]] as an application of martingale methods.
+Shiryaev includes this theorem in "Probability" as an application of martingale methods.
 
 ## The Cramer-Lundberg model
 
@@ -135,4 +135,4 @@ Probability of ruin: $\psi(u) = \frac{\lambda\mu}{c} e^{-R u}$. This is the only
 - [[stable-distributions]] — heavy-tail regime, alternative approach.
 - [[extreme-value-theory]] — another paradigm for rare events.
 - [[value-at-risk]] — practical application in risk management.
-- [[shiryaev-probability]] — source textbook.
+- Shiryaev's "Probability" — source textbook.

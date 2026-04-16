@@ -9,7 +9,7 @@ lang: "en"
 
 Optimal stopping theory sits at the intersection of probability, dynamic programming, and finance. Given a random process $(X_n)$ and a payoff function $g$, find a stopping time $\tau$ (a random time depending on the observed history) maximizing the expected payoff $\mathbb{E}[g(X_\tau)]$.
 
-This is the precise mathematical framework for problems like "when to sell a stock," "when to exercise an American option," "when to stop an experiment." Shiryaev's [[shiryaev-probability|"Probability"]] contains a complete treatment for Markov chains — and Shiryaev himself was one of the main classics of the theory (his book "Statistical Sequential Analysis" is an early monograph on the subject).
+This is the precise mathematical framework for problems like "when to sell a stock," "when to exercise an American option," "when to stop an experiment." Shiryaev's "Probability" contains a complete treatment for Markov chains — and Shiryaev himself was one of the main classics of the theory (his book "Statistical Sequential Analysis" is an early monograph on the subject).
 
 ## Setup
 
@@ -149,4 +149,4 @@ Numerical methods for VIs: PSOR, projection methods, finite differences with ear
 - [[crr-model]] — binomial model for discrete optimal stopping.
 - [[black-scholes-derivations]] — continuous analogue as a variational inequality.
 - [[reinforcement-learning]] — generalization to MDPs with actions and rewards.
-- [[shiryaev-probability]] — source textbook, rich in examples.
+- Shiryaev's "Probability" — source textbook, rich in examples.

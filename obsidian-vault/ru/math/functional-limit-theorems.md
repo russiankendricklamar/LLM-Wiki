@@ -96,3 +96,4 @@ $$X^n_t = \frac{1}{\sqrt{n}} \sum_{k=1}^{\lfloor nt \rfloor} \xi_k, \qquad t \in
 - [[semimartingale-models]] — предсказуемые характеристики, управляющие сходимостью.
 - [[convergence-semimartingales]] — полная теорема сходимости Жакода-Ширяева.
 - [[levy-processes]] — пределы составных пуассоновских аппроксимаций.
+- [[triangular-arrays-processes]] — функциональные пределы для схем серий.

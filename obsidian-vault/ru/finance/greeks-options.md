@@ -118,3 +118,5 @@ $$
 - [[option-strategies]]
 - [[heston-model]]
 - [[geometric-brownian-motion]]
+- [[exotic-options]] — греки для барьерных, азиатских и других неванильных выплат
+- [[delta-hedging-practice]] — практика построения дельта-нейтральных портфелей

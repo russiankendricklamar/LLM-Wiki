@@ -9,7 +9,7 @@ lang: "en"
 
 Markowitz portfolio theory (1952) is the first mathematically rigorous theory of diversification. Harry Markowitz proposed that **a rational investor should jointly optimize expected return and risk** (interpreted as variance) and showed how to do so as a quadratic optimization problem. He received the Nobel Prize in 1990 for this work.
 
-[[shiryaev-stochastic-finance|Shiryaev]] includes Markowitz as the first "calculation" in the neoclassical theory of finance. It is a **pre-arbitrage** model: it does not invoke no-arbitrage or martingale measures, relying only on statistical moments of returns.
+Shiryaev includes Markowitz as the first "calculation" in the neoclassical theory of finance. It is a **pre-arbitrage** model: it does not invoke no-arbitrage or martingale measures, relying only on statistical moments of returns.
 
 ## Setup
 
@@ -83,7 +83,7 @@ In matrix form: $w_M \propto \Sigma^{-1}(\mu - r_f \mathbf{1})$. This formula is
 
 Markowitz launched a conceptual revolution: before him "investment analysis" was a collection of stories about specific stocks; after him it became a **mathematical discipline** with an explicit optimality criterion. This opened the way to [[capm|CAPM]] (Sharpe-Lintner-Mossin, 1964), [[apt-ross|APT]] (Ross, 1976), and all of modern factor investing.
 
-From [[shiryaev-stochastic-finance|Shiryaev's]] viewpoint Markowitz is the prototypical **pre-stochastic** theory: everything formulated via moments, no processes, no martingales. This is the "statics" of financial mathematics that was later embedded in the dynamic martingale language.
+From Shiryaev's viewpoint Markowitz is the prototypical **pre-stochastic** theory: everything formulated via moments, no processes, no martingales. This is the "statics" of financial mathematics that was later embedded in the dynamic martingale language.
 
 ## Related Articles
 

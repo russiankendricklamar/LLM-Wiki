@@ -210,3 +210,4 @@ print(f"Variance reduction: {(se/se_av)**2:.1f}x")
 - [[qft-basic]]
 - [[mcmc]]
 - [[particle-filter]]
+- [[quasi-monte-carlo]] — low-discrepancy sequences for faster convergence

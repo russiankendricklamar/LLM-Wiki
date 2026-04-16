@@ -9,7 +9,7 @@ lang: "en"
 
 The Capital Asset Pricing Model (CAPM) is an equilibrium theory of asset pricing independently proposed by Sharpe (1964), Lintner (1965), and Mossin (1966) on top of [[markowitz-mean-variance|Markowitz's portfolio theory]]. CAPM gives the **first quantitative formula** for the expected return of a risky asset in terms of a single factor — market risk.
 
-[[shiryaev-stochastic-finance|Shiryaev]] presents CAPM as the "second chapter" of neoclassical financial theory, after Markowitz and before Ross's arbitrage theory. It remains the **starting point** of any work on factor investing: alpha, beta, the Treynor ratio, Jensen's alpha — all of these belong to CAPM's vocabulary.
+Shiryaev presents CAPM as the "second chapter" of neoclassical financial theory, after Markowitz and before Ross's arbitrage theory. It remains the **starting point** of any work on factor investing: alpha, beta, the Treynor ratio, Jensen's alpha — all of these belong to CAPM's vocabulary.
 
 ## The core equation
 
@@ -78,8 +78,8 @@ In CAPM beta is the only risk measure; all idiosyncratic volatility is diversifi
 | Model | Requires | Yields |
 |---|---|---|
 | **CAPM** | equilibrium, mean-variance, homogeneity | $\mathbb{E}[r] = r_f + \beta \cdot (r_M - r_f)$ |
-| **[[apt-ross\|APT]]** | no asymptotic arbitrage, factor representation | $\mathbb{E}[r] = r_f + \sum_k \beta_k \lambda_k$ |
-| **[[ftap-first-fundamental-theorem\|FTAP]]** | no arbitrage | $\mathbb{E}[r] = r_f + \text{premium via martingale measure}$ |
+| **[[apt-ross|APT]]** | no asymptotic arbitrage, factor representation | $\mathbb{E}[r] = r_f + \sum_k \beta_k \lambda_k$ |
+| **[[ftap-first-fundamental-theorem|FTAP]]** | no arbitrage | $\mathbb{E}[r] = r_f + \text{premium via martingale measure}$ |
 
 CAPM requires the strongest assumptions and gives the most concrete answer. APT is weaker and less concrete. FTAP is the most general and not tied to equilibrium.
 

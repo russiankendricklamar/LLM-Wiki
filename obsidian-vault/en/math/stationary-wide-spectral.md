@@ -9,7 +9,7 @@ lang: "en"
 
 Wide-sense (second-order, covariance) stationarity is weaker than strict stationarity from [[ergodic-theorems-birkhoff|ergodic theory]]: it requires not that all distributions coincide under shift, but only that **the first two moments coincide**.
 
-For Gaussian processes the two notions are the same, but in general they differ. Wide-sense stationarity is the **right language** for spectral econometrics, signal processing, the Kalman filter, and ARMA modelling. It is the setting of the Wiener-Khintchine theorem, which links autocovariance and spectral density. Shiryaev's [[shiryaev-probability|"Probability"]] develops this theory. Here are the key nodes.
+For Gaussian processes the two notions are the same, but in general they differ. Wide-sense stationarity is the **right language** for spectral econometrics, signal processing, the Kalman filter, and ARMA modelling. It is the setting of the Wiener-Khintchine theorem, which links autocovariance and spectral density. Shiryaev's "Probability" develops this theory. Here are the key nodes.
 
 ## Definition
 

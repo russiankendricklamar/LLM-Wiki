@@ -115,3 +115,4 @@ class HullWhite:
 - [[nelson-siegel-svensson|Nelson-Siegel-Svensson]] — yield curve fitting
 - [[libor-sofr|LIBOR → SOFR transition]] — rate reform context
 - [[swaps|Interest Rate Swaps]] — CIR/HW applied to swap pricing
+- [[hjm-framework]] — Heath-Jarrow-Morton framework generalizing short-rate models

@@ -140,3 +140,4 @@ Equilibrium models give economic intuition; no-arbitrage models are needed for t
 - [[swaps|Interest Rate Swaps]] -- the underlying instruments
 - [[girsanov-semimartingales|Girsanov Theorem]] -- measure changes for rates
 - [[brownian-motion|Brownian Motion]] -- the driving process
+- [[interest-rate-term-structure]] -- affine and factor models of the yield curve

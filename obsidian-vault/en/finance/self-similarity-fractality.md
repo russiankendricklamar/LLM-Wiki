@@ -9,7 +9,7 @@ lang: "en"
 
 The idea that **financial time series are self-similar** goes back to Benoît Mandelbrot, who in the 1960s noticed that stock price charts "look the same" at different time scales — second, minute, hour, and day charts are indistinguishable without axis labels. Mandelbrot turned this qualitative observation into a quantitative program: introducing fractal price models, measuring fractal dimension, generalizing [[brownian-motion|Brownian motion]] to **fractional Brownian motion**.
 
-[[shiryaev-stochastic-finance|Shiryaev]] devotes a detailed section to this. Self-similarity and fractality are not just an aesthetic observation but a **technical tool** for modelling long memory, volatility clustering, and heavy tails in a unified framework.
+Shiryaev devotes a detailed section to this. Self-similarity and fractality are not just an aesthetic observation but a **technical tool** for modelling long memory, volatility clustering, and heavy tails in a unified framework.
 
 ## Self-similar processes
 
@@ -83,7 +83,7 @@ Since 2014 a class of **rough volatility** models has emerged in which **volatil
 
 Empirics (Gatheral-Jaisson-Rosenbaum, 2018) showed that rough models **calibrate option-market surfaces significantly better** than classical Heston. The standard example is **rough Heston**.
 
-From [[shiryaev-stochastic-finance|Shiryaev's]] perspective this is a modern continuation of the 1990s program: Mandelbrot's fractal ideas turned out to be the right language for what was empirically obvious — real volatility is neither constant nor "classical" stochastic, but has nontrivial fractal structure.
+From Shiryaev's perspective this is a modern continuation of the 1990s program: Mandelbrot's fractal ideas turned out to be the right language for what was empirically obvious — real volatility is neither constant nor "classical" stochastic, but has nontrivial fractal structure.
 
 ## Related Articles
 

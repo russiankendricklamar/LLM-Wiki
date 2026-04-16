@@ -154,3 +154,5 @@ f_curve  = forward_rate(tau_grid, params)
 - [[xva|XVA]] — FVA/MVA use NSS-based discount factors
 - [[oas|OAS]] — spread over the benchmark NSS curve
 - [[swaps|Interest Rate Swaps]] — NSS for FRA discounting
+- [[bootstrapping-yield-curve]] — exact curve stripping that NSS then smooths
+- [[interest-rate-term-structure]] — theoretical framework for the yield curve

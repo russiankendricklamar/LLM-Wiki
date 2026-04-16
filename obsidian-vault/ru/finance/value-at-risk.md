@@ -238,3 +238,4 @@ print(f"\nКупик LR: {backtest['lr']:.3f}, p-value: {backtest['p_value']:.3f
 - [[cornish-fisher-cvar]]
 - [[garch-models]]
 - [[xva]]
+- [[futures-hedging]] — стратегии хеджирования, снижающие VaR портфеля

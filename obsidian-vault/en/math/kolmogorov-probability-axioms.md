@@ -9,7 +9,7 @@ lang: "en"
 
 In 1933 Andrey Nikolaevich Kolmogorov published "Grundbegriffe der Wahrscheinlichkeitsrechnung" (Foundations of the Theory of Probability), in which he **rigorously** axiomatized the notion of probability via measure theory. Before this, probability was a collection of heuristics and paradoxes; after it became a branch of analysis as rigorous as geometry after Euclid or algebra after Hilbert.
 
-This axiomatization fills of Shiryaev's [[shiryaev-probability|"Probability"]] textbook, and it underlies everything I have already written about martingales, Girsanov, FTAP, and stochastic calculus. Without it the terms "event," "probability," "random variable" would not be rigorously defined.
+This axiomatization fills of Shiryaev's "Probability" textbook, and it underlies everything I have already written about martingales, Girsanov, FTAP, and stochastic calculus. Without it the terms "event," "probability," "random variable" would not be rigorously defined.
 
 ## The basic construction
 

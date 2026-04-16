@@ -9,7 +9,7 @@ lang: "en"
 
 Hyperbolic distributions are a parametric family introduced by Ole Barndorff-Nielsen in 1977 to describe distributions of sand-grain sizes in dunes. Since the 1990s they have been widely applied in financial mathematics as a **golden middle** between the normal distribution (too thin tails) and stable ones (infinite variance).
 
-[[shiryaev-stochastic-finance|Shiryaev]] includes them in the section on non-Gaussian distributions because they offer **heavy tails, finite moments of all orders, and analytical formulas** simultaneously — a rare combination for practical applications.
+Shiryaev includes them in the section on non-Gaussian distributions because they offer **heavy tails, finite moments of all orders, and analytical formulas** simultaneously — a rare combination for practical applications.
 
 ## Definition
 
@@ -81,7 +81,7 @@ Applications:
 | Family | Tails | All moments | Analytics | Calibration |
 |---|---|---|---|---|
 | **Normal** | $e^{-x^2}$ | Yes | Full | Trivial |
-| **[[stable-distributions\|Stable]]** | $x^{-\alpha}$ | Only $\alpha = 2$ | Char. function only | Difficult |
+| **[[stable-distributions|Stable]]** | $x^{-\alpha}$ | Only $\alpha = 2$ | Char. function only | Difficult |
 | **Student $t$** | $x^{-\nu-1}$ | Up to order $\nu - 1$ | Full | Easy |
 | **Hyperbolic** | $|x|^{-1/2} e^{-\alpha|x|}$ | Yes | Bessel functions | Medium |
 | **NIG** | $|x|^{-3/2} e^{-\alpha|x|}$ | Yes | Bessel functions | Medium |

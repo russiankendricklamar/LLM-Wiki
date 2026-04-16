@@ -228,3 +228,4 @@ for k, v in calibrated.items():
 - [[oas]]
 - [[swaps]]
 - [[volatility-forecasting]]
+- [[asymptotic-expansion-finance]] — perturbation methods behind the SABR implied-vol formula

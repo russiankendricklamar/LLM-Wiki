@@ -100,8 +100,8 @@ where $A(\cdot)$ and $\mathbf{B}(\cdot)$ satisfy Riccati ODEs derived from the s
 
 | Model | State dynamics | Factors |
 |:------|:--------------|:--------|
-| [[short-rate-models\|Vasicek]] | $dr = a(b-r)\,dt + \sigma\,dW$ | 1 (mean-reverting Gaussian) |
-| [[short-rate-models\|CIR]] | $dr = a(b-r)\,dt + \sigma\sqrt{r}\,dW$ | 1 (non-negative) |
+| [[short-rate-models|Vasicek]] | $dr = a(b-r)\,dt + \sigma\,dW$ | 1 (mean-reverting Gaussian) |
+| [[short-rate-models|CIR]] | $dr = a(b-r)\,dt + \sigma\sqrt{r}\,dW$ | 1 (non-negative) |
 | Multi-factor Vasicek | $d\mathbf{X} = \mathbf{K}(\boldsymbol{\theta} - \mathbf{X})\,dt + \boldsymbol{\Sigma}\,d\mathbf{W}$ | 2-3 (level, slope, curvature) |
 
 The bond price in affine models:

@@ -7,7 +7,7 @@ lang: "en"
 
 # Semimartingale Models and Predictable Characteristics
 
-When [[shiryaev-stochastic-finance|Shiryaev]] moves to continuous time, he immediately postulates: asset prices must be **semimartingales**. This is not a whim or maximal generality for its own sake — it is exactly the **minimal** requirement for the stochastic integral (i.e. [[bs-market-self-financing|self-financing capital]]) to be defined meaningfully for a wide class of predictable strategies.
+When Shiryaev moves to continuous time, he immediately postulates: asset prices must be **semimartingales**. This is not a whim or maximal generality for its own sake — it is exactly the **minimal** requirement for the stochastic integral (i.e. [[bs-market-self-financing|self-financing capital]]) to be defined meaningfully for a wide class of predictable strategies.
 
 Semimartingales are the unique class of processes for which Itô calculus works "as expected." Every reasonable price model lives in this class: [[brownian-motion|Brownian motion]], [[geometric-brownian-motion|GBM]], [[heston-model|Heston]], [[levy-esscher-continuous|Lévy processes]] — all are semimartingales.
 

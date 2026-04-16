@@ -9,7 +9,7 @@ lang: "en"
 
 The Law of the Iterated Logarithm (LIL) is the most precise of the classical limit theorems of probability theory. It sits between the [[law-of-large-numbers|strong law of large numbers]] (saying $S_n/n \to 0$) and the [[central-limit-theorem|central limit theorem]] (describing the typical fluctuation of $S_n$ as $\sigma\sqrt{n}$). The LIL precisely describes the **oracle maximum** of the fluctuations of $S_n$ as $n \to \infty$.
 
-Khintchine in 1924 proved the LIL for binomial sums; Kolmogorov in 1929 extended it to a wide class of independent variables. of Shiryaev's [[shiryaev-probability|"Probability"]] gives the classical proof.
+Khintchine in 1924 proved the LIL for binomial sums; Kolmogorov in 1929 extended it to a wide class of independent variables. of Shiryaev's "Probability" gives the classical proof.
 
 The LIL is the "third resolution level" in the study of sums of random variables: the LLN gives the zeroth order ($S_n \approx 0$), the CLT the typical order ($\sqrt{n}$), the LIL the precise maximum of fluctuations.
 

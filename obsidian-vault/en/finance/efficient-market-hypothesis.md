@@ -9,7 +9,7 @@ lang: "en"
 
 The Efficient Market Hypothesis (EMH) is the central classical theory of financial economics, formulated by Eugene Fama in the 1960s on top of earlier ideas of Cootner, Samuelson, and Bachelier. Its content: **at any moment financial asset prices fully reflect all available information**, so no information-based strategy can systematically generate excess returns.
 
-[[shiryaev-stochastic-finance|Shiryaev]] uses EMH in Volume 1, as a **historical bridge** between the descriptive economic tradition and the mathematical one: the "random walk" hypothesis of prices, which Bachelier already formalized, is the mathematical consequence of EMH. The modern martingale approach via [[ftap-first-fundamental-theorem|FTAP]] is its probability-theoretic generalization.
+Shiryaev uses EMH in Volume 1, as a **historical bridge** between the descriptive economic tradition and the mathematical one: the "random walk" hypothesis of prices, which Bachelier already formalized, is the mathematical consequence of EMH. The modern martingale approach via [[ftap-first-fundamental-theorem|FTAP]] is its probability-theoretic generalization.
 
 ## Three forms
 

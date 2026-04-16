@@ -7,7 +7,7 @@ lang: "en"
 
 # (B,S)-Market and Self-Financing Strategies
 
-The `(B,S)`-market is the canonical discrete-time financial market model in [[shiryaev-stochastic-finance|Shiryaev's textbook]]. It is the minimal setting in which it makes sense to talk about portfolios, profits, arbitrage, and hedging: one risk-free bank account `B` and one (or several) risky asset `S` evolving on a filtered probability space.
+The `(B,S)`-market is the canonical discrete-time financial market model in Shiryaev's textbook. It is the minimal setting in which it makes sense to talk about portfolios, profits, arbitrage, and hedging: one risk-free bank account `B` and one (or several) risky asset `S` evolving on a filtered probability space.
 
 It is in this setting that Shiryaev introduces the notion of a **self-financing strategy** — a portfolio in which any change in capital must come from price movement, never from external cash injections. This technical requirement looks innocuous, but it is precisely what gives mathematical meaning to the fundamental theorems of arbitrage and to the hedging-price formula for European options.
 

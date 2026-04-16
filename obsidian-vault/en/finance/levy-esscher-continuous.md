@@ -9,7 +9,7 @@ lang: "en"
 
 Lévy processes are the broadest "homogeneous" class of [[semimartingale-models|semimartingales]]. They are processes with independent and stationary increments, generalizing both [[brownian-motion|Brownian motion]] (purely continuous) and the Poisson process (purely jump). Every other independent-increments process is built by combining these.
 
-In finance, Lévy processes are used as **price models with heavy tails and jumps**. [[shiryaev-stochastic-finance|Shiryaev]] devotes a section to their financial application: the central result is the construction of a martingale measure via the **continuous-time Esscher transform**.
+In finance, Lévy processes are used as **price models with heavy tails and jumps**. Shiryaev devotes a section to their financial application: the central result is the construction of a martingale measure via the **continuous-time Esscher transform**.
 
 ## Definition
 

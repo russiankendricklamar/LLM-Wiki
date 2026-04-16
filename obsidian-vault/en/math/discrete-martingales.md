@@ -7,7 +7,7 @@ lang: "en"
 
 # Discrete Martingales
 
-A martingale is the mathematical model of a **"fair game"**: a process whose expected next value, given all available information, equals the current value. The notion goes back to the "Martingale system" in 18th-century gambling, but its rigorous theory was built by Joseph L. Doob in the 1940s. of Shiryaev's [[shiryaev-probability|"Probability"]] is the most thorough accessible exposition of discrete martingale theory in Russian. Without this machinery there would be no modern limit theorems, no optimal stopping, no [[ftap-first-fundamental-theorem|FTAP]] and financial mathematics, and no reinforcement learning.
+A martingale is the mathematical model of a **"fair game"**: a process whose expected next value, given all available information, equals the current value. The notion goes back to the "Martingale system" in 18th-century gambling, but its rigorous theory was built by Joseph L. Doob in the 1940s. of Shiryaev's "Probability" is the most thorough accessible exposition of discrete martingale theory in Russian. Without this machinery there would be no modern limit theorems, no optimal stopping, no [[ftap-first-fundamental-theorem|FTAP]] and financial mathematics, and no reinforcement learning.
 
 ## Definition
 

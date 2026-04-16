@@ -173,3 +173,5 @@ iv = implied_volatility(market_price=result['price'], S=100, K=100, T=0.25, r=0.
 - [[monte-carlo-method]]
 - [[brownian-motion]]
 - [[volatility-forecasting]]
+- [[exotic-options]] — расширения за пределы ванильных европейских выплат
+- [[numerical-pde-finance]] — конечно-разностные и FEM-методы для PDE Блэка-Шоулса

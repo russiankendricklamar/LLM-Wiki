@@ -178,3 +178,4 @@ forecast = arima_forecast(log_prices, best['order'], steps=20)
 - [[levy-processes]]
 - [[arma-models]]
 - [[ar-models]]
+- [[cointegration]] — ARIMA с коинтеграцией для многомерных рядов

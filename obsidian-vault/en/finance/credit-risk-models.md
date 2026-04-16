@@ -211,3 +211,4 @@ print(f"5Y defaultable bond: {bond_px:.4f}")
 - [[xva]]
 - [[black-scholes]]
 - [[value-at-risk]]
+- [[credit-migration]] — transition matrices and rating dynamics

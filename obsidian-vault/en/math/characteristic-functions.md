@@ -11,7 +11,7 @@ A characteristic function is the **Fourier transform of a probability measure**.
 
 $$\varphi_X(t) = \mathbb{E}[e^{itX}] = \int_{-\infty}^{\infty} e^{itx} \, d\mu_X(x).$$
 
-It is one of the most powerful tools in probability theory: a characteristic function **fully determines the distribution** (uniqueness theorem), simplifies proofs of limit theorems (via Lévy's continuity theorem), and gives a direct route to moments and cumulants. of Shiryaev's [[shiryaev-probability|"Probability"]] studies it in detail. Applications: classical proof of the [[central-limit-theorem|CLT]], Lévy-Khintchine formula for infinitely divisible distributions, stable distributions, [[levy-esscher-continuous|Lévy processes]], the characteristic function of [[brownian-motion|Brownian motion]].
+It is one of the most powerful tools in probability theory: a characteristic function **fully determines the distribution** (uniqueness theorem), simplifies proofs of limit theorems (via Lévy's continuity theorem), and gives a direct route to moments and cumulants. of Shiryaev's "Probability" studies it in detail. Applications: classical proof of the [[central-limit-theorem|CLT]], Lévy-Khintchine formula for infinitely divisible distributions, stable distributions, [[levy-esscher-continuous|Lévy processes]], the characteristic function of [[brownian-motion|Brownian motion]].
 
 ## Basic properties
 

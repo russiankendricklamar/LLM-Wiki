@@ -179,3 +179,4 @@ Where $L$ is the Cholesky factor of the correlation matrix $\Sigma = LL^\top$ an
 - [[black-scholes]]
 - [[heston-model]]
 - [[ornstein-uhlenbeck-process]]
+- [[numerical-pde-finance]] — PDE-based alternatives to Monte Carlo for American options

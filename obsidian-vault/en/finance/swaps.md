@@ -279,3 +279,5 @@ print(f"PV Float Leg:   ${result['pv_float']:>12,.2f}")
 - [[black-scholes]]
 - [[sabr-model]]
 - [[copula-models]]
+- [[bootstrapping-yield-curve]] — constructing discount curves from swap rates
+- [[cost-of-carry]] — carry and roll-down in swap portfolios

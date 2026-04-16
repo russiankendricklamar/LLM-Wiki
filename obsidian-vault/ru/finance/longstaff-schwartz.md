@@ -172,3 +172,4 @@ $$
 - [[black-scholes]]
 - [[heston-model]]
 - [[ornstein-uhlenbeck-process]]
+- [[numerical-pde-finance]] — PDE-альтернативы Монте-Карло для американских опционов

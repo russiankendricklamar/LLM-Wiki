@@ -9,7 +9,7 @@ lang: "en"
 
 "Stylized facts" are robust statistical regularities observed across financial markets — different assets, different exchanges, and different epochs. They are called "stylized" because they hold **universally** — despite the specifics of every individual market, the basic properties of log-returns are the same.
 
-[[shiryaev-stochastic-finance|Shiryaev]] devotes an entire chapter to a systematic exposition of these facts as the **empirical foundation** on which any reasonable price model must rest. The canonical 11-point list was compiled by Rama Cont in a 2001 review and has since become an industry standard.
+Shiryaev devotes an entire chapter to a systematic exposition of these facts as the **empirical foundation** on which any reasonable price model must rest. The canonical 11-point list was compiled by Rama Cont in a 2001 review and has since become an industry standard.
 
 Understanding the stylized facts is critical because they **rule out** specific models: the classical Gaussian Black-Scholes model contradicts almost every one of them.
 

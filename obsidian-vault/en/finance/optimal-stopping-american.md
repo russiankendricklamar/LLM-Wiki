@@ -75,3 +75,4 @@ On a non-dividend stock the American **call** has the same price as the European
 - [[crr-model]] — binomial tree as the simplest American-option pricer.
 - [[black-scholes]] — the European predecessor underlying the American case.
 - [[upper-lower-hedging-prices]] — what "optimal stopping" means on an incomplete market.
+- [[free-boundary-american]] — the free-boundary PDE formulation of the American exercise problem.

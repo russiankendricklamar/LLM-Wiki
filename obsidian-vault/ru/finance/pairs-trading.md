@@ -233,3 +233,4 @@ for k, v in stats.items():
 - [[value-at-risk]]
 - [[monte-carlo-method]]
 - [[probability-of-backtest-overfitting]]
+- [[cointegration]] — формальные тесты Энгла-Грейнджера и Йохансена для выбора пар
