@@ -191,6 +191,77 @@ export const getNavigation = (lang: 'en' | 'ru') => {
   }));
 };
 
+/** Returns pages that link TO the given slug via wikilinks. */
+export const getBacklinks = (slug: string, lang: 'en' | 'ru'): PageMetadata[] => {
+  const pages = getAllPages().filter(p => p.metadata.lang === lang);
+  const backlinks: PageMetadata[] = [];
+
+  for (const page of pages) {
+    if (page.metadata.slug === slug) continue;
+    const matches = page.content.matchAll(/\[\[(.*?)\]\]/g);
+    for (const match of matches) {
+      const linkTarget = match[1].split('|')[0].trim();
+      const resolved = resolveWikilink(linkTarget, pages, page.metadata.category);
+      if (resolved && resolved.metadata.slug === slug) {
+        backlinks.push(page.metadata);
+        break; // one backlink per page is enough
+      }
+    }
+  }
+
+  return backlinks;
+};
+
+/** Returns related articles by shared wikilink overlap (Jaccard-like), falling back to same category. */
+export const getRelatedArticles = (slug: string, lang: 'en' | 'ru', limit = 5): PageMetadata[] => {
+  const pages = getAllPages().filter(p => p.metadata.lang === lang);
+  const currentPage = pages.find(p => p.metadata.slug === slug);
+  if (!currentPage) return [];
+
+  const getOutLinks = (page: PageContent): Set<string> => {
+    const links = new Set<string>();
+    const matches = page.content.matchAll(/\[\[(.*?)\]\]/g);
+    for (const m of matches) {
+      const target = m[1].split('|')[0].trim();
+      const resolved = resolveWikilink(target, pages, page.metadata.category);
+      if (resolved) links.add(resolved.metadata.slug);
+    }
+    return links;
+  };
+
+  const currentLinks = getOutLinks(currentPage);
+  if (currentLinks.size === 0) {
+    return pages
+      .filter(p => p.metadata.category === currentPage.metadata.category && p.metadata.slug !== slug)
+      .sort((a, b) => (a.metadata.order || 99) - (b.metadata.order || 99))
+      .slice(0, limit)
+      .map(p => p.metadata);
+  }
+
+  const scored = pages
+    .filter(p => p.metadata.slug !== slug)
+    .map(p => {
+      const pLinks = getOutLinks(p);
+      const intersection = [...currentLinks].filter(l => pLinks.has(l)).length;
+      const union = new Set([...currentLinks, ...pLinks]).size;
+      return { metadata: p.metadata, score: union > 0 ? intersection / union : 0 };
+    })
+    .filter(s => s.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit);
+
+  if (scored.length < limit) {
+    const existing = new Set(scored.map(s => s.metadata.slug));
+    existing.add(slug);
+    const fillers = pages
+      .filter(p => p.metadata.category === currentPage.metadata.category && !existing.has(p.metadata.slug))
+      .slice(0, limit - scored.length);
+    return [...scored.map(s => s.metadata), ...fillers.map(p => p.metadata)];
+  }
+
+  return scored.map(s => s.metadata);
+};
+
 const GRAPH_EXCLUDED_CATEGORIES = new Set(['Projects', 'Проекты', 'Home', 'Главная']);
 
 export const getGraphData = (lang: 'en' | 'ru') => {
@@ -201,6 +272,7 @@ export const getGraphData = (lang: 'en' | 'ru') => {
   const nodes = pages.map(page => ({
     id: page.metadata.slug.replace(/^\//, ''),
     name: page.metadata.title,
+    category: page.metadata.category,
     val: page.metadata.category === 'Home' || page.metadata.category === 'Главная' ? 2 : 1
   }));
 
