@@ -120,6 +120,44 @@ export const getAllPages = (): PageContent[] => {
   });
 };
 
+/**
+ * Resolve a wikilink target name to a page.
+ * Priority: exact slug match → exact title match → exact filename match → same-category suffix → any suffix.
+ */
+export const resolveWikilink = (
+  target: string,
+  pages: PageContent[],
+  sourceCategory?: string
+): PageContent | undefined => {
+  const t = target.toLowerCase();
+
+  // 1. Exact slug match
+  const bySlug = pages.find(p => p.metadata.slug.replace(/^\//, '') === t);
+  if (bySlug) return bySlug;
+
+  // 2. Exact title match
+  const byTitle = pages.find(p => p.metadata.title.toLowerCase() === t);
+  if (byTitle) return byTitle;
+
+  // 3. Exact filename match
+  const byFilename = pages.find(p =>
+    p.metadata.fullPath.toLowerCase().endsWith(`/${t}.md`)
+  );
+  if (byFilename) return byFilename;
+
+  // 4. Same-category suffix match
+  if (sourceCategory) {
+    const sameCategory = pages.find(p =>
+      p.metadata.category === sourceCategory &&
+      p.metadata.slug.replace(/^\//, '').endsWith(t)
+    );
+    if (sameCategory) return sameCategory;
+  }
+
+  // 5. Any suffix match (fallback)
+  return pages.find(p => p.metadata.slug.replace(/^\//, '').endsWith(t));
+};
+
 export const getFeaturedPages = (lang: 'en' | 'ru'): PageContent[] => {
   return getAllPages()
     .filter(p => p.metadata.lang === lang && p.metadata.featured)
@@ -170,17 +208,15 @@ export const getGraphData = (lang: 'en' | 'ru') => {
   
   pages.forEach(page => {
     const sourceId = page.metadata.slug.replace(/^\//, '');
-    // Regex to find [[wikilinks]]
     const matches = page.content.matchAll(/\[\[(.*?)\]\]/g);
     for (const match of matches) {
       const targetFileName = match[1].split('|')[0].trim();
-      
-      // Find a node whose ID contains the targetFileName
-      // e.g. targetFileName "black-scholes" matches node ID "finance/black-scholes"
-      const targetNode = nodes.find(n => n.id.endsWith(targetFileName) || n.id === targetFileName);
-      
-      if (targetNode) {
-        links.push({ source: sourceId, target: targetNode.id });
+      const resolved = resolveWikilink(targetFileName, pages, page.metadata.category);
+      if (resolved) {
+        const targetId = resolved.metadata.slug.replace(/^\//, '');
+        if (targetId !== sourceId) {
+          links.push({ source: sourceId, target: targetId });
+        }
       }
     }
   });

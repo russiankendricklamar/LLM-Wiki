@@ -9,7 +9,7 @@ import { Check, Copy, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ChartRenderer } from './ChartRenderer';
 import { Link } from 'react-router-dom';
-import { getAllPages } from '@/lib/content-loader';
+import { getAllPages, resolveWikilink } from '@/lib/content-loader';
 
 // Import KaTeX CSS for math rendering
 import 'katex/dist/katex.min.css';
@@ -17,29 +17,19 @@ import 'katex/dist/katex.min.css';
 interface MarkdownRendererProps {
   content: string;
   className?: string;
+  category?: string;
 }
 
-const processWikilinks = (content: string) => {
+const processWikilinks = (content: string, sourceCategory?: string) => {
   const allPages = getAllPages();
-  
-  // Replace [[Page Name|Display Text]] or [[Page Name]]
   return content.replace(/\[\[(.*?)(?:\|(.*?))?\]\]/g, (match, pageName, displayText) => {
     const target = pageName.trim();
-    const display = (displayText || pageName).trim();
-    
-    // Find the page in our index by title or by the end of its path (filename)
-    const page = allPages.find(p => 
-      p.metadata.title.toLowerCase() === target.toLowerCase() ||
-      p.metadata.fullPath.toLowerCase().endsWith(`/${target.toLowerCase()}.md`) ||
-      p.metadata.fullPath.toLowerCase().endsWith(`/${target.toLowerCase()}`)
-    );
-    
+    const page = resolveWikilink(target, allPages, sourceCategory);
     if (page) {
-      // Use page title as display text when no explicit display text was given
       const linkText = displayText ? displayText.trim() : page.metadata.title;
       return `[${linkText}](${page.metadata.slug})`;
     }
-    
+    const display = (displayText || pageName).trim();
     return `<span class="text-zinc-400 opacity-70">[[${display}]]</span>`;
   });
 };
@@ -180,8 +170,8 @@ const slugify = (text: string) => {
     .replace(/\s+/g, '-');
 };
 
-export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className }) => {
-  const processedContent = React.useMemo(() => processWikilinks(content), [content]);
+export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className, category }) => {
+  const processedContent = React.useMemo(() => processWikilinks(content, category), [content, category]);
 
   return (
     <div className={cn("prose prose-zinc dark:prose-invert max-w-none w-full break-words", className)}>

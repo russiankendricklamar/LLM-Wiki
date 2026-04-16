@@ -67,7 +67,7 @@ const PageContent = ({ category, title, content, lang, slug, growth }: PageConte
           </div>
         </div>
       ) : (
-        <MarkdownRenderer content={content} />
+        <MarkdownRenderer content={content} category={category} />
       )}
     </motion.div>
   );
