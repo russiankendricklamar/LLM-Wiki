@@ -1,7 +1,7 @@
 ---
 title: "Characteristic Functions"
-category: "Mathematics"
-order: 8
+category: "Limit Theorems"
+order: 1
 lang: "en"
 ---
 

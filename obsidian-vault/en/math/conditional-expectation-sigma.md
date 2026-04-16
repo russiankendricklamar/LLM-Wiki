@@ -1,7 +1,7 @@
 ---
 title: "Conditional Expectation w.r.t. a σ-Algebra"
-category: "Mathematics"
-order: 7
+category: "Measure Theory"
+order: 3
 lang: "en"
 ---
 

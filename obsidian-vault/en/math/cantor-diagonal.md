@@ -1,6 +1,6 @@
 ---
 title: "Cantor's Diagonal Argument"
-category: "Mathematics"
+category: "Foundations of Mathematics"
 order: 1
 lang: "en"
 ---

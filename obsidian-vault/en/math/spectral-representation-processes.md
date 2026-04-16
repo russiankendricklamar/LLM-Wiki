@@ -1,7 +1,7 @@
 ---
 title: "Spectral Representation of Stationary Processes"
-category: "Mathematics"
-order: 19
+category: "Ergodic and Spectral Theory"
+order: 4
 lang: "en"
 ---
 

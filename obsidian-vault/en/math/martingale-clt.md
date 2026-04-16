@@ -1,7 +1,7 @@
 ---
 title: "Central Limit Theorem for Martingales"
-category: "Mathematics"
-order: 20
+category: "Martingale Theory"
+order: 2
 lang: "en"
 ---
 

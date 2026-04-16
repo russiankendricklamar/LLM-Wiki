@@ -1,7 +1,7 @@
 ---
 title: "σ-Algebras and Measurability"
-category: "Mathematics"
-order: 6
+category: "Measure Theory"
+order: 2
 lang: "en"
 ---
 

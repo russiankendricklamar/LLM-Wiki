@@ -1,7 +1,7 @@
 ---
 title: "Wide-Sense Stationary Processes and Spectral Density"
-category: "Mathematics"
-order: 18
+category: "Ergodic and Spectral Theory"
+order: 3
 lang: "en"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Lundberg-Cramer Ruin Theorem"
-category: "Mathematics"
-order: 21
+category: "Large Deviations"
+order: 2
 lang: "en"
 ---
 

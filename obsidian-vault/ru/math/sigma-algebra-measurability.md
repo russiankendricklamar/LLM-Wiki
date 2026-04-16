@@ -1,7 +1,7 @@
 ---
 title: "σ-алгебры и измеримость"
-category: "Математика"
-order: 6
+category: "Теория меры"
+order: 2
 lang: "ru"
 ---
 

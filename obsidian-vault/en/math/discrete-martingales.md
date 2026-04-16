@@ -1,7 +1,7 @@
 ---
 title: "Discrete Martingales"
-category: "Mathematics"
-order: 15
+category: "Martingale Theory"
+order: 1
 lang: "en"
 ---
 

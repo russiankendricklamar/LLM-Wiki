@@ -1,7 +1,7 @@
 ---
 title: "Borel-Cantelli Lemmas and Zero-One Laws"
-category: "Mathematics"
-order: 12
+category: "Measure Theory"
+order: 4
 lang: "en"
 ---
 

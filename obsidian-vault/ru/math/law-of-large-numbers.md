@@ -1,7 +1,7 @@
 ---
 title: "Закон больших чисел"
-category: "Математика"
-order: 11
+category: "Предельные теоремы"
+order: 4
 lang: "ru"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Discrete Markov Chains"
-category: "Mathematics"
-order: 16
+category: "Ergodic and Spectral Theory"
+order: 2
 lang: "en"
 ---
 

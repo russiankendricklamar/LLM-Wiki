@@ -1,7 +1,7 @@
 ---
 title: "Kolmogorov's Probability Axioms"
-category: "Mathematics"
-order: 5
+category: "Measure Theory"
+order: 1
 lang: "en"
 ---
 

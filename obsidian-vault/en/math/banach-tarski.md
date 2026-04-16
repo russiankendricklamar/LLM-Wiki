@@ -1,6 +1,6 @@
 ---
 title: "The Banach-Tarski Paradox"
-category: "Mathematics"
+category: "Foundations of Mathematics"
 order: 3
 lang: "en"
 ---

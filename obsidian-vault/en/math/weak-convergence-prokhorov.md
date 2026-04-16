@@ -1,7 +1,7 @@
 ---
 title: "Weak Convergence and Prokhorov's Theorem"
-category: "Mathematics"
-order: 9
+category: "Limit Theorems"
+order: 2
 lang: "en"
 ---
 

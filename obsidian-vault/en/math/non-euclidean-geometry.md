@@ -1,6 +1,6 @@
 ---
 title: "Non-Euclidean Geometry"
-category: "Mathematics"
+category: "Foundations of Mathematics"
 order: 4
 lang: "en"
 ---

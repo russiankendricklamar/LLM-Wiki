@@ -1,6 +1,6 @@
 ---
 title: "Gödel's Incompleteness Theorems"
-category: "Mathematics"
+category: "Foundations of Mathematics"
 order: 2
 lang: "en"
 ---

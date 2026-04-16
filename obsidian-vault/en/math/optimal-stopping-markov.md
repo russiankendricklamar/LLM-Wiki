@@ -1,7 +1,7 @@
 ---
 title: "Optimal Stopping of Markov Chains"
-category: "Mathematics"
-order: 22
+category: "Martingale Theory"
+order: 3
 lang: "en"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Large Deviations and Cramer's Theorem"
-category: "Mathematics"
-order: 17
+category: "Large Deviations"
+order: 1
 lang: "en"
 ---
 

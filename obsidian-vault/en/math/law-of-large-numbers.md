@@ -1,7 +1,7 @@
 ---
 title: "Law of Large Numbers"
-category: "Mathematics"
-order: 11
+category: "Limit Theorems"
+order: 4
 lang: "en"
 ---
 

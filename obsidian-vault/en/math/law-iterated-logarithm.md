@@ -1,7 +1,7 @@
 ---
 title: "Law of the Iterated Logarithm"
-category: "Mathematics"
-order: 13
+category: "Limit Theorems"
+order: 5
 lang: "en"
 ---
 

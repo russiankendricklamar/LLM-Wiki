@@ -1,7 +1,7 @@
 ---
 title: "Birkhoff-Khintchine Ergodic Theorem"
-category: "Mathematics"
-order: 14
+category: "Ergodic and Spectral Theory"
+order: 1
 lang: "en"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Central Limit Theorem"
-category: "Mathematics"
-order: 10
+category: "Limit Theorems"
+order: 3
 lang: "en"
 ---
 
