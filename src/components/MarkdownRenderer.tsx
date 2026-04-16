@@ -7,12 +7,13 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Check, Copy, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { ChartRenderer } from './ChartRenderer';
+import { KatexStyles } from './KatexStyles';
 import { Link } from 'react-router-dom';
 import { getAllPages, resolveWikilink } from '@/lib/content-loader';
 
-// Import KaTeX CSS for math rendering
-import 'katex/dist/katex.min.css';
+const ChartRendererLazy = React.lazy(() =>
+  import('./ChartRenderer').then(m => ({ default: m.ChartRenderer }))
+);
 
 interface MarkdownRendererProps {
   content: string;
@@ -83,7 +84,11 @@ const CodeBlock = ({
     if (language === 'chart') {
       try {
         const chartConfig = JSON.parse(String(children));
-        return <ChartRenderer config={chartConfig} />;
+        return (
+          <React.Suspense fallback={<div className="h-64 animate-pulse bg-zinc-100 dark:bg-zinc-800 rounded-lg my-6" />}>
+            <ChartRendererLazy config={chartConfig} />
+          </React.Suspense>
+        );
       } catch (e) {
         return (
           <div className="p-4 my-6 text-sm text-red-500 bg-red-500/10 border border-red-500/20 rounded-lg">
@@ -172,9 +177,11 @@ const slugify = (text: string) => {
 
 export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className, category }) => {
   const processedContent = React.useMemo(() => processWikilinks(content, category), [content, category]);
+  const hasMath = content.includes('$');
 
   return (
     <div className={cn("prose prose-zinc dark:prose-invert max-w-none w-full break-words", className)}>
+      {hasMath && <KatexStyles />}
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[rehypeKatex]}
