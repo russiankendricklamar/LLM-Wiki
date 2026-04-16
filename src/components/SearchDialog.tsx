@@ -1,8 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Command } from 'cmdk';
-import { Search, FileText, Calculator, Code } from 'lucide-react';
+import { Search, FileText } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { getAllPages } from '@/lib/content-loader';
+
+const extractExcerpt = (content: string, maxLen = 120): string => {
+  const clean = content
+    .replace(/^---[\s\S]*?---\n?/, '')
+    .replace(/^#{1,6}\s+.*/gm, '')
+    .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, s, a) => a || s)
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/\$\$[\s\S]*?\$\$/g, '')
+    .replace(/\$[^$]+\$/g, '')
+    .replace(/[*_~`]/g, '')
+    .replace(/\n+/g, ' ')
+    .trim();
+  return clean.length > maxLen ? clean.slice(0, maxLen) + '...' : clean;
+};
 
 interface SearchDialogProps {
   open: boolean;
@@ -21,7 +35,6 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({ open, onOpenChange, 
         onOpenChange(!open);
       }
     };
-
     document.addEventListener('keydown', down);
     return () => document.removeEventListener('keydown', down);
   }, [open, onOpenChange]);
@@ -43,9 +56,9 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({ open, onOpenChange, 
         <Command className="flex h-full w-full flex-col overflow-hidden bg-transparent">
           <div className="flex items-center border-b border-zinc-200 dark:border-zinc-800 px-3">
             <Search className="mr-2 h-4 w-4 shrink-0 text-zinc-500 dark:text-zinc-400" />
-            <Command.Input 
+            <Command.Input
               autoFocus
-              placeholder={lang === 'en' ? "Search documentation..." : "Поиск по базе знаний..."} 
+              placeholder={lang === 'en' ? "Search documentation..." : "Поиск по базе знаний..."}
               className="flex h-14 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-zinc-500 dark:text-zinc-100 disabled:cursor-not-allowed disabled:opacity-50 sm:h-12"
             />
           </div>
@@ -53,26 +66,34 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({ open, onOpenChange, 
             <Command.Empty className="py-6 text-center text-sm text-zinc-500 dark:text-zinc-400">
               {lang === 'en' ? "No results found." : "Ничего не найдено."}
             </Command.Empty>
-            
-            {/* Categorize pages in search groups */}
+
             {Array.from(new Set(allPages.map(p => p.metadata.category))).map(category => (
-              <Command.Group 
-                key={category} 
-                heading={category} 
+              <Command.Group
+                key={category}
+                heading={category}
                 className="px-2 py-1.5 text-xs font-medium text-zinc-500 dark:text-zinc-400"
               >
                 {allPages
                   .filter(p => p.metadata.category === category)
-                  .map(page => (
-                    <Command.Item 
-                      key={page.metadata.slug}
-                      onSelect={() => onSelect(page.metadata.slug)}
-                      className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-800 aria-selected:text-zinc-900 dark:aria-selected:text-zinc-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 text-zinc-700 dark:text-zinc-300 transition-colors"
-                    >
-                      <FileText className="mr-2 h-4 w-4 opacity-70" />
-                      <span>{page.metadata.title}</span>
-                    </Command.Item>
-                  ))}
+                  .map(page => {
+                    const excerpt = extractExcerpt(page.content);
+                    return (
+                      <Command.Item
+                        key={page.metadata.slug}
+                        value={`${page.metadata.title} ${excerpt}`}
+                        onSelect={() => onSelect(page.metadata.slug)}
+                        className="relative flex cursor-pointer select-none items-start gap-2 rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-800 aria-selected:text-zinc-900 dark:aria-selected:text-zinc-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 text-zinc-700 dark:text-zinc-300 transition-colors"
+                      >
+                        <FileText className="mt-0.5 h-4 w-4 opacity-70 shrink-0" />
+                        <div className="min-w-0 flex-1">
+                          <div className="font-medium">{page.metadata.title}</div>
+                          <div className="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-1 mt-0.5">
+                            {excerpt}
+                          </div>
+                        </div>
+                      </Command.Item>
+                    );
+                  })}
               </Command.Group>
             ))}
           </Command.List>
