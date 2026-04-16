@@ -7,6 +7,7 @@ import { KnowledgeGraph } from './components/KnowledgeGraph';
 import { HomeHero } from './components/HomeHero';
 import { ProjectsPage } from './components/ProjectsPage';
 import { AboutPage } from './components/AboutPage';
+import { Breadcrumbs } from './components/Breadcrumbs';
 import { getAllPages } from './lib/content-loader';
 import { cn } from './lib/utils';
 
@@ -40,11 +41,7 @@ const PageContent = ({ category, title, content, lang, slug, growth }: PageConte
     >
       {!isGraphPage && (
         <div className="mb-8 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
-            <span>{category}</span>
-            <span>/</span>
-            <span className="text-zinc-900 dark:text-zinc-100 font-medium">{title}</span>
-          </div>
+          <Breadcrumbs category={category} title={title} lang={lang} />
           {growthInfo && (
             <span className={cn(
               "shrink-0 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold",
