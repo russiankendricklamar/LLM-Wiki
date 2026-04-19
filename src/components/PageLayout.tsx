@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Search, Moon, Sun, Leaf, Menu } from 'lucide-react';
+import { Search, Moon, Sun, Leaf, Menu, UserCircle2, FolderGit2, Network } from 'lucide-react';
 import { SearchDialog } from './SearchDialog';
 import { Footer } from './Footer';
 import { Sidebar } from './Sidebar';
@@ -61,6 +61,47 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
                 {lang === 'en' ? 'Knowledge Garden' : 'Сад Знаний'}
               </span>
             </NavLink>
+
+            {/* Center: primary navigation (desktop only) */}
+            <nav className="hidden md:flex items-center gap-1 ml-8">
+              <NavLink
+                to="/about"
+                className={({ isActive }) => cn(
+                  "flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm transition-colors",
+                  isActive
+                    ? "bg-zinc-100 dark:bg-zinc-800/80 text-zinc-900 dark:text-zinc-100 font-medium"
+                    : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100/60 dark:hover:bg-zinc-800/40 hover:text-zinc-900 dark:hover:text-zinc-100"
+                )}
+              >
+                <UserCircle2 className="w-4 h-4 opacity-70" />
+                <span>{lang === 'en' ? 'About' : 'Обо мне'}</span>
+              </NavLink>
+              <NavLink
+                to="/projects"
+                className={({ isActive }) => cn(
+                  "flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm transition-colors",
+                  isActive
+                    ? "bg-zinc-100 dark:bg-zinc-800/80 text-zinc-900 dark:text-zinc-100 font-medium"
+                    : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100/60 dark:hover:bg-zinc-800/40 hover:text-zinc-900 dark:hover:text-zinc-100"
+                )}
+              >
+                <FolderGit2 className="w-4 h-4 opacity-70" />
+                <span>{lang === 'en' ? 'Projects' : 'Проекты'}</span>
+              </NavLink>
+              {/* Knowledge Graph — accentuated as the entry to "exploration mode" */}
+              <NavLink
+                to="/knowledge-graph"
+                className={({ isActive }) => cn(
+                  "flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm transition-all border",
+                  isActive
+                    ? "bg-gradient-to-br from-emerald-500/15 to-teal-500/15 border-emerald-500/40 text-emerald-700 dark:text-emerald-300 font-medium shadow-sm"
+                    : "border-transparent text-zinc-600 dark:text-zinc-400 hover:border-emerald-500/30 hover:bg-emerald-500/5 hover:text-emerald-700 dark:hover:text-emerald-300"
+                )}
+              >
+                <Network className="w-4 h-4 opacity-80" />
+                <span>{lang === 'en' ? 'Graph' : 'Граф'}</span>
+              </NavLink>
+            </nav>
           </div>
 
           {/* Right: search + lang + dark mode */}
