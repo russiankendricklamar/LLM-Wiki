@@ -8,7 +8,6 @@ type: "project"
 status: "wip"
 year: "2026"
 tech: "Next.js 16, React 19, FastAPI, Supabase, TypeScript"
-github: "https://github.com/russiankendricklamar/vibefix"
 demo: "https://frontend-seven-pied-38.vercel.app/"
 image: "/projects/vibefix.png"
 featured: true

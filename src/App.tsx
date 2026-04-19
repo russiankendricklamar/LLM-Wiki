@@ -122,10 +122,10 @@ const RouterShell = ({ lang, setLang }: { lang: 'en' | 'ru'; setLang: (lang: 'en
   const location = useLocation();
   const isHome = location.pathname === '/' || location.pathname === '';
   const isAbout = location.pathname === '/about';
-  const isProjects = location.pathname === '/projects';
-  // Sidebar (Knowledge Base tree) lives with article pages and the graph page,
-  // not on the standalone About / Projects pages, which have their own layouts.
-  const showSidebar = !isHome && !isAbout && !isProjects;
+  // Anything under /projects (the index and individual project pages) has its
+  // own dedicated layout — no Knowledge Base sidebar.
+  const isProjectsArea = location.pathname.startsWith('/projects');
+  const showSidebar = !isHome && !isAbout && !isProjectsArea;
 
   return (
     <PageLayout lang={lang} setLang={setLang} fullBleed={isHome} showSidebar={showSidebar}>
