@@ -9,10 +9,10 @@ status: "wip"
 year: "2026"
 tech: "Next.js 16, React 19, FastAPI, Supabase, TypeScript, Tailwind"
 github: "https://github.com/russiankendricklamar/vibefix"
-image: "/projects/vibefix.svg"
+demo: "https://frontend-seven-pied-38.vercel.app/"
+image: "/projects/vibefix.png"
 featured: true
-hideOpen: true
-description: "A marketplace for fixing broken AI-generated code. Owners describe the bug, vetted developers ship the fix — escrow, chat, and arbitration are built in."
+description: "A broker between vibe-coders and professional developers. Secure escrow deals, fixed prices, guaranteed delivery."
 ---
 
 # VibeFix

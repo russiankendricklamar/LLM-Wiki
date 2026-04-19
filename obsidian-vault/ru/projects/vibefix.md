@@ -9,10 +9,10 @@ status: "wip"
 year: "2026"
 tech: "Next.js 16, React 19, FastAPI, Supabase, TypeScript, Tailwind"
 github: "https://github.com/russiankendricklamar/vibefix"
-image: "/projects/vibefix.svg"
+demo: "https://frontend-seven-pied-38.vercel.app/"
+image: "/projects/vibefix.png"
 featured: true
-hideOpen: true
-description: "Маркетплейс для починки сломанного AI-сгенерированного кода. Заказчик описывает проблему, разработчик чинит — escrow, чат и арбитраж встроены."
+description: "Маркетплейс-посредник между вайб-кодерами и профессиональными разработчиками. Безопасная сделка через эскроу, фиксированные цены, гарантия результата."
 ---
 
 # VibeFix
