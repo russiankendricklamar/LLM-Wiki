@@ -5,6 +5,7 @@ import { SearchDialog } from './SearchDialog';
 import { Footer } from './Footer';
 import { Sidebar } from './Sidebar';
 import { MobileNavDrawer } from './MobileNavDrawer';
+import { ScrollToTop } from './ScrollToTop';
 import { cn } from '@/lib/utils';
 
 interface PageLayoutProps {
@@ -17,6 +18,7 @@ interface PageLayoutProps {
 
 
 export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', setLang, fullBleed = false, showSidebar = false }) => {
+  const scrollRef = React.useRef<HTMLDivElement>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -113,7 +115,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
       {showSidebar && !fullBleed ? (
         <main className="flex flex-1 overflow-hidden">
           <Sidebar lang={lang} className="hidden lg:block" />
-          <div className="flex min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden">
+          <div ref={scrollRef} className="flex min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden">
             <div className="flex-1 px-4 sm:px-6 lg:px-8 xl:px-12 py-8 lg:py-12">
               {children}
             </div>
@@ -121,7 +123,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
           </div>
         </main>
       ) : (
-        <main className={cn(
+        <main ref={scrollRef} className={cn(
           "flex flex-1 flex-col",
           fullBleed ? "overflow-y-auto lg:overflow-hidden" : "overflow-y-auto"
         )}>
@@ -140,6 +142,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
         </main>
       )}
 
+      <ScrollToTop scrollContainer={scrollRef} />
       <SearchDialog open={isSearchOpen} onOpenChange={setIsSearchOpen} lang={lang} />
       <MobileNavDrawer
         open={isDrawerOpen}

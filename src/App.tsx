@@ -8,6 +8,9 @@ import { HomeHero } from './components/HomeHero';
 import { ProjectsPage } from './components/ProjectsPage';
 import { AboutPage } from './components/AboutPage';
 import { Breadcrumbs } from './components/Breadcrumbs';
+import { ArticleNav } from './components/ArticleNav';
+import { Backlinks } from './components/Backlinks';
+import { RelatedArticles } from './components/RelatedArticles';
 import { getAllPages } from './lib/content-loader';
 import { cn } from './lib/utils';
 
@@ -64,7 +67,12 @@ const PageContent = ({ category, title, content, lang, slug, growth }: PageConte
           </div>
         </div>
       ) : (
-        <MarkdownRenderer content={content} category={category} />
+        <>
+          <MarkdownRenderer content={content} category={category} />
+          <Backlinks slug={slug} lang={lang} />
+          <RelatedArticles slug={slug} lang={lang} />
+          <ArticleNav slug={slug} category={category} lang={lang} />
+        </>
       )}
     </motion.div>
   );
