@@ -3,46 +3,63 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { FileText, ChevronDown, ChevronRight, Network } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
-import { getNavigation } from '@/lib/content-loader';
+import { getNavigationTree, type NavSection } from '@/lib/content-loader';
 
 interface SidebarProps {
   className?: string;
   lang?: 'en' | 'ru';
 }
 
-const SKIP_CATEGORIES = ['Home', 'Главная', 'Projects', 'Проекты'];
-
 export const Sidebar: React.FC<SidebarProps> = ({ className, lang = 'ru' }) => {
   const location = useLocation();
-  const navigation = getNavigation(lang).filter(s => !SKIP_CATEGORIES.includes(s.title));
+  const navTree = getNavigationTree(lang);
 
-  // Find which category contains the current page so we can auto-expand it
-  const activeCategory = navigation.find(section =>
-    section.items.some(item => item.href === location.pathname)
-  )?.title ?? null;
+  // Find which section+category contains the current page
+  const findActive = (tree: NavSection[]) => {
+    for (const section of tree) {
+      for (const cat of section.categories) {
+        if (cat.items.some(item => item.href === location.pathname)) {
+          return { sectionKey: section.sectionKey, catTitle: cat.title };
+        }
+      }
+    }
+    return null;
+  };
+
+  const active = findActive(navTree);
 
   const [openSections, setOpenSections] = useState<Record<string, boolean>>(() =>
-    navigation.reduce((acc, section) => ({
-      ...acc,
-      [section.title]: section.title === activeCategory,
-    }), {})
+    navTree.reduce((acc, s) => ({ ...acc, [s.sectionKey]: s.sectionKey === active?.sectionKey }), {})
   );
 
-  // Re-open the active section when the route changes
-  useEffect(() => {
-    if (activeCategory) {
-      setOpenSections(prev => ({ ...prev, [activeCategory]: true }));
-    }
-  }, [activeCategory]);
+  const [openCategories, setOpenCategories] = useState<Record<string, boolean>>(() => {
+    const init: Record<string, boolean> = {};
+    navTree.forEach(section =>
+      section.categories.forEach(cat => {
+        const key = `${section.sectionKey}__${cat.title}`;
+        init[key] = section.sectionKey === active?.sectionKey && cat.title === active?.catTitle;
+      })
+    );
+    return init;
+  });
 
-  const toggleSection = (title: string) => {
-    setOpenSections(prev => ({ ...prev, [title]: !prev[title] }));
-  };
+  useEffect(() => {
+    if (active) {
+      setOpenSections(prev => ({ ...prev, [active.sectionKey]: true }));
+      setOpenCategories(prev => ({ ...prev, [`${active.sectionKey}__${active.catTitle}`]: true }));
+    }
+  }, [active?.sectionKey, active?.catTitle]);
+
+  const toggleSection = (key: string) =>
+    setOpenSections(prev => ({ ...prev, [key]: !prev[key] }));
+
+  const toggleCategory = (key: string) =>
+    setOpenCategories(prev => ({ ...prev, [key]: !prev[key] }));
 
   return (
     <aside className={cn("w-64 shrink-0 border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 h-full overflow-y-auto", className)}>
       <div className="p-4">
-        {/* Mobile-only quick links — desktop topbar already exposes these */}
+        {/* Mobile-only quick links */}
         <div className="mb-4 flex flex-col gap-0.5 lg:hidden">
           <NavLink
             to="/knowledge-graph"
@@ -58,56 +75,115 @@ export const Sidebar: React.FC<SidebarProps> = ({ className, lang = 'ru' }) => {
           </NavLink>
         </div>
 
-        {/* Sticky section header for the categories tree */}
         <div className="mb-2 px-2 text-[11px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
           {lang === 'en' ? 'Knowledge Base' : 'База знаний'}
         </div>
 
         <nav className="space-y-1">
-          {navigation.map((section, idx) => {
-            const isOpen = openSections[section.title];
+          {navTree.map(section => {
+            const isSectionOpen = openSections[section.sectionKey];
+            const multiCat = section.categories.length > 1;
 
             return (
-              <div key={idx} className="space-y-1">
+              <div key={section.sectionKey} className="space-y-0.5">
+                {/* Section header */}
                 <button
-                  onClick={() => toggleSection(section.title)}
+                  onClick={() => toggleSection(section.sectionKey)}
                   className="w-full flex items-center justify-between gap-2 px-2 py-2 text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors group"
                 >
                   <span className="flex-1 text-left leading-snug">{section.title}</span>
-                  {isOpen ? (
-                    <ChevronDown className="w-3.5 h-3.5 shrink-0 opacity-50 group-hover:opacity-100" />
-                  ) : (
-                    <ChevronRight className="w-3.5 h-3.5 shrink-0 opacity-50 group-hover:opacity-100" />
-                  )}
+                  {isSectionOpen
+                    ? <ChevronDown className="w-3.5 h-3.5 shrink-0 opacity-50 group-hover:opacity-100" />
+                    : <ChevronRight className="w-3.5 h-3.5 shrink-0 opacity-50 group-hover:opacity-100" />
+                  }
                 </button>
 
                 <AnimatePresence initial={false}>
-                  {isOpen && (
+                  {isSectionOpen && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2, ease: "easeInOut" }}
+                      transition={{ duration: 0.2, ease: 'easeInOut' }}
                       className="overflow-hidden"
                     >
-                      <ul className="mt-0.5 space-y-0.5 border-l border-zinc-200 dark:border-zinc-800 ml-[14px] pl-1">
-                        {section.items.map((item, itemIdx) => (
-                          <li key={itemIdx}>
-                            <NavLink
-                              to={item.href}
-                              className={({ isActive }) => cn(
-                                "flex items-center gap-2 rounded-md px-2 py-1 text-[13px] leading-snug transition-colors",
-                                isActive
-                                  ? "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-900 dark:text-emerald-100 font-medium"
-                                  : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/40 dark:hover:bg-zinc-800/40 hover:text-zinc-900 dark:hover:text-zinc-100"
-                              )}
-                            >
-                              <FileText className="w-3.5 h-3.5 opacity-60 shrink-0" />
-                              <span className="truncate">{item.title}</span>
-                            </NavLink>
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="space-y-0.5 border-l border-zinc-200 dark:border-zinc-800 ml-[14px] pl-1">
+                        {section.categories.map(cat => {
+                          const catKey = `${section.sectionKey}__${cat.title}`;
+                          const isCatOpen = openCategories[catKey];
+
+                          if (!multiCat) {
+                            // Single category: show items directly, no extra level
+                            return (
+                              <ul key={cat.title} className="space-y-0.5">
+                                {cat.items.map((item, i) => (
+                                  <li key={i}>
+                                    <NavLink
+                                      to={item.href}
+                                      className={({ isActive }) => cn(
+                                        "flex items-center gap-2 rounded-md px-2 py-1 text-[13px] leading-snug transition-colors",
+                                        isActive
+                                          ? "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-900 dark:text-emerald-100 font-medium"
+                                          : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/40 dark:hover:bg-zinc-800/40 hover:text-zinc-900 dark:hover:text-zinc-100"
+                                      )}
+                                    >
+                                      <FileText className="w-3.5 h-3.5 opacity-60 shrink-0" />
+                                      <span className="truncate">{item.title}</span>
+                                    </NavLink>
+                                  </li>
+                                ))}
+                              </ul>
+                            );
+                          }
+
+                          // Multiple categories: nested accordion
+                          return (
+                            <div key={cat.title} className="space-y-0.5">
+                              <button
+                                onClick={() => toggleCategory(catKey)}
+                                className="w-full flex items-center justify-between gap-2 px-2 py-1 text-[12px] font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors group"
+                              >
+                                <span className="flex-1 text-left leading-snug">{cat.title}</span>
+                                {isCatOpen
+                                  ? <ChevronDown className="w-3 h-3 shrink-0 opacity-40 group-hover:opacity-80" />
+                                  : <ChevronRight className="w-3 h-3 shrink-0 opacity-40 group-hover:opacity-80" />
+                                }
+                              </button>
+
+                              <AnimatePresence initial={false}>
+                                {isCatOpen && (
+                                  <motion.div
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: 'auto', opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    transition={{ duration: 0.15, ease: 'easeInOut' }}
+                                    className="overflow-hidden"
+                                  >
+                                    <ul className="space-y-0.5 border-l border-zinc-200 dark:border-zinc-800 ml-[10px] pl-1">
+                                      {cat.items.map((item, i) => (
+                                        <li key={i}>
+                                          <NavLink
+                                            to={item.href}
+                                            className={({ isActive }) => cn(
+                                              "flex items-center gap-2 rounded-md px-2 py-1 text-[12px] leading-snug transition-colors",
+                                              isActive
+                                                ? "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-900 dark:text-emerald-100 font-medium"
+                                                : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/40 dark:hover:bg-zinc-800/40 hover:text-zinc-900 dark:hover:text-zinc-100"
+                                            )}
+                                          >
+                                            <FileText className="w-3 h-3 opacity-60 shrink-0" />
+                                            <span className="truncate">{item.title}</span>
+                                          </NavLink>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>

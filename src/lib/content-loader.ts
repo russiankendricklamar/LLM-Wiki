@@ -23,6 +23,8 @@ export interface PageMetadata {
   demo?: string;
   year?: string;
   hideOpen?: boolean;
+  // Top-level directory segment (e.g. 'math', 'finance', 'ai-theory')
+  section?: string;
 }
 
 export interface PageContent {
@@ -78,6 +80,10 @@ export const getAllPages = (): PageContent[] => {
     const isEnglish = filePath.includes('/obsidian-vault/en/');
     const pathLang = isEnglish ? 'en' : 'ru';
 
+    // Derive top-level section from path (first dir after en/ru)
+    const sectionMatch = filePath.match(/obsidian-vault\/(?:en|ru)\/([^/]+)\//);
+    const section = sectionMatch ? sectionMatch[1] : undefined;
+
     // Generate a clean slug from filename:
     // ../../obsidian-vault/en/finance/black-scholes.md -> /finance/black-scholes
     let slug = filePath
@@ -117,6 +123,7 @@ export const getAllPages = (): PageContent[] => {
         demo: data.demo || undefined,
         year: data.year !== undefined ? String(data.year) : undefined,
         hideOpen: data.hideOpen === true,
+        section,
       },
       content
     };
@@ -193,6 +200,69 @@ export const getNavigation = (lang: 'en' | 'ru') => {
         href: p.metadata.slug
       }))
   }));
+};
+
+// ── Hierarchical navigation tree ──────────────────────────────────────────
+
+export interface NavItem { title: string; href: string }
+export interface NavCategory { title: string; items: NavItem[] }
+export interface NavSection { title: string; sectionKey: string; categories: NavCategory[] }
+
+const SECTION_LABELS: Record<string, Record<'en' | 'ru', string>> = {
+  'language-models': { en: 'Language Models', ru: 'Языковые модели' },
+  'llm-infra':       { en: 'LLM Infrastructure', ru: 'Инфраструктура LLM' },
+  'ai-theory':       { en: 'AI Theory', ru: 'Теория ИИ' },
+  'math':            { en: 'Math', ru: 'Математика' },
+  'finance':         { en: 'Finance', ru: 'Финансы' },
+  'physics':         { en: 'Physics', ru: 'Физика' },
+  'ai-finance':      { en: 'AI Finance', ru: 'ИИ и Финансы' },
+  'ai-physics':      { en: 'AI Physics', ru: 'ИИ и Физика' },
+};
+
+const SECTION_ORDER = ['language-models', 'llm-infra', 'ai-theory', 'math', 'finance', 'physics', 'ai-finance', 'ai-physics'];
+
+const SKIP_CATS = new Set(['Home', 'Главная', 'Projects', 'Проекты']);
+
+export const getNavigationTree = (lang: 'en' | 'ru'): NavSection[] => {
+  const pages = getAllPages().filter(p => p.metadata.lang === lang && !SKIP_CATS.has(p.metadata.category));
+
+  const sectionMap = new Map<string, Map<string, PageContent[]>>();
+  for (const page of pages) {
+    const key = page.metadata.section ?? '_other';
+    if (!sectionMap.has(key)) sectionMap.set(key, new Map());
+    const catMap = sectionMap.get(key)!;
+    const cat = page.metadata.category;
+    if (!catMap.has(cat)) catMap.set(cat, []);
+    catMap.get(cat)!.push(page);
+  }
+
+  const sections: NavSection[] = [];
+  for (const [sectionKey, catMap] of sectionMap) {
+    const labels = SECTION_LABELS[sectionKey];
+    const sectionTitle = labels ? labels[lang] : sectionKey;
+    const categories: NavCategory[] = [];
+    for (const [catTitle, catPages] of catMap) {
+      categories.push({
+        title: catTitle,
+        items: catPages
+          .sort((a, b) => (a.metadata.order ?? 99) - (b.metadata.order ?? 99))
+          .map(p => ({ title: p.metadata.title, href: p.metadata.slug })),
+      });
+    }
+    categories.sort((a, b) => a.title.localeCompare(b.title));
+    sections.push({ title: sectionTitle, sectionKey, categories });
+  }
+
+  sections.sort((a, b) => {
+    const ia = SECTION_ORDER.indexOf(a.sectionKey);
+    const ib = SECTION_ORDER.indexOf(b.sectionKey);
+    if (ia !== -1 && ib !== -1) return ia - ib;
+    if (ia !== -1) return -1;
+    if (ib !== -1) return 1;
+    return a.title.localeCompare(b.title);
+  });
+
+  return sections;
 };
 
 /** Returns pages that link TO the given slug via wikilinks. */
