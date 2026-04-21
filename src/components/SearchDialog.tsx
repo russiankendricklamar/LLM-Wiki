@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Command } from 'cmdk';
 import { Search, FileText } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
