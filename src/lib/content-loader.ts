@@ -234,6 +234,10 @@ const SECTION_LABELS: Record<string, Record<'en' | 'ru', string>> = {
   'physics':         { en: 'Physics', ru: 'Физика' },
   'ai-finance':      { en: 'AI Finance', ru: 'ИИ и Финансы' },
   'ai-physics':      { en: 'AI Physics', ru: 'ИИ и Физика' },
+  'projects':        { en: 'Projects', ru: 'Проекты' },
+  'about':           { en: 'About', ru: 'О проекте' },
+  'defi':            { en: 'DeFi', ru: 'Децентрализованные финансы' },
+  '_other':          { en: 'Other', ru: 'Разное' },
 };
 
 const SECTION_ORDER = [
@@ -243,8 +247,11 @@ const SECTION_ORDER = [
   'ai-finance', 
   'ai-physics',
   'math',
+  'finance', 
+  'defi',
   'physics', 
-  'finance'
+  'projects',
+  'about'
 ];
 
 const CATEGORY_LABELS: Record<string, Record<'en' | 'ru', string>> = {
@@ -274,6 +281,17 @@ const CATEGORY_LABELS: Record<string, Record<'en' | 'ru', string>> = {
   'Statistical Learning': { en: 'Statistical Learning', ru: 'Статистическое обучение' },
   'Topology':             { en: 'Topology', ru: 'Топология' },
   'Learning Theory':      { en: 'Learning Theory', ru: 'Теория обучения' },
+  'Stochastic Processes': { en: 'Stochastic Processes', ru: 'Случайные процессы' },
+  'Advanced Analysis':    { en: 'Advanced Analysis', ru: 'Продвинутый анализ' },
+  'Functional Analysis':  { en: 'Functional Analysis', ru: 'Функциональный анализ' },
+  'Algorithms and ML':    { en: 'Algorithms and ML', ru: 'Алгоритмы и ML' },
+  'Pricing Models':       { en: 'Pricing Models', ru: 'Модели ценообразования' },
+  'Portfolio Management': { en: 'Portfolio Management', ru: 'Управление портфелем' },
+  'Risk Management':      { en: 'Risk Management', ru: 'Управление рисками' },
+  'Machine Learning in Finance': { en: 'Machine Learning in Finance', ru: 'Машинное обучение в финансах' },
+  'Stochastic Finance':   { en: 'Stochastic Finance', ru: 'Стохастические финансы' },
+  'DeFi':                 { en: 'DeFi', ru: 'DeFi' },
+  'Quantitative Theory':  { en: 'Quantitative Theory', ru: 'Количественная теория' },
 };
 
 const SKIP_CATS = new Set(['Home', 'Главная', 'Projects', 'Проекты']);
@@ -294,11 +312,11 @@ export const getNavigationTree = (lang: 'en' | 'ru'): NavSection[] => {
   const sections: NavSection[] = [];
   for (const [sectionKey, catMap] of sectionMap) {
     const labels = SECTION_LABELS[sectionKey];
-    const sectionTitle = labels ? labels[lang] : sectionKey;
+    const sectionTitle = (labels && labels[lang]) ? labels[lang] : sectionKey;
     const categories: NavCategory[] = [];
     for (const [catTitle, catPages] of catMap) {
       const catLabels = CATEGORY_LABELS[catTitle];
-      const translatedTitle = catLabels ? catLabels[lang] : catTitle;
+      const translatedTitle = (catLabels && catLabels[lang]) ? catLabels[lang] : catTitle;
       
       categories.push({
         title: translatedTitle,
