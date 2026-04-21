@@ -39,7 +39,7 @@ In practice, large quantitative hedge funds (like Citadel or Two Sigma) do not m
 1.  **Market factor**: Trading any stock moves the whole market up.
 2.  **Sector factors**: Trading Exxon moves Chevron.
 
-When a portfolio manager wants to liquidate a massive portfolio, the execution algorithm optimizes the trajectory in the **eigen-space** of the cross-impact matrix, ensuring that the selling of correlated assets does not mutually cannibalize their prices.
+When a portfolio manager wants to liquidate a massive portfolio, the execution algorithm optimizes the trajectory in the **eigen-space** of the cross-impact matrix (see [[eigenvalues-eigenvectors]]), ensuring that the selling of correlated assets does not mutually cannibalize their prices.
 
 ## Visualization: The Cross-Impact Network
 
@@ -64,5 +64,6 @@ graph TD
 
 [[market-impact]] — the 1D base case  
 [[optimal-execution]] — multi-asset liquidation  
-[[random-matrix-theory]] — cleaning the noise from the empirical $\Lambda$ matrix
+[[random-matrix-theory]] — cleaning the noise from the empirical $\Lambda$ matrix  
+[[eigenvalues-eigenvectors]] — the linear algebraic core of impact analysis
 ---

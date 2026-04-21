@@ -28,7 +28,7 @@ In finance, the "sand" is the probability mass of the stock price. But there is 
 ## The Primal and Dual Problems
 
 - **Primal Problem**: Find the worst-case (or best-case) joint distribution of $(S_{T_1}, S_{T_2})$ that matches the market vanillas $\mu, \nu$ and satisfies the martingale condition, maximizing the expected payoff of the exotic option.
-- **Dual Problem (Super-Replication)**: Find a portfolio consisting of a static position in vanilla options (to match the margins) and a dynamic Delta-hedging strategy (using the martingale property) that guarantees a payout greater than or equal to the exotic option in *every possible scenario*.
+- **Dual Problem (Super-Replication)**: Find a portfolio consisting of a static position in vanilla options (to match the margins) and a dynamic Delta-hedging strategy (using the martingale property) that guarantees a payout greater than or equal to the exotic option in *every possible scenario*. This is often solved using [[convexity|Convex Optimization]] techniques.
 
 By Kantorovich Duality, the lowest cost of this super-replicating portfolio is exactly equal to the maximum possible price of the exotic option.
 
@@ -58,6 +58,7 @@ graph TD
 ## Related Topics
 
 [[risk-neutral-valuation]] — the classic model-dependent paradigm  
-[[black-scholes]] — the model we are trying to avoid  
-[[convex-optimization-trading]] — how the dual problem is actually solved via linear programming
+[[convex-optimization-trading]] — how the dual problem is actually solved via linear programming  
+[[martingale]] — the underlying stochastic property  
+[[optimal-transport]] — the general mathematical theory
 ---

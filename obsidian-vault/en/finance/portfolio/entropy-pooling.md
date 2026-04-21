@@ -66,5 +66,6 @@ This is a **Convex Optimization** problem. The beauty is that it guarantees a un
 
 [[bayesian-black-litterman]] — the linear, Gaussian predecessor  
 [[convex-optimization-trading]] — the math used to solve the KL divergence  
-[[shannon-entropy]] — the foundation of KL divergence
+[[shannon-entropy]] — the foundation of KL divergence  
+[[financial-entropy]] — using info-theory for market regimes
 ---

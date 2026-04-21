@@ -31,7 +31,7 @@ Before 2017, GPUs multiplied matrices using standard CUDA cores (one multiply-ad
 Nvidia introduced **Tensor Cores** (starting with Volta architecture), which are specialized circuits that perform a $4 \times 4$ matrix multiply-and-accumulate ($D = A \times B + C$) in a **single clock cycle**.
 
 - **Mixed Precision**: Tensor Cores take inputs in low precision (e.g., FP16 or INT8) but accumulate the result in high precision (FP32 or INT32) to prevent numerical underflow.
-- **Alignment**: To use Tensor Cores efficiently, the dimensions of the matrices being multiplied **must be multiples of 8, 16, or 32** (depending on the precision). If you make a hidden layer of size 765 instead of 768, the GPU will have to pad it to 768 in hardware, wasting compute, or fall back to slow CUDA cores.
+- **Alignment**: To use Tensor Cores efficiently, the dimensions of the matrices being multiplied **must be multiples of 8, 16, or 32** (depending on the precision). If you make a hidden layer of size 765 instead of 768, the GPU will have to pad it to 768 in hardware, wasting compute, or fall back to slow CUDA cores. This hardware requirement is handled automatically by modern [[dl-compilers]].
 
 ## 4. The Memory Hierarchy
 
@@ -41,7 +41,7 @@ As discussed in [[hardware-io-attention]], memory movement is the real bottlenec
 3.  **L1 Cache / Shared Memory**: 256KB per SM, extremely fast. Only threads within the same SM can see it.
 4.  **Registers**: Private to each thread, the fastest possible memory.
 
-Optimized CUDA kernels (like FlashAttention) carefully orchestrate moving chunks of matrices from HBM $\to$ Shared Memory $\to$ Registers $\to$ Tensor Cores.
+Optimized CUDA kernels (like [[flash-attention]]) carefully orchestrate moving chunks of matrices from HBM $\to$ Shared Memory $\to$ Registers $\to$ Tensor Cores.
 
 ## Visualization: Matrix Multiplication
 
@@ -65,5 +65,6 @@ graph TD
 
 [[hardware-io-attention]] — how memory bottlenecks attention  
 [[modern-quantization]] — how FP8 utilizes new Hopper Tensor Cores  
-[[dl-compilers]] — how software optimizes for this hardware
+[[dl-compilers]] — how software optimizes for this hardware  
+[[flash-attention]] — the golden standard of memory-fused kernels
 ---
