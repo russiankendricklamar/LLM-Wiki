@@ -1,8 +1,8 @@
 ---
 slug: "/finance/optimal-execution"
 title: "Кросс-импакт и оптимальное исполнение"
-category: "Алгоритмы и ML"
-order: 43
+category: "Pricing"
+order: 5
 lang: "ru"
 ---
 # Кросс-импакт и оптимальное исполнение (Almgren-Chriss)
