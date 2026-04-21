@@ -1,63 +1,51 @@
 ---
 title: "Slutsky's Theorem"
 category: "Asymptotic Statistics"
-order: 17
+order: 10
 lang: "en"
 slug: "slutsky-theorem"
 ---
 
-# Slutsky's Theorem and Continuous Mapping
+# Slutsky's Theorem: The Algebra of Limits
 
-Slutsky's Theorem is a fundamental result in asymptotic statistics that allows us to perform "algebra" with sequences of random variables that converge in different modes. It is the tool that justifies why we can replace unknown parameters with their estimates in complex statistics.
+Slutsky's Theorem is a fundamental result in probability theory and asymptotic statistics. It allows us to perform algebraic operations (addition, multiplication, division) on sequences of random variables that converge in different ways. It is the "glue" that allows us to prove the **Asymptotic Normality** of complex estimators like [[mle|Maximum Likelihood]].
 
-## The Core Theorem
+## 1. The Theorem
 
-Let $X_n, Y_n$ be sequences of random variables. If $X_n$ converges in distribution to $X$, and $Y_n$ converges in probability to a **constant** $c$, then:
+Let $\{X_n\}$ and $\{Y_n\}$ be sequences of scalar random variables.
+If $X_n$ converges in **distribution** to $X$ ($X_n \xrightarrow{d} X$), and $Y_n$ converges in **probability** to a constant $c$ ($Y_n \xrightarrow{p} c$), then:
 
 1.  **Addition**: $X_n + Y_n \xrightarrow{d} X + c$
 2.  **Multiplication**: $X_n Y_n \xrightarrow{d} cX$
-3.  **Division**: $X_n / Y_n \xrightarrow{d} X/c$ (provided $c \neq 0$)
+3.  **Division**: $X_n / Y_n \xrightarrow{d} X/c$ (if $c \neq 0$)
 
-### Why the Constant Matters
-It is crucial that $Y_n$ converges to a **constant**. If $Y_n$ converges to a random variable, these properties generally fail unless $X_n$ and $Y_n$ are independent.
+## 2. Why the Difference in Convergence Matters?
 
-## The Continuous Mapping Theorem (CMT)
+You cannot generally say that if $X_n \xrightarrow{d} X$ and $Y_n \xrightarrow{d} Y$, then $X_n + Y_n \xrightarrow{d} X + Y$. Convergence in distribution is "weak"—it only says the shapes of the histograms match, but it says nothing about the dependence between $X_n$ and $Y_n$. For example, if $X_n$ and $Y_n$ are both standard normal but perfectly negatively correlated, their sum is always zero (not a normal distribution).
 
-A more general result is the CMT. If $X_n \xrightarrow{d} X$ and $g$ is a **continuous function**, then:
-$$g(X_n) \xrightarrow{d} g(X)$$
-This also holds for convergence in probability and almost surely.
+Slutsky's "magic" is that if one of the sequences converges to a **constant**, the dependency doesn't matter. The constant $c$ effectively "pins down" the joint distribution, allowing the algebraic operations to work.
 
-## Practical Application: The t-statistic
+## 3. Application: The t-statistic and Wald Tests
 
-Slutsky's theorem explains why the t-statistic behaves like a Normal distribution for large samples.
-- We know from CLT that $\sqrt{n}(\bar{X} - \mu) \xrightarrow{d} \mathcal{N}(0, \sigma^2)$.
-- We know the sample variance $s_n^2$ is consistent: $s_n \xrightarrow{p} \sigma$.
-- By Slutsky's (division rule):
-$$\frac{\sqrt{n}(\bar{X} - \mu)}{s_n} \xrightarrow{d} \frac{\mathcal{N}(0, \sigma^2)}{\sigma} = \mathcal{N}(0, 1)$$
-This justifies using Z-tables for large samples even when $\sigma$ is unknown.
+The most famous application of Slutsky's theorem is the justification of the **Z-test** when the variance is estimated.
+Consider the standardized sample mean:
+$$Z_n = \frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}}$$
+By the [[central-limit-theorem|CLT]], $Z_n \xrightarrow{d} \mathcal{N}(0, 1)$.
+But in real life, we don't know $\sigma$. We use the sample standard deviation $s_n$.
+The statistic is $T_n = \frac{\bar{X}_n - \mu}{s_n/\sqrt{n}}$.
+We can write this as $T_n = Z_n \cdot (\sigma / s_n)$.
+Since $s_n \xrightarrow{p} \sigma$ (by the Law of Large Numbers), then $(\sigma / s_n) \xrightarrow{p} 1$.
+**By Slutsky's Theorem**, $T_n \xrightarrow{d} \mathcal{N}(0, 1) \cdot 1 = \mathcal{N}(0, 1)$.
+This proves that for large samples, we can use the Normal distribution even if the variance is estimated.
 
-## Visualization: Convergence Interaction
+## 4. Continuous Mapping Theorem (CMT)
 
-```chart
-{
-  "type": "scatter",
-  "xAxis": "n",
-  "data": [
-    {"n": 10, "Xn": 1.5, "Yn": 0.8, "Product": 1.2},
-    {"n": 50, "Xn": -0.4, "Yn": 0.95, "Product": -0.38},
-    {"n": 100, "Xn": 2.1, "Yn": 0.99, "Product": 2.08},
-    {"n": 500, "Xn": -1.2, "Yn": 1.0, "Product": -1.2}
-  ],
-  "lines": [
-    {"dataKey": "Product", "stroke": "#10b981", "name": "Xn * Yn (where Yn -> 1)"}
-  ]
-}
-```
-*As $n$ grows, $Y_n$ stabilizes to its constant limit, and the behavior of the product $X_n Y_n$ becomes dominated solely by the distributional fluctuations of $X_n$.*
+Slutsky's theorem is a special case of the **Continuous Mapping Theorem**, which states that if $X_n \xrightarrow{d} X$, then for any continuous function $g$, $g(X_n) \xrightarrow{d} g(X)$. This is the engine behind the [[delta-method]], allowing us to find the distribution of non-linear functions of our data (like the Log-Return or the Sharpe Ratio).
 
 ## Related Topics
 
-[[convergence-types]] — the different modes used in the theorem  
-[[central-limit-theorem]] — where Slutsky is most frequently applied  
-[[asymptotic-stats]] — properties of estimators at the limit
+[[asymptotic-stats/mle]] — using Slutsky to prove MLE normality  
+[[central-limit-theorem]] — providing the $X_n \xrightarrow{d} X$ part  
+[[law-of-large-numbers]] — providing the $Y_n \xrightarrow{p} c$ part  
+[[delta-method]] — the functional extension of Slutsky
 ---

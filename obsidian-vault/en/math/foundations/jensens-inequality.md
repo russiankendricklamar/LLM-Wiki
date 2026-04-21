@@ -1,67 +1,54 @@
 ---
 title: "Jensen's Inequality"
 category: "Foundations"
-order: 23
+order: 5
 lang: "en"
 slug: "jensens-inequality"
 ---
 
-# Jensen's Inequality
+# Jensen's Inequality: The Geometry of Averages
 
-Jensen's inequality is a fundamental result relating the value of a **convex function** of an integral (or expectation) to the integral of the convex function itself. It is the mathematical cornerstone of Bayesian inference, information theory, and the training of generative models.
+Jensen's Inequality is a fundamental result in convex analysis that relates the value of a convex function of an integral to the integral of the convex function. In simpler terms, it describes how the "average of a function" compares to the "function of an average." It is a cornerstone of **Information Theory**, **Statistical Physics**, and **Deep Learning**.
 
-## The Statement
+## 1. The Mathematical Statement
 
 For a convex function $f$ and a random variable $X$:
-
 $$f(\mathbb{E}[X]) \leq \mathbb{E}[f(X)]$$
 
-Conversely, if $f$ is **concave** (like the logarithm function), the inequality is reversed:
+- **Convex Case**: The function of the average is less than or equal to the average of the function.
+- **Concave Case**: If $f$ is concave (like $\ln(x)$), the inequality reverses: $f(\mathbb{E}[X]) \geq \mathbb{E}[f(X)]$.
+- **Equality Condition**: Equality holds if and only if either $X$ is constant or $f$ is linear on the range of $X$.
 
-$$f(\mathbb{E}[X]) \geq \mathbb{E}[f(X)]$$
+## 2. Geometric Intuition
 
-## Visual Intuition
+Imagine a bowl-shaped (convex) curve. Pick two points on the curve and draw a chord (a straight line) between them. Every point on the chord lies **above** the curve.
+- The "average of the function" corresponds to a point on the chord.
+- The "function of the average" corresponds to a point on the curve.
+Since the chord is above the curve, the average of the function is greater.
 
-A convex function "bends upward." If you take two points on the curve, the chord connecting them lies *above* the curve. The expected value $\mathbb{E}[X]$ is a point between the values, and the average of the function $\mathbb{E}[f(X)]$ lies on the chord, while the function of the average $f(\mathbb{E}[X])$ lies on the curve.
+## 3. Critical Applications
 
-## Critical Applications in AI
+### A. Information Theory (Gibbs' Inequality)
+Jensen's inequality is used to prove that the **Kullback-Leibler (KL) Divergence** is always non-negative:
+$$D_{KL}(P \parallel Q) = \mathbb{E}_P \left[ \ln \frac{P(X)}{Q(X)} \right] \geq 0$$
+By applying Jensen to the concave $\ln(x)$ function, we prove that the "distance" between any two probability distributions is at least zero, which is the foundation of all entropy-based loss functions in AI.
 
-### 1. Variational Inference and the ELBO
-The most famous use of Jensen's inequality in Machine Learning is deriving the **Evidence Lower Bound (ELBO)** for VAEs. We use the concavity of the log:
-$$\log P(x) = \log \int P(x, z) dz = \log \mathbb{E}_q \left[ \frac{P(x, z)}{Q(z)} \right] \geq \mathbb{E}_q \left[ \log \frac{P(x, z)}{Q(z)} \right]$$
-Without Jensen's inequality, we couldn't turn the difficult log-integral into a tractable expectation.
+### B. Variational Inference and VAEs
+In machine learning, we often cannot calculate the true log-likelihood of data $\ln P(x)$. Using Jensen's inequality on the logarithm, we derive the **Evidence Lower Bound (ELBO)**:
+$$\ln P(x) = \ln \int P(x, z) dz \geq \mathbb{E}_{q(z)} \left[ \ln \frac{P(x, z)}{q(z)} \right]$$
+Maximizing the ELBO (which is "easy") guarantees that we are pushing up the true likelihood (which is "hard").
 
-### 2. Information Theory (Gibbs' Inequality)
-Jensen's inequality proves that the Kullback-Leibler (KL) divergence is always non-negative:
-$$\mathbb{D}_{KL}(P \| Q) = \mathbb{E}_P [ -\log(Q/P) ] \geq -\log \mathbb{E}_P [ Q/P ] = -\log(1) = 0$$
-This ensures that "information distance" makes physical sense.
+### C. Finance: The Volatility Tax
+Jensen's inequality explains why a portfolio that fluctuates wildly has a lower compound growth rate than a steady one, even if their arithmetic average returns are the same. Because the exponential growth function is non-linear, volatility "drags" down the realized returns.
 
-### 3. EM Algorithm
-The convergence of the [[expectation-maximization|EM algorithm]] is proven by showing that the M-step maximizes a lower bound created via Jensen's inequality.
+## 4. Generalizations
 
-## Visualization: Convexity
-
-```chart
-{
-  "type": "line",
-  "xAxis": "x",
-  "data": [
-    {"x": 0.5, "f_x": 0.25, "chord": 1.25},
-    {"x": 1.0, "f_x": 1.00, "chord": 1.75},
-    {"x": 1.5, "f_x": 2.25, "chord": 2.25},
-    {"x": 2.0, "f_x": 4.00, "chord": 2.75}
-  ],
-  "lines": [
-    {"dataKey": "f_x", "stroke": "#3b82f6", "name": "Convex Function f(x) = x²"},
-    {"dataKey": "chord", "stroke": "#ef4444", "name": "Chord (E[f(X)])"}
-  ]
-}
-```
-*For any point between the edges, the red line (average of the function) is always higher than the blue line (function of the average), illustrating $f(\mathbb{E}[X]) \leq \mathbb{E}[f(X)]$.*
+- **Finite Version**: $f\left(\sum \lambda_i x_i\right) \leq \sum \lambda_i f(x_i)$ for $\sum \lambda_i = 1$.
+- **Integral Version**: $f\left(\frac{1}{b-a} \int_a^b g(x) dx\right) \leq \frac{1}{b-a} \int_a^b f(g(x)) dx$.
 
 ## Related Topics
 
-[[variational-inference]] — uses Jensen to create the ELBO  
-[[expectation-maximization]] — uses Jensen for convergence  
-[[kullback-leibler-divergence]] — non-negativity proven by Jensen
+[[convexity]] — the property that makes the inequality work  
+[[variational-autoencoders]] — primary application in deep learning  
+[[shannon-entropy]] — derived using Jensen
 ---

@@ -1,68 +1,60 @@
 ---
 title: "Hidden Markov Models (HMM)"
 category: "Applied Probability"
-order: 33
+order: 12
 lang: "en"
 slug: "hmm"
 ---
 
 # Hidden Markov Models (HMM)
 
-A Hidden Markov Model (HMM) is a statistical Markov model in which the system being modeled is assumed to be a Markov process with **unobserved (hidden) states**. HMMs were the foundational technology for speech recognition and natural language processing before the deep learning era (RNNs, Transformers).
+A **Hidden Markov Model (HMM)** is a statistical model in which the system is assumed to be a Markov process with unobserved (**hidden**) states. HMMs are the foundation of speech recognition, bioinformatics, and market regime detection.
 
-## The Model Structure
+## 1. The Model Structure
 
-An HMM consists of two linked sequences:
-1.  **Hidden States ($Z_t$)**: A sequence of unobserved states forming a Markov chain. The probability of moving to the next state depends only on the current state: $P(Z_t \mid Z_{t-1})$.
-2.  **Observations ($X_t$)**: A sequence of visible outputs. The observation at time $t$ depends *only* on the hidden state at time $t$: $P(X_t \mid Z_t)$.
+An HMM is defined by:
+- **Hidden States ($Z_t$)**: A sequence of discrete states $1, \dots, K$ that follow a Markov chain.
+- **Observations ($X_t$)**: What we actually see. The probability of an observation depends solely on the current hidden state: $P(X_t \mid Z_t)$.
+- **Transition Matrix ($A$)**: $A_{ij} = P(Z_{t+1} = j \mid Z_t = i)$.
+- **Emission Probabilities ($B$)**: $B_k(x) = P(X_t = x \mid Z_t = k)$.
 
-The model is fully defined by three parameters:
-- **$\pi$ (Initial Probabilities)**: $P(Z_1 = i)$
-- **$A$ (Transition Matrix)**: $A_{ij} = P(Z_t = j \mid Z_{t-1} = i)$
-- **$B$ (Emission Matrix/Densities)**: $B_i(x) = P(X_t = x \mid Z_t = i)$
+## 2. The Three Fundamental Problems
 
-## The Three Fundamental Problems
+To use an HMM, we must solve three mathematical challenges:
 
-To use HMMs practically, we must solve three computational problems. Fortunately, all three have efficient dynamic programming solutions.
+### A. The Evaluation Problem (Forward-Backward)
+*Task*: Given the model and a sequence of observations, what is the probability $P(X)$?
+*Solution*: The **Forward Algorithm**, which uses dynamic programming to sum over all possible hidden paths efficiently ($O(K^2 T)$).
 
-### 1. Likelihood (Evaluation)
-*Given an HMM and an observation sequence $X$, what is the probability that the model generated $X$?*
-**Solution**: The **Forward Algorithm** computes this in $O(N^2 T)$ time (where $N$ is the number of states, $T$ is sequence length) instead of the naive $O(N^T)$ time.
+### B. The Decoding Problem (Viterbi)
+*Task*: Given the observations, what was the "most likely" sequence of hidden states?
+*Solution*: The **Viterbi Algorithm**. It finds the single path through the hidden states that maximizes $P(Z \mid X)$.
+- **In Finance**: Used to determine if the market was in a "Bull" or "Bear" regime during a specific historical period.
 
-### 2. Decoding (Inference)
-*Given an HMM and an observation sequence $X$, what is the most likely sequence of hidden states $Z$ that produced it?*
-**Solution**: The **Viterbi Algorithm**. It recursively calculates the highest probability path leading to each state at each time step.
+### C. The Learning Problem (Baum-Welch)
+*Task*: Given only the observations, how do we find the parameters $A$ and $B$ that best fit the data?
+*Solution*: The **Baum-Welch Algorithm**, which is a specific instance of the **Expectation-Maximization (EM)** algorithm. It iteratively improves the model by alternating between estimating the hidden states and updating the transition/emission probabilities.
 
-### 3. Learning (Training)
-*Given an observation sequence $X$, how do we find the parameters $(\pi, A, B)$ that maximize the likelihood of the data?*
-**Solution**: The **Baum-Welch Algorithm**, which is a specific instance of the [[expectation-maximization|EM Algorithm]] adapted for sequential data using the Forward-Backward passes.
+## 3. Beyond Discrete States: Particle Filters
 
-## Visualization: The Viterbi Path
+Standard HMMs assume a finite number of discrete states. If the hidden state is continuous (e.g., the true volatility of a stock), the evaluation becomes an integral that cannot be solved with Viterbi. In these cases, we use **[[hmm-particle-filters|Particle Filters]]** (Sequential Monte Carlo), which approximate the continuous hidden state using thousands of random samples.
 
-```chart
-{
-  "type": "line",
-  "xAxis": "time",
-  "data": [
-    {"time": 1, "path_A": 0.8, "path_B": 0.2},
-    {"time": 2, "path_A": 0.3, "path_B": 0.7},
-    {"time": 3, "path_A": 0.1, "path_B": 0.9},
-    {"time": 4, "path_A": 0.6, "path_B": 0.4}
-  ],
-  "lines": [
-    {"dataKey": "path_B", "stroke": "#ef4444", "name": "Most Probable State Sequence (Viterbi)"}
-  ]
-}
+## Visualization: HMM State Transition
+
+```mermaid
+graph LR
+    S1((State 1: Bull)) -->|0.9| S1
+    S1 -->|0.1| S2((State 2: Bear))
+    S2 -->|0.2| S1
+    S2 -->|0.8| S2
+    
+    S1 -.->|Emits| O1[Small Returns]
+    S2 -.->|Emits| O2[Large Drops]
 ```
-*The Viterbi algorithm doesn't just pick the most likely state at each step independently; it finds the globally optimal sequence, accounting for the transition probabilities between states.*
-
-## Modern Context
-
-While large neural networks have replaced HMMs in raw performance for NLP, HMMs remain vital because they are **interpretable**, highly data-efficient, and mathematically rigorous. They are still widely used in bioinformatics (gene finding), finance (regime-switching models), and robotics.
 
 ## Related Topics
 
-[[discrete-markov-chains]] — the underlying process for the hidden states  
-[[expectation-maximization]] — the engine behind Baum-Welch  
-[[stochastic-processes]] — continuous-time equivalents
+[[hmm-particle-filters]] — continuous state filtering  
+[[markov-processes]] — the underlying state logic  
+[[asymptotic-stats/mle]] — HMMs are trained via MLE (Baum-Welch)
 ---

@@ -8,33 +8,39 @@ slug: "market-impact"
 
 # Market Impact and the Square-root Law
 
-Market impact is the change in an asset's price caused by a specific trade. It is a fundamental cost for large institutional investors and a key object of study in market microstructure. The most famous empirical observation in this field is the **Square-root Law**.
+Market impact is the change in an asset's price caused by a specific trade. For large institutional investors (like Citadel or BlackRock), market impact is the single largest component of transaction costs. The most famous empirical observation in this field is the **Square-root Law**.
 
-## Permanent vs. Temporary Impact
+## 1. Permanent vs. Temporary Impact
 
-- **Temporary Impact**: A transient price shift caused by a temporary lack of liquidity. Once the trade is over, the price tends to bounce back.
-- **Permanent Impact**: A lasting shift in the equilibrium price. It represents the information that the market "learned" from your trade.
+- **Temporary Impact**: A transient price shift caused by a temporary lack of liquidity in the order book. Once the trade is over, the price tends to bounce back (reversion).
+- **Permanent Impact**: A lasting shift in the equilibrium price. This represents the **Information Discovery**: the market "learned" something from your trade and adjusted its belief about the true value of the asset.
 
-## The Square-root Law
+## 2. The Square-root Law
 
-Extensive empirical research (Bouchaud et al.) has shown that the average price impact $I$ of a meta-order (a large trade split into smaller pieces) is proportional to the **square root** of its size $Q$:
+Extensive empirical research across thousands of stocks (Bouchaud et al.) has shown that the average price impact $I$ of a meta-order (a large trade split into many smaller pieces) is proportional to the **square root** of its size $Q$:
 
-$$I = Y \cdot \sigma \left( \frac{Q}{V} \right)^{1/2}$$
+$$I = Y \cdot \sigma \cdot \left( \frac{Q}{V} \right)^{1/2}$$
 
 Where:
-- $Q$ is the size of the order.
-- $V$ is the average daily volume.
+- $Q$ is the total volume of your trade.
+- $V$ is the average daily volume of the stock.
 - $\sigma$ is the daily volatility.
-- $Y$ is a constant of order 1.
+- $Y$ is a universal constant (usually around 1.0).
 
-### Why it's surprising
-Usually, in economics, we expect linear relationships. However, in finance, doubling the size of an order does not double the impact—it only increases it by $\sqrt{2} \approx 1.41$. This sub-linear behavior is due to the **latent liquidity** hidden in the limit order book.
+### Why is this surprising?
+Usually, in linear models, we expect that buying 2x more shares moves the price 2x as much. But in finance, doubling the size only increases the impact by $\sqrt{2} \approx 1.41$. 
+- **Cause**: This sub-linear behavior is due to **Latent Liquidity**. The order book only shows a tiny fraction of the total shares available. As you trade, more sellers "emerge" from the sidelines, dampening your impact.
 
-## Price Discovery
+## 3. Price Discovery as Physics
 
-Market impact is the physical mechanism of **Price Discovery**. When an informed trader buys, their impact pushes the price toward the "true" value. 
-- If the impact is too high, the market is **Illiquid**.
-- If the impact is too low, the market is **Incoherent** (prices don't reflect information).
+Market impact is the physical mechanism of **Price Discovery**. Without impact, prices would never move to reflect new information.
+- If the impact is too high: The market is **Illiquid** and fragile.
+- If the impact is too low: The market is **Incoherent** (prices don't react to important news).
+
+## 4. Impact in Advanced Trading
+
+1.  **Meta-order Slicing**: Execution algorithms (see [[smart-order-routing]]) split orders into "child orders" to move slowly and capture the square-root decay rather than a massive immediate linear spike.
+2.  **Cross-Impact**: Trading a large block of Apple will move the price of Microsoft. Top funds model the whole **Cross-Impact Matrix** (see [[cross-impact]]) to prevent their own trades from "cannibalizing" the rest of their portfolio.
 
 ## Visualization: Impact vs. Order Size
 
@@ -55,11 +61,12 @@ Market impact is the physical mechanism of **Price Discovery**. When an informed
   ]
 }
 ```
-*The square-root law (green) shows that the cost of trading grows much slower than size would suggest. This allows large funds to move massive amounts of capital without destroying their own returns.*
+*The square-root law (green) allows large funds to trade much larger volumes than a naive linear model (red) would suggest, provided they trade slowly enough to let the book refill.*
 
 ## Related Topics
 
 [[optimal-execution]] — how to minimize this impact  
-[[vpin]] — detecting when impact is becoming toxic  
-[[limit-order-book]] — the mechanics of order execution
+[[cross-impact]] — multi-asset generalization  
+[[vpin]] — detecting when impact becomes toxic  
+[[lob-propagators]] — the time-dependent math of impact decay
 ---

@@ -1,65 +1,57 @@
 ---
 title: "Change of Variables"
 category: "Applied Probability"
-order: 38
+order: 8
 lang: "en"
 slug: "change-of-variables"
 ---
 
-# Change of Variables and Jacobians
+# Change of Variables: The Geometry of Probability
 
-Change of Variables is a fundamental technique in probability theory for finding the distribution of a random variable that is a transformation of another. It is the mathematical engine behind **Normalizing Flows** and many physics simulations.
+The Change of Variables technique is a fundamental tool for finding the probability density of a transformed random variable. If you know the distribution of $X$, and you apply a function $Y = g(X)$, the Change of Variables formula tells you the distribution of $Y$. This is the basis for **Generative AI** (VAEs, GANs, Normalizing Flows).
 
-## Univariate Case
+## 1. The 1D Case
 
-If $X$ has density $f_X(x)$ and $Y = g(X)$ where $g$ is a monotonic, differentiable function, the density of $Y$ is:
+For a strictly monotonic and differentiable function $g(x)$, if $Y = g(X)$, then the density of $Y$ is:
+$$f_Y(y) = f_X(g^{-1}(y)) \cdot \left| \frac{d}{dy} g^{-1}(y) \right|$$
 
-$$f_Y(y) = f_X(g^{-1}(y)) \left| \frac{d}{dy} g^{-1}(y) \right|$$
+- **Intuition**: The first term accounts for the probability "mass" moving from $x$ to $y$. The second term (the derivative) is the **Scaling Factor**: it accounts for how much the function $g$ stretches or compresses the space. If the space is compressed, the density must rise to keep the total probability equal to 1.
 
-The absolute value of the derivative acts as a **scaling factor** to ensure the area under the new density still integrates to 1. If the function stretches the space, the density must decrease proportionally.
+## 2. The Multivariate Case (The Jacobian)
 
-## Multivariate Case (The Jacobian)
+In multiple dimensions, where $Y = G(X)$ and $X, Y \in \mathbb{R}^n$, the scaling factor is the determinant of the **[[gradient-hessian-jacobian|Jacobian Matrix]]**:
+$$f_Y(\mathbf{y}) = f_X(G^{-1}(\mathbf{y})) \cdot \left| \det \mathbf{J}_{G^{-1}}(\mathbf{y}) \right|$$
 
-For a vector random variable $X \in \mathbb{R}^d$ and a transformation $Y = g(X)$, the joint density of $Y$ is:
+This formula is the heart of **Normalizing Flows** (a class of generative models). By applying a sequence of simple, invertible transformations with easy-to-calculate Jacobians, we can transform a simple Gaussian distribution into a highly complex distribution (like the pixels of a face).
 
-$$f_Y(y) = f_X(g^{-1}(y)) \left| \det \mathbf{J}_{g^{-1}}(y) \right|$$
+## 3. Key Applications
 
-Where $\mathbf{J}$ is the **Jacobian Matrix** of the inverse transformation. The determinant of the Jacobian measures how much the transformation changes the local volume at each point.
+### A. The Box-Muller Transform
+How do computers generate Gaussian noise? They start with a Uniform distribution $U[0, 1]$ and apply a Change of Variables:
+$$Z = \sqrt{-2 \ln U_1} \cos(2\pi U_2)$$
+The Jacobian of this transformation ensures that the output $Z$ is perfectly normally distributed.
 
-## Why It Matters for AI: Normalizing Flows
+### B. Log-Normal Distribution
+In finance, if we assume log-returns are normal ($X \sim \mathcal{N}$), then the price $Y = e^X$ follows a **Log-Normal** distribution. The Change of Variables formula provides the exact PDF for stock prices used in the [[black-scholes]] model.
 
-Normalizing Flows (like RealNVP or Glow) are a class of generative models that use this principle:
-1.  Start with a simple distribution $z \sim \mathcal{N}(0, I)$.
-2.  Apply a sequence of invertible, differentiable transformations $g_1, g_2, \dots, g_n$.
-3.  The final density $x$ is complex, but its likelihood can be calculated exactly using the Jacobian chain rule:
-    $$\log p(x) = \log p(z) - \sum \log | \det \mathbf{J}_{g_i} |$$
+### C. Differential Entropy
+The entropy of a distribution (see [[shannon-entropy]]) changes under a change of variables. If you stretch a distribution, its entropy increases by $\ln |\det J|$. This relationship is vital for **Mutual Information** estimation in machine learning.
 
-The challenge in architecture design is creating transformations that are expressive yet have **cheap-to-compute Jacobian determinants**.
+## Visualization: Stretching the Density
 
-## Visualization: Probability Mass Compression
-
-```chart
-{
-  "type": "line",
-  "xAxis": "x",
-  "data": [
-    {"x": -2, "orig": 0.05, "trans": 0.01},
-    {"x": -1, "orig": 0.24, "trans": 0.10},
-    {"x": 0,  "orig": 0.40, "trans": 0.80},
-    {"x": 1,  "orig": 0.24, "trans": 0.10},
-    {"x": 2,  "orig": 0.05, "trans": 0.01}
-  ],
-  "lines": [
-    {"dataKey": "orig", "stroke": "#94a3b8", "name": "Source (X)"},
-    {"dataKey": "trans", "stroke": "#3b82f6", "name": "Transformed (Y=g(X))"}
-  ]
-}
+```mermaid
+graph LR
+    X[Input X: Flat Uniform] -->|g(x) = x^2| Y[Output Y: Skewed]
+    X -->|Area dx| Y
+    Y -->|Stretched dy| X
+    Note[Density Y = Density X / g']
 ```
-*When $g(X)$ "squeezes" data toward the center, the Jacobian term compensates by increasing the density peak (blue), keeping the total probability constant.*
+*If $g(x)$ is very steep, it spreads the probability mass over a large area, making the density $f_Y$ small. If $g(x)$ is flat, it "piles up" the mass, making the density large.*
 
 ## Related Topics
 
-[[flow-matching]] — a continuous version of change of variables  
-[[variational-autoencoders]] — where latent space transformations are learned  
-[[vector-calculus]] — the multivariable math foundation
+[[gradient-hessian-jacobian]] — the scaling engine (Jacobians)  
+[[asymptotic-stats/mle]] — transforming parameters  
+[[shannon-entropy]] — entropy under transformations  
+[[variational-autoencoders]] — learning the transformation $G$
 ---

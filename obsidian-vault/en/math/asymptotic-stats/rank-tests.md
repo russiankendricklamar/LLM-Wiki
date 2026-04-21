@@ -1,70 +1,49 @@
 ---
-title: "Non-parametric Rank Tests"
+title: "Rank-based Tests"
 category: "Asymptotic Statistics"
-order: 19
+order: 25
 lang: "en"
 slug: "rank-tests"
 ---
 
-# Non-parametric Rank Tests
+# Rank-based Tests: Robust Non-parametrics
 
-Non-parametric tests are statistical methods that do not assume the data follows a specific probability distribution (like the Normal distribution). Instead of using the raw values, these tests often use the **ranks** of the data, making them robust to outliers and applicable to ordinal data.
+Rank-based tests are a class of statistical procedures that replace raw data values $X_i$ with their **Ranks** (1st, 2nd, ..., $n$-th). They are the primary tools for **Robust Statistics**, as they are completely immune to outliers and do not assume that the data follows a normal distribution.
 
-## 1. Mann-Whitney U Test
+## 1. The Core Idea: Symmetry and Invariance
 
-The Mann-Whitney U test (also known as the Wilcoxon rank-sum test) is the non-parametric alternative to the **independent samples t-test**. It compares the distributions of two independent groups.
+If you have a set of data $\{1.2, 5.8, 1000.0\}$, the average is heavily pulled by the outlier ($1000.0$).
+If you replace them with ranks $\{1, 2, 3\}$, the outlier has no more power than any other point.
+- **Distribution-Free**: The distribution of ranks is the same regardless of whether the original data was Gaussian, Cauchy, or uniform. This allows for exact p-values without distributional assumptions.
 
-### The Procedure
-1. Combine all observations from both groups and rank them from smallest to largest.
-2. Sum the ranks for each group.
-3. Calculate the $U$ statistic based on the rank sums.
+## 2. Famous Rank Tests
 
-**Null Hypothesis ($H_0$)**: There is a 50% probability that a randomly drawn member from the first population will exceed a member from the second population. 
+### A. Wilcoxon Signed-Rank Test
+The non-parametric alternative to the paired t-test. It tests whether the median of the differences between pairs is zero.
+- **AI Use**: Comparing the performance of two LLM versions on a benchmark where scores are non-normal.
 
-## 2. Wilcoxon Signed-Rank Test
+### B. Mann-Whitney U Test (Wilcoxon Rank-Sum)
+Tests whether two independent samples come from the same distribution. It essentially counts how many times a value from Sample A precedes a value from Sample B in the sorted combined list.
 
-The non-parametric alternative to the **paired samples t-test**. It is used to compare two related samples (e.g., measurements before and after treatment on the same patient).
+### C. Spearman's Rank Correlation ($\rho$)
+Measures the **Monotonic relationship** between two variables. Unlike Pearson correlation (which looks for a straight line), Spearman captures any relationship where $Y$ increases as $X$ increases (e.g., an exponential curve).
+- **Finance**: Used to find relationships between alternative data (like satellite imagery) and stock returns, where the relationship is strong but highly non-linear.
 
-### The Procedure
-1. Calculate the difference $d_i$ for each pair.
-2. Rank the absolute differences $|d_i|$.
-3. Sum the ranks of the positive and negative differences.
+## 3. Asymptotic Relative Efficiency (ARE)
 
-## 3. Kruskal-Wallis Test
+A common myth is that rank tests are "weaker" than parametric tests. However, the **ARE** of the Wilcoxon test compared to the t-test is:
+- **0.955** for normal data (you only lose 4.5% efficiency).
+- **$\infty$** for heavy-tailed data (the rank test is infinitely better because the t-test fails to converge).
+This makes rank tests the "safer" choice for real-world messy data.
 
-The non-parametric alternative to **one-way ANOVA**. It tests whether three or more independent groups come from the same distribution.
+## 4. Why Tier-1 Hedge Funds use them
 
-## When to Use Ranks?
-
-| Feature | Parametric (t-test) | Non-parametric (U-test) |
-|---|---|---|
-| **Assumption** | Normal distribution | None |
-| **Outliers** | Very sensitive | **Robust** |
-| **Data Type** | Continuous | **Ordinal or Continuous** |
-| **Power** | High (if Normal) | Slightly lower (if Normal) |
-
-## Visualization: The Power of Ranks
-
-```chart
-{
-  "type": "scatter",
-  "xAxis": "index",
-  "data": [
-    {"index": 1, "raw": 10, "rank": 1},
-    {"index": 2, "raw": 12, "rank": 2},
-    {"index": 3, "raw": 15, "rank": 3},
-    {"index": 4, "raw": 1000, "rank": 4}
-  ],
-  "lines": [
-    {"dataKey": "rank", "stroke": "#10b981", "name": "Rank Value (Stable)"}
-  ]
-}
-```
-*Notice how the outlier (raw value = 1000) distorts the mean, but only occupies one step in the rank sequence. This is why rank tests are "immune" to extreme values that would otherwise ruin a t-test.*
+In HFT and StatArb, price returns have extreme outliers ("Jumps"). 
+A simple moving average or Pearson correlation will be ruined by a single flash crash. Quants use **Rank-based Alphas**: they rank stocks by their signals and trade the ranks. This ensures the portfolio doesn't take massive, concentrated bets on a single "noisy" stock that happens to have a 10-sigma return by luck.
 
 ## Related Topics
 
-[[hypothesis-testing]] — the broader framework  
-[[anova]] — the parametric counterpart for 3+ groups  
-[[order-statistics]] — the mathematical foundation of ranks
+[[order-statistics]] — the math of sorting  
+[[robust-statistics]] — the broader field of outlier-resistant math  
+[[asymptotic-stats/mle]] — the parametric alternative
 ---

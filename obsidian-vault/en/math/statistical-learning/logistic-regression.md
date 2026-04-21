@@ -1,55 +1,45 @@
 ---
-title: "Logistic Regression and GLMs"
+title: "Logistic Regression"
 category: "Statistical Learning"
 order: 10
 lang: "en"
 slug: "logistic-regression"
 ---
 
-# Logistic Regression and GLMs
+# Logistic Regression: The Link Between Stats and Neural Networks
 
-Despite its name, Logistic Regression is a **classification** algorithm. It is part of a broader family of models called **Generalized Linear Models (GLMs)**, which extend linear regression to handle response variables that are not normally distributed (e.g., binary outcomes, counts).
+Logistic Regression is the foundational algorithm for binary classification. Despite its name, it is a classification model, not a regression model. It is the "grandfather" of modern deep learning—a single-layer neural network with a **Sigmoid activation** is exactly a logistic regression.
 
-## The Logistic Model
+## 1. The Logistic Model
 
-In binary classification ($y \in \{0, 1\}$), a standard linear model $x^\top \beta$ can predict values outside the $[0, 1]$ range, which makes no sense for probabilities. 
+Instead of modeling the output $y$ directly as a linear combination of inputs (which could result in values from $-\infty$ to $+\infty$), we model the **Log-Odds** (Logit):
+$$\ln \left( \frac{p}{1-p} \right) = \beta_0 + \beta_1 x_1 + \dots + \beta_n x_n$$
+Solving for the probability $p$ gives the **Logistic Function** (Sigmoid):
+$$p = \sigma(z) = \frac{1}{1 + e^{-z}}$$
+where $z = w^\top x + b$.
 
-Logistic regression solves this by passing the linear output through the **Sigmoid (Logistic) function**:
-$$p(y=1 \mid x) = \sigma(x^\top \beta) = \frac{1}{1 + e^{-x^\top \beta}}$$
+## 2. Estimation: Cross-Entropy Loss
 
-This guarantees the output is a valid probability.
+We cannot solve Logistic Regression using Ordinary Least Squares because the output is non-linear. Instead, we use **[[asymptotic-stats/mle|Maximum Likelihood Estimation (MLE)]]**.
+The loss function we minimize is the **Binary Cross-Entropy**:
+$$\mathcal{L} = -\sum [y_i \ln p_i + (1-y_i) \ln(1-p_i)]$$
+- **Convexity**: This loss function is strictly [[convexity|Convex]]. This means optimization algorithms like Gradient Descent are guaranteed to find the global minimum.
 
-## Log-Odds (Logit)
+## 3. Interpretation: Odds and Ratios
 
-If we rearrange the equation, we get the **Logit function**:
-$$\log \left( \frac{p}{1-p} \right) = x^\top \beta$$
-This means logistic regression assumes that the **log-odds** of the positive class depend linearly on the features.
+- **Odds Ratio**: For every unit increase in $x_i$, the odds of the positive class ($y=1$) change by a factor of $e^{\beta_i}$.
+- **Decision Boundary**: The point where $p=0.5$ (or $z=0$) defines a **Linear Hyperplane** in the feature space. Logistic regression is a linear classifier.
 
-## Loss Function: Cross-Entropy
+## 4. Modern Scaling
 
-Unlike linear regression, we cannot use Mean Squared Error (MSE) to train logistic regression because it creates a non-convex loss landscape. Instead, we use **Maximum Likelihood Estimation (MLE)**.
-
-The negative log-likelihood for a Bernoulli distribution leads to the **Binary Cross-Entropy (Log-Loss)**:
-$$\mathcal{L}(\beta) = -\frac{1}{n} \sum_{i=1}^n \left[ y_i \log(\hat{y}_i) + (1-y_i)\log(1-\hat{y}_i) \right]$$
-This loss function is **convex**, guaranteeing that gradient descent will find the global minimum. There is no closed-form solution like the Normal Equation; it must be solved iteratively.
-
-## Generalized Linear Models (GLMs)
-
-Logistic regression is just one instance of a GLM. A GLM consists of three components:
-1.  **Random Component**: The probability distribution of the response $y$ (from the [[exponential-families|Exponential Family]]).
-2.  **Systematic Component**: The linear predictor $\eta = x^\top \beta$.
-3.  **Link Function**: A monotonic function $g$ that links the expected value of $y$ to the linear predictor: $g(\mathbb{E}[y]) = \eta$.
-
-### Common GLMs
-| Model | Distribution | Link Function $g(\mu)$ | Use Case |
-|---|---|---|---|
-| Linear Regression | Gaussian | Identity ($\mu$) | Continuous Data |
-| Logistic Regression | Bernoulli | Logit ($\log \frac{\mu}{1-\mu}$) | Binary Classification |
-| Poisson Regression | Poisson | Log ($\log \mu$) | Count Data (e.g., website clicks) |
+1.  **Regularization (LASSO/Ridge)**: Adding $\|\beta\|_1$ or $\|\beta\|_2$ to the loss function prevents the weights from exploding, which is essential for high-dimensional data (e.g., predicting click-through rates).
+2.  **Multinomial (Softmax)**: Extending the binary model to $K$ classes leads to the **Softmax** layer, which is the final layer of every Large Language Model (Transformer).
+3.  **Online Learning**: Using Stochastic Gradient Descent (SGD), logistic regression can be trained on infinite data streams (e.g., high-frequency trading data) without storing the dataset in memory.
 
 ## Related Topics
 
-[[linear-regression]] — the continuous counterpart  
-[[exponential-families]] — the theoretical foundation of GLMs  
-[[mle]] — the optimization target
+[[asymptotic-stats/mle]] — the math of how it is trained  
+[[transformer-architecture]] — where Softmax (multi-class logistic) lives  
+[[convexity]] — why it is easy to solve  
+[[linear-regression]] — the simpler, non-probabilistic ancestor
 ---

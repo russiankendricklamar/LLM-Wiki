@@ -1,66 +1,62 @@
 ---
-title: "Information Divergences (f-divergences)"
+title: "f-Divergences"
 category: "Applied Probability"
-order: 45
+order: 15
 lang: "en"
 slug: "f-divergences"
 ---
 
-# Information Divergences (f-divergences)
+# f-Divergences: Measuring the Distance Between Distributions
 
-An $f$-divergence is a broad class of functions that measure the "distance" or difference between two probability distributions $P$ and $Q$. While they are not metrics in the strict mathematical sense (often lacking symmetry), they are the primary tools for evaluating the quality of models in AI and Information Theory.
+In machine learning and information theory, we often need to measure how "different" two probability distributions $P$ and $Q$ are. While there are many ways to do this, **f-divergences** provide a unified mathematical framework that contains almost all common distance measures as special cases.
 
-## General Definition
+## 1. Definition
 
-For a convex function $f$ such that $f(1) = 0$, the $f$-divergence of $Q$ from $P$ is:
+Given two distributions $P$ and $Q$ defined on a space $\Omega$, the f-divergence is defined as:
+$$D_f(P \parallel Q) = \int_\Omega f\left( \frac{dP}{dQ} \right) dQ$$
+Where **$f$ is a convex function** such that $f(1) = 0$. 
 
-$$D_f(P \| Q) = \int f\left( \frac{p(x)}{q(x)} \right) q(x) dx$$
+- **Intuition**: We are looking at the ratio of probabilities $P/Q$ at every point, applying a non-linear "cost" $f$ to the deviation from 1 (equality), and averaging it.
+- **Positivity**: Due to [[jensens-inequality|Jensen's Inequality]], $D_f(P \parallel Q) \geq 0$ for any valid $f$.
 
-By **Jensen's Inequality**, since $f$ is convex, $D_f(P \| Q) \geq f(\int p/q \cdot q) = f(1) = 0$. This ensures the divergence is always non-negative.
+## 2. Famous Special Cases
 
-## Common f-divergences
+The choice of the function $f(t)$ determines the specific type of divergence:
 
-Different choices of $f(t)$ lead to famous measures:
+| Divergence Name | Function $f(t)$ | Usage in AI |
+| :--- | :--- | :--- |
+| **KL Divergence** | $t \ln t$ | VAEs, LLM Cross-Entropy, RLHF |
+| **Reverse KL** | $-\ln t$ | Variational Inference |
+| **Total Variation** | $\frac{1}{2}|t - 1|$ | Theoretical bounds, Differential Privacy |
+| **Pearson $\chi^2$** | $(t - 1)^2$ | Gaussian Mixture calibration |
+| **Hellinger Distance**| $(\sqrt{t} - 1)^2$ | Robust statistics, signal processing |
 
-| Name | $f(t)$ | Formula | Use Case |
-|---|---|---|---|
-| **KL Divergence** | $t \log t$ | $\int p \log(p/q)$ | Variational Inference, MLE |
-| **Reverse KL** | $-\log t$ | $\int q \log(q/p)$ | Reinforcement Learning |
-| **Total Variation** | $\frac{1}{2}|t - 1|$ | $\frac{1}{2} \int |p - q|$ | Theoretical bounds |
-| **Hellinger Distance** | $(\sqrt{t} - 1)^2$ | $\int (\sqrt{p} - \sqrt{q})^2$ | Robust Statistics |
-| **Pearson $\chi^2$** | $(t-1)^2$ | $\int \frac{(p-q)^2}{q}$ | Goodness-of-fit tests |
+## 3. Properties
 
-## Jensen-Shannon Divergence (JSD)
+1.  **Data Processing Inequality**: An f-divergence cannot increase under any local transformation (noise, filtering). This means that once information is lost, it stays lost.
+2.  **Monotonicity**: $D_f$ is monotone with respect to the inclusion of $\sigma$-algebras.
+3.  **Local Geometry**: For distributions that are very close, all f-divergences behave like the **Fisher Information Metric** (see [[information-geometry-finance]]).
 
-The JSD is a symmetric and bounded version of the KL divergence:
-$$JSD(P \| Q) = \frac{1}{2} D_{KL}(P \| M) + \frac{1}{2} D_{KL}(Q \| M)$$
-where $M = \frac{1}{2}(P+Q)$. 
-**GAN connection**: The original Generative Adversarial Network objective is mathematically equivalent to minimizing the JSD between the data and the generator.
+## 4. Why Tier-1 ML Researchers care
 
-## Visualization: Divergence Profiles
+- **Generative Adversarial Networks (GANs)**: The original GAN uses the Jensen-Shannon divergence. **f-GANs** showed that you can train a GAN using *any* f-divergence, allowing researchers to choose the one that results in the most stable training (e.g., the Hellinger GAN).
+- **Variational Inference**: Choosing different f-divergences leads to different behaviors in the approximated distribution. KL-divergence tends to be "mode-seeking" (it covers only one peak), while Reverse-KL is "mass-covering" (it tries to cover the whole distribution).
 
-```chart
-{
-  "type": "line",
-  "xAxis": "t",
-  "data": [
-    {"t": 0.1, "kl": 2.3, "tv": 0.45, "chi2": 0.81},
-    {"t": 0.5, "kl": 0.3, "tv": 0.25, "chi2": 0.25},
-    {"t": 1.0, "kl": 0.0, "tv": 0.00, "chi2": 0.00},
-    {"t": 2.0, "kl": 0.7, "tv": 0.50, "chi2": 1.00},
-    {"t": 5.0, "kl": 8.0, "tv": 2.00, "chi2": 16.0}
-  ],
-  "lines": [
-    {"dataKey": "kl", "stroke": "#3b82f6", "name": "KL (Logarithmic)"},
-    {"dataKey": "chi2", "stroke": "#ef4444", "name": "Pearson (Quadratic)"}
-  ]
-}
+## Visualization: Mode Seeking vs. Mass Covering
+
+```mermaid
+graph LR
+    P[True Bimodal Data] -->|Standard KL| Q1[Focus on one peak: High Precision]
+    P -->|Reverse KL| Q2[Blurry average: High Recall]
+    
+    style Q1 fill:#10b981,color:#fff
+    style Q2 fill:#ef4444,color:#fff
 ```
-*Different divergences penalize differences between $P$ and $Q$ at different rates. $\chi^2$ is very sensitive to outliers, while KL is more focused on the central mass.*
 
 ## Related Topics
 
-[[kullback-leibler-divergence]] — the most common member  
-[[jensens-inequality]] — the proof of non-negativity  
-[[information-geometry]] — studying the local differential form of divergences
+[[shannon-entropy]] — the core of KL  
+[[jensens-inequality]] — proving $D_f \geq 0$  
+[[gan]] — application in generative models  
+[[information-geometry-finance]] — the manifold where $D_f$ is the distance
 ---

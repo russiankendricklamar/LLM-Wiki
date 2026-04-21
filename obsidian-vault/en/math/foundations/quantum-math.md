@@ -8,33 +8,39 @@ slug: "quantum-math"
 
 # The Mathematics of Quantum Computing
 
-Quantum computing is not just about physics; it is a specific extension of **Linear Algebra** over complex numbers. By understanding a few key mathematical structures, one can derive the behavior of quantum algorithms without needing a laboratory.
+Quantum computing is not just about physics; it is a specific extension of **Linear Algebra** over the field of complex numbers $\mathbb{C}$. By understanding a few key mathematical structures, one can derive the behavior of quantum algorithms without needing a laboratory.
 
 ## 1. The Qubit as a Hilbert Space Vector
 
-A qubit is a unit vector in a 2-dimensional complex Hilbert space $\mathbb{C}^2$. In Dirac notation:
+A qubit is a unit vector in a 2-dimensional complex [[hilbert-banach-spaces|Hilbert Space]] $\mathbb{C}^2$. In Dirac notation:
 $$|\psi\rangle = \alpha |0\rangle + \beta |1\rangle$$
 where $\alpha, \beta \in \mathbb{C}$ and $|\alpha|^2 + |\beta|^2 = 1$ (the normalization condition).
-- **Superposition**: The ability to be in a linear combination of states.
+- **Superposition**: The ability to be in a linear combination of states. Mathematically, this is just vector addition.
 
 ## 2. Tensor Products and Entanglement
 
 To describe a system of $n$ qubits, we use the **tensor product** of their individual spaces:
 $$\mathcal{H}_{total} = \mathcal{H}_1 \otimes \mathcal{H}_2 \otimes \dots \otimes \mathcal{H}_n$$
 The dimension grows exponentially: $2^n$. 
-**Entanglement** occurs when a state in $\mathcal{H}_{total}$ cannot be factored into individual qubit states. The classic example is the Bell State:
-$$|\Phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)$$
+**Entanglement** occurs when a state in $\mathcal{H}_{total}$ cannot be factored into individual qubit states ($|\psi\rangle \neq |\psi_1\rangle \otimes |\psi_2\rangle$). This is equivalent to saying the state has a high **Schmidt Rank**.
 
-## 3. Unitary Operators (Gates)
+## 3. Unitary Operators (Quantum Gates)
 
-Every quantum gate is a **Unitary Matrix** $U$ ($U^\dagger U = I$). Unitary operators preserve the length of vectors, ensuring that total probability remains 1.
-- **Hadamard Gate ($H$)**: Creates superposition.
-- **CNOT**: Creates entanglement between two qubits.
+Every quantum gate is a **Unitary Matrix** $U$ ($U^\dagger U = I$). Unitary operators preserve the $L^2$ norm of vectors, ensuring that the total probability remains exactly 1.
+- **Reversibility**: Because $U$ is unitary, its inverse $U^\dagger$ always exists. All quantum computations (except measurement) are reversible.
+- **Hadamard Gate ($H$)**: Creates superposition by mapping $|0\rangle \to \frac{|0\rangle+|1\rangle}{\sqrt{2}}$.
 
 ## 4. Measurement as Projection
 
-Measurement is a non-unitary operation. It projects a state onto an eigenbasis of an observable. The probability of an outcome is given by the **Born Rule**:
+Measurement is a non-unitary, non-reversible operation. It projects a state onto an eigenbasis of an observable. The probability of an outcome is given by the **Born Rule**:
 $$P(\text{outcome } i) = |\langle i \mid \psi \rangle|^2$$
+This collapses the superposition into a single classical state.
+
+## 5. Key Quantum Algorithms
+
+1.  **Shor's Algorithm**: Uses the Quantum Fourier Transform to find periods of functions, allowing the factoring of large integers in polynomial time. It breaks RSA encryption.
+2.  **Grover's Algorithm**: A search algorithm that provides a quadratic speedup ($O(\sqrt{N})$) by rotating the state vector toward the desired solution.
+3.  **QAE**: Used in finance for fast risk estimation (see [[quantum-amplitude-estimation]]).
 
 ## Visualization: The Bloch Sphere
 
@@ -52,16 +58,12 @@ $$P(\text{outcome } i) = |\langle i \mid \psi \rangle|^2$$
   ]
 }
 ```
-*The state of a single qubit can be visualized as a point on the surface of a unit sphere (the Bloch Sphere). Pure states are on the surface, while mixed states (uncertainty) are in the interior.*
-
-## Key Algorithms
-
-1.  **Shor's Algorithm**: Uses the Quantum Fourier Transform to factor integers in polynomial time.
-2.  **Grover's Algorithm**: Provides a quadratic speedup for searching unsorted databases.
+*The state of a single qubit lives on the surface of the Bloch Sphere. Every possible unitary operation is simply a rotation of this sphere.*
 
 ## Related Topics
 
 [[linear-algebra]] — the fundamental language  
 [[spectral-theorem-unbounded]] — the math of measurement and observables  
-[[information-theory]] — quantum entropy (Von Neumann entropy)
+[[quantum-information-entropy]] — measuring the information in qubits  
+[[quantum-amplitude-estimation]] — financial application
 ---

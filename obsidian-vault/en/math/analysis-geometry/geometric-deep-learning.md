@@ -1,78 +1,67 @@
 ---
 title: "Geometric Deep Learning"
-category: "AI Theory"
-order: 18
+category: "Analysis & Geometry"
+order: 20
 lang: "en"
 slug: "geometric-deep-learning"
 ---
 
-# Geometric Deep Learning
+# Geometric Deep Learning: Symmetry and Invariance
 
-Geometric Deep Learning (GDL) is a theoretical framework introduced by Bronstein, Bruna, Cohen, and Velickovic (2021) that attempts to unify all neural network architectures through the lens of **Symmetry** and **Invariance**. It is the "Erlangen Program" for deep learning.
+Geometric Deep Learning (GDL) is an emerging framework that seeks to unify neural network architectures through the lens of **Symmetry** and **Invariance**. It recognizes that most successful AI models (like CNNs and GNNs) are effective because they exploit the geometric structure of the data domain (grids, graphs, or manifolds).
 
-## The Core Problem
+## 1. The "Erlangen Program" for AI
 
-Standard machine learning often struggles with the "curse of dimensionality." GDL solves this by utilizing the **geometric structure** of the data domain (e.g., grids, graphs, manifolds) to reduce the search space of functions.
+Just as Felix Klein unified geometry in the 19th century by studying groups of transformations, GDL (Bronstein et al., 2021) unifies deep learning by identifying the **Invariances** of the data:
+- **Translation Invariance**: In images, a cat is a cat whether it is in the top-left or bottom-right corner. **CNNs** exploit this.
+- **Permutation Invariance**: In a social network or molecule, the order of nodes doesn't matter. **GNNs** exploit this.
+- **Rotation Invariance**: In 3D medical imaging or robotics, the orientation of an object shouldn't change its classification.
 
-## The 5G Principles
+## 2. Key Mathematical Priors
 
-GDL classifies architectures based on the type of domain and the symmetries (groups) they respect:
+The "Blueprint" of a geometric neural network consists of two main operations:
 
-1.  **Grids** (CNNs): Translational invariance. Convolutions are equivariant to shifts.
-2.  **Groups** (Equivariant NNs): Invariance to rotations, reflections, or other transformations.
-3.  **Graphs** (GNNs): Permutation invariance. The output shouldn't change if we reorder the nodes.
-4.  **Geodesics** ([[manifold-learning|Manifold]] NNs): Respecting the curvature of the space.
-5.  **Gauges** (Gauge CNNs): Symmetries of the local coordinate systems.
+### A. Equivariant Layers
+A layer is equivariant if transforming the input (e.g., rotating it) result in a transformed output. 
+- *Formula*: $f(g \cdot x) = g \cdot f(x)$ for some group element $g$.
+- Most layers in a CNN are translation-equivariant: if you shift the pixels, the feature maps shift by the same amount.
 
-## Mathematical Engine: Invariance and Equivariance
+### B. Global Pooling (Invariance)
+At the end of the network, we need a single label (e.g., "Cat" or "Dog") that is completely unchanged by transformations.
+- *Formula*: $f(g \cdot x) = f(x)$.
+- This is achieved by operations like Global Average Pooling.
 
-Let $G$ be a group of transformations (like rotations) acting on the input $x$.
+## 3. The 5 Domains of GDL
 
-### 1. Invariance
-A function $f$ is **invariant** if transforming the input doesn't change the output:
-$$f(g \cdot x) = f(x)$$
-*Example: Image classification (a cat is a cat even if shifted).*
+GDL classifies all deep learning into five geometric categories:
+1.  **Grids ($\mathbb{R}^d$)**: Classical CNNs. Domain is fixed and Euclidean.
+2.  **Groups**: Equivariant networks for physics and rotation-heavy tasks.
+3.  **Graphs**: [[graph-neural-networks|GNNs]]. The domain is a discrete set of nodes and edges.
+4.  **Geodesics/Manifolds**: Learning on curved surfaces (e.g., the human body, the globe).
+5.  **Sets**: Deep Sets. Handling collections of objects where order is irrelevant.
 
-### 2. Equivariance
-A function $f$ is **equivariant** if transforming the input is equivalent to transforming the output:
-$$f(g \cdot x) = g \cdot f(x)$$
-*Example: Part segmentation (if you rotate the image, the segmentation mask rotates too).*
+## 4. Why it Matters for Science (AI for Physics)
 
-## The Blueprint
+Geometric Deep Learning is the bridge that allows AI to obey the laws of physics. 
+- **Equivariant NNs** are used to predict the energy of molecules. By ensuring the network is invariant to rotation and translation, we guarantee that the predicted energy doesn't change just because the molecule was rotated in the simulation.
+- This dramatically reduces the amount of training data needed, as the model doesn't have to "learn" that rotations are the same thing—the geometry is built into the architecture.
 
-GDL proposes a common blueprint for any layer:
-1.  **Linear Score**: A learnable linear operator.
-2.  **Non-linearity**: Pointwise activation.
-3.  **Pooling**: Aggregating information to achieve invariance.
+## Visualization: Symmetry Breaking
 
-## Visualization: Symmetry vs. Capacity
-
-```chart
-{
-  "type": "scatter",
-  "xAxis": "symmetry",
-  "data": [
-    {"symmetry": 0, "capacity": 100, "label": "[[transformer-architecture|MLP]] (No structure)"},
-    {"symmetry": 30, "capacity": 60, "label": "CNN (Grids)"},
-    {"symmetry": 70, "capacity": 30, "label": "GNN (Graphs)"},
-    {"symmetry": 100, "capacity": 10, "label": "Physical Laws (Strict)"}
-  ],
-  "lines": [
-    {"dataKey": "capacity", "stroke": "#3b82f6", "name": "Function Search Space"}
-  ]
-}
+```mermaid
+graph LR
+    Input[Image of a Cat] -->|Shift| InputS[Shifted Image]
+    Input -->|CNN Layer| Features[Edge Detectors]
+    InputS -->|CNN Layer| FeaturesS[Shifted Edge Detectors]
+    Features -->|Global Pooling| Result[Label: CAT]
+    FeaturesS -->|Global Pooling| Result
 ```
-*By imposing more symmetry (moving right), we drastically reduce the amount of data needed to learn a function, but we limit the model's flexibility to represent non-symmetric data.*
-
-## Why It Matters
-
-1.  **Data Efficiency**: Architectures that respect symmetries need orders of magnitude less data.
-2.  **Generalization**: Equivariant models generalize to unseen rotations or scales naturally.
-3.  **Science & Discovery**: Essential for drug discovery (graphs) and physics (manifolds).
+*Equivariance (middle) preserves the transformation, while Invariance (end) discards it to reach a stable conclusion.*
 
 ## Related Topics
 
-[[lie-groups]] — the mathematics of continuous symmetry  
-[[graph-neural-networks]] — the "Graph" branch of GDL  
-[[equivariant-nn]] — architectures implementing these principles
+[[manifold]] — learning on curved data surfaces  
+[[graph-neural-networks]] — the graph domain of GDL  
+[[group-theory]] — the mathematical language of symmetry  
+[[physics/classical/noether-theorem]] — the physical equivalent of symmetry and invariants
 ---
