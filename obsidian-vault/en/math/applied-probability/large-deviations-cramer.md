@@ -120,7 +120,7 @@ This is a large deviation for the **empirical distribution** (not just its mean)
 
 **5. Financial risk management.** VaR and CVaR at high confidence (99.9%, 99.99%) require estimating probabilities of rare events — a direct application of large deviations.
 
-**6. Algorithms.** Analysis of randomized algorithms (Monte Carlo, MCMC, stochastic gradient descent): time-to-convergence bounds are expressed through large deviations.
+**6. Algorithms.** Analysis of randomized algorithms (Monte Carlo, MCMC, stochastic [[convex-optimization|gradient descent]]): time-to-convergence bounds are expressed through large deviations.
 
 ## Connection to other limit theorems
 

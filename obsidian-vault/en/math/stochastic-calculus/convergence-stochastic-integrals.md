@@ -65,7 +65,7 @@ The main theorem gives: $Y^n \Rightarrow Y = \int_0^T \Delta(t, S_t)\, dS_t$, be
 
 ## Application: Euler Scheme Convergence
 
-Consider the SDE $dX_t = b(X_t)\, dt + \sigma(X_t)\, dW_t$. The Euler-Maruyama scheme on the grid $\{k\Delta_n\}$ is:
+Consider the [[stochastic-differential-equations|SDE]] $dX_t = b(X_t)\, dt + \sigma(X_t)\, dW_t$. The Euler-Maruyama scheme on the grid $\{k\Delta_n\}$ is:
 
 $$X^n_{(k+1)\Delta_n} = X^n_{k\Delta_n} + b(X^n_{k\Delta_n})\Delta_n + \sigma(X^n_{k\Delta_n})(W_{(k+1)\Delta_n} - W_{k\Delta_n}).$$
 

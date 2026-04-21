@@ -1,6 +1,6 @@
 ---
 title: "Уравнение Дирака"
-category: "Физика"
+category: "Physics"
 order: 32
 lang: "ru"
 slug: "dirac-equation"

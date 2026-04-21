@@ -86,7 +86,7 @@ RD is quasi-experimental: units cannot manipulate $X$ to land on the favored sid
 
 ## Applications: Causality in Large Language Models
 
-Understanding causality in AI systems is emerging. Does **RLHF** (reinforcement learning from human feedback) cause alignment, or merely superficial compliance? Causal framing clarifies: RLHF intervenes on reward signal; does the distribution of aligned behaviors change under $do(\text{RLHF}=\text{on})$ vs. $do(\text{RLHF}=\text{off})$? Or is alignment a latent feature already present in pretraining, with confounding variables (size, data) driving both?
+Understanding causality in AI systems is emerging. Does **[[rlhf]]** (reinforcement learning from human feedback) cause alignment, or merely superficial compliance? Causal framing clarifies: RLHF intervenes on reward signal; does the distribution of aligned behaviors change under $do(\text{RLHF}=\text{on})$ vs. $do(\text{RLHF}=\text{off})$? Or is alignment a latent feature already present in pretraining, with confounding variables (size, data) driving both?
 
 Do capability emergences ($\text{do}(\text{scale}=n)$) truly cause new abilities, or are they artifacts of evaluation metrics and training data selection? Causal investigation requires intervening on scale while holding confounders constant—a true experiment.
 

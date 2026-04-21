@@ -1,7 +1,7 @@
 ---
 slug: "/math/convergence-stochastic-integrals"
 title: "Сходимость стохастических интегралов"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 5
 lang: "ru"
 ---

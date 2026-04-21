@@ -20,7 +20,7 @@ Pioneered by Elhage, Olah, and colleagues at Anthropic and OpenAI (2021–2024),
 
 ## Mathematical Framework
 
-**Residual stream.** Transformer hidden states are vectors $x \in \mathbb{R}^d$ that live in a shared **residual stream**. Each attention head and MLP layer reads from and writes to this stream via residual connections:
+**Residual stream.** [[transformer-architecture|Transformer]] hidden states are vectors $x \in \mathbb{R}^d$ that live in a shared **residual stream**. Each [[attention-mechanisms|attention]] head and [[transformer-architecture|MLP]] layer reads from and writes to this stream via residual connections:
 
 $$x^{(l+1)} = x^{(l)} + \text{Attn}^{(l)}(x^{(l)}) + \text{MLP}^{(l)}(x^{(l)})$$
 

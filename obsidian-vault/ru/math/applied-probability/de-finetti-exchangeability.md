@@ -1,6 +1,6 @@
 ---
 title: "Обменность и теорема де Финетти"
-category: "Прикладная вероятность"
+category: "Applied Probability"
 order: 10
 lang: "ru"
 slug: "de-finetti-exchangeability"

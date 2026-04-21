@@ -1,6 +1,6 @@
 ---
 title: "Нейронное касательное ядро"
-category: "Теория AI"
+category: "AI Theory"
 order: 10
 lang: "ru"
 slug: "/ai-theory/neural-tangent-kernel"

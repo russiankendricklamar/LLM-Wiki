@@ -9,7 +9,7 @@ growth: "seedling"
 
 ## Problem: Curse of Dimensionality
 
-Modern LLM embeddings live in $\mathbb{R}^{1536}$ (OpenAI) or $\mathbb{R}^{4096}$ (larger models). Finding the $K$ nearest neighbors via brute-force—computing distance from query $q$ to all $N$ vectors—costs $O(N \cdot d)$. For $N = 10^7$ documents and $d = 1536$, this yields 1.5B distance computations per query: unacceptable at production latency.
+Modern [[llm]] embeddings live in $\mathbb{R}^{1536}$ (OpenAI) or $\mathbb{R}^{4096}$ (larger models). Finding the $K$ nearest neighbors via brute-force—computing distance from query $q$ to all $N$ vectors—costs $O(N \cdot d)$. For $N = 10^7$ documents and $d = 1536$, this yields 1.5B distance computations per query: unacceptable at production latency.
 
 **Approximate Nearest Neighbor (ANN)** trades small recall loss for 100–1000× speedup, enabling semantic search at scale.
 
@@ -21,7 +21,7 @@ Given embeddings $\mathbf{a}, \mathbf{b} \in \mathbb{R}^d$:
 
 - **L2 distance**: $d_2(\mathbf{a}, \mathbf{b}) = \sqrt{\sum_{i=1}^d (a_i - b_i)^2}$. Minimizes exact NN but less natural for embeddings.
 
-- **Inner product**: $\langle \mathbf{a}, \mathbf{b} \rangle = \mathbf{a}^T \mathbf{b}$. Identical to cosine for normalized vectors; native to GPU matrix ops.
+- **Inner product**: $\langle \mathbf{a}, \mathbf{b} \rangle = \mathbf{a}^T \mathbf{b}$. Identical to cosine for normalized vectors; native to [[inference-serving|GPU]] matrix ops.
 
 **Convention**: store unit-normalized embeddings; compute inner product for speed.
 
@@ -80,7 +80,7 @@ Typical $M=5$: mean height $\sim \log_2(N)$.
 - No clustering or pre-processing; incremental insertion natural.
 - Single parameter ($M$) tunes memory vs. speed.
 
-## Product Quantization (PQ)
+## Product [[quantization]] (PQ)
 
 **Problem**: storing $10^7 \times 1536$ floats = 60GB memory at single precision.
 
@@ -92,7 +92,7 @@ For each subspace $j$, run k-means with $K$ centroids; encode each subvector as 
 
 **Storage**: $M$ bytes per vector vs. $4d$ bytes (32-bit float), $150\times$ compression. Distance computation uses lookup tables, avoiding decompression.
 
-**Reconstruction loss**: 4–8% recall drop vs. exact neighbors; acceptable for top-100 retrieval in retrieval-augmented generation (RAG).
+**Reconstruction loss**: 4–8% recall drop vs. exact neighbors; acceptable for top-100 retrieval in retrieval-augmented generation ([[rag]]).
 
 ## FAISS: Industry Standard
 

@@ -1,6 +1,6 @@
 ---
 title: "Топология и метрические пространства"
-category: "Основания математики"
+category: "Foundations"
 order: 15
 lang: "ru"
 slug: "/math/topology-basics"

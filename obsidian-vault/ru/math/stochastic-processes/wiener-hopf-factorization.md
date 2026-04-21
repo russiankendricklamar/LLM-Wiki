@@ -1,7 +1,7 @@
 ---
 slug: "/math/wiener-hopf-factorization"
 title: "Факторизация Винера-Хопфа"
-category: "Прикладная вероятность"
+category: "Applied Probability"
 order: 2
 lang: "ru"
 ---

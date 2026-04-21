@@ -1,6 +1,6 @@
 ---
 title: "Специальная теория относительности"
-category: "Физика"
+category: "Physics"
 order: 26
 lang: "ru"
 slug: "special-relativity"

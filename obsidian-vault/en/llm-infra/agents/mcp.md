@@ -14,7 +14,7 @@ slug: "mcp"
 
 ## Overview
 
-The Model Context Protocol (MCP) is an open standard introduced by Anthropic in November 2024 that defines a uniform interface for connecting language models to external tools, data sources, and services. Where ad-hoc [[tool-use]] requires each application to define its own function schemas and execution layer, MCP establishes a vendor-neutral protocol so that any compliant LLM client can connect to any compliant MCP server without bespoke integration work.
+The Model Context Protocol (MCP) is an open standard introduced by Anthropic in November 2024 that defines a uniform interface for connecting language models to external tools, data sources, and services. Where ad-hoc [[tool-use]] requires each application to define its own function schemas and execution layer, MCP establishes a vendor-neutral protocol so that any compliant [[llm]] client can connect to any compliant MCP server without bespoke integration work.
 
 The analogy Anthropic uses is instructive: MCP is to LLM tool use what LSP (Language Server Protocol) is to code editors. Before LSP, every editor had to build its own integration with every language toolchain. After LSP, a single protocol allowed any editor to talk to any language server. MCP aims for the same composability in the LLM ecosystem.
 
@@ -214,7 +214,7 @@ To connect this server to Claude Desktop, add to `claude_desktop_config.json`:
 - `github` — repos, issues, PRs.
 - `puppeteer` — web browsing and scraping.
 - `slack` — send messages, read channels.
-- `rag-server` — wraps a [[rag]] retrieval backend as an MCP resource/tool.
+- `[[rag]]-server` — wraps a [[rag]] retrieval backend as an MCP resource/tool.
 
 ## Practical Applications
 

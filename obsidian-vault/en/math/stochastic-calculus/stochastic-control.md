@@ -11,7 +11,7 @@ growth: "seedling"
 
 **Stochastic control** solves the foundational problem: given a system whose evolution we can influence, how do we choose actions to optimize a cumulative objective? The theory bridges optimal stopping, differential games, portfolio optimization, and modern reinforcement learning.
 
-Consider a state $X_t$ evolving as a stochastic differential equation (SDE) under our influence:
+Consider a state $X_t$ evolving as a stochastic differential equation ([[stochastic-differential-equations|SDE]]) under our influence:
 
 $$dX_t = b(X_t, u_t) dt + \sigma(X_t, u_t) dW_t$$
 

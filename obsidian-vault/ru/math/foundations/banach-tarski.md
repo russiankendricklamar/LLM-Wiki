@@ -1,7 +1,7 @@
 ---
 slug: "/math/banach-tarski"
 title: "Парадокс Банаха-Тарского"
-category: "Основания математики"
+category: "Foundations"
 order: 3
 lang: "ru"
 ---

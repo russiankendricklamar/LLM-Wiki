@@ -104,7 +104,7 @@ Spectral theory has fundamental applications across diverse fields:
 
 - **Quantum mechanics**: the Schrödinger equation $i\hbar \frac{\partial\psi}{\partial t} = H\psi$ depends on the spectrum of the Hamiltonian $H$. Discrete spectrum corresponds to bound states, continuous spectrum to scattering states.
 - **Principal Component Analysis (PCA)**: principal components are eigenvectors of the covariance matrix, ordered by decreasing eigenvalues.
-- **Spectral clustering**: uses the spectrum of the graph Laplacian to detect communities in network data.
+- **Spectral clustering**: uses the spectrum of the graph [[spectral-graph-theory|Laplacian]] to detect communities in network data.
 - **Singular Value Decomposition (SVD)**: spectral decomposition applied to $A^*A$ yields singular vectors and values.
 - **Stability of dynamical systems**: the spectrum of the Jacobian determines local stability of equilibrium solutions.
 

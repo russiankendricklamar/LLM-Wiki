@@ -139,7 +139,7 @@ Sub-Gaussian variables are the "sweet spot": they enjoy exponential concentratio
 
 **High-dimensional statistics:** When $n \ll d$ (samples $\ll$ dimensions), concentration inequalities are the only tool to get distribution-free sample complexity bounds.
 
-**Large deviations theory:** The exponent $-t^2 / \sigma^2$ is the **rate function**. Concentration inequalities are the "first-order" statement; [[large-deviations-cramer|large deviations theory]] refines this to the entropy-energy balance.
+**Large deviations theory:** The exponent $-t^2 / \sigma^2$ is the **rate function**. Concentration inequalities are the "first-order" statement; [[large-deviations-cramer|large deviations theory]] refines this to the [[shannon-entropy|entropy]]-energy balance.
 
 ## Related Articles
 

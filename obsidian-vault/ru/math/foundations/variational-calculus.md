@@ -1,6 +1,6 @@
 ---
 title: "Вариационное исчисление"
-category: "Основания математики"
+category: "Foundations"
 order: 14
 lang: "ru"
 slug: "/math/variational-calculus"

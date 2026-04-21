@@ -133,7 +133,7 @@ The central trade-off in RL — **explore/exploit**: the agent can either use kn
 
 - **Games.** AlphaGo (Silver et al. 2016) — a combination of MCTS and a deep policy/value; AlphaZero, MuZero generalise to chess, shogi and unknown rules.
 - **Robotics.** Continuous control of arms and legged robots via SAC/PPO.
-- **Language models.** RLHF (Christiano et al. 2017, InstructGPT, ChatGPT) — training a policy aligned with human preferences via PPO.
+- **Language models.** [[rlhf]] (Christiano et al. 2017, InstructGPT, ChatGPT) — training a policy aligned with human preferences via PPO.
 - **Finance.** [[deep-rl-execution|Optimal trade execution]], [[rl-trader|RL-traders]], portfolio management, derivative hedging.
 - **Resource optimisation.** Data-centre cooling (DeepMind), chip placement, routing.
 

@@ -66,7 +66,7 @@ $$
 h_v^{(k+1)} = U_k(h_v^{(k)}, m_v^{(k+1)}).
 $$
 
-At each layer every node **aggregates messages** from its neighbours and updates its hidden state $h_v$. After $K$ layers information propagates $K$ hops across the graph. The final representation $h_v^{(K)}$ is used for predictions; **pooling** (sum, mean, attention) is applied for graph-level tasks.
+At each layer every node **aggregates messages** from its neighbours and updates its hidden state $h_v$. After $K$ layers information propagates $K$ hops across the graph. The final representation $h_v^{(K)}$ is used for predictions; **pooling** (sum, mean, [[attention-mechanisms|attention]]) is applied for graph-level tasks.
 
 ## Architectural Variants
 
@@ -92,7 +92,7 @@ GAT does not require the global graph structure and provides interpretable neigh
 
 **Graph Isomorphism Network (GIN, Xu et al. 2019).** Proven to be as expressive as the Weisfeiler-Lehman 1-WL test; simple and powerful.
 
-**Graph Transformer (Dwivedi & Bresson 2020, Graphormer 2021).** Attention over all pairs of nodes with a positional encoding (e.g., Laplacian eigenvectors). More expressive but $O(N^2)$.
+**Graph [[transformer-architecture|Transformer]] (Dwivedi & Bresson 2020, Graphormer 2021).** Attention over all pairs of nodes with a positional encoding (e.g., [[spectral-graph-theory|Laplacian]] eigenvectors). More expressive but $O(N^2)$.
 
 **Equivariant GNNs.** [[equivariant-nn|$E(3)$-equivariant networks]] — a specialised class for 3D molecules, where features transform as irreducible representations of $SO(3)$.
 

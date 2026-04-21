@@ -19,7 +19,7 @@ Traditional stress testing involves applying historical scenarios (e.g., the 200
 
 Adversarial stress testing emerged from the confluence of adversarial machine learning — initially developed for robust computer vision — and quantitative risk management. The core insight is that a portfolio has "hidden vulnerabilities": combinations of factor moves that are statistically plausible but have never occurred historically, yet would produce catastrophic losses. Generative AI can search this high-dimensional space efficiently.
 
-The framework gained regulatory attention after Basel III recognized that internal model validation must go beyond back-testing. The European Banking Authority (EBA) and the Federal Reserve's CCAR (Comprehensive Capital Analysis and Review) have both moved toward requiring institutions to demonstrate scenario discovery capabilities, not just scenario application.
+The framework gained regulatory [[attention-mechanisms|attention]] after Basel III recognized that internal model validation must go beyond back-testing. The European Banking Authority (EBA) and the Federal Reserve's CCAR (Comprehensive Capital Analysis and Review) have both moved toward requiring institutions to demonstrate scenario discovery capabilities, not just scenario application.
 
 ## Mathematical Framework
 

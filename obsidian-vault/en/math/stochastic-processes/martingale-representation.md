@@ -87,5 +87,5 @@ In the filtering framework of Liptser and Shiryaev, the MRT connects to the **[[
 - [[black-scholes]] — market completeness as a consequence of the MRT
 - [[innovation-process]] — filtering-theory counterpart
 - [[brownian-motion]] — the driving process
-- [[stochastic-differential-equations]] — Ito integrals and the SDE framework
+- [[stochastic-differential-equations]] — Ito integrals and the [[stochastic-differential-equations|SDE]] framework
 - [[nonlinear-filtering]] — broader filtering context

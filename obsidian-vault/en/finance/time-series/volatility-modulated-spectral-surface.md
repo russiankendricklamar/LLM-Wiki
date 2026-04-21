@@ -73,7 +73,7 @@ $$
 \text{VMSS}_{WV}(t, \omega) = \frac{W_{\tilde{x}}(t, \omega)}{\sigma_t^2}
 $$
 
-### Spectral Entropy of VMSS
+### Spectral [[shannon-entropy|Entropy]] of VMSS
 
 At each time $t$, the spectral distribution $\tilde{S}(t, \cdot)$ normalized to integrate to 1 defines a probability distribution. Its **spectral entropy**:
 
@@ -92,7 +92,7 @@ measures how uniformly spectral energy is distributed. High $H_{spec}$ (flat spe
 - **Invariance to volatility level**: VMSS values are comparable across different market conditions because local variance is divided out.
 - **Regime transition signals**: Abrupt changes in the VMSS topology (redistributions of spectral energy across frequencies) precede regime shifts by 5–10 days.
 - **Noise separation**: High-frequency noise components proportional to $\sigma_t$ are normalized away, isolating low-amplitude structural signals.
-- **Computational cost**: Adaptive-window STFT requires re-computing the transform at each time step; GPU parallelization is standard for real-time applications.
+- **Computational cost**: Adaptive-window STFT requires re-computing the transform at each time step; [[inference-serving|GPU]] parallelization is standard for real-time applications.
 
 ## Python Implementation
 

@@ -1,6 +1,6 @@
 ---
 title: "Аномалии"
-category: "Физика"
+category: "Physics"
 order: 35
 lang: "ru"
 slug: "anomalies"

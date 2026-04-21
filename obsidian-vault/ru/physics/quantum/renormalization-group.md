@@ -1,6 +1,6 @@
 ---
 title: "Ренормализационная группа"
-category: "Физика"
+category: "Physics"
 order: 34
 lang: "ru"
 slug: "renormalization-group"

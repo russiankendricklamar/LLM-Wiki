@@ -1,6 +1,6 @@
 ---
 title: Суперпозиция и коллапс
-category: "Физика"
+category: "Physics"
 lang: ru
 order: 4
 slug: superposition-collapse

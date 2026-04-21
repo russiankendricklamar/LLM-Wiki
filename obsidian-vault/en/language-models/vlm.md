@@ -24,16 +24,16 @@ VLMs span two fundamentally different paradigms. **Contrastive VLMs** (CLIP, Sig
 
 $$z_0 = [v_{\text{cls}};\, v_1;\, \ldots;\, v_N] + E_{\text{pos}}$$
 
-where $v_i = x_i W_E$ with $x_i$ being a flattened patch and $E_{\text{pos}}$ a learned positional embedding. This sequence is passed through a standard transformer encoder.
+where $v_i = x_i W_E$ with $x_i$ being a flattened patch and $E_{\text{pos}}$ a learned positional embedding. This sequence is passed through a standard [[transformer-architecture|transformer]] encoder.
 
 **Cross-modal connector** — the bridge between the visual encoder and the language decoder takes several forms:
 
 - **Linear projector**: a single linear layer maps visual features from $\mathbb{R}^{N \times d_v}$ to $\mathbb{R}^{N \times d_l}$, matching the language model's hidden dimension. Simple but effective (LLaVA-1.5).
-- **MLP projector**: two-layer MLP with a nonlinearity, providing more capacity to transform visual representations.
+- **[[transformer-architecture|MLP]] projector**: two-layer MLP with a nonlinearity, providing more capacity to transform visual representations.
 - **Q-Former** (BLIP-2): a small transformer with a fixed set of learned query tokens that cross-attend to visual features, compressing $N$ visual tokens to $K \ll N$ query embeddings.
-- **Cross-attention layers**: interleaved cross-attention in the language decoder attends to visual features at each layer.
+- **Cross-[[attention-mechanisms|attention]] layers**: interleaved cross-attention in the language decoder attends to visual features at each layer.
 
-**Language decoder** — a pre-trained LLM (decoder-only transformer) that receives visual tokens prepended to or interleaved with text tokens. The visual tokens are treated as a special prefix; the autoregressive generation applies only to text tokens.
+**Language decoder** — a pre-trained [[llm]] (decoder-only transformer) that receives visual tokens prepended to or interleaved with text tokens. The visual tokens are treated as a special prefix; the autoregressive generation applies only to text tokens.
 
 ## Mathematical Framework
 

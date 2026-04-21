@@ -1,6 +1,6 @@
 ---
 title: Спин-память
-category: "Физика"
+category: "Physics"
 lang: ru
 order: 17
 slug: spin-memory

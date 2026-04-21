@@ -1,6 +1,6 @@
 ---
 title: "Исчисление Маллявена"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 22
 lang: "ru"
 slug: "/math/malliavin-calculus"

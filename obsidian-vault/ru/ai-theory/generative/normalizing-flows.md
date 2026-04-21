@@ -1,6 +1,6 @@
 ---
 title: "Нормализующие потоки"
-category: "Теория AI"
+category: "AI Theory"
 order: 17
 lang: "ru"
 slug: "normalizing-flows"

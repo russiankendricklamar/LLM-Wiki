@@ -102,7 +102,7 @@ where $A$ and $B$ depend on the correlation $\rho_{SY}$ and the vol-of-vol struc
 
 ## Heat Kernel Expansion
 
-The fundamental solution (heat kernel) of the pricing PDE on a Riemannian manifold admits the Varadhan-type expansion for $T \to 0$:
+The fundamental solution (heat kernel) of the pricing PDE on a Riemannian [[manifold-learning|manifold]] admits the Varadhan-type expansion for $T \to 0$:
 
 $$
 p(x,y,T) \sim \frac{1}{(2\pi T)^{d/2}} \exp\!\left(-\frac{d^2(x,y)}{2T}\right) \sum_{n=0}^\infty a_n(x,y)\, T^n

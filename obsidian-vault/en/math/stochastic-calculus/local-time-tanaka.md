@@ -80,7 +80,7 @@ This structure allows efficient analysis of path properties through independent 
 - **Optimal stopping**: The expected hitting time of a boundary in [[optimal-stopping-markov|optimal stopping problems]] is expressed through local time
 - **Sequential testing**: CUSUM (Cumulative Sum Control Chart) processes used for change-point detection evolve via local time dynamics; the stopping rule's expected duration involves local time
 
-**SDE regularity**: Solutions to SDEs with singular coefficients (e.g., the square-root process) require local time to construct rigorously. The Feller test and boundary classification depend on local time behavior.
+**[[stochastic-differential-equations|SDE]] regularity**: Solutions to SDEs with singular coefficients (e.g., the square-root process) require local time to construct rigorously. The Feller test and boundary classification depend on local time behavior.
 
 ## Connections
 

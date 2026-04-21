@@ -49,7 +49,7 @@ This convolution integral embeds the **entire history** of the process into the 
 
 ## Space-Fractional FPE (Lévy Flights)
 
-A separate class of FFPE replaces the spatial second derivative with a fractional Laplacian of order $\mu \in (0,2]$:
+A separate class of FFPE replaces the spatial second derivative with a fractional [[spectral-graph-theory|Laplacian]] of order $\mu \in (0,2]$:
 
 $$
 \frac{\partial p(x,t)}{\partial t} = -A \frac{\partial p}{\partial x} + D_\mu (-\Delta)^{\mu/2} p(x,t)

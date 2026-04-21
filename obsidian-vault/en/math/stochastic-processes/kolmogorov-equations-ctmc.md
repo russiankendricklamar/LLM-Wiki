@@ -66,7 +66,7 @@ $$\sum_{i} \pi_i q_{ij} = 0 \quad \text{for all } j.$$
 
 An irreducible CTMC on a finite state space is always positive recurrent, hence ergodic: $p_{ij}(t) \to \pi_j$ as $t \to \infty$. For countable spaces, ergodicity requires positive recurrence, which can be verified via **Foster-Lyapunov criteria**: find a function $V \geq 1$ and a finite set $C$ such that $QV(i) \leq -\varepsilon V(i) + b \cdot \mathbf{1}_C(i)$.
 
-The rate of convergence is controlled by the **spectral gap** of $Q$: the smallest nonzero $|\text{Re}(\lambda)|$ among eigenvalues of $-Q$.
+The rate of convergence is controlled by the **spectral gap** of $Q$: the smallest nonzero $|\text{Re}(\lambda)|$ among [[spectral-theory-operators|eigenvalues]] of $-Q$.
 
 ## Explosion and non-minimal chains
 

@@ -1,6 +1,6 @@
 ---
 title: Амплитуды рассеяния и S-матрица
-category: "Физика"
+category: "Physics"
 lang: ru
 order: 18
 slug: scattering-amplitudes

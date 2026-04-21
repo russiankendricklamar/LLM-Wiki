@@ -1,6 +1,6 @@
 ---
 title: "Методы сцепления"
-category: "Прикладная вероятность"
+category: "Applied Probability"
 order: 20
 lang: "ru"
 slug: "/math/coupling-methods"

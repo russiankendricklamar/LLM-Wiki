@@ -33,6 +33,46 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   const isDesktop = useMediaQuery('(min-width: 768px)');
   const [showHint, setShowHint] = useState(true);
 
+  // Highlighting states
+  const [highlightNodes, setHighlightNodes] = useState(new Set());
+  const [highlightLinks, setHighlightLinks] = useState(new Set());
+  const [hoverNode, setHoverNode] = useState<any>(null);
+
+  const updateHighlight = () => {
+    setHighlightNodes(highlightNodes);
+    setHighlightLinks(highlightLinks);
+  };
+
+  const handleNodeHover = (node: any) => {
+    highlightNodes.clear();
+    highlightLinks.clear();
+    if (node) {
+      highlightNodes.add(node.id);
+      graphData.links.forEach((link: any) => {
+        if (link.source === node.id || link.target === node.id) {
+          highlightLinks.add(link);
+          highlightNodes.add(link.source === node.id ? link.target : link.source);
+        }
+      });
+    }
+
+    setHoverNode(node || null);
+    updateHighlight();
+  };
+
+  const handleLinkHover = (link: any) => {
+    highlightNodes.clear();
+    highlightLinks.clear();
+
+    if (link) {
+      highlightLinks.add(link);
+      highlightNodes.add(link.source);
+      highlightNodes.add(link.target);
+    }
+
+    updateHighlight();
+  };
+
   useEffect(() => {
     setIsClient(true);
     const updateDimensions = () => {
@@ -69,19 +109,24 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   }, [showHint]);
 
   const nodeColor = (node: any) => {
+    if (highlightNodes.size > 0 && !highlightNodes.has(node.id)) {
+      return 'rgba(161, 161, 170, 0.1)'; // Dimmed
+    }
     if (node.val > 1.5) return '#60a5fa'; // Blue for hubs
     return '#a1a1aa'; // Zinc for regular nodes
   };
 
   const nodeThreeObject = (node: any) => {
+    const isHighlighted = highlightNodes.has(node.id) || highlightNodes.size === 0;
     const color = nodeColor(node);
-    const geometry = new THREE.SphereGeometry(node.val === 2 ? 5 : 3, 24, 24);
+    const size = node.val === 2 ? 5 : 3;
+    const geometry = new THREE.SphereGeometry(size, 24, 24);
     const material = new THREE.MeshPhongMaterial({
       color: color,
       emissive: color,
-      emissiveIntensity: 0.5,
+      emissiveIntensity: isHighlighted ? 0.6 : 0.1,
       transparent: true,
-      opacity: 0.9,
+      opacity: isHighlighted ? 0.9 : 0.2,
       shininess: 100
     });
     return new THREE.Mesh(geometry, material);
@@ -120,17 +165,19 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
               graphData={graphData as any}
               nodeLabel="name"
               nodeThreeObject={nodeThreeObject}
-              linkDirectionalParticles={1}
-              linkDirectionalParticleSpeed={0.003}
-              linkDirectionalParticleWidth={2}
-              linkDirectionalParticleColor={() => '#60a5fa'}
+              onNodeHover={handleNodeHover}
+              onLinkHover={handleLinkHover}
+              linkDirectionalParticles={4}
+              linkDirectionalParticleSpeed={(d: any) => highlightLinks.has(d) ? 0.006 : 0}
+              linkDirectionalParticleWidth={(d: any) => highlightLinks.has(d) ? 3 : 0}
+              linkDirectionalParticleColor={(d: any) => highlightLinks.has(d) ? '#60a5fa' : 'transparent'}
               backgroundColor="rgba(0,0,0,0)"
               showNavInfo={false}
               onNodeClick={(node: any) => {
                 navigate(`/${node.id}`);
               }}
-              linkColor={() => 'rgba(113, 113, 122, 0.2)'}
-              linkWidth={0.5}
+              linkColor={(d: any) => highlightLinks.has(d) ? 'rgba(96, 165, 250, 0.8)' : 'rgba(113, 113, 122, 0.1)'}
+              linkWidth={(d: any) => highlightLinks.has(d) ? 1.5 : 0.5}
               enableNodeDrag={false}
               enableNavigationControls={true}
             />
@@ -140,18 +187,20 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
               height={dimensions.height}
               graphData={graphData as any}
               nodeLabel="name"
+              onNodeHover={handleNodeHover}
+              onLinkHover={handleLinkHover}
               nodeColor={nodeColor}
               nodeRelSize={4}
-              linkDirectionalParticles={1}
-              linkDirectionalParticleSpeed={0.003}
-              linkDirectionalParticleWidth={2}
+              linkDirectionalParticles={(d: any) => highlightLinks.has(d) ? 4 : 0}
+              linkDirectionalParticleSpeed={0.006}
+              linkDirectionalParticleWidth={3}
               linkDirectionalParticleColor={() => '#60a5fa'}
               backgroundColor="rgba(0,0,0,0)"
               onNodeClick={(node: any) => {
                 navigate(`/${node.id}`);
               }}
-              linkColor={() => 'rgba(113, 113, 122, 0.2)'}
-              linkWidth={0.5}
+              linkColor={(d: any) => highlightLinks.has(d) ? 'rgba(96, 165, 250, 0.8)' : 'rgba(113, 113, 122, 0.1)'}
+              linkWidth={(d: any) => highlightLinks.has(d) ? 1.5 : 0.5}
               enableNodeDrag={false}
               cooldownTicks={100}
               d3VelocityDecay={0.3}

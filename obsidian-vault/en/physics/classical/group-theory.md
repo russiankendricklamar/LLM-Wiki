@@ -39,7 +39,7 @@ The systematic application of group theory to physics was developed by Weyl, Wig
 In modern physics, gauge symmetries — local symmetry groups — are the foundation of all known fundamental interactions. The Standard Model is built on the gauge group $SU(3)_c \times SU(2)_L \times U(1)_Y$; general relativity is (in a precise sense) a gauge theory of the local Poincaré group. The requirement of local gauge invariance uniquely determines the form of all interactions, making group theory not just a classification tool but a constructive principle.
 
 ## Mathematical Formulation
-A Lie group $G$ is a differentiable manifold with a smooth group structure. Near the identity, elements are written $g(\theta) = e^{i\theta^a T^a}$ where $T^a$ are the generators forming the Lie algebra $\mathfrak{g}$:
+A Lie group $G$ is a differentiable [[differential-geometry|manifold]] with a smooth group structure. Near the identity, elements are written $g(\theta) = e^{i\theta^a T^a}$ where $T^a$ are the generators forming the Lie algebra $\mathfrak{g}$:
 $$ [T^a, T^b] = i f^{abc} T^c $$
 The structure constants $f^{abc}$ completely characterize the algebra. For $SU(2)$: $f^{abc} = \epsilon^{abc}$ (Levi-Civita symbol); for $SU(3)$: $f^{abc}$ are the antisymmetric structure constants of the Gell-Mann matrices.
 

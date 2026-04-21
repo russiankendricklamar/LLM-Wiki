@@ -83,7 +83,7 @@ $$\kappa(\theta^* + 1) - \kappa(\theta^*) = r.$$
 
 This is the continuous analogue of the discrete Esscher equation $M(\theta + 1)/M(\theta) = e^r$ and has a unique solution under standard conditions.
 
-The Esscher measure is a **natural canonical choice** of EMM in Lévy models: it minimizes the relative entropy of $\mathbb{Q}$ w.r.t. $\mathbb{P}$ in a specific sense, making it in some sense "the EMM that distorts the historical model the least."
+The Esscher measure is a **natural canonical choice** of EMM in Lévy models: it minimizes the relative [[shannon-entropy|entropy]] of $\mathbb{Q}$ w.r.t. $\mathbb{P}$ in a specific sense, making it in some sense "the EMM that distorts the historical model the least."
 
 ## Option pricing in Lévy models
 

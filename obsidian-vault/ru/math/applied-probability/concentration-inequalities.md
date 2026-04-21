@@ -1,6 +1,6 @@
 ---
 title: "Неравенства концентрации"
-category: "Прикладная вероятность"
+category: "Applied Probability"
 order: 18
 lang: "ru"
 slug: "/math/concentration-inequalities"

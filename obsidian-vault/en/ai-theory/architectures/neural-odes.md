@@ -54,9 +54,31 @@ $$
 h_{t+1} = h_t + f_\theta(h_t) \quad \Longleftrightarrow \quad \frac{dh}{dt} \approx f_\theta(h).
 $$
 
-Shrinking the step size $\Delta t$, we reach the limit of an infinitely deep network — a **Neural ODE**. "Depth" is no longer a count of layers but the length of the integration interval. A numerical integrator (RK4, Dopri5, Adams-Bashforth) chooses steps adaptively: smaller steps where the function varies rapidly, larger steps where it is smooth. This gives **adaptive compute**: the network spends more work on "difficult" examples.
+Shrinking the step size $\Delta t$, we reach the limit of an infinitely deep network — a **Neural ODE**. 
 
-## Adjoint method for backpropagation
+```chart
+{
+  "type": "line",
+  "xAxis": "depth",
+  "data": [
+    {"depth": 0, "resnet": 0.5, "ode": 0.5},
+    {"depth": 1, "resnet": 0.65, "ode": 0.58},
+    {"depth": 2, "resnet": 0.65, "ode": 0.72},
+    {"depth": 3, "resnet": 0.85, "ode": 0.88},
+    {"depth": 4, "resnet": 0.85, "ode": 0.98},
+    {"depth": 5, "resnet": 1.0, "ode": 1.0}
+  ],
+  "lines": [
+    {"dataKey": "resnet", "stroke": "#ef4444", "name": "ResNet (Discrete Jumps)"},
+    {"dataKey": "ode", "stroke": "#10b981", "name": "Neural ODE (Continuous Flow)"}
+  ]
+}
+```
+
+"Depth" is no longer a count of layers but the length of the integration interval. A numerical integrator (RK4, Dopri5, Adams-Bashforth) chooses steps adaptively: smaller steps where the function varies rapidly, larger steps where it is smooth. This gives **adaptive compute**: the network spends more work on "difficult" examples.
+
+
+## Adjoint method for [[automatic-differentiation|backpropagation]]
 
 Naive backpropagation through an integrator stores all intermediate states and requires $O(T)$ memory. Chen et al. proposed using the **adjoint sensitivity method** from optimal control theory: the backpropagation problem is formulated as another ODE that can be integrated backwards in time without storing forward activations.
 

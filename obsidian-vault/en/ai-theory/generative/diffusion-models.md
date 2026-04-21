@@ -120,7 +120,7 @@ $$
 
 ## Connection to Stochastic Differential Equations
 
-Diffusion is a discrete approximation of continuous dynamics. The **forward SDE** is an [[stochastic-differential-equations|Ornstein-Uhlenbeck process]]:
+Diffusion is a discrete approximation of continuous dynamics. The **forward [[stochastic-differential-equations|SDE]]** is an [[stochastic-differential-equations|Ornstein-Uhlenbeck process]]:
 
 $$
 dx = -\frac{1}{2} \beta(t) x \, dt + \sqrt{\beta(t)} \, dW_t,
@@ -154,11 +154,11 @@ Diffusion models address fundamental GAN limitations:
 | Sampling speed | 1 step (fast) | 50–1000 steps (slow) |
 | Density evaluation | Not supported | Yes (via likelihood) |
 
-GANs collapse to a small set of modes. Diffusion's **iterative denoising** naturally explores the full data manifold. No adversarial dynamics means robust training.
+GANs collapse to a small set of modes. Diffusion's **iterative denoising** naturally explores the full data [[manifold-learning|manifold]]. No adversarial dynamics means robust training.
 
 ## Scalability and Conditioning
 
-Modern diffusion scales to billions of parameters ([[neural-scaling-laws|scaling laws apply]]). Conditional generation is straightforward: concatenate the condition to the network input or use cross-attention.
+Modern diffusion scales to billions of parameters ([[neural-scaling-laws|scaling laws apply]]). Conditional generation is straightforward: concatenate the condition to the network input or use cross-[[attention-mechanisms|attention]].
 
 **Classifier-free guidance** (Ho & Salimans 2021): train jointly on conditional ($c$) and unconditional cases, then sample with:
 

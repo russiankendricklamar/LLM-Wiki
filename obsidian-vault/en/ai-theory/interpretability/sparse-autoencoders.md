@@ -14,11 +14,11 @@ slug: "sparse-autoencoders"
 
 ## Overview
 
-Sparse Autoencoders (SAEs) are a method for decomposing the dense, polysemantic activations of neural network layers — particularly transformer residual streams — into a larger set of sparse, ideally monosemantic features. The core idea is dictionary learning: find a dictionary of "feature directions" such that each activation vector can be approximately reconstructed as a sparse linear combination of these directions.
+Sparse Autoencoders (SAEs) are a method for decomposing the dense, polysemantic activations of neural network layers — particularly [[transformer-architecture|transformer]] residual streams — into a larger set of sparse, ideally monosemantic features. The core idea is dictionary learning: find a dictionary of "feature directions" such that each activation vector can be approximately reconstructed as a sparse linear combination of these directions.
 
 SAEs have become the primary tool in mechanistic interpretability for making sense of superposition: the phenomenon where neural networks pack more "concepts" into their weight matrices than there are neurons by representing each concept as a direction in activation space rather than a dedicated neuron.
 
-Anthropic's 2024 work scaling SAEs to Claude activations found millions of interpretable features — including emotions, syntactic roles, named entities, and even abstract concepts like "deception" — demonstrating that LLM internals are far more structured than previously known.
+Anthropic's 2024 work scaling SAEs to Claude activations found millions of interpretable features — including emotions, syntactic roles, named entities, and even abstract concepts like "deception" — demonstrating that [[llm]] internals are far more structured than previously known.
 
 ## Visualization
 

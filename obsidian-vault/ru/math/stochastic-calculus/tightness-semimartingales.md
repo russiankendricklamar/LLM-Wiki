@@ -1,7 +1,7 @@
 ---
 slug: "/math/tightness-semimartingales"
 title: "Плотность последовательностей семимартингалов"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 4
 lang: "ru"
 ---

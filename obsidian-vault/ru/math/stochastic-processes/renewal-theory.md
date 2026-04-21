@@ -1,7 +1,7 @@
 ---
 slug: "/math/renewal-theory"
 title: "Теория восстановления"
-category: "Прикладная вероятность"
+category: "Applied Probability"
 order: 1
 lang: "ru"
 ---

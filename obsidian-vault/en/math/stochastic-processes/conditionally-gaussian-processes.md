@@ -66,7 +66,7 @@ This is the maximal extension of the Kalman-Bucy filter that preserves the Gauss
 
 The proof that the conditional distribution remains Gaussian proceeds by:
 
-1. **Reference measure.** Pass to the measure $\tilde{P}$ under which $\xi$ is a Wiener process independent of $\theta$. Under $\tilde{P}$, the signal $\theta$ is a Gaussian process (since its SDE is linear with coefficients depending only on $\xi$, which under $\tilde{P}$ is independent).
+1. **Reference measure.** Pass to the measure $\tilde{P}$ under which $\xi$ is a Wiener process independent of $\theta$. Under $\tilde{P}$, the signal $\theta$ is a Gaussian process (since its [[stochastic-differential-equations|SDE]] is linear with coefficients depending only on $\xi$, which under $\tilde{P}$ is independent).
 2. **Conditional Gaussianity under $\tilde{P}$.** Under $\tilde{P}$, the conditional distribution $\tilde{P}(\theta_t \in \cdot \mid \mathcal{F}_t^\xi)$ is Gaussian because $\theta$ and $\xi$ are independent and $\theta$ is Gaussian.
 3. **Absolute continuity.** Return to the original measure $P$ via the [[doleans-dade-exponential|Doleans-Dade exponential]]. The Radon-Nikodym derivative is an exponential martingale that is **log-linear in $\theta$** (because $A_1 \theta$ appears linearly in the observation drift). An exponential-linear transformation of a Gaussian remains Gaussian.
 4. **Derive the equations** for $m_t$ and $\gamma_t$ by Ito's formula applied to the Kallianpur-Striebel representation.

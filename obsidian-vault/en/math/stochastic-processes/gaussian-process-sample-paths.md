@@ -11,7 +11,7 @@ growth: "seedling"
 
 A **Gaussian process** is a stochastic process $(X_t)_{t \in T}$ where all finite-dimensional distributions are jointly Gaussian. Unlike the incremental definition of Brownian motion, Gaussian processes are defined directly via their covariance structure: given a symmetric, positive-definite function $K: T \times T \to \mathbb{R}$, the distribution is determined by $E[X_t] = 0$ (w.l.o.g.) and $\text{Cov}(X_s, X_t) = K(s,t)$.
 
-The fundamental question is whether sample paths are **continuous** or even **smooth**. Unlike Lévy processes (whose paths are typically càdlàg), Gaussian processes may have wildly oscillating paths despite having finite variance. This article surveys the canonical criteria for path regularity: the **Kolmogorov continuity theorem**, **Dudley's entropy integral**, and **Fernique's theorem**.
+The fundamental question is whether sample paths are **continuous** or even **smooth**. Unlike Lévy processes (whose paths are typically càdlàg), Gaussian processes may have wildly oscillating paths despite having finite variance. This article surveys the canonical criteria for path regularity: the **Kolmogorov continuity theorem**, **Dudley's [[shannon-entropy|entropy]] integral**, and **Fernique's theorem**.
 
 ## The Canonical Metric
 

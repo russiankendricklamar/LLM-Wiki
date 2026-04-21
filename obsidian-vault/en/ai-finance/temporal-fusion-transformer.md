@@ -5,14 +5,14 @@ order: 2
 lang: "en"
 slug: "temporal-fusion-transformer"
 ---
-# Temporal Fusion Transformer
+# Temporal Fusion [[transformer-architecture|Transformer]]
 
 ## Two Sides
 
 This method sits at the intersection of two larger topics, each covered by its own article:
 
 - **Finance:** [[volatility-forecasting]] — the classical volatility-forecasting problem (GARCH, HAR-RV, realised volatility) that TFT tackles at multi-horizon scale.
-- **AI:** [[transformer-architecture]] — the general Transformer architecture with self-attention and multi-head; TFT adapts it to heterogeneous time series and quantile forecasting.
+- **AI:** [[transformer-architecture]] — the general Transformer architecture with self-[[attention-mechanisms|attention]] and multi-head; TFT adapts it to heterogeneous time series and quantile forecasting.
 
 ## Overview
 
@@ -222,7 +222,7 @@ Benchmarks vs. alternatives on financial return forecasting (approximate MAE rat
 
 - **Data hunger**: reliable variable selection requires $\gtrsim 500$ time steps per group. Short time series (e.g., newly listed instruments) produce noisy importance scores.
 - **Stationarity assumption**: the LSTM encoder's inductive bias assumes smooth trend-like non-stationarity. Structural breaks (COVID crash, flash crashes) must be handled via regime indicators or normalisation resets.
-- **Computational cost**: training on 50 assets $\times$ 2 years of minute data requires GPU resources and careful batching.
+- **Computational cost**: training on 50 assets $\times$ 2 years of minute data requires [[inference-serving|GPU]] resources and careful batching.
 - **No explicit probabilistic model**: quantile outputs are empirically calibrated but do not correspond to a likelihood function, complicating integration with Bayesian risk frameworks.
 - **Attention does not equal causation**: high attention weight on a lagged feature is a correlation signal, not a structural mechanism — a persistent risk when communicating results to portfolio managers.
 

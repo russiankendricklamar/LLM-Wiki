@@ -1,6 +1,6 @@
 ---
 title: "Диффузионные модели"
-category: "Теория AI"
+category: "AI Theory"
 order: 14
 lang: "ru"
 slug: "diffusion-models"

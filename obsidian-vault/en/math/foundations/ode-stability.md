@@ -53,7 +53,7 @@ $$e^{t J_j} = e^{t\lambda_j} \begin{pmatrix} 1 & t & \frac{t^2}{2} & \cdots \\ 0
 
 ### Spectral Classification
 
-The solution $x(t) = e^{tA} x_0$ decays exponentially as $t \to +\infty$ if and only if all eigenvalues of $A$ have strictly negative real parts: $\text{Re}(\lambda_i) < 0$ for all $i$.
+The solution $x(t) = e^{tA} x_0$ decays exponentially as $t \to +\infty$ if and only if all [[spectral-theory-operators|eigenvalues]] of $A$ have strictly negative real parts: $\text{Re}(\lambda_i) < 0$ for all $i$.
 
 **Subspaces:**
 - **Stable subspace:** $E^s = \text{span}\{\text{generalized eigenvectors with } \text{Re}(\lambda) < 0\}$
@@ -120,7 +120,7 @@ For linearization $\dot{x} = Df(x^*) (x - x^*)$ near an equilibrium $x^*$, where
 - **Saddle:** eigenvalues with opposite signs; there exist stable and unstable manifolds.
 - **Center:** purely imaginary eigenvalues; closed trajectories surround the equilibrium (though nonlinear effects may alter this).
 
-## Stable Manifold Theorem
+## Stable [[manifold-learning|Manifold]] Theorem
 
 **Theorem (Stable Manifold Theorem).** Let $x^* = 0$ be a hyperbolic equilibrium of $\dot{x} = f(x)$, meaning the Jacobian matrix $Df(0)$ has no eigenvalues on the imaginary axis. Then there exist smooth manifolds $W^s$ (stable) and $W^u$ (unstable) in a neighborhood of the origin such that:
 - $W^s$ is tangent to $E^s$ at the origin and consists of all trajectories that approach the origin exponentially as $t \to +\infty$
@@ -159,7 +159,7 @@ In polar coordinates: $\dot{r} = \mu r - r^3$, $\dot{\theta} = 1$. For $\mu > 0$
 
 ## Applications
 
-### Gradient Descent as Gradient Flow
+### [[convex-optimization|Gradient Descent]] as Gradient Flow
 
 Gradient descent in machine learning approximates the continuous dynamics of gradient flow:
 $$\dot{x} = -\nabla L(x)$$

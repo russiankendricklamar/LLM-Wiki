@@ -1,6 +1,6 @@
 ---
 title: "Стохастические дифференциальные уравнения"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 8
 lang: "ru"
 slug: "stochastic-differential-equations"

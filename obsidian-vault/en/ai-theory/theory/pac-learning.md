@@ -209,5 +209,5 @@ print(f"\nEmpirical Rademacher complexity: {empirical_rademacher(X_norm):.4f}")
 
 - [[kolmogorov-complexity]] — MDL principle as the algorithmic counterpart to PAC Occam's razor
 - [[neural-scaling-laws]] — empirical scaling laws beyond classical VC theory
-- [[shannon-entropy]] — information-theoretic foundations; entropy rate and VC dimension relate through Sauer's lemma
+- [[shannon-entropy]] — information-theoretic foundations; [[shannon-entropy|entropy]] rate and VC dimension relate through Sauer's lemma
 - [[mechanistic-interpretability]] — reverse-engineering what a learned hypothesis class actually computes

@@ -1,6 +1,6 @@
 ---
 title: "Разложение Леви-Ито"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 20
 lang: "ru"
 slug: "levy-ito-decomposition"

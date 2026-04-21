@@ -18,7 +18,7 @@ Chain-of-Thought (CoT) prompting is a technique that elicits step-by-step interm
 
 The technique was formalized by Wei et al. (Google Brain, 2022) in "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models." The paper demonstrated that simply including worked examples with explicit reasoning steps in the few-shot prompt caused sufficiently large models (≥100B parameters at the time) to generalize the pattern and solve novel problems they previously failed. This was a pivotal result: it showed that capability could be unlocked through prompting rather than architecture changes.
 
-In modern inference stacks, CoT is no longer just a few-shot hack. It is embedded in model training via reinforcement learning from human feedback (RLHF) on reasoning traces, in system prompts for deployed assistants, and in hybrid frameworks like [[tool-use]] (ReAct) that interleave reasoning with external actions. Extended thinking, as implemented in models like Claude 3.7 Sonnet, makes the reasoning chain a first-class artifact with its own token budget.
+In modern inference stacks, CoT is no longer just a few-shot hack. It is embedded in model training via reinforcement learning from human feedback ([[rlhf]]) on reasoning traces, in system prompts for deployed assistants, and in hybrid frameworks like [[tool-use]] (ReAct) that interleave reasoning with external actions. Extended thinking, as implemented in models like Claude 3.7 Sonnet, makes the reasoning chain a first-class artifact with its own token budget.
 
 ## How It Works
 
@@ -44,7 +44,7 @@ $$\hat{y} = \arg\max_{y} \sum_{i=1}^{m} \mathbf{1}[\text{answer}(z_i) = y], \qua
 
 Tree of Thoughts frames the problem as a search over a reasoning graph $G = (V, E)$ where nodes are partial reasoning states and edges are reasoning steps. The model serves as both a generator and an evaluator:
 
-$$V_{\text{expand}}(v) = \text{LLM-generate}(v), \quad V_{\text{value}}(v) = \text{LLM-evaluate}(v)$$
+$$V_{\text{expand}}(v) = \text{[[llm]]-generate}(v), \quad V_{\text{value}}(v) = \text{LLM-evaluate}(v)$$
 
 Search algorithms (BFS, DFS, beam search) traverse $G$ to find a reasoning path $v_0 \to v_1 \to \ldots \to v_T$ leading to a correct answer. The depth $T$ and branching factor $b$ determine computational cost: $O(b^T)$ model calls.
 
@@ -179,7 +179,7 @@ print(program_of_thought(problem))
 
 **Least-to-most prompting:** decompose a complex problem into simpler sub-problems, solve them sequentially, and use each solution as context for the next.
 
-**Scratchpad fine-tuning:** train models on datasets where correct reasoning traces are provided (e.g., GSM8K, MATH), making CoT behavior intrinsic rather than prompted.
+**Scratchpad [[fine-tuning]]:** train models on datasets where correct reasoning traces are provided (e.g., GSM8K, MATH), making CoT behavior intrinsic rather than prompted.
 
 **Process reward models (PRMs):** instead of rewarding final answer correctness, provide step-level reward signals that guide search over reasoning trees. Used in OpenAI's o1/o3 and related research.
 
@@ -197,7 +197,7 @@ print(program_of_thought(problem))
 
 ## Theoretical limits
 
-CoT pushes a transformer to use more inference-time compute on a hard problem, but it does not change *which* problems are solvable in principle. The Cantor-Gödel-Turing line of arguments puts a hard ceiling on this:
+CoT pushes a [[transformer-architecture|transformer]] to use more inference-time compute on a hard problem, but it does not change *which* problems are solvable in principle. The Cantor-Gödel-Turing line of arguments puts a hard ceiling on this:
 
 - **[[godel-incompleteness|Gödel's incompleteness theorems]]** imply that for any sufficiently expressive formal system there are true statements no chain of derivations can ever output. No length of chain-of-thought can cross that wall.
 - **[[cantor-diagonal|Cantor's diagonal argument]]** is the prototype of every "you can't enumerate all of these from inside" result; the same shape proves Turing's halting problem and Chaitin's incompleteness.

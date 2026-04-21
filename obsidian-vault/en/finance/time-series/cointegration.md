@@ -60,7 +60,7 @@ $$\Delta \mathbf{y}_t = \Pi \mathbf{y}_{t-1} + \sum_{i=1}^{k-1} \Gamma_i \Delta 
 
 where $\Pi = \sum A_i - I$. The key insight: $\text{rank}(\Pi) = r$ is the cointegrating rank. Factor $\Pi = \alpha \beta'$, where $\beta \in \mathbb{R}^{p \times r}$ contains the cointegrating vectors and $\alpha \in \mathbb{R}^{p \times r}$ contains the **adjustment speeds**.
 
-**Testing.** The **trace test** checks $H_0: r \leq r_0$ vs $H_1: r > r_0$, and the **max-eigenvalue test** checks $H_0: r = r_0$ vs $H_1: r = r_0 + 1$. Both use the eigenvalues of a reduced-rank regression problem. Critical values are non-standard (depend on $p - r_0$, trend specification) and tabulated by Johansen and Juselius.
+**Testing.** The **trace test** checks $H_0: r \leq r_0$ vs $H_1: r > r_0$, and the **max-eigenvalue test** checks $H_0: r = r_0$ vs $H_1: r = r_0 + 1$. Both use the [[spectral-theory-operators|eigenvalues]] of a reduced-rank regression problem. Critical values are non-standard (depend on $p - r_0$, trend specification) and tabulated by Johansen and Juselius.
 
 ## Applications in finance
 

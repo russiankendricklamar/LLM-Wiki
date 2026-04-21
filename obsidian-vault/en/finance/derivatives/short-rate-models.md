@@ -120,7 +120,7 @@ where $dx_t = -a\,x_t\,dt + \sigma\,dW_t^1$ and $dy_t = -b\,y_t\,dt + \eta\,dW_t
 
 ## Connection to HJM
 
-The Heath-Jarrow-Morton (HJM) framework models the entire forward rate curve $f(t, T)$ simultaneously. **Every short rate model implies an HJM model**: given $dr_t$, one can derive $f(t, T) = -\partial_T \ln P(t, T)$ and its dynamics. But the converse is false: general HJM models are non-Markovian in $r_t$ and cannot be reduced to a short-rate SDE. The HJM drift condition $\mu_f(t, T) = \sigma_f(t, T) \int_t^T \sigma_f(t, u)\,du$ ensures no-arbitrage.
+The Heath-Jarrow-Morton (HJM) framework models the entire forward rate curve $f(t, T)$ simultaneously. **Every short rate model implies an HJM model**: given $dr_t$, one can derive $f(t, T) = -\partial_T \ln P(t, T)$ and its dynamics. But the converse is false: general HJM models are non-Markovian in $r_t$ and cannot be reduced to a short-rate [[stochastic-differential-equations|SDE]]. The HJM drift condition $\mu_f(t, T) = \sigma_f(t, T) \int_t^T \sigma_f(t, u)\,du$ ensures no-arbitrage.
 
 ## Comparison
 

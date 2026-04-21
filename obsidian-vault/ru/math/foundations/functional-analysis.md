@@ -1,6 +1,6 @@
 ---
 title: "Функциональный анализ"
-category: "Основания математики"
+category: "Foundations"
 order: 12
 lang: "ru"
 slug: "/math/functional-analysis"

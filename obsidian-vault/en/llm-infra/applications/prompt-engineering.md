@@ -78,7 +78,7 @@ Small wording changes produce large behavioral shifts. Replacing "helpful" with 
 
 Systematic **prompt optimization** (APE, DSPy) uses a meta-learner to search over prompt space:
 - **APE** (Promptly Optimizing Prompts): gradient-free search over instruction candidates
-- **DSPy**: a declarative framework where each LLM call is a "module" with trainable prompts and few-shot examples; a compiler optimizes the program to maximize a validation metric
+- **DSPy**: a declarative framework where each [[llm]] call is a "module" with trainable prompts and few-shot examples; a compiler optimizes the program to maximize a validation metric
 
 DSPy replaces hand-crafted prompts with learned programs, trading manual engineering for a training loop over prompts and demonstrations.
 

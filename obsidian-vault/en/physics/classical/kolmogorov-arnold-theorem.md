@@ -77,7 +77,7 @@ Liu et al. (2024) used this idea to build [[kan|Kolmogorov-Arnold Networks (KANs
 
 ## Why it matters
 
-- **Decomposition of complexity.** Any continuous multivariate dependence decomposes into univariate ones, giving an alternative to standard MLP architectures.
+- **Decomposition of complexity.** Any continuous multivariate dependence decomposes into univariate ones, giving an alternative to standard [[transformer-architecture|MLP]] architectures.
 - **Interpretability.** After training, the univariate functions can be visualised and compared to known mathematical expressions ($\sin$, $\exp$, polynomials).
 - **Symbolic regression.** Decomposing into univariate components makes automated formula discovery more meaningful.
 - **Physical applications.** Many physical laws have the form of compositions of univariate dependencies — conservation laws, equations of state, functional relations. The KA representation finds them naturally.

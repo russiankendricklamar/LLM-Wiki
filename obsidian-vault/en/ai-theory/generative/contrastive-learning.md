@@ -11,7 +11,7 @@ Contrastive learning is a self-supervised learning paradigm where a model learns
 
 ## NT-Xent Loss and Information Maximization
 
-The canonical contrastive loss is **normalized temperature-scaled cross-entropy (NT-Xent)**:
+The canonical contrastive loss is **normalized temperature-scaled cross-[[shannon-entropy|entropy]] (NT-Xent)**:
 
 $$L_{i,j} = -\log \frac{\exp(\text{sim}(z_i, z_j) / \tau)}{\sum_{k=1}^{2N} \mathbb{1}_{[k \neq i]} \exp(\text{sim}(z_i, z_k) / \tau)}$$
 
@@ -29,10 +29,10 @@ Maximizing mutual information between two views of the same sample forces the re
 
 1. Two independent augmentations $\tilde{x}_i, \tilde{x}_j \sim \mathcal{A}(x)$ are created (crop, rotation, color jitter, blur)
 2. Encoder $f$ (ResNet) produces hidden state: $h_i = f(\tilde{x}_i)$
-3. Projection head $g$ (two-layer MLP) yields representation: $z_i = g(h_i)$
+3. Projection head $g$ (two-layer [[transformer-architecture|MLP]]) yields representation: $z_i = g(h_i)$
 4. Contrastive loss is applied to pairs $(z_i, z_j)$ within a batch
 
-**Critical empirical finding**: during downstream fine-tuning, the hidden state $h_i$ is used and the projection head $g$ is discarded. Intuition: $g$ was optimized for the contrastive task and does not transfer. The simple scheme requires large batches ($N \geq 4096$) to supply sufficient negative examples.
+**Critical empirical finding**: during downstream [[fine-tuning]], the hidden state $h_i$ is used and the projection head $g$ is discarded. Intuition: $g$ was optimized for the contrastive task and does not transfer. The simple scheme requires large batches ($N \geq 4096$) to supply sufficient negative examples.
 
 ## MoCo: Memory and Momentum
 
@@ -61,7 +61,7 @@ $$L = \|q_\theta(g_\theta(f_\theta(x))) - \text{stopgrad}(g_{\theta_{\text{targe
 
 **CLIP** (Radford et al., 2021) learns joint image-text representations on 400M image-caption pairs:
 
-- **Dual encoders**: $f_{\text{img}}$ (Vision Transformer or ResNet) and $f_{\text{text}}$ (BERT-style Transformer)
+- **Dual encoders**: $f_{\text{img}}$ (Vision [[transformer-architecture|Transformer]] or ResNet) and $f_{\text{text}}$ (BERT-style Transformer)
 - **Projections and normalization**: both encoders project to $d = 512$-dim space; embeddings are L2-normalized
 - **Symmetric contrastive loss**:
 

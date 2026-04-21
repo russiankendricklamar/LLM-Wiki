@@ -13,7 +13,7 @@ Training dynamics describes how the loss landscape, gradient statistics, and lea
 
 ## Loss Landscape Geometry
 
-The parameter space of a neural network is a high-dimensional surface where gradient descent navigates toward low-loss regions. Key geometric features:
+The parameter space of a neural network is a high-dimensional surface where [[convex-optimization|gradient descent]] navigates toward low-loss regions. Key geometric features:
 
 - **Saddle points** dominate over local minima in high dimensions; SGD escapes them via gradient noise
 - **Sharp vs. flat minima**: flatter minima generalise better (Hochreiter & Schmidhuber, 1997); SAM (Sharpness-Aware Minimisation) explicitly seeks them
@@ -87,7 +87,7 @@ Loss spikes are transient explosions where loss increases 10–100× over a few 
 - Gradient clipping
 - Reducing learning rate at first sign of spike
 - Z-loss (auxiliary loss penalising large logits before softmax)
-- Query-Key normalisation (QK-Norm) stabilises attention logits
+- Query-Key normalisation (QK-Norm) stabilises [[attention-mechanisms|attention]] logits
 
 ## Maximal Update Parameterisation (muP)
 
@@ -106,7 +106,7 @@ With muP, the optimal learning rate found at 10M parameters transfers directly t
 
 ## Layer-Wise Learning Rate Decay
 
-In fine-tuning and some pretraining setups, lower layers are assigned smaller learning rates:
+In [[fine-tuning]] and some pretraining setups, lower layers are assigned smaller learning rates:
 
 $$\eta_l = \eta_{\text{top}} \cdot \lambda^{L - l}, \quad \lambda \in [0.8, 0.95]$$
 
@@ -148,11 +148,11 @@ Key metrics to track during training:
 - **Gradient norm per layer**: outlier layers signal architectural instability
 - **Weight norm per layer**: uncontrolled growth indicates learning rate is too high
 - **Activation statistics**: collapsed or saturated activations indicate dead neurons
-- **Attention entropy**: very low entropy means attention is spiky; very high means the model is not attending to anything
+- **Attention [[shannon-entropy|entropy]]**: very low entropy means attention is spiky; very high means the model is not attending to anything
 
 ## See Also
 
-- [[scaling-laws]] — how dynamics at scale predict final loss
+- [[neural-scaling-laws]] — how dynamics at scale predict final loss
 - [[transformer-architecture]] — architecture choices that affect stability
 - [[attention-mechanisms]] — attention instability as a source of loss spikes
 - [[large-language-models]] — practical training setups

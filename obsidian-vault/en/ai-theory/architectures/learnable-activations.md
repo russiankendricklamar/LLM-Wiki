@@ -123,7 +123,7 @@ This structure **directly matches the representation in the [[kolmogorov-arnold-
 
 **Hyperparameter choices.** Spline order $k$, grid size $G$, and refinement strategy are additional parameters that require tuning.
 
-**Ecosystem maturity.** Architectures with learnable activations are young; tools are less developed than for MLP/Transformer stacks.
+**Ecosystem maturity.** Architectures with learnable activations are young; tools are less developed than for [[transformer-architecture|MLP]]/[[transformer-architecture|Transformer]] stacks.
 
 ## Related Topics
 

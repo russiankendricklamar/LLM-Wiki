@@ -14,7 +14,7 @@ Every [[girsanov-semimartingales|Girsanov density]] is a stochastic exponential.
 
 ## Definition and the Equation
 
-**Definition.** Let $X$ be a [[semimartingale-models|semimartingale]] with $X_0 = 0$. The **stochastic exponential** $\mathcal{E}(X)$ is the unique solution of the SDE:
+**Definition.** Let $X$ be a [[semimartingale-models|semimartingale]] with $X_0 = 0$. The **stochastic exponential** $\mathcal{E}(X)$ is the unique solution of the [[stochastic-differential-equations|SDE]]:
 
 $$Z_t = 1 + \int_0^t Z_{s-} \, dX_s.$$
 

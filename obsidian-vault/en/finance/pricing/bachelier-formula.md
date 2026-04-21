@@ -78,7 +78,7 @@ Bachelier was a student of Henri Poincaré and worked **5 years before** Einstei
 - the notion of a fair option price as an expected value,
 - consequences of self-consistency of an "arbitrage-free" price.
 
-The work was ignored by his contemporaries: by mathematicians (as insufficiently rigorous), by economists (as disconnected from reality). It was rediscovered only in the 1950s by Savage and brought to Samuelson's attention, and two decades later it became the foundation of modern financial mathematics.
+The work was ignored by his contemporaries: by mathematicians (as insufficiently rigorous), by economists (as disconnected from reality). It was rediscovered only in the 1950s by Savage and brought to Samuelson's [[attention-mechanisms|attention]], and two decades later it became the foundation of modern financial mathematics.
 
 Samuelson himself acknowledged that **"everything in Black-Scholes is already in Bachelier"** — except for one decisive change: the use of a logarithmic rather than additive scale.
 

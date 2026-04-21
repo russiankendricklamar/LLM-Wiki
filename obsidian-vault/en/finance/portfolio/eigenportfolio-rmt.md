@@ -26,7 +26,7 @@ C = V \Lambda V^T
 $$
 
 Where:
-- $\Lambda = \text{diag}(\lambda_1, \lambda_2, \dots, \lambda_N)$ are the eigenvalues sorted in ascending order.
+- $\Lambda = \text{diag}(\lambda_1, \lambda_2, \dots, \lambda_N)$ are the [[spectral-theory-operators|eigenvalues]] sorted in ascending order.
 - $V = [v_1, v_2, \dots, v_N]$ are the corresponding orthonormal eigenvectors.
 
 An **Eigenportfolio** $E_i$ is a vector of weights $w_i$ proportional to the $i$-th eigenvector $v_i$. Normalisation ensures the portfolio is investable:

@@ -76,7 +76,7 @@ where $z = (x - n\mu)/(\sigma\sqrt{n})$ and $P_k$ are polynomials determined by 
 
 **Random walks on lattices.** The probability that a simple random walk returns to the origin after $2n$ steps: $P(S_{2n} = 0) \sim 1/\sqrt{\pi n}$ in dimension 1, which is the local CLT for Bernoulli steps. The recurrence of random walks in $d \leq 2$ versus transience in $d \geq 3$ ultimately rests on the summability of these local probabilities.
 
-**Statistical mechanics.** Partition functions in lattice models are often expressible as sums over paths, and their asymptotics rely on local CLT techniques applied to the transfer matrix eigenvalues.
+**Statistical mechanics.** Partition functions in lattice models are often expressible as sums over paths, and their asymptotics rely on local CLT techniques applied to the transfer matrix [[spectral-theory-operators|eigenvalues]].
 
 **Number theory.** Many additive number-theoretic functions (e.g., the number of prime divisors $\omega(n)$) satisfy an Erdos-Kac-type theorem — a CLT. The local version gives the density of integers $n \leq N$ with $\omega(n) = k$ for specific $k$.
 

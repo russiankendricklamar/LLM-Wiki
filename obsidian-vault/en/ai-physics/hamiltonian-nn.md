@@ -70,7 +70,7 @@ $$\frac{d}{dt}\frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q
 
 ## How It Works
 
-**Architecture.** $H_\theta$ is a standard MLP with input $(q, p) \in \mathbb{R}^{2n}$ and scalar output. The key is using the output only through its gradients with respect to the input — the forward pass produces the Hamiltonian, and Hamilton's equations produce the dynamics.
+**Architecture.** $H_\theta$ is a standard [[transformer-architecture|MLP]] with input $(q, p) \in \mathbb{R}^{2n}$ and scalar output. The key is using the output only through its gradients with respect to the input — the forward pass produces the Hamiltonian, and Hamilton's equations produce the dynamics.
 
 **Integration.** After learning $H_\theta$, trajectories are rolled out with a symplectic integrator (leapfrog / Störmer-Verlet) rather than standard Runge-Kutta. The Störmer-Verlet scheme:
 

@@ -9,13 +9,13 @@ growth: "seedling"
 
 # Circuit Discovery
 
-**Circuit discovery** is the process of identifying the minimal subgraph of a transformer — a **circuit** — that causally implements a specific capability. The goal is to reduce a full model with billions of parameters to a small, interpretable computational graph that fully explains a given behaviour.
+**Circuit discovery** is the process of identifying the minimal subgraph of a [[transformer-architecture|transformer]] — a **circuit** — that causally implements a specific capability. The goal is to reduce a full model with billions of parameters to a small, interpretable computational graph that fully explains a given behaviour.
 
 ## The Circuits Hypothesis
 
 Olah et al. (2020) proposed that neural networks consist of **features** (directions in activation space corresponding to human-interpretable concepts) connected by **circuits** (subgraphs that implement algorithms). Under this hypothesis, understanding a model reduces to understanding its circuits — analogous to reading assembly code rather than treating the model as a black box.
 
-## Attention Head Roles
+## [[attention-mechanisms|Attention]] Head Roles
 
 Before finding circuits, individual attention heads must be characterised. Key roles discovered in GPT-2 and similar models:
 
@@ -47,7 +47,7 @@ The OV circuit is a linear map from attended positions to output residual stream
 
 **Step 1: Task definition.** Define a clean/corrupted pair and a metric (logit difference between correct and incorrect tokens).
 
-**Step 2: Activation patching.** Identify which components (attention heads, MLP layers, token positions) matter.
+**Step 2: Activation patching.** Identify which components (attention heads, [[transformer-architecture|MLP]] layers, token positions) matter.
 
 **Step 3: Path patching.** Identify which edges (connections between components) matter.
 

@@ -25,7 +25,7 @@ $$ \partial_\mu\left(\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\righ
 For the free real scalar field with mass $m$, $\mathcal{L} = \frac{1}{2}(\partial_\mu\phi)^2 - \frac{1}{2}m^2\phi^2$, giving the Klein-Gordon equation:
 $$ (\Box + m^2)\phi = 0, \qquad \Box = \partial_t^2 - \nabla^2 $$
 
-Canonical quantization promotes $\phi(\mathbf{x},t)$ to an operator satisfying equal-time commutation relations:
+Canonical [[quantization]] promotes $\phi(\mathbf{x},t)$ to an operator satisfying equal-time commutation relations:
 $$ [\phi(\mathbf{x},t), \pi(\mathbf{y},t)] = i\hbar\,\delta^{(3)}(\mathbf{x}-\mathbf{y}) $$
 where $\pi = \partial\mathcal{L}/\partial\dot\phi$ is the conjugate momentum. Expanding in Fourier modes:
 $$ \phi(x) = \int\frac{d^3k}{(2\pi)^3\sqrt{2\omega_\mathbf{k}}}\left(a_\mathbf{k}\,e^{-ik\cdot x} + a_\mathbf{k}^\dagger\,e^{ik\cdot x}\right) $$

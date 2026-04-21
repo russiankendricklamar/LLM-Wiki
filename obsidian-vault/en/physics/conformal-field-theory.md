@@ -39,9 +39,9 @@ $$ \langle\mathcal{O}_i(z)\mathcal{O}_j(w)\rangle = \frac{\delta_{ij}}{|z-w|^{2\
 $$ \langle\mathcal{O}_1\mathcal{O}_2\mathcal{O}_3\rangle = \frac{C_{123}}{|z_{12}|^{\Delta_1+\Delta_2-\Delta_3}|z_{23}|^{\Delta_2+\Delta_3-\Delta_1}|z_{13}|^{\Delta_1+\Delta_3-\Delta_2}} $$
 
 ## Key Properties
-- **State-operator correspondence**: In 2D CFT, every state in the Hilbert space on $S^1$ corresponds to a local operator at the origin via the radial quantization map $z = e^{i(\tau + \sigma)}$.
+- **State-operator correspondence**: In 2D CFT, every state in the Hilbert space on $S^1$ corresponds to a local operator at the origin via the radial [[quantization]] map $z = e^{i(\tau + \sigma)}$.
 - **Modular invariance**: The torus partition function $Z(\tau) = \text{Tr}(q^{L_0 - c/24}\bar{q}^{\bar{L}_0 - \bar{c}/24})$ must be invariant under modular transformations $\tau \to -1/\tau$, constraining the spectrum.
-- **Cardy formula**: The density of states at high energy follows $\ln \rho(E) \sim 2\pi\sqrt{cE/3}$, reproducing the Bekenstein-Hawking entropy when the CFT is dual to AdS$_3$ gravity.
+- **Cardy formula**: The density of states at high energy follows $\ln \rho(E) \sim 2\pi\sqrt{cE/3}$, reproducing the Bekenstein-Hawking [[gravitational-entropy|entropy]] when the CFT is dual to AdS$_3$ gravity.
 - **Unitarity bounds**: In unitary CFTs, scaling dimensions satisfy $\Delta \geq (d-2)/2$ for scalars, bounding the operator spectrum from below.
 - **Conformal blocks**: Four-point functions decompose into conformal partial waves (conformal blocks) $\mathcal{G}_{\Delta,s}(z,\bar{z})$, which are kinematically determined and encode the exchange of a single primary and all its descendants.
 

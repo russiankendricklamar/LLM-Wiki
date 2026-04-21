@@ -14,7 +14,7 @@ An embedding model maps variable-length inputs — sentences, paragraphs, docume
 
 This is fundamentally different from generative language models. An embedding model does not produce tokens — it produces a single vector as its output. The model is trained not to predict the next word but to arrange representations in a metric space where cosine similarity is a reliable proxy for semantic relatedness.
 
-Embedding models are the retrieval layer in RAG systems, the engine behind semantic search, and the foundation for clustering, classification, and anomaly detection over text at scale.
+Embedding models are the retrieval layer in [[rag]] systems, the engine behind semantic search, and the foundation for clustering, classification, and anomaly detection over text at scale.
 
 ## Visualization
 
@@ -42,7 +42,7 @@ Embedding models are the retrieval layer in RAG systems, the engine behind seman
 
 ## Architecture
 
-Most text embedding models are built on a **bidirectional transformer encoder** (BERT-style), not a causal decoder. Bidirectional attention lets every token attend to every other token, producing contextualized representations that capture full sentence meaning rather than left-to-right prefixes.
+Most text embedding models are built on a **bidirectional [[transformer-architecture|transformer]] encoder** (BERT-style), not a causal decoder. Bidirectional [[attention-mechanisms|attention]] lets every token attend to every other token, producing contextualized representations that capture full sentence meaning rather than left-to-right prefixes.
 
 The standard approach produces a fixed-size vector by **mean pooling** the token representations from the last hidden layer:
 
@@ -95,7 +95,7 @@ Training data for general-purpose embedding models combines: NLI pairs (entailme
 
 ## Trade-offs vs Other Types
 
-| Dimension | Bi-encoder (embedding) | Cross-encoder (reranker) | Generative LLM |
+| Dimension | Bi-encoder (embedding) | Cross-encoder (reranker) | Generative [[llm]] |
 |---|---|---|---|
 | Output | Fixed vector | Scalar score | Token sequence |
 | Indexable | Yes (ANN) | No | No |
@@ -155,4 +155,4 @@ short_query = query_embedding[:, :256]
 [[llm]] — generative models that benefit from embedding-based retrieval (RAG)  
 [[vlm]] — contrastive VLMs (CLIP) apply the same training framework to image-text pairs  
 [[mixture-of-experts]] — routing in MoE can be understood as a learned embedding-based dispatch  
-[[shannon-entropy]] — entropy of the embedding distribution measures isotropy and expressiveness
+[[shannon-entropy]] — [[shannon-entropy|entropy]] of the embedding distribution measures isotropy and expressiveness

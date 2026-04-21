@@ -1,6 +1,6 @@
 ---
 title: "Спектральная теория операторов"
-category: "Основания математики"
+category: "Foundations"
 order: 13
 lang: "ru"
 slug: "/math/spectral-theory-operators"

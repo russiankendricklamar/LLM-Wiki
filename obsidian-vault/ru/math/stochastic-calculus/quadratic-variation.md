@@ -1,6 +1,6 @@
 ---
 title: "Квадратическая вариация"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 23
 lang: "ru"
 slug: "/math/quadratic-variation"

@@ -1,6 +1,6 @@
 ---
 title: "Алгебраическая топология"
-category: "Основания математики"
+category: "Foundations"
 order: 15
 lang: "ru"
 slug: "/math/algebraic-topology"

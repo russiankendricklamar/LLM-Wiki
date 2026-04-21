@@ -8,7 +8,7 @@ lang: "en"
 
 # Transformers for Time Series
 
-**Transformers** — the self-attention architecture from Vaswani et al. (2017) — have become the dominant approach for financial time-series forecasting, capturing long-range dependencies and cross-asset patterns that LSTMs and classical models miss.
+**Transformers** — the self-[[attention-mechanisms|attention]] architecture from Vaswani et al. (2017) — have become the dominant approach for financial time-series forecasting, capturing long-range dependencies and cross-asset patterns that LSTMs and classical models miss.
 
 ## Self-Attention Mechanism
 
@@ -22,7 +22,7 @@ Projections: $Q = XW_Q$, $K = XW_K$, $V = XW_V$. Each time step attends to all o
 
 ## Key Architectures
 
-### Temporal Fusion Transformer (TFT, Lim et al. 2021)
+### Temporal Fusion [[transformer-architecture|Transformer]] (TFT, Lim et al. 2021)
 - **Gate Residual Networks** — adaptive depth
 - **Variable Selection**: per-feature importance weights
 - **Temporal Self-Attention**: quantile probabilistic outputs (10/50/90th percentile)

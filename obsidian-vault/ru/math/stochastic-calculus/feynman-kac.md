@@ -1,6 +1,6 @@
 ---
 title: "Формула Фейнмана-Каца"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 15
 lang: "ru"
 slug: "feynman-kac"

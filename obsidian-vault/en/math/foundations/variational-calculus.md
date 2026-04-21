@@ -81,7 +81,7 @@ The curve of fastest descent under gravity. Here $F = \sqrt{\frac{1+y'^2}{2gy}}$
 
 ### Geodesics
 
-Shortest paths on a Riemannian manifold. In flat space, $F = \sqrt{1 + y'^2}$ yields $y'' = 0$ (straight lines). On a curved surface, the Euler–Lagrange equations define geodesic differential equations.
+Shortest paths on a Riemannian [[manifold-learning|manifold]]. In flat space, $F = \sqrt{1 + y'^2}$ yields $y'' = 0$ (straight lines). On a curved surface, the Euler–Lagrange equations define geodesic differential equations.
 
 ### Minimal Surfaces
 
@@ -121,7 +121,7 @@ expressed in terms of $q$ and $p$. The equations of motion become **canonical eq
 
 $$\dot{q}_i = \frac{\partial H}{\partial p_i}, \quad \dot{p}_i = -\frac{\partial H}{\partial q_i}$$
 
-This formalism is manifestly symplectic and underpins quantization and statistical mechanics.
+This formalism is manifestly symplectic and underpins [[quantization]] and statistical mechanics.
 
 ## Noether's Theorem
 

@@ -1,6 +1,6 @@
 ---
 title: Квантовая запутанность
-category: "Физика"
+category: "Physics"
 lang: ru
 order: 6
 slug: quantum-entanglement
@@ -24,7 +24,7 @@ $$ |\Phi^+\rangle = \frac{1}{\sqrt{2}}\left(|00\rangle + |11\rangle\right) $$
 $$ |\psi\rangle = \sum_i \sqrt{\lambda_i}\,|e_i\rangle_A \otimes |f_i\rangle_B $$
 где $\lambda_i \geq 0$, $\sum_i \lambda_i = 1$; число шмидтовских чисел равно 1 тогда и только тогда, когда состояние сепарабельно.
 
-Энтропия запутанности фон Неймана определяется через приведённую матрицу плотности $\rho_A = \text{Tr}_B(|\psi\rangle\langle\psi|)$:
+[[gravitational-entropy|Энтропия]] запутанности фон Неймана определяется через приведённую матрицу плотности $\rho_A = \text{Tr}_B(|\psi\rangle\langle\psi|)$:
 $$ S_E = -\text{Tr}(\rho_A \ln \rho_A) = -\sum_i \lambda_i \ln \lambda_i $$
 Она обращается в нуль для произведённых состояний и максимальна ($\ln d$) для максимально запутанных состояний локальной размерности $d$.
 

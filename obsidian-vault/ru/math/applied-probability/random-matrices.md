@@ -1,6 +1,6 @@
 ---
 title: "Теория случайных матриц"
-category: "Прикладная вероятность"
+category: "Applied Probability"
 order: 27
 lang: "ru"
 slug: "/math/random-matrices"

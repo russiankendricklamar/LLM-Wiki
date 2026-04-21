@@ -1,6 +1,6 @@
 ---
 title: "Большие калибровочные преобразования"
-category: "Физика"
+category: "Physics"
 order: 38
 lang: "ru"
 slug: "large-gauge-transformations"

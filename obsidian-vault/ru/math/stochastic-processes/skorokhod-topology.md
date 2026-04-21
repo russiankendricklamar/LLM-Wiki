@@ -1,7 +1,7 @@
 ---
 slug: "/math/skorokhod-topology"
 title: "Топология Скорохода и пространство D"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 1
 lang: "ru"
 ---

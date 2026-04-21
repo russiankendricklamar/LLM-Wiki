@@ -116,7 +116,7 @@ Solving the FP equation numerically requires space-time discretization:
 - **Finite differences:** Replace $\partial p/\partial x$ with $(p_{i+1} - p_{i-1})/(2\Delta x)$ on a grid.
 - **Finite elements:** Variational formulation with piecewise polynomial basis, handles complex geometries naturally.
 - **Spectral methods:** Expand in global bases (polynomials, sines) for smooth solutions; exponential convergence.
-- **Direct simulation:** Instead of solving FP, numerically simulate many realizations of the SDE and empirically reconstruct $p(x,t)$ via histograms (Monte Carlo).
+- **Direct simulation:** Instead of solving FP, numerically simulate many realizations of the [[stochastic-differential-equations|SDE]] and empirically reconstruct $p(x,t)$ via histograms (Monte Carlo).
 
 ## Related Topics
 

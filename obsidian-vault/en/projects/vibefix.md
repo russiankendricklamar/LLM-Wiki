@@ -10,7 +10,7 @@ year: "2026"
 tech: "Next.js 16, React 19, FastAPI, Supabase, TypeScript"
 demo: "https://frontend-seven-pied-38.vercel.app/"
 image: "/projects/vibefix.png"
-featured: true
+featured: false
 description: "A broker between vibe-coders and professional developers. Secure escrow deals, fixed prices, guaranteed delivery."
 ---
 
@@ -22,7 +22,7 @@ VibeFix is a micro-task marketplace for repairing broken AI-generated code. The 
 
 Three repeating pains for AI-coding users:
 
-- **The code doesn't work.** The LLM emitted a dense block of logic that compiles but breaks on the first real request. Debugging eats days.
+- **The code doesn't work.** The [[llm]] emitted a dense block of logic that compiles but breaks on the first real request. Debugging eats days.
 - **Freelancers can't be vetted.** Classic freelance marketplaces are flooded with inflated reputations; finding a developer who can fix someone else's AI code in an hour is a lottery.
 - **No deal protection.** Without escrow one side always carries risk: pay and get nothing, or fix and get nothing.
 

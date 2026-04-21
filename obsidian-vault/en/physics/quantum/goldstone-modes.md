@@ -20,7 +20,7 @@ $$
 [Q, H] = 0, \qquad Q|0\rangle \ne 0.
 $$
 
-The ground state is then not unique — acting with $Q$ produces a degenerate ground state, and the true vacuum is one point in a continuous family of equivalent vacua (the **vacuum manifold** $G/H$, where $H$ is the unbroken subgroup).
+The ground state is then not unique — acting with $Q$ produces a degenerate ground state, and the true vacuum is one point in a continuous family of equivalent vacua (the **vacuum [[differential-geometry|manifold]]** $G/H$, where $H$ is the unbroken subgroup).
 
 **Example.** A complex scalar $\phi$ with Mexican-hat potential $V(\phi) = -\mu^2 |\phi|^2 + \lambda |\phi|^4$. The Lagrangian is $U(1)$ invariant under $\phi \to e^{i\alpha}\phi$, but the vacuum satisfies $|\phi| = v \ne 0$ and picks one phase. The $U(1)$ is spontaneously broken; the circle $|\phi| = v$ is the vacuum manifold.
 

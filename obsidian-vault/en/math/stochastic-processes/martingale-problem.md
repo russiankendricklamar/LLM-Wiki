@@ -8,7 +8,7 @@ lang: "en"
 
 # The Stroock-Varadhan Martingale Problem
 
-The classical approach to stochastic differential equations constructs solutions pathwise: given $dX_t = b(X_t)\,dt + \sigma(X_t)\,dW_t$, one seeks a process $X$ on a given probability space carrying a Brownian motion $W$. Stroock and Varadhan introduced a fundamentally different viewpoint. Instead of building paths, one looks for a **probability measure** $P$ on the canonical path space under which a certain functional of $X$ becomes a martingale. This is the **martingale problem**, and Jacod and Shiryaev place it at the heart of weak convergence theory for semimartingales: characterizing a limit process through its martingale problem is often far simpler than constructing it as a strong solution to an SDE.
+The classical approach to stochastic differential equations constructs solutions pathwise: given $dX_t = b(X_t)\,dt + \sigma(X_t)\,dW_t$, one seeks a process $X$ on a given probability space carrying a Brownian motion $W$. Stroock and Varadhan introduced a fundamentally different viewpoint. Instead of building paths, one looks for a **probability measure** $P$ on the canonical path space under which a certain functional of $X$ becomes a martingale. This is the **martingale problem**, and Jacod and Shiryaev place it at the heart of weak convergence theory for semimartingales: characterizing a limit process through its martingale problem is often far simpler than constructing it as a strong solution to an [[stochastic-differential-equations|SDE]].
 
 ## Formulation
 

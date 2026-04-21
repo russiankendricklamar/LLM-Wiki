@@ -75,7 +75,7 @@ These conditions elegantly unify first-order optimality with feasibility, enabli
 The proximal operator of $f$ with stepsize $\alpha > 0$ is:
 $$\text{prox}_{\alpha f}(x) = \arg\min_y \left\{ f(y) + \frac{1}{2\alpha}\|y - x\|^2 \right\}$$
 
-Proximal gradient descent applies to composite problems $\min_x f(x) + g(x)$ where $f$ is smooth and $g$ may be non-smooth:
+Proximal [[convex-optimization|gradient descent]] applies to composite problems $\min_x f(x) + g(x)$ where $f$ is smooth and $g$ may be non-smooth:
 $$x_{k+1} = \text{prox}_{\alpha g}(x_k - \alpha \nabla f(x_k))$$
 
 This method is invaluable for problems with L1-regularization ([[convex-optimization-trading]]), nuclear norms, or other non-smooth penalties. The proximal operator decouples handling of the smooth and non-smooth parts, enabling efficient first-order algorithms.

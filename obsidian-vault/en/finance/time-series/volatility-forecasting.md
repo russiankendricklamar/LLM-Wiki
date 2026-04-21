@@ -320,7 +320,7 @@ print(f"HAR R^2: {har_result['r_squared']:.4f}")
 - **GARCH tail underestimation**: Even with Student-t innovations, GARCH underestimates extreme tail risk; EVT-GARCH combinations improve tail forecasts.
 - **HAR stationarity**: HAR coefficients sum near 1 (near unit root), implying near-unit-root behavior; ARFIMA-RV models the long memory explicitly.
 - **Multivariate vol**: DCC-GARCH and GO-GARCH extend univariate models to covariance matrices for portfolio VaR; these require $O(N^2)$ parameters.
-- **ML forecasting**: LSTM, temporal convolutional networks, and transformer architectures on realized measures outperform GARCH and HAR in large-scale comparisons, at the cost of interpretability.
+- **ML forecasting**: LSTM, temporal convolutional networks, and [[transformer-architecture|transformer]] architectures on realized measures outperform GARCH and HAR in large-scale comparisons, at the cost of interpretability.
 - **Roughness**: The rough volatility literature (Gatheral et al. 2018) models $\sigma_t$ as a rough fractional Brownian motion with Hurst exponent $H \approx 0.1$, much rougher than standard diffusions.
 
 ## Practical Applications

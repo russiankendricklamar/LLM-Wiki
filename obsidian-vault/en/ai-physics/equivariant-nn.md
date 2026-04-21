@@ -25,7 +25,7 @@ This is in contrast to data augmentation, which teaches a network to be approxim
   "type": "line",
   "xAxis": "training_samples",
   "data": [
-    {"training_samples": 10, "NequIP": 0.52, "SchNet": 0.91, "MLP": 0.95},
+    {"training_samples": 10, "NequIP": 0.52, "SchNet": 0.91, "[[transformer-architecture|MLP]]": 0.95},
     {"training_samples": 25, "NequIP": 0.31, "SchNet": 0.74, "MLP": 0.89},
     {"training_samples": 50, "NequIP": 0.18, "SchNet": 0.58, "MLP": 0.79},
     {"training_samples": 100, "NequIP": 0.09, "SchNet": 0.42, "MLP": 0.67},
@@ -80,7 +80,7 @@ $$\mathbf{h}_i^{\text{new}} = \mathbf{h}_i + \sum_{j \in \mathcal{N}(i)} W(|\mat
 
 **Key architectures:**
 - **SchNet (2017):** Invariant; uses radial basis functions, no tensor products.
-- **SE(3)-Transformer (2020):** Equivariant attention over point clouds with tensor product keys/queries.
+- **SE(3)-[[transformer-architecture|Transformer]] (2020):** Equivariant [[attention-mechanisms|attention]] over point clouds with tensor product keys/queries.
 - **SEGNN (2021):** Steerable E(3)-equivariant graph neural network.
 - **NequIP (2022):** E(3)-equivariant interatomic potential; achieves DFT accuracy with few-shot data.
 - **MACE (2022):** Higher-order equivariant message passing; current state-of-the-art for molecular dynamics.

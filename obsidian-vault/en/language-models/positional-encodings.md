@@ -9,7 +9,7 @@ growth: "seedling"
 
 # Positional Encodings
 
-Attention is permutation-equivariant by design: without positional information, the transformer cannot distinguish "the cat sat on the mat" from any permutation of those tokens. **Positional encodings** inject sequence order into the model. The choice of encoding profoundly affects context length extrapolation, training efficiency, and downstream performance.
+[[attention-mechanisms|Attention]] is permutation-equivariant by design: without positional information, the [[transformer-architecture|transformer]] cannot distinguish "the cat sat on the mat" from any permutation of those tokens. **Positional encodings** inject sequence order into the model. The choice of encoding profoundly affects context length extrapolation, training efficiency, and downstream performance.
 
 ## Absolute Positional Encodings
 
@@ -88,7 +88,7 @@ Perplexity (lower is better) when model is trained on 2048 tokens and evaluated 
 
 **YaRN** (Peng et al. 2023) extends RoPE-trained models to longer contexts by rescaling the rotation frequencies. The key insight: high-frequency RoPE dimensions can't extrapolate but low-frequency ones can. YaRN applies different scaling to different frequency bands and includes an attention temperature correction.
 
-With YaRN, LLaMA-2 (trained on 4096 tokens) extends to 128K tokens with minimal fine-tuning.
+With YaRN, LLaMA-2 (trained on 4096 tokens) extends to 128K tokens with minimal [[fine-tuning]].
 
 ## Comparison Summary
 
@@ -102,7 +102,7 @@ With YaRN, LLaMA-2 (trained on 4096 tokens) extends to 128K tokens with minimal 
 
 ## Related Topics
 
-- [[large-language-models]] — overview of LLM architectures
+- [[large-language-models]] — overview of [[llm]] architectures
 - [[transformer-architecture]] — full attention mechanism
 - [[attention-mechanisms]] — self-attention derivation
-- [[scaling-laws]] — how context length interacts with compute scaling
+- [[neural-scaling-laws]] — how context length interacts with compute scaling

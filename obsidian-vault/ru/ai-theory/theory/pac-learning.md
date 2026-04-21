@@ -1,6 +1,6 @@
 ---
 title: "PAC-обучение и VC-размерность"
-category: "Теория AI"
+category: "AI Theory"
 order: 1
 lang: "ru"
 slug: "pac-learning"

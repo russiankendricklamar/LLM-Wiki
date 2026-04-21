@@ -96,7 +96,7 @@ Z-estimators include method of moments estimators, generalized method of moments
 2. $\psi_\theta$ is continuous in $\theta$.
 3. [[empirical-processes|Uniform convergence]] in probability:
    $$\left\| \frac{1}{n}\sum_{i=1}^n \psi_{\theta}(X_i) - \mathbb{E}[\psi_\theta(X)] \right\| \to 0$$
-   uniformly in $\theta$ (can be ensured by uniform integrability or entropy conditions on the class $\{\psi_\theta\}$).
+   uniformly in $\theta$ (can be ensured by uniform integrability or [[shannon-entropy|entropy]] conditions on the class $\{\psi_\theta\}$).
 
 Then any solution $\hat{\theta}_n$ to $\frac{1}{n}\sum \psi_{\hat{\theta}_n}(X_i) = 0$ satisfies $\hat{\theta}_n \xrightarrow{P} \theta_0$.
 

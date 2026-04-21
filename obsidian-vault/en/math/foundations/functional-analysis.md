@@ -88,7 +88,7 @@ A **compact operator** $T: X \to Y$ between Banach spaces maps bounded sets to r
 - Finite-rank operators
 - Limits of finite-rank operators
 
-For a compact self-adjoint operator $T: H \to H$ on a Hilbert space, the **spectral theorem** provides complete structure: there exists an orthonormal basis $\{e_n\}$ of eigenvectors with corresponding eigenvalues $\lambda_n \to 0$, and
+For a compact self-adjoint operator $T: H \to H$ on a Hilbert space, the **spectral theorem** provides complete structure: there exists an orthonormal basis $\{e_n\}$ of eigenvectors with corresponding [[spectral-theory-operators|eigenvalues]] $\lambda_n \to 0$, and
 $$Tx = \sum_{n=1}^\infty \lambda_n \langle x, e_n \rangle e_n$$
 
 The spectrum $\sigma(T) = \{\lambda : T - \lambda I \text{ is not invertible}\}$ decomposes into point spectrum (eigenvalues), continuous spectrum, and residual spectrum. For compact self-adjoint operators, the continuous and residual spectra are empty, and only $0$ can accumulate.

@@ -38,7 +38,7 @@ then:
 
 $$y_k = \sum_{j=0}^{k} K_{k-j} x_j = (K * x)_k$$
 
-For sequences of length $L$, computing the kernel costs $O(N \cdot L)$ and the convolution via FFT costs $O(L \log L)$, permitting parallel training. At inference, the recurrent form is $O(L \cdot N)$ — linear in sequence length, unlike attention's $O(L^2)$.
+For sequences of length $L$, computing the kernel costs $O(N \cdot L)$ and the convolution via FFT costs $O(L \log L)$, permitting parallel training. At inference, the recurrent form is $O(L \cdot N)$ — linear in sequence length, unlike [[attention-mechanisms|attention]]'s $O(L^2)$.
 
 ## HiPPO: Long-Range Polynomial Approximation
 
@@ -54,7 +54,7 @@ $$A_{ij} = \begin{cases}
 0 & \text{if } i < j
 \end{cases}$$
 
-This ensures eigenvalues lie on the imaginary axis, preventing vanishing/exploding gradients. On synthetic long-range tasks (e.g., copying problem), HiPPO-initialized SSMs recover the entire input history perfectly, whereas standard RNNs fail utterly.
+This ensures [[spectral-theory-operators|eigenvalues]] lie on the imaginary axis, preventing vanishing/exploding gradients. On synthetic long-range tasks (e.g., copying problem), HiPPO-initialized SSMs recover the entire input history perfectly, whereas standard RNNs fail utterly.
 
 ## S4: Structured State Matrices
 
@@ -82,7 +82,7 @@ $$h_k = \bar{A}_k h_{k-1} + \bar{B}_k x_k$$
 
 where $\bar{A}_k, \bar{B}_k$ depend on discretization $\Delta_k$. Critically, Mamba uses **parallel prefix scan** (associative scan), not matrix multiplication, enabling $O(L)$ time and memory **with linear constant factors**, making it hardware-friendly.
 
-On language modeling, Mamba-3B is competitive with Transformer-3B, establishing SSMs as genuine [[llm|LLM]] candidates rather than curiosities.
+On language modeling, Mamba-3B is competitive with [[transformer-architecture|Transformer]]-3B, establishing SSMs as genuine [[llm|LLM]] candidates rather than curiosities.
 
 ## Mamba-2: Structured State Space Duality
 

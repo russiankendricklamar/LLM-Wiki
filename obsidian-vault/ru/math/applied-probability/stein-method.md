@@ -1,6 +1,6 @@
 ---
 title: "Метод Стейна"
-category: "Прикладная вероятность"
+category: "Applied Probability"
 order: 19
 lang: "ru"
 slug: "/math/stein-method"

@@ -78,7 +78,7 @@ The martingale CLT is a **strict generalization**: it contains the classical CLT
 
 **3. GARCH and ARCH models.** Parameter estimation for stochastic-volatility models is a classical application of the martingale CLT: the model residuals are naturally martingale differences.
 
-**4. Stochastic approximation (SGD).** Convergence analysis of stochastic gradient descent: the gradient noise is a martingale difference, and asymptotic normalization of the error $\theta_n - \theta^*$ is proved by the martingale CLT. This is the foundation of LAN theory in modern optimization.
+**4. Stochastic approximation (SGD).** Convergence analysis of stochastic [[convex-optimization|gradient descent]]: the gradient noise is a martingale difference, and asymptotic normalization of the error $\theta_n - \theta^*$ is proved by the martingale CLT. This is the foundation of LAN theory in modern optimization.
 
 **5. Bayesian algorithms.** MCMC estimators converge thanks to the martingale CLT: the noise between visits to the stationary distribution forms martingale differences under a suitable filtration.
 

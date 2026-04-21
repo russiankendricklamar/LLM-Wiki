@@ -5,11 +5,12 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { Check, Copy, ExternalLink } from 'lucide-react';
+import { Check, Copy, ExternalLink, Activity } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { KatexStyles } from './KatexStyles';
 import { Link } from 'react-router-dom';
 import { getAllPages, resolveWikilink } from '@/lib/content-loader';
+import { WikiTooltip } from './WikiTooltip';
 
 const ChartRendererLazy = React.lazy(() =>
   import('./ChartRenderer').then(m => ({ default: m.ChartRenderer }))
@@ -23,12 +24,14 @@ interface MarkdownRendererProps {
 
 const processWikilinks = (content: string, sourceCategory?: string) => {
   const allPages = getAllPages();
+  // We use a special marker to identify wikilinks that were successfully resolved
   return content.replace(/\[\[(.*?)(?:\|(.*?))?\]\]/g, (match, pageName, displayText) => {
     const target = pageName.trim();
     const page = resolveWikilink(target, allPages, sourceCategory);
     if (page) {
       const linkText = displayText ? displayText.trim() : page.metadata.title;
-      return `[${linkText}](${page.metadata.slug})`;
+      // We encode the metadata in the URL so the CustomLink component can use it
+      return `[${linkText}](internal://${page.metadata.slug}?title=${encodeURIComponent(page.metadata.title)})`;
     }
     const display = (displayText || pageName).trim();
     return `<span class="text-zinc-400 opacity-70">[[${display}]]</span>`;
@@ -36,6 +39,24 @@ const processWikilinks = (content: string, sourceCategory?: string) => {
 };
 
 const CustomLink = ({ href, children, ...props }: any) => {
+  if (href && href.startsWith('internal://')) {
+    const url = new URL(href);
+    const slug = url.pathname + url.search; // This is a bit hacky but works for react-router
+    const actualSlug = url.hostname + url.pathname;
+    const title = url.searchParams.get('title') || '';
+    
+    return (
+      <WikiTooltip slug={actualSlug} title={title}>
+        <Link 
+          to={actualSlug} 
+          className="font-medium text-blue-600 dark:text-blue-400 underline underline-offset-4 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+        >
+          {children}
+        </Link>
+      </WikiTooltip>
+    );
+  }
+
   const isInternal = href && (href.startsWith('/') || href.startsWith('#'));
   
   if (isInternal) {
@@ -96,6 +117,21 @@ const CodeBlock = ({
           </div>
         );
       }
+    }
+
+    if (language === 'mermaid') {
+      return (
+        <div className="my-6 p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex flex-col items-center justify-center gap-4">
+          <div className="flex items-center gap-2 text-zinc-500 dark:text-zinc-400 font-medium">
+            <Activity className="w-5 h-5" />
+            <span>Architecture Diagram</span>
+          </div>
+          <pre className="text-xs text-zinc-400 font-mono bg-zinc-50 dark:bg-zinc-900 p-4 rounded-lg w-full overflow-x-auto">
+            {String(children).trim()}
+          </pre>
+          <p className="text-[10px] text-zinc-400 uppercase tracking-widest">Mermaid.js Renderer (Placeholder)</p>
+        </div>
+      );
     }
 
     return (

@@ -9,11 +9,11 @@ growth: "seedling"
 
 # Context Length Extension
 
-The ability to process longer sequences is a fundamental scaling axis for [[llm|LLMs]], directly enabling complex reasoning, code understanding, and document retrieval. Yet vanilla [[transformer-architecture|transformer]] architectures, which rely on fixed absolute positional encodings learned during training, exhibit sharp performance degradation when sequence length exceeds training length. Context extension research addresses this gap through rotational embeddings, relative position biasing, and architectural modifications that preserve attention accuracy while reducing memory and compute cost.
+The ability to process longer sequences is a fundamental scaling axis for [[llm|LLMs]], directly enabling complex reasoning, code understanding, and document retrieval. Yet vanilla [[transformer-architecture|transformer]] architectures, which rely on fixed absolute positional encodings learned during training, exhibit sharp performance degradation when sequence length exceeds training length. Context extension research addresses this gap through rotational embeddings, relative position biasing, and architectural modifications that preserve [[attention-mechanisms|attention]] accuracy while reducing memory and compute cost.
 
 ## The Sinusoidal Baseline and Its Limits
 
-The original Transformer (Vaswani et al. 2017) uses fixed sinusoidal positional encodings:
+The original [[transformer-architecture|Transformer]] (Vaswani et al. 2017) uses fixed sinusoidal positional encodings:
 
 $$PE_{pos,2i} = \sin\left(\frac{pos}{10000^{2i/d}}\right), \quad PE_{pos,2i+1} = \cos\left(\frac{pos}{10000^{2i/d}}\right)$$
 
@@ -45,7 +45,7 @@ Alternatively, use "yarn" interpolation: divide the position index by the scalin
 
 $$m_{\text{interp}} = \frac{m}{s}, \quad n_{\text{interp}} = \frac{n}{s}$$
 
-This compresses the relative position space so that training-length distances remain stable. Empirically, scaling enables extrapolation to $2–4\times$ training length with minimal perplexity increase and modest fine-tuning.
+This compresses the relative position space so that training-length distances remain stable. Empirically, scaling enables extrapolation to $2–4\times$ training length with minimal perplexity increase and modest [[fine-tuning]].
 
 ## ALiBi: Attention with Linear Biases
 
@@ -67,7 +67,7 @@ This reduces complexity to $O(L \cdot W)$. [[llm|Mistral]] uses $W = 4096$; for 
 
 ## FlashAttention and Memory-Efficient Long Context
 
-[[inference-serving|Inference serving]] long contexts bottlenecks on memory bandwidth, not compute. FlashAttention (Dao et al. 2022) reorganizes the attention computation to respect GPU memory hierarchy: compute block-wise, materialize softmax incrementally, avoid materializing the full $L \times L$ attention matrix. This cuts memory from $O(L^2)$ to $O(L)$ while keeping computation $O(L^2)$.
+[[inference-serving|Inference serving]] long contexts bottlenecks on memory bandwidth, not compute. FlashAttention (Dao et al. 2022) reorganizes the attention computation to respect [[inference-serving|GPU]] memory hierarchy: compute block-wise, materialize softmax incrementally, avoid materializing the full $L \times L$ attention matrix. This cuts memory from $O(L^2)$ to $O(L)$ while keeping computation $O(L^2)$.
 
 For 100K+ token sequences, FlashAttention is essential—without it, even a single forward pass runs out of GPU memory.
 

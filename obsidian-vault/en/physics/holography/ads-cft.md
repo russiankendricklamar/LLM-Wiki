@@ -14,7 +14,7 @@ Together, they constitute the deepest and most successful insight into quantum g
 
 ## The holographic idea
 
-The [[hawking-radiation|Bekenstein-Hawking entropy]] $S_\text{BH} = A/4$ has a strange implication. For a region of space bounded by an area $A$, the maximum entropy it can contain is bounded by $A/4$ — because otherwise you could keep adding stuff and exceed the black-hole entropy of the same size, and gravitational collapse would make it a black hole.
+The [[hawking-radiation|Bekenstein-Hawking entropy]] $S_\text{BH} = A/4$ has a strange implication. For a region of space bounded by an area $A$, the maximum [[gravitational-entropy|entropy]] it can contain is bounded by $A/4$ — because otherwise you could keep adding stuff and exceed the black-hole entropy of the same size, and gravitational collapse would make it a black hole.
 
 But in ordinary local field theory the entropy of a region scales with its *volume*, $S \sim V$. The discrepancy says that local QFT vastly overcounts the true degrees of freedom when gravity is included. 't Hooft and Susskind proposed the fix: the *true* degrees of freedom of any theory with gravity live on a lower-dimensional surface — a hologram.
 

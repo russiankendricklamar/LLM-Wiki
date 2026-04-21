@@ -41,10 +41,10 @@ What makes scale consequential is the phenomenon of **emergent abilities**: capa
 
 ## Architecture
 
-Modern LLMs are built on the **decoder-only transformer**, a stack of $L$ identical blocks each containing:
+Modern LLMs are built on the **decoder-only [[transformer-architecture|transformer]]**, a stack of $L$ identical blocks each containing:
 
-1. **Masked multi-head self-attention** — each token attends only to tokens at earlier positions (causal mask).
-2. **Feed-forward network (FFN)** — a two-layer MLP with a nonlinearity, typically SwiGLU: $\text{FFN}(x) = (\text{SiLU}(xW_1) \odot xW_3) W_2$.
+1. **Masked multi-head self-[[attention-mechanisms|attention]]** — each token attends only to tokens at earlier positions (causal mask).
+2. **Feed-forward network (FFN)** — a two-layer [[transformer-architecture|MLP]] with a nonlinearity, typically SwiGLU: $\text{FFN}(x) = (\text{SiLU}(xW_1) \odot xW_3) W_2$.
 3. **Layer normalization** — applied before each sub-layer (pre-norm), with RMSNorm increasingly preferred over LayerNorm.
 4. **Residual connections** — standard around both sub-layers.
 
@@ -82,9 +82,9 @@ LLM training proceeds in three stages:
 
 **1. Pre-training.** Autoregressive next-token prediction on a large, diverse text corpus (web crawl, books, code, scientific papers). This phase consumes the bulk of compute. Mixed-precision training with BF16 weights and FP32 master weights is standard. Gradient clipping and careful learning rate scheduling (warmup + cosine decay) are essential for stability.
 
-**2. Supervised Fine-Tuning (SFT).** The pre-trained model is fine-tuned on a curated dataset of (instruction, response) pairs. This shapes the model's output format and tone, teaching it to follow instructions.
+**2. Supervised [[fine-tuning]] (SFT).** The pre-trained model is fine-tuned on a curated dataset of (instruction, response) pairs. This shapes the model's output format and tone, teaching it to follow instructions.
 
-**3. Alignment via RLHF or DPO.** Reinforcement Learning from Human Feedback trains a reward model on human preference rankings, then uses PPO to maximize reward. Direct Preference Optimization (DPO) eliminates the separate reward model by reparameterizing the RL objective as a classification loss directly on preference pairs:
+**3. Alignment via [[rlhf]] or [[dpo]].** Reinforcement Learning from Human Feedback trains a reward model on human preference rankings, then uses PPO to maximize reward. Direct Preference Optimization (DPO) eliminates the separate reward model by reparameterizing the RL objective as a classification loss directly on preference pairs:
 
 $$\mathcal{L}_{\text{DPO}} = -\mathbb{E}\!\left[\log \sigma\!\left(\beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_\theta(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)}\right)\right]$$
 
@@ -160,6 +160,11 @@ print(response)
 ## Related Topics
 
 [[slm]] — small language models, the efficient counterpart  
+[[reasoning-models]] — models capable of multi-step chain-of-thought (e.g., OpenAI o1)  
+[[prm]] — Process Reward Models for fine-grained supervision  
+[[dpo]] — Direct Preference Optimization for alignment  
+[[preference-optimization|KTO]] — Kahneman-Tversky Optimization (KTO) for simpler alignment  
+[[model-merging]] — combining multiple models without training  
 [[mixture-of-experts]] — sparse routing as a scale multiplier  
 [[embedding-models]] — models that map text to vectors rather than generating tokens  
 [[neural-scaling-laws]] — the mathematical framework predicting LLM behavior at scale  

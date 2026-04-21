@@ -72,7 +72,7 @@ $$
 \mathcal{L}_{\text{DSM}} = \mathbb{E}_{t, \mathbf{x}_0, \boldsymbol{\epsilon}}\!\left[\left\| s_\theta(\mathbf{x}_t, t) + \frac{\boldsymbol{\epsilon}}{\sigma_t} \right\|^2\right]
 $$
 
-Generation proceeds by integrating a reverse-time SDE from $\mathbf{x}_T \sim \mathcal{N}(\mathbf{0}, \sigma_T^2 \mathbf{I})$ back to $\mathbf{x}_0$.
+Generation proceeds by integrating a reverse-time [[stochastic-differential-equations|SDE]] from $\mathbf{x}_T \sim \mathcal{N}(\mathbf{0}, \sigma_T^2 \mathbf{I})$ back to $\mathbf{x}_0$.
 
 ## Architecture
 

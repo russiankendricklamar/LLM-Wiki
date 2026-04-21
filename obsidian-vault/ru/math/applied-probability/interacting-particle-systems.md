@@ -1,6 +1,6 @@
 ---
 title: "Взаимодействующие частицы"
-category: "Прикладная вероятность"
+category: "Applied Probability"
 order: 23
 lang: "ru"
 slug: "/math/interacting-particle-systems"

@@ -51,7 +51,7 @@ The BC term keeps the policy close to the dataset distribution; $\lambda$ is nor
 
 The simplest offline approach: supervised learning on $(s, a)$ pairs from $\mathcal{D}$. BC ignores rewards entirely — it imitates the behaviour policy. Performance is bounded by the quality of the dataset; BC cannot improve beyond the demonstrator.
 
-## Decision Transformer
+## Decision [[transformer-architecture|Transformer]]
 
 **Decision Transformer** (Chen et al. 2021) reframes offline RL as a sequence modelling problem. Given a context of past $(R, s, a)$ triples and a target return $\hat{R}$, a GPT-2 style model autoregressively predicts the next action:
 

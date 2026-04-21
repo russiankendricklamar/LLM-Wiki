@@ -1,6 +1,6 @@
 ---
 title: "Нейронные операторы"
-category: "Научное ML"
+category: "Scientific ML"
 order: 5
 lang: "ru"
 slug: "neural-operators"

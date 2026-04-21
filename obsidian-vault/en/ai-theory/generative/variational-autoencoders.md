@@ -64,7 +64,7 @@ Direct differentiation through sampling $z \sim q_\phi(z|x)$ blocks gradient flo
 
 $$z = \mu_\phi(x) + \sigma_\phi(x) \odot \epsilon, \quad \epsilon \sim \mathcal{N}(0, I)$$
 
-where $\odot$ denotes element-wise multiplication. Now gradients flow through the deterministic operations $\mu_\phi$ and $\sigma_\phi$, while randomness is isolated in $\epsilon$ (which requires no differentiation). This enables end-to-end [[automatic-differentiation|backpropagation]]: the loss $\mathcal{L}(\phi, \theta)$ becomes a differentiable function of $(\phi, \theta)$, and stochastic gradient descent can optimize both encoder and decoder simultaneously.
+where $\odot$ denotes element-wise multiplication. Now gradients flow through the deterministic operations $\mu_\phi$ and $\sigma_\phi$, while randomness is isolated in $\epsilon$ (which requires no differentiation). This enables end-to-end [[automatic-differentiation|backpropagation]]: the loss $\mathcal{L}(\phi, \theta)$ becomes a differentiable function of $(\phi, \theta)$, and stochastic [[convex-optimization|gradient descent]] can optimize both encoder and decoder simultaneously.
 
 ## Closed-Form KL Divergence
 
@@ -102,6 +102,6 @@ VAE exemplifies the power of [[automatic-differentiation|automatic differentiati
 
 - [[generative-models]] — overview of VAE, GAN, flows, and diffusion
 - [[diffusion-models]] — modern image generation via iterative denoising
-- [[automatic-differentiation]] — backpropagation through stochastic graphs
+- [[automatic-differentiation]] — [[automatic-differentiation|backpropagation]] through stochastic graphs
 - [[neural-odes]] — continuous-depth extensions via ordinary differential equations
 - [[sparse-autoencoders]] — alternative latent-variable models with sparsity

@@ -1,6 +1,6 @@
 ---
 title: "Законы нейросетевого масштабирования"
-category: "Теория AI"
+category: "AI Theory"
 order: 3
 lang: "ru"
 slug: "neural-scaling-laws"

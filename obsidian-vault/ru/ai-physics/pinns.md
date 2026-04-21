@@ -1,6 +1,6 @@
 ---
 title: "Нейронные сети, информированные физикой (PINNs)"
-category: "Научное ML"
+category: "Scientific ML"
 order: 1
 lang: "ru"
 slug: "pinns"

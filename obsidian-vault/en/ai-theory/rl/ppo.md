@@ -9,7 +9,7 @@ growth: "seedling"
 
 # Proximal Policy Optimization (PPO)
 
-**Proximal Policy Optimization (PPO)** is the most widely deployed policy gradient algorithm in modern deep RL and the backbone of RLHF training for large language models. Introduced by Schulman et al. (2017), it achieves stable on-policy learning by constraining how much the policy changes in a single update — without the computational overhead of TRPO.
+**Proximal Policy Optimization (PPO)** is the most widely deployed policy gradient algorithm in modern deep RL and the backbone of [[rlhf]] training for large language models. Introduced by Schulman et al. (2017), it achieves stable on-policy learning by constraining how much the policy changes in a single update — without the computational overhead of TRPO.
 
 ## Motivation: The Policy Update Problem
 
@@ -57,7 +57,7 @@ $$
 
 where:
 - $L^{\text{VF}}_t = (V_\theta(s_t) - V_t^\text{target})^2$ — value function MSE
-- $S[\pi_\theta](s_t)$ — entropy bonus (encourages exploration)
+- $S[\pi_\theta](s_t)$ — [[shannon-entropy|entropy]] bonus (encourages exploration)
 - $c_1 \approx 0.5$, $c_2 \approx 0.01$
 
 ## Training Dynamics
@@ -105,7 +105,7 @@ where:
 
 ## Applications
 
-**RLHF / LLM alignment.** PPO is the RL algorithm in InstructGPT, Claude, and Gemini RLHF pipelines. The reward model plays the role of $r(s,a)$; the reference policy KL penalty constrains drift from the base model.
+**RLHF / [[llm]] alignment.** PPO is the RL algorithm in InstructGPT, Claude, and Gemini RLHF pipelines. The reward model plays the role of $r(s,a)$; the reference policy KL penalty constrains drift from the base model.
 
 **Continuous control.** MuJoCo locomotion (Ant, Humanoid, HalfCheetah) — PPO achieves near-SOTA with correct hyperparameters.
 

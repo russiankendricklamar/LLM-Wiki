@@ -1,6 +1,6 @@
 ---
 title: "Оценка LLM"
-category: "LLM-инфраструктура"
+category: "LLM Infrastructure"
 order: 13
 lang: "ru"
 slug: "evaluation-llms"

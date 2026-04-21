@@ -7,7 +7,7 @@ lang: "en"
 ---
 # Random Matrix Theory (RMT)
 
-**Random Matrix Theory (RMT)** is the study of the statistical properties of eigenvalues and eigenvectors of matrices whose entries are random variables. Originally developed in nuclear physics by Wigner (1950s) to describe the energy spectra of heavy nuclei, RMT found its way into quantitative finance through the work of Laloux, Cizeau, Bouchaud, and Potters (1999). In portfolio construction, RMT is the gold standard for filtering "noise" from the correlation matrices of large asset universes, which is critical for robust portfolio optimization.
+**Random Matrix Theory (RMT)** is the study of the statistical properties of [[spectral-theory-operators|eigenvalues]] and eigenvectors of matrices whose entries are random variables. Originally developed in nuclear physics by Wigner (1950s) to describe the energy spectra of heavy nuclei, RMT found its way into quantitative finance through the work of Laloux, Cizeau, Bouchaud, and Potters (1999). In portfolio construction, RMT is the gold standard for filtering "noise" from the correlation matrices of large asset universes, which is critical for robust portfolio optimization.
 
 ## The Problem of Noisy Correlations
 

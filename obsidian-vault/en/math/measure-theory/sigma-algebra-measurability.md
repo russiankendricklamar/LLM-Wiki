@@ -84,7 +84,7 @@ Shiryaev uses this method at every step — for uniqueness of measure extension,
 
 ## Connection to information theory
 
-In [[shannon-entropy|Shannon's information theory]] a σ-algebra plays the role of "the set of questions to which we can get an answer." The entropy of a random variable conditional on a σ-algebra is **the measure of remaining uncertainty** after that information.
+In [[shannon-entropy|Shannon's information theory]] a σ-algebra plays the role of "the set of questions to which we can get an answer." The [[shannon-entropy|entropy]] of a random variable conditional on a σ-algebra is **the measure of remaining uncertainty** after that information.
 
 In machine learning this becomes the concept of **"representation"**: an embedding of an input $X$ is a sub-σ-algebra w.r.t. which we form a prediction. The richer the embedding (larger σ-algebra), the more accurately we can predict — but the greater the overfitting risk.
 

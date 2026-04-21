@@ -71,7 +71,7 @@ Shiryaev discusses three approaches in detail:
 
 1. **Super-hedging** — find a strategy with the smallest initial capital that surely covers the claim under every scenario (see [[upper-lower-hedging-prices|upper price]]).
 2. **Mean-square error minimization** — the Föllmer-Schweizer strategy minimizing $\mathbb{E}[(H - X^\pi_N)^2]$ under the original measure $\mathbb{P}$ (see [[follmer-schweizer]]).
-3. **Minimal martingale measure** — pick one canonically distinguished EMM (e.g. minimizing relative entropy or mean-square deviation) and price under it. This is no longer an "arbitrage price" but a "price under a chosen risk model."
+3. **Minimal martingale measure** — pick one canonically distinguished EMM (e.g. minimizing relative [[shannon-entropy|entropy]] or mean-square deviation) and price under it. This is no longer an "arbitrage price" but a "price under a chosen risk model."
 
 Each approach is an **additional choice** that the market itself does not make. Pure arbitrage theory ends here and risk management begins.
 

@@ -1,6 +1,6 @@
 ---
 title: "Тождества Уорда"
-category: "Физика"
+category: "Physics"
 order: 29
 lang: "ru"
 slug: "ward-identities"

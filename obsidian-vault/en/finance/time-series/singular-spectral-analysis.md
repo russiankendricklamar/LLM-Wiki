@@ -41,7 +41,7 @@ $$
 \mathbf{X} = \sum_{i=1}^{d} \sqrt{\lambda_i} \, \mathbf{U}_i \mathbf{V}_i^T
 $$
 
-where $d = \text{rank}(\mathbf{X})$, $\lambda_1 \ge \lambda_2 \ge \cdots \ge \lambda_d > 0$ are eigenvalues of $\mathbf{S} = \mathbf{X}\mathbf{X}^T$, and $\mathbf{U}_i$ (left singular vectors, also called **Empirical Orthogonal Functions**, EOFs) and $\mathbf{V}_i$ (right singular vectors, **Principal Components**, PCs) are the spectral modes.
+where $d = \text{rank}(\mathbf{X})$, $\lambda_1 \ge \lambda_2 \ge \cdots \ge \lambda_d > 0$ are [[spectral-theory-operators|eigenvalues]] of $\mathbf{S} = \mathbf{X}\mathbf{X}^T$, and $\mathbf{U}_i$ (left singular vectors, also called **Empirical Orthogonal Functions**, EOFs) and $\mathbf{V}_i$ (right singular vectors, **Principal Components**, PCs) are the spectral modes.
 
 The **singular spectrum** $\{\lambda_i\}$ reveals the relative importance of each mode: a trend mode typically captures a disproportionately large fraction of total variance $\sum_i \lambda_i$.
 

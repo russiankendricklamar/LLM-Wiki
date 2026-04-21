@@ -29,7 +29,7 @@ This is not a subtle tension between two unfamiliar theories. It is a clean cont
 
 ## The Page curve
 
-A sharp version of the paradox, due to Don Page (1993): track the entanglement entropy $S_\text{rad}(t)$ between the outside radiation and whatever is left of the black hole as the evaporation proceeds.
+A sharp version of the paradox, due to Don Page (1993): track the entanglement [[gravitational-entropy|entropy]] $S_\text{rad}(t)$ between the outside radiation and whatever is left of the black hole as the evaporation proceeds.
 
 - If evaporation is **unitary**, $S_\text{rad}$ must rise, turn over at the **Page time** $t_P$ (when half the black hole entropy has been radiated), and fall back to zero as the black hole finishes evaporating. Plotted, this gives the famous triangular **Page curve**.
 - If Hawking's semi-classical calculation is correct, $S_\text{rad}$ just rises monotonically, reaching $\sim S_\text{BH}$ and staying there — the information is simply lost.

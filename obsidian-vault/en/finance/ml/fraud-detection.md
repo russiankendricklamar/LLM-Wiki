@@ -40,7 +40,7 @@ Fraud is rare (often < 0.1%). Naive training maximizes accuracy by predicting "n
 |-------|------|------|
 | **Isolation Forest** | No labels needed, fast | Limited precision at low FPR |
 | **XGBoost / LightGBM** | State-of-the-art tabular, fast inference | Needs labels, feature engineering intensive |
-| **Neural Networks (MLP, LSTM)** | Captures sequential patterns | High data hunger, slower to deploy |
+| **Neural Networks ([[transformer-architecture|MLP]], LSTM)** | Captures sequential patterns | High data hunger, slower to deploy |
 | **Graph Neural Networks** | Detects fraud rings via network topology | Complex pipeline, expensive training |
 | **Bayesian Online Learning** | Updates in real-time | Requires prior specification |
 

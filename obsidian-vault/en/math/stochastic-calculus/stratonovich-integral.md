@@ -57,7 +57,7 @@ provided $f$ is continuously differentiable. This is not a coincidence: the midp
 
 ## Stochastic Differential Equations: Stratonovich Form
 
-Consider a **Stratonovich SDE**:
+Consider a **Stratonovich [[stochastic-differential-equations|SDE]]**:
 
 $$dX_t = a(X_t) \, dt + b(X_t) \circ dW_t, \quad X_0 = x_0.$$
 
@@ -99,7 +99,7 @@ $$m \, dv = -\gamma v \, dt + \sqrt{2\gamma k_B T} \, d\eta,$$
 
 where $\eta$ is Gaussian white noise. When $\eta$ is interpreted as the limit of smoothed noise, the natural calculus is Stratonovich. The Itô interpretation introduces spurious drift corrections that do not appear in the physical system.
 
-More precisely, the Stratonovich form preserves **geometric structure**. If the drift and diffusion satisfy certain compatibility conditions (manifold structure, symplectic form), Stratonovich integration respects these geometric constraints more faithfully than Itô integration.
+More precisely, the Stratonovich form preserves **geometric structure**. If the drift and diffusion satisfy certain compatibility conditions ([[manifold-learning|manifold]] structure, symplectic form), Stratonovich integration respects these geometric constraints more faithfully than Itô integration.
 
 ## Rough Paths and the Stratonovich Lift
 

@@ -15,7 +15,7 @@ Full fine-tuning updates all parameters of a model on target data. For a model w
 
 - Gradient computation: $O(N)$ FLOPs per token
 - Gradient storage: $O(N)$ memory
-- Optimization: stochastic gradient descent or Adam with momentum
+- Optimization: stochastic [[convex-optimization|gradient descent]] or Adam with momentum
 
 Full fine-tuning has compute cost comparable to pretraining and is employed when target datasets are large and high-value (e.g., proprietary corpora). A critical hazard is **catastrophic forgetting**: the model degrades on pretraining knowledge when the target distribution diverges sharply or the dataset is small. Mitigation uses low learning rates ($10^{-5}$ or below) and early stopping on a held-out validation set.
 
@@ -27,7 +27,7 @@ $$\text{loss} = -\sum_{t} \log p_\theta(y_t \mid y_{<t}, x)$$
 
 where $x$ is the prompt and $y_t$ are response tokens. Critically, loss is computed **only on response tokens**, not the prompt, to avoid overwriting instruction-following ability.
 
-SFT yields sharp gains in instruction-following without expensive [[rlhf|RLHF]]. Success hinges on data quality and diversity: 10k high-quality examples outperform 1M low-quality ones. In practice, SFT commonly precedes RLHF, aligning model behavior before reinforcement learning from human feedback.
+SFT yields sharp gains in instruction-following without expensive [[rlhf|RLHF]]. Success hinges on data quality and diversity: 10k high-quality examples outperform 1M low-quality ones. In practice, SFT commonly precedes [[rlhf]], aligning model behavior before reinforcement learning from human feedback.
 
 ## LoRA: Low-Rank Adaptation
 
@@ -51,7 +51,7 @@ $$\text{Reduction} = \frac{d \cdot k}{d \cdot r + r \cdot k} = \frac{4096 \cdot 
 
 The hypothesis underlying LoRA: weight updates during task adaptation reside in a low-dimensional subspace. Empirical validation confirms this; even $r = 1$ is sometimes viable, though $r = 8$–$16$ is standard.
 
-LoRA is typically applied to attention projection matrices ($W_Q, W_K, W_V, W_O$) and optionally to dense layers. Quick calculation: a 13B model with full LoRA requires $\sim 100$M trainable parameters instead of 13B.
+LoRA is typically applied to [[attention-mechanisms|attention]] projection matrices ($W_Q, W_K, W_V, W_O$) and optionally to dense layers. Quick calculation: a 13B model with full LoRA requires $\sim 100$M trainable parameters instead of 13B.
 
 ## QLoRA: Quantized LoRA
 
@@ -61,9 +61,9 @@ QLoRA extends LoRA by [[quantization|quantizing]] the frozen backbone to 4-bit N
 2. Train adapters: $A, B \in \text{bf16}$
 3. Forward pass: decompress needed weight blocks on-the-fly
 
-Advantage: fit a 65B model into a 48GB GPU (e.g., A100). LLaMA-65B ordinarily requires $130$GB for full bf16 fine-tuning; in NF4 it occupies $\sim 32$GB plus $\sim 4$GB for adapters.
+Advantage: fit a 65B model into a 48GB [[inference-serving|GPU]] (e.g., A100). LLaMA-65B ordinarily requires $130$GB for full bf16 fine-tuning; in NF4 it occupies $\sim 32$GB plus $\sim 4$GB for adapters.
 
-Quantization fidelity (NF4 vs. INT8 vs. INT4) trades precision against memory. In practice, NF4 with proper calibration incurs minimal quality loss.
+[[quantization]] fidelity (NF4 vs. INT8 vs. INT4) trades precision against memory. In practice, NF4 with proper calibration incurs minimal quality loss.
 
 ## Instruction Tuning vs. RLHF
 
@@ -78,7 +78,7 @@ In practice: plain instruction tuning often suffices and offers better quality-t
 PEFT is an umbrella for all methods training a minority of parameters:
 
 - **LoRA**: low-rank adapters to weight matrices (above)
-- **Prefix Tuning**: appends a learnable prefix to the hidden states of each transformer layer
+- **Prefix Tuning**: appends a learnable prefix to the hidden states of each [[transformer-architecture|transformer]] layer
 - **Adapter Layers**: inserts small dense modules between layers
 - **Prompt Tuning**: optimizes continuous embeddings (soft tokens) in the prompt
 
@@ -92,7 +92,7 @@ LoRA dominates in practice due to simplicity and throughput. Other methods (adap
 - Latency is critical (fine-tuned model beats prompting + retrieval)
 - Dataset is substantial ($\geq 1000$ examples, ideally $10k+$)
 
-**Prompting / RAG if:**
+**Prompting / [[rag]] if:**
 - Data is heterogeneous or changes frequently
 - Knowledge exists outside the model (internal documents, proprietary facts)
 - Resources for fine-tuning are unavailable

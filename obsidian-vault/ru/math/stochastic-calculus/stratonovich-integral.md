@@ -1,6 +1,6 @@
 ---
 title: "Интеграл Стратоновича"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 26
 lang: "ru"
 slug: "/math/stratonovich-integral"

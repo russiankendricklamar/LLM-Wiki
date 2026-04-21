@@ -1,7 +1,7 @@
 ---
 slug: "/math/martingale-problem"
 title: "Мартингальная задача Строока-Варадана"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 6
 lang: "ru"
 ---

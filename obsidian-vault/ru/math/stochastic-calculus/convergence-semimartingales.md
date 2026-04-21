@@ -1,7 +1,7 @@
 ---
 slug: "/math/convergence-semimartingales"
 title: "Сходимость семимартингалов"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 3
 lang: "ru"
 ---

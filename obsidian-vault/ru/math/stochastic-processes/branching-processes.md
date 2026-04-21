@@ -1,7 +1,7 @@
 ---
 slug: "/math/branching-processes"
 title: "Ветвящиеся процессы"
-category: "Прикладная вероятность"
+category: "Applied Probability"
 order: 3
 lang: "ru"
 ---

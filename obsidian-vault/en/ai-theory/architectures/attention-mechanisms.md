@@ -59,7 +59,7 @@ In practice, [[transformer-architecture|Transformers]] stack both: each decoder 
 
 ## Positional Encoding
 
-Self-attention is **permutation-invariant**: without positional information, the Transformer treats input as a set, not a sequence. Four main strategies add position:
+Self-attention is **permutation-invariant**: without positional information, the [[transformer-architecture|Transformer]] treats input as a set, not a sequence. Four main strategies add position:
 
 ### Sinusoidal Positional Encoding
 The original 2017 approach uses:
@@ -105,7 +105,7 @@ The fundamental bottleneck of attention is its $O(n^2 d)$ complexity in time and
 The na\u00efve implementation materializes the full $n \times n$ attention matrix, requiring $O(n^2)$ memory. For $n = 100K$, that is ~40 GB of memory.
 
 ### Flash Attention
-Dao et al. (2022) observed that standard implementations are IO-bound, not compute-bound. By carefully blocking the computation to maximize cache locality on GPU, **FlashAttention** reduces memory movement while performing the same FLOPs. Result: 2–4$\times$ wall-clock speedup with zero accuracy loss. **FlashAttention-2** and **FlashAttention-3** improve further.
+Dao et al. (2022) observed that standard implementations are IO-bound, not compute-bound. By carefully blocking the computation to maximize cache locality on [[inference-serving|GPU]], **FlashAttention** reduces memory movement while performing the same FLOPs. Result: 2–4$\times$ wall-clock speedup with zero accuracy loss. **FlashAttention-2** and **FlashAttention-3** improve further.
 
 ### Sparse Attention
 Replace the dense attention matrix with a sparsity pattern:
@@ -129,7 +129,7 @@ where $\phi$ could be exponential, RBF, or even simple functions like $\phi(x) =
 
 ## Induction Heads and In-Context Learning
 
-Recent mechanistic interpretability work (Olah et al., Todd et al.) has revealed specific attention head types that are crucial to LLM behavior:
+Recent mechanistic interpretability work (Olah et al., Todd et al.) has revealed specific attention head types that are crucial to [[llm]] behavior:
 
 - **Induction heads**: pattern-matching heads that look for repeated tokens. Once a sequence like (A, B, ..., A) appears, an induction head at position of the second A attends back to the first instance of A, propagating the token after the first A (B) to the current position. This is fundamental to [[in-context-learning|in-context learning]].
 - **Copying heads**: transfer information directly from context.
@@ -166,6 +166,9 @@ Attention has proven flexible enough to subsume convolution, gating, and even so
 ## Related Topics
 
 - [[transformer-architecture]] — full architecture stack built on attention
+- [[flash-attention]] — IO-optimal GPU implementation
+- [[mla]] — Multi-head Latent Attention (MLA)
+- [[attention-kernel]] — kernel-based interpretation of attention
 - [[in-context-learning]] — how induction heads enable few-shot learning
 - [[state-space-models]] — alternatives to attention with linear complexity
 - [[neural-scaling-laws]] — empirical laws governing Transformer scaling

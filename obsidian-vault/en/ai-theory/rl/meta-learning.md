@@ -47,7 +47,7 @@ $$p(y = k \mid q) = \frac{\exp(-d(\phi_\theta(q), c_k))}{\sum_j \exp(-d(\phi_\th
 
 No gradient-through-gradient; simple and scalable.
 
-**Matching Networks** (Vinyals et al., 2016): attention-weighted $k$-NN in embedding space. The query is classified as a mixture of support labels, weighted by attention:
+**Matching Networks** (Vinyals et al., 2016): [[attention-mechanisms|attention]]-weighted $k$-NN in embedding space. The query is classified as a mixture of support labels, weighted by attention:
 
 $$p(y = y_i \mid q, S) = \frac{\exp(e_\theta(q)^T e_\theta(x_i))}{\sum_j \exp(e_\theta(q)^T e_\theta(x_j))}$$
 
@@ -63,7 +63,7 @@ Reptile is a crude MAML approximation, but orders of magnitude cheaper. Despite 
 
 Large language models trained on diverse text implicitly perform meta-learning. When few-shot examples are provided in the context (the support set), the model adapts without updating weights—this is **in-context learning (ICL)**. The model behaves as a meta-learner whose adaptation is encoded in its activations.
 
-Recent work (Akyürek et al., 2023) shows that ICL may implement implicit gradient descent: as the model processes context examples, its hidden states shift in directions reminiscent of gradient-based optimization. This reframes in-context learning as a form of MAML operating in activation space rather than parameter space. LLMs thus learn a shared meta-strategy—read context, adapt implicitly, generalize—that works across diverse tasks.
+Recent work (Akyürek et al., 2023) shows that ICL may implement implicit [[convex-optimization|gradient descent]]: as the model processes context examples, its hidden states shift in directions reminiscent of gradient-based optimization. This reframes in-context learning as a form of MAML operating in activation space rather than parameter space. LLMs thus learn a shared meta-strategy—read context, adapt implicitly, generalize—that works across diverse tasks.
 
 This connection is crucial for understanding [[transformer-architecture|transformer]] generalization. The model's ability to perform [[chain-of-thought|chain of thought]] in context builds on top of this meta-learned adaptation. Similarly, [[rlhf|RLHF]] exploits ICL: the model learns from human feedback by adapting its behavior to preference examples in context.
 
@@ -84,4 +84,4 @@ This connection is crucial for understanding [[transformer-architecture|transfor
 
 Meta-learning remains foundational for agents and models that must adapt quickly. As [[neural-scaling-laws|scaling laws]] predict improved generalization with larger models and datasets, meta-learning efficiency becomes increasingly important: trading second-order computation for sample efficiency becomes attractive in the large-model regime.
 
-Recent trends show meta-learning principles embedded in LLM pretraining: diverse task mixture, diverse prompt formats, and explicit reasoning steps all serve as implicit meta-training signals. The boundary between meta-learning and ordinary transfer learning has blurred, but the conceptual framework—optimizing for adaptation—remains central to modern AI systems.
+Recent trends show meta-learning principles embedded in [[llm]] pretraining: diverse task mixture, diverse prompt formats, and explicit reasoning steps all serve as implicit meta-training signals. The boundary between meta-learning and ordinary transfer learning has blurred, but the conceptual framework—optimizing for adaptation—remains central to modern AI systems.

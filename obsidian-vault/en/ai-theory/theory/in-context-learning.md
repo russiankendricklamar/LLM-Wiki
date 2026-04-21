@@ -9,7 +9,7 @@ growth: "seedling"
 
 # In-Context Learning
 
-In-context learning (ICL) is the remarkable ability of large language models to adapt their behavior to novel tasks by conditioning on demonstrations provided within the same prompt, without any gradient updates or fine-tuning. This phenomenon, central to the practical utility of modern foundation models, has emerged as one of the most intriguing research frontiers in deep learning interpretability and mechanistic understanding.
+In-context learning (ICL) is the remarkable ability of large language models to adapt their behavior to novel tasks by conditioning on demonstrations provided within the same prompt, without any gradient updates or [[fine-tuning]]. This phenomenon, central to the practical utility of modern foundation models, has emerged as one of the most intriguing research frontiers in deep learning interpretability and mechanistic understanding.
 
 ## Definition and Core Mechanism
 
@@ -17,7 +17,7 @@ In-context learning refers to the model's capacity to infer task structure from 
 
 $$\text{Demo}_1, \text{Demo}_2, \ldots, \text{Demo}_k, \text{Query} \to \text{Answer}$$
 
-where each demo is typically $(x_i, y_i)$ and the model must produce $\hat{y}$ for query input $x_q$. Crucially, the model's internal parameters remain frozen: learning happens purely through the residual stream and [[attention-mechanisms]] within the transformer.
+where each demo is typically $(x_i, y_i)$ and the model must produce $\hat{y}$ for query input $x_q$. Crucially, the model's internal parameters remain frozen: learning happens purely through the residual stream and [[attention-mechanisms]] within the [[transformer-architecture|transformer]].
 
 ## Few-Shot vs Zero-Shot Scaling
 
@@ -105,7 +105,7 @@ Open questions persist: Can we predict when ICL will succeed on a new task? How 
 
 ## See Also
 
-- [[transformer-architecture]] — foundational mechanics of attention and residual streams
+- [[transformer-architecture]] — foundational mechanics of [[attention-mechanisms|attention]] and residual streams
 - [[attention-mechanisms]] — detailed analysis of head types and their functions
 - [[mechanistic-interpretability]] — methods for reverse-engineering circuits like induction heads
 - [[chain-of-thought]] — reasoning patterns emergent from ICL

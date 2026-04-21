@@ -1,6 +1,6 @@
 ---
 title: "Стохастические уравнения в частных производных"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 27
 lang: "ru"
 slug: "/math/spdes"

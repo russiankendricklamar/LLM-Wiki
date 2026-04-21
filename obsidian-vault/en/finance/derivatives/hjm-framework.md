@@ -41,7 +41,7 @@ $$
 
 This is the **HJM drift restriction**: once the volatility structure $\sigma(t,T)$ is specified, the drift is fully determined. There is no freedom in choosing the drift under $\mathbb{Q}$ -- it is a consequence of the volatility and no-arbitrage alone.
 
-Under $\mathbb{Q}$ the forward rate SDE becomes:
+Under $\mathbb{Q}$ the forward rate [[stochastic-differential-equations|SDE]] becomes:
 
 $$
 df(t,T) = \sigma(t,T)\cdot\int_t^T \sigma(t,s)\,ds\,dt + \sigma(t,T)\cdot dW_t^{\mathbb{Q}}

@@ -13,7 +13,7 @@ Differential geometry is the study of smooth manifolds equipped with geometric s
 
 ## Smooth Manifolds and Charts
 
-A **smooth manifold** $M$ of dimension $n$ is a topological space locally diffeomorphic to $\mathbb{R}^n$. We formalize this via an **atlas**: a collection of **charts** $\{(U_\alpha, \phi_\alpha)\}$ where $U_\alpha \subseteq M$ is an open set and $\phi_\alpha: U_\alpha \to \mathbb{R}^n$ is a homeomorphism. On overlaps $U_\alpha \cap U_\beta$, the transition maps $\phi_\beta \circ \phi_\alpha^{-1}$ must be smooth (infinitely differentiable).
+A **smooth [[manifold-learning|manifold]]** $M$ of dimension $n$ is a topological space locally diffeomorphic to $\mathbb{R}^n$. We formalize this via an **atlas**: a collection of **charts** $\{(U_\alpha, \phi_\alpha)\}$ where $U_\alpha \subseteq M$ is an open set and $\phi_\alpha: U_\alpha \to \mathbb{R}^n$ is a homeomorphism. On overlaps $U_\alpha \cap U_\beta$, the transition maps $\phi_\beta \circ \phi_\alpha^{-1}$ must be smooth (infinitely differentiable).
 
 **Local coordinates** $(x^1, \ldots, x^n)$ on a chart $U$ provide a way to express functions, vector fields, and differential forms. A smooth map $f: M \to N$ between manifolds has a differential: the **pushforward** or **Jacobian** $df_p: T_p M \to T_{f(p)} N$.
 
@@ -151,7 +151,7 @@ Higher-dimensional generalizations (e.g., Chern-Gauss-Bonnet) relate the top-deg
 
 $$g_{ij} = \mathbb{E}_{p(x|\theta)} \left[ \frac{\partial \log p(x|\theta)}{\partial \theta^i} \frac{\partial \log p(x|\theta)}{\partial \theta^j} \right]$$
 
-This makes the space of distributions a Riemannian manifold, enabling natural gradient descent and divergence measures.
+This makes the space of distributions a Riemannian manifold, enabling natural [[convex-optimization|gradient descent]] and divergence measures.
 
 **Stochastic Differential Geometry**: [[stochastic-calculus|Stochastic differential equations]] on manifolds require careful handling of covariant derivatives; [[variational-calculus|variational methods]] applied to random curves yield insights into brownian motion on curved spaces.
 

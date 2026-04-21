@@ -91,7 +91,7 @@ $$
 \hat{A}_t = \sum_{l=0}^{\infty} (\gamma \lambda_{\text{GAE}})^l \delta_{t+l}, \quad \delta_t = r_t + \gamma V(s_{t+1}) - V(s_t)
 $$
 
-SAC (Soft Actor-Critic) is preferred when sample efficiency matters, adding an entropy regularisation term that encourages exploration:
+SAC (Soft Actor-Critic) is preferred when sample efficiency matters, adding an [[shannon-entropy|entropy]] regularisation term that encourages exploration:
 
 $$
 \mathcal{L}_\pi = \mathbb{E}_{s_t, a_t}\!\bigl[\alpha \log \pi(a_t|s_t) - Q(s_t, a_t)\bigr]

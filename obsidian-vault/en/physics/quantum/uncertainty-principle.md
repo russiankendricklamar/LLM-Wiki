@@ -30,7 +30,7 @@ where $\Delta t$ is the time for the expectation value of some observable to cha
 
 Entropic uncertainty relations provide a stronger, basis-independent formulation. For two complementary observables $\hat{A}$ and $\hat{B}$ with eigenbases connected by a unitary $U$:
 $$ H(A) + H(B) \geq \log_2 \frac{1}{c} $$
-where $c = \max_{i,j} |\langle a_i | b_j \rangle|^2$ is the maximum overlap and $H$ denotes the Shannon entropy of measurement outcomes.
+where $c = \max_{i,j} |\langle a_i | b_j \rangle|^2$ is the maximum overlap and $H$ denotes the Shannon [[gravitational-entropy|entropy]] of measurement outcomes.
 
 ## Key Properties
 - **Canonical pairs**: Position-momentum $(\hat{x}, \hat{p})$, energy-time $(E, t)$, and angle-angular momentum $(\phi, L_z)$ are canonical conjugate pairs.

@@ -70,7 +70,7 @@ $$
 S(\rho) = -\text{Tr}(\rho \ln \rho) = -\sum_i \lambda_i \ln \lambda_i
 $$
 
-where $\lambda_i$ are eigenvalues of $\rho$. Von Neumann entropy is used in quantum portfolio models and entanglement measures in multi-asset systems.
+where $\lambda_i$ are [[spectral-theory-operators|eigenvalues]] of $\rho$. Von Neumann entropy is used in quantum portfolio models and entanglement measures in multi-asset systems.
 
 ## Financial Entropy Applications
 

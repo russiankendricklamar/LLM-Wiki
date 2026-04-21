@@ -14,9 +14,9 @@ featured: false
 description: "A bilingual Knowledge Garden on quant finance, physics and LLMs. The vault lives in Obsidian, the render is React + Vite, and the methodology is adapted from Karpathy's LLM Wiki essay."
 ---
 
-# LLM-Wiki
+# [[llm]]-Wiki
 
-This is not just a notes site — it is a **Knowledge Garden** that I grow together with an LLM. The core idea is adapted from Andrej Karpathy's essay on the [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f): instead of pulling knowledge from raw sources through RAG every single time, I maintain a persistent, compounding, interlinked corpus of markdown notes — the very vault you are reading right now.
+This is not just a notes site — it is a **Knowledge Garden** that I grow together with an LLM. The core idea is adapted from Andrej Karpathy's essay on the [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f): instead of pulling knowledge from raw sources through [[rag]] every single time, I maintain a persistent, compounding, interlinked corpus of markdown notes — the very vault you are reading right now.
 
 ## Why not RAG
 

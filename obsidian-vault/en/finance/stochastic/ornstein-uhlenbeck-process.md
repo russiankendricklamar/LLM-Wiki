@@ -43,7 +43,7 @@ A simulated OU path ($\theta=2.0$, $\mu=0.5$, $\sigma=0.3$, $X_0=1.5$) illustrat
 
 ## Background and History
 
-The OU process was introduced by Leonard Ornstein and George Uhlenbeck in 1930 to model the velocity of a Brownian particle subject to friction — the first mathematically rigorous model of a stationary Gaussian process. Its application to interest rate modeling was pioneered by Oldrich Vasicek (1977), who proposed an identical SDE for the short rate, producing the first analytically tractable term structure model.
+The OU process was introduced by Leonard Ornstein and George Uhlenbeck in 1930 to model the velocity of a Brownian particle subject to friction — the first mathematically rigorous model of a stationary Gaussian process. Its application to interest rate modeling was pioneered by Oldrich Vasicek (1977), who proposed an identical [[stochastic-differential-equations|SDE]] for the short rate, producing the first analytically tractable term structure model.
 
 In quantitative finance, the OU process underlies pairs trading (spread dynamics), stochastic volatility models (volatility mean-reversion), commodity pricing (mean-reversion of convenience yields), and FX carry strategies (interest rate differential dynamics). Its analytical tractability — exact simulation, closed-form moments, and MLE estimation — makes it the default first model for any mean-reverting quantity.
 

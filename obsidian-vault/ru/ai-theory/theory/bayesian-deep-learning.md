@@ -1,6 +1,6 @@
 ---
 title: "Байесовское глубокое обучение"
-category: "Теория AI"
+category: "AI Theory"
 order: 23
 lang: "ru"
 slug: "bayesian-deep-learning"

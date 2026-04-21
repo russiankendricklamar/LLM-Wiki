@@ -20,7 +20,7 @@ The central finding is surprisingly clean: for autoregressive language models, t
 
 ## Visualization
 
-The chart below shows how cross-entropy loss decreases as a power law with compute (FLOPs), comparing the Kaplan et al. (2020) and Chinchilla (2022) optimal training frontiers.
+The chart below shows how cross-[[shannon-entropy|entropy]] loss decreases as a power law with compute (FLOPs), comparing the Kaplan et al. (2020) and Chinchilla (2022) optimal training frontiers.
 
 ```chart
 {
@@ -174,7 +174,7 @@ for i in range(0, 40, 8):
 
 **Extrapolation uncertainty.** Power laws are fit to a limited range; extrapolation to frontier compute regimes involves significant uncertainty. Scaling may slow or break.
 
-**Architecture dependence.** Exponents differ for MoE vs. dense transformers, LSTM vs. attention, different tokenisation strategies. Laws must be re-fit for new architectures.
+**Architecture dependence.** Exponents differ for MoE vs. dense transformers, LSTM vs. [[attention-mechanisms|attention]], different tokenisation strategies. Laws must be re-fit for new architectures.
 
 **Cost and efficiency improvements.** Hardware (H100 vs. A100 vs. TPU v4) and algorithmic improvements (flash attention, gradient checkpointing) shift the effective scaling exponents by changing FLOPs per token.
 

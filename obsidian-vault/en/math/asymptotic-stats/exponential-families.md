@@ -1,105 +1,71 @@
 ---
 title: "Exponential Families"
 category: "Asymptotic Statistics"
-order: 11
+order: 8
 lang: "en"
-slug: "/math/exponential-families"
-growth: "seedling"
+slug: "exponential-families"
 ---
 
 # Exponential Families
 
-Exponential families form a fundamental class of probability distributions characterized by a special parametric structure that unifies sufficient statistics, completeness, and asymptotic properties into a single mathematical framework. They lie at the intersection of classical statistics, information geometry, and Bayesian inference.
+Exponential families are a class of probability distributions that share a common mathematical form. This class includes many of the most important distributions in statistics, such as the **Normal**, **Bernoulli**, **Poisson**, **Gamma**, and **Dirichlet**. They are the foundation of **Generalized Linear Models (GLMs)** and are central to the theory of [[sufficient-statistics|Sufficient Statistics]].
 
-## Canonical Form and Natural Parameters
+## The Standard Form
 
-A distribution belongs to an exponential family with parameter $\theta \in \Theta$ if its density (or mass function) admits the representation:
+A family of distributions $\{p(x \mid \eta)\}$ is an exponential family if the density can be written as:
+$$p(x \mid \eta) = h(x) \exp\left( \eta^\top T(x) - A(\eta) \right)$$
 
-$$p_\theta(x) = h(x) \exp\left(\eta(\theta)^T T(x) - A(\theta)\right)$$
+- **$T(x)$ (Sufficient Statistic)**: Encapsulates all data needed to estimate the parameters.
+- **$\eta$ (Natural Parameter)**: The canonical parameter of the distribution.
+- **$A(\eta)$ (Log-Partition Function)**: A normalization constant that ensures the total probability is 1.
+- **$h(x)$ (Base Measure)**: A factor that doesn't depend on $\eta$.
 
-where:
-- $h(x) \geq 0$ — the **base measure** (support function)
-- $\eta(\theta) \in \mathbb{R}^k$ — the **natural parameters** (canonical parameters)
-- $T(x) \in \mathbb{R}^k$ — the **sufficient statistic**
-- $A(\theta)$ — the **log-partition function** (cumulant generating function), which ensures proper normalization
+## Why They Are Important
 
-It is often convenient to work directly in the **natural parameterization**, replacing $\eta(\theta)$ with $\eta \in \mathcal{H}$ (the natural parameter space):
+### 1. Moments and Derivatives
+The derivatives of the log-partition function $A(\eta)$ have a direct statistical meaning:
+- $\nabla_\eta A(\eta) = \mathbb{E}[T(X)]$ (The Mean)
+- $\nabla_\eta^2 A(\eta) = \text{Var}(T(X))$ (The Variance/Covariance)
 
-$$p_\eta(x) = h(x) \exp\left(\eta^T T(x) - A(\eta)\right)$$
+This makes calculating moments extremely easy compared to manual integration.
 
-The function $A(\eta)$ is defined through the normalization constraint:
+### 2. Maximum Entropy
+Exponential families are the solutions to **Maximum Entropy** problems. If you want to find a distribution that satisfies certain constraints (like a fixed mean and variance) while being as "random" as possible, you will always get an exponential family.
 
-$$A(\eta) = \log \int h(x) \exp(\eta^T T(x)) \, dx$$
+### 3. Conjugate Priors
+In [[bayesian-inference]], if the likelihood is in an exponential family, there is always a corresponding conjugate prior family, making Bayesian updates simple algebraic additions of the sufficient statistics.
 
-Its differentiability and convexity (for almost all $\eta$) ensure the existence of moments and define the geometric structure of the exponential family.
+## Examples
 
-## Sufficient Statistics and Neyman–Fisher Factorization
+| Distribution | Natural Parameter ($\eta$) | Sufficient Statistic $T(x)$ |
+|---|---|---|
+| **Bernoulli** | $\log(\frac{p}{1-p})$ | $x$ |
+| **Poisson** | $\log(\lambda)$ | $x$ |
+| **Gaussian** | $(\frac{\mu}{\sigma^2}, -\frac{1}{2\sigma^2})$ | $(x, x^2)$ |
 
-The **Neyman–Fisher Factorization Theorem** states: a statistic $T(X_1, \ldots, X_n)$ is sufficient for $\theta$ if and only if the likelihood function factors as
+## Visualization: Mean Mapping
 
-$$L(\theta; x_1, \ldots, x_n) = g(T(x_1, \ldots, x_n); \theta) \cdot h(x_1, \ldots, x_n),$$
+```chart
+{
+  "type": "line",
+  "xAxis": "eta",
+  "data": [
+    {"eta": -3, "mean": 0.05},
+    {"eta": -1, "mean": 0.27},
+    {"eta": 0,  "mean": 0.50},
+    {"eta": 1,  "mean": 0.73},
+    {"eta": 3,  "mean": 0.95}
+  ],
+  "lines": [
+    {"dataKey": "mean", "stroke": "#8b5cf6", "name": "E[T(X)] = A'(η)"}
+  ]
+}
+```
+*The relationship between the natural parameter and the expected value is always monotonic and smooth in exponential families, enabling stable optimization.*
 
-where $h$ does not depend on $\theta$.
+## Related Topics
 
-For a sample drawn from an exponential family:
-
-$$L(\eta; x_1, \ldots, x_n) = \exp\left(\eta^T \sum_{i=1}^n T(x_i) - n A(\eta)\right) \prod_{i=1}^n h(x_i)$$
-
-Therefore, **$\sum_{i=1}^n T(X_i)$ is the minimal sufficient statistic**. This property compresses all information about $\theta$ into $k$ scalar quantities, irrespective of sample size. This data reduction is fundamental to statistical inference and enables both efficient estimation and hypothesis testing.
-
-## Completeness and the Lehmann–Scheffé Theorem
-
-The family $\{p_\eta: \eta \in \mathcal{H}\}$ is a **complete exponential family** if the natural parameter space $\mathcal{H}$ contains an open subset of $\mathbb{R}^k$ and the function $A(\eta)$ is finite for all $\eta \in \mathcal{H}$.
-
-**Lehmann–Scheffé Theorem**: For a complete exponential family, the sufficient statistic $T(X)$ is also complete and minimal. If $\phi(T)$ is an unbiased estimator of some function $g(\eta)$, then it is the **uniformly minimum variance unbiased estimator (UMVUE)**.
-
-Completeness means that $\mathbb{E}_\eta[f(T)] = 0$ for all $\eta$ implies $f(T) = 0$ almost surely. This is an exceptionally strong condition: it guarantees the uniqueness of unbiased estimators and ensures optimality of Bayesian procedures. Complete exponential families therefore occupy a privileged position in classical statistical inference.
-
-## Moments and Generating Properties of $A(\eta)$
-
-The log-partition function $A(\eta)$ completely determines the moment structure:
-
-$$\mathbb{E}_\eta[T(X)] = \nabla A(\eta)$$
-$$\text{Cov}_\eta[T(X)] = \nabla^2 A(\eta)$$
-
-The first derivative (gradient) links natural parameters to the sufficient statistic via the **canonical link function**. The matrix of second derivatives—the Hessian of $A$—equals the covariance matrix of $T(X)$ and is always positive definite when the family is complete.
-
-The log-partition function $A(\eta)$ serves as the **cumulant-generating function**: the $k$-th cumulant is $\frac{\partial^k A(\eta)}{\partial \eta^k}$ (in natural parametrization). All cumulants of order $\geq 2$ are determined by $A$, making exponential families especially tractable for theoretical analysis.
-
-## Steepness, Regularity, and Information Geometry
-
-An exponential family is called **steep** if the natural parameter space $\mathcal{H}$ equals the closure of the set $\{\nabla A(\eta): \eta \in \mathcal{H}\}$. Steepness ensures that the mean of the sufficient statistic can achieve any value in the closure of the support of the distribution.
-
-A **regular** exponential family is a complete, steep family with an open natural parameter space. Regularity is the sufficient condition for [[local-asymptotic-normality|local asymptotic normality]] (LAN) and asymptotic efficiency of maximum likelihood estimators. Regular families also enjoy stable asymptotic behavior: the Fisher Information Matrix is invertible and likelihood equations have solutions with probability approaching one.
-
-**Information geometry** of exponential families is built upon the convexity of $A(\eta)$. The [[cramer-rao-bound|Fisher Information Matrix]] equals the Hessian $\nabla^2 A(\eta)$ in natural parametrization. This connection links the geometry of the parameter space to the geometry of statistical inference, and is central to [[information-geometry|differential geometric approaches]] to statistics.
-
-## Conjugate Priors in Bayesian Analysis
-
-In Bayesian inference, the natural parameters of exponential families permit the construction of **conjugate (natural conjugate) prior distributions**.
-
-If $X | \eta \sim p_\eta(x)$ from an exponential family with natural parameter $\eta$, then the conjugate prior takes the form:
-
-$$p(\eta) \propto \exp(\eta^T \tau - \xi A(\eta))$$
-
-where $\tau$ and $\xi$ are hyperparameters. After observing a sample $x_1, \ldots, x_n$, the posterior also follows the same functional form with updated hyperparameters $\tau + \sum_i T(x_i)$ and $\xi + n$. This closure under Bayesian updating makes conjugate priors computationally convenient and provides closed-form posterior inference. The conjugate structure is unique to exponential families (up to weak regularity conditions).
-
-## Standard Examples
-
-**Normal Distribution** $N(\mu, \sigma^2)$ has natural parameters $\eta = (\mu/\sigma^2, -1/(2\sigma^2))$, sufficient statistic $T(x) = (x, x^2)$, and log-partition function $A(\eta) = -\eta_1^2/(4\eta_2) + \frac{1}{2}\log(-1/(2\eta_2))$.
-
-**Poisson Distribution** with intensity $\lambda$ is represented as $\eta = \log \lambda$, $T(x) = x$, $A(\eta) = e^\eta$.
-
-**Gamma Distribution** (shape $\alpha$, rate $\beta$): natural parameters $\eta = (\alpha - 1, -\beta)$, sufficient statistic $T(x) = (\log x, x)$.
-
-**Multinomial Distribution** with probabilities $(p_1, \ldots, p_k)$ has natural parameters $\eta_j = \log(p_j/p_k)$ for $j < k$ and log-partition function $A(\eta) = -\log p_k$.
-
-Each example exhibits the canonical structure; recognizing this structure enables immediate computation of moments, conjugate priors, and asymptotic properties.
-
-## Connections to Asymptotic Statistics
-
-Regular exponential families provide the natural framework for [[empirical-processes|empirical process theory]] and [[neyman-pearson|hypothesis testing]]. The likelihood ratio principle, [[cramer-rao-bound|Cramér–Rao lower bounds]], and asymptotic efficiency of maximum likelihood estimators all emerge from the structure of exponential families.
-
-Exponential families are fundamental to [[sigma-algebra-measurability|filtration-based]] statistical models and sequential inference. The asymptotic properties of M-estimators, the asymptotic distribution of likelihood ratio statistics, and the optimality of score-based tests all rest upon the geometry and completeness properties of exponential families.
-
-The deep connection between sufficiency, completeness, conjugacy, and information geometry makes exponential families central to modern mathematical statistics.
+[[sufficient-statistics]] — the core data reduction  
+[[information-geometry]] — studying exponential families as flat manifolds  
+[[mle]] — MLE for exponential families is always a convex optimization problem
+---

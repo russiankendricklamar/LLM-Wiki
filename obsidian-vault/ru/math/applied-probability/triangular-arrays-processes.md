@@ -1,7 +1,7 @@
 ---
 slug: "/math/triangular-arrays-processes"
 title: "Треугольные схемы и сходимость к процессам с независимыми приращениями"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 7
 lang: "ru"
 ---

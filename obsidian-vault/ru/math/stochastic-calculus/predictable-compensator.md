@@ -1,7 +1,7 @@
 ---
 slug: "/math/predictable-compensator"
 title: "Предсказуемый компенсатор и дуальная предсказуемая проекция"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 2
 lang: "ru"
 ---

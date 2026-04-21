@@ -7,7 +7,7 @@ slug: "agents"
 growth: "seedling"
 ---
 
-# LLM Agents
+# [[llm]] Agents
 
 ## Prerequisites
 
@@ -112,7 +112,7 @@ The conversation history (all prior messages) is the primary memory. It is bound
 - **Sliding window:** Keep only the last $k$ messages, discarding old steps.
 - **Compression:** Quantize or distill history into key facts before injecting into context.
 
-### External Memory via RAG
+### External Memory via [[rag]]
 
 For agents that need to recall past runs or look up domain knowledge, [[rag|retrieval-augmented generation]] is essential. A vector database stores past interactions, decisions, or facts. When the agent encounters a new query, it retrieves relevant past context via semantic search.
 
@@ -226,7 +226,7 @@ Recent research directions:
 
 - **Reasoning models (o1/o3):** Allocate more inference compute to planning, reducing hallucination and improving step-wise correctness.
 - **Process reward models:** Reward intermediate steps (not just final answers), enabling agents trained via RL to learn better action sequences.
-- **Tool-use fine-tuning:** Supervised datasets of expert trajectories improve agent reliability significantly.
+- **Tool-use [[fine-tuning]]:** Supervised datasets of expert trajectories improve agent reliability significantly.
 - **Simulation and execution sandboxes:** Testing agent behavior in a simulator before deployment reduces deployment risk.
 
 ## Implementation Example

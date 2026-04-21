@@ -75,7 +75,7 @@ $$
 V_{\text{sub}} \leq V_0 \leq V_{\text{super}}
 $$
 
-where $V_{\text{sub}}$ and $V_{\text{super}}$ are the infimum and supremum over all equivalent martingale measures. Pricing requires choosing a specific $\mathbb{Q}$, which involves economic criteria: minimal entropy, variance-optimal, or [[follmer-schweizer]] decomposition.
+where $V_{\text{sub}}$ and $V_{\text{super}}$ are the infimum and supremum over all equivalent martingale measures. Pricing requires choosing a specific $\mathbb{Q}$, which involves economic criteria: minimal [[shannon-entropy|entropy]], variance-optimal, or [[follmer-schweizer]] decomposition.
 
 Stochastic volatility models like [[heston-model]] are incomplete (volatility risk is not directly tradeable). The market "completes" itself by trading options, which effectively pins down the risk premium for volatility.
 

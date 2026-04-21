@@ -29,7 +29,7 @@ $$\delta_{\text{FGSM}} = \varepsilon \cdot \text{sign}\left(\nabla_x \mathcal{L}
 
 where $\mathcal{L}(x, y)$ is the loss function. The perturbation is applied in the direction of steepest ascent of the loss, constrained to an $\ell_\infty$ ball of radius $\varepsilon$. FGSM requires one forward and one backward pass, making it many times faster than iterative methods, but it finds weaker adversarial examples.
 
-**PGD (Projected Gradient Descent) Attack.** A multi-step variant that iteratively applies gradient ascent with projection onto the $\ell_p$ ball:
+**PGD (Projected [[convex-optimization|Gradient Descent]]) Attack.** A multi-step variant that iteratively applies gradient ascent with projection onto the $\ell_p$ ball:
 
 $$\delta^{(t+1)} = \text{Proj}_{\|\cdot\|_p \leq \varepsilon}\left(\delta^{(t)} + \alpha \cdot \text{sign}\left(\nabla_x \mathcal{L}(x + \delta^{(t)}, y)\right)\right)$$
 

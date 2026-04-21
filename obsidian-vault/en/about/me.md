@@ -7,7 +7,7 @@ slug: "/about"
 ---
 # EGOR GALKIN
 
-**I build quantitative models and LLM agents.**
+**I build quantitative models and [[llm]] agents.**
 
 I am currently a **Principal Economist at the Bank of Russia**, where I focus on macroeconomic modelling and fair value assessment of financial instruments. In my spare time, I work as a **Quantitative Analyst and AI Engineer**, bridging the gap between computational physics, financial mathematics, and state-of-the-art AI.
 
@@ -44,4 +44,4 @@ I am currently a **Principal Economist at the Bank of Russia**, where I focus on
 
 - **Models**: Anthropic (Claude), Gemini, Phi-4.
 - **Tools**: Python (Pandas, PyTorch, QuantLib), TypeScript, React.
-- **Methodologies**: Numerical Methods, Stochastic Calculus, RAG, AI Agents.
+- **Methodologies**: Numerical Methods, Stochastic Calculus, [[rag]], AI Agents.

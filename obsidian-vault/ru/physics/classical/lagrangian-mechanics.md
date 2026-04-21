@@ -1,6 +1,6 @@
 ---
 title: "Лагранжева механика"
-category: "Физика"
+category: "Physics"
 order: 24
 lang: "ru"
 slug: "lagrangian-mechanics"

@@ -11,7 +11,7 @@ The **Zeta Field** approach in quantitative finance represents a theoretical bri
 
 ## Background
 
-The connection between the Riemann Zeta function and physics was first suggested by Hilbert and Pólya, who conjectured that the non-trivial zeros of $\zeta(s)$ are eigenvalues of a self-adjoint operator — the **Hilbert-Pólya conjecture**. Montgomery (1973) showed that the pair correlation of Riemann zeros matches the GUE (Gaussian Unitary Ensemble) of random matrix theory, the same distribution observed in nuclear energy levels and — crucially — in the eigenvalue spacings of large financial correlation matrices. This triple coincidence (number theory, nuclear physics, finance) motivates the Zeta Field framework.
+The connection between the Riemann Zeta function and physics was first suggested by Hilbert and Pólya, who conjectured that the non-trivial zeros of $\zeta(s)$ are [[spectral-theory-operators|eigenvalues]] of a self-adjoint operator — the **Hilbert-Pólya conjecture**. Montgomery (1973) showed that the pair correlation of Riemann zeros matches the GUE (Gaussian Unitary Ensemble) of random matrix theory, the same distribution observed in nuclear energy levels and — crucially — in the eigenvalue spacings of large financial correlation matrices. This triple coincidence (number theory, nuclear physics, finance) motivates the Zeta Field framework.
 
 ## Mathematical Framework
 

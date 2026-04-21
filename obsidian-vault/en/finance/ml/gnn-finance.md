@@ -20,7 +20,7 @@ $$
 
 $\tilde{A} = A + I$ (with self-loops), $\tilde{D}_{ii} = \sum_j \tilde{A}_{ij}$.
 
-## Graph Attention Networks (GAT)
+## Graph [[attention-mechanisms|Attention]] Networks (GAT)
 
 Learnable attention weights over neighbors:
 

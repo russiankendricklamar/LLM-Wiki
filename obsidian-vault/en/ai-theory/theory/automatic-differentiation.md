@@ -87,7 +87,7 @@ so value and derivative fall out together. Libraries like JAX and Julia's Forwar
 
 **Checkpointing.** Reverse mode must store all forward-pass intermediates — $O(T)$ memory for a depth-$T$ network. Checkpointing trades computation for memory by recomputing some values, reducing memory to $O(\sqrt{T})$. Essential for training very deep models.
 
-**Mixed precision.** Gradients are held in FP32 while activations live in FP16/BF16. Speeds up GPU training but requires dynamic loss scaling to prevent underflow.
+**Mixed precision.** Gradients are held in FP32 while activations live in FP16/BF16. Speeds up [[inference-serving|GPU]] training but requires dynamic loss scaling to prevent underflow.
 
 **Stop-gradient.** Sometimes we want to cut gradient flow through part of the graph — e.g. target networks in RL, or frozen layers. `tensor.detach()` / `jax.lax.stop_gradient` handle this.
 
@@ -104,7 +104,7 @@ AD composes easily: applying reverse mode to a function that is itself the outpu
 - **Training neural networks.** Backpropagation is exactly reverse-mode AD on the forward computation graph.
 - **Bayesian inference.** Variational methods, Hamiltonian Monte Carlo (NUTS) and stochastic gradient Langevin dynamics require gradients of log densities.
 - **Scientific ML.** [[pinns]] and Neural ODEs use AD to form [[partial-differential-equations|PDE]] residuals without finite-difference approximations.
-- **Differentiable physics.** Rigid body, fluid, and graphics simulators are made differentiable so inverse problems can be solved by gradient descent.
+- **Differentiable physics.** Rigid body, fluid, and graphics simulators are made differentiable so inverse problems can be solved by [[convex-optimization|gradient descent]].
 - **Meta-learning.** MAML and related algorithms differentiate through inner gradient descent steps.
 - **Portfolio optimisation.** Modern [[black-scholes|derivative]] pricers use AD to compute Greeks.
 

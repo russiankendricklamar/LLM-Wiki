@@ -5,7 +5,7 @@ order: 1
 lang: "en"
 slug: "llm-financial-analysis"
 ---
-# LLM for Financial Analysis
+# [[llm]] for Financial Analysis
 
 ## Two Sides
 
@@ -18,9 +18,9 @@ This method sits at the intersection of two larger topics, each covered by its o
 
 Financial analysis has long relied on structured numerical data: price series, accounting ratios, factor loadings. Yet the majority of market-relevant information arrives as unstructured text — earnings call transcripts, 10-K risk factors, central bank statements, analyst reports, news wires. Extracting structured signals from this corpus at scale was the domain of rule-based NLP and supervised classifiers trained on hand-labelled datasets.
 
-Large Language Models (LLMs) change the economics of this extraction dramatically. A single general-purpose model can perform earnings analysis, covenant extraction, management tone assessment, and competitive benchmarking with minimal task-specific fine-tuning. The bottleneck shifts from model development to prompt engineering, retrieval pipeline design, and hallucination mitigation.
+Large Language Models (LLMs) change the economics of this extraction dramatically. A single general-purpose model can perform earnings analysis, covenant extraction, management tone assessment, and competitive benchmarking with minimal task-specific [[fine-tuning]]. The bottleneck shifts from model development to prompt engineering, retrieval pipeline design, and hallucination mitigation.
 
-This article covers the technical machinery for deploying LLMs in quantitative financial workflows: domain-specific models, retrieval-augmented generation (RAG) over SEC filings, structured JSON output for trading signal construction, tool use for live data, and rigorous evaluation on financial reasoning benchmarks.
+This article covers the technical machinery for deploying LLMs in quantitative financial workflows: domain-specific models, retrieval-augmented generation ([[rag]]) over SEC filings, structured JSON output for trading signal construction, tool use for live data, and rigorous evaluation on financial reasoning benchmarks.
 
 ## Visualization
 
@@ -93,7 +93,7 @@ A 50B-parameter decoder model trained on a proprietary Bloomberg dataset of 363B
 
 ### FinGPT
 
-Open-source alternative: fine-tuned LLaMA / Falcon on curated financial text using LoRA (Low-Rank Adaptation). Trainable on a single A100 GPU. The FinGPT pipeline includes automated data collection from SEC EDGAR, Bloomberg, Reuters, and Reddit, and supports continual learning as new filings arrive.
+Open-source alternative: fine-tuned LLaMA / Falcon on curated financial text using LoRA (Low-Rank Adaptation). Trainable on a single A100 [[inference-serving|GPU]]. The FinGPT pipeline includes automated data collection from SEC EDGAR, Bloomberg, Reuters, and Reddit, and supports continual learning as new filings arrive.
 
 ### General-Purpose LLMs with Financial Prompting
 

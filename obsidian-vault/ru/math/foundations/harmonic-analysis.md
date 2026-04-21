@@ -1,6 +1,6 @@
 ---
 title: "Гармонический анализ"
-category: "Основания математики"
+category: "Foundations"
 order: 12
 lang: "ru"
 slug: "/math/harmonic-analysis"

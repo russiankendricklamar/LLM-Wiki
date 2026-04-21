@@ -43,7 +43,7 @@ These properties enable training objectives and evaluation methods impossible wi
 
 ## Architecture
 
-Code models use the same decoder-only transformer architecture as general LLMs. The differences are in tokenization strategy and pre-training objectives.
+Code models use the same decoder-only [[transformer-architecture|transformer]] architecture as general LLMs. The differences are in tokenization strategy and pre-training objectives.
 
 **Tokenization**: standard BPE tokenizers trained on code produce more granular tokens than text tokenizers — identifiers, keywords, and operators are often single tokens. Indentation is a significant challenge for Python and YAML, where whitespace is semantically meaningful. Some models use byte-level BPE to handle the full range of ASCII and Unicode characters without unknown-token issues.
 
@@ -71,7 +71,7 @@ $$\text{pass@}k = 1 - \frac{\binom{n - c}{k}}{\binom{n}{k}}$$
 
 For example, with $n = 10$ samples and $c = 4$ passing, $\text{pass@}1 = 1 - \binom{6}{1}/\binom{10}{1} = 0.4$.
 
-**Execution feedback objective (RLEF)** — fine-tuning with a reward signal from test execution. Given a coding problem with unit tests, the model generates candidate solutions; each is executed; pass/fail becomes the reward signal in a PPO or REINFORCE update. This directly optimizes for correctness rather than token-level perplexity.
+**Execution feedback objective (RLEF)** — [[fine-tuning]] with a reward signal from test execution. Given a coding problem with unit tests, the model generates candidate solutions; each is executed; pass/fail becomes the reward signal in a PPO or REINFORCE update. This directly optimizes for correctness rather than token-level perplexity.
 
 ## Training Paradigm
 
@@ -98,7 +98,7 @@ For example, with $n = 10$ samples and $c = 4$ passing, $\text{pass@}1 = 1 - \bi
 
 ## Trade-offs vs Other Types
 
-| Dimension | Code model | General LLM | SLM |
+| Dimension | Code model | General [[llm]] | SLM |
 |---|---|---|---|
 | Primary strength | Code synthesis, debugging | Broad NLU/NLG | Low-resource inference |
 | Evaluation | pass@k (executable) | Perplexity, MMLU | Efficiency + quality |
@@ -136,7 +136,7 @@ print(tokenizer.decode(output[0], skip_special_tokens=True))
 
 # Fill-in-the-Middle (FIM) prompting
 prefix = "def compute_entropy(probs: list[float]) -> float:\n    "
-suffix = "\n    return entropy"
+suffix = "\n    return [[shannon-entropy|entropy]]"
 fim_prompt = (
     f"<fim_prefix>{prefix}<fim_suffix>{suffix}<fim_middle>"
 )
@@ -157,7 +157,7 @@ print(f"{prefix}{middle}{suffix}")
 - **Correctness vs. plausibility**: code models generate syntactically plausible code that often contains subtle semantic bugs — off-by-one errors, incorrect API usage, missing edge cases — that pass casual inspection but fail in production.
 - **Benchmark overfitting**: HumanEval and MBPP are relatively small and may appear in training data; models can achieve high pass@k by memorization rather than generalization. SWE-Bench (real GitHub issues) is harder to overfit.
 - **Rare languages and frameworks**: training data is dominated by Python, JavaScript, and Java. Models perform substantially worse on Rust, Zig, Fortran, and niche domain-specific languages.
-- **Long-range dependencies**: even with 128K context, tracking complex cross-file dependencies, abstract class hierarchies, and stateful dataflow can exceed the effective attention budget.
+- **Long-range dependencies**: even with 128K context, tracking complex cross-file dependencies, abstract class hierarchies, and stateful dataflow can exceed the effective [[attention-mechanisms|attention]] budget.
 - **Security**: code models can generate insecure code (SQL injection, buffer overflows, use of deprecated cryptographic functions) when not explicitly constrained or evaluated against security linters.
 - **Execution environment unawareness**: the model has no access to the runtime environment, installed packages, or file system during generation, leading to hallucinated imports and non-existent APIs.
 

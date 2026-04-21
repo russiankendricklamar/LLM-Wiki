@@ -19,7 +19,7 @@ Classical volatility regime detection uses threshold-based methods: rolling stan
 
 CVRC is motivated by the analogy between volatility surfaces and images. A volatility surface $V(k, \tau)$ (as a function of log-moneyness $k$ and maturity $\tau$) is a two-dimensional object whose local structure — steep smiles, flat term structures, inverted surfaces — contains rich information about market regime. CNNs, which were developed precisely for learning hierarchical spatial features in images, are a natural tool for decomposing this structure.
 
-The approach draws on developments in self-supervised representation learning (autoencoders, contrastive learning) and deep clustering (Deep Embedding Clustering, DEC) to map the high-dimensional volatility surface into a low-dimensional regime manifold without requiring labeled training data.
+The approach draws on developments in self-supervised representation learning (autoencoders, contrastive learning) and deep clustering (Deep Embedding Clustering, DEC) to map the high-dimensional volatility surface into a low-dimensional regime [[manifold-learning|manifold]] without requiring labeled training data.
 
 ## Mathematical Framework
 

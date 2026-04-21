@@ -1,6 +1,6 @@
 ---
 title: "Обратные стохастические дифференциальные уравнения"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 24
 lang: "ru"
 slug: "/math/backward-sde"

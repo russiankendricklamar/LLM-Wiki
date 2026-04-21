@@ -16,7 +16,7 @@ Central postulate: **the macroscopic state of an equilibrium system is completel
 ## Ensembles and fundamental distributions
 
 ### Microcanonical ensemble
-In an isolated system with fixed energy $E$, all microscopic states with energy $E$ are equally probable. The number of such states is denoted $\Omega(E)$ (density of states). Entropy is defined as:
+In an isolated system with fixed energy $E$, all microscopic states with energy $E$ are equally probable. The number of such states is denoted $\Omega(E)$ (density of states). [[gravitational-entropy|Entropy]] is defined as:
 
 $$S = k \ln \Omega(E)$$
 

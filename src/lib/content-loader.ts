@@ -169,6 +169,23 @@ export const resolveWikilink = (
   return pages.find(p => p.metadata.slug.replace(/^\//, '').endsWith(t));
 };
 
+export const getPagePreview = (slug: string): string => {
+  const page = getAllPages().find(p => p.metadata.slug === slug);
+  if (!page) return '';
+  
+  return page.content
+    .replace(/^---[\s\S]*?---\n?/, '')
+    .replace(/^#{1,6}\s+.*/gm, '')
+    .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, s, a) => a || s)
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/\$\$[\s\S]*?\$\$/g, '')
+    .replace(/\$[^$]+\$/g, '')
+    .replace(/[*_~`]/g, '')
+    .replace(/\n+/g, ' ')
+    .trim()
+    .slice(0, 200) + '...';
+};
+
 export const getFeaturedPages = (lang: 'en' | 'ru'): PageContent[] => {
   return getAllPages()
     .filter(p => p.metadata.lang === lang && p.metadata.featured)
@@ -219,7 +236,45 @@ const SECTION_LABELS: Record<string, Record<'en' | 'ru', string>> = {
   'ai-physics':      { en: 'AI Physics', ru: 'ИИ и Физика' },
 };
 
-const SECTION_ORDER = ['language-models', 'llm-infra', 'ai-theory', 'math', 'finance', 'physics', 'ai-finance', 'ai-physics'];
+const SECTION_ORDER = [
+  'language-models', 
+  'llm-infra', 
+  'ai-theory', 
+  'ai-finance', 
+  'ai-physics',
+  'math',
+  'physics', 
+  'finance'
+];
+
+const CATEGORY_LABELS: Record<string, Record<'en' | 'ru', string>> = {
+  'Language Models':      { en: 'Language Models', ru: 'Языковые модели' },
+  'LLM Infrastructure':   { en: 'LLM Infrastructure', ru: 'Инфраструктура LLM' },
+  'AI Theory':            { en: 'AI Theory', ru: 'Теория ИИ' },
+  'Scientific ML':        { en: 'Scientific ML', ru: 'Научное ML' },
+  'AI Finance':           { en: 'AI Finance', ru: 'ИИ в финансах' },
+  'AI Physics':           { en: 'AI Physics', ru: 'ИИ в физике' },
+  'Stochastic Calculus':  { en: 'Stochastic Calculus', ru: 'Стохастическое исчисление' },
+  'Applied Probability':  { en: 'Applied Probability', ru: 'Прикладная вероятность' },
+  'Foundations':          { en: 'Foundations', ru: 'Основания' },
+  'Math':                 { en: 'Math', ru: 'Математика' },
+  'Finance':              { en: 'Finance', ru: 'Финансы' },
+  'Physics':              { en: 'Physics', ru: 'Физика' },
+  'Gravity':              { en: 'Gravity', ru: 'Гравитация' },
+  'Classical':            { en: 'Classical', ru: 'Классическая физика' },
+  'Holography':           { en: 'Holography', ru: 'Голография' },
+  'Stochastic':           { en: 'Stochastic', ru: 'Стохастика' },
+  'Portfolio':            { en: 'Portfolio', ru: 'Портфельное управление' },
+  'Pricing':              { en: 'Pricing', ru: 'Ценообразование' },
+  'Risk':                 { en: 'Risk', ru: 'Риски' },
+  'Microstructure':       { en: 'Microstructure', ru: 'Микроструктура' },
+  'Time Series':          { en: 'Time Series', ru: 'Временные ряды' },
+  'Derivatives':          { en: 'Derivatives', ru: 'Деривативы' },
+  'Analysis & Geometry':  { en: 'Analysis & Geometry', ru: 'Анализ и Геометрия' },
+  'Statistical Learning': { en: 'Statistical Learning', ru: 'Статистическое обучение' },
+  'Topology':             { en: 'Topology', ru: 'Топология' },
+  'Learning Theory':      { en: 'Learning Theory', ru: 'Теория обучения' },
+};
 
 const SKIP_CATS = new Set(['Home', 'Главная', 'Projects', 'Проекты']);
 
@@ -242,8 +297,11 @@ export const getNavigationTree = (lang: 'en' | 'ru'): NavSection[] => {
     const sectionTitle = labels ? labels[lang] : sectionKey;
     const categories: NavCategory[] = [];
     for (const [catTitle, catPages] of catMap) {
+      const catLabels = CATEGORY_LABELS[catTitle];
+      const translatedTitle = catLabels ? catLabels[lang] : catTitle;
+      
       categories.push({
-        title: catTitle,
+        title: translatedTitle,
         items: catPages
           .sort((a, b) => (a.metadata.order ?? 99) - (b.metadata.order ?? 99))
           .map(p => ({ title: p.metadata.title, href: p.metadata.slug })),

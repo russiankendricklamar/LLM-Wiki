@@ -16,7 +16,7 @@ slug: "slm"
 
 A small language model occupies the regime below approximately 7 billion parameters — typically 0.5B to 7B — where the model can run inference on consumer hardware, mobile devices, or at the edge without requiring a data center. The boundary is not fixed; it shifts as hardware improves. What defines an SLM is not a parameter count but a set of deployment constraints: it must be fast enough for interactive use on a laptop or phone, small enough to fit in memory without specialized infrastructure, and economical enough for individual developers to run.
 
-The central question for SLMs is how to get as much capability as possible out of a small parameter budget. The answer involves rethinking the entire pipeline: what data the model trains on, how it is distilled from larger models, how attention is made efficient, and how weights are compressed.
+The central question for SLMs is how to get as much capability as possible out of a small parameter budget. The answer involves rethinking the entire pipeline: what data the model trains on, how it is distilled from larger models, how [[attention-mechanisms|attention]] is made efficient, and how weights are compressed.
 
 ## Visualization
 
@@ -43,7 +43,7 @@ The central question for SLMs is how to get as much capability as possible out o
 
 ## Architecture
 
-SLMs use the same decoder-only transformer backbone as LLMs but with architectural modifications that reduce memory and compute:
+SLMs use the same decoder-only [[transformer-architecture|transformer]] backbone as LLMs but with architectural modifications that reduce memory and compute:
 
 **Grouped Query Attention (GQA)**: instead of $H$ independent key-value heads for $H$ query heads, GQA uses $G < H$ shared key-value heads. Each group of $H/G$ query heads shares one KV head, cutting the KV cache size by $H/G$ and reducing memory bandwidth proportionally.
 
@@ -55,19 +55,19 @@ SLMs use the same decoder-only transformer backbone as LLMs but with architectur
 
 ## Mathematical Framework
 
-**Knowledge distillation** transfers the learned distributions of a large teacher model to a smaller student. The student minimizes a combination of the ground-truth cross-entropy and the KL divergence from the teacher's soft probability distribution:
+**Knowledge distillation** transfers the learned distributions of a large teacher model to a smaller student. The student minimizes a combination of the ground-truth cross-[[shannon-entropy|entropy]] and the KL divergence from the teacher's soft probability distribution:
 
 $$\mathcal{L}_{KD} = \alpha \mathcal{L}_{CE}(y, p_{\text{student}}) + (1 - \alpha) \cdot T^2 \cdot \mathcal{L}_{KL}\!\left(\frac{p_{\text{teacher}}}{T} \,\Big\|\, \frac{p_{\text{student}}}{T}\right)$$
 
 where $T > 1$ is the temperature that softens both distributions, making the student learn from the full probability vector rather than just the argmax. The $T^2$ factor corrects for the rescaling of gradients that temperature introduces.
 
-**LoRA fine-tuning** adapts a pre-trained weight matrix $W_0 \in \mathbb{R}^{d \times k}$ by learning a low-rank residual:
+**LoRA [[fine-tuning]]** adapts a pre-trained weight matrix $W_0 \in \mathbb{R}^{d \times k}$ by learning a low-rank residual:
 
 $$W = W_0 + \Delta W = W_0 + BA$$
 
 where $B \in \mathbb{R}^{d \times r}$, $A \in \mathbb{R}^{r \times k}$, and $r \ll \min(d, k)$. Only $A$ and $B$ are updated during fine-tuning; $W_0$ is frozen. The total additional parameters are $r(d + k)$, typically 0.1–1% of the original weight count.
 
-**QLoRA** extends LoRA by loading $W_0$ in 4-bit NormalFloat (NF4) quantization, reducing the GPU memory required to fine-tune a large base model from which the small model is distilled.
+**QLoRA** extends LoRA by loading $W_0$ in 4-bit NormalFloat (NF4) [[quantization]], reducing the [[inference-serving|GPU]] memory required to fine-tune a large base model from which the small model is distilled.
 
 ## Training Paradigm
 
@@ -91,7 +91,7 @@ Key training choices:
 
 ## Trade-offs vs Other Types
 
-| Dimension | SLM (≤7B) | LLM (≥70B) | Quantized LLM |
+| Dimension | SLM (≤7B) | [[llm]] (≥70B) | Quantized LLM |
 |---|---|---|---|
 | Parameters active | All | All | All (compressed) |
 | RAM required | 4–16 GB | 40–160 GB | 8–40 GB |

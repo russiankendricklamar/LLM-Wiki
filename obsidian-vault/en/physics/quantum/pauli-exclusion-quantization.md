@@ -6,7 +6,7 @@ order: 5
 slug: pauli-exclusion-quantization
 ---
 
-# Pauli Exclusion Principle & Quantization
+# Pauli Exclusion Principle & [[quantization]]
 
 ## Theoretical Foundation
 The Pauli Exclusion Principle, formulated by Wolfgang Pauli in 1925, states that no two identical fermions can simultaneously occupy the same quantum state. This principle is not an independent postulate but a consequence of the spin-statistics theorem: particles with half-integer spin (fermions) must have totally antisymmetric wave functions under particle exchange, while particles with integer spin (bosons) must have symmetric wave functions.
@@ -46,7 +46,7 @@ The physical consequence most directly felt in everyday life is the rigidity of 
 In astrophysics, white dwarfs are supported by electron degeneracy pressure (the Chandrasekhar limit at $1.4 M_\odot$ marks where gravity overcomes it), and neutron stars by neutron degeneracy pressure plus nuclear forces. These are macroscopic manifestations of Pauli's microscopic principle.
 
 ## Connections to Information Theory & Holography
-The Pauli exclusion principle imposes a fundamental limit on the density of information storage for fermionic systems: each quantum state can hold at most 1 bit of occupation information ($0$ or $1$). This is the origin of the finite entropy of a Fermi gas, $S \propto Nk_B(T/T_F)$ at low temperature.
+The Pauli exclusion principle imposes a fundamental limit on the density of information storage for fermionic systems: each quantum state can hold at most 1 bit of occupation information ($0$ or $1$). This is the origin of the finite [[gravitational-entropy|entropy]] of a Fermi gas, $S \propto Nk_B(T/T_F)$ at low temperature.
 
 In holography, the exclusion principle appears in the "giant graviton" effect: when the number of single-trace operators in a CFT exceeds the rank $N$ of the gauge group, new wrapped brane states (giant gravitons) must be considered, effectively enforcing a fermionic exclusion rule on the Hilbert space. This provides a holographic realization of the Pauli principle and ensures the consistency of the AdS/CFT state counting with the finite entropy of the bulk.
 

@@ -13,7 +13,7 @@ The Neural Tangent Kernel (NTK) is a theoretical framework that characterizes th
 
 ## Motivation: The Infinite-Width Limit
 
-A neural network is fundamentally a parametrized function $f_\theta(x)$ with weights $\theta \in \mathbb{R}^p$. During training, gradient descent updates weights: $\dot{\theta}_t = -\eta \nabla_\theta \mathcal{L}(\theta_t)$ where $\eta$ is the learning rate and $\mathcal{L}$ is the loss. The function itself evolves indirectly through its parameters.
+A neural network is fundamentally a parametrized function $f_\theta(x)$ with weights $\theta \in \mathbb{R}^p$. During training, [[convex-optimization|gradient descent]] updates weights: $\dot{\theta}_t = -\eta \nabla_\theta \mathcal{L}(\theta_t)$ where $\eta$ is the learning rate and $\mathcal{L}$ is the loss. The function itself evolves indirectly through its parameters.
 
 The central question: **what happens to the function dynamics as the network width (number of hidden units) $m \to \infty$?**
 
@@ -84,9 +84,9 @@ Individual parameters change by $O(1/m)$ but collectively drive learning. The NT
 
 ## NTK for Transformers and Modern Architectures
 
-NTK extends beyond fully-connected networks. For **transformer architectures**, the NTK kernel has been computed for attention mechanisms (Yang et al., 2020). The kernel encodes interaction patterns:
+NTK extends beyond fully-connected networks. For **[[transformer-architecture|transformer]] architectures**, the NTK kernel has been computed for [[attention-mechanisms|attention]] mechanisms (Yang et al., 2020). The kernel encodes interaction patterns:
 - Self-attention preserves position-dependent correlations
-- Cross-entropy loss couples inputs nonlinearly
+- Cross-[[shannon-entropy|entropy]] loss couples inputs nonlinearly
 - Residual connections promote kernel stability
 
 However, transformers in practical settings are not in the NTK regime—they adapt features substantially during training, explaining why scaling laws (see [[neural-scaling-laws]]) rather than NTK dynamics govern performance.

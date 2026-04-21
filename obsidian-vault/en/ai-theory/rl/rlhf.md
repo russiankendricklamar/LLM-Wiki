@@ -7,7 +7,7 @@ slug: "rlhf"
 growth: "seedling"
 ---
 
-RLHF (Reinforcement Learning from Human Feedback) is a three-stage pipeline that aligns language models with human preferences by encoding subjective taste into a scalar reward signal. The method became industry standard after InstructGPT demonstrated that a 1.3B [[llm|LLM]] trained with RLHF outperforms a 175B model trained with only supervised fine-tuning on human evaluation. RLHF solves a fundamental problem: training on data (even filtered by quality) encodes average human behavior, not the desired behavior.
+RLHF (Reinforcement Learning from Human Feedback) is a three-stage pipeline that aligns language models with human preferences by encoding subjective taste into a scalar reward signal. The method became industry standard after InstructGPT demonstrated that a 1.3B [[llm|LLM]] trained with RLHF outperforms a 175B model trained with only supervised [[fine-tuning]] on human evaluation. RLHF solves a fundamental problem: training on data (even filtered by quality) encodes average human behavior, not the desired behavior.
 
 ## Three-Stage Pipeline
 
@@ -25,7 +25,7 @@ Collect a preference dataset: for a prompt $x$, two generations $(y_w, y_l)$ wit
 
 $$P(y_w \succ y_l | x) = \sigma(r_\theta(x, y_w) - r_\theta(x, y_l))$$
 
-where $\sigma$ is the sigmoid function. The objective function (binary cross-entropy):
+where $\sigma$ is the sigmoid function. The objective function (binary cross-[[shannon-entropy|entropy]]):
 
 $$\mathcal{L}_\text{reward} = -\mathbb{E}_{x,(y_w, y_l)}[\log \sigma(r_\theta(x, y_w) - r_\theta(x, y_l)) + \log(1 - \sigma(r_\theta(x, y_l) - r_\theta(x, y_w)))]$$
 
@@ -59,7 +59,7 @@ Anthropic proposed a scalable alternative: replace human annotators with AI-gene
 
 This is a self-reinforcing loop: the model critiques itself, learns from self-critique, improves. We avoid expensive human annotation (which is heterogeneous and slow) but risk amplifying systematic model biases (the model may penalize itself for what humans would consider correct).
 
-## DPO: Direct Preference Optimization
+## [[dpo]]: Direct Preference Optimization
 
 DPO skips the reward model and PPO, optimizing the policy directly on preference data. The key insight: solve the Bellman equation for the reward model and express the optimal policy $\pi^*$ in closed form, then optimize it directly.
 

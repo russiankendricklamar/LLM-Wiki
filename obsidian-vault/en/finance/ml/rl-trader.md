@@ -237,7 +237,7 @@ print(f"Random agent Sharpe (approx):     {np.mean(baseline)/np.std(baseline):.2
 
 - **Non-stationarity**: Markets change regime; periodic retraining (monthly) with walk-forward validation is essential.
 - **Adversarial market**: If many agents use similar RL strategies, market impact and crowding reduce alpha; the agent's own actions affect future states.
-- **Interpretability**: Deep RL policies are black boxes; SHAP-based feature attribution and attention mechanisms improve interpretability for regulators.
+- **Interpretability**: Deep RL policies are black boxes; SHAP-based feature attribution and [[attention-mechanisms|attention]] mechanisms improve interpretability for regulators.
 - **Multi-agent RL (MARL)**: Modeling multiple competing traders as interacting agents enables more realistic market microstructure simulation.
 - **Offline RL**: Conservative Q-Learning (CQL) and Implicit Q-Learning (IQL) enable training from historical data without live interaction, critical for finance where live exploration is costly.
 

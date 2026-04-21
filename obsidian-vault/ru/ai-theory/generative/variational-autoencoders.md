@@ -1,6 +1,6 @@
 ---
 title: "Вариационные автоэнкодеры (VAE)"
-category: "Теория AI"
+category: "AI Theory"
 order: 16
 lang: "ru"
 slug: "variational-autoencoders"

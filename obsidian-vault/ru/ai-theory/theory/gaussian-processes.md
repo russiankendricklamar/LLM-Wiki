@@ -1,6 +1,6 @@
 ---
 title: "Гауссовские процессы"
-category: "Теория AI"
+category: "AI Theory"
 order: 20
 lang: "ru"
 slug: "gaussian-processes"

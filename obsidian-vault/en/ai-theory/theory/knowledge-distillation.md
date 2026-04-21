@@ -44,7 +44,7 @@ The factor $T^2$ in front of the KL term accounts for the gradient scaling at hi
 
 ### Why soft labels work: dark knowledge
 
-The teacher network, trained on the full dataset, has learned a compressed representation of the data manifold. Its soft predictions—e.g., 70% dog, 20% wolf, 10% husky—encode:
+The teacher network, trained on the full dataset, has learned a compressed representation of the data [[manifold-learning|manifold]]. Its soft predictions—e.g., 70% dog, 20% wolf, 10% husky—encode:
 
 1. **Semantic similarity.** Confusable classes receive higher probability, telling the student which mistakes are more forgivable.
 2. **Conditional independence structure.** Correlations in output logits reflect the teacher's learned view of feature relationships.
@@ -60,7 +60,7 @@ $$
 \mathcal{L}_{feat} = \|W h_s - h_t\|_2^2
 $$
 
-**Pedagogical Knowledge Distillation (PKD)** extends this by distilling attention maps, encouraging the student to attend to the same regions as the teacher. This is particularly effective for vision transformers and attention-based architectures.
+**Pedagogical Knowledge Distillation (PKD)** extends this by distilling [[attention-mechanisms|attention]] maps, encouraging the student to attend to the same regions as the teacher. This is particularly effective for vision transformers and attention-based architectures.
 
 The benefit: student learns not just what to predict, but *how* the teacher solves the problem internally—the computational strategy, feature hierarchy, and decision path.
 
@@ -97,7 +97,7 @@ $$
 
 This directly penalizes divergence from the teacher's policy while encouraging likelihood on the (possibly synthetic) data. The factor $\beta$ controls the trade-off.
 
-## Quantization-aware distillation
+## [[quantization]]-aware distillation
 
 **QAT (Quantization-Aware Training)** combines distillation with low-precision weights. The student is quantized (INT8 or INT4) while the teacher runs in full precision. Distillation loss helps the student overcome quantization error:
 
@@ -146,7 +146,7 @@ A ResNet-50 teacher (top-1 accuracy 76% on ImageNet) can distill into a MobileNe
 
 - Hard labels alone: MobileNetV2 achieves 71.8% accuracy.
 - With distillation: MobileNetV2 achieves 75.2% accuracy.
-- No extra data, no fine-tuning beyond the distillation loss.
+- No extra data, no [[fine-tuning]] beyond the distillation loss.
 
 The soft targets from ResNet-50 encode which ImageNet classes are similar (e.g., dog breeds), accelerating the student's learning and pushing it to explore more informative decision boundaries.
 

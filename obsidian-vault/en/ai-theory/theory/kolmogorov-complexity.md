@@ -40,7 +40,7 @@ slug: "kolmogorov-complexity"
 
 Kolmogorov complexity is the algorithmic measure of information content in a string or object: the length of the shortest program that produces it on a universal Turing machine. Developed independently by Solomonoff (1960), Kolmogorov (1963), and Chaitin (1966), it provides the foundation for algorithmic information theory — a theory of information that makes no reference to probability distributions, encoding schemes, or ensembles.
 
-Unlike Shannon entropy, which measures average information over a probability distribution, Kolmogorov complexity measures the information in a single string. This makes it the most fundamental measure of randomness and compressibility, at the cost of incomputability.
+Unlike Shannon [[shannon-entropy|entropy]], which measures average information over a probability distribution, Kolmogorov complexity measures the information in a single string. This makes it the most fundamental measure of randomness and compressibility, at the cost of incomputability.
 
 ## Mathematical Framework
 

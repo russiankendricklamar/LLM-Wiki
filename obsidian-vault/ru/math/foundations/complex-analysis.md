@@ -1,6 +1,6 @@
 ---
 title: "Комплексный анализ"
-category: "Основания математики"
+category: "Foundations"
 order: 11
 lang: "ru"
 slug: "/math/complex-analysis"

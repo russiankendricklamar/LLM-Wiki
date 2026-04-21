@@ -39,7 +39,7 @@ Intuitively, $t_{\text{mix}}$ is the number of steps needed for the chain to mix
 
 ## Spectral Gap and Convergence Rate
 
-For a finite irreducible aperiodic Markov chain, the transition matrix $P$ has eigenvalues $1 = \lambda_1 > |\lambda_2| \geq \cdots \geq |\lambda_n|$. The **spectral gap** is:
+For a finite irreducible aperiodic Markov chain, the transition matrix $P$ has [[spectral-theory-operators|eigenvalues]] $1 = \lambda_1 > |\lambda_2| \geq \cdots \geq |\lambda_n|$. The **spectral gap** is:
 
 $$\text{gap} = 1 - |\lambda_2|,$$
 

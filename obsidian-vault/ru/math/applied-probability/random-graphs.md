@@ -1,6 +1,6 @@
 ---
 title: "Случайные графы"
-category: "Прикладная вероятность"
+category: "Applied Probability"
 order: 21
 lang: "ru"
 slug: "/math/random-graphs"

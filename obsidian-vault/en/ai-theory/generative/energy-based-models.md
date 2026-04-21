@@ -29,7 +29,7 @@ Langevin sampling itself is straightforward:
 
 $$x_{t+1} = x_t - \eta \nabla_x E_\theta(x_t) + \sqrt{2\eta} \epsilon_t, \quad \epsilon_t \sim \mathcal{N}(0, I)$$
 
-This is gradient descent on energy plus additive noise. In the limit $t \to \infty$, $\eta \to 0$ with proper scaling, samples converge to $p_\theta$. The score function $s_\theta(x) = -\nabla_x E_\theta(x)$ specifies the drift direction.
+This is [[convex-optimization|gradient descent]] on energy plus additive noise. In the limit $t \to \infty$, $\eta \to 0$ with proper scaling, samples converge to $p_\theta$. The score function $s_\theta(x) = -\nabla_x E_\theta(x)$ specifies the drift direction.
 
 ## Score Matching: Avoiding the Partition Function
 
@@ -55,7 +55,7 @@ Recent work rejuvenates EBMs by coupling them with discriminative objectives. **
 
 $$E_\theta(x, y) = -f_\theta(x)[y]$$
 
-Supervised learning pushes down the energy of correct labels; unsupervised learning via [[contrastive-divergence|contrastive divergence]] pushes down data energy and up off-manifold energy. This hybrid formulation unifies classification and generation, exemplifying modern interest in flexible, undirected models that leverage both labeled and unlabeled data.
+Supervised learning pushes down the energy of correct labels; unsupervised learning via [[contrastive-divergence|contrastive divergence]] pushes down data energy and up off-[[manifold-learning|manifold]] energy. This hybrid formulation unifies classification and generation, exemplifying modern interest in flexible, undirected models that leverage both labeled and unlabeled data.
 
 ## Connection to [[statistical-mechanics|Statistical Mechanics]]
 

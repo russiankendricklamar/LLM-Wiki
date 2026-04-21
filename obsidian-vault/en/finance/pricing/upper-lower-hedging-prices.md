@@ -67,7 +67,7 @@ In a trinomial "up / mid / down" model this is a linear-programming exercise at 
 
 ## Connection to risk aversion
 
-Real prices typically lie **below** $\Pi^+_0$: the hedger takes some risk and accepts a smaller premium than the absolute super-hedge. This is where utility functions, minimum-entropy martingale measures, and **utility indifference pricing** enter — but they take us beyond pure arbitrage theory.
+Real prices typically lie **below** $\Pi^+_0$: the hedger takes some risk and accepts a smaller premium than the absolute super-hedge. This is where utility functions, minimum-[[shannon-entropy|entropy]] martingale measures, and **utility indifference pricing** enter — but they take us beyond pure arbitrage theory.
 
 ## Related Articles
 

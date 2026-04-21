@@ -1,7 +1,7 @@
 ---
 slug: "/math/non-euclidean-geometry"
 title: "Неевклидова геометрия"
-category: "Основания математики"
+category: "Foundations"
 order: 4
 lang: "ru"
 ---

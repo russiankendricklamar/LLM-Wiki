@@ -23,7 +23,7 @@ $$
 
 where $P(t,T)$ is the zero-coupon bond price. Each $L_k$ is a martingale under the forward measure $\mathbb{Q}^{T_{k+1}}$ associated with numeraire $P(t,T_{k+1})$.
 
-## SDE under the Forward Measure
+## [[stochastic-differential-equations|SDE]] under the Forward Measure
 
 Under $\mathbb{Q}^{T_{k+1}}$, the dynamics of $L_k$ are driftless:
 

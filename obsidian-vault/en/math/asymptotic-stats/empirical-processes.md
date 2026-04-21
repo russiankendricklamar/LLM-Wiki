@@ -43,7 +43,7 @@ $$G_P(t) = B(F(t))$$
 
 where $B$ is a standard Brownian bridge on $[0,1]$. This unified treatment explains why the Kolmogorov–Smirnov statistic, KL divergence, and neural network loss all exhibit similar asymptotic behaviour.
 
-## Metric Entropy and Bracketing Numbers
+## Metric [[shannon-entropy|Entropy]] and Bracketing Numbers
 
 The behaviour of $G_n$ is controlled by the **complexity** of $\mathcal{F}$, measured via covering numbers and bracketing numbers in the $L^2(P)$ semimetric.
 

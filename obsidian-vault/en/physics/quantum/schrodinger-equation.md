@@ -24,7 +24,7 @@ In the position basis, for a single particle of mass $m$ in potential $V(\mathbf
 $$ i\hbar \frac{\partial \Psi}{\partial t} = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r},t)\right]\Psi(\mathbf{r},t) $$
 For time-independent potentials, separating $\Psi(\mathbf{r},t) = \psi(\mathbf{r})e^{-iEt/\hbar}$ yields the time-independent Schrödinger equation (TISE):
 $$ \hat{H}\psi(\mathbf{r}) = E\psi(\mathbf{r}) $$
-This is an eigenvalue problem whose solutions give the allowed energy levels. For the hydrogen atom with Coulomb potential $V = -e^2/(4\pi\epsilon_0 r)$, the energy eigenvalues are:
+This is an eigenvalue problem whose solutions give the allowed energy levels. For the hydrogen atom with Coulomb potential $V = -e^2/(4\pi\epsilon_0 r)$, the energy [[spectral-theory-operators|eigenvalues]] are:
 $$ E_n = -\frac{m_e e^4}{2\hbar^2(4\pi\epsilon_0)^2 n^2} = -\frac{13.6 \text{ eV}}{n^2}, \quad n = 1, 2, 3, \ldots $$
 
 ## Key Properties

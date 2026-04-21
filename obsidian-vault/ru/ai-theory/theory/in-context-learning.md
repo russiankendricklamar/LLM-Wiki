@@ -1,6 +1,6 @@
 ---
 title: "Обучение в контексте"
-category: "Теория AI"
+category: "AI Theory"
 order: 7
 lang: "ru"
 slug: "/ai-theory/in-context-learning"

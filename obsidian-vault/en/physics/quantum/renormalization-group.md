@@ -30,7 +30,7 @@ $$
 
 Repeatedly integrating out modes can either make couplings blow up, drive them to zero, or approach a non-trivial **fixed point** $g^*$ where $\beta(g^*) = 0$. Near a fixed point, theories organise themselves into:
 
-- **Relevant** directions (eigenvalues $> 0$): couplings grow under the flow towards low energies. These are the handful of parameters that matter macroscopically.
+- **Relevant** directions ([[spectral-theory-operators|eigenvalues]] $> 0$): couplings grow under the flow towards low energies. These are the handful of parameters that matter macroscopically.
 - **Irrelevant** directions (eigenvalues $< 0$): couplings shrink. Microscopic details get washed out.
 - **Marginal** directions (eigenvalues $= 0$): require two-loop analysis to resolve.
 

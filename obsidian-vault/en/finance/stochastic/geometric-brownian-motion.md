@@ -30,7 +30,7 @@ Where:
 - $\sigma > 0$ is the volatility (instantaneous standard deviation of returns)
 - $W_t$ is a standard Brownian motion under the real-world measure $\mathbb{P}$
 
-The SDE is linear in $S_t$, which ensures proportional increments: a 1% move is equally likely regardless of the price level.
+The [[stochastic-differential-equations|SDE]] is linear in $S_t$, which ensures proportional increments: a 1% move is equally likely regardless of the price level.
 
 ## Itô's Lemma and the Closed-Form Solution
 

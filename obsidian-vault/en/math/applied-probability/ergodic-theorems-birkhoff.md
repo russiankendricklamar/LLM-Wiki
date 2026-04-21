@@ -98,7 +98,7 @@ A "strength" hierarchy:
 
 Most processes used in practice are fast-mixing (Markov chains with positive spectral gap, mixing dynamical systems). This allows applying not only ergodic theorems but also the [[central-limit-theorem|CLT for dependent]] variables.
 
-## Connection to information and entropy
+## Connection to information and [[shannon-entropy|entropy]]
 
 Kolmogorov-Sinai entropy of a dynamical system measures its "informational complexity": how many new bits we learn at each step of dynamics. For ergodic systems entropy is well-defined and relates to the speed of mixing.
 

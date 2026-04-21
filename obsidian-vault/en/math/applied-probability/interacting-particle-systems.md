@@ -53,7 +53,7 @@ The contact process undergoes a **phase transition** and is a canonical example 
 
 ### Glauert Dynamics
 
-Glauert dynamics is the stochastic gradient descent of an energy function $H(\eta)$ (e.g., the Ising model). The generator is:
+Glauert dynamics is the stochastic [[convex-optimization|gradient descent]] of an energy function $H(\eta)$ (e.g., the Ising model). The generator is:
 $$c_x(\eta) = \exp\left(-\beta \frac{\Delta H_x(\eta)}{2}\right)$$
 
 where $\Delta H_x(\eta) = H(\eta^x) - H(\eta)$ and $\beta$ is inverse temperature. At equilibrium, the process samples from the Gibbs measure:
@@ -69,7 +69,7 @@ $$\rho_t^\epsilon(x) = \epsilon^d \sum_{y: y/\epsilon \approx x} \eta_t(y)$$
 In the limit $\epsilon \to 0$, the field $\rho_t(x)$ evolves deterministically via the **heat equation**:
 $$\frac{\partial \rho}{\partial t} = \frac{1}{2}\Delta \rho$$
 
-This is formalized via the **relative entropy method** developed by Yau:
+This is formalized via the **relative [[shannon-entropy|entropy]] method** developed by Yau:
 $$H(\eta_t^\epsilon \mid \rho_t) := \sum_x \eta_t^\epsilon(x) \log \frac{\eta_t^\epsilon(x)}{\rho_t(x)} \to 0 \quad \text{in probability as } \epsilon \to 0$$
 
 Hydrodynamic limits provide coarse-grained pictures and validate continuum PDE approximations for finite-scale lattice processes.

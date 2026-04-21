@@ -220,7 +220,7 @@ print(f"PFE 95%:  {pfe.max():.2f}")
 
 ## Limitations and Extensions
 
-- **Computational cost**: Full Monte Carlo CVA for large portfolios requires millions of paths × repricing calls. GPU acceleration and AAD are production requirements.
+- **Computational cost**: Full Monte Carlo CVA for large portfolios requires millions of paths × repricing calls. [[inference-serving|GPU]] acceleration and AAD are production requirements.
 - **Model dependency**: CVA depends on correlated credit and market risk models; WWR amplifies sensitivity to correlation assumptions.
 - **FRTB-CVA**: Basel IV replaces the current Basel III CVA charge with a Standardised Approach (SA-CVA) or Basic Approach (BA-CVA), significantly increasing capital requirements for unhedged CVA.
 - **Dynamic hedging**: CVA desks hedge with CDS (credit delta), interest rate swaps (rate delta), and swaptions (vega); residual WWR and jump-to-default risk are difficult to hedge.

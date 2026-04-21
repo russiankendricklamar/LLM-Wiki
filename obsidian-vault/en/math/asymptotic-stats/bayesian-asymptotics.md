@@ -76,7 +76,7 @@ The **GGvV framework** gives sufficient conditions for posterior contraction:
 1. **Prior mass condition**: The prior must assign sufficiently large mass near the true parameter,
 $$\Pi\left( \mathcal{B}(\theta_0, \varepsilon) \right) \geq e^{-n\varepsilon^2}$$
 
-2. **Metric entropy**: The covering number satisfies
+2. **Metric [[shannon-entropy|entropy]]**: The covering number satisfies
 $$N(\varepsilon, \Theta, d) \leq e^{D\varepsilon^{-d}}$$
 for some dimension $d$.
 

@@ -1,6 +1,6 @@
 ---
 title: "AdS/CFT и голографический принцип"
-category: "Физика"
+category: "Physics"
 order: 39
 lang: "ru"
 slug: "ads-cft"

@@ -73,7 +73,7 @@ Cantor's trick is the prototype for almost every "you can't enumerate that" resu
 - **Turing's halting problem** — the set of halting programs cannot be decided by a single program (diagonalize over alleged deciders).
 - **[[godel-incompleteness|Gödel's incompleteness theorems]]** — the set of provable statements cannot coincide with the set of true ones (diagonalize over provability predicates).
 - **[[kolmogorov-complexity|Kolmogorov complexity]]** — there is no computable function that returns the shortest description of every binary string (diagonalize over shortest-program enumerators).
-- **Self-reference in [[chain-of-thought|chain-of-thought reasoning]]** — an LLM that tries to enumerate all "thoughts it could have" runs into a Cantor wall: there are inputs whose reasoning trace cannot be predicted by any finite shortcut.
+- **Self-reference in [[chain-of-thought|chain-of-thought reasoning]]** — an [[llm]] that tries to enumerate all "thoughts it could have" runs into a Cantor wall: there are inputs whose reasoning trace cannot be predicted by any finite shortcut.
 
 The diagonal argument is therefore not a niche set-theoretic curiosity — it is the structural reason why computation, formal logic, and machine learning all hit the same brand of unreachable horizon.
 

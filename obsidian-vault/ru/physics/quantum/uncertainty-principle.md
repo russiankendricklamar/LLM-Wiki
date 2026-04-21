@@ -1,6 +1,6 @@
 ---
 title: Принцип неопределённости Гейзенберга
-category: "Физика"
+category: "Physics"
 lang: ru
 order: 3
 slug: uncertainty-principle

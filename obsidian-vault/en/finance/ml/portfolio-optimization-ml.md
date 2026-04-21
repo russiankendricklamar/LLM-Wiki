@@ -52,7 +52,7 @@ $$
 w^* = \frac{\Sigma^{-1}(\mu - r_f \mathbf{1})}{\mathbf{1}^\top \Sigma^{-1}(\mu - r_f \mathbf{1})}
 $$
 
-The critical failure mode is $\Sigma^{-1}$: when eigenvalues of $\hat{\Sigma}$ are small (near-collinear assets), the inverse amplifies noise. Random matrix theory ([[random-matrix-theory]]) identifies which eigenvalues carry signal vs. noise.
+The critical failure mode is $\Sigma^{-1}$: when [[spectral-theory-operators|eigenvalues]] of $\hat{\Sigma}$ are small (near-collinear assets), the inverse amplifies noise. Random matrix theory ([[random-matrix-theory]]) identifies which eigenvalues carry signal vs. noise.
 
 ## Hierarchical Risk Parity (HRP)
 
@@ -100,7 +100,7 @@ $$
 \hat{\mu} = [(\tau\Sigma)^{-1} + P^\top \Omega^{-1} P]^{-1}[(\tau\Sigma)^{-1}\Pi + P^\top \Omega^{-1} Q]
 $$
 
-Where $P$ is the view matrix, $Q$ is the expected return of each view, and $\Omega$ is the view uncertainty matrix. ML models (gradient boosting, transformer-based return predictors) generate the views $Q$ and confidence levels $\Omega^{-1}$, blending data-driven signals with equilibrium priors.
+Where $P$ is the view matrix, $Q$ is the expected return of each view, and $\Omega$ is the view uncertainty matrix. ML models (gradient boosting, [[transformer-architecture|transformer]]-based return predictors) generate the views $Q$ and confidence levels $\Omega^{-1}$, blending data-driven signals with equilibrium priors.
 
 ## Key Metrics
 

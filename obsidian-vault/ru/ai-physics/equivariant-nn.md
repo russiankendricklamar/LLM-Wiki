@@ -1,6 +1,6 @@
 ---
 title: "Эквивариантные нейронные сети"
-category: "Теория AI"
+category: "AI Theory"
 order: 9
 lang: "ru"
 slug: "equivariant-nn"
@@ -25,7 +25,7 @@ slug: "equivariant-nn"
   "type": "line",
   "xAxis": "training_samples",
   "data": [
-    {"training_samples": 10, "NequIP": 0.52, "SchNet": 0.91, "MLP": 0.95},
+    {"training_samples": 10, "NequIP": 0.52, "SchNet": 0.91, "[[transformer-architecture|MLP]]": 0.95},
     {"training_samples": 25, "NequIP": 0.31, "SchNet": 0.74, "MLP": 0.89},
     {"training_samples": 50, "NequIP": 0.18, "SchNet": 0.58, "MLP": 0.79},
     {"training_samples": 100, "NequIP": 0.09, "SchNet": 0.42, "MLP": 0.67},
@@ -80,7 +80,7 @@ $$\mathbf{h}_i^{\text{новый}} = \mathbf{h}_i + \sum_{j \in \mathcal{N}(i)} 
 
 **Ключевые архитектуры:**
 - **SchNet (2017):** Инвариантная; использует радиальные базисные функции, без тензорных произведений.
-- **SE(3)-Transformer (2020):** Эквивариантное внимание над облаком точек.
+- **SE(3)-[[transformer-architecture|Transformer]] (2020):** Эквивариантное внимание над облаком точек.
 - **SEGNN (2021):** Управляемая $E(3)$-эквивариантная граф-нейронная сеть.
 - **NequIP (2022):** $E(3)$-эквивариантный межатомный потенциал; точность DFT при малом числе данных.
 - **MACE (2022):** Передача сообщений высшего порядка; современный уровень для молекулярной динамики.

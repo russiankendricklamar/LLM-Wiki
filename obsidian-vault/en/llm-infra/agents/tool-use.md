@@ -14,7 +14,7 @@ Tool use — also called function calling — is the capability that allows lang
 
 This capability transforms LLMs from pure text processors into agents capable of reading live data, writing files, running code, and interacting with external systems. It was first popularized in production by OpenAI's June 2023 function calling release, quickly followed by Anthropic, Google, and others. The underlying mechanism is straightforward: the model is trained to recognize when external information or action is needed and to express that need in a structured JSON format that the application layer can parse and route.
 
-Tool use is the foundation for autonomous agents, copilots, and any system where an LLM must act on the world rather than merely describe it. Combined with [[rag]], tool-equipped models can decide when to retrieve vs. when to answer from training. Combined with [[chain-of-thought]] reasoning, they implement the ReAct (Reasoning + Acting) pattern.
+Tool use is the foundation for autonomous agents, copilots, and any system where an [[llm]] must act on the world rather than merely describe it. Combined with [[rag]], tool-equipped models can decide when to retrieve vs. when to answer from training. Combined with [[chain-of-thought]] reasoning, they implement the ReAct (Reasoning + Acting) pattern.
 
 ## How It Works
 
@@ -204,7 +204,7 @@ Sandboxing strategies:
 
 ## Key Trade-offs
 
-- **Solves:** real-time data access, action in external systems, structured computation, extending model capabilities without fine-tuning.
+- **Solves:** real-time data access, action in external systems, structured computation, extending model capabilities without [[fine-tuning]].
 - **Does not solve:** the model's intrinsic reasoning limits — garbage in, garbage out still applies.
 - **Latency:** each tool call is a round-trip; parallel calls mitigate this but add complexity.
 - **Reliability:** models occasionally hallucinate tool names or produce invalid JSON. Input schema validation is mandatory.

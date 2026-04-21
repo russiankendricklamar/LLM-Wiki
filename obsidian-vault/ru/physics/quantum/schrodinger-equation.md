@@ -1,6 +1,6 @@
 ---
 title: Волновая функция Ψ и уравнение Шрёдингера
-category: "Физика"
+category: "Physics"
 lang: ru
 order: 2
 slug: schrodinger-equation

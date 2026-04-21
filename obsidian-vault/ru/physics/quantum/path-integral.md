@@ -1,6 +1,6 @@
 ---
 title: "Формулировка через интеграл по путям"
-category: "Физика"
+category: "Physics"
 order: 28
 lang: "ru"
 slug: "path-integral"

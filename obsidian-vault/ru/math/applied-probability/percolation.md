@@ -1,6 +1,6 @@
 ---
 title: "Перколяция"
-category: "Прикладная вероятность"
+category: "Applied Probability"
 order: 22
 lang: "ru"
 slug: "/math/percolation"

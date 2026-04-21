@@ -1,6 +1,6 @@
 ---
 title: "Локальное время и формула Танаки"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 19
 lang: "ru"
 slug: "local-time-tanaka"

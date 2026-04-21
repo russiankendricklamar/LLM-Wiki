@@ -1,6 +1,6 @@
 ---
 title: "Стохастическое управление"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 16
 lang: "ru"
 slug: "stochastic-control"

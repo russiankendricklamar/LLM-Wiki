@@ -1,6 +1,6 @@
 ---
 title: "Выпуклая оптимизация"
-category: "Основания математики"
+category: "Foundations"
 order: 17
 lang: "ru"
 slug: "/math/convex-optimization"

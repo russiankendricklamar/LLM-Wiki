@@ -66,7 +66,7 @@ All PDE residuals are computed via automatic differentiation through $u_\theta$,
 
 **Collocation sampling.** Residual points $\{(\mathbf{x}_i^r, t_i^r)\}$ are sampled randomly (or quasi-randomly via Latin hypercube, Sobol sequences) inside the domain. Dense near-boundary sampling often improves accuracy.
 
-**Automatic differentiation.** Spatial and temporal derivatives of $u_\theta$ are obtained exactly with backpropagation. For the 1D heat equation $u_t = \alpha u_{xx}$, one computes $\partial u_\theta / \partial t$ and $\partial^2 u_\theta / \partial x^2$ as computation-graph operations.
+**Automatic differentiation.** Spatial and temporal derivatives of $u_\theta$ are obtained exactly with [[automatic-differentiation|backpropagation]]. For the 1D heat equation $u_t = \alpha u_{xx}$, one computes $\partial u_\theta / \partial t$ and $\partial^2 u_\theta / \partial x^2$ as computation-graph operations.
 
 **Architecture choice.** Standard choices are fully-connected networks with tanh or sin activations (smooth activations matter for higher-order derivatives). Modified architectures include:
 - Fourier feature embeddings to reduce spectral bias

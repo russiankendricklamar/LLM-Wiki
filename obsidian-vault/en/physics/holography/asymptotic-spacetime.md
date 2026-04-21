@@ -9,7 +9,7 @@ slug: asymptotic-spacetime
 # Asymptotic Spacetime
 
 ## Theoretical Foundation
-Asymptotic spacetime refers to the geometry of a manifold far from any localized sources of mass or energy. The most common case is asymptotically flat spacetime, which approaches the Minkowski metric at large distances. Understanding the structure of spacetime at infinity is crucial for defining physical quantities like total energy (ADM mass), momentum, and the radiation that escapes the system.
+Asymptotic spacetime refers to the geometry of a [[differential-geometry|manifold]] far from any localized sources of mass or energy. The most common case is asymptotically flat spacetime, which approaches the Minkowski metric at large distances. Understanding the structure of spacetime at infinity is crucial for defining physical quantities like total energy (ADM mass), momentum, and the radiation that escapes the system.
 
 The formal study was revolutionized by Roger Penrose's conformal compactification technique (1963), which maps the entire infinite spacetime into a finite diagram by applying a conformal rescaling $\tilde{g}_{\mu\nu} = \Omega^2 g_{\mu\nu}$. This adds a well-defined boundary to spacetime — the Penrose diagram — making infinities geometrically accessible. The boundary consists of several distinct regions: past and future timelike infinity ($i^-$, $i^+$), spacelike infinity ($i^0$), and past and future null infinity ($\mathcal{I}^-$, $\mathcal{I}^+$, pronounced "scri-minus" and "scri-plus").
 

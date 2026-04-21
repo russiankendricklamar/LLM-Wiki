@@ -1,6 +1,6 @@
 ---
 title: "Выпуклый анализ"
-category: "Основания математики"
+category: "Foundations"
 order: 10
 lang: "ru"
 slug: "convex-analysis"

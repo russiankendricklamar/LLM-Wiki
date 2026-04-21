@@ -22,7 +22,7 @@ $$
 
 ## Механизм внимания (GAT)
 
-**Graph Attention Network** взвешивает соседей по обучаемым вниманиям:
+**Graph [[attention-mechanisms|Attention]] Network** взвешивает соседей по обучаемым вниманиям:
 
 $$
 \alpha_{ij} = \frac{\exp(\text{LeakyReLU}(\mathbf{a}^\top[W h_i \| W h_j]))}{\sum_{k\in\mathcal{N}(i)}\exp(\text{LeakyReLU}(\mathbf{a}^\top[W h_i \| W h_k]))}

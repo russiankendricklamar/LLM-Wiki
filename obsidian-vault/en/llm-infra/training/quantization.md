@@ -35,7 +35,7 @@ For a layer with weight matrix $W$ and activations $X$, the output is $Y = WX$. 
 
 $$w_i^* = \arg\min_{w_i^q} \|W^q X - WX\|_F^2$$
 
-where $W^q$ is the partially quantized weight matrix. Using the Hessian approximation $H = XX^T$, this reduces to a scalar optimization per weight. Each layer is quantized independently and sequentially, which makes the algorithm efficient and enables single-GPU quantization of even 70B models.
+where $W^q$ is the partially quantized weight matrix. Using the Hessian approximation $H = XX^T$, this reduces to a scalar optimization per weight. Each layer is quantized independently and sequentially, which makes the algorithm efficient and enables single-[[inference-serving|GPU]] quantization of even 70B models.
 
 The typical workflow: (1) load the model and a small calibration set (~100 samples); (2) quantize layer-by-layer, solving for optimal per-channel scales; (3) output quantized model in a format like GGUF. Perplexity degradation from FP16 to GPTQ INT4 is typically 1–3 points on standard benchmarks.
 
@@ -65,7 +65,7 @@ where $\Phi^{-1}$ is the inverse standard normal CDF. This allocates more precis
 - **Q5_K_M** (medium): 5-bit weights; ~5.6 bits effective; higher quality than Q4
 - **Q8_0** (8-bit): per-block INT8; negligible loss; used for performance-critical layers
 
-A GGUF file specifies the quantization profile in the tensor metadata, enabling heterogeneous precision: critical attention layers remain at Q8, while feed-forward layers drop to Q4. This granular control is why GGUF became the de facto standard for consumer GPU and CPU inference.
+A GGUF file specifies the quantization profile in the tensor metadata, enabling heterogeneous precision: critical [[attention-mechanisms|attention]] layers remain at Q8, while feed-forward layers drop to Q4. This granular control is why GGUF became the de facto standard for consumer GPU and CPU inference.
 
 ## Memory Footprint Calculations
 
@@ -83,13 +83,29 @@ With INT8 quantization, a 7B model fits in a 16 GB VRAM GPU with room for KV cac
 
 ## Accuracy Trade-offs
 
-Perplexity degradation (evaluated on WikiText) increases sharply as precision drops:
+Perplexity degradation (evaluated on WikiText) increases sharply as precision drops. This nonlinearity reflects the **signal-to-noise ratio**: with fewer bits, weight initialization variance and rounding error become significant relative to weight magnitudes. 
 
-- **FP16 → INT8**: negligible (<0.1 ppl)
-- **INT8 → INT4**: small (1–3 ppl)
-- **INT4 → INT2**: severe (10–50 ppl)
+```chart
+{
+  "type": "line",
+  "xAxis": "bits",
+  "data": [
+    {"bits": 16, "accuracy": 99.9, "error": 0.1},
+    {"bits": 8, "accuracy": 99.5, "error": 0.5},
+    {"bits": 6, "accuracy": 98.8, "error": 1.2},
+    {"bits": 4, "accuracy": 96.5, "error": 3.5},
+    {"bits": 3, "accuracy": 85.0, "error": 15.0},
+    {"bits": 2, "accuracy": 40.0, "error": 60.0},
+    {"bits": 1.58, "accuracy": 94.0, "error": 6.0}
+  ],
+  "lines": [
+    {"dataKey": "accuracy", "stroke": "#10b981", "name": "Model Accuracy (%)"},
+    {"dataKey": "error", "stroke": "#ef4444", "name": "Perplexity Increase (%)"}
+  ]
+}
+```
+*Note: BitNet (1.58-bit) is an outlier because it is trained from scratch with quantization in mind, unlike post-training quantization methods which collapse at such low precision.*
 
-This nonlinearity reflects the **signal-to-noise ratio**: with fewer bits, weight initialization variance and rounding error become significant relative to weight magnitudes. Extreme quantization (INT1 / binarization) is only viable for specialized models trained with this constraint from scratch.
 
 ## Integration with Inference Pipelines
 

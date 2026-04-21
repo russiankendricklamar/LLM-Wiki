@@ -14,7 +14,7 @@ slug: "mixture-of-experts"
 
 ## What Is It
 
-Mixture of Experts is an architectural paradigm that decouples the number of parameters in a model from the amount of compute used per forward pass. A standard dense transformer uses every parameter for every token. An MoE transformer replaces some or all feed-forward layers with a bank of $N$ expert networks and a learned router that selects a small subset $k$ of them for each token. Only those $k$ experts perform computation; the rest are idle for that token.
+Mixture of Experts is an architectural paradigm that decouples the number of parameters in a model from the amount of compute used per forward pass. A standard dense [[transformer-architecture|transformer]] uses every parameter for every token. An MoE transformer replaces some or all feed-forward layers with a bank of $N$ expert networks and a learned router that selects a small subset $k$ of them for each token. Only those $k$ experts perform computation; the rest are idle for that token.
 
 The consequence is striking: you can have a model with, say, 200 billion total parameters but use only the compute equivalent of a 20 billion dense model at inference time, because only $k/N$ of the experts are active per token. This gives MoE models a favorable point on the quality-versus-compute curve: same FLOP budget as a dense model, but access to far more parameters, and therefore more representational capacity.
 
@@ -46,7 +46,7 @@ MoE is not a new idea — Jacobs et al. introduced it in 1991 — but it became 
 
 In a transformer MoE, each standard FFN layer is replaced by an **MoE layer** consisting of:
 
-1. **$N$ expert FFNs**: each expert is an independent two-layer MLP with the same structure as a standard FFN, but they are initialized differently and learn to specialize.
+1. **$N$ expert FFNs**: each expert is an independent two-layer [[transformer-architecture|MLP]] with the same structure as a standard FFN, but they are initialized differently and learn to specialize.
 2. **Router (gating network)**: a linear layer $W_g \in \mathbb{R}^{d \times N}$ followed by softmax that produces a probability distribution over experts for each token.
 
 The routing and expert selection:
@@ -76,9 +76,32 @@ where $f_i$ is the fraction of tokens dispatched to expert $i$ in the batch (the
 
 **Expert utilization and load imbalance** are measured by the coefficient of variation of $\{f_i\}$; a well-balanced MoE has $f_i \approx 1/N$ for all $i$.
 
+```chart
+{
+  "type": "bar",
+  "xAxis": "expert_id",
+  "data": [
+    {"expert_id": "Exp 1", "unbalanced": 85, "balanced": 12.5},
+    {"expert_id": "Exp 2", "unbalanced": 10, "balanced": 12.5},
+    {"expert_id": "Exp 3", "unbalanced": 3, "balanced": 12.5},
+    {"expert_id": "Exp 4", "unbalanced": 1, "balanced": 12.5},
+    {"expert_id": "Exp 5", "unbalanced": 1, "balanced": 12.5},
+    {"expert_id": "Exp 6", "unbalanced": 0, "balanced": 12.5},
+    {"expert_id": "Exp 7", "unbalanced": 0, "balanced": 12.5},
+    {"expert_id": "Exp 8", "unbalanced": 0, "balanced": 12.5}
+  ],
+  "lines": [
+    {"dataKey": "unbalanced", "stroke": "#ef4444", "name": "Without Aux Loss (%)"},
+    {"dataKey": "balanced", "stroke": "#10b981", "name": "With Aux Loss (%)"}
+  ]
+}
+```
+*Without an auxiliary load-balancing loss, the router typically collapses, sending almost all tokens to a single "winner-take-all" expert, rendering the others useless.*
+
+
 ## Training Paradigm
 
-MoE training is standard autoregressive next-token prediction (same objective as a dense LLM) with the added auxiliary load balancing loss:
+MoE training is standard autoregressive next-token prediction (same objective as a dense [[llm]]) with the added auxiliary load balancing loss:
 
 $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{LM}} + \mathcal{L}_{\text{aux}}$$
 
@@ -177,7 +200,7 @@ class MoELayer(nn.Module):
 - **Expert routing instability**: early in training, the router can collapse to a few experts. Recovery from collapse is slow and unreliable; prevention requires careful hyperparameter tuning.
 - **Communication overhead**: expert parallelism requires all-to-all token dispatch across devices, adding communication latency that reduces the effective throughput advantage.
 - **Token dropping and inconsistency**: dropped tokens receive no processing from the dropped expert, introducing silent errors that are hard to diagnose from the loss curve alone.
-- **Fine-tuning difficulty**: fine-tuning MoE models on small datasets is harder than dense models because the sparse routing creates uneven gradient updates across experts.
+- **[[fine-tuning]] difficulty**: fine-tuning MoE models on small datasets is harder than dense models because the sparse routing creates uneven gradient updates across experts.
 
 ## Related Topics
 

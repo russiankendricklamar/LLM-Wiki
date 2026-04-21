@@ -1,6 +1,6 @@
 ---
 title: "Уравнение Фоккера-Планка"
-category: "Физика"
+category: "Physics"
 order: 31
 lang: "ru"
 slug: "fokker-planck-equation"

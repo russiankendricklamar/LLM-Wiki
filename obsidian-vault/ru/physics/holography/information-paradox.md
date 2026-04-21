@@ -1,6 +1,6 @@
 ---
 title: "Парадокс информации чёрных дыр"
-category: "Физика"
+category: "Physics"
 order: 37
 lang: "ru"
 slug: "information-paradox"

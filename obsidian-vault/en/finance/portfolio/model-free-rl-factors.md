@@ -55,7 +55,7 @@ The agent interacts with a market environment by observing states $s_t$ (macro i
 
 1. **PPO (Proximal Policy Optimization)**: A robust on-policy algorithm that uses a "clipped" objective function to prevent updates that are too large, ensuring training stability in noisy financial environments.
 2. **DDPG (Deep Deterministic Policy Gradient)**: An off-policy actor-critic algorithm suitable for continuous action spaces, allowing for precise weight allocation.
-3. **SAC (Soft Actor-Critic)**: Adds an entropy regularization term to the objective, encouraging the agent to maintain a stochastic policy and avoid overconfident allocations.
+3. **SAC (Soft Actor-Critic)**: Adds an [[shannon-entropy|entropy]] regularization term to the objective, encouraging the agent to maintain a stochastic policy and avoid overconfident allocations.
 
 The objective is to maximize the expected discounted cumulative reward:
 

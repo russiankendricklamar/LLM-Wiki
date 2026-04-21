@@ -11,7 +11,7 @@ growth: "seedling"
 
 Stochastic differential equations (SDEs) rarely admit closed-form solutions; numerical approximation is fundamental to applications spanning physics, finance, and generative modeling. This article surveys the main schemes for discretizing [[stochastic-differential-equations]] and measures of their convergence.
 
-## The Standard SDE
+## The Standard [[stochastic-differential-equations|SDE]]
 
 Consider an Itô SDE:
 $$dX_t = \mu(X_t, t)\,dt + \sigma(X_t, t)\,dW_t,$$

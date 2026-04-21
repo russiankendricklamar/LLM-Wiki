@@ -9,7 +9,7 @@ growth: "seedling"
 
 # Soft Actor-Critic (SAC)
 
-**Soft Actor-Critic (SAC)** is the leading off-policy deep RL algorithm for continuous action spaces. Introduced by Haarnoja et al. (2018), it maximises expected return plus **policy entropy** at every step — making exploration automatic and hyperparameter tuning far more robust than competing methods.
+**Soft Actor-Critic (SAC)** is the leading off-policy deep RL algorithm for continuous action spaces. Introduced by Haarnoja et al. (2018), it maximises expected return plus **policy [[shannon-entropy|entropy]]** at every step — making exploration automatic and hyperparameter tuning far more robust than competing methods.
 
 ## Maximum Entropy RL
 
@@ -134,6 +134,6 @@ where $\bar{\mathcal{H}} = -\dim(\mathcal{A})$ is the target entropy. If policy 
 ## Related Topics
 
 - [[reinforcement-learning]] — MDP foundations
-- [[ppo]] — on-policy alternative, used in RLHF
+- [[ppo]] — on-policy alternative, used in [[rlhf]]
 - [[model-based-rl]] — SAC + world models (MBPO, Dreamer)
 - [[offline-rl]] — CQL extends SAC to offline settings

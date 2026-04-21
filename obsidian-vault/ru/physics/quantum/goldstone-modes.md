@@ -1,6 +1,6 @@
 ---
 title: "Голдстоуновские моды"
-category: "Физика"
+category: "Physics"
 order: 30
 lang: "ru"
 slug: "goldstone-modes"

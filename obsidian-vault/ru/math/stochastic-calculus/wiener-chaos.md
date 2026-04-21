@@ -1,6 +1,6 @@
 ---
 title: "Хаос Винера и кратные стохастические интегралы"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 19
 lang: "ru"
 slug: "/math/wiener-chaos"

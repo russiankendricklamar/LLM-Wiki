@@ -73,7 +73,7 @@ This makes the S-matrix — the object encoding all particle physics and gravita
 ## Connections to Information Theory & Holography
 Celestial holography provides a flat-space realization of the holographic principle: all the physics of a 4D universe, including quantum gravity, is encoded in a 2D theory on the celestial sphere. The information content of the S-matrix — including how black holes form and evaporate — is in principle accessible through celestial CFT correlators.
 
-The Ryu-Takayanagi formula does not directly apply in flat space, but analogs are being developed: the area of surfaces in the bulk corresponds to entanglement entropy of regions on the celestial sphere, with the BMS symmetry playing the role of conformal symmetry in organizing the entanglement structure.
+The Ryu-Takayanagi formula does not directly apply in flat space, but analogs are being developed: the area of surfaces in the bulk corresponds to entanglement [[gravitational-entropy|entropy]] of regions on the celestial sphere, with the BMS symmetry playing the role of conformal symmetry in organizing the entanglement structure.
 
 ## See Also
 * [[asymptotic-symmetries]]

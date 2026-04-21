@@ -1,6 +1,6 @@
 ---
 title: "Общая теория относительности"
-category: "Физика"
+category: "Physics"
 order: 27
 lang: "ru"
 slug: "general-relativity"

@@ -136,6 +136,8 @@ Training is hampered by $Z$; Langevin dynamics, score matching and contrastive m
 
 ## Related Topics
 
+- [[flow-matching]] — OT-based path for generative models
+- [[diffusion-models]] — the dominant class of generative models
 - [[generative-scenario-models]] — application to scenario-based financial risk modelling
 - [[schrodinger-equation]] — link to diffusion models via the Schrödinger bridge
 - [[monte-carlo-method]] — classical sampling technique that these models generalise

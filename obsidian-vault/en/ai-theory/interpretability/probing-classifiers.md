@@ -19,7 +19,7 @@ $$
 \mathcal{L}_\text{probe} = \mathbb{E}_{(x,y)\sim\mathcal{D}}\!\left[\ell(g_\phi(f_l(x)), y)\right],
 $$
 
-where $f_l(x)$ is the activation at layer $l$ for input $x$, and $\ell$ is cross-entropy. $f$ is frozen; only $g_\phi$ is trained.
+where $f_l(x)$ is the activation at layer $l$ for input $x$, and $\ell$ is cross-[[shannon-entropy|entropy]]. $f$ is frozen; only $g_\phi$ is trained.
 
 ## Linear vs Nonlinear Probes
 
@@ -85,4 +85,4 @@ Probing reveals *where* information is; it doesn't tell us *how* the model uses 
 - [[mechanistic-interpretability]] — broader interpretability programme
 - [[activation-patching]] — causal complement to probing
 - [[sparse-autoencoders]] — monosemantic decomposition of representations
-- [[attention-head-analysis]] — head-level probing of attention patterns
+- [[attention-head-analysis]] — head-level probing of [[attention-mechanisms|attention]] patterns

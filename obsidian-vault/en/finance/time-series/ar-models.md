@@ -54,7 +54,7 @@ $$
 \Phi(z) = 1 - \phi_1 z - \phi_2 z^2 - \cdots - \phi_p z^p = 0 \implies |z_i| > 1 \; \forall i
 $$
 
-Equivalently, the eigenvalues of the companion matrix $\mathbf{F}$ must lie inside the unit circle:
+Equivalently, the [[spectral-theory-operators|eigenvalues]] of the companion matrix $\mathbf{F}$ must lie inside the unit circle:
 
 $$
 \mathbf{F} = \begin{pmatrix} \phi_1 & \phi_2 & \cdots & \phi_p \\ 1 & 0 & \cdots & 0 \\ 0 & 1 & \cdots & 0 \\ \vdots & & \ddots & \vdots \end{pmatrix}

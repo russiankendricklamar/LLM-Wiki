@@ -73,7 +73,7 @@ Shiryaev's constructive route to proving FTAP runs through conditional Esscher. 
 
 In an [[complete-incomplete-markets|incomplete model]] the equation $M_k(\theta_k + 1)/M_k(\theta_k) = e^r$ may have many solutions (or a parameter family), and each one defines its own EMM. This is the multiple choice that produces the interval of [[upper-lower-hedging-prices|upper and lower prices]].
 
-In models with jumps the **minimum Esscher measure** (with the smallest $\theta$) is often singled out as canonical — it minimizes the relative entropy of $\mathbb{Q}$ with respect to $\mathbb{P}$ and in a sense changes the historical model the least.
+In models with jumps the **minimum Esscher measure** (with the smallest $\theta$) is often singled out as canonical — it minimizes the relative [[shannon-entropy|entropy]] of $\mathbb{Q}$ with respect to $\mathbb{P}$ and in a sense changes the historical model the least.
 
 ## Related Articles
 

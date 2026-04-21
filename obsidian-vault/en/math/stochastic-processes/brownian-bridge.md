@@ -29,7 +29,7 @@ $$X_t = a + (b - a)\frac{t}{T} + B_t^{\text{br}}$$
 
 Here the linear trend $a + (b - a)t/T$ enforces the boundary conditions $X_0 = a$ and $X_T = b$, while the Brownian bridge adds random fluctuation with pinned endpoints.
 
-## SDE Representation and Numerical Singularity
+## [[stochastic-differential-equations|SDE]] Representation and Numerical Singularity
 
 The Brownian bridge satisfies the stochastic differential equation:
 
@@ -45,7 +45,7 @@ The bridge admits an orthogonal expansion in the eigenfunctions of its covarianc
 
 $$B_t^{\text{br}} = \sqrt{2} \sum_{n=1}^{\infty} Z_n \frac{\sin(n\pi t/T)}{n\pi}$$
 
-where $Z_n \sim \mathcal{N}(0, 1)$ are independent standard Gaussians, and the corresponding eigenvalues are:
+where $Z_n \sim \mathcal{N}(0, 1)$ are independent standard Gaussians, and the corresponding [[spectral-theory-operators|eigenvalues]] are:
 
 $$\lambda_n = \frac{1}{(n\pi)^2}$$
 

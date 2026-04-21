@@ -61,7 +61,7 @@ Why is $C$ unchanged? The quadratic variation $\langle X^c \rangle$ is a **path-
 
 ## Jump part and incompleteness
 
-If the process has jumps, $\mathbb{Q}$ can **re-intensify** them (change probabilities of specific jump sizes) in essentially arbitrary ways. This produces an entire family of EMMs — hence the **incompleteness** of jump models. On an incomplete market an additional criterion is needed to pick $\mathbb{Q}$ (minimum entropy, [[discrete-girsanov-esscher|Esscher]], etc.).
+If the process has jumps, $\mathbb{Q}$ can **re-intensify** them (change probabilities of specific jump sizes) in essentially arbitrary ways. This produces an entire family of EMMs — hence the **incompleteness** of jump models. On an incomplete market an additional criterion is needed to pick $\mathbb{Q}$ (minimum [[shannon-entropy|entropy]], [[discrete-girsanov-esscher|Esscher]], etc.).
 
 In a purely diffusive model (no jumps) $Y \equiv 1$ automatically, and the only freedom is the choice of $\beta$. In one dimension this is one scalar equation with a unique solution — hence the completeness of Black-Scholes.
 

@@ -75,7 +75,7 @@ $$
 
 where $\mathbf{H}^{(0)} = \mathbf{X}$, $\mathbf{W}^{(l)}$ is a trainable weight matrix, and $\sigma$ is an activation function. After $K$ layers, each node's representation incorporates information from its $K$-hop neighbourhood.
 
-### Graph Attention Network (GAT)
+### Graph [[attention-mechanisms|Attention]] Network (GAT)
 
 GAT replaces uniform aggregation with learned attention weights. For node $i$, the attention coefficient toward neighbour $j$ is:
 
@@ -97,7 +97,7 @@ $$
 
 ### Systemic Risk via Spectral Graph Theory
 
-The spectral gap $\lambda_2$ (second-smallest eigenvalue of the graph Laplacian $\mathbf{L} = \mathbf{D} - \mathbf{A}$) measures network connectivity:
+The spectral gap $\lambda_2$ (second-smallest eigenvalue of the graph [[spectral-graph-theory|Laplacian]] $\mathbf{L} = \mathbf{D} - \mathbf{A}$) measures network connectivity:
 
 $$
 \mathbf{L} = \mathbf{D} - \mathbf{A}, \quad 0 = \lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_N
@@ -121,7 +121,7 @@ where $\tilde{\mathcal{N}}(v)$ is a fixed-size sample of $v$'s neighbourhood. Th
 
 ### Heterogeneous Credit Graph
 
-Real credit networks contain multiple node types (corporate borrower, bank, sovereign, guarantor) and edge types (loan, bond, equity, guarantee). A heterogeneous graph transformer (HGT) assigns type-specific projections:
+Real credit networks contain multiple node types (corporate borrower, bank, sovereign, guarantor) and edge types (loan, bond, equity, guarantee). A heterogeneous graph [[transformer-architecture|transformer]] (HGT) assigns type-specific projections:
 
 $$
 \mathbf{h}_{t(v)}^{l+1} = \text{Aggregate}\!\!\bigl(\{f_{r}(\mathbf{h}_u^l, \mathbf{h}_v^l) : u \in \mathcal{N}_r(v), r \in \mathcal{R}\}\bigr)
@@ -315,6 +315,6 @@ lr_results = train_and_assess(LogisticBaseline(n_features), graph_data, n_epochs
 
 [[fraud-detection]] — overlapping methodology; GNN fraud detection shares graph construction techniques
 
-[[llm-financial-analysis]] — LLM-extracted covenant and financial text features as GNN node attributes
+[[llm-financial-analysis]] — [[llm]]-extracted covenant and financial text features as GNN node attributes
 
 [[generative-scenario-models]] — generative models for correlated default scenarios, related to GNN contagion outputs

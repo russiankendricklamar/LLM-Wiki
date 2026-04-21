@@ -40,7 +40,7 @@ where $y^*$ is the correct output token. A large $\Delta_{\text{patch}}(l,i)$ me
 
 The **Indirect Object Identification (IOI)** task (Wang et al. 2022) is the canonical patching benchmark. Given "John and Mary went to the store. John gave a book to ___", the correct answer is "Mary".
 
-Patching experiments revealed a circuit of ~28 attention heads responsible for the task:
+Patching experiments revealed a circuit of ~28 [[attention-mechanisms|attention]] heads responsible for the task:
 - **Duplicate Token Heads** (layers 0–3): detect repeated names
 - **S-Inhibition Heads** (layers 7–10): suppress the subject name
 - **Name Mover Heads** (layers 9–10): copy the indirect object to the output
@@ -64,7 +64,7 @@ Patching experiments revealed a circuit of ~28 attention heads responsible for t
 
 ## Factual Recall Patching
 
-Meng et al. (ROME, 2022) used activation patching to localise where GPT models store factual associations. Patching experiments on "The Eiffel Tower is in ___" revealed that early MLP layers (layers 5–8 in GPT-2-XL) are the primary storage site — not attention heads. This motivated the ROME/MEMIT model editing approach.
+Meng et al. (ROME, 2022) used activation patching to localise where GPT models store factual associations. Patching experiments on "The Eiffel Tower is in ___" revealed that early [[transformer-architecture|MLP]] layers (layers 5–8 in GPT-2-XL) are the primary storage site — not attention heads. This motivated the ROME/MEMIT model editing approach.
 
 ## Limitations
 

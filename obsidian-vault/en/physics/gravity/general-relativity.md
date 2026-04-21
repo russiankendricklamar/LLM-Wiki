@@ -22,7 +22,7 @@ Consequences:
 
 Taken seriously, the principle says: there are no global inertial frames in the presence of gravity. Only freely-falling frames, and only locally. Spacetime cannot be flat.
 
-## Spacetime as a curved manifold
+## Spacetime as a curved [[differential-geometry|manifold]]
 
 Spacetime becomes a 4-dimensional pseudo-Riemannian manifold $(M, g_{\mu\nu})$. The invariant line element is
 

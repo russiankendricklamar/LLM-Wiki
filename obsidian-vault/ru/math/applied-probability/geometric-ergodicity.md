@@ -1,6 +1,6 @@
 ---
 title: "Геометрическая эргодичность"
-category: "Прикладная вероятность"
+category: "Applied Probability"
 order: 24
 lang: "ru"
 slug: "/math/geometric-ergodicity"

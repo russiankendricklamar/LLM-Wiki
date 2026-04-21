@@ -1,6 +1,6 @@
 ---
 title: "Численные методы для СДУ"
-category: "Стохастическое исчисление"
+category: "Stochastic Calculus"
 order: 21
 lang: "ru"
 slug: "/math/sde-numerical-methods"

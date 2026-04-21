@@ -7,11 +7,11 @@ slug: "inference-serving"
 growth: "seedling"
 ---
 
-LLM inference serving in production is the problem of delivering predictions with minimal latency and maximum throughput under constrained memory and compute. The critical bottleneck: KV-cache memory grows $O(L \times n_{\text{layers}} \times d_{\text{head}})$ per request, where $L$ is sequence length. For a 7B model at 4096 tokens, KV-cache consumes ~1 GB — inference becomes **memory-bound**, not compute-bound. Classical static batching is inefficient: when requests finish at different times, GPU idle. Modern inference systems (vLLM, TensorRT-LLM, TGI) solve this through **PagedAttention** and **continuous batching**, achieving 3-4× throughput gains by eliminating memory fragmentation and enabling asynchronous request scheduling.
+[[llm]] inference serving in production is the problem of delivering predictions with minimal latency and maximum throughput under constrained memory and compute. The critical bottleneck: KV-cache memory grows $O(L \times n_{\text{layers}} \times d_{\text{head}})$ per request, where $L$ is sequence length. For a 7B model at 4096 tokens, KV-cache consumes ~1 GB — inference becomes **memory-bound**, not compute-bound. Classical static batching is inefficient: when requests finish at different times, GPU idle. Modern inference systems (vLLM, TensorRT-LLM, TGI) solve this through **PagedAttention** and **continuous batching**, achieving 3-4× throughput gains by eliminating memory fragmentation and enabling asynchronous request scheduling.
 
 ## KV-cache: the memory-compute trade-off
 
-During autoregressive generation, the model processes one new token per step. Without caching, this requires $O(L^2)$ operations: recompute attention over all prior tokens. With KV-cache, key and value matrices for past tokens are stored; each new token requires only $O(L)$ operations (single forward pass), but memory grows linearly.
+During autoregressive generation, the model processes one new token per step. Without caching, this requires $O(L^2)$ operations: recompute [[attention-mechanisms|attention]] over all prior tokens. With KV-cache, key and value matrices for past tokens are stored; each new token requires only $O(L)$ operations (single forward pass), but memory grows linearly.
 
 Memory for KV-cache: $M = 2 \times n_{\text{layers}} \times n_{\text{tokens}} \times d_{\text{head}} \times \text{batch\_size} \times 4\text{ bytes}$
 
@@ -46,13 +46,13 @@ Inference splits into two phases with opposite characteristics:
 
 **Prefill** (processing prompt): $n_{\text{prompt}}$ tokens in single forward pass. Compute-bound; can use large batch. However, huge batch adds latency to **time-to-first-token (TTFT)** — delay before first output appears.
 
-**Decode** (generation): one token per forward pass, autoregressive. Memory-bound; throughput limited by HBM bandwidth. Large batch adds negligible TTFT (all requests wait for decode anyway) but can exceed memory.
+**Decode** (generation): one token per forward pass, autoregressive. Memory-bound; throughput limited by [[flash-attention|HBM]] bandwidth. Large batch adds negligible TTFT (all requests wait for decode anyway) but can exceed memory.
 
 **Disaggregation**: some systems separate prefill and decode across different GPU tiers or even separate machines. Prefill GPU handles many prompt-heavy requests in parallel; decode GPU with modest memory capacity serves generation. Requires network overhead but balances load across heterogeneous hardware.
 
 ## Flash Attention for long contexts
 
-Flash Attention (Dao et al., 2022) reorders the attention computation $\text{softmax}(QK^T/\sqrt{d_k})V$ to minimize HBM reads/writes. Classical attention requires $O(L^2)$ HBM I/O; Flash Attention achieves $O(L)$ via fused kernel that materializes computation in fast SRAM.
+Flash Attention (Dao et al., 2022) reorders the attention computation $\text{softmax}(QK^T/\sqrt{d_k})V$ to minimize HBM reads/writes. Classical attention requires $O(L^2)$ HBM I/O; Flash Attention achieves $O(L)$ via fused kernel that materializes computation in fast [[flash-attention|SRAM]].
 
 For contexts >4K tokens, Flash Attention is critical. On 32K+ contexts, it delivers 2-3× speedup vs. standard attention.
 

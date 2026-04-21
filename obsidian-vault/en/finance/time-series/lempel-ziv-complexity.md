@@ -7,7 +7,7 @@ lang: "en"
 ---
 # Lempel-Ziv Complexity (LZ)
 
-**Lempel-Ziv (LZ) Complexity** is a measure used to quantify the randomness or structural complexity of a time series based on the rate at which new patterns emerge. Unlike Shannon entropy, which focuses on the probability distribution of values, LZ complexity measures the "compressibility" of the sequence. In finance, it is a key metric for assessing market efficiency and structural shifts.
+**Lempel-Ziv (LZ) Complexity** is a measure used to quantify the randomness or structural complexity of a time series based on the rate at which new patterns emerge. Unlike Shannon [[shannon-entropy|entropy]], which focuses on the probability distribution of values, LZ complexity measures the "compressibility" of the sequence. In finance, it is a key metric for assessing market efficiency and structural shifts.
 
 ## Background and History
 

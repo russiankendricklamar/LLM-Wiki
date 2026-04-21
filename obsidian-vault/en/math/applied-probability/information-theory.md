@@ -11,7 +11,7 @@ growth: "seedling"
 
 Information theory, founded by Claude Shannon in 1948, formalizes the notion of information as a quantitative measure of uncertainty and data compressibility. It establishes fundamental limits on the transmission, storage, and processing of information in the presence of noise, and reveals deep connections to statistical mechanics, machine learning, and quantum mechanics.
 
-## Shannon Entropy
+## Shannon [[shannon-entropy|Entropy]]
 
 **Entropy** of a discrete random variable $X$ with probability distribution $p(x) = \mathbb{P}(X = x)$ is defined as:
 

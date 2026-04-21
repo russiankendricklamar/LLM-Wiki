@@ -17,7 +17,7 @@ The canonical example of an SPDE is the **stochastic heat equation**:
 
 $$\partial_t u(t,x) = \Delta u(t,x) + \dot{W}(t,x), \quad (t,x) \in \mathbb{R}_+ \times \mathbb{R}^d$$
 
-where $\dot{W}$ denotes space-time white noise and $\Delta$ is the Laplacian operator. The primary challenge: $\dot{W}$ has formal covariance $\delta(t-s)\delta(x-y)$, so the noise is not a function in the classical sense. Integration requires the **Walsh integral** on $L^2(\mathbb{R}_+ \times \mathbb{R}^d)$, a measure-theoretic object that assigns measure to rectangles in space-time.
+where $\dot{W}$ denotes space-time white noise and $\Delta$ is the [[spectral-graph-theory|Laplacian]] operator. The primary challenge: $\dot{W}$ has formal covariance $\delta(t-s)\delta(x-y)$, so the noise is not a function in the classical sense. Integration requires the **Walsh integral** on $L^2(\mathbb{R}_+ \times \mathbb{R}^d)$, a measure-theoretic object that assigns measure to rectangles in space-time.
 
 ## Mild Solutions and the Semigroup Approach
 

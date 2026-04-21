@@ -1,6 +1,6 @@
 ---
 title: "Колмогоровская сложность"
-category: "Теория AI"
+category: "AI Theory"
 order: 2
 lang: "ru"
 slug: "kolmogorov-complexity"

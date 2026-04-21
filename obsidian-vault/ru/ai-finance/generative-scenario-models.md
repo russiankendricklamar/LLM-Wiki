@@ -1,6 +1,6 @@
 ---
 title: "Генеративные модели для сценарного анализа"
-category: "Научное ML"
+category: "Scientific ML"
 order: 4
 lang: "ru"
 slug: "generative-scenario-models"

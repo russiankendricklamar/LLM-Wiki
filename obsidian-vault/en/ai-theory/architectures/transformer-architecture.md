@@ -8,7 +8,7 @@ slug: "transformer-architecture"
 
 # Transformer Architecture
 
-The **Transformer** (Vaswani et al. 2017, "Attention is All You Need") is a neural architecture built entirely on the **attention** mechanism, without convolutions or recurrences. In the five years following its publication, it displaced RNNs and LSTMs from most sequence-processing tasks, became the basis of [[llm|large language models]], and spread to vision (ViT), audio, generative models, and time series. The Transformer is now the single most widely used architecture in modern ML.
+The **Transformer** (Vaswani et al. 2017, "[[attention-mechanisms|Attention]] is All You Need") is a neural architecture built entirely on the **attention** mechanism, without convolutions or recurrences. In the five years following its publication, it displaced RNNs and LSTMs from most sequence-processing tasks, became the basis of [[llm|large language models]], and spread to vision (ViT), audio, generative models, and time series. The Transformer is now the single most widely used architecture in modern ML.
 
 ## Visualization
 
@@ -36,6 +36,24 @@ The chart compares attention complexity ($O(n^2)$) vs. linear attention ($O(n)$)
     {"dataKey": "linear_mem", "stroke": "#10b981", "name": "Linear attention O(n) memory (GB)"}
   ]
 }
+```
+
+## Block Architecture
+
+```mermaid
+graph TD
+    X[Input Tokens] --> Emb[Embedding + Positional Encoding]
+    Emb --> Attn[Multi-Head Attention]
+    Attn --> AddNorm1[Add & Norm]
+    AddNorm1 --> FFN[Feed-Forward Network]
+    FFN --> AddNorm2[Add & Norm]
+    AddNorm2 --> Out[Next Layer / Output]
+    
+    Emb -.->|Residual| AddNorm1
+    AddNorm1 -.->|Residual| AddNorm2
+    
+    style Attn fill:#6366f1,stroke:#fff,color:#fff
+    style FFN fill:#8b5cf6,stroke:#fff,color:#fff
 ```
 
 ## Why Not RNNs
@@ -110,7 +128,7 @@ Every layer is complemented with:
 
 Self-attention has $O(n^2 d)$ complexity in the sequence length $n$, which is the main limit. For $n = 100K$ tokens, quadratic cost is prohibitive. Strategies:
 
-- **Flash Attention** (Dao et al. 2022) — an IO-optimal GPU implementation; $2\text{-}4\times$ speedup with no loss in accuracy.
+- **Flash Attention** (Dao et al. 2022) — an IO-optimal [[inference-serving|GPU]] implementation; $2\text{-}4\times$ speedup with no loss in accuracy.
 - **Sliding Window / Sparse Attention** (Longformer, BigBird) — local attention plus separate global tokens.
 - **Linear Attention** — a kernel re-formulation: $\text{Att}(Q, K, V) \approx \phi(Q)(\phi(K)^\top V)$, giving $O(n)$.
 - **State Space Models (Mamba)** — an alternative to Transformers with linear cost and similar expressiveness.
@@ -123,7 +141,7 @@ These [[neural-scaling-laws|scaling laws]] drive the modern race: bigger $N$ (pa
 - **Vision Transformer (ViT, Dosovitskiy et al. 2020)** — splits images into 16×16 patches and processes them as a sequence. Beats CNNs on large data.
 - **Audio Spectrogram Transformer (AST)** — applied to audio spectrograms.
 - **Decision Transformer** — RL as a seq2seq prediction of actions.
-- **Graphormer** — a Transformer on graphs with a Laplacian positional encoding.
+- **Graphormer** — a Transformer on graphs with a [[spectral-graph-theory|Laplacian]] positional encoding.
 - **[[temporal-fusion-transformer]]** — specialised Transformer for multi-horizon time-series forecasting.
 
 ## Applications
@@ -139,5 +157,8 @@ These [[neural-scaling-laws|scaling laws]] drive the modern race: bigger $N$ (pa
 - [[temporal-fusion-transformer]] — a specialised Transformer for financial time series
 - [[llm]] — large language models built on Transformers
 - [[mixture-of-experts]] — scaling Transformers through sparse activation
+- [[flash-attention]] — IO-optimal GPU implementation of attention
+- [[mla]] — Multi-head Latent Attention (as used in DeepSeek-V3)
+- [[induction-heads]] — the mechanism behind in-context learning
 - [[mechanistic-interpretability]] — studying what attention heads actually learn
 - [[neural-scaling-laws]] — empirical laws for Transformers

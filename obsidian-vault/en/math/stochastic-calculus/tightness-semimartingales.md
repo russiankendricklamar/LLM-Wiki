@@ -86,7 +86,7 @@ Without step (1), steps (2)-(4) are meaningless. Tightness is the foundation on 
 
 **High-frequency limits.** In financial econometrics, tightness of statistics (realized volatility, power variations) computed from high-frequency data is established through the UT condition, ensuring that discretization effects vanish in the limit.
 
-**Numerical schemes.** Convergence of Euler-Maruyama discretizations to SDE solutions requires tightness of the discrete approximations, which follows from Rebolledo's theorem applied to the scheme's characteristics.
+**Numerical schemes.** Convergence of Euler-Maruyama discretizations to [[stochastic-differential-equations|SDE]] solutions requires tightness of the discrete approximations, which follows from Rebolledo's theorem applied to the scheme's characteristics.
 
 ## Related Articles
 

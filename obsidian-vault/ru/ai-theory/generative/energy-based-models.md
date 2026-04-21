@@ -1,6 +1,6 @@
 ---
 title: "Энергетические модели"
-category: "Теория AI"
+category: "AI Theory"
 order: 22
 lang: "ru"
 slug: "energy-based-models"

@@ -83,7 +83,7 @@ Because the nonlinear filter is infinite-dimensional, practical implementation r
 
 - **Extended Kalman filter (EKF).** Linearize $h$ around the current estimate and apply the [[kalman-filter|Kalman update]]. Simple but can diverge when the nonlinearity is severe.
 - **Particle filters.** Represent $\pi_t$ by a weighted empirical measure with $N$ particles, propagated by sequential Monte Carlo. See [[particle-filter]]. Convergence as $N \to \infty$ follows from the law of large numbers for interacting particle systems.
-- **Projection filters.** Project the Kushner-Stratonovich equation onto a finite-dimensional manifold of densities (e.g., exponential families), yielding a finite SDE for the parameters.
+- **Projection filters.** Project the Kushner-Stratonovich equation onto a finite-dimensional [[manifold-learning|manifold]] of densities (e.g., exponential families), yielding a finite [[stochastic-differential-equations|SDE]] for the parameters.
 - **Spectral methods.** Expand the conditional density in eigenfunctions of $\mathcal{L}$ and truncate, converting the Zakai SPDE into a finite system of SDEs.
 
 The choice among these methods depends on the dimension of $\theta$, the severity of the nonlinearity in $h$, and the real-time constraints of the application.

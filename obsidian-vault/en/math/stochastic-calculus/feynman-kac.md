@@ -131,7 +131,7 @@ expressing the derivative price as a discounted conditional expectation of the p
 
 The traditional approach to solving a parabolic PDE is space-time discretization (finite differences, finite elements). The Feynman-Kac formula offers an **alternative**: numerically estimate the conditional expectation by Monte Carlo:
 
-1. Simulate $N$ independent trajectories $(X_s^{(i)})_{s \in [t, T]}$ from the SDE, starting at $X_t = x$.
+1. Simulate $N$ independent trajectories $(X_s^{(i)})_{s \in [t, T]}$ from the [[stochastic-differential-equations|SDE]], starting at $X_t = x$.
 2. For each trajectory, compute the weighted terminal payoff: $e^{\int_t^T V(s, X_s^{(i)})\,ds} \cdot g(X_T^{(i)})$.
 3. Average: $u(t, x) \approx \frac{1}{N}\sum_{i=1}^N e^{\int_t^T V(s, X_s^{(i)})\,ds} \cdot g(X_T^{(i)})$.
 

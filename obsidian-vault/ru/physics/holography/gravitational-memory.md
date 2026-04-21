@@ -1,6 +1,6 @@
 ---
 title: Гравитационная память
-category: "Физика"
+category: "Physics"
 lang: ru
 order: 11
 slug: gravitational-memory

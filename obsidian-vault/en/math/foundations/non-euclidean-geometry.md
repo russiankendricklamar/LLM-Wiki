@@ -74,7 +74,7 @@ def gaussian_curvature(f, x: float, y: float, h: float = 1e-5) -> float:
 
 ## Connection to Physics
 
-The deepest application of non-Euclidean geometry is **[[general-relativity|general relativity]]** (Einstein, 1915), in which spacetime is a 4-dimensional pseudo-Riemannian manifold whose curvature is determined by mass-energy:
+The deepest application of non-Euclidean geometry is **[[general-relativity|general relativity]]** (Einstein, 1915), in which spacetime is a 4-dimensional pseudo-Riemannian [[manifold-learning|manifold]] whose curvature is determined by mass-energy:
 
 $$G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}$$
 

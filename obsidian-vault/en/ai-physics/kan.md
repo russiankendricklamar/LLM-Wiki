@@ -16,7 +16,7 @@ slug: "kan"
 
 Kolmogorov-Arnold Networks (KANs), introduced by Liu et al. (2024), are a neural network architecture inspired by the Kolmogorov-Arnold representation theorem. Instead of placing fixed nonlinear activation functions at nodes (as in MLPs), KANs place **learnable activation functions on edges**. This seemingly minor shift produces networks that are more interpretable, capable of symbolic regression, and often achieve comparable accuracy with fewer parameters than MLPs on scientific tasks.
 
-KANs attracted widespread attention because they promised a path toward _neural networks that discover mathematical formulas_ — a long-standing goal in scientific machine learning. The architecture is closely tied to function approximation theory and provides a natural interface for extracting symbolic expressions from trained models.
+KANs attracted widespread [[attention-mechanisms|attention]] because they promised a path toward _neural networks that discover mathematical formulas_ — a long-standing goal in scientific machine learning. The architecture is closely tied to function approximation theory and provides a natural interface for extracting symbolic expressions from trained models.
 
 ## Visualization
 
@@ -35,7 +35,7 @@ KANs attracted widespread attention because they promised a path toward _neural 
   ],
   "lines": [
     {"dataKey": "KAN_params", "stroke": "#8b5cf6", "name": "KAN parameters"},
-    {"dataKey": "MLP_params", "stroke": "#ef4444", "name": "MLP parameters (same accuracy)"}
+    {"dataKey": "MLP_params", "stroke": "#ef4444", "name": "[[transformer-architecture|MLP]] parameters (same accuracy)"}
   ]
 }
 ```

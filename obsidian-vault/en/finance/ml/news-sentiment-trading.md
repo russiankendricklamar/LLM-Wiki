@@ -21,7 +21,7 @@ The FinBERT model (Araci, 2019), fine-tuned on financial news and analyst report
 2. **Preprocessing**: Tokenization, removing stop words, and entity recognition (identifying which ticker the news is about).
 3. **Sentiment Scoring**:
    - **Lexicon-based**: Using financial-specific dictionaries like Loughran-McDonald.
-   - **BERT/FinBERT**: Using Transformer models pre-trained on financial text for nuanced understanding.
+   - **BERT/FinBERT**: Using [[transformer-architecture|Transformer]] models pre-trained on financial text for nuanced understanding.
 4. **Signal Generation**: Aggregating scores over a window (e.g., 1 hour) and using a Z-score to identify sentiment shocks.
 
 ## Mathematical Formulation
