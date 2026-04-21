@@ -16,6 +16,10 @@ const ChartRendererLazy = React.lazy(() =>
   import('./ChartRenderer').then(m => ({ default: m.ChartRenderer }))
 );
 
+const SimulationRendererLazy = React.lazy(() =>
+  import('./SimulationRenderer').then(m => ({ default: m.SimulationRenderer }))
+);
+
 interface MarkdownRendererProps {
   content: string;
   className?: string;
@@ -114,6 +118,23 @@ const CodeBlock = ({
         return (
           <div className="p-4 my-6 text-sm text-red-500 bg-red-500/10 border border-red-500/20 rounded-lg">
             Failed to parse chart JSON configuration.
+          </div>
+        );
+      }
+    }
+
+    if (language === 'simulation') {
+      try {
+        const simConfig = JSON.parse(String(children));
+        return (
+          <React.Suspense fallback={<div className="h-64 animate-pulse bg-zinc-100 dark:bg-zinc-800 rounded-lg my-6" />}>
+            <SimulationRendererLazy type={simConfig.type} config={simConfig} />
+          </React.Suspense>
+        );
+      } catch (e) {
+        return (
+          <div className="p-4 my-6 text-sm text-red-500 bg-red-500/10 border border-red-500/20 rounded-lg">
+            Failed to parse simulation configuration.
           </div>
         );
       }

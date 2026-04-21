@@ -190,6 +190,16 @@ print(f"95% band at T=1:     [{stats['lower_95'][-1]:.2f}, {stats['upper_95'][-1
 3. **Portfolio simulation**: Long-horizon wealth projections and retirement planning models use GBM to generate equity return scenarios.
 4. **Real options analysis**: Capital budgeting decisions (invest now vs. wait) are modelled as options on GBM-driven project values.
 
+## Interactive Path Simulation
+
+Experiment with drift and volatility to see how they shape the random trajectories of an asset price.
+
+```simulation
+{
+  "type": "sde"
+}
+```
+
 ## Related Topics
 - [[brownian-motion]]
 - [[black-scholes]]

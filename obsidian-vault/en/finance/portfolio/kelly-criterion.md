@@ -193,6 +193,16 @@ for label, frac in [("Full Kelly", 1.0), ("Half Kelly", 0.5), ("Over-bet 1.5x", 
 3. **Venture capital allocation**: Allocate between portfolio companies according to Kelly weights derived from success probability and payoff multiple estimates.
 4. **Leverage management**: The continuous Kelly fraction gives the maximum sustainable leverage for a risky asset; exceeding it leads to eventual ruin with probability 1.
 
+## Interactive Simulation
+
+Use the simulator below to explore how different bet sizes affect capital growth. Note how betting more than the Kelly fraction leads to higher volatility and eventual ruin.
+
+```simulation
+{
+  "type": "kelly"
+}
+```
+
 ## Related Topics
 - [[levy-processes]]
 - [[pairs-trading-strategy]]
