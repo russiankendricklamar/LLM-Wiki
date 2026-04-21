@@ -6,39 +6,56 @@ lang: "en"
 slug: "path-dependent-volatility"
 ---
 
-# Path-Dependent Volatility Models
+# Path-Dependent Volatility: Beyond Local Volatility
 
-Standard stochastic volatility models (like Heston) assume that volatility is driven by an independent random process. However, empirical evidence suggests that volatility is often a function of the **historical path** of the asset returns. **Path-Dependent Volatility (PDV)** models formalize this by making $\sigma_t$ a functional of the past.
+In the classical world of option pricing, Dupire's **Local Volatility (LV)** assumes that volatility is a deterministic function of the current stock price and time: $\sigma(t, S_t)$. While LV can perfectly fit the market "smile" of vanilla options, it fails to capture the dynamics of **path-dependent exotic options** (like Barriers or Lookbacks). **Path-Dependent Volatility (PDV)** models solve this by making volatility a function of the entire history of the asset.
 
-## The Leverage Effect and Feedback
+## 1. The Limitation of Dupire's Model
 
-The most common path dependency is the **Leverage Effect**: volatility tends to increase when the price falls. PDV models capture this and more complex "feedback loops" where the speed and direction of past moves dictate current risk.
+Dupire's model implies a specific relationship between the "spot" price move and the "smile" move. In reality, when the spot price returns to a previous level, the smile often has a different shape because the **realized path** was different. This "memory" is what PDV captures.
 
-## General Form
+## 2. Models of Julien Guyon
 
-A generic PDV model evolves as:
-$$dS_t = \mu S_t dt + \sigma(t, \{S_u\}_{u \leq t}) S_t dW_t$$
-where the volatility $\sigma_t$ depends on the entire trajectory $\{S_u\}$.
+**Julien Guyon** (2014) introduced a class of models where volatility is a function of a path-dependent statistic, such as the **Running Maximum** ($M_t = \max_{u \leq t} S_u$) or the **Moving Average**.
 
-## 1. Weighted Realized Volatility
-A popular version defines $\sigma_t$ as a weighted average of past squared returns:
-$$\sigma_t^2 = \alpha \int_{-\infty}^t e^{-\lambda(t-s)} d[\ln S]_s$$
-This looks like a continuous-time version of **GARCH**, where recent shocks have a decaying impact on future volatility.
+The price evolves as:
+$$dS_t = \sigma(t, S_t, H_t) S_t dW_t$$
+where $H_t$ is the historical statistic. 
+- **Advantage**: These models can be calibrated to fit both the vanilla smile AND the market prices of Barrier options simultaneously, which is impossible for standard LV or Heston models.
 
-## 2. Path-Dependent Volatility in Quantitative Finance (Guyon)
-**Julien Guyon** (2014) introduced models where volatility is a function of the **running maximum** or the **average price**. 
-- *Why?* To calibrate to exotic options (like Barriers or Lookbacks) while still fitting the standard vanilla smile. Local Volatility models often fail to capture the dynamics of path-dependent options simultaneously with vanillas.
+## 3. Calibration via Particle Methods
 
-## 3. Rough Paths and Signatures
-Modern PDV research uses **Path Signatures** to represent the history. The signature acts as a "feature vector" of the path, allowing the model to capture high-order interactions (like the "twist" or "area" of the path) that simple averages miss.
+Calibrating a PDV model is a massive computational challenge. To find the functional $\sigma$, one must solve the **McKean-Vlasov** stochastic differential equation, where the coefficients depend on the probability distribution of the paths themselves.
 
-## Why It Matters for AI
+The industry-standard solution is the **Interacting Particle System**:
+1.  Simulate $N$ (e.g., 100,000) paths of the asset.
+2.  At each time step, calculate the conditional expectation $\mathbb{E}[\text{Var} \mid S_t, H_t]$ by averaging over the particles that are "near" the target state.
+3.  Update the volatility function and proceed to the next step.
 
-PDV models are naturally suited for **Neural SDEs**. Instead of hand-crafting the functional $\sigma(t, \dots)$, we can use a **GRU or LSTM** to encode the history of prices into a hidden state $h_t$, which then predicts the instantaneous volatility.
+## 4. Connection to Signature-based Models
+
+The most general way to represent "Path Dependency" is through **Path Signatures** (from [[rough-paths|Rough Path Theory]]). By taking the signature of the past returns as an input to a neural network (see [[neural-sdes-finance]]), quants can create a "Universal PDV Model" that learns which parts of the history (e.g., the trend, the twist, or the area) are most relevant for future volatility.
+
+## Visualization: Path-Memory effect
+
+```mermaid
+graph TD
+    PriceA[Price: $100 via slow climb] --> VolA[Low Volatility]
+    PriceB[Price: $100 via crash & recovery] --> VolB[High Volatility]
+    
+    subgraph Path_Dependency
+        PriceA
+        PriceB
+    end
+    
+    VolA ---|PDV Model| Difference[Model distinguishes between states]
+    VolB ---|PDV Model| Difference
+```
+*Standard models see only "$100$". Path-dependent models see the "Story" of how we got to $100$, leading to more accurate risk pricing.*
 
 ## Related Topics
 
-[[rough-volatility]] — a specific type of path-dependent scaling  
-[[garch-models]] — the discrete-time ancestor  
-[[signature-based-models]] — the modern mathematical language for paths
+[[lsv-model]] — combining path-dependency with stochasticity  
+[[hmm-particle-filters]] — the math of interacting particles  
+[[signature-based-models]] — representing history via iterated integrals
 ---

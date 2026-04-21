@@ -1,73 +1,52 @@
 ---
-title: "Bayesian Inference and MAP"
+title: "Bayesian Inference"
 category: "Asymptotic Statistics"
 order: 2
 lang: "en"
 slug: "bayesian-inference"
 ---
 
-# Bayesian Inference and MAP
+# Bayesian Inference: Updating Knowledge with Data
 
-Bayesian inference is a method of statistical inference in which **Bayes' theorem** is used to update the probability for a hypothesis as more evidence or information becomes available. Unlike the frequentist approach (MLE), it treats parameters $\theta$ as random variables with their own distributions.
+Bayesian inference is a method of statistical inference in which **Bayes' Theorem** is used to update the probability for a hypothesis as more evidence or information becomes available. Unlike MLE, which treats parameters as fixed numbers, Bayesianism treats parameters as **Random Variables**.
 
-## Bayes' Theorem for Parameters
+## 1. Bayes' Theorem
 
-The central formula links the **Prior**, **Likelihood**, and **Posterior**:
+The foundation of the framework is:
+$$P(\theta \mid D) = \frac{P(D \mid \theta) P(\theta)}{P(D)}$$
+Where:
+- **Prior $P(\theta)$**: What we believed before seeing data.
+- **Likelihood $P(D \mid \theta)$**: What the data tells us.
+- **Posterior $P(\theta \mid D)$**: Our updated belief.
+- **Evidence $P(D)$**: The total probability of the data (the normalization factor).
 
-$$p(\theta \mid X) = \frac{p(X \mid \theta) p(\theta)}{p(X)}$$
+## 2. Conjugate Priors
 
-- **Prior $p(\theta)$**: Our belief about the parameter *before* seeing the data.
-- **Likelihood $p(X \mid \theta)$**: The data-generating process (same as in MLE).
-- **Posterior $p(\theta \mid X)$**: Our updated belief *after* seeing the data.
-- **Evidence $p(X)$**: A normalization constant (the marginal likelihood).
+For some models, if you choose a specific "Conjugate" prior, the posterior will have the same functional form as the prior.
+- *Example*: If the likelihood is Gaussian and the prior is Gaussian, the posterior is also Gaussian.
+This allows for exact analytical updates without needing a computer.
 
-## Maximum A Posteriori (MAP)
+## 3. Numerical Methods (When Math is Hard)
 
-MAP is a point estimate that chooses the most probable value of $\theta$ under the posterior distribution:
+In most modern AI tasks, the Evidence $P(D) = \int P(D \mid \theta) P(\theta) d\theta$ is impossible to calculate analytically.
 
-$$\hat{\theta}_{MAP} = \arg\max_{\theta} p(\theta \mid X) = \arg\max_{\theta} \left[ \log p(X \mid \theta) + \log p(\theta) \right]$$
+### A. MCMC (Markov Chain Monte Carlo)
+Algorithms like **Metropolis-Hastings** or **Hamiltonian Monte Carlo (HMC)** sample from the posterior by wandering through the parameter space. Over time, the density of samples matches the posterior probability.
 
-MAP is essentially **MLE with Regularization**. 
-- If the prior is Gaussian, MAP is equivalent to **L2 regularization** (Weight Decay).
-- If the prior is Laplace, MAP is equivalent to **L1 regularization** (Lasso).
+### B. Variational Inference (VI)
+Instead of sampling, we turn inference into an **Optimization** problem. We pick a simple distribution $q(\theta)$ (like a Gaussian) and minimize its [[measure-theory|KL Divergence]] from the true posterior. This is the basis of **Variational Autoencoders (VAEs)**.
 
-## Bayesian vs. Frequentist
+## 4. Bayesian vs. Frequentist (MLE)
 
-| Feature | Frequentist (MLE) | Bayesian (MAP/Posterior) |
-|---|---|---|
-| **Parameter $\theta$** | Fixed, unknown constant | Random variable |
-| **Prior** | Not used | Essential |
-| **Result** | A single point estimate | A full distribution |
-| **Overfitting** | Prone without extra steps | Robust due to priors |
+- **Frequentist (MLE)**: "The parameter is a fixed physical constant. Give me the best estimate."
+- **Bayesian**: "The parameter is uncertain. Give me a full distribution of possibilities."
 
-## Conjugate Priors
-
-Bayesian updating is often hard because the evidence $p(X) = \int p(X|\theta)p(\theta)d\theta$ is difficult to compute. **Conjugate priors** are special priors where the posterior stays in the same family as the prior (e.g., Beta prior + Binomial likelihood = Beta posterior).
-
-## Visualization: Updating Beliefs
-
-```chart
-{
-  "type": "line",
-  "xAxis": "x",
-  "data": [
-    {"x": 0, "prior": 0.2, "likelihood": 0.05, "posterior": 0.1},
-    {"x": 1, "prior": 0.4, "likelihood": 0.20, "posterior": 0.3},
-    {"x": 2, "prior": 0.4, "likelihood": 0.80, "posterior": 0.9},
-    {"x": 3, "prior": 0.2, "likelihood": 0.10, "posterior": 0.1}
-  ],
-  "lines": [
-    {"dataKey": "prior", "stroke": "#94a3b8", "name": "Prior (Before Data)"},
-    {"dataKey": "likelihood", "stroke": "#ef4444", "name": "Likelihood (Data)"},
-    {"dataKey": "posterior", "stroke": "#10b981", "name": "Posterior (Result)"}
-  ]
-}
-```
-*The posterior is a "compromise" between our prior beliefs and the evidence provided by the data. As we get more data, the likelihood dominates the prior.*
+In finance, [[bayesian-kelly|Bayesian Kelly]] is superior because it accounts for the fact that our estimates of stock returns are always noisy, preventing over-leveraging and bankruptcy.
 
 ## Related Topics
 
-[[mle]] — the no-prior version  
-[[variational-inference]] — approximating the posterior  
-[[bayesian-nonparametrics]] — infinite-dimensional priors
+[[asymptotic-stats/mle]] — the non-Bayesian counterpart  
+[[mcmc]] — the sampling engine  
+[[variational-autoencoders]] — Bayesian AI in action  
+[[bayesian-black-litterman]] — application in portfolio management
 ---

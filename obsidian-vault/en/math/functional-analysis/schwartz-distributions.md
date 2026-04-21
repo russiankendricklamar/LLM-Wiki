@@ -1,67 +1,58 @@
 ---
 title: "Schwartz Distributions"
 category: "Functional Analysis"
-order: 2
+order: 6
 lang: "en"
 slug: "schwartz-distributions"
 ---
 
-# Schwartz Distributions
+# Schwartz Distributions: Generalized Functions
 
-Schwartz Distributions (or generalized functions) extend the concept of a function. Developed by **Laurent Schwartz** in the 1940s, they provide a rigorous mathematical framework for objects like the **Dirac Delta "function"** and allow us to differentiate any continuous function infinitely many times.
+In standard calculus, functions like the **Dirac Delta** ($\delta(x)$) are not really functions—their value at zero is "infinity" and zero elsewhere, yet their integral is 1. **Schwartz Distributions** (or Generalized Functions), introduced by Laurent Schwartz in the 1950s, provide the rigorous mathematical framework to handle such objects, enabling the modern theory of **Partial Differential Equations (PDEs)**.
 
-## The Space of Test Functions ($\mathcal{D}$)
+## 1. The Core Idea: Functions as Linear Maps
 
-Distributions are not defined by their values at points, but by how they act on **test functions**. The space $\mathcal{D}(\Omega)$ consists of $C^\infty$ functions with compact support (they are zero outside a small region).
+Instead of defining a function by its values $f(x)$, we define a distribution $T$ by how it acts on "well-behaved" **Test Functions** $\phi(x)$. 
+A distribution is a continuous linear functional on the space of smooth functions with compact support ($C_c^\infty$, also called the **Schwartz Space** $\mathcal{D}$).
 
-## Definition of a Distribution
+The action is written as:
+$$\langle T, \phi \rangle$$
+For a normal function $f$, this is just the integral $\int f(x) \phi(x) dx$. For the Dirac Delta, it is $\langle \delta, \phi \rangle = \phi(0)$.
 
-A distribution $T$ is a **continuous linear functional** on the space of test functions. We denote its action as $\langle T, \phi \rangle$.
-- Every integrable function $f$ defines a distribution: $\langle T_f, \phi \rangle = \int f \phi dx$.
-- The **Dirac Delta** $\delta_a$ is a distribution: $\langle \delta_a, \phi \rangle = \phi(a)$. It is not a function in the classical sense because its "value" at $a$ would have to be infinite.
+## 2. Weak Derivatives: Differentiating the Non-Differentiable
 
-## Derivatives of Distributions
-
-Every distribution has a derivative, which is also a distribution. It is defined using integration by parts:
+The greatest power of distributions is that **every distribution has a derivative** that is also a distribution.
+We define the derivative $T'$ by "moving" the derivative onto the test function using integration by parts:
 $$\langle T', \phi \rangle = -\langle T, \phi' \rangle$$
-This implies that objects like the Heaviside step function $H(x)$ have derivatives (the derivative of $H(x)$ is exactly $\delta_0$).
 
-## The Schwartz Space ($\mathcal{S}$) and Tempered Distributions
+- *Example*: The Heaviside step function $H(x)$ is not differentiable in the classical sense. In the sense of distributions, its derivative is the **Dirac Delta**: $H' = \delta$.
+- This allows us to find "weak solutions" to physical equations (like wave shocks or cracks in materials) where classical derivatives blow up.
 
-For Fourier analysis, we use a specific subspace called the **Schwartz space** of functions that "decrease rapidly" (along with all their derivatives). 
-- **Tempered Distributions** ($\mathcal{S}'$) are the dual of this space.
-- The **Fourier Transform** is an isomorphism on $\mathcal{S}'$, which is why we can talk about the frequency spectrum of the Delta function (it is a constant 1).
+## 3. The Fourier Transform of Distributions
 
-## Visualization: The Delta Approximation
+Schwartz defined a special space of "Slowly Increasing" functions (the **Tempered Distributions** $\mathcal{S}'$). These are distributions that can be integrated against functions that decay faster than any polynomial.
+- Tempered distributions have a well-defined **Fourier Transform**.
+- This is why we can talk about the "spectrum" of a delta function (which is a constant 1) even though the delta function doesn't have a standard integral representation.
 
-```chart
-{
-  "type": "line",
-  "xAxis": "x",
-  "data": [
-    {"x": -2, "eps_1": 0.01, "eps_05": 0.00},
-    {"x": -1, "eps_1": 0.10, "eps_05": 0.01},
-    {"x": 0,  "eps_1": 0.80, "eps_05": 2.50},
-    {"x": 1,  "eps_1": 0.10, "eps_05": 0.01},
-    {"x": 2,  "eps_1": 0.01, "eps_05": 0.00}
-  ],
-  "lines": [
-    {"dataKey": "eps_1", "stroke": "#3b82f6", "name": "Wide Spike (ε=1.0)"},
-    {"dataKey": "eps_05", "stroke": "#ef4444", "name": "Narrow Spike (ε=0.5)"}
-  ]
-}
+## 4. Fundamental Solutions (Green's Functions)
+
+A distribution $G$ is a **Fundamental Solution** for a linear operator $L$ if:
+$$LG = \delta$$
+Once you find $G$, you can solve the equation $Lu = f$ for *any* source $f$ using **Convolution**: $u = G * f$. 
+- In electrostatics, the fundamental solution of the Laplacian is the $1/r$ potential. 
+- In [[deep-galerkin|DGM]] and PINNs, the neural network implicitly learns these fundamental solutions to represent physical fields.
+
+## Visualization: Derivative of a Step
+
+```mermaid
+graph TD
+    Step[Heaviside Step Function: 0 to 1] -->|Distributive Derivative| Peak[Dirac Delta: Infinite Spike at 0]
+    Peak -->|Integrate back| Step
 ```
-*As the spikes become narrower and taller while keeping the area equal to 1, they converge in the sense of distributions to the Dirac Delta.*
-
-## Applications
-
-1.  **Physics**: Point charges, point masses, and impulse forces.
-2.  **Signal Processing**: Sampling theory and the Nyquist-Shannon theorem.
-3.  **PDEs**: The theory of Green's functions (the response of a system to a delta-impulse).
 
 ## Related Topics
 
-[[sobolev-spaces]] — distributions with integrability constraints  
-[[physics/classical/partial-differential-equations]] — solving equations with singular sources  
-[[fourier-analysis]] — the natural home for tempered distributions
+[[laplacian]] — the operator whose fundamental solution is a distribution  
+[[fourier-transform]] — the bridge for tempered distributions  
+[[physics/classical/partial-differential-equations]] — solved via weak solutions
 ---

@@ -1,164 +1,63 @@
 ---
 title: "Transformer Architecture"
 category: "AI Theory"
-order: 13
+order: 2
 lang: "en"
 slug: "transformer-architecture"
 ---
 
-# Transformer Architecture
+# Transformer Architecture: The Foundation of LLMs
 
-The **Transformer** (Vaswani et al. 2017, "[[attention-mechanisms|Attention]] is All You Need") is a neural architecture built entirely on the **attention** mechanism, without convolutions or recurrences. In the five years following its publication, it displaced RNNs and LSTMs from most sequence-processing tasks, became the basis of [[llm|large language models]], and spread to vision (ViT), audio, generative models, and time series. The Transformer is now the single most widely used architecture in modern ML.
+The Transformer is the standard neural network architecture for natural language processing, computer vision, and more. It replaced recurrent and convolutional layers with the [[attention-mechanisms|Self-Attention]] mechanism, enabling massive parallelism and unprecedented scaling.
 
-## Visualization
+## 1. The Core Components
 
-The chart compares attention complexity ($O(n^2)$) vs. linear attention ($O(n)$) in memory (GB) as sequence length grows, illustrating why efficient attention variants are needed for long contexts.
+A standard Transformer (like GPT or Llama) consists of two main parts:
+- **Attention Layer**: Where tokens "talk" to each other to share context.
+- **Feed-Forward Network (FFN)**: A point-wise multi-layer perceptron that processes each token individually to extract features.
 
-```chart
-{
-  "type": "line",
-  "xAxis": "seq_len",
-  "data": [
-    {"seq_len": "512", "quadratic_mem": 0.13, "linear_mem": 0.05, "flash_mem": 0.07},
-    {"seq_len": "1K", "quadratic_mem": 0.5, "linear_mem": 0.09, "flash_mem": 0.11},
-    {"seq_len": "2K", "quadratic_mem": 2.0, "linear_mem": 0.18, "flash_mem": 0.19},
-    {"seq_len": "4K", "quadratic_mem": 8.0, "linear_mem": 0.35, "flash_mem": 0.36},
-    {"seq_len": "8K", "quadratic_mem": 32.0, "linear_mem": 0.70, "flash_mem": 0.72},
-    {"seq_len": "16K", "quadratic_mem": 128.0, "linear_mem": 1.40, "flash_mem": 1.44},
-    {"seq_len": "32K", "quadratic_mem": 512.0, "linear_mem": 2.80, "flash_mem": 2.88},
-    {"seq_len": "64K", "quadratic_mem": 2048.0, "linear_mem": 5.60, "flash_mem": 5.76},
-    {"seq_len": "128K", "quadratic_mem": 8192.0, "linear_mem": 11.2, "flash_mem": 11.5},
-    {"seq_len": "256K", "quadratic_mem": 32768.0, "linear_mem": 22.4, "flash_mem": 23.0}
-  ],
-  "lines": [
-    {"dataKey": "quadratic_mem", "stroke": "#ef4444", "name": "Standard attention O(n²) memory (GB)"},
-    {"dataKey": "flash_mem", "stroke": "#f59e0b", "name": "Flash Attention memory (GB)"},
-    {"dataKey": "linear_mem", "stroke": "#10b981", "name": "Linear attention O(n) memory (GB)"}
-  ]
-}
-```
+## 2. Normalization: Stability at Scale
 
-## Block Architecture
+In the original paper, **Post-Norm** was used (Normalize *after* the residual connection). Modern models use **Pre-Norm**:
+1.  **RMSNorm**: A faster variant of LayerNorm that only scales by the root mean square, ignoring the mean centering. 
+2.  **Stability**: Pre-Norm allows training much deeper models (100+ layers) without the gradients exploding in the first few steps.
+
+## 3. Positional Embeddings: Giving Time to Space
+
+Since Attention is permutation-invariant (it doesn't care about order), we must manually inject order information.
+- **Sinusoidal**: The original "static" wave-based approach.
+- **RoPE (Rotary Positional Embeddings)**: The current SOTA (used in Llama/Mistral). It rotates the Query and Key vectors in complex space. This preserves **Relative Distance** information perfectly and allows the model to generalize to context lengths it has never seen during training.
+
+## 4. The Softmax Bottleneck
+
+In the final layer, the model predicts the next token from a vocabulary of ~100,000 words.
+- This is a linear projection $W \cdot h$. 
+- **The Bottleneck**: Mathematically, if the hidden dimension $d$ is smaller than the log of the vocabulary size, the model cannot represent all possible probability distributions of words. This is why scaling the "width" of the Transformer is as important as scaling its "depth."
+
+## 5. Architectural Variants
+
+- **Encoder-Only (BERT)**: Good for understanding/classification.
+- **Decoder-Only (GPT)**: Good for generation.
+- **Encoder-Decoder (T5)**: Good for translation.
+
+## Visualization: The Layer Stack
 
 ```mermaid
 graph TD
-    X[Input Tokens] --> Emb[Embedding + Positional Encoding]
-    Emb --> Attn[Multi-Head Attention]
-    Attn --> AddNorm1[Add & Norm]
-    AddNorm1 --> FFN[Feed-Forward Network]
-    FFN --> AddNorm2[Add & Norm]
-    AddNorm2 --> Out[Next Layer / Output]
-    
-    Emb -.->|Residual| AddNorm1
-    AddNorm1 -.->|Residual| AddNorm2
-    
-    style Attn fill:#6366f1,stroke:#fff,color:#fff
-    style FFN fill:#8b5cf6,stroke:#fff,color:#fff
+    In[Input Tokens] --> Emb[Token + Positional Embeddings]
+    subgraph Block [Transformer Layer xN]
+        Norm1[RMSNorm] --> Attn[Self-Attention]
+        Attn --> Res1[Residual Connection]
+        Res1 --> Norm2[RMSNorm]
+        Norm2 --> FFN[Feed Forward MLP]
+        FFN --> Res2[Residual Connection]
+    end
+    Res2 --> Out[Output Logits]
 ```
-
-## Why Not RNNs
-
-Classical recurrent networks process sequences one token at a time while maintaining a hidden state. This limits:
-
-- **Parallelism**: training cannot be effectively vectorised — each step depends on the previous.
-- **Long-range dependencies**: gradients vanish or explode on long sequences.
-- **Memory**: LSTM and GRU partially solve the gradient problem, but a fixed-size hidden state is a bottleneck.
-
-The Transformer solves all three via self-attention.
-
-## Self-Attention
-
-Given a sequence of $n$ tokens with representations $X \in \mathbb{R}^{n \times d}$, define three linear projections:
-
-$$
-Q = XW^Q, \quad K = XW^K, \quad V = XW^V,
-$$
-
-called **query, key, value**. The scaled dot-product attention mechanism is:
-
-$$
-\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right) V.
-$$
-
-Every token simultaneously "looks at" all others through a weighted sum of their values, where weights come from the dot product of a query with keys. The $\sqrt{d_k}$ normalisation prevents the softmax from saturating at large $d_k$.
-
-Stochastic interpretation: attention is a soft content-based lookup. A query token asks a question, key tokens assign relevance, and values carry the information to fetch.
-
-## Multi-Head Attention
-
-A single attention head is limited: it can learn only one kind of relation. **Multi-head attention** runs $h$ parallel attention mechanisms with different projections and concatenates the results:
-
-$$
-\text{MultiHead}(Q, K, V) = [\text{head}_1, \ldots, \text{head}_h] W^O,
-$$
-
-where $\text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$. This lets the network learn several relations at once: syntactic links, coreference, local and long-range dependencies.
-
-## Positional Encoding
-
-Self-attention is **order-invariant** — without a positional signal, the Transformer treats a sequence as a bag of tokens. Positional embeddings encode order:
-
-- **Sinusoidal** (original 2017): $PE(pos, 2i) = \sin(pos/10000^{2i/d})$, giving smooth interpolation to longer sequences.
-- **Learned** (BERT, GPT-2): positional embedding as an ordinary parameter.
-- **RoPE (Rotary Position Embedding)**: rotates queries and keys in a complex plane; used in LLaMA.
-- **ALiBi**: linear attention biases that extrapolate extremely well.
-
-## Encoder-Decoder Architecture
-
-The original Transformer consisted of an **encoder** and a **decoder**:
-
-- **Encoder** — a stack of $N$ layers of self-attention + feed-forward + residual + layer norm. Maps the input sequence to a contextual representation.
-- **Decoder** — a similar stack with **masked** self-attention (future tokens are hidden) and **cross-attention** to the encoder output.
-
-Modern variants:
-
-- **Encoder-only** (BERT, RoBERTa): for language-understanding tasks.
-- **Decoder-only** (GPT, LLaMA): for generation; [[llm|modern LLMs]] are mostly decoder-only.
-- **Encoder-decoder** (T5, BART): for seq2seq tasks — translation, summarisation.
-
-## Feed-Forward and Normalisation
-
-Every layer is complemented with:
-
-- **Feed-forward network (FFN)** — an MLP of two linear layers with a non-linearity (usually GeLU or SwiGLU in modern LLMs). Applied independently per token.
-- **Residual connections** — $x + \text{Sublayer}(x)$, easing gradient flow in deep stacks.
-- **Layer normalisation** — stabilises activations. Modern models use pre-LN (normalisation before attention/FFN) instead of post-LN.
-
-## Scaling and Complexity
-
-Self-attention has $O(n^2 d)$ complexity in the sequence length $n$, which is the main limit. For $n = 100K$ tokens, quadratic cost is prohibitive. Strategies:
-
-- **Flash Attention** (Dao et al. 2022) — an IO-optimal [[inference-serving|GPU]] implementation; $2\text{-}4\times$ speedup with no loss in accuracy.
-- **Sliding Window / Sparse Attention** (Longformer, BigBird) — local attention plus separate global tokens.
-- **Linear Attention** — a kernel re-formulation: $\text{Att}(Q, K, V) \approx \phi(Q)(\phi(K)^\top V)$, giving $O(n)$.
-- **State Space Models (Mamba)** — an alternative to Transformers with linear cost and similar expressiveness.
-- **Mixture of Experts ([[mixture-of-experts]])** — scaling parameter count without scaling FLOPs.
-
-These [[neural-scaling-laws|scaling laws]] drive the modern race: bigger $N$ (parameters) and $D$ (training tokens) under the Chinchilla ratio.
-
-## Variants Beyond NLP
-
-- **Vision Transformer (ViT, Dosovitskiy et al. 2020)** — splits images into 16×16 patches and processes them as a sequence. Beats CNNs on large data.
-- **Audio Spectrogram Transformer (AST)** — applied to audio spectrograms.
-- **Decision Transformer** — RL as a seq2seq prediction of actions.
-- **Graphormer** — a Transformer on graphs with a [[spectral-graph-theory|Laplacian]] positional encoding.
-- **[[temporal-fusion-transformer]]** — specialised Transformer for multi-horizon time-series forecasting.
-
-## Applications
-
-- **Language models.** GPT-4, Claude, LLaMA, Gemini — all decoder-only Transformers.
-- **Machine translation.** Google Translate, DeepL use encoder-decoder Transformers.
-- **Computer vision.** ViT, DETR, Swin Transformer; Stable Diffusion uses a Transformer inside its U-Net.
-- **Finance.** Time series — [[temporal-fusion-transformer|TFT]], TimesFM; alpha discovery and market making via Transformer backbones.
-- **Science.** AlphaFold2 (proteins), ESM (bioinformatics), GraphCast (weather).
 
 ## Related Topics
 
-- [[temporal-fusion-transformer]] — a specialised Transformer for financial time series
-- [[llm]] — large language models built on Transformers
-- [[mixture-of-experts]] — scaling Transformers through sparse activation
-- [[flash-attention]] — IO-optimal GPU implementation of attention
-- [[mla]] — Multi-head Latent Attention (as used in DeepSeek-V3)
-- [[induction-heads]] — the mechanism behind in-context learning
-- [[mechanistic-interpretability]] — studying what attention heads actually learn
-- [[neural-scaling-laws]] — empirical laws for Transformers
+[[attention-mechanisms]] — the internal engine  
+[[neural-scaling-laws]] — why we keep making Transformers bigger  
+[[mixture-of-experts]] — a way to scale FFNs to trillions of parameters
+---

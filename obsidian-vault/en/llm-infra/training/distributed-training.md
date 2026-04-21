@@ -1,63 +1,67 @@
 ---
-title: "Distributed Training Patterns"
+title: "Distributed Training"
 category: "LLM Infrastructure"
-order: 19
+order: 5
 lang: "en"
 slug: "distributed-training"
 ---
 
-# Distributed Training Patterns: DP, DDP, and ZeRO
+# Distributed Training: Scaling LLMs to Trillions of Parameters
 
-Training Large Language Models (LLMs) requires far more memory and compute than any single GPU can provide. Distributed training patterns allow us to split the workload across multiple GPUs and nodes efficiently.
+A modern LLM (like GPT-4 or Llama 3) is too large to fit in the memory of a single GPU. Even an H100 with 80GB of VRAM cannot hold the weights, gradients, and optimizer states of a 70B parameter model. **Distributed Training** is the engineering science of splitting a model across thousands of GPUs.
 
-## 1. Data Parallelism (DP)
+## 1. The Three Pillars of Parallelism
 
-The simplest form of distributed training. 
-- **The Idea**: Each GPU has a complete copy of the model. The dataset is split into batches, and each GPU processes a different batch.
-- **The Sync**: After the backward pass, gradients from all GPUs are averaged (All-Reduce operation) to update the weights.
-- **Limitation**: If the model is too large to fit into one GPU's memory (VRAM), standard DP fails.
+### A. Data Parallelism (DP)
+Each GPU has a full copy of the model. The dataset is split, and each GPU processes a different batch.
+- **Problem**: Model must fit in one GPU. 
+- **Modern Solution**: **DDP (Distributed Data Parallel)** and **ZeRO**.
 
-## 2. Distributed Data Parallel (DDP)
+### B. Tensor Parallelism (TP)
+Individual layers (matrices) are sliced into pieces. For a matrix multiplication $Y = XW$, one GPU computes the left half of $W$ and another computes the right half.
+- **Use Case**: Intra-node communication (NVLink). It requires extremely high bandwidth because GPUs must sync after every single layer.
 
-An optimized version of DP. Instead of having a "master" GPU that collects and distributes data, DDP uses a multi-process approach where each GPU independently communicates with others. This eliminates the bottleneck of a single master node.
+### C. Pipeline Parallelism (PP)
+Different layers are placed on different GPUs. GPU 1 handles layers 1-10, GPU 2 handles 11-20.
+- **Problem**: **Bubble Time**. While GPU 2 is waiting for GPU 1 to finish, it is idle.
+- **Solution**: **Micro-batching**. Splitting the batch into tiny pieces so that multiple GPUs can work in a "pipeline" simultaneously.
 
-## 3. ZeRO (Zero Redundancy Optimizer)
+## 2. ZeRO: Zero Redundancy Optimizer
 
-Introduced by Microsoft (DeepSpeed), **ZeRO** is a breakthrough that eliminates the memory redundancy inherent in DDP.
-In standard DDP, every GPU stores:
-1.  **Model Weights**
-2.  **Gradients**
-3.  **Optimizer States** (e.g., Adam's momentum and variance)
+Developed by Microsoft (DeepSpeed), ZeRO is a form of **FSDP (Fully Sharded Data Parallelism)**. It eliminates the redundancy of Data Parallelism:
+1.  **ZeRO-1**: Shards the **Optimizer States** (saving 75% memory).
+2.  **ZeRO-2**: Shards the **Gradients**.
+3.  **ZeRO-3**: Shards the **Weights**. 
+With ZeRO-3, no single GPU holds the full model. Weights are "fetched" on the fly just before they are needed for a specific calculation and then immediately discarded.
 
-**ZeRO-1, 2, and 3** progressively shard these components:
-- **ZeRO-1**: Shards Optimizer States across GPUs.
-- **ZeRO-2**: Shards Gradients.
-- **ZeRO-3**: Shards Weights.
+## 3. Communication Collectives
 
-With ZeRO-3, a 175B parameter model can be trained on hardware where each individual GPU could only fit a 10B model.
+Distributed training relies on hardware-level primitive operations:
+- **All-Reduce**: Sums data from all GPUs and sends the result back to all (used to sync gradients).
+- **All-Gather**: Collects pieces from all GPUs to form a full tensor (used in ZeRO-3).
+- **Reduce-Scatter**: Sums pieces and leaves a unique part on each GPU.
 
-## Visualization: Memory Redundancy vs. ZeRO
+## 4. Why Tier-1 Engineers care
 
-```chart
-{
-  "type": "bar",
-  "xAxis": "strategy",
-  "data": [
-    {"strategy": "Standard DDP", "weights": 33, "grads": 33, "opt_states": 34},
-    {"strategy": "ZeRO-1", "weights": 33, "grads": 33, "opt_states": 5},
-    {"strategy": "ZeRO-2", "weights": 33, "grads": 5, "opt_states": 5},
-    {"strategy": "ZeRO-3 (Sharded)", "weights": 5, "grads": 5, "opt_states": 5}
-  ],
-  "lines": [
-    {"dataKey": "opt_states", "stroke": "#ef4444", "name": "Memory per GPU (%)"}
-  ]
-}
+- **Efficiency**: Scaling is not linear. If you use 100 GPUs, you don't get 100x speed. You might get 80x due to communication overhead.
+- **Check-pointing**: Saving the state of a 10TB model distributed across 2000 GPUs without stopping the training is a massive distributed systems challenge.
+
+## Visualization: Parallelism Spectrum
+
+```mermaid
+graph TD
+    Data[Big Data] -->|Split| DP[Data Parallel: Batch 1, Batch 2...]
+    Model[Big Model] -->|Vertical Slice| TP[Tensor Parallel: Split Weights]
+    Model -->|Horizontal Slice| PP[Pipeline Parallel: Split Layers]
+    
+    DP --> ZeRO[ZeRO: Sharded States]
+    
+    style ZeRO fill:#10b981,color:#fff
 ```
-*ZeRO dramatically reduces the VRAM "tax" required to keep the model in a ready-to-train state, allowing for massive scaling.*
 
 ## Related Topics
 
-[[model-parallelism]] — the alternative for giant layers  
-[[fsdp]] — the PyTorch implementation of ZeRO ideas  
-[[inference-serving]] — scale issues on the delivery side
+[[llm-infra/serving/hardware-io-attention]] — the VRAM bottlenecks  
+[[gpu-architecture]] — the NVLink/HBM context  
+[[llm-infra/training/fine-tuning]] — applying these to LoRA/QLoRA
 ---

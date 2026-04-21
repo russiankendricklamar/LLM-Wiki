@@ -1,56 +1,67 @@
 ---
-title: "Modern Quantization Formats"
+title: "Modern Quantization"
 category: "LLM Infrastructure"
-order: 17
+order: 20
 lang: "en"
 slug: "modern-quantization"
 ---
 
-# Modern Quantization: AWQ, GGUF, and FP8
+# Modern Quantization: NF4, GPTQ, and AWQ
 
-As Large Language Models grow, standard INT8 quantization is often not enough. Modern deployment requires formats that balance aggressive compression with the preservation of complex reasoning capabilities.
+Quantization is the process of reducing the precision of neural network weights (e.g., from 16-bit to 4-bit) to save VRAM and increase speed. Without modern quantization, running a 70B parameter model would require a server rack; with it, it fits on a single consumer GPU.
 
-## 1. AWQ (Activation-aware Weight Quantization)
+## 1. The Challenge of Low Precision
 
-Standard quantization treats all weights equally. **AWQ** (Lin et al., 2023) realizes that not all weights are important.
-- **The Insight**: Some weights (corresponding to "salient" activations) are critical for the model's performance.
-- **The Method**: Instead of quantizing everything blindly, AWQ scales the important weights to protect them from quantization noise. This allows for **4-bit quantization** that matches or exceeds the performance of 8-bit models.
+When you round a weight from `0.123456` to `0.1`, you introduce **Quantization Error**. In a deep model, these errors accumulate across 80+ layers, causing the model's intelligence to collapse. Modern techniques minimize this error using smart statistical priors.
 
-## 2. GGUF (GPT-Generated Unified Format)
+## 2. NormalFloat4 (NF4): Quantization for All
 
-Developed by the `llama.cpp` community, **GGUF** is the successor to GGML. It is designed for **CPU/Apple Silicon inference**.
-- **Extensibility**: It allows adding new metadata (architecture, version) without breaking compatibility.
-- **Quantization Methods**: Supports k-quants (e.g., Q4_K_M, Q5_K_S), which use different bit-widths for different layers to optimize the accuracy-size trade-off.
+Used in **bitsandbytes** (QLoRA), NF4 is a non-linear data type based on the fact that neural network weights usually follow a **Normal (Gaussian) Distribution**.
+- Instead of spacing quantization levels evenly (0, 1, 2, 3), NF4 places more levels near zero, where most weights reside.
+- This results in much higher information density than standard 4-bit integers.
 
-## 3. FP8 (8-bit Floating Point)
+## 3. GPTQ: Post-Training Quantization (PTQ)
 
-FP8 is the new industry standard introduced with the **Nvidia Hopper (H100)** architecture.
-- **E4M3 vs E5M2**: It offers two variants. One with more precision (mantissa) for weights, and one with more dynamic range (exponent) for gradients/activations.
-- **Native Hardware Support**: Unlike INT4, FP8 is natively supported by modern Tensor Cores, allowing for 2x faster training and inference without the complicated de-quantization steps required by integer formats.
+GPTQ treats quantization as an **Inversion Problem**.
+For each layer, it finds a set of 4-bit weights that produce the *exact same output* as the original 16-bit weights for a given set of calibration data.
+- It uses the **Hessian** of the loss function to decide which weights can be rounded crudely and which must remain precise.
+- **Result**: Models quantized with GPTQ lose almost zero accuracy compared to the original FP16.
 
-## Visualization: The "Efficient Frontier"
+## 4. AWQ: Activation-aware Quantization
+
+AWQ discovered that not all weights are equal. About **1% of weights** (the "Salient Weights") are responsible for most of the model's intelligence.
+- **Mechanism**: AWQ identifies these weights by looking at the activations during inference. It then applies a per-channel scaling to protect these important weights from being rounded too aggressively.
+- AWQ is generally faster for inference than GPTQ because it doesn't require a complex decompression step.
+
+## 5. FP8 and the Future
+
+Nvidia's **Hopper (H100)** architecture introduces native hardware support for **FP8** (8-bit floating point).
+- Unlike 4-bit quantization, FP8 allows for **Training** in low precision, not just inference. 
+- This halves the memory and energy required for the next generation of foundation models.
+
+## Visualization: Distribution-Aware Binning
 
 ```chart
 {
-  "type": "scatter",
-  "xAxis": "size_gb",
+  "type": "bar",
+  "xAxis": "bin",
   "data": [
-    {"size_gb": 14.0, "accuracy": 99.9, "label": "FP16 (Base)"},
-    {"size_gb": 8.0,  "accuracy": 99.5, "label": "FP8 (SOTA)"},
-    {"size_gb": 7.2,  "accuracy": 99.2, "label": "INT8"},
-    {"size_gb": 4.5,  "accuracy": 97.5, "label": "AWQ 4-bit"},
-    {"size_gb": 3.8,  "accuracy": 94.0, "label": "GGUF Q4_K"}
+    {"bin": "-2.0", "normal_density": 0.05, "nf4_levels": 1},
+    {"bin": "-1.0", "normal_density": 0.20, "nf4_levels": 2},
+    {"bin": "0.0",  "normal_density": 0.50, "nf4_levels": 10},
+    {"bin": "1.0",  "normal_density": 0.20, "nf4_levels": 2},
+    {"bin": "2.0",  "normal_density": 0.05, "nf4_levels": 1}
   ],
   "lines": [
-    {"dataKey": "accuracy", "stroke": "#10b981", "name": "Accuracy-Size Frontier"}
+    {"dataKey": "nf4_levels", "stroke": "#10b981", "name": "Precision (NF4)"}
   ]
 }
 ```
-*Modern formats like AWQ and FP8 allow models to stay near the "ideal" accuracy of FP16 while occupying 2-4x less memory.*
+*NF4 allocates the most precision (bins) to the center of the Gaussian weight distribution, where the "knowledge" of the model is most concentrated.*
 
 ## Related Topics
 
-[[quantization]] — the fundamental principles  
-[[inference-serving]] — why deployment formats matter  
-[[bitnet]] — the logical conclusion (1.58-bit)
+[[llm-infra/training/fine-tuning]] — QLoRA context  
+[[gpu-architecture]] — how hardware supports these formats  
+[[inference-serving]] — why quantization is necessary for throughput
 ---

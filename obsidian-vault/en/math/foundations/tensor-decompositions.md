@@ -1,60 +1,66 @@
 ---
 title: "Tensor Decompositions"
 category: "Foundations"
-order: 20
+order: 25
 lang: "en"
 slug: "tensor-decompositions"
 ---
 
-# Tensor Decompositions
+# Tensor Decompositions: Compressing Multi-dimensional Data
 
-Tensor decompositions are generalizations of matrix factorizations (like SVD) to higher-dimensional arrays. As Large Language Models become increasingly massive, tensor methods are becoming essential for **model compression**, **speeding up training**, and **interpreting hidden weights**.
+In linear algebra, we decompose matrices (2D tensors) using SVD or Eigen-decomposition. In modern AI, data and model weights are higher-dimensional **Tensors**. **Tensor Decompositions** provide the mathematical tools to find hidden low-rank structures in these giant multidimensional arrays, enabling extreme model compression.
 
-## Core Decompositions
+## 1. The Core Problem: Rank of a Tensor
 
-### 1. CP Decomposition (CANDECOMP/PARAFAC)
-CP decomposition factorizes a tensor into a sum of a minimum number of rank-1 tensors:
-$$\mathcal{X} \approx \sum_{r=1}^R a_r \circ b_r \circ c_r$$
-It is the direct analog of SVD but, unlike matrices, finding the rank of a tensor is NP-hard.
+Unlike matrices, finding the rank of a tensor (3D or higher) is an **NP-hard** problem. There is no single "best" decomposition. Instead, we have several architectures depending on the goal.
 
-### 2. Tucker Decomposition
-Often called "Higher-Order SVD" (HOSVD). It factorizes a tensor into a **core tensor** and a set of factor matrices:
-$$\mathcal{X} = \mathcal{G} \times_1 A \times_2 B \times_3 C$$
-It provides a powerful way to compress multidimensional data by reducing the core size while keeping the factor matrices orthogonal.
+## 2. CP Decomposition (CANDECOMP/PARAFAC)
 
-### 3. Tensor Train (TT) Decomposition
-The **Tensor Train** format (Oseledets, 2011) represents a high-dimensional tensor as a product of 3D tensors (cores).
-$$\mathcal{X}_{i_1 i_2 \dots i_d} \approx G_1[i_1] G_2[i_2] \dots G_d[i_d]$$
-TT avoids the **exponential complexity** of high dimensions, making it possible to store a tensor with $10^{100}$ elements in just a few megabytes.
+CP decomposition expresses a tensor as a sum of a minimum number of **rank-1 tensors** (outer products of vectors).
+$$\mathcal{X} \approx \sum_{r=1}^R \mathbf{a}_r \circ \mathbf{b}_r \circ \mathbf{c}_r$$
+- **Use Case**: Identifying individual hidden factors in complex data (e.g., separating "Speaker," "Phoneme," and "Emotion" in a 3D audio tensor).
+- **Limitation**: Finding the optimal $R$ is difficult and the optimization is often unstable.
 
-## Applications in Deep Learning
+## 3. Tucker Decomposition (Higher-Order SVD)
 
-1.  **Weight Compression**: Representing a giant weight matrix $W \in \mathbb{R}^{M \times N}$ as a product of smaller tensors. This can reduce model size by 10-100x with minimal quality loss.
-2.  **Fast Convolutions**: Using CP decomposition to speed up 3D convolutions in vision models.
-3.  **Parameter-Efficient Fine-Tuning (PEFT)**: Techniques like **LoRA** are essentially rank-1 tensor updates. Advanced versions use Tucker or TT to update higher-order weights.
+Tucker decomposition is like a multidimensional version of PCA. It decomposes a tensor into a small **Core Tensor** $\mathcal{G}$ multiplied by a matrix along each mode:
+$$\mathcal{X} \approx \mathcal{G} \times_1 A \times_2 B \times_3 C$$
+- **Interpretation**: The core tensor $\mathcal{G}$ captures the interactions between the factors represented by the matrices $A, B, C$.
+- **Use Case**: Compressing convolutional layers in computer vision.
 
-## Visualization: Compression Ratio
+## 4. Tensor-Train (TT) Decomposition
 
-```chart
-{
-  "type": "bar",
-  "xAxis": "method",
-  "data": [
-    {"method": "Dense Matrix", "params": 100},
-    {"method": "CP Decomposition", "params": 15},
-    {"method": "Tucker", "params": 10},
-    {"method": "Tensor Train (TT)", "params": 2}
-  ],
-  "lines": [
-    {"dataKey": "params", "stroke": "#ef4444", "name": "Storage Cost (%)"}
-  ]
-}
+This is the most important decomposition for **Large Language Models**. It is the mathematical bridge to [[many-body-tensor-networks|Matrix Product States (MPS)]] from physics.
+Instead of a giant tensor, we store a chain of 3D tensors:
+$$\mathcal{X}(i_1, \dots, i_d) = G_1(i_1) G_2(i_2) \dots G_d(i_d)$$
+- **Compression Power**: TT can reduce the number of parameters from $O(N^d)$ to $O(d \cdot N \cdot \chi^2)$. 
+- **Application**: A 100GB weight matrix can often be stored as a 1GB Tensor-Train without losing the model's ability to reason.
+
+## 5. Why it Matters for AI Infrastructure
+
+- **Reducing FLOPs**: Doing math on decomposed tensors is much faster. Instead of multiplying a million-by-million matrix, you multiply a series of small "TT-cores."
+- **Communication**: In [[distributed-training]], sending decomposed gradients between GPUs requires 90% less bandwidth, solving the network bottleneck.
+
+## Visualization: CP vs. Tucker
+
+```mermaid
+graph TD
+    subgraph CP_Decomposition
+        T1[Vector A] --- O1((Outer Product))
+        T2[Vector B] --- O1
+        T3[Vector C] --- O1
+    end
+    
+    subgraph Tucker_Decomposition
+        C[Small Core Tensor] --- M1[Matrix A]
+        C --- M2[Matrix B]
+        C --- M3[Matrix C]
+    end
 ```
-*Tensor Train is the most effective format for high-dimensional arrays, virtually eliminating the "curse of dimensionality" in storage and computation.*
 
 ## Related Topics
 
-[[linear-algebra]] — the 2D foundation  
-[[quantization]] — another approach to compression  
-[[superposition]] — interpreting weight structures
+[[pca]] — the 2D version  
+[[many-body-tensor-networks]] — the physics application (MPS)  
+[[llm-infra/training/modern-quantization]] — another way to compress models
 ---

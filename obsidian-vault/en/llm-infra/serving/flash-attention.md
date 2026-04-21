@@ -1,71 +1,74 @@
 ---
-title: "FlashAttention (1, 2 & 3)"
+title: "FlashAttention"
 category: "LLM Infrastructure"
-order: 11
+order: 10
 lang: "en"
 slug: "flash-attention"
 ---
 
-# FlashAttention
+# FlashAttention: Fast and Memory-Efficient Attention with Tiling
 
-## What Is It
+FlashAttention, introduced by **Tri Dao et al. (2022)**, is one of the most important engineering breakthroughs in the LLM era. It enables training and inference with long context (100k+ tokens) by fundamentally changing how GPUs compute the [[attention-mechanisms|Attention]] matrix.
 
-FlashAttention is a series of IO-aware exact [[attention-mechanisms|attention]] algorithms designed to speed up Transformers and reduce their memory footprint. While standard attention is $O(L^2)$ in time and memory, the real bottleneck on modern GPUs is not the number of floating-point operations (FLOPs) but the **Memory Access (IO)**.
+## 1. The Bottleneck: The Memory Wall
 
-FlashAttention changes the way attention is computed by keeping as much data as possible in the **SRAM** (fast, small memory) of the [[inference-serving|GPU]], minimizing the slow transfers to and from the **HBM** (High Bandwidth Memory).
+Standard attention (Self-Attention) has a time and memory complexity of $O(N^2)$, where $N$ is the sequence length. 
+However, the real bottleneck is not the FLOPs (math), but **Memory IO**.
+1.  To compute $\text{Softmax}(QK^\top)V$, the GPU must write the giant $N \times N$ attention matrix to the slow **HBM (High Bandwidth Memory)** and then read it back.
+2.  For a sequence of 64k tokens, the matrix takes **16 GB** of memory for just one head!
 
-## The IO Bottleneck
+## 2. The Solution: Tiling and Recomputation
 
-Modern GPUs have two main types of memory:
-1.  **HBM (High Bandwidth Memory)**: Large (40GB-80GB), but relatively slow.
-2.  **SRAM**: Small (order of 100KB per stream processor), but extremely fast.
+FlashAttention makes attention **IO-Aware**. It avoids writing the $N \times N$ matrix to HBM entirely.
 
-Standard attention computes the $N \times N$ attention matrix $S = QK^T$, writes it to HBM, reads it back to compute Softmax, and writes the result $P = \text{softmax}(S)$ back to HBM. These HBM accesses are the reason attention is slow.
+### A. Tiling (SRAM Management)
+The algorithm breaks the $Q, K, V$ matrices into small blocks (tiles) that fit into the GPU's ultra-fast **SRAM** (the L1 cache, which is ~200x faster than HBM).
+- It loads a block of $Q$ and a block of $K$.
+- It computes the attention scores for that small block.
+- It updates the output incrementally.
 
-## FlashAttention-1: Tiling and Recomputation
+### B. Online Softmax
+Normally, Softmax requires the maximum value of the *entire row* to be numerically stable. You can't calculate it block-by-block, right? 
+FlashAttention uses the **Online Softmax** trick: it keeps track of the running maximum and the running sum of exponentials. When moving to the next block, it "re-scales" the previous result to maintain mathematical correctness.
 
-FlashAttention-1 introduced two key ideas:
-1.  **Tiling**: Divide the $Q, K, V$ matrices into blocks that fit into SRAM. Compute attention block-by-block.
-2.  **Recomputation**: Instead of storing the large $N \times N$ attention matrix for the backward pass, we only store the softmax normalization constants. During the backward pass, we recompute the blocks of the attention matrix in SRAM. This reduces memory usage from $O(L^2)$ to $O(L)$.
+### C. Recomputation (Gradient Checkpointing)
+During the backward pass (training), standard attention stores the $N \times N$ matrix to compute gradients. FlashAttention **does not store it**. 
+Instead, it re-calculates the necessary attention blocks on the fly during the backward pass from the blocks of $Q, K, V$ stored in HBM. 
+- *The Paradox*: Doing more math (recomputing) is faster than reading from memory.
 
-## FlashAttention-2: Better Parallelism
+## 3. Results: Scaling to 1M Tokens
 
-FlashAttention-2 (2023) improved the algorithm by:
-- Reducing the number of non-matmul operations (which are slow on GPUs).
-- Better partitioning of the work across GPU threads (Warp-level parallelism).
-- Achieving up to 2x speedup over FlashAttention-1, reaching 70% of theoretical peak FLOPs on A100 GPUs.
+- **Speed**: 2x to 4x faster than standard PyTorch attention.
+- **Memory**: Linear memory usage $O(N)$ with respect to sequence length (instead of $O(N^2)$), as the giant matrix is never materialized.
+- **Impact**: This technology is what enabled models like **Claude 3** and **Gemini 1.5** to support massive context windows.
 
-## FlashAttention-3: Asynchronous Execution
+## 4. FlashAttention-2 and Beyond
 
-FlashAttention-3 (2024) targets the H100 GPUs (Hopper architecture) by exploiting **asynchronous execution** and **FP8 precision**:
-- **Tensor Memory Accelerator (TMA)**: Uses specialized hardware to move data between HBM and SRAM asynchronously while the Tensor Cores are still computing.
-- **Warp-specialization**: Assigns different tasks (reading data vs. computing) to different warps to hide latency.
+FlashAttention-2 (2023) further optimized the algorithm by better partitioning work across the GPU's **Streaming Multiprocessors (SMs)** and using asynchronous memory copies, reaching close to the theoretical maximum throughput of the H100 GPU.
 
-## Performance Comparison
+## Visualization: Memory Flow
 
-```chart
-{
-  "type": "bar",
-  "xAxis": "method",
-  "data": [
-    {"method": "Standard Attention", "throughput": 1.0, "memory": 100},
-    {"method": "FlashAttention-1", "throughput": 3.2, "memory": 15},
-    {"method": "FlashAttention-2", "throughput": 5.8, "memory": 12},
-    {"method": "FlashAttention-3 (H100)", "throughput": 9.4, "memory": 10}
-  ],
-  "lines": [
-    {"dataKey": "throughput", "stroke": "#10b981", "name": "Relative Throughput"},
-    {"dataKey": "memory", "stroke": "#ef4444", "name": "Memory Usage (%)"}
-  ]
-}
+```mermaid
+graph TD
+    HBM_In[(HBM: Q, K, V)] -->|Load Tile| SRAM[Fast SRAM Cache]
+    SRAM -->|Compute Block| Tensor[Tensor Cores]
+    Tensor -->|Update Output| SRAM
+    SRAM -->|Write Final Result| HBM_Out[(HBM: Output)]
+    
+    subgraph GPU_Chip [Inside the GPU]
+        SRAM
+        Tensor
+    end
+    
+    style SRAM fill:#3b82f6,color:#fff
+    style Tensor fill:#10b981,color:#fff
 ```
-
-## Why It Matters
-
-FlashAttention is the reason we can now train models with 128k, 1M, or even 10M token contexts. By reducing the memory bottleneck, it makes long-context Transformers computationally tractable. It is currently integrated into almost all major [[llm]] frameworks (PyTorch, HuggingFace, vLLM).
+*The giant $N \times N$ matrix exists only in the mind of the mathematician. The GPU only ever sees small, fast-moving tiles.*
 
 ## Related Topics
 
-[[transformer-architecture]] — the architecture it optimizes  
-[[inference-serving]] — why IO-awareness is critical for production  
-[[context-length]] — how we reach 1M+ tokens
+[[attention-mechanisms]] — the high-level math  
+[[llm-infra/serving/hardware-io-attention]] — the physical memory wall  
+[[gpu-architecture]] — SMs and Tensor Cores  
+[[dl-compilers]] — how Triton automates tiling
+---

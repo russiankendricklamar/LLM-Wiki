@@ -1,59 +1,64 @@
 ---
-title: "Quantization-Aware Training (QAT)"
+title: "Quantization Aware Training (QAT)"
 category: "LLM Infrastructure"
-order: 23
+order: 21
 lang: "en"
 slug: "qat"
 ---
 
-# Quantization-Aware Training (QAT)
+# Quantization Aware Training (QAT)
 
-Quantization-Aware Training (QAT) is a method where a model is trained or fine-tuned with the effects of quantization simulated during the forward pass. This allows the model to "adapt" to the low-precision representation (like 4-bit or 8-bit), resulting in much higher accuracy compared to Post-Training Quantization (PTQ).
+While [[modern-quantization|Post-Training Quantization (PTQ)]] (like GPTQ or AWQ) happens after the model is trained, **Quantization Aware Training (QAT)** integrates the precision loss directly into the training loop. This allows the neural network to "adapt" its weights to the lower precision, resulting in significantly higher accuracy for 2-bit or 3-bit models.
 
-## PTQ vs. QAT
+## 1. The Simulated Quantization (Fake Quant)
 
-- **PTQ (Post-Training)**: You take a pre-trained FP16 model and squish its weights to 4-bit. This often introduces "quantization noise" that can break complex reasoning.
-- **QAT (Aware Training)**: During training, the model "sees" the errors caused by rounding. It adjusts its weights so that the final low-precision version is optimal.
+Neural networks are trained using floating-point numbers (FP32 or BF16) because gradients require high precision. You cannot "train" a 4-bit integer directly using SGD.
+In QAT, we use **Fake Quantization** nodes:
+1.  During the forward pass, weights are rounded to the target precision (e.g., INT4).
+2.  The model performs calculations using these "noisy" rounded weights.
+3.  **The Core Problem**: The rounding function (Step function) has a derivative of zero almost everywhere. Standard backpropagation breaks.
 
-## The Challenge: Non-differentiability
+## 2. Straight-Through Estimator (STE)
 
-Quantization (rounding) is a step function. Its derivative is zero almost everywhere and undefined at the step, which makes standard backpropagation impossible. 
+To fix the zero-gradient problem, QAT uses the **Straight-Through Estimator (STE)**. 
+- During the **Forward Pass**, we use the quantized (rounded) weights.
+- During the **Backward Pass**, we pretend the rounding never happened and pass the gradients directly through to the original high-precision weights.
 
-### The Solution: Straight-Through Estimator (STE)
-To solve this, we use the **STE**. During the forward pass, we round the weights:
-$$w_{quant} = \text{round}(w / \Delta) \cdot \Delta$$
-During the backward pass, we **pretend the rounding never happened** and pass the gradient through as if it were a linear function ($f(x)=x$):
-$$\frac{\partial L}{\partial w} \approx \frac{\partial L}{\partial w_{quant}}$$
+This "lie" allows the optimizer to update the high-precision weights in a way that compensates for the rounding error. Over time, the weights migrate to values that are robust to being rounded.
 
-## Why QAT is the Future of Edge AI
+## 3. LSQ: Learned Step Size Quantization
 
-1.  **Lower Precision**: QAT makes **2-bit and 3-bit** models viable, which would completely collapse under PTQ.
-2.  **Specialized Hardware**: Models trained with QAT can be deployed on specialized NPU chips (like in phones or cars) that don't even support floating-point math.
-3.  **BitNet Connection**: Models like [[bitnet|BitNet 1.58b]] are essentially the extreme limit of QAT, where the model is born and raised in a ternary world.
+Modern QAT doesn't just round numbers; it learns the **Step Size** ($s$) of the quantization grid as a trainable parameter.
+$$Q(x) = \text{round}\left( \text{clamp}\left( \frac{x}{s}, -2^{b-1}, 2^{b-1}-1 \right) \right) \cdot s$$
+By training $s$, the model automatically decides if it needs a wide dynamic range (for large weights) or a fine-grained resolution (for small weights).
 
-## Visualization: Accuracy Recovery
+## 4. QAT vs. PTQ: When to use which?
 
-```chart
-{
-  "type": "line",
-  "xAxis": "bits",
-  "data": [
-    {"bits": 16, "ptq": 99, "qat": 99},
-    {"bits": 8,  "ptq": 98.5, "qat": 98.9},
-    {"bits": 4,  "ptq": 92.0, "qat": 97.5},
-    {"bits": 2,  "ptq": 30.0, "qat": 88.0}
-  ],
-  "lines": [
-    {"dataKey": "ptq", "stroke": "#ef4444", "name": "Post-Training (PTQ)"},
-    {"dataKey": "qat", "stroke": "#10b981", "name": "Quantization-Aware (QAT)"}
-  ]
-}
+- **PTQ (Post-Training)**: Fast (minutes). Good for 4-bit or 8-bit. Almost free. Use it first.
+- **QAT (Aware Training)**: Expensive (requires full training/fine-tuning). Necessary for **2-bit or 3-bit** extreme compression, or when the model is very sensitive to noise (e.g., small edge-AI models).
+
+## 5. Modern Variant: QLoRA
+
+**QLoRA** is a hybrid approach. It loads a base model in 4-bit (NF4) and trains 16-bit adapters ([[fine-tuning|LoRA]]) on top. While not "pure" QAT, it uses similar principles of adapting to quantization noise to achieve SOTA results with minimal VRAM.
+
+## Visualization: STE Gradient Flow
+
+```mermaid
+graph TD
+    FP[High-Precision Weights: 0.1234] -->|Forward: Round| INT[Quantized: 0.1]
+    INT -->|Compute Loss| Loss[Error]
+    Loss -->|Backward: Grad| Grad[Gradient]
+    Grad -->|STE: Bypass Rounding| FP
+    FP -->|Update| NewFP[New Weights: 0.1235]
+    
+    style INT fill:#ef4444,color:#fff
+    style FP fill:#3b82f6,color:#fff
+    style Grad fill:#10b981,color:#fff
 ```
-*QAT significantly closes the gap between full precision and compressed models, especially at ultra-low bit-widths (2-4 bits).*
 
 ## Related Topics
 
-[[quantization]] — the base concept  
-[[modern-quantization]] — PTQ formats like AWQ  
-[[bitnet]] — ternary models (QAT taken to the limit)
+[[modern-quantization]] — the zero-cost alternative  
+[[llm-infra/training/fine-tuning]] — context for QLoRA  
+[[gradient-hessian-jacobian]] — why STE is needed for gradient flow
 ---
