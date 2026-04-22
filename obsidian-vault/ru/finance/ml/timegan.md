@@ -1,6 +1,6 @@
 ---
 title: "TimeGAN: Синтетические временные ряды"
-category: "Machine Learning in Finance"
+category: "Algorithms and ML"
 order: 40
 lang: "ru"
 slug: "timegan"

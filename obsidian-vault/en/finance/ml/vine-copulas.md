@@ -1,6 +1,6 @@
 ---
 title: "Vine Copulas for StatArb"
-category: "Machine Learning in Finance"
+category: "Algorithms and ML"
 order: 20
 lang: "en"
 slug: "vine-copulas"

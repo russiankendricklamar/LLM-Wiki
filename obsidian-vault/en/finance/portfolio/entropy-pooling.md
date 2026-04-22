@@ -1,6 +1,6 @@
 ---
 title: "Entropy Pooling (Meucci)"
-category: "Portfolio Management"
+category: "Portfolio"
 order: 20
 lang: "en"
 slug: "entropy-pooling"

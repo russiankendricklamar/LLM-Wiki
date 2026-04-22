@@ -1,7 +1,7 @@
 ---
 slug: "/finance/pin-easley-ohara"
 title: "PIN: Probability of Informed Trading"
-category: "Market Microstructure"
+category: "Microstructure"
 order: 111
 lang: "en"
 ---

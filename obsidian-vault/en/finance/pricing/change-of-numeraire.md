@@ -1,7 +1,7 @@
 ---
 slug: "/finance/change-of-numeraire"
 title: "Change of Numeraire"
-category: "Pricing Models"
+category: "Pricing"
 order: 144
 lang: "en"
 ---

@@ -1,7 +1,7 @@
 ---
 slug: "/finance/asymptotic-arbitrage-large-markets"
 title: "Asymptotic Arbitrage and Large Markets"
-category: "Pricing Models"
+category: "Pricing"
 order: 129
 lang: "en"
 ---

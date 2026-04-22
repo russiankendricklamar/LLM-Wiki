@@ -1,7 +1,7 @@
 ---
 slug: "/finance/bond-options-gaussian"
 title: "Bond Options in Gaussian Models"
-category: "Pricing Models"
+category: "Pricing"
 order: 136
 lang: "en"
 ---

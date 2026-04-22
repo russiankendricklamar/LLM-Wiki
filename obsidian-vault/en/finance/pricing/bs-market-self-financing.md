@@ -1,7 +1,7 @@
 ---
 slug: "/finance/bs-market-self-financing"
 title: "(B,S)-Market and Self-Financing Strategies"
-category: "Pricing Models"
+category: "Pricing"
 order: 120
 lang: "en"
 ---

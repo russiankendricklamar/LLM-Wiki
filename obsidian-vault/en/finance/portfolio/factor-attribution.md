@@ -1,7 +1,7 @@
 ---
 slug: "/finance/factor-attribution"
 title: "Factor Risk Attribution and Decomposition"
-category: "Risk Management"
+category: "Risk"
 order: 116
 lang: "en"
 ---

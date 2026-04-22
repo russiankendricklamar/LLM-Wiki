@@ -1,6 +1,6 @@
 ---
 title: "Портфели с максимальной скоростью возврата"
-category: "Machine Learning in Finance"
+category: "Algorithms and ML"
 order: 17
 lang: "ru"
 slug: "fastest-mean-reversion"

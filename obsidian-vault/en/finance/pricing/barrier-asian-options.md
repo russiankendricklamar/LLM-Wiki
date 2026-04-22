@@ -1,7 +1,7 @@
 ---
 slug: "/finance/barrier-asian-options"
 title: "Barrier and Asian Options"
-category: "Pricing Models"
+category: "Pricing"
 order: 113
 lang: "en"
 ---

@@ -1,7 +1,7 @@
 ---
 slug: "/finance/credit-risk-models"
 title: "Credit Risk Models"
-category: "Risk Management"
+category: "Risk"
 order: 79
 lang: "en"
 ---

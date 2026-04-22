@@ -1,6 +1,6 @@
 ---
 title: "Kramkov Optional Decomposition"
-category: "Pricing Models"
+category: "Pricing"
 order: 128
 lang: "en"
 slug: "optional-decomposition"

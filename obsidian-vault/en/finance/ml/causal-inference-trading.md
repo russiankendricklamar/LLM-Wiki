@@ -1,6 +1,6 @@
 ---
 title: "Causal Inference in Trading"
-category: "Machine Learning in Finance"
+category: "Algorithms and ML"
 order: 26
 lang: "en"
 slug: "causal-inference-trading"

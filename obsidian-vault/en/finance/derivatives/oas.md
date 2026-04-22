@@ -1,7 +1,7 @@
 ---
 slug: "/finance/oas"
 title: "Option-Adjusted Spread (OAS)"
-category: "Risk Management"
+category: "Risk"
 order: 21
 lang: "en"
 ---

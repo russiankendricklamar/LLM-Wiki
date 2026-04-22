@@ -1,7 +1,7 @@
 ---
 slug: "/finance/sabr-model"
 title: "SABR Model"
-category: "Pricing Models"
+category: "Pricing"
 order: 9
 lang: "en"
 ---

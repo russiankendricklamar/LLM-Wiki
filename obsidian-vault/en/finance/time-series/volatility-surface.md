@@ -1,7 +1,7 @@
 ---
 slug: "/finance/volatility-surface"
 title: "Volatility Surface"
-category: "Pricing Models"
+category: "Pricing"
 order: 140
 lang: "en"
 ---

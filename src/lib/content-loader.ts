@@ -143,30 +143,26 @@ export const resolveWikilink = (
   const t = target.toLowerCase();
 
   // 1. Exact slug match
-  const bySlug = pages.find(p => p.metadata.slug.replace(/^\//, '') === t);
+  const bySlug = pages.find(p => p.metadata.slug.replace(/^\//, '').toLowerCase() === t);
   if (bySlug) return bySlug;
 
   // 2. Exact title match
   const byTitle = pages.find(p => p.metadata.title.toLowerCase() === t);
   if (byTitle) return byTitle;
 
-  // 3. Exact filename match
-  const byFilename = pages.find(p =>
-    p.metadata.fullPath.toLowerCase().endsWith(`/${t}.md`)
-  );
+  // 3. Filename match (handle folder structures)
+  const byFilename = pages.find(p => {
+    const fileName = p.metadata.fullPath.split('/').pop()?.replace('.md', '').toLowerCase();
+    return fileName === t;
+  });
   if (byFilename) return byFilename;
 
-  // 4. Same-category suffix match
-  if (sourceCategory) {
-    const sameCategory = pages.find(p =>
-      p.metadata.category === sourceCategory &&
-      p.metadata.slug.replace(/^\//, '').endsWith(t)
-    );
-    if (sameCategory) return sameCategory;
-  }
+  // 4. Partial slug match (e.g. [[kelly]] matches /finance/portfolio/kelly-criterion)
+  const byPartialSlug = pages.find(p => p.metadata.slug.toLowerCase().includes(t));
+  if (byPartialSlug) return byPartialSlug;
 
-  // 5. Any suffix match (fallback)
-  return pages.find(p => p.metadata.slug.replace(/^\//, '').endsWith(t));
+  // 5. Fallback: Search in titles
+  return pages.find(p => p.metadata.title.toLowerCase().includes(t));
 };
 
 export const getPagePreview = (slug: string): string => {

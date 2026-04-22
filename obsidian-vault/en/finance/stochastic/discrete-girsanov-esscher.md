@@ -1,7 +1,7 @@
 ---
 slug: "/finance/discrete-girsanov-esscher"
 title: "Discrete Girsanov and the Esscher Transform"
-category: "Pricing Models"
+category: "Pricing"
 order: 126
 lang: "en"
 ---

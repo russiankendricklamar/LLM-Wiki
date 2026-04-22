@@ -1,7 +1,7 @@
 ---
 slug: "/finance/dark-pools"
 title: "Dark Pools and Market Fragmentation"
-category: "Market Microstructure"
+category: "Microstructure"
 order: 112
 lang: "en"
 ---

@@ -1,7 +1,7 @@
 ---
 slug: "/finance/markowitz-mean-variance"
 title: "Markowitz Mean-Variance Portfolio Theory"
-category: "Pricing Models"
+category: "Pricing"
 order: 138
 lang: "en"
 ---

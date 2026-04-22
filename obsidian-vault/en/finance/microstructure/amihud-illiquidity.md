@@ -1,6 +1,6 @@
 ---
 title: "Amihud Illiquidity Ratio"
-category: "Risk Management"
+category: "Risk"
 order: 39
 lang: "en"
 slug: "amihud-illiquidity"

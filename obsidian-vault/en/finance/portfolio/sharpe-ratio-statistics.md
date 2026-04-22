@@ -1,6 +1,6 @@
 ---
 title: "Statistics of Sharpe Ratios"
-category: "Risk Management"
+category: "Risk"
 order: 54
 lang: "en"
 slug: "sharpe-ratio-statistics"

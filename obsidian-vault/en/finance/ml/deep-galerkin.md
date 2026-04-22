@@ -1,6 +1,6 @@
 ---
 title: "Deep Galerkin Method (DGM)"
-category: "Machine Learning in Finance"
+category: "Algorithms and ML"
 order: 30
 lang: "en"
 slug: "deep-galerkin"

@@ -1,7 +1,7 @@
 ---
 slug: "/finance/hierarchical-risk-parity"
 title: "Hierarchical Risk Parity (HRP)"
-category: "Risk Management"
+category: "Risk"
 order: 45
 lang: "en"
 ---

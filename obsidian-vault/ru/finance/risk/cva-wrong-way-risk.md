@@ -1,6 +1,6 @@
 ---
 title: "CVA и Wrong-Way Risk"
-category: "Risk Management"
+category: "Risk"
 order: 15
 lang: "ru"
 slug: "cva-wrong-way-risk"

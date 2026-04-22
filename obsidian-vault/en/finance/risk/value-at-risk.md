@@ -1,7 +1,7 @@
 ---
 slug: "/finance/value-at-risk"
 title: "Value at Risk (VaR)"
-category: "Risk Management"
+category: "Risk"
 order: 15
 lang: "en"
 ---

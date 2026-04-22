@@ -1,7 +1,7 @@
 ---
 slug: "/finance/levy-esscher-continuous"
 title: "Lévy Processes and the Continuous Esscher Transform"
-category: "Pricing Models"
+category: "Pricing"
 order: 132
 lang: "en"
 ---

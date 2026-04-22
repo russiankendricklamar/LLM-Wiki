@@ -1,7 +1,7 @@
 ---
 slug: "/finance/avellaneda-stoikov"
 title: "Avellaneda-Stoikov Model"
-category: "Pricing Models"
+category: "Pricing"
 order: 42
 lang: "en"
 ---

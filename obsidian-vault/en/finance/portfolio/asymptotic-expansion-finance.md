@@ -1,7 +1,7 @@
 ---
 slug: "/finance/asymptotic-expansion-finance"
 title: "Asymptotic Expansions in Finance"
-category: "Pricing Models"
+category: "Pricing"
 order: 138
 lang: "en"
 ---

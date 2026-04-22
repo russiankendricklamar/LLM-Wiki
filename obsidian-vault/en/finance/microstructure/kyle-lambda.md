@@ -1,7 +1,7 @@
 ---
 slug: "/finance/kyle-lambda"
 title: "Kyle's Lambda: The Price Impact Coefficient"
-category: "Market Microstructure"
+category: "Microstructure"
 order: 90
 lang: "en"
 ---

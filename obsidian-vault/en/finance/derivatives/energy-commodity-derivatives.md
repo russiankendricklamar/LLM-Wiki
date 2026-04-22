@@ -1,7 +1,7 @@
 ---
 slug: "/finance/energy-commodity-derivatives"
 title: "Energy & Commodity Derivatives"
-category: "Pricing Models"
+category: "Pricing"
 order: 148
 lang: "en"
 ---

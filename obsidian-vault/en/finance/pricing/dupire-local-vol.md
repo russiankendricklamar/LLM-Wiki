@@ -1,7 +1,7 @@
 ---
 slug: "/finance/dupire-local-vol"
 title: "Dupire Local Volatility Model"
-category: "Pricing Models"
+category: "Pricing"
 order: 102
 lang: "en"
 ---

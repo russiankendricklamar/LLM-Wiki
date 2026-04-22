@@ -1,7 +1,7 @@
 ---
 slug: "/finance/securitization"
 title: "Securitization"
-category: "Risk Management"
+category: "Risk"
 order: 80
 lang: "en"
 ---

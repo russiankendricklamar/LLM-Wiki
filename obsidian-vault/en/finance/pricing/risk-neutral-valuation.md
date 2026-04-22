@@ -1,7 +1,7 @@
 ---
 slug: "/finance/risk-neutral-valuation"
 title: "Risk-Neutral Valuation"
-category: "Pricing Models"
+category: "Pricing"
 order: 153
 lang: "en"
 ---

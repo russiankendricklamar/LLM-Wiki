@@ -1,7 +1,7 @@
 ---
 slug: "/finance/vwap-twap"
 title: "VWAP and TWAP Execution Algorithms"
-category: "Market Microstructure"
+category: "Microstructure"
 order: 101
 lang: "en"
 ---

@@ -1,7 +1,7 @@
 ---
 slug: "/finance/eigenportfolio-rmt"
 title: "Eigenportfolio Construction via RMT"
-category: "Risk Management"
+category: "Risk"
 order: 48
 lang: "en"
 ---

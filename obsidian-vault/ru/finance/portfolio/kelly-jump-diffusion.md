@@ -1,6 +1,6 @@
 ---
 title: "Критерий Келли со скачками цен"
-category: "Portfolio Management"
+category: "Portfolio"
 order: 45
 lang: "ru"
 slug: "kelly-jump-diffusion"

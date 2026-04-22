@@ -1,7 +1,7 @@
 ---
 slug: "/finance/libor-market-model"
 title: "LIBOR Market Model (BGM)"
-category: "Pricing Models"
+category: "Pricing"
 order: 135
 lang: "en"
 ---

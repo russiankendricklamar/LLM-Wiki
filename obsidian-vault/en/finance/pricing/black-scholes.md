@@ -1,7 +1,7 @@
 ---
 slug: "/finance/black-scholes"
 title: "Black-Scholes Model"
-category: "Pricing Models"
+category: "Pricing"
 order: 7
 lang: "en"
 ---

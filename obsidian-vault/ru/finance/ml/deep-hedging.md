@@ -1,6 +1,6 @@
 ---
 title: "Deep Hedging"
-category: "Machine Learning in Finance"
+category: "Algorithms and ML"
 order: 15
 lang: "ru"
 slug: "deep-hedging"

@@ -1,7 +1,7 @@
 ---
 slug: "/finance/semimartingale-models"
 title: "Semimartingale Models and Predictable Characteristics"
-category: "Pricing Models"
+category: "Pricing"
 order: 130
 lang: "en"
 ---

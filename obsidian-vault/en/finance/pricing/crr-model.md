@@ -1,7 +1,7 @@
 ---
 slug: "/finance/crr-model"
 title: "Cox-Ross-Rubinstein Binomial Model (CRR)"
-category: "Pricing Models"
+category: "Pricing"
 order: 123
 lang: "en"
 ---

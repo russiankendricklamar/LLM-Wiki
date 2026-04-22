@@ -1,7 +1,7 @@
 ---
 slug: "/finance/systemic-contagion-debtrank"
 title: "Systemic Risk and DebtRank"
-category: "Risk Management"
+category: "Risk"
 order: 87
 lang: "en"
 ---

@@ -1,7 +1,7 @@
 ---
 slug: "/finance/adversarial-stress-testing"
 title: "Adversarial Stress Testing"
-category: "Risk Management"
+category: "Risk"
 order: 69
 lang: "en"
 ---

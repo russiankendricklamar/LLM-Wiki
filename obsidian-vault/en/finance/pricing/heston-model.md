@@ -1,7 +1,7 @@
 ---
 slug: "/finance/heston-model"
 title: "Heston Model"
-category: "Pricing Models"
+category: "Pricing"
 order: 8
 lang: "en"
 ---

@@ -1,7 +1,7 @@
 ---
 slug: "/finance/coherent-risk-measures"
 title: "Coherent Risk Measures"
-category: "Risk Management"
+category: "Risk"
 order: 75
 lang: "en"
 ---

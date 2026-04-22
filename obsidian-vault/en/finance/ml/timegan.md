@@ -1,6 +1,6 @@
 ---
 title: "TimeGAN: Generating Time Series"
-category: "Machine Learning in Finance"
+category: "Algorithms and ML"
 order: 40
 lang: "en"
 slug: "timegan"

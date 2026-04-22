@@ -1,7 +1,7 @@
 ---
 slug: "/finance/real-options"
 title: "Real Options"
-category: "Pricing Models"
+category: "Pricing"
 order: 147
 lang: "en"
 ---

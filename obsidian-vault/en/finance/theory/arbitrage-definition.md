@@ -1,7 +1,7 @@
 ---
 slug: "/finance/arbitrage-definition"
 title: "Arbitrage and Its Absence"
-category: "Pricing Models"
+category: "Pricing"
 order: 121
 lang: "en"
 ---

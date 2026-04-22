@@ -1,7 +1,7 @@
 ---
 slug: "/finance/caps-floors-swaptions"
 title: "Caps, Floors and Swaptions"
-category: "Pricing Models"
+category: "Pricing"
 order: 143
 lang: "en"
 ---

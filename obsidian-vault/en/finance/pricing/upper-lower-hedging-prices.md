@@ -1,7 +1,7 @@
 ---
 slug: "/finance/upper-lower-hedging-prices"
 title: "Upper and Lower Hedging Prices"
-category: "Pricing Models"
+category: "Pricing"
 order: 125
 lang: "en"
 ---

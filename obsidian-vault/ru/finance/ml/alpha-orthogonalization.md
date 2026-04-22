@@ -1,6 +1,6 @@
 ---
 title: "Ортогонализация Альфы"
-category: "Machine Learning in Finance"
+category: "Algorithms and ML"
 order: 25
 lang: "ru"
 slug: "alpha-orthogonalization"

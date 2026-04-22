@@ -1,6 +1,6 @@
 ---
 title: "Метод Галёркина (DGM)"
-category: "Machine Learning in Finance"
+category: "Algorithms and ML"
 order: 30
 lang: "ru"
 slug: "deep-galerkin"

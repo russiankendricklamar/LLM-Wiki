@@ -1,6 +1,6 @@
 ---
 title: "Сигнатурные модели"
-category: "Stochastic Finance"
+category: "Stochastic"
 order: 20
 lang: "ru"
 slug: "signature-based-models"

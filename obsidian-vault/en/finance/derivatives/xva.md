@@ -1,7 +1,7 @@
 ---
 slug: "/finance/xva"
 title: "XVA (Valuation Adjustments)"
-category: "Risk Management"
+category: "Risk"
 order: 22
 lang: "en"
 ---

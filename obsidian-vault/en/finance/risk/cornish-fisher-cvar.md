@@ -1,6 +1,6 @@
 ---
 title: "Cornish-Fisher CVaR"
-category: "Risk Management"
+category: "Risk"
 order: 17
 lang: "en"
 slug: "cornish-fisher-cvar"

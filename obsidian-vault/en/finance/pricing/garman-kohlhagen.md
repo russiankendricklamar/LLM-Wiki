@@ -1,7 +1,7 @@
 ---
 slug: "/finance/garman-kohlhagen"
 title: "Garman-Kohlhagen Model"
-category: "Pricing Models"
+category: "Pricing"
 order: 152
 lang: "en"
 ---

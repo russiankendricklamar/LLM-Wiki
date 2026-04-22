@@ -1,7 +1,7 @@
 ---
 slug: "/finance/nelson-siegel-svensson"
 title: "Nelson-Siegel-Svensson Yield Curve Model"
-category: "Pricing Models"
+category: "Pricing"
 order: 84
 lang: "en"
 ---

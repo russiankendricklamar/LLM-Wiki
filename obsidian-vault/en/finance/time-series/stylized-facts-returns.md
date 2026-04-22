@@ -1,7 +1,7 @@
 ---
 slug: "/finance/stylized-facts-returns"
 title: "Stylized Facts of Financial Returns"
-category: "Risk Management"
+category: "Risk"
 order: 144
 lang: "en"
 ---

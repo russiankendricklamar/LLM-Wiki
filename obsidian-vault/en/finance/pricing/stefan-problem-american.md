@@ -1,7 +1,7 @@
 ---
 slug: "/finance/stefan-problem-american"
 title: "Stefan Problem and American Options"
-category: "Pricing Models"
+category: "Pricing"
 order: 135
 lang: "en"
 ---

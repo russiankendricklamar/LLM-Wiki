@@ -1,7 +1,7 @@
 ---
 slug: "/finance/black-scholes-derivations"
 title: "Several Derivations of the Black-Scholes Formula"
-category: "Pricing Models"
+category: "Pricing"
 order: 134
 lang: "en"
 ---

@@ -1,7 +1,7 @@
 ---
 slug: "/finance/complete-incomplete-markets"
 title: "Complete and Incomplete Markets. Second Fundamental Theorem"
-category: "Pricing Models"
+category: "Pricing"
 order: 124
 lang: "en"
 ---

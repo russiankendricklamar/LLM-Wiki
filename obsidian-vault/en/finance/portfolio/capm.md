@@ -1,7 +1,7 @@
 ---
 slug: "/finance/capm"
 title: "CAPM (Capital Asset Pricing Model)"
-category: "Pricing Models"
+category: "Pricing"
 order: 139
 lang: "en"
 ---

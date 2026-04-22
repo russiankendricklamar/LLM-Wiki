@@ -1,7 +1,7 @@
 ---
 slug: "/finance/isda-simm"
 title: "ISDA SIMM: Standard Initial Margin Model"
-category: "Risk Management"
+category: "Risk"
 order: 86
 lang: "en"
 ---

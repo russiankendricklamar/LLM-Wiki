@@ -1,7 +1,7 @@
 ---
 slug: "/finance/frtb"
 title: "FRTB: Fundamental Review of the Trading Book"
-category: "Risk Management"
+category: "Risk"
 order: 117
 lang: "en"
 ---

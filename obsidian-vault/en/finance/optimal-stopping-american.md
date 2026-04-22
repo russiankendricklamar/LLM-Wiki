@@ -1,6 +1,6 @@
 ---
 title: "Optimal Stopping and American Options"
-category: "Pricing Models"
+category: "Pricing"
 order: 127
 lang: "en"
 ---

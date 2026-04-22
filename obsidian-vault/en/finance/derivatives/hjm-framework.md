@@ -1,7 +1,7 @@
 ---
 slug: "/finance/hjm-framework"
 title: "HJM Framework"
-category: "Pricing Models"
+category: "Pricing"
 order: 145
 lang: "en"
 ---

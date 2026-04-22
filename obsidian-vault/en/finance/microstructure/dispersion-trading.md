@@ -1,7 +1,7 @@
 ---
 slug: "/finance/dispersion-trading"
 title: "Dispersion Trading"
-category: "Risk Management"
+category: "Risk"
 order: 76
 lang: "en"
 ---

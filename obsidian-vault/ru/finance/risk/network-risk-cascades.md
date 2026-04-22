@@ -1,6 +1,6 @@
 ---
 title: "Сетевые модели и Каскадные дефолты"
-category: "Risk Management"
+category: "Risk"
 order: 25
 lang: "ru"
 slug: "network-risk-cascades"

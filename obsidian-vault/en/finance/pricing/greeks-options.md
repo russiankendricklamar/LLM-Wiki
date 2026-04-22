@@ -1,7 +1,7 @@
 ---
 slug: "/finance/greeks-options"
 title: "Option Greeks"
-category: "Pricing Models"
+category: "Pricing"
 order: 149
 lang: "en"
 ---

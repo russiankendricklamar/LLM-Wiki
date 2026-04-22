@@ -1,7 +1,7 @@
 ---
 slug: "/finance/credit-migration"
 title: "Credit Migration and Rating Transitions"
-category: "Risk Management"
+category: "Risk"
 order: 82
 lang: "en"
 ---

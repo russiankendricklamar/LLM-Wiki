@@ -1,6 +1,6 @@
 ---
 title: "Энтропийный пулинг (Entropy Pooling)"
-category: "Portfolio Management"
+category: "Portfolio"
 order: 20
 lang: "ru"
 slug: "entropy-pooling"

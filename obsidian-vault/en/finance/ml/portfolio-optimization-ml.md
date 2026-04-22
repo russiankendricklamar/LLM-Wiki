@@ -1,6 +1,6 @@
 ---
 title: "Portfolio Optimization with ML"
-category: "Risk Management"
+category: "Risk"
 order: 64
 lang: "en"
 slug: "portfolio-optimization-ml"

@@ -1,6 +1,6 @@
 ---
 title: "FRTB: Стандартизированный подход (SA-MR)"
-category: "Risk Management"
+category: "Risk"
 order: 11
 lang: "ru"
 slug: "frtb-sa-mr"

@@ -1,7 +1,7 @@
 ---
 slug: "/finance/futures-hedging"
 title: "Futures Hedging"
-category: "Risk Management"
+category: "Risk"
 order: 81
 lang: "en"
 ---

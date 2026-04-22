@@ -1,7 +1,7 @@
 ---
 slug: "/finance/efficient-market-hypothesis"
 title: "Efficient Market Hypothesis (EMH)"
-category: "Pricing Models"
+category: "Pricing"
 order: 137
 lang: "en"
 ---

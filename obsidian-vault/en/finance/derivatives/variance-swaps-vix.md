@@ -1,7 +1,7 @@
 ---
 slug: "/finance/variance-swaps-vix"
 title: "Variance Swaps and the VIX"
-category: "Risk Management"
+category: "Risk"
 order: 83
 lang: "en"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Портфельная задача Мертона"
-category: "Portfolio Management"
+category: "Portfolio"
 order: 10
 lang: "ru"
 slug: "merton-portfolio"

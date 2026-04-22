@@ -1,7 +1,7 @@
 ---
 slug: "/finance/convertible-bonds"
 title: "Convertible Bonds"
-category: "Pricing Models"
+category: "Pricing"
 order: 155
 lang: "en"
 ---

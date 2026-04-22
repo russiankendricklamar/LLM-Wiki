@@ -1,7 +1,7 @@
 ---
 slug: "/finance/ftap-first-fundamental-theorem"
 title: "First Fundamental Theorem (FTAP)"
-category: "Pricing Models"
+category: "Pricing"
 order: 122
 lang: "en"
 ---

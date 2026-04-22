@@ -1,7 +1,7 @@
 ---
 slug: "/finance/pe-fund-metrics"
 title: "Private Equity Fund Metrics: IRR, MOIC, DPI, and the J-Curve"
-category: "Risk Management"
+category: "Risk"
 order: 92
 lang: "en"
 ---

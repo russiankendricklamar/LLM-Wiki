@@ -1,6 +1,6 @@
 ---
 title: "Nonlinear Shrinkage of Covariance"
-category: "Portfolio Management"
+category: "Portfolio"
 order: 25
 lang: "en"
 slug: "nonlinear-shrinkage"

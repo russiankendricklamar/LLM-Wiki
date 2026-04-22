@@ -1,7 +1,7 @@
 ---
 slug: "/finance/black-swan-scenarios"
 title: "Black Swan Scenario Generator"
-category: "Risk Management"
+category: "Risk"
 order: 88
 lang: "en"
 ---

@@ -1,7 +1,7 @@
 ---
 slug: "/finance/put-call-parity"
 title: "Put-Call Parity"
-category: "Pricing Models"
+category: "Pricing"
 order: 151
 lang: "en"
 ---

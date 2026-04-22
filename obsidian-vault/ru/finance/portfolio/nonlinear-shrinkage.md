@@ -1,6 +1,6 @@
 ---
 title: "Нелинейный сдвиг ковариации"
-category: "Portfolio Management"
+category: "Portfolio"
 order: 25
 lang: "ru"
 slug: "nonlinear-shrinkage"

@@ -1,6 +1,6 @@
 ---
 title: "Universal Portfolios"
-category: "Portfolio Management"
+category: "Portfolio"
 order: 11
 lang: "en"
 slug: "universal-portfolios"

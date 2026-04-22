@@ -1,6 +1,6 @@
 ---
 title: "Systematic Portfolio Trading via Convex Optimization"
-category: "Risk Management"
+category: "Risk"
 order: 71
 lang: "en"
 slug: "convex-optimization-trading"

@@ -1,7 +1,7 @@
 ---
 slug: "/finance/blacks-model"
 title: "Black's Model (1976)"
-category: "Pricing Models"
+category: "Pricing"
 order: 154
 lang: "en"
 ---

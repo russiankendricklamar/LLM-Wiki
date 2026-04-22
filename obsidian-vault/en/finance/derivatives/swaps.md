@@ -1,7 +1,7 @@
 ---
 slug: "/finance/swaps"
 title: "Types of Swaps"
-category: "Pricing Models"
+category: "Pricing"
 order: 23
 lang: "en"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Signature-based Models"
-category: "Stochastic Finance"
+category: "Stochastic"
 order: 20
 lang: "en"
 slug: "signature-based-models"

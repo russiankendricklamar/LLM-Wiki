@@ -1,7 +1,7 @@
 ---
 slug: "/finance/exotic-options"
 title: "Exotic Options"
-category: "Pricing Models"
+category: "Pricing"
 order: 139
 lang: "en"
 ---

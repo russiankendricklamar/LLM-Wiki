@@ -1,7 +1,7 @@
 ---
 slug: "/finance/apt-ross"
 title: "Arbitrage Pricing Theory (APT)"
-category: "Pricing Models"
+category: "Pricing"
 order: 140
 lang: "en"
 ---

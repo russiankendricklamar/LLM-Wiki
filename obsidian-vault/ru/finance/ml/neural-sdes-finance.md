@@ -1,6 +1,6 @@
 ---
 title: "Нейронные SDE в финансах"
-category: "Machine Learning in Finance"
+category: "Algorithms and ML"
 order: 16
 lang: "ru"
 slug: "neural-sdes-finance"

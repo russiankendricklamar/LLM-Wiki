@@ -1,6 +1,6 @@
 ---
 title: "Причинно-следственный вывод (Causal AI)"
-category: "Machine Learning in Finance"
+category: "Algorithms and ML"
 order: 26
 lang: "ru"
 slug: "causal-inference-trading"

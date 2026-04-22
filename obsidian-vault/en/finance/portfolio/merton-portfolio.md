@@ -1,6 +1,6 @@
 ---
 title: "Merton's Portfolio Problem"
-category: "Portfolio Management"
+category: "Portfolio"
 order: 10
 lang: "en"
 slug: "merton-portfolio"

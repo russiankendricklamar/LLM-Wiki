@@ -1,7 +1,7 @@
 ---
 slug: "/finance/free-boundary-american"
 title: "Free Boundary Problem for American Options"
-category: "Pricing Models"
+category: "Pricing"
 order: 137
 lang: "en"
 ---

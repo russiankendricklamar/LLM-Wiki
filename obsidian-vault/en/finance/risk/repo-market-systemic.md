@@ -1,7 +1,7 @@
 ---
 slug: "/finance/repo-market-systemic"
 title: "Repo Market and Systemic Risk"
-category: "Risk Management"
+category: "Risk"
 order: 93
 lang: "en"
 ---

@@ -20,6 +20,10 @@ const SimulationRendererLazy = React.lazy(() =>
   import('./SimulationRenderer').then(m => ({ default: m.SimulationRenderer }))
 );
 
+const MermaidRendererLazy = React.lazy(() =>
+  import('./MermaidRenderer').then(m => ({ default: m.MermaidRenderer }))
+);
+
 interface MarkdownRendererProps {
   content: string;
   className?: string;
@@ -142,16 +146,9 @@ const CodeBlock = ({
 
     if (language === 'mermaid') {
       return (
-        <div className="my-6 p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex flex-col items-center justify-center gap-4">
-          <div className="flex items-center gap-2 text-zinc-500 dark:text-zinc-400 font-medium">
-            <Activity className="w-5 h-5" />
-            <span>Architecture Diagram</span>
-          </div>
-          <pre className="text-xs text-zinc-400 font-mono bg-zinc-50 dark:bg-zinc-900 p-4 rounded-lg w-full overflow-x-auto">
-            {String(children).trim()}
-          </pre>
-          <p className="text-[10px] text-zinc-400 uppercase tracking-widest">Mermaid.js Renderer (Placeholder)</p>
-        </div>
+        <React.Suspense fallback={<div className="h-64 animate-pulse bg-zinc-100 dark:bg-zinc-800 rounded-xl my-8" />}>
+          <MermaidRendererLazy chart={String(children).trim()} />
+        </React.Suspense>
       );
     }
 

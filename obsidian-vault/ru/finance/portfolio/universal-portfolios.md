@@ -1,6 +1,6 @@
 ---
 title: "Универсальные портфели (Томас Ковер)"
-category: "Portfolio Management"
+category: "Portfolio"
 order: 11
 lang: "ru"
 slug: "universal-portfolios"

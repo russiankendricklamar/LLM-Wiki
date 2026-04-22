@@ -1,7 +1,7 @@
 ---
 slug: "/finance/girsanov-semimartingales"
 title: "Girsanov's Theorem for Semimartingales"
-category: "Pricing Models"
+category: "Pricing"
 order: 131
 lang: "en"
 ---

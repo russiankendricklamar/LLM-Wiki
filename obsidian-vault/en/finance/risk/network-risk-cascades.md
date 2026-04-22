@@ -1,6 +1,6 @@
 ---
 title: "Network Models and Default Cascades"
-category: "Risk Management"
+category: "Risk"
 order: 25
 lang: "en"
 slug: "network-risk-cascades"

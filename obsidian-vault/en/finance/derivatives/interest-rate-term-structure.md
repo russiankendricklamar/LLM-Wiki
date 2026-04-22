@@ -1,7 +1,7 @@
 ---
 slug: "/finance/interest-rate-term-structure"
 title: "Interest Rate Term Structure"
-category: "Pricing Models"
+category: "Pricing"
 order: 158
 lang: "en"
 ---

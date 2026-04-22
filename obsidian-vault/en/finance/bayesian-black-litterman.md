@@ -1,6 +1,6 @@
 ---
 title: "Bayesian Black-Litterman Portfolio Optimization"
-category: "Risk Management"
+category: "Risk"
 order: 46
 lang: "en"
 slug: "bayesian-black-litterman"

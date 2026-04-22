@@ -1,7 +1,7 @@
 ---
 slug: "/finance/bachelier-formula"
 title: "Bachelier Formula"
-category: "Pricing Models"
+category: "Pricing"
 order: 133
 lang: "en"
 ---

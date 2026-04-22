@@ -1,7 +1,7 @@
 ---
 slug: "/finance/short-rate-models"
 title: "Short Rate Models"
-category: "Pricing Models"
+category: "Pricing"
 order: 142
 lang: "en"
 ---

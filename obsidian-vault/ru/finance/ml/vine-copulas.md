@@ -1,6 +1,6 @@
 ---
 title: "Лозовые копулы (Vine Copulas) в СтатАрбе"
-category: "Machine Learning in Finance"
+category: "Algorithms and ML"
 order: 20
 lang: "ru"
 slug: "vine-copulas"

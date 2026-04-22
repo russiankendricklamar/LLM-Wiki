@@ -1,7 +1,7 @@
 ---
 slug: "/finance/libor-sofr"
 title: "LIBOR to SOFR Transition"
-category: "Risk Management"
+category: "Risk"
 order: 118
 lang: "en"
 ---

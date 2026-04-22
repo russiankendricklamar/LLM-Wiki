@@ -1,7 +1,7 @@
 ---
 slug: "/finance/cost-of-carry"
 title: "Cost of Carry"
-category: "Pricing Models"
+category: "Pricing"
 order: 156
 lang: "en"
 ---

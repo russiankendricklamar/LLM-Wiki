@@ -1,6 +1,6 @@
 ---
 title: "Volatility Smile"
-category: "Pricing Models"
+category: "Pricing"
 order: 150
 lang: "en"
 slug: "volatility-smile"

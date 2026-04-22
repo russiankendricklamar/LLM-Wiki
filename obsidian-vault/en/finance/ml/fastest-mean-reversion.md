@@ -1,6 +1,6 @@
 ---
 title: "Portfolios of Fastest Mean Reversion"
-category: "Machine Learning in Finance"
+category: "Algorithms and ML"
 order: 17
 lang: "en"
 slug: "fastest-mean-reversion"

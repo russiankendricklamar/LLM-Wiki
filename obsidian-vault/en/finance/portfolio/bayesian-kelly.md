@@ -1,6 +1,6 @@
 ---
 title: "Bayesian Kelly Criterion"
-category: "Portfolio Management"
+category: "Portfolio"
 order: 30
 lang: "en"
 slug: "bayesian-kelly"

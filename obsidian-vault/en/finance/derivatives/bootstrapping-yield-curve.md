@@ -1,7 +1,7 @@
 ---
 slug: "/finance/bootstrapping-yield-curve"
 title: "Bootstrapping the Yield Curve"
-category: "Pricing Models"
+category: "Pricing"
 order: 136
 lang: "en"
 ---

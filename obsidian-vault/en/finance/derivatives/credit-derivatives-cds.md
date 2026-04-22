@@ -1,7 +1,7 @@
 ---
 slug: "/finance/credit-derivatives-cds"
 title: "Credit Default Swaps"
-category: "Risk Management"
+category: "Risk"
 order: 77
 lang: "en"
 ---

@@ -1,7 +1,7 @@
 ---
 slug: "/finance/order-flow-imbalance"
 title: "Order Flow Imbalance and Microprice"
-category: "Market Microstructure"
+category: "Microstructure"
 order: 91
 lang: "en"
 ---

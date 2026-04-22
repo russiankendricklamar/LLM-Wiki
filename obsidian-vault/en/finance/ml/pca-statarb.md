@@ -1,6 +1,6 @@
 ---
 title: "StatArb with PCA (Avellaneda-Lee)"
-category: "Machine Learning in Finance"
+category: "Algorithms and ML"
 order: 31
 lang: "en"
 slug: "pca-statarb"

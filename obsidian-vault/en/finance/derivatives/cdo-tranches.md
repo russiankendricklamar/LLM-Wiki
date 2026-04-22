@@ -1,7 +1,7 @@
 ---
 slug: "/finance/cdo-tranches"
 title: "CDO Tranches"
-category: "Risk Management"
+category: "Risk"
 order: 78
 lang: "en"
 ---

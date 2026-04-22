@@ -1,7 +1,7 @@
 ---
 slug: "/finance/delta-hedging-practice"
 title: "Delta Hedging in Practice"
-category: "Pricing Models"
+category: "Pricing"
 order: 157
 lang: "en"
 ---

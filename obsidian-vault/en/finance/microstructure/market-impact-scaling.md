@@ -1,7 +1,7 @@
 ---
 slug: "/finance/market-impact-scaling"
 title: "Capacity & Market Impact Scaling"
-category: "Risk Management"
+category: "Risk"
 order: 44
 lang: "en"
 ---

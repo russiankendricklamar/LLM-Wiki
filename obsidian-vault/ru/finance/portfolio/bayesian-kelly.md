@@ -1,6 +1,6 @@
 ---
 title: "Байесовский критерий Келли"
-category: "Portfolio Management"
+category: "Portfolio"
 order: 30
 lang: "ru"
 slug: "bayesian-kelly"

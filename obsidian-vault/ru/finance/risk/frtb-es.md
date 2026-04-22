@@ -1,6 +1,6 @@
 ---
 title: "FRTB и Expected Shortfall (ES)"
-category: "Risk Management"
+category: "Risk"
 order: 10
 lang: "ru"
 slug: "frtb-es"

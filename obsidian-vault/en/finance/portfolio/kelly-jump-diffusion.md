@@ -1,6 +1,6 @@
 ---
 title: "Kelly Criterion with Jump-Diffusion"
-category: "Portfolio Management"
+category: "Portfolio"
 order: 45
 lang: "en"
 slug: "kelly-jump-diffusion"

@@ -1,7 +1,7 @@
 ---
 slug: "/finance/follmer-schweizer"
 title: "Quadratic Hedging and the Föllmer-Schweizer Approach"
-category: "Pricing Models"
+category: "Pricing"
 order: 85
 lang: "en"
 ---

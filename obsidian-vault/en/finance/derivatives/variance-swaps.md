@@ -1,7 +1,7 @@
 ---
 slug: "/finance/variance-swaps"
 title: "Variance Swaps and Volatility Risk Premium"
-category: "Pricing Models"
+category: "Pricing"
 order: 103
 lang: "en"
 ---
