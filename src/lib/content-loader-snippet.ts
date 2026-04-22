@@ -1,54 +1,86 @@
-/**
- * Resolve a wikilink target name to a page.
- * Priority: exact slug match → exact title match → exact filename match → same-category suffix → any suffix.
- */
-export const resolveWikilink = (
-  target: string,
-  pages: PageContent[],
-  sourceCategory?: string
-): PageContent | undefined => {
-  const t = target.toLowerCase();
-
-  // 1. Exact slug match
-  const bySlug = pages.find(p => p.metadata.slug.replace(/^\//, '') === t);
-  if (bySlug) return bySlug;
-
-  // 2. Exact title match
-  const byTitle = pages.find(p => p.metadata.title.toLowerCase() === t);
-  if (byTitle) return byTitle;
-
-  // 3. Exact filename match
-  const byFilename = pages.find(p =>
-    p.metadata.fullPath.toLowerCase().endsWith(`/${t}.md`)
-  );
-  if (byFilename) return byFilename;
-
-  // 4. Same-category suffix match
-  if (sourceCategory) {
-    const sameCategory = pages.find(p =>
-      p.metadata.category === sourceCategory &&
-      p.metadata.slug.replace(/^\//, '').endsWith(t)
-    );
-    if (sameCategory) return sameCategory;
-  }
-
-  // 5. Any suffix match (fallback)
-  return pages.find(p => p.metadata.slug.replace(/^\//, '').endsWith(t));
+const SECTION_LABELS: Record<string, Record<'en' | 'ru', string>> = {
+  'language-models': { en: 'Language Models', ru: 'Языковые модели' },
+  'llm-infra':       { en: 'LLM Infrastructure', ru: 'Инфраструктура LLM' },
+  'ai-theory':       { en: 'AI Theory', ru: 'Теория ИИ' },
+  'ai-finance':      { en: 'AI Finance', ru: 'ИИ в финансах' },
+  'ai-physics':      { en: 'AI Physics', ru: 'ИИ в физике' },
+  'math':            { en: 'Mathematics', ru: 'Математика' },
+  'finance':         { en: 'Finance', ru: 'Финансы' },
+  'physics':         { en: 'Physics', ru: 'Физика' },
+  'projects':        { en: 'Projects', ru: 'Проекты' },
+  'about':           { en: 'About', ru: 'О проекте' },
+  'defi':            { en: 'DeFi', ru: 'Децентрализованные финансы' },
+  '_other':          { en: 'Other', ru: 'Разное' },
 };
 
-export const getPagePreview = (slug: string): string => {
-  const page = getAllPages().find(p => p.metadata.slug === slug);
-  if (!page) return '';
-  
-  return page.content
-    .replace(/^---[\s\S]*?---\n?/, '')
-    .replace(/^#{1,6}\s+.*/gm, '')
-    .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, s, a) => a || s)
-    .replace(/```[\s\S]*?```/g, '')
-    .replace(/\$\$[\s\S]*?\$\$/g, '')
-    .replace(/\$[^$]+\$/g, '')
-    .replace(/[*_~`]/g, '')
-    .replace(/\n+/g, ' ')
-    .trim()
-    .slice(0, 200) + '...';
+const SECTION_ORDER = [
+  'language-models', 
+  'llm-infra', 
+  'ai-theory', 
+  'ai-finance', 
+  'ai-physics',
+  'math',
+  'finance', 
+  'physics', 
+  'projects',
+  'about'
+];
+
+const CATEGORY_LABELS: Record<string, Record<'en' | 'ru', string>> = {
+  'Language Models':      { en: 'Language Models', ru: 'Языковые модели' },
+  'LLM Infrastructure':   { en: 'LLM Infrastructure', ru: 'Инфраструктура LLM' },
+  'AI Theory':            { en: 'AI Theory', ru: 'Теория ИИ' },
+  'Scientific ML':        { en: 'Scientific ML', ru: 'Научное ML' },
+  'AI Finance':           { en: 'AI Finance', ru: 'ИИ в финансах' },
+  'AI Physics':           { en: 'AI Physics', ru: 'ИИ в физике' },
+  'Stochastic Calculus':  { en: 'Stochastic Calculus', ru: 'Стохастическое исчисление' },
+  'Applied Probability':  { en: 'Applied Probability', ru: 'Прикладная вероятность' },
+  'Asymptotic Statistics': { en: 'Asymptotic Statistics', ru: 'Асимптотическая статистика' },
+  'Foundations':          { en: 'Foundations', ru: 'Основания' },
+  'Fundamentals':         { en: 'Fundamentals', ru: 'Базовые понятия' },
+  'Math':                 { en: 'Math', ru: 'Математика' },
+  'Finance':              { en: 'Finance', ru: 'Финансы' },
+  'Physics':              { en: 'Physics', ru: 'Физика' },
+  'Quantum Physics':      { en: 'Quantum Physics', ru: 'Квантовая физика' },
+  'Classical Physics':    { en: 'Classical Physics', ru: 'Классическая физика' },
+  'Gravity':              { en: 'Gravity', ru: 'Гравитация' },
+  'Holography':           { en: 'Holography', ru: 'Голография' },
+  'Stochastic':           { en: 'Stochastic', ru: 'Стохастика' },
+  'Portfolio':            { en: 'Portfolio Management', ru: 'Управление портфелем' },
+  'Pricing':              { en: 'Pricing', ru: 'Ценообразование' },
+  'Pricing Models':       { en: 'Pricing', ru: 'Ценообразование' },
+  'Risk':                 { en: 'Risk Management', ru: 'Управление рисками' },
+  'Risk Management':      { en: 'Risk Management', ru: 'Управление рисками' },
+  'Microstructure':       { en: 'Market Microstructure', ru: 'Микроструктура рынка' },
+  'Микроструктура рынка': { en: 'Market Microstructure', ru: 'Микроструктура рынка' },
+  'Time Series':          { en: 'Time Series', ru: 'Временные ряды' },
+  'Derivatives':          { en: 'Derivatives', ru: 'Деривативы' },
+  'Analysis & Geometry':  { en: 'Analysis & Geometry', ru: 'Анализ и Геометрия' },
+  'Statistical Learning': { en: 'Statistical Learning', ru: 'Статистическое обучение' },
+  'Topology':             { en: 'Topology', ru: 'Топология' },
+  'Learning Theory':      { en: 'Learning Theory', ru: 'Теория обучения' },
+  'Stochastic Processes': { en: 'Stochastic Processes', ru: 'Случайные процессы' },
+  'Advanced Analysis':    { en: 'Advanced Analysis', ru: 'Продвинутый анализ' },
+  'Functional Analysis':  { en: 'Functional Analysis', ru: 'Функциональный анализ' },
+  'Algorithms and ML':    { en: 'Algorithms and ML', ru: 'Алгоритмы и ML' },
+  'Portfolio Management': { en: 'Portfolio Management', ru: 'Управление портфелем' },
+  'Machine Learning in Finance': { en: 'Machine Learning in Finance', ru: 'Машинное обучение в финансах' },
+  'Stochastic Finance':   { en: 'Stochastic Finance', ru: 'Стохастические финансы' },
+  'DeFi':                 { en: 'DeFi', ru: 'Децентрализованные финансы' },
+  'Quantitative Theory':  { en: 'Quantitative Theory', ru: 'Количественная теория' },
+  'Measure Theory':       { en: 'Measure Theory', ru: 'Теория меры' },
+  'Large Deviations':     { en: 'Large Deviations', ru: 'Большие уклонения' },
+  'Martingales':          { en: 'Martingales', ru: 'Мартингалы' },
+  'Limit Theorems':       { en: 'Limit Theorems', ru: 'Предельные теоремы' },
+  'Ergodic Theory':       { en: 'Ergodic Theory', ru: 'Эргодическая теория' },
+  'Алгоритмы и ML':       { en: 'Algorithms and ML', ru: 'Алгоритмы и ML' },
+  'Стохастические процессы': { en: 'Stochastic Processes', ru: 'Случайные процессы' },
+  'Теория меры':          { en: 'Measure Theory', ru: 'Теория меры' },
+  'Большие уклонения':    { en: 'Large Deviations', ru: 'Большие уклонения' },
+  'Предельные теоремы':    { en: 'Limit Theorems', ru: 'Предельные теоремы' },
+  'Теория мартингалов':    { en: 'Martingales', ru: 'Мартингалы' },
+  'Теория ИИ':            { en: 'AI Theory', ru: 'Теория ИИ' },
+  'Асимптотическая статистика': { en: 'Asymptotic Statistics', ru: 'Асимптотическая статистика' },
+  'Модели ценообразования': { en: 'Pricing', ru: 'Ценообразование' },
+  'Управление рисками':   { en: 'Risk Management', ru: 'Управление рисками' },
 };
