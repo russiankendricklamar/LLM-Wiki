@@ -229,11 +229,11 @@ const SECTION_LABELS: Record<string, Record<'en' | 'ru', string>> = {
   'language-models': { en: 'Language Models', ru: 'Языковые модели' },
   'llm-infra':       { en: 'LLM Infrastructure', ru: 'Инфраструктура LLM' },
   'ai-theory':       { en: 'AI Theory', ru: 'Теория ИИ' },
-  'math':            { en: 'Math', ru: 'Математика' },
+  'ai-finance':      { en: 'AI Finance', ru: 'ИИ в финансах' },
+  'ai-physics':      { en: 'AI Physics', ru: 'ИИ в физике' },
+  'math':            { en: 'Mathematics', ru: 'Математика' },
   'finance':         { en: 'Finance', ru: 'Финансы' },
   'physics':         { en: 'Physics', ru: 'Физика' },
-  'ai-finance':      { en: 'AI Finance', ru: 'ИИ и Финансы' },
-  'ai-physics':      { en: 'AI Physics', ru: 'ИИ и Физика' },
   'projects':        { en: 'Projects', ru: 'Проекты' },
   'about':           { en: 'About', ru: 'О проекте' },
   'defi':            { en: 'DeFi', ru: 'Децентрализованные финансы' },
@@ -248,7 +248,6 @@ const SECTION_ORDER = [
   'ai-physics',
   'math',
   'finance', 
-  'defi',
   'physics', 
   'projects',
   'about'
@@ -263,35 +262,52 @@ const CATEGORY_LABELS: Record<string, Record<'en' | 'ru', string>> = {
   'AI Physics':           { en: 'AI Physics', ru: 'ИИ в физике' },
   'Stochastic Calculus':  { en: 'Stochastic Calculus', ru: 'Стохастическое исчисление' },
   'Applied Probability':  { en: 'Applied Probability', ru: 'Прикладная вероятность' },
+  'Asymptotic Statistics': { en: 'Asymptotic Statistics', ru: 'Асимптотическая статистика' },
   'Foundations':          { en: 'Foundations', ru: 'Основания' },
+  'Fundamentals':         { en: 'Fundamentals', ru: 'Базовые понятия' },
   'Math':                 { en: 'Math', ru: 'Математика' },
   'Finance':              { en: 'Finance', ru: 'Финансы' },
   'Physics':              { en: 'Physics', ru: 'Физика' },
+  'Quantum Physics':      { en: 'Quantum Physics', ru: 'Квантовая физика' },
+  'Classical Physics':    { en: 'Classical Physics', ru: 'Классическая физика' },
   'Gravity':              { en: 'Gravity', ru: 'Гравитация' },
-  'Classical':            { en: 'Classical', ru: 'Классическая физика' },
   'Holography':           { en: 'Holography', ru: 'Голография' },
-  'Stochastic':           { en: 'Stochastic', ru: 'Стохастика' },
-  'Portfolio':            { en: 'Portfolio', ru: 'Портфельное управление' },
+  'Stochastic':           { en: 'Stochastic Finance', ru: 'Стохастические финансы' },
+  'Portfolio':            { en: 'Portfolio Management', ru: 'Управление портфелем' },
   'Pricing':              { en: 'Pricing', ru: 'Ценообразование' },
-  'Risk':                 { en: 'Risk', ru: 'Риски' },
-  'Microstructure':       { en: 'Microstructure', ru: 'Микроструктура' },
+  'Pricing Models':       { en: 'Pricing', ru: 'Ценообразование' },
+  'Risk':                 { en: 'Risk Management', ru: 'Управление рисками' },
+  'Risk Management':      { en: 'Risk Management', ru: 'Управление рисками' },
+  'Stochastic Processes': { en: 'Stochastic Processes', ru: 'Случайные процессы' },
+  'Стохастические процессы': { en: 'Stochastic Processes', ru: 'Случайные процессы' },
+  'Microstructure':       { en: 'Market Microstructure', ru: 'Микроструктура рынка' },
+  'Микроструктура рынка': { en: 'Market Microstructure', ru: 'Микроструктура рынка' },
   'Time Series':          { en: 'Time Series', ru: 'Временные ряды' },
   'Derivatives':          { en: 'Derivatives', ru: 'Деривативы' },
   'Analysis & Geometry':  { en: 'Analysis & Geometry', ru: 'Анализ и Геометрия' },
   'Statistical Learning': { en: 'Statistical Learning', ru: 'Статистическое обучение' },
   'Topology':             { en: 'Topology', ru: 'Топология' },
   'Learning Theory':      { en: 'Learning Theory', ru: 'Теория обучения' },
-  'Stochastic Processes': { en: 'Stochastic Processes', ru: 'Случайные процессы' },
   'Advanced Analysis':    { en: 'Advanced Analysis', ru: 'Продвинутый анализ' },
   'Functional Analysis':  { en: 'Functional Analysis', ru: 'Функциональный анализ' },
   'Algorithms and ML':    { en: 'Algorithms and ML', ru: 'Алгоритмы и ML' },
-  'Pricing Models':       { en: 'Pricing Models', ru: 'Модели ценообразования' },
   'Portfolio Management': { en: 'Portfolio Management', ru: 'Управление портфелем' },
-  'Risk Management':      { en: 'Risk Management', ru: 'Управление рисками' },
   'Machine Learning in Finance': { en: 'Machine Learning in Finance', ru: 'Машинное обучение в финансах' },
   'Stochastic Finance':   { en: 'Stochastic Finance', ru: 'Стохастические финансы' },
-  'DeFi':                 { en: 'DeFi', ru: 'DeFi' },
+  'DeFi':                 { en: 'DeFi', ru: 'Децентрализованные финансы' },
   'Quantitative Theory':  { en: 'Quantitative Theory', ru: 'Количественная теория' },
+  'Measure Theory':       { en: 'Measure Theory', ru: 'Теория меры' },
+  'Large Deviations':     { en: 'Large Deviations', ru: 'Большие уклонения' },
+  'Martingales':          { en: 'Martingales', ru: 'Мартингалы' },
+  'Limit Theorems':       { en: 'Limit Theorems', ru: 'Предельные теоремы' },
+  'Ergodic Theory':       { en: 'Ergodic Theory', ru: 'Эргодическая теория' },
+  'Алгоритмы и ML':       { en: 'Algorithms and ML', ru: 'Алгоритмы и ML' },
+  'Теория меры':          { en: 'Measure Theory', ru: 'Теория меры' },
+  'Большие уклонения':    { en: 'Large Deviations', ru: 'Большие уклонения' },
+  'Предельные теоремы':    { en: 'Limit Theorems', ru: 'Предельные теоремы' },
+  'Теория мартингалов':    { en: 'Martingales', ru: 'Мартингалы' },
+  'Теория ИИ':            { en: 'AI Theory', ru: 'Теория ИИ' },
+  'Асимптотическая статистика': { en: 'Asymptotic Statistics', ru: 'Асимптотическая статистика' },
 };
 
 const SKIP_CATS = new Set(['Home', 'Главная', 'Projects', 'Проекты']);
@@ -299,25 +315,31 @@ const SKIP_CATS = new Set(['Home', 'Главная', 'Projects', 'Проекты
 export const getNavigationTree = (lang: 'en' | 'ru'): NavSection[] => {
   const pages = getAllPages().filter(p => p.metadata.lang === lang && !SKIP_CATS.has(p.metadata.category));
 
+  // Map<sectionKey, Map<translatedCategoryTitle, PageContent[]>>
   const sectionMap = new Map<string, Map<string, PageContent[]>>();
+  
   for (const page of pages) {
-    const key = page.metadata.section ?? '_other';
-    if (!sectionMap.has(key)) sectionMap.set(key, new Map());
-    const catMap = sectionMap.get(key)!;
-    const cat = page.metadata.category;
-    if (!catMap.has(cat)) catMap.set(cat, []);
-    catMap.get(cat)!.push(page);
+    const sectionKey = page.metadata.section ?? '_other';
+    if (!sectionMap.has(sectionKey)) sectionMap.set(sectionKey, new Map());
+    
+    const catMap = sectionMap.get(sectionKey)!;
+    const rawCat = page.metadata.category;
+    
+    // Translate the category title BEFORE grouping to unify EN and RU categories
+    const catLabels = CATEGORY_LABELS[rawCat];
+    const translatedCat = (catLabels && catLabels[lang]) ? catLabels[lang] : rawCat;
+    
+    if (!catMap.has(translatedCat)) catMap.set(translatedCat, []);
+    catMap.get(translatedCat)!.push(page);
   }
 
   const sections: NavSection[] = [];
   for (const [sectionKey, catMap] of sectionMap) {
     const labels = SECTION_LABELS[sectionKey];
     const sectionTitle = (labels && labels[lang]) ? labels[lang] : sectionKey;
+    
     const categories: NavCategory[] = [];
-    for (const [catTitle, catPages] of catMap) {
-      const catLabels = CATEGORY_LABELS[catTitle];
-      const translatedTitle = (catLabels && catLabels[lang]) ? catLabels[lang] : catTitle;
-      
+    for (const [translatedTitle, catPages] of catMap) {
       categories.push({
         title: translatedTitle,
         items: catPages
