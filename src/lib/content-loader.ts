@@ -25,6 +25,9 @@ export interface PageMetadata {
   hideOpen?: boolean;
   // Top-level directory segment (e.g. 'math', 'finance', 'ai-theory')
   section?: string;
+  // Second-level directory segment (e.g. 'quantum' for physics/quantum/...).
+  // Used to sub-group flat sections where every page shares the same category.
+  subsection?: string;
   // Course-specific fields
   courseType?: 'course';
   difficulty?: string;
@@ -84,9 +87,12 @@ export const getAllPages = (): PageContent[] => {
     const isEnglish = filePath.includes('/obsidian-vault/en/');
     const pathLang = isEnglish ? 'en' : 'ru';
 
-    // Derive top-level section from path (first dir after en/ru)
+    // Derive top-level section and optional subsection from path.
+    // `obsidian-vault/en/physics/quantum/foo.md` → section='physics', subsection='quantum'.
     const sectionMatch = filePath.match(/obsidian-vault\/(?:en|ru)\/([^/]+)\//);
     const section = sectionMatch ? sectionMatch[1] : undefined;
+    const subsectionMatch = filePath.match(/obsidian-vault\/(?:en|ru)\/[^/]+\/([^/]+)\//);
+    const subsection = subsectionMatch ? subsectionMatch[1] : undefined;
 
     // Generate a clean slug from filename:
     // ../../obsidian-vault/en/finance/black-scholes.md -> /finance/black-scholes
@@ -128,6 +134,7 @@ export const getAllPages = (): PageContent[] => {
         year: data.year !== undefined ? String(data.year) : undefined,
         hideOpen: data.hideOpen === true,
         section,
+        subsection,
       },
       content
     };
@@ -415,6 +422,64 @@ const CATEGORY_LABELS: Record<string, Record<'en' | 'ru', string>> = {
 const SKIP_SECTIONS = new Set(['courses', 'about', 'projects']);
 const SKIP_CATS = new Set(['Home', 'Главная', 'Projects', 'Проекты']);
 
+// Path-derived subsection labels. The vault already splits every large section
+// into topical subfolders (physics/quantum, llm-infra/training, math/measure-theory, …)
+// but the frontmatter `category:` field is often uniform across the whole section.
+// Rather than migrate hundreds of files, we group by subsection (second path
+// segment) and translate its label through this table.
+const SUBSECTION_LABELS: Record<string, Record<string, Record<'en' | 'ru', string>>> = {
+  'language-models': {
+    'safety': { en: 'Safety & Alignment', ru: 'Безопасность и alignment' },
+  },
+  'llm-infra': {
+    'agents':       { en: 'Agents & Tools',      ru: 'Агенты и инструменты' },
+    'applications': { en: 'Applications',        ru: 'Приложения' },
+    'serving':      { en: 'Serving & Inference', ru: 'Inference и хостинг' },
+    'training':     { en: 'Training',            ru: 'Обучение' },
+  },
+  'ai-theory': {
+    'architectures':    { en: 'Architectures',          ru: 'Архитектуры' },
+    'generative':       { en: 'Generative Models',      ru: 'Генеративные модели' },
+    'interpretability': { en: 'Interpretability',       ru: 'Интерпретируемость' },
+    'rl':               { en: 'Reinforcement Learning', ru: 'Обучение с подкреплением' },
+    'spatial':          { en: 'Spatial AI',             ru: 'Пространственный ИИ' },
+    'theory':           { en: 'Theory',                 ru: 'Теория' },
+  },
+  'physics': {
+    'classical':  { en: 'Classical Physics', ru: 'Классическая физика' },
+    'quantum':    { en: 'Quantum Physics',   ru: 'Квантовая физика' },
+    'gravity':    { en: 'Gravity',           ru: 'Гравитация' },
+    'holography': { en: 'Holography',        ru: 'Голография' },
+  },
+  'finance': {
+    'defi':           { en: 'DeFi',                        ru: 'DeFi' },
+    'derivatives':    { en: 'Derivatives',                 ru: 'Деривативы' },
+    'microstructure': { en: 'Market Microstructure',       ru: 'Микроструктура рынка' },
+    'ml':             { en: 'Machine Learning in Finance', ru: 'ML в финансах' },
+    'portfolio':      { en: 'Portfolio Management',        ru: 'Управление портфелем' },
+    'pricing':        { en: 'Pricing',                     ru: 'Ценообразование' },
+    'risk':           { en: 'Risk Management',             ru: 'Управление рисками' },
+    'stochastic':     { en: 'Stochastic Finance',          ru: 'Стохастические финансы' },
+    'theory':         { en: 'Financial Theory',            ru: 'Финансовая теория' },
+    'time-series':    { en: 'Time Series',                 ru: 'Временные ряды' },
+  },
+  'math': {
+    'advanced-analysis':     { en: 'Advanced Analysis',      ru: 'Продвинутый анализ' },
+    'analysis-geometry':     { en: 'Analysis & Geometry',    ru: 'Анализ и геометрия' },
+    'applied-probability':   { en: 'Applied Probability',    ru: 'Прикладная вероятность' },
+    'asymptotic-stats':      { en: 'Asymptotic Statistics',  ru: 'Асимптотическая статистика' },
+    'foundations':           { en: 'Foundations',            ru: 'Основания' },
+    'functional-analysis':   { en: 'Functional Analysis',    ru: 'Функциональный анализ' },
+    'fundamentals':          { en: 'Fundamentals',           ru: 'Базовые понятия' },
+    'learning-theory':       { en: 'Learning Theory',        ru: 'Теория обучения' },
+    'measure-theory':        { en: 'Measure Theory',         ru: 'Теория меры' },
+    'statistical-learning':  { en: 'Statistical Learning',   ru: 'Статистическое обучение' },
+    'stochastic-calculus':   { en: 'Stochastic Calculus',    ru: 'Стохастическое исчисление' },
+    'stochastic-processes':  { en: 'Stochastic Processes',   ru: 'Случайные процессы' },
+    'topology':              { en: 'Topology',               ru: 'Топология' },
+  },
+};
+
 /**
  * Translate a raw category name from any frontmatter to the canonical display
  * label for the given language. Falls back to the raw value when no mapping
@@ -437,22 +502,32 @@ export const getNavigationTree = (lang: 'en' | 'ru'): NavSection[] => {
     !SKIP_SECTIONS.has(p.metadata.section ?? '')
   );
 
-  // Map<sectionKey, Map<translatedCategoryTitle, PageContent[]>>
+  // Map<sectionKey, Map<translatedGroupTitle, PageContent[]>>
   const sectionMap = new Map<string, Map<string, PageContent[]>>();
-  
+
   for (const page of pages) {
     const sectionKey = page.metadata.section ?? '_other';
     if (!sectionMap.has(sectionKey)) sectionMap.set(sectionKey, new Map());
-    
+
     const catMap = sectionMap.get(sectionKey)!;
-    const rawCat = page.metadata.category;
-    
-    // Translate the category title BEFORE grouping to unify EN and RU categories
-    const catLabels = CATEGORY_LABELS[rawCat];
-    const translatedCat = (catLabels && catLabels[lang]) ? catLabels[lang] : rawCat;
-    
-    if (!catMap.has(translatedCat)) catMap.set(translatedCat, []);
-    catMap.get(translatedCat)!.push(page);
+
+    // Prefer the path-derived subsection as the group key, falling back to the
+    // frontmatter category. The vault's folder layout is the source of truth
+    // for the topical sub-grouping, so physics/quantum/*.md all land in
+    // "Quantum Physics" regardless of how their frontmatter spells the
+    // category. Root-level pages (no subsection) still group by category.
+    const sub = page.metadata.subsection;
+    const subLabels = sub ? SUBSECTION_LABELS[sectionKey]?.[sub] : undefined;
+
+    let groupKey: string;
+    if (subLabels) {
+      groupKey = subLabels[lang];
+    } else {
+      groupKey = translateCategory(page.metadata.category, lang);
+    }
+
+    if (!catMap.has(groupKey)) catMap.set(groupKey, []);
+    catMap.get(groupKey)!.push(page);
   }
 
   const sections: NavSection[] = [];
