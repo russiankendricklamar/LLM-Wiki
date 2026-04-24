@@ -1,6 +1,6 @@
 ---
 title: "Self-Attention как ядро"
-category: "AI Theory"
+category: "Statistical Learning"
 order: 19
 lang: "ru"
 slug: "attention-kernel"

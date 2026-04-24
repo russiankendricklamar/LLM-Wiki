@@ -1,5 +1,5 @@
 ---
-title: "Offline Reinforcement Learning"
+title: "Офлайн обучение с подкреплением"
 category: "AI Theory"
 order: 14
 lang: "ru"

@@ -1,6 +1,6 @@
 ---
 title: "Self-Attention as a Kernel"
-category: "AI Theory"
+category: "Statistical Learning"
 order: 19
 lang: "en"
 slug: "attention-kernel"

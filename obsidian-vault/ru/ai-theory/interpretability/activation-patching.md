@@ -1,5 +1,5 @@
 ---
-title: "Activation Patching"
+title: "Активационный патчинг"
 category: "AI Theory"
 order: 3
 lang: "ru"

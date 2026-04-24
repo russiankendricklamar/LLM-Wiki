@@ -1,6 +1,6 @@
 ---
 slug: "/finance/value-at-risk"
-title: "Value at Risk (VaR)"
+title: "Стоимостная мера риска (VaR)"
 category: "Управление рисками"
 order: 15
 lang: "ru"

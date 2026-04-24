@@ -1,5 +1,5 @@
 ---
-title: "Temporal Fusion Transformer"
+title: "Темпоральный трансформер слияния (TFT)"
 category: "Scientific ML"
 order: 2
 lang: "ru"

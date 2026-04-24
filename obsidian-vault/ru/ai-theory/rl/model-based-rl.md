@@ -1,5 +1,5 @@
 ---
-title: "Model-Based Reinforcement Learning"
+title: "Модельное обучение с подкреплением"
 category: "AI Theory"
 order: 13
 lang: "ru"

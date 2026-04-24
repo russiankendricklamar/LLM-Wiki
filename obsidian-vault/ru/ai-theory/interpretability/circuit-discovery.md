@@ -1,5 +1,5 @@
 ---
-title: "Circuit Discovery"
+title: "Поиск нейронных цепей (Circuit Discovery)"
 category: "AI Theory"
 order: 5
 lang: "ru"

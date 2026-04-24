@@ -1,57 +1,41 @@
 ---
-title: "Эффективная полевая теория (EFT)"
+title: "Effective Field Theory (EFT)"
 category: "Quantum Physics"
 order: 15
-lang: "ru"
+lang: "en"
 slug: "effective-field-theory"
+growth: "seedling"
 ---
 
-# Эффективная полевая теория (Effective Field Theory, EFT)
+# Effective Field Theory (EFT)
 
-**Эффективная полевая теория (EFT)** — это современный стандарт мышления в физике. Она признает, что наше описание природы всегда зависит от масштаба. Вместо того чтобы искать «Теорию всего», которая объясняет всё сразу, EFT дает строгий способ построить «Теорию чего-то», которая будет идеально точной в конкретном диапазоне энергий.
+**Effective Field Theory (EFT)** is the modern standard for thinking in physics. It acknowledges that any description of nature is scale-dependent: rather than searching for a "Theory of Everything" that explains all phenomena at once, EFT provides a rigorous recipe for building a "theory of something" that is exact within a specific energy window.
 
-## 1. Основной принцип: Разделение масштабов и Декаплинг
+## Core idea
 
-Успех науки держится на том, что вам не нужно знать физику кварков, чтобы построить мост. Это формализовано в **теореме Аппельквиста-Караццоне**: тяжелые частицы масс $M$ влияют на физику низких энергий $E \ll M$ только через небольшие поправки к константам, которые мы и так измеряем.
+For a given experiment we operate at a characteristic energy $E$. EFT assumes there exists a higher cutoff scale $\Lambda \gg E$ above which new physics may live. The Lagrangian is expanded in inverse powers of $\Lambda$:
 
-## 2. Вильсоновская конструкция
+$$
+\mathcal{L}_{\text{EFT}} = \mathcal{L}_{\text{renormalisable}} + \sum_{n \geq 1} \frac{c_n}{\Lambda^n}\, \mathcal{O}_n,
+$$
 
-Создание EFT следует строгому рецепту:
-1.  **Выбор степеней свободы**: Мы выбираем только те частицы, которые «живут» на нашем масштабе (например, молекулы воды, а не атомы водорода).
-2.  **Анализ симметрий**: Мы выписываем все правила, которым подчиняется система (сохранение заряда, вращательная симметрия и т.д.).
-3.  **Мастер-Лагранжиан**: Мы записываем **все возможные слагаемые**, которые не нарушают эти симметрии:
-    $$\mathcal{L}_{eff} = \mathcal{L}_{stand} + \sum \frac{c_n}{\Lambda^n} \mathcal{O}_n$$
-    - Первые члены описывают обычную физику.
-    - Члены, деленные на масштаб $\Lambda$ (энергия «новой физики»), описывают наше незнание глубоких уровней реальности. Чем больше $\Lambda$, тем слабее влияние «неведомого» на наши опыты.
+where $\mathcal{O}_n$ are local operators allowed by the symmetries of the system and $c_n$ are dimensionless Wilson coefficients. The leading term is renormalisable; higher-dimensional operators are suppressed by $(E/\Lambda)^n$.
 
-## 3. Матчинг и Бег констант (Matching & Running)
+## Examples
 
-EFT — это не просто догадка, она математически выводится из «Высшей теории» через два процесса:
-- **Матчинг (Matching)**: На границе раздела энергий мы заставляем EFT выдавать те же результаты, что и полная теория. Это позволяет вычислить коэффициенты $c_n$.
-- **Бег (Running)**: С помощью [[renormalization-group|ренормализационной группы]] мы пересчитываем эти коэффициенты для энергии нашего конкретного эксперимента.
+- **Fermi theory of weak interactions** — the four-fermion interaction is the EFT of the Standard Model below the W/Z mass scale.
+- **Chiral perturbation theory** — pions and nucleons as the EFT of QCD below the GeV scale.
+- **NRQED / NRQCD** — non-relativistic EFTs for bound states like positronium and quarkonium.
+- **General relativity** itself is widely interpreted as the low-energy EFT of an unknown UV-complete quantum theory of gravity.
 
-## 4. Классические примеры
+## Why it matters
 
-### А. Теория Ферми
-До открытия $W$-бозонов Энрико Ферми описал бета-распад как прямое столкновение четырех частиц. Это была идеальная EFT. $W$-бозон был слишком тяжелым, чтобы его увидеть, поэтому его «вычеркнули» (проинтегрировали), оставив лишь константу связи Ферми $G_F$.
+1. **Predictive power without a UV theory** — you can compute observables to fixed accuracy without knowing the deep physics.
+2. **Naturalness** — EFTs make explicit which couplings are "natural" and which require fine-tuning.
+3. **Renormalisation** — non-renormalisable terms are not pathological; they are simply suppressed contributions.
 
-### Б. Киральная теория
-На низких энергиях уравнения КХД (кварки и глюоны) не решаются. Физики используют EFT, где вместо кварков летают пионы. Это позволяет считать ядерные реакции с невероятной точностью, вообще не упоминая кварки.
+## Related topics
 
-## 5. Почему это важно: Проблема иерархии
-
-EFT обнажает великую загадку: почему масса бозона Хиггса так мала по сравнению с планковским масштабом? Согласно логике EFT, поправки с «верхних этажей» реальности должны были сделать Хиггс в триллионы раз тяжелее. То, что он легкий, намекает либо на **Суперсимметрию**, либо на то, что наша EFT вселенной в корне неполна.
-
-## 6. ИИ как Эффективная теория
-
-Глубокое обучение — это процесс итеративного построения EFT для данных.
-- Входной слой — это «шумные» пиксели (высокая энергия).
-- Каждый следующий слой «отфильтровывает» ненужные детали, оставляя только «эффективные» признаки (границы, формы, объекты).
-- Обученная нейросеть — это **эффективная теория латентного многообразия** данных.
-
-## Родственные темы
-
-[[renormalization-group|Ренормализационная группа]] — математика перехода между EFT  
-Стандартная модель — лучшая EFT в истории человечества  
-[[statistical-mechanics|Статистическая механика]] — где EFT описывает фазовые переходы
----
+- [[quantum-field-theory|Quantum field theory]] — the full framework that EFTs approximate.
+- [[renormalization-group|Renormalisation group]] — how Wilson coefficients flow with scale.
+- [[standard-model|Standard Model]] — itself an EFT below some unknown UV scale.

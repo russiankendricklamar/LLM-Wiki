@@ -1,5 +1,5 @@
 ---
-title: "Federated Learning"
+title: "Федеративное обучение"
 category: "LLM Infrastructure"
 order: 15
 lang: "ru"

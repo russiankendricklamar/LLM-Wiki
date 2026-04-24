@@ -1,5 +1,5 @@
 ---
-title: "Probing Classifiers"
+title: "Probing-классификаторы"
 category: "AI Theory"
 order: 4
 lang: "ru"

@@ -1,5 +1,5 @@
 ---
-title: "Fourier Neural Operators"
+title: "Нейронные операторы Фурье (FNO)"
 category: "AI Physics"
 order: 6
 lang: "ru"

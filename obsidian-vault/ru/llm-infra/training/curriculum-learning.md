@@ -1,5 +1,5 @@
 ---
-title: "Curriculum Learning"
+title: "Куррикулум-обучение"
 category: "LLM Infrastructure"
 order: 14
 lang: "ru"

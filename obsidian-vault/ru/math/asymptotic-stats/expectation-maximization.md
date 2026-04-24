@@ -1,5 +1,5 @@
 ---
-title: "Expectation-Maximization (EM)"
+title: "EM-алгоритм (Expectation-Maximization)"
 category: "Asymptotic Statistics"
 order: 4
 lang: "ru"
