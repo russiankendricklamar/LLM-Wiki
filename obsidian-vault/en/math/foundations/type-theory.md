@@ -50,7 +50,7 @@ graph TD
 ## Related Topics
 
 [[category-theory]] — types can be viewed as objects in a category  
-[[foundations]] — comparison with ZFC set theory  
+foundations — comparison with ZFC set theory  
 [[reasoning-models]] — AI that operates within formal systems  
 [[topos-theory]] — a geometric generalization of type theory
 ---

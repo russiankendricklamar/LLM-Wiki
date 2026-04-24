@@ -127,7 +127,7 @@ Facebook AI Similarity Search библиотека:
 | **pgvector** | PostgreSQL | ✗ | ✓✓ | 100M (IVF) |
 
 **Managed vs. Self-hosted**:
-- Pinecone: serverless, автоматическое масштабирование, HNSW + PQ, дорого (~$0.40/M векторов/месяц).
+- Pinecone: serverless, автоматическое масштабирование, HNSW + PQ, дорого (~\$0.40/M векторов/месяц).
 - Qdrant/Weaviate: open-source, persistent, полный контроль, управляй сам.
 - pgvector: используй существующий Postgres; медленнее но тесная интеграция, native ACID.
 

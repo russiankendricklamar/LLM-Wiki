@@ -52,6 +52,6 @@ $$ \mathbf{J}_{z(x)} = \mathbf{J}_{z(y)} \mathbf{J}_{y(x)} $$
 ## Родственные темы
 
 [[taylor-series|Ряды Тейлора]] — квадратичное приближение Тейлора использует Гессиан  
-[[backpropagation|Backpropagation]] — реализация правила цепочки  
+Backpropagation — реализация правила цепочки  
 [[convex-optimization-trading|Выпуклая оптимизация]] — использование Гессиана для поиска минимума
 ---

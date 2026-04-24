@@ -205,7 +205,7 @@ Use the simulator below to explore how different bet sizes affect capital growth
 
 ## Related Topics
 - [[levy-processes]]
-- [[pairs-trading-strategy]]
+- pairs-trading-strategy
 - [[monte-carlo-method]]
 - [[value-at-risk]]
 - [[portfolio-optimization-ml]]

@@ -87,7 +87,7 @@ If the holographic principle is right — and the evidence is overwhelming — t
 
 ## Related Topics
 
-- [[holographic-principle]] — the foundational idea
+- holographic-principle — the foundational idea
 - [[hawking-radiation]] — the black-hole thermodynamics that motivated holography
 - [[general-relativity]] — the bulk classical limit
 - [[conformal-field-theory]] — the boundary description

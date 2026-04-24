@@ -1,5 +1,5 @@
 ---
-slug: "/finance/cost-of-carry"
+slug: "cost-of-carry"
 title: "Cost of Carry"
 category: "Pricing"
 order: 156

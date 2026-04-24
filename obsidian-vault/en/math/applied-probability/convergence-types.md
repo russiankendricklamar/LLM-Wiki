@@ -71,5 +71,5 @@ The reverse implications are generally **false**. For example, a sequence can co
 
 [[law-of-large-numbers]] — strong vs weak convergence  
 [[central-limit-theorem]] — the most famous convergence in distribution  
-[[asymptotic-stats]] — properties of estimators at the limit
+asymptotic-stats — properties of estimators at the limit
 ---

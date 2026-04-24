@@ -8,7 +8,7 @@ lang: "en"
 
 # Repo Market and Systemic Risk
 
-A **repo (repurchase agreement)** is a short-term secured loan: one party sells securities with a contractual obligation to repurchase them at a specified date and price. The repo market — roughly $10 trillion daily in the US and €9 trillion in Europe — is the plumbing of the global financial system. Its structural fragility was the primary transmission channel of the 2008 crisis.
+A **repo (repurchase agreement)** is a short-term secured loan: one party sells securities with a contractual obligation to repurchase them at a specified date and price. The repo market — roughly \$10 trillion daily in the US and €9 trillion in Europe — is the plumbing of the global financial system. Its structural fragility was the primary transmission channel of the 2008 crisis.
 
 ## Mechanics
 
@@ -148,7 +148,7 @@ print(rollover_risk(book, pds))
 
 ## Lessons from the 2008 Crisis
 
-- **Lehman Brothers**: ~$600 bn in repo positions unwound in 48 hours
+- **Lehman Brothers**: ~\$600 bn in repo positions unwound in 48 hours
 - **Primary Reserve Fund**: broke the buck after Lehman commercial paper losses → money-market freeze
 - **Tri-party repo**: concentration of operational infrastructure at JP Morgan and BNY Mellon created single points of failure
 

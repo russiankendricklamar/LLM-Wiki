@@ -65,6 +65,6 @@ graph TD
 ## Related Topics
 
 [[taylor-series]] — 2nd order Taylor expansion uses the Hessian  
-[[backpropagation]] — implementing the multivariable chain rule  
+backpropagation — implementing the multivariable chain rule  
 [[information-geometry]] — the Fisher Information matrix as a specialized metric
 ---

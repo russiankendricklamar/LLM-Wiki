@@ -37,7 +37,7 @@ The Wasserstein-1 distance (cost $c(x,y) = |x-y|$) admits an elegant dual charac
 
 $$W_1(\mu, \nu) = \sup_{\|f\|_{\text{Lip}} \leq 1} \left| \mathbb{E}_\mu[f] - \mathbb{E}_\nu[f] \right|,$$
 
-where the supremum ranges over all 1-Lipschitz functions $f: \mathbb{R}^d \to \mathbb{R}$. This outperforms [[kullback-leibler-divergence|Kullback-Leibler divergence]]: $W_1$ is properly defined for measures with disjoint support, whereas $\text{KL}(\mu \| \nu) = \infty$ in such cases.
+where the supremum ranges over all 1-Lipschitz functions $f: \mathbb{R}^d \to \mathbb{R}$. This outperforms Kullback-Leibler divergence: $W_1$ is properly defined for measures with disjoint support, whereas $\text{KL}(\mu \| \nu) = \infty$ in such cases.
 
 The duality reveals why $W_1$ is geometrically meaningful: it measures the worst-case expectation gap under all slowly-varying functions, a robust notion of distributional distance.
 

@@ -5,7 +5,7 @@ order: 5
 lang: "ru"
 type: "project"
 status: "shipped"
-image: "/projects/j-cole-fall-off.png"
+image: "/projects/j-cole-fall-off.jpg"
 year: "2026"
 tech: "React 19, TypeScript, Vite, Framer Motion"
 github: "https://github.com/russiankendricklamar/J.-Cole-The-Fall-Off-Review"

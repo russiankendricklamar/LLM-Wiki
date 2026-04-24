@@ -242,4 +242,4 @@ def factor_analytics(
 
 [[llm-financial-analysis]] — alternative data extraction that feeds ML factor construction
 
-[[generative-models-scenario]] — scenario simulation for factor stress testing
+generative-models-scenario — scenario simulation for factor stress testing

@@ -68,6 +68,6 @@ This is why the semicircle law is so universal in [[random-matrices]].
 ## Related Topics
 
 [[random-matrices]] — the setting where freeness emerges  
-[[asymptotic-stats]] — classical limit theorems  
+asymptotic-stats — classical limit theorems  
 [[information-theory]] — free [[shannon-entropy|entropy]] and free Fisher information
 ---

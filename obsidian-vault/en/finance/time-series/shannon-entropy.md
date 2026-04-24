@@ -236,4 +236,4 @@ print(f"KL(Normal || Laplace): {kl_divergence(p_norm, p_lap):.4f} nats")
 - [[hidden-markov-models]]
 - [[quantum-entanglement]]
 - [[random-matrix-theory]]
-- [[transfer-entropy]]
+- transfer-entropy

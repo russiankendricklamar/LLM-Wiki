@@ -227,7 +227,7 @@ def train_step(
 
 [[black-scholes]] — foundational model whose limitations motivate ML pricing
 
-[[generative-models-scenario]] — generative simulators for training deep hedging agents
+generative-models-scenario — generative simulators for training deep hedging agents
 
 [[temporal-fusion-transformer]] — multi-horizon vol forecasting feeding surface dynamics
 

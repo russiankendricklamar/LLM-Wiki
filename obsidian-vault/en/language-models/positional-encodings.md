@@ -102,7 +102,7 @@ With YaRN, LLaMA-2 (trained on 4096 tokens) extends to 128K tokens with minimal 
 
 ## Related Topics
 
-- [[large-language-models]] — overview of [[llm]] architectures
+- large-language-models — overview of [[llm]] architectures
 - [[transformer-architecture]] — full attention mechanism
 - [[attention-mechanisms]] — self-attention derivation
 - [[neural-scaling-laws]] — how context length interacts with compute scaling

@@ -1,5 +1,5 @@
 ---
-slug: "/finance/garman-kohlhagen"
+slug: "garman-kohlhagen"
 title: "Garman-Kohlhagen Model"
 category: "Pricing"
 order: 152

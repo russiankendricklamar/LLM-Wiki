@@ -1,5 +1,5 @@
 ---
-slug: "/finance/put-call-parity"
+slug: "put-call-parity"
 title: "Put-Call Parity"
 category: "Pricing"
 order: 151

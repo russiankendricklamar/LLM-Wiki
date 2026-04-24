@@ -60,7 +60,7 @@ graph TD
 
 ## Related Topics
 
-[[probability-theory]] — the foundational axioms  
+probability-theory — the foundational axioms  
 [[hmm-particle-filters]] — conditional scenarios in time  
 [[bayesian-inference]] — where $Y$ is the parameter $\theta$
 ---

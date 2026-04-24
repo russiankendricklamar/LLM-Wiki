@@ -68,7 +68,7 @@ High fertility directly increases the cost of [[inference-serving|inference]] an
 
 ## Related Topics
 
-[[large-language-models]] — vocabulary choice affects model capacity  
+large-language-models — vocabulary choice affects model capacity  
 [[transformer-architecture]] — the embedding layer  
 [[inference-serving]] — fertility accounts for latency differences
 ---

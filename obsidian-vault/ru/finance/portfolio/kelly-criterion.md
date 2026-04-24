@@ -195,7 +195,7 @@ for label, frac in [("Полный Келли", 1.0), ("Половина Кел�
 
 ## Ссылки по теме
 - [[levy-processes]]
-- [[pairs-trading-strategy]]
+- pairs-trading-strategy
 - [[monte-carlo-method]]
 - [[value-at-risk]]
 - [[portfolio-optimization-ml]]

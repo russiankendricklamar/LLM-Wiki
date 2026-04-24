@@ -5,7 +5,7 @@ order: 2
 lang: "ru"
 type: "project"
 status: "wip"
-image: "/projects/samizdat.png"
+image: "/projects/samizdat.jpg"
 year: "2026"
 tech: "React 19, TypeScript, Vite, Tailwind 4, Motion"
 github: "https://github.com/russiankendricklamar/samizdat"

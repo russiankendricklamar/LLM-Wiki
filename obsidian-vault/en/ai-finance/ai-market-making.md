@@ -232,7 +232,7 @@ def skew_quotes(
 
 ## Related Topics
 
-[[market-microstructure]] — foundational theory of limit order book dynamics and adverse selection
+market-microstructure — foundational theory of limit order book dynamics and adverse selection
 
 [[optimal-execution]] — the complementary problem of executing large orders against a market maker
 
@@ -240,4 +240,4 @@ def skew_quotes(
 
 [[temporal-fusion-transformer]] — volatility forecasting feeding the risk aversion parameter
 
-[[generative-models-scenario]] — LOB simulators used to train RL market making agents
+generative-models-scenario — LOB simulators used to train RL market making agents

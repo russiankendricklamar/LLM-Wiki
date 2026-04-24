@@ -40,7 +40,7 @@ $$|\psi\rangle = \alpha |0\rangle + \beta |1\rangle$$
 
 ## Родственные темы
 
-[[linear-algebra|Линейная алгебра]] — базовый язык  
+Линейная алгебра — базовый язык  
 [[spectral-theorem-unbounded|Спектральная теорема]] — математика измерения  
 [[quantum-information-entropy|Квантовая информация]] — энтропия и кубиты
 ---

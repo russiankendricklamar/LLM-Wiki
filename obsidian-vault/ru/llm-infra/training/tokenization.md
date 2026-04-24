@@ -40,7 +40,7 @@ growth: "seedling"
 
 ## Родственные темы
 
-[[large-language-models|LLM]] — выбор словаря влияет на емкость модели  
+LLM — выбор словаря влияет на емкость модели  
 [[transformer-architecture|Архитектура Transformer]] — эмбеддинги  
 [[inference-serving|Инференс]] — влияние токенизации на задержку
 ---

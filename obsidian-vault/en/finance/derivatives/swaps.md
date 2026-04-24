@@ -7,7 +7,7 @@ lang: "en"
 ---
 # Types of Swaps
 
-A **swap** is an OTC derivative contract in which two counterparties exchange sequences of cash flows over a specified tenor. The notional principal is usually not exchanged. Swaps are among the largest asset class in derivatives markets — the BIS estimates outstanding notional exceeding $500 trillion. They are central to hedging interest rate risk, funding cost management, and regulatory capital optimization.
+A **swap** is an OTC derivative contract in which two counterparties exchange sequences of cash flows over a specified tenor. The notional principal is usually not exchanged. Swaps are among the largest asset class in derivatives markets — the BIS estimates outstanding notional exceeding \$500 trillion. They are central to hedging interest rate risk, funding cost management, and regulatory capital optimization.
 
 ## Background and Market Structure
 
@@ -253,7 +253,7 @@ print(f"PV Float Leg:   ${result['pv_float']:>12,.2f}")
 | $N$ | Notional | Principal on which payments are computed | Any size |
 | $K$ | Fixed rate | Contractual fixed coupon rate | 1% – 8% |
 | $K^*$ | Par swap rate | Fixed rate making NPV = 0 at inception | Market-determined |
-| $D(0,T)$ | Discount factor | PV of $1 received at time $T$ | 0.7 – 1.0 |
+| $D(0,T)$ | Discount factor | PV of \$1 received at time $T$ | 0.7 – 1.0 |
 | $\delta_i$ | Day count fraction | Length of coupon period in years | ~0.25 (qtr) / 0.5 (semi) |
 | $\text{DV01}$ | Rate sensitivity | P&L per 1bp parallel shift | Varies with tenor/notional |
 | $s$ | CDS spread | Annual credit protection cost | 20 – 2000 bps |

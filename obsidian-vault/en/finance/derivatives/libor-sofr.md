@@ -8,7 +8,7 @@ lang: "en"
 
 # LIBOR to SOFR Transition
 
-**LIBOR (London Interbank Offered Rate)** underpinned ~$350 trillion in contracts. Following the 2012 manipulation scandal, USD LIBOR was discontinued in June 2023. The replacement is **SOFR (Secured Overnight Financing Rate)**.
+**LIBOR (London Interbank Offered Rate)** underpinned ~\$350 trillion in contracts. Following the 2012 manipulation scandal, USD LIBOR was discontinued in June 2023. The replacement is **SOFR (Secured Overnight Financing Rate)**.
 
 ## LIBOR vs SOFR
 

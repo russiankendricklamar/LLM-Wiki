@@ -127,7 +127,7 @@ At selectivity $< 1\%$ (e.g., last-7-days documents), pre-filter + ANN dominates
 | **pgvector** | PostgreSQL | ✗ | ✓✓ | 100M (IVF) |
 
 **Managed vs. Self-hosted**:
-- Pinecone: serverless, automatic scaling, HNSW + PQ, expensive (~$0.40/M vectors/month).
+- Pinecone: serverless, automatic scaling, HNSW + PQ, expensive (~\$0.40/M vectors/month).
 - Qdrant/Weaviate: open-source, persistent, full control, run your own ops.
 - pgvector: leverage existing Postgres; slower but tight integration, native ACID.
 

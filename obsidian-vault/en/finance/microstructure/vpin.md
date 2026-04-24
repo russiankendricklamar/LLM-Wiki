@@ -70,5 +70,5 @@ $$VPIN = \frac{\sum_{\tau=1}^n |V_\tau^B - V_\tau^S|}{n \cdot V_{bucket}}$$
 
 [[glosten-milgrom]] — the theoretical source of the spread  
 [[pin-easley-ohara]] — the clock-time predecessor to VPIN  
-[[limit-order-book]] — where the buy/sell volume originates
+limit-order-book — where the buy/sell volume originates
 ---

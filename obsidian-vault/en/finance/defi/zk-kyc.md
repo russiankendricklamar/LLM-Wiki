@@ -22,7 +22,7 @@ Instead of uploading a passport directly to a smart contract, the ZK-KYC process
 
 ZK-KYC allows for "Minimal Data Disclosure." You can prove specific attributes without revealing others:
 - **Proof of Residency**: Prove you are not from a sanctioned country without revealing your exact city or address.
-- **Proof of Funds**: Prove you have at least $10,000 without revealing your total net worth.
+- **Proof of Funds**: Prove you have at least \$10,000 without revealing your total net worth.
 - **Proof of Accreditation**: Prove you are an "Accredited Investor" required for [[onchain-credit|private credit markets]].
 
 ## 3. The Technical Stack: Soulbound Tokens (SBTs)

@@ -153,7 +153,7 @@ $$g_{ij} = \mathbb{E}_{p(x|\theta)} \left[ \frac{\partial \log p(x|\theta)}{\par
 
 This makes the space of distributions a Riemannian manifold, enabling natural [[convex-optimization|gradient descent]] and divergence measures.
 
-**Stochastic Differential Geometry**: [[stochastic-calculus|Stochastic differential equations]] on manifolds require careful handling of covariant derivatives; [[variational-calculus|variational methods]] applied to random curves yield insights into brownian motion on curved spaces.
+**Stochastic Differential Geometry**: Stochastic differential equations on manifolds require careful handling of covariant derivatives; [[variational-calculus|variational methods]] applied to random curves yield insights into brownian motion on curved spaces.
 
 **General Relativity**: [[non-euclidean-geometry|Spacetime geometry]] is a pseudo-Riemannian manifold with metric signature $(-,+,+,+)$. The Ricci tensor encodes matter and energy via the Einstein field equations $\text{Ric}_{ij} - \frac{1}{2}R g_{ij} = 8\pi G T_{ij}$.
 

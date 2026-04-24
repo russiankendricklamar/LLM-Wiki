@@ -67,5 +67,5 @@ This is essential for distinguishing between direct relationships and those caus
 
 [[copulas]] — the ultimate way to model dependence  
 [[causal-inference]] — moving from correlation to causation  
-[[mutual-information]] — an information-theoretic measure of dependence
+mutual-information — an information-theoretic measure of dependence
 ---

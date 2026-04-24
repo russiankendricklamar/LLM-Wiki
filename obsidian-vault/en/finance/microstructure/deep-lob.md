@@ -56,7 +56,7 @@ graph LR
 
 ## Related Topics
 
-[[limit-order-book]] — the data structure  
+limit-order-book — the data structure  
 [[order-flow-imbalance]] — the traditional feature being replaced  
 [[queue-reactive-models]] — the stochastic math equivalent of this ML approach
 ---

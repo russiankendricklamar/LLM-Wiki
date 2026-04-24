@@ -1,5 +1,5 @@
 ---
-slug: "/finance/optimal-execution"
+slug: "optimal-execution"
 title: "Кросс-импакт и оптимальное исполнение"
 category: "Pricing"
 order: 5

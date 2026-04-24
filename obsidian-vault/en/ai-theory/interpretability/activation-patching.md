@@ -80,5 +80,5 @@ Meng et al. (ROME, 2022) used activation patching to localise where GPT models s
 
 - [[mechanistic-interpretability]] — the broader programme
 - [[circuit-discovery]] — automated methods for finding circuits
-- [[attention-head-analysis]] — anatomy of attention head roles
+- attention-head-analysis — anatomy of attention head roles
 - [[transformer-architecture]] — architecture being analysed

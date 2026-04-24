@@ -72,5 +72,5 @@ No closed-form solution. It forces some weights to become **exactly zero**, acti
 
 [[logistic-regression]] — the classification counterpart  
 [[mle]] — OLS is equivalent to MLE under Gaussian noise  
-[[matrix-calculus]] — derivation of the Normal Equation
+matrix-calculus — derivation of the Normal Equation
 ---

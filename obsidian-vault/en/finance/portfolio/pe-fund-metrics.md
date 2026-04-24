@@ -33,7 +33,7 @@ $$
 \text{MOIC} = \frac{\text{Realised} + \text{Unrealised Value}}{\text{Paid-In Capital}}
 $$
 
-A MOIC of 2.5× means every dollar invested returned $2.50. Time-independent — a complementary lens to IRR.
+A MOIC of 2.5× means every dollar invested returned \$2.50. Time-independent — a complementary lens to IRR.
 
 ### DPI and RVPI
 

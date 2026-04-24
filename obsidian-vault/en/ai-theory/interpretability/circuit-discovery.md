@@ -95,5 +95,5 @@ This makes circuits harder to read — a single neuron participating in a circui
 
 - [[mechanistic-interpretability]] — the broader programme
 - [[activation-patching]] — primary experimental tool
-- [[attention-head-analysis]] — characterising individual heads
+- attention-head-analysis — characterising individual heads
 - [[sparse-autoencoders]] — decomposing polysemantic neurons

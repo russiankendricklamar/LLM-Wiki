@@ -61,7 +61,7 @@ If the model calculates that the probability of a downward tick is 80% (because 
 
 ## Related Topics
 
-[[limit-order-book]] — the structure being modeled  
+limit-order-book — the structure being modeled  
 [[hawkes-process]] — modeling the clustering of these events  
 [[order-flow-imbalance]] — the macroscopic summary of queue differences
 ---

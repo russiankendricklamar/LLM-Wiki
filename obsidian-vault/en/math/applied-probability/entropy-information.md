@@ -63,7 +63,7 @@ The algorithm chooses to split on the attribute that provides the **highest Info
 
 ## Related Topics
 
-[[kullback-leibler-divergence]] — measuring the difference between entropies  
+kullback-leibler-divergence — measuring the difference between entropies  
 [[maximum-entropy]] — a principle for choosing distributions  
-[[cross-entropy]] — used as a loss function in Deep Learning
+cross-entropy — used as a loss function in Deep Learning
 ---

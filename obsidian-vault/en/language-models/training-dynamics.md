@@ -9,7 +9,7 @@ growth: "seedling"
 
 # Training Dynamics
 
-Training dynamics describes how the loss landscape, gradient statistics, and learned representations evolve during the training of [[large-language-models]]. Understanding these phenomena helps diagnose failures, tune hyperparameters, and design more stable training recipes.
+Training dynamics describes how the loss landscape, gradient statistics, and learned representations evolve during the training of large-language-models. Understanding these phenomena helps diagnose failures, tune hyperparameters, and design more stable training recipes.
 
 ## Loss Landscape Geometry
 
@@ -155,4 +155,4 @@ Key metrics to track during training:
 - [[neural-scaling-laws]] — how dynamics at scale predict final loss
 - [[transformer-architecture]] — architecture choices that affect stability
 - [[attention-mechanisms]] — attention instability as a source of loss spikes
-- [[large-language-models]] — practical training setups
+- large-language-models — practical training setups

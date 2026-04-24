@@ -55,5 +55,5 @@ graph LR
 
 [[asset-tokenization]] — how the collateral is brought on-chain  
 [[cedefi-mechanics]] — the legal environment for these loans  
-[[risk-management]] — evaluating default probabilities in DeFi
+risk-management — evaluating default probabilities in DeFi
 ---

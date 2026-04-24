@@ -7,7 +7,7 @@ lang: "en"
 ---
 # Credit Default Swaps
 
-A **Credit Default Swap (CDS)** is a bilateral derivative in which the protection buyer pays a periodic premium (the *CDS spread*) to the protection seller, who in return compensates the buyer for losses upon a credit event (default, restructuring, failure to pay) of a reference entity. CDS are the most liquid credit derivative, with outstanding notional exceeding $3 trillion globally. They serve as both hedging instruments and tradeable expressions of credit views.
+A **Credit Default Swap (CDS)** is a bilateral derivative in which the protection buyer pays a periodic premium (the *CDS spread*) to the protection seller, who in return compensates the buyer for losses upon a credit event (default, restructuring, failure to pay) of a reference entity. CDS are the most liquid credit derivative, with outstanding notional exceeding \$3 trillion globally. They serve as both hedging instruments and tradeable expressions of credit views.
 
 ## CDS Mechanics
 

@@ -29,7 +29,7 @@ The **Paymaster** is a contract that can "sponsor" gas fees. This is critical fo
 ## 3. Session Keys and Security Policies
 
 Smart accounts allow for **Granular Permissioning**, which is essential for institutional traders:
-- **Session Keys**: A trader can authorize an algorithmic bot to trade up to $10,000 in volume for the next 24 hours. The bot uses a temporary key; if compromised, the damage is limited by the policy.
+- **Session Keys**: A trader can authorize an algorithmic bot to trade up to \$10,000 in volume for the next 24 hours. The bot uses a temporary key; if compromised, the damage is limited by the policy.
 - **Native Multi-sig**: The account logic can require $M$-of-$N$ signatures for any withdrawal above a certain threshold, all without the gas overhead of a Gnosis Safe multi-sig.
 
 ## 4. Engineering Trade-offs
@@ -61,5 +61,5 @@ sequenceDiagram
 
 [[cedefi-gateway-architecture]] — managing Bundlers and Paymasters  
 [[zk-kyc]] — automating identity checks within the validation loop  
-[[smart-contract-upgradeability]] — making the smart account logic patchable
+smart-contract-upgradeability — making the smart account logic patchable
 ---

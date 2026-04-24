@@ -1,5 +1,5 @@
 ---
-slug: "/finance/risk-neutral-valuation"
+slug: "risk-neutral-valuation"
 title: "Risk-Neutral Valuation"
 category: "Pricing"
 order: 153

@@ -73,7 +73,7 @@ graph TD
 
 ## Related Topics
 
-[[llm-alignment]] — using logic to constrain AI behavior  
+llm-alignment — using logic to constrain AI behavior  
 [[measure-theory]] — generalizing set size to "volume"  
-[[computational-complexity]] — set-theoretic limits of computation
+computational-complexity — set-theoretic limits of computation
 ---

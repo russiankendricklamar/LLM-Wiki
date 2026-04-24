@@ -59,6 +59,6 @@ graph LR
 ## Related Topics
 
 [[glosten-milgrom]] — adverse selection theory  
-[[limit-order-book]] — the architecture being criticized  
+limit-order-book — the architecture being criticized  
 [[smart-order-routing]] — how brokers navigate this continuous fragmentation
 ---

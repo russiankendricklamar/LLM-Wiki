@@ -57,6 +57,6 @@ Next-generation SORs use Machine Learning (Reinforcement Learning and Deep Neura
 ## Related Topics
 
 [[market-impact]] — what SOR is trying to minimize  
-[[limit-order-book]] — the structure the SOR scans  
+limit-order-book — the structure the SOR scans  
 [[vpin]] — detecting toxic environments where routing is dangerous
 ---

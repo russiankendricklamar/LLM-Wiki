@@ -76,5 +76,5 @@ When building a CeDeFi project, you must decide:
 
 [[stablecoin-mechanisms]] — using CDP models for stability  
 [[onchain-credit]] — differences between pool-based and tranche-based credit  
-[[risk-management]] — modeling liquidation cascades
+risk-management — modeling liquidation cascades
 ---

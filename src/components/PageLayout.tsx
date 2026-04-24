@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Search, Moon, Sun, Leaf, Menu, UserCircle2, FolderGit2, Network } from 'lucide-react';
+import { Search, Moon, Sun, Leaf, Menu, UserCircle2, FolderGit2, Network, BookOpen } from 'lucide-react';
 import { SearchDialog } from './SearchDialog';
 import { Footer } from './Footer';
 import { Sidebar } from './Sidebar';
 import { MobileNavDrawer } from './MobileNavDrawer';
 import { ScrollToTop } from './ScrollToTop';
 import { cn } from '@/lib/utils';
+
+// Hover preload — kick off the chunk fetch the moment the cursor enters a nav
+// link so the click feels instant. Each preloader is idempotent: subsequent
+// hovers reuse the in-flight or resolved import promise.
+const preloadGraph = () => import('./KnowledgeGraph');
+const preloadProjects = () => import('./ProjectsPage');
+const preloadCourses = () => import('./CoursesPage');
+const preloadAbout = () => import('./AboutPage');
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -66,6 +74,8 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
             <nav className="hidden md:flex items-center gap-1 ml-8">
               <NavLink
                 to="/about"
+                onMouseEnter={preloadAbout}
+                onFocus={preloadAbout}
                 className={({ isActive }) => cn(
                   "flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm transition-colors",
                   isActive
@@ -78,6 +88,8 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
               </NavLink>
               <NavLink
                 to="/projects"
+                onMouseEnter={preloadProjects}
+                onFocus={preloadProjects}
                 className={({ isActive }) => cn(
                   "flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm transition-colors",
                   isActive
@@ -91,6 +103,8 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
               {/* Knowledge Graph — accentuated as the entry to "exploration mode" */}
               <NavLink
                 to="/knowledge-graph"
+                onMouseEnter={preloadGraph}
+                onFocus={preloadGraph}
                 className={({ isActive }) => cn(
                   "flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm transition-all border",
                   isActive
@@ -100,6 +114,20 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
               >
                 <Network className="w-4 h-4 opacity-80" />
                 <span>{lang === 'en' ? 'Graph' : 'Граф'}</span>
+              </NavLink>
+              <NavLink
+                to="/courses"
+                onMouseEnter={preloadCourses}
+                onFocus={preloadCourses}
+                className={({ isActive }) => cn(
+                  "flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm transition-all border",
+                  isActive
+                    ? "bg-gradient-to-br from-blue-500/15 to-indigo-500/15 border-blue-500/40 text-blue-700 dark:text-blue-300 font-medium shadow-sm"
+                    : "border-transparent text-zinc-600 dark:text-zinc-400 hover:border-blue-500/30 hover:bg-blue-500/5 hover:text-blue-700 dark:hover:text-blue-300"
+                )}
+              >
+                <BookOpen className="w-4 h-4 opacity-80" />
+                <span>{lang === 'en' ? 'Courses' : 'Курсы'}</span>
               </NavLink>
             </nav>
           </div>

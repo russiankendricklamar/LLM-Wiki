@@ -65,5 +65,5 @@ The algorithm converges to a **local maximum** (or a saddle point) of the likeli
 
 [[mle]] — the objective EM solves  
 [[variational-inference]] — a generalization of EM for complex distributions  
-[[unsupervised-learning]] — where EM is most commonly used
+unsupervised-learning — where EM is most commonly used
 ---

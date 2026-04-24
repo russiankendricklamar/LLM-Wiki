@@ -17,7 +17,7 @@ lang: "en"
 | Risk measure | 99% 10-day VaR | 97.5% ES |
 | Liquidity | Single horizon | 10–250 day horizons |
 | TB/BB boundary | Regulatory | Strict (intent-based) |
-| Internal models | Desk-level with P&L Attribution test |
+| Internal models | VaR-based, model-wide | Desk-level with P&L Attribution test |
 
 ## Expected Shortfall
 

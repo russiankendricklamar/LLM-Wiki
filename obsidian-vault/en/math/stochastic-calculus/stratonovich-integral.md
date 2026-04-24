@@ -9,7 +9,7 @@ growth: "seedling"
 
 # Stratonovich Integral
 
-The Stratonovich integral, denoted $\int_0^T H_t \circ dW_t$, is an alternative to the [[itô-integral|Itô integral]] $\int_0^T H_t dW_t$ that differs fundamentally in how it **subdivides the Brownian increments**. Where Itô uses left endpoints of each subinterval, Stratonovich uses **midpoints**—a seemingly technical distinction with profound consequences. The Stratonovich choice makes the classical **chain rule** hold exactly, recovering the simplicity of deterministic calculus at the cost of losing the martingale property. This article explores the definition, conversion formulas, applications, and the geometric intuition behind Stratonovich integration.
+The Stratonovich integral, denoted $\int_0^T H_t \circ dW_t$, is an alternative to the Itô integral $\int_0^T H_t dW_t$ that differs fundamentally in how it **subdivides the Brownian increments**. Where Itô uses left endpoints of each subinterval, Stratonovich uses **midpoints**—a seemingly technical distinction with profound consequences. The Stratonovich choice makes the classical **chain rule** hold exactly, recovering the simplicity of deterministic calculus at the cost of losing the martingale property. This article explores the definition, conversion formulas, applications, and the geometric intuition behind Stratonovich integration.
 
 ## Definition via Midpoint Riemann Sums
 
@@ -142,7 +142,7 @@ gives the action (in the Freidlin-Wentzell sense) for the path $\phi$ in the lar
 
 ## Related Articles
 
-- [[itô-integral]] — the standard Itô integral and its properties
+- itô-integral — the standard Itô integral and its properties
 - [[stochastic-differential-equations]] — SDEs and their solutions
 - [[quadratic-variation]] — covariation and bracket notation
 - [[malliavin-calculus]] — functional derivatives and Clark-Ocone formula
@@ -151,4 +151,4 @@ gives the action (in the Freidlin-Wentzell sense) for the path $\phi$ in the lar
 - [[feynman-kac]] — PDE-probability connections
 - [[sde-numerical-methods]] — discretization schemes and Wong-Zakai
 - [[brownian-motion]] — the Wiener process
-- [[semimartingales]] — general processes and their structure
+- semimartingales — general processes and their structure

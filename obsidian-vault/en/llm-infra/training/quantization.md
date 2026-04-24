@@ -29,7 +29,7 @@ where $S$ is the scale factor, $x_q$ is the quantized integer, and $\hat{x}$ is 
 
 ## Post-Training Quantization: GPTQ
 
-[[GPTQ]] (Gradient Quantization) quantizes weights to INT4 without retraining. The key insight is **second-order optimization**: rather than naively rounding weights to the nearest quantization level, GPTQ minimizes layer-wise reconstruction error using the inverse [[transformer-architecture|Hessian]] matrix.
+GPTQ (Gradient Quantization) quantizes weights to INT4 without retraining. The key insight is **second-order optimization**: rather than naively rounding weights to the nearest quantization level, GPTQ minimizes layer-wise reconstruction error using the inverse [[transformer-architecture|Hessian]] matrix.
 
 For a layer with weight matrix $W$ and activations $X$, the output is $Y = WX$. Quantization introduces error $\Delta Y = \Delta W \cdot X$. GPTQ solves for each row $w_i$ of $W$:
 
@@ -41,7 +41,7 @@ The typical workflow: (1) load the model and a small calibration set (~100 sampl
 
 ## Activation-Aware Weight Quantization: AWQ
 
-Not all weights are equally important. [[AWQ]] observes that a small fraction of weights—those with large **activation scales**—account for most model expressiveness. By protecting these salient weights from aggressive quantization, AWQ achieves INT4 quality competitive with INT8 naive quantization.
+Not all weights are equally important. AWQ observes that a small fraction of weights—those with large **activation scales**—account for most model expressiveness. By protecting these salient weights from aggressive quantization, AWQ achieves INT4 quality competitive with INT8 naive quantization.
 
 The activation scale for weight $w_j$ is:
 
@@ -59,7 +59,7 @@ where $\Phi^{-1}$ is the inverse standard normal CDF. This allocates more precis
 
 ## GGUF Format and Local Inference
 
-[[GGUF]] (formerly GGML) is a file format widely adopted by **llama.cpp** for efficient local inference. It supports mixed-precision per-layer or per-tensor quantization profiles:
+GGUF (formerly GGML) is a file format widely adopted by **llama.cpp** for efficient local inference. It supports mixed-precision per-layer or per-tensor quantization profiles:
 
 - **Q4_K_M** (medium): 4-bit weights with learned per-channel scales; ~4.6 bits effective; typical for balanced quality/speed
 - **Q5_K_M** (medium): 5-bit weights; ~5.6 bits effective; higher quality than Q4

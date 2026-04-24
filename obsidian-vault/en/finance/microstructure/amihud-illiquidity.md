@@ -28,7 +28,7 @@ where:
 - $DVOL_{i,t} = \text{Volume}_{i,t} \times P_{i,t}$ is the dollar volume (shares traded times closing price)
 - $D_{i,y}$ is the number of valid trading days in year $y$
 
-The unit interpretation: $ILLIQ$ measures percentage price change per dollar of trading volume. A stock with $ILLIQ = 0.001$ moves 0.1% per $100,000 of volume — much more price-sensitive than a stock with $ILLIQ = 0.0001$.
+The unit interpretation: $ILLIQ$ measures percentage price change per dollar of trading volume. A stock with $ILLIQ = 0.001$ moves 0.1% per \$100,000 of volume — much more price-sensitive than a stock with $ILLIQ = 0.0001$.
 
 **Market-wide illiquidity** is the equally-weighted average:
 

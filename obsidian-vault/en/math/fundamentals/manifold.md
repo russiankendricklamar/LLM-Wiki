@@ -38,7 +38,7 @@ In some ML tasks (like training on spheres or orthogonal matrices), we use **Rie
 
 - [[complex-manifolds]] — where coordinates are complex numbers (String Theory).
 - [[symplectic-geometry]] — the manifold of phase space (Hamiltonian mechanics).
-- [[topology]] — the study of manifolds without metrics.
+- [[topology-basics]] — the study of manifolds without metrics.
 
 ## Related Topics
 

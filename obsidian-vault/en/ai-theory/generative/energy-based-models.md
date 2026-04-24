@@ -55,7 +55,7 @@ Recent work rejuvenates EBMs by coupling them with discriminative objectives. **
 
 $$E_\theta(x, y) = -f_\theta(x)[y]$$
 
-Supervised learning pushes down the energy of correct labels; unsupervised learning via [[contrastive-divergence|contrastive divergence]] pushes down data energy and up off-[[manifold-learning|manifold]] energy. This hybrid formulation unifies classification and generation, exemplifying modern interest in flexible, undirected models that leverage both labeled and unlabeled data.
+Supervised learning pushes down the energy of correct labels; unsupervised learning via contrastive divergence pushes down data energy and up off-[[manifold-learning|manifold]] energy. This hybrid formulation unifies classification and generation, exemplifying modern interest in flexible, undirected models that leverage both labeled and unlabeled data.
 
 ## Connection to [[statistical-mechanics|Statistical Mechanics]]
 

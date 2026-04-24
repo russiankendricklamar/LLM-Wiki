@@ -32,7 +32,7 @@ The **overcollateralization (OC) test** diverts cash from junior to senior tranc
 
 ### Agency vs. Non-Agency
 
-**Agency MBS** (Ginnie Mae, Fannie Mae, Freddie Mac): Government-guaranteed principal and interest; prepayment risk is the primary concern; enormous market (~$9 trillion outstanding).
+**Agency MBS** (Ginnie Mae, Fannie Mae, Freddie Mac): Government-guaranteed principal and interest; prepayment risk is the primary concern; enormous market (~\$9 trillion outstanding).
 
 **Non-agency MBS**: No government guarantee; credit risk is material; structured into tranches with credit enhancement. Subprime and Alt-A non-agency MBS were at the center of the 2007-08 crisis.
 

@@ -1,5 +1,5 @@
 ---
-slug: "/finance/option-strategies"
+slug: "option-strategies"
 title: "Option Strategies"
 category: "Pricing"
 order: 150

@@ -1,5 +1,5 @@
 ---
-slug: "/finance/futures-hedging"
+slug: "futures-hedging"
 title: "Futures Hedging"
 category: "Risk"
 order: 81

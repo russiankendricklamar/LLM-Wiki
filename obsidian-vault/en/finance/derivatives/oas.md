@@ -39,7 +39,7 @@ Spread comparison across bond types: for callable bonds OAS < Z-Spread (option c
 
 Fixed-income instruments frequently embed optionality: corporate bonds with call provisions, mortgage-backed securities (MBS) with prepayment options, convertible bonds, and structured products with embedded floors or caps. Comparing yields across these instruments without adjusting for the embedded option value conflates credit risk with optionality cost.
 
-OAS was developed in the 1980s alongside interest rate tree models (Black-Derman-Toy, Ho-Lee, Hull-White) as practitioners needed a tractable measure for MBS valuation. The U.S. MBS market — over $12 trillion outstanding — relies on OAS as the primary relative value metric, making it one of the most widely used spreads in fixed income.
+OAS was developed in the 1980s alongside interest rate tree models (Black-Derman-Toy, Ho-Lee, Hull-White) as practitioners needed a tractable measure for MBS valuation. The U.S. MBS market — over \$12 trillion outstanding — relies on OAS as the primary relative value metric, making it one of the most widely used spreads in fixed income.
 
 ## Why Adjust for Options?
 

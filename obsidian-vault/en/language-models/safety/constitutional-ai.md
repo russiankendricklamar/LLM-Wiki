@@ -61,7 +61,7 @@ graph TD
 
 ## Related Topics
 
-[[llm-alignment]] — general concepts of alignment  
+llm-alignment — general concepts of alignment  
 [[reinforcement-learning]] — the underlying training mechanics  
 [[mechanistic-interpretability]] — checking if the alignment is real or "faked"
 ---

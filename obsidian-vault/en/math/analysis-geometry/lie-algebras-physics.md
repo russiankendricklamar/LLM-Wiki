@@ -61,6 +61,6 @@ The particles that carry forces (photons, gluons, $W/Z$ bosons) always live in t
 ## Related Topics
 
 [[lie-groups]] — the global symmetry groups  
-[[quantum-mechanics]] — where generators become operators  
+quantum-mechanics — where generators become operators  
 [[physics/gravity/general-relativity]] — gravity as a gauge theory
 ---

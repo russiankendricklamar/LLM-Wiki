@@ -45,7 +45,7 @@ $$
 \Delta p_t = \alpha + \lambda \cdot \text{OF}_t + \varepsilon_t
 $$
 
-Common unit: **basis points per million USD** (bps/$M).
+Common unit: **basis points per million USD** (bps/\$M).
 
 ```python
 import numpy as np

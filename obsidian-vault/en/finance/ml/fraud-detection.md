@@ -11,7 +11,7 @@ slug: "fraud-detection"
 
 ## Background
 
-Global payment card fraud exceeded $32 billion in losses in 2022 (Nilson Report). The challenge is fundamentally asymmetric: fraud rates are typically under 0.1% of transactions, making direct model training on raw labels prone to trivial majority-class prediction. The cost asymmetry is also extreme: a missed fraud costs 10–100× more than a false alert. This shapes both model selection and the loss functions used.
+Global payment card fraud exceeded \$32 billion in losses in 2022 (Nilson Report). The challenge is fundamentally asymmetric: fraud rates are typically under 0.1% of transactions, making direct model training on raw labels prone to trivial majority-class prediction. The cost asymmetry is also extreme: a missed fraud costs 10–100× more than a false alert. This shapes both model selection and the loss functions used.
 
 ## Feature Engineering
 

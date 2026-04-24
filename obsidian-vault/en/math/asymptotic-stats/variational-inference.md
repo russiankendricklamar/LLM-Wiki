@@ -69,6 +69,6 @@ In a VAE, the "Encoder" is a variational distribution $q_\phi(z \mid x)$ that ap
 ## Related Topics
 
 [[bayesian-inference]] — the context for VI  
-[[kullback-leibler-divergence]] — the distance measure used  
+kullback-leibler-divergence — the distance measure used  
 [[variational-autoencoders]] — the primary deep learning application
 ---

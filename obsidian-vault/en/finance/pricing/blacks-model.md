@@ -1,5 +1,5 @@
 ---
-slug: "/finance/blacks-model"
+slug: "blacks-model"
 title: "Black's Model (1976)"
 category: "Pricing"
 order: 154

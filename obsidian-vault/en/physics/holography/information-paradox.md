@@ -75,6 +75,6 @@ The information paradox is no longer "is unitarity broken?" but "how exactly doe
 - [[general-relativity]] — the classical theory of black holes
 - [[qft-basic]] — quantum fields on curved backgrounds
 - [[black-hole-soft-hair]] — one proposed microstate mechanism
-- [[holographic-principle]] — area-law entropy as a clue
+- holographic-principle — area-law entropy as a clue
 - [[ads-cft]] — the setting in which unitarity is cleanest
 - [[celestial-holography]] — the flat-space analogue, tied to [[pasterski-triangle]]

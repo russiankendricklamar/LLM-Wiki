@@ -37,5 +37,5 @@ $$\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} \xrightarrow{d} \mathcal{N}(0, 1)$$
 
 [[asymptotic-stats/mle|MLE]] — причина нормальности оценок  
 [[levy-processes|Процессы Леви]] — физика за пределами ЦПТ  
-[[probability-theory|Теория вероятностей]] — база метода
+Теория вероятностей — база метода
 ---

@@ -77,6 +77,6 @@ graph LR
 ## Related Topics
 
 [[mcmc]] — Markov Chain Monte Carlo (the offline cousin)  
-[[stochastic-volatility]] — latent variables that need filtering  
+stochastic-volatility — latent variables that need filtering  
 [[regime-switching-factors]] — applying HMMs to portfolio construction
 ---

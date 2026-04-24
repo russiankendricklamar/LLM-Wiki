@@ -58,5 +58,5 @@ graph TD
 
 [[amm-mechanics]] — where LSTs are traded  
 [[stablecoin-mechanisms]] — using staked assets as collateral  
-[[risk-management]] — modeling the cascading failures of restaking
+risk-management — modeling the cascading failures of restaking
 ---

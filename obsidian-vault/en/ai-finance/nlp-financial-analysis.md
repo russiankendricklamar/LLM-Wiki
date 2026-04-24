@@ -216,4 +216,4 @@ def compute_earnings_surprise_signal(
 
 [[alpha-factor-research]] — factor construction incorporating NLP signals
 
-[[generative-models-scenario]] — scenario generation informed by narrative analysis
+generative-models-scenario — scenario generation informed by narrative analysis

@@ -45,8 +45,8 @@ This is critical for proving that a neural network's loss will actually converge
 
 ## Related Topics
 
-[[probability-theory]] — measure theory where the total size is 1  
+probability-theory — measure theory where the total size is 1  
 [[frtb-es]] — computing averages over tail measures  
-[[stochastic-calculus]] — integrals based on random measures  
+stochastic-calculus — integrals based on random measures  
 [[martingale]] — a property of measurable functions over time
 ---

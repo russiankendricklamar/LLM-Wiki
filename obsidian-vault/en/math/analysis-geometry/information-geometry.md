@@ -73,5 +73,5 @@ This duality leads to the **Generalized Pythagorean Theorem** for divergences, w
 ## Related Topics
 
 [[neural-tangent-kernel]] — geometry of infinite-width networks  
-[[asymptotic-stats]] — where Fisher information originated  
+asymptotic-stats — where Fisher information originated  
 [[rlhf]] — TRPO uses information geometry for stability

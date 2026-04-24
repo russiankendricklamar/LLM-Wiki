@@ -68,5 +68,5 @@ This is used in **Adversarial Machine Learning** and **Robust Control**, where y
 
 [[asymptotic-stats/bayesian-inference]] — the source of the posterior  
 [[reinforcement-learning]] — sequential decision theory  
-[[game-theory]] — decision theory with multiple players
+game-theory — decision theory with multiple players
 ---

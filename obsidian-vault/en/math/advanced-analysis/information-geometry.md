@@ -74,6 +74,6 @@ graph TD
 ## Related Topics
 
 [[fisher-information]] — the core component of the metric  
-[[stochastic-calculus]] — IG in stochastic processes  
+stochastic-calculus — IG in stochastic processes  
 [[optimal-transport]] — comparison with Wasserstein geometry
 ---

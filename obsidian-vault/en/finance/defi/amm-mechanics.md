@@ -59,7 +59,7 @@ Because AMM prices reflect the ratio of assets in the pool, they act as **Price 
 
 ## Related Topics
 
-[[limit-order-book]] — the traditional alternative  
+limit-order-book — the traditional alternative  
 [[optimal-execution]] — how to trade against AMMs efficiently  
 [[smart-order-routing]] — routing between AMMs and Lit exchanges
 ---

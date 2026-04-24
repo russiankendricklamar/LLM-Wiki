@@ -1,5 +1,5 @@
 ---
-slug: "/finance/greeks-options"
+slug: "greeks-options"
 title: "Option Greeks"
 category: "Pricing"
 order: 149

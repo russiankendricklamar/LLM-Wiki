@@ -25,6 +25,10 @@ export interface PageMetadata {
   hideOpen?: boolean;
   // Top-level directory segment (e.g. 'math', 'finance', 'ai-theory')
   section?: string;
+  // Course-specific fields
+  courseType?: 'course';
+  difficulty?: string;
+  duration?: string;
 }
 
 export interface PageContent {
@@ -133,36 +137,75 @@ export const getAllPages = (): PageContent[] => {
 
 /**
  * Resolve a wikilink target name to a page.
- * Priority: exact slug match → exact title match → exact filename match → same-category suffix → any suffix.
+ * Priority: exact slug → exact title → exact filename → last-segment slug/filename → partial slug → partial title.
+ * Path-prefixed targets like `[[physics/classical/partial-differential-equations]]` are stripped to last segment.
  */
 export const resolveWikilink = (
   target: string,
   pages: PageContent[],
-  sourceCategory?: string
+  _sourceCategory?: string
 ): PageContent | undefined => {
   const t = target.toLowerCase();
+  // Strip leading slash and treat path-prefixed targets like `physics/classical/X` by also trying last segment.
+  const tNoSlash = t.replace(/^\//, '');
+  const lastSeg = tNoSlash.includes('/') ? tNoSlash.split('/').pop()! : tNoSlash;
 
-  // 1. Exact slug match
-  const bySlug = pages.find(p => p.metadata.slug.replace(/^\//, '').toLowerCase() === t);
+  // 1. Exact slug match (with or without leading slash)
+  const bySlug = pages.find(p => {
+    const slugLower = p.metadata.slug.toLowerCase();
+    return slugLower === t || slugLower.replace(/^\//, '') === tNoSlash;
+  });
   if (bySlug) return bySlug;
 
   // 2. Exact title match
   const byTitle = pages.find(p => p.metadata.title.toLowerCase() === t);
   if (byTitle) return byTitle;
 
-  // 3. Filename match (handle folder structures)
+  // 3. Filename match (handles full path: `physics/classical/lagrangian-mechanics` → filename `lagrangian-mechanics`)
   const byFilename = pages.find(p => {
     const fileName = p.metadata.fullPath.split('/').pop()?.replace('.md', '').toLowerCase();
-    return fileName === t;
+    return fileName === lastSeg;
   });
   if (byFilename) return byFilename;
 
-  // 4. Partial slug match (e.g. [[kelly]] matches /finance/portfolio/kelly-criterion)
-  const byPartialSlug = pages.find(p => p.metadata.slug.toLowerCase().includes(t));
-  if (byPartialSlug) return byPartialSlug;
+  // 4. Slug ending in last segment (e.g. last segment `mle` matches /asymptotic-stats/mle)
+  if (lastSeg !== tNoSlash) {
+    const bySlugEnd = pages.find(p => p.metadata.slug.toLowerCase().endsWith('/' + lastSeg));
+    if (bySlugEnd) return bySlugEnd;
+  }
 
-  // 5. Fallback: Search in titles
-  return pages.find(p => p.metadata.title.toLowerCase().includes(t));
+  // 5. Partial slug match — only if exactly one candidate to avoid silent ambiguity
+  const partialSlug = pages.filter(p => p.metadata.slug.toLowerCase().includes(t));
+  if (partialSlug.length === 1) return partialSlug[0];
+
+  // 6. Partial title match — only if unambiguous
+  const partialTitle = pages.filter(p => p.metadata.title.toLowerCase().includes(t));
+  if (partialTitle.length === 1) return partialTitle[0];
+
+  return undefined;
+};
+
+/**
+ * Strip fenced code blocks (```...```) and inline code (`...`) from markdown body
+ * so wikilink scanning does not match incidental [[...]] inside code (e.g. `arr[[1,2]]`).
+ */
+export const stripCode = (body: string): string =>
+  body
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/`[^`\n]*`/g, '');
+
+/**
+ * Extract every [[wikilink]] target from a body, ignoring code blocks.
+ * Returns the inner text (before the optional `|alias`).
+ */
+export const extractWikilinkTargets = (body: string): string[] => {
+  const stripped = stripCode(body);
+  const out: string[] = [];
+  for (const m of stripped.matchAll(/\[\[([^\]\n]+?)\]\]/g)) {
+    const target = m[1].split('|')[0].trim();
+    if (target) out.push(target);
+  }
+  return out;
 };
 
 export const getPagePreview = (slug: string): string => {
@@ -233,10 +276,12 @@ const SECTION_LABELS: Record<string, Record<'en' | 'ru', string>> = {
   'projects':        { en: 'Projects', ru: 'Проекты' },
   'about':           { en: 'About', ru: 'О проекте' },
   'defi':            { en: 'DeFi', ru: 'Децентрализованные финансы' },
+  'courses':         { en: 'Learning Paths', ru: 'Учебные курсы' },
   '_other':          { en: 'Other', ru: 'Разное' },
 };
 
 const SECTION_ORDER = [
+  'courses',
   'language-models', 
   'llm-infra', 
   'ai-theory', 
@@ -306,10 +351,20 @@ const CATEGORY_LABELS: Record<string, Record<'en' | 'ru', string>> = {
   'Асимптотическая статистика': { en: 'Asymptotic Statistics', ru: 'Асимптотическая статистика' },
 };
 
+const SKIP_SECTIONS = new Set(['courses', 'about', 'projects']);
 const SKIP_CATS = new Set(['Home', 'Главная', 'Projects', 'Проекты']);
 
+const _navTreeCache = new Map<'en' | 'ru', NavSection[]>();
+
 export const getNavigationTree = (lang: 'en' | 'ru'): NavSection[] => {
-  const pages = getAllPages().filter(p => p.metadata.lang === lang && !SKIP_CATS.has(p.metadata.category));
+  const cached = _navTreeCache.get(lang);
+  if (cached) return cached;
+
+  const pages = getAllPages().filter(p =>
+    p.metadata.lang === lang &&
+    !SKIP_CATS.has(p.metadata.category) &&
+    !SKIP_SECTIONS.has(p.metadata.section ?? '')
+  );
 
   // Map<sectionKey, Map<translatedCategoryTitle, PageContent[]>>
   const sectionMap = new Map<string, Map<string, PageContent[]>>();
@@ -356,110 +411,161 @@ export const getNavigationTree = (lang: 'en' | 'ru'): NavSection[] => {
     return a.title.localeCompare(b.title);
   });
 
+  _navTreeCache.set(lang, sections);
   return sections;
+};
+
+// ---------------------------------------------------------------------------
+// Per-language link index (outLinks + inLinks). Built lazily once per language;
+// every backlinks / related / graph query reuses the same Map<slug, Set<slug>>.
+// Without this index, getRelatedArticles is O(N²) because it re-resolves every
+// wikilink in every page on every render.
+// ---------------------------------------------------------------------------
+interface LangIndex {
+  pages: PageContent[];
+  byCategory: Map<string, PageContent[]>;
+  outLinks: Map<string, Set<string>>;
+  inLinks: Map<string, Set<string>>;
+}
+
+const _indexCache = new Map<'en' | 'ru', LangIndex>();
+
+const getLangIndex = (lang: 'en' | 'ru'): LangIndex => {
+  const cached = _indexCache.get(lang);
+  if (cached) return cached;
+
+  const pages = getAllPages().filter(p => p.metadata.lang === lang);
+  const byCategory = new Map<string, PageContent[]>();
+  const outLinks = new Map<string, Set<string>>();
+  const inLinks = new Map<string, Set<string>>();
+
+  for (const p of pages) {
+    if (!byCategory.has(p.metadata.category)) byCategory.set(p.metadata.category, []);
+    byCategory.get(p.metadata.category)!.push(p);
+    outLinks.set(p.metadata.slug, new Set());
+    inLinks.set(p.metadata.slug, new Set());
+  }
+
+  for (const p of pages) {
+    const out = outLinks.get(p.metadata.slug)!;
+    for (const target of extractWikilinkTargets(p.content)) {
+      const resolved = resolveWikilink(target, pages, p.metadata.category);
+      if (!resolved || resolved.metadata.slug === p.metadata.slug) continue;
+      out.add(resolved.metadata.slug);
+      inLinks.get(resolved.metadata.slug)?.add(p.metadata.slug);
+    }
+  }
+
+  const idx: LangIndex = { pages, byCategory, outLinks, inLinks };
+  _indexCache.set(lang, idx);
+  return idx;
 };
 
 /** Returns pages that link TO the given slug via wikilinks. */
 export const getBacklinks = (slug: string, lang: 'en' | 'ru'): PageMetadata[] => {
-  const pages = getAllPages().filter(p => p.metadata.lang === lang);
-  const backlinks: PageMetadata[] = [];
-
-  for (const page of pages) {
-    if (page.metadata.slug === slug) continue;
-    const matches = page.content.matchAll(/\[\[(.*?)\]\]/g);
-    for (const match of matches) {
-      const linkTarget = match[1].split('|')[0].trim();
-      const resolved = resolveWikilink(linkTarget, pages, page.metadata.category);
-      if (resolved && resolved.metadata.slug === slug) {
-        backlinks.push(page.metadata);
-        break; // one backlink per page is enough
-      }
-    }
+  const idx = getLangIndex(lang);
+  const incoming = idx.inLinks.get(slug);
+  if (!incoming || incoming.size === 0) return [];
+  const result: PageMetadata[] = [];
+  for (const sourceSlug of incoming) {
+    const page = idx.pages.find(p => p.metadata.slug === sourceSlug);
+    if (page) result.push(page.metadata);
   }
-
-  return backlinks;
+  return result;
 };
 
 /** Returns related articles by shared wikilink overlap (Jaccard-like), falling back to same category. */
 export const getRelatedArticles = (slug: string, lang: 'en' | 'ru', limit = 5): PageMetadata[] => {
-  const pages = getAllPages().filter(p => p.metadata.lang === lang);
-  const currentPage = pages.find(p => p.metadata.slug === slug);
+  const idx = getLangIndex(lang);
+  const currentPage = idx.pages.find(p => p.metadata.slug === slug);
   if (!currentPage) return [];
 
-  const getOutLinks = (page: PageContent): Set<string> => {
-    const links = new Set<string>();
-    const matches = page.content.matchAll(/\[\[(.*?)\]\]/g);
-    for (const m of matches) {
-      const target = m[1].split('|')[0].trim();
-      const resolved = resolveWikilink(target, pages, page.metadata.category);
-      if (resolved) links.add(resolved.metadata.slug);
-    }
-    return links;
-  };
-
-  const currentLinks = getOutLinks(currentPage);
-  if (currentLinks.size === 0) {
-    return pages
-      .filter(p => p.metadata.category === currentPage.metadata.category && p.metadata.slug !== slug)
+  const currentLinks = idx.outLinks.get(slug);
+  if (!currentLinks || currentLinks.size === 0) {
+    const cat = idx.byCategory.get(currentPage.metadata.category) ?? [];
+    return cat
+      .filter(p => p.metadata.slug !== slug)
       .sort((a, b) => (a.metadata.order || 99) - (b.metadata.order || 99))
       .slice(0, limit)
       .map(p => p.metadata);
   }
 
-  const scored = pages
-    .filter(p => p.metadata.slug !== slug)
-    .map(p => {
-      const pLinks = getOutLinks(p);
-      const intersection = [...currentLinks].filter(l => pLinks.has(l)).length;
-      const union = new Set([...currentLinks, ...pLinks]).size;
-      return { metadata: p.metadata, score: union > 0 ? intersection / union : 0 };
-    })
-    .filter(s => s.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, limit);
+  const scored: { metadata: PageMetadata; score: number }[] = [];
+  for (const p of idx.pages) {
+    if (p.metadata.slug === slug) continue;
+    const pLinks = idx.outLinks.get(p.metadata.slug);
+    if (!pLinks || pLinks.size === 0) continue;
+    let intersection = 0;
+    for (const link of currentLinks) if (pLinks.has(link)) intersection++;
+    if (intersection === 0) continue;
+    const union = currentLinks.size + pLinks.size - intersection;
+    scored.push({ metadata: p.metadata, score: intersection / union });
+  }
+  scored.sort((a, b) => b.score - a.score);
+  const top = scored.slice(0, limit);
 
-  if (scored.length < limit) {
-    const existing = new Set(scored.map(s => s.metadata.slug));
+  if (top.length < limit) {
+    const existing = new Set(top.map(s => s.metadata.slug));
     existing.add(slug);
-    const fillers = pages
-      .filter(p => p.metadata.category === currentPage.metadata.category && !existing.has(p.metadata.slug))
-      .slice(0, limit - scored.length);
-    return [...scored.map(s => s.metadata), ...fillers.map(p => p.metadata)];
+    const cat = idx.byCategory.get(currentPage.metadata.category) ?? [];
+    const fillers = cat
+      .filter(p => !existing.has(p.metadata.slug))
+      .slice(0, limit - top.length);
+    return [...top.map(s => s.metadata), ...fillers.map(p => p.metadata)];
   }
 
-  return scored.map(s => s.metadata);
+  return top.map(s => s.metadata);
 };
 
 const GRAPH_EXCLUDED_CATEGORIES = new Set(['Projects', 'Проекты', 'Home', 'Главная']);
+const _graphCache = new Map<'en' | 'ru', { nodes: any[]; links: { source: string; target: string }[] }>();
 
 export const getGraphData = (lang: 'en' | 'ru') => {
-  const pages = getAllPages()
-    .filter(p => p.metadata.lang === lang)
-    .filter(p => !GRAPH_EXCLUDED_CATEGORIES.has(p.metadata.category));
+  const cached = _graphCache.get(lang);
+  if (cached) return cached;
 
-  const nodes = pages.map(page => ({
+  const idx = getLangIndex(lang);
+  const visible = idx.pages.filter(p => !GRAPH_EXCLUDED_CATEGORIES.has(p.metadata.category));
+  const visibleSlugs = new Set(visible.map(p => p.metadata.slug));
+
+  const nodes = visible.map(page => ({
     id: page.metadata.slug.replace(/^\//, ''),
     name: page.metadata.title,
     category: page.metadata.category,
-    val: page.metadata.category === 'Home' || page.metadata.category === 'Главная' ? 2 : 1
+    val: page.metadata.category === 'Home' || page.metadata.category === 'Главная' ? 2 : 1,
   }));
 
-  const links: { source: string, target: string }[] = [];
-  
-  pages.forEach(page => {
-    const sourceId = page.metadata.slug.replace(/^\//, '');
-    const matches = page.content.matchAll(/\[\[(.*?)\]\]/g);
-    for (const match of matches) {
-      const targetFileName = match[1].split('|')[0].trim();
-      const resolved = resolveWikilink(targetFileName, pages, page.metadata.category);
-      if (resolved) {
-        const targetId = resolved.metadata.slug.replace(/^\//, '');
-        if (targetId !== sourceId) {
-          links.push({ source: sourceId, target: targetId });
-        }
-      }
+  const links: { source: string; target: string }[] = [];
+  for (const p of visible) {
+    const sourceSlug = p.metadata.slug;
+    const sourceId = sourceSlug.replace(/^\//, '');
+    const out = idx.outLinks.get(sourceSlug);
+    if (!out) continue;
+    for (const targetSlug of out) {
+      if (!visibleSlugs.has(targetSlug)) continue;
+      const targetId = targetSlug.replace(/^\//, '');
+      if (targetId !== sourceId) links.push({ source: sourceId, target: targetId });
     }
-  });
+  }
 
-  return { nodes, links };
+  const result = { nodes, links };
+  _graphCache.set(lang, result);
+  return result;
+};
+
+/**
+ * Returns courses that reference the given page via wikilinks.
+ * Courses sit in the `courses/` section. We filter the pre-built inLinks index
+ * for the given slug, then keep only sources that are themselves courses.
+ */
+export const getCoursesForPage = (slug: string, lang: 'en' | 'ru'): PageMetadata[] => {
+  const idx = getLangIndex(lang);
+  const incoming = idx.inLinks.get(slug);
+  if (!incoming || incoming.size === 0) return [];
+  const result: PageMetadata[] = [];
+  for (const sourceSlug of incoming) {
+    const page = idx.pages.find(p => p.metadata.slug === sourceSlug);
+    if (page && page.metadata.section === 'courses') result.push(page.metadata);
+  }
+  return result;
 };

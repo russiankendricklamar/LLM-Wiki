@@ -60,6 +60,6 @@ There is a triple correspondence:
 ## Related Topics
 
 [[operator-semigroups]] — the link to transition operators  
-[[stochastic-processes]] — the probabilistic target  
+stochastic-processes — the probabilistic target  
 [[measure-theory]] — required for defining the $L^2$ space
 ---

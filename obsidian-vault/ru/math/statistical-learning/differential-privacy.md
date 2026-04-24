@@ -37,5 +37,5 @@ $$P(\mathcal{A}(D)) \leq e^\epsilon P(\mathcal{A}(D')) + \delta$$
 ## Родственные темы
 
 [[federated-learning|Federated Learning]] — часто используется вместе с DP  
-[[statistical-learning-theory|Теория обучения]] — фундамент ограничений
+Теория обучения — фундамент ограничений
 ---

@@ -123,4 +123,4 @@ The area law $S \propto A$ rather than $S \propto V$ is the seed of the **hologr
 - [[gravitational-entropy]] — holographic entropy bounds and the island formula
 - [[ads-cft]] — where black hole thermodynamics is exactly reproduced by a CFT
 - [[information-paradox]] — unitarity vs thermal radiation
-- [[gravitational-waves]] — observational tests of the area theorem
+- [[gravitational-waves-gr|gravitational waves]] — observational tests of the area theorem

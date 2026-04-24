@@ -113,7 +113,7 @@ U-statistics and their variance estimates underpin classical nonparametric tests
 4. **Degenerate Convergence:** At rate $n^{1/r}$ where $r$ depends on the order of degeneracy
 5. **Jackknife Consistency:** $\hat{\sigma}^2_{\text{jack}} \xrightarrow{p} m^2 \sigma_1^2$
 
-These results establish U-statistics as a central tool in [[asymptotic-statistics]], linking [[central-limit-theorem]] theory to practical variance estimation via [[martingale-clt]] techniques and providing foundations for [[exponential-families]] inference and [[characteristic-functions]] analysis.
+These results establish U-statistics as a central tool in asymptotic-statistics, linking [[central-limit-theorem]] theory to practical variance estimation via [[martingale-clt]] techniques and providing foundations for [[exponential-families]] inference and [[characteristic-functions]] analysis.
 
 ## References
 

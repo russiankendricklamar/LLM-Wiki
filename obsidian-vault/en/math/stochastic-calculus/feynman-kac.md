@@ -49,7 +49,7 @@ $$M_s := \exp\!\left(\int_t^s V(u, X_u)\,du\right) \cdot u(s, X_s), \quad s \in 
 
 **Key step:** show that $M_s$ is a martingale with respect to the natural filtration of $(X_s)$.
 
-Apply [[ito-lemma|Ito's lemma]] to the product $e^{\int_t^s V} \cdot u(s, X_s)$. Let $Y_s = \int_t^s V(u, X_u)\,du$, so $dY_s = V(s, X_s)\,ds$. By the Ito product rule:
+Apply Ito's lemma to the product $e^{\int_t^s V} \cdot u(s, X_s)$. Let $Y_s = \int_t^s V(u, X_u)\,du$, so $dY_s = V(s, X_s)\,ds$. By the Ito product rule:
 
 $$d\left(e^{Y_s} u(s, X_s)\right) = e^{Y_s}\,du(s, X_s) + u(s, X_s)\,d(e^{Y_s}) + d\langle e^Y, u \rangle_s.$$
 
@@ -158,7 +158,7 @@ for some adapted process $\xi$. The Feynman-Kac formula implicitly encodes this 
 ## Related Articles
 
 - [[stochastic-differential-equations|Stochastic Differential Equations]] — foundation for understanding the generator SDE.
-- [[ito-lemma|Ito's Lemma]] — key tool in the proof.
+- Ito's Lemma — key tool in the proof.
 - [[black-scholes|The Black-Scholes Model]] — canonical application.
 - [[risk-neutral-valuation|Risk-Neutral Valuation]] — financial interpretation.
 - [[optimal-stopping-american|Optimal Stopping and American Options]] — extension to variational inequalities.

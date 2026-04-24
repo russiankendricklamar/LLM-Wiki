@@ -51,5 +51,5 @@ The **Ricci Flow** equation, $\frac{\partial g_{\mu\nu}}{\partial t} = -2 R_{\mu
 
 [[tensor-calculus]] — the multilinear foundation  
 [[ricci-flow]] — deep dive into geometric evolution  
-[[gauge-theory]] — connection and curvature in particle physics
+[[gauge-theory-yang-mills|gauge theory]] — connection and curvature in particle physics
 ---

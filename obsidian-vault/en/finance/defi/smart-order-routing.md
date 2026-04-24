@@ -12,7 +12,7 @@ In a fragmented financial landscape, liquidity is spread across hundreds of venu
 
 ## 1. The Fragmentation Problem
 
-Executing a large trade (e.g., $10M) in a single pool often results in massive **Slippage**. 
+Executing a large trade (e.g., \$10M) in a single pool often results in massive **Slippage**. 
 - **AMM Slippage**: $ \Delta P \propto \frac{\text{Trade Size}}{\text{Pool Liquidity}} $
 - **The Solution**: Instead of using one pool, SOR splits the order across multiple routes and protocols simultaneously.
 
@@ -46,7 +46,7 @@ For a CeDeFi project, SOR is the bridge between two worlds:
 
 ```mermaid
 graph LR
-    User[Sell $1M USDC] --> SOR[SOR Engine]
+    User[Sell 1M USDC] --> SOR[SOR Engine]
     SOR -->|40%| Uni[Uniswap V3]
     SOR -->|30%| Curve[Curve Finance]
     SOR -->|30%| CEX[Binance / Coinbase]

@@ -62,5 +62,5 @@ For the market to be efficient (no easy arbitrage), the propagator $G(\tau)$ and
 
 [[market-impact]] — the aggregated version of this model  
 [[hawkes-process]] — used to model the clustering of the trades $\epsilon_t$  
-[[limit-order-book]] — the physical substrate for propagators
+limit-order-book — the physical substrate for propagators
 ---

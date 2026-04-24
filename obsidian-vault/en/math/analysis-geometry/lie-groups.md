@@ -70,5 +70,5 @@ Representations are ways to realize abstract groups as transformations of vector
 ## Related Topics
 
 [[differential-geometry]] — the manifold foundation  
-[[quantum-mechanics]] — $SU(2)$ and $SU(3)$ symmetries  
+quantum-mechanics — $SU(2)$ and $SU(3)$ symmetries  
 [[equivariant-nn]] — AI applications of group theory

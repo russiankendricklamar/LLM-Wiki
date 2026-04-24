@@ -3,7 +3,7 @@ title: "Информационная геометрия"
 category: "Analysis & Geometry"
 order: 2
 lang: "ru"
-slug: "information-geometry"
+slug: "spectral-graph-theory"
 ---
 
 # Информационная геометрия
@@ -46,6 +46,6 @@ $$D_{KL}(p_\theta \| p_{\theta+d\theta}) \approx \frac{1}{2} \sum g_{ij}(\theta)
 
 ## Родственные темы
 
-[[asymptotic-stats|Асимптотическая статистика]] — истоки теории Фишера  
+Асимптотическая статистика — истоки теории Фишера  
 [[neural-tangent-kernel|NTK]] — геометрия бесконечно широких сетей  
 [[rlhf|RLHF]] — использование TRPO для стабильного обучения

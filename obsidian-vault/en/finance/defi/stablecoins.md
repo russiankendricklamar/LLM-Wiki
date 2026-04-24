@@ -12,7 +12,7 @@ Stablecoins are the "killer app" of crypto-finance, providing a stable unit of a
 
 ## 1. Fiat-Collateralized (Off-chain)
 *Examples: USDT (Tether), USDC (Circle).*
-- **Mechanism**: For every digital token issued, $1.00 is held in a physical bank account or in short-term US Treasuries.
+- **Mechanism**: For every digital token issued, \$1.00 is held in a physical bank account or in short-term US Treasuries.
 - **Stability**: Highly stable, provided the custodian is honest and the reserves are audited (see [[asset-tokenization|RWA]]).
 - **Risk**: Centralization. Regulators can freeze addresses, and the bank holding the reserves can fail.
 
@@ -27,16 +27,16 @@ Stablecoins are the "killer app" of crypto-finance, providing a stable unit of a
 - **Delta-Neutral (Ethena)**: This is the "Citadel approach" to stablecoins. The protocol holds ETH and simultaneously opens an equal-sized **Short Perpetual position**. 
   - If ETH rises, the spot goes up, but the short loses.
   - If ETH falls, the spot loses, but the short gains.
-  - The total value remains constant at $1.00 regardless of price moves, while collecting "Funding Rates" from the short position.
+  - The total value remains constant at \$1.00 regardless of price moves, while collecting "Funding Rates" from the short position.
 - **Seigniorage (Terra/UST)**: Relied on a twin-token system ($UST$ and $LUNA$). If $UST$ dropped, it was burned to mint $LUNA$. 
   - **The Death Spiral**: During a massive crash, the inflation of $LUNA$ became infinite, leading to a total collapse of the peg.
 
 ## 4. The Stability Trilemma
 
 Stablecoin designers face a three-way trade-off:
-1.  **Stability**: How well it holds the $1.00 level.
+1.  **Stability**: How well it holds the \$1.00 level.
 2.  **Decentralization**: Independence from banks and regulators.
-3.  **Capital Efficiency**: How much collateral is needed to mint $1 of value (USDT is 1:1, DAI is 1.5:1).
+3.  **Capital Efficiency**: How much collateral is needed to mint \$1 of value (USDT is 1:1, DAI is 1.5:1).
 
 ## Visualization: Collateral vs. Stability
 
@@ -59,5 +59,5 @@ Stablecoin designers face a three-way trade-off:
 
 [[amm-mechanics]] — how stablecoins are traded and pegged  
 [[cedefi-mechanics]] — institutional use of USDC/USDT  
-[[risk-management]] — evaluating the "Death Spiral" risk
+risk-management — evaluating the "Death Spiral" risk
 ---

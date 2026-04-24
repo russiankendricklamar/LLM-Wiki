@@ -68,6 +68,6 @@ The Jackknife is primarily used for **bias correction** and estimating variance,
 ## Related Topics
 
 [[central-limit-theorem]] — the parametric alternative  
-[[monte-carlo-methods]] — the broader family of simulation techniques  
-[[asymptotic-stats]] — theoretical properties of resampling
+[[monte-carlo-method|Monte Carlo methods]] — the broader family of simulation techniques  
+asymptotic-stats — theoretical properties of resampling
 ---

@@ -227,7 +227,7 @@ for k, v in stats.items():
 - **Выбор коэффициента хеджирования**: статический OLS vs. динамический фильтр Калмана — компромисс между стабильностью и адаптивностью.
 
 ## Связанные темы
-- [[mean-reversion-strategies]]
+- mean-reversion-strategies
 - [[ornstein-uhlenbeck-process]]
 - [[mcmc]]
 - [[value-at-risk]]

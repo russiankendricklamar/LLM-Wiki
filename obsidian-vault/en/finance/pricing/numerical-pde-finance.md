@@ -1,5 +1,5 @@
 ---
-slug: "/finance/numerical-pde-finance"
+slug: "numerical-pde-finance"
 title: "Numerical PDE Methods in Finance"
 category: "Algorithms and ML"
 order: 42

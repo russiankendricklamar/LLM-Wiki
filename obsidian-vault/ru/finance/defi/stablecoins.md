@@ -41,5 +41,5 @@ slug: "stablecoin-mechanisms"
 
 [[amm-mechanics|AMM]] — где торгуются стейблкоины  
 [[cedefi-mechanics|CeDeFi]] — использование USDC в банках  
-[[risk-management|Управление рисками]] — анализ вероятности «отвязки» (de-peg)
+Управление рисками — анализ вероятности «отвязки» (de-peg)
 ---

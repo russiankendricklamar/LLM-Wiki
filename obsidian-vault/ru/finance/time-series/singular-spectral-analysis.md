@@ -239,4 +239,4 @@ print(f"\nПрогноз на 20 шагов: {forecast[:5].round(3)}")
 - [[spectral-analysis]]
 - [[wavelet-transform]]
 - [[random-matrix-theory]]
-- [[principal-component-analysis]]
+- principal-component-analysis

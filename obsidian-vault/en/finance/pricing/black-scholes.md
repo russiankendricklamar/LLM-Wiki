@@ -1,5 +1,5 @@
 ---
-slug: "/finance/black-scholes"
+slug: "black-scholes"
 title: "Black-Scholes Model"
 category: "Pricing"
 order: 7

@@ -65,6 +65,6 @@ graph TD
 ## Related Topics
 
 [[lln-clt]] — counting successes in large trials  
-[[algorithms-complexity]] — using induction for Big-O notation  
+algorithms-complexity — using induction for Big-O notation  
 [[stablecoin-mechanisms]] — combinatorial risks in large-scale protocols
 ---

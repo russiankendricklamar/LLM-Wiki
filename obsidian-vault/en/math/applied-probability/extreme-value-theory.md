@@ -3,7 +3,7 @@ title: "Extreme Value Theory"
 category: "Applied Probability"
 order: 26
 lang: "en"
-slug: "/math/extreme-value-theory"
+slug: "extreme-value-theory"
 growth: "seedling"
 ---
 

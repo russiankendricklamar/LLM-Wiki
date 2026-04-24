@@ -65,5 +65,5 @@ The spread $S = P_A - P_B$ is strictly increasing in $\alpha$ (the proportion of
 
 [[kyle-model]] — the strategic version of this logic  
 [[vpin]] — real-time measurement of this adverse selection risk  
-[[limit-order-book]] — the physical mechanism where the spread is displayed
+limit-order-book — the physical mechanism where the spread is displayed
 ---

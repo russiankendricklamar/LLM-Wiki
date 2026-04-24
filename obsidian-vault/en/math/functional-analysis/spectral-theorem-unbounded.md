@@ -61,5 +61,5 @@ This is how we define the matrix exponential $e^{itA}$ for differential operator
 
 [[functional-analysis]] — the core framework  
 [[operator-semigroups]] — the dynamic consequence of spectral theory  
-[[quantum-mechanics]] — the primary physical application
+quantum-mechanics — the primary physical application
 ---

@@ -3,7 +3,7 @@ title: "Complex Analysis"
 category: "Mathematical Foundations"
 order: 11
 lang: "en"
-slug: "/math/complex-analysis"
+slug: "complex-analysis"
 growth: "seedling"
 ---
 

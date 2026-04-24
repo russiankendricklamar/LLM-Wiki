@@ -60,7 +60,7 @@ If the generator is a fractional Laplacian $A = -(-\Delta)^{\alpha/2}$, the resu
 ## Related Topics
 
 [[operator-semigroups]] — the underlying functional analytic framework  
-[[markov-processes]] — the general class of memoryless processes  
+markov-processes — the general class of memoryless processes  
 [[levy-processes]] — Feller processes with spatially homogeneous generators  
 [[stochastic-differential-equations]] — how Feller processes are constructed in practice
 ---

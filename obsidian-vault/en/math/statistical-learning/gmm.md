@@ -70,6 +70,6 @@ K-Means is a special case of a GMM where:
 ## Related Topics
 
 [[expectation-maximization]] — the algorithm used to train GMMs  
-[[unsupervised-learning]] — the broader field of clustering  
+unsupervised-learning — the broader field of clustering  
 [[bayesian-nonparametrics]] — Dirichlet processes for GMMs with an infinite number of clusters
 ---

@@ -1,5 +1,5 @@
 ---
-slug: "/finance/avellaneda-stoikov"
+slug: "avellaneda-stoikov"
 title: "Avellaneda-Stoikov Model"
 category: "Pricing"
 order: 42

@@ -25,7 +25,7 @@ The bot places an order both *before* and *after* a user's transaction.
 The user pays the maximum "Slippage," and the bot captures the difference.
 
 ### C. Arbitrage
-If the price of ETH is $3000 on Uniswap but $3005 on SushiSwap, an MEV bot will execute a cross-protocol trade in a single atomic transaction to capture the $5 difference.
+If the price of ETH is \$3000 on Uniswap but \$3005 on SushiSwap, an MEV bot will execute a cross-protocol trade in a single atomic transaction to capture the \$5 difference.
 
 ## 2. The Proposer-Builder Separation (PBS)
 

@@ -1,5 +1,5 @@
 ---
-slug: "/finance/convertible-bonds"
+slug: "convertible-bonds"
 title: "Convertible Bonds"
 category: "Pricing"
 order: 155
@@ -13,7 +13,7 @@ A **convertible bond** (CB) is a hybrid security that combines a corporate bond 
 
 | Term | Definition |
 |:-----|:-----------|
-| **Par (Face Value)** | Nominal value of the bond, typically $1000 |
+| **Par (Face Value)** | Nominal value of the bond, typically \$1000 |
 | **Conversion Ratio** $CR$ | Number of shares received upon conversion |
 | **Conversion Price** $CP$ | $CP = \text{Par} / CR$ — effective strike price |
 | **Parity** | $\text{Parity} = S \cdot CR$ — equity value if converted now |

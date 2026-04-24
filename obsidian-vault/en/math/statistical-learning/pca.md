@@ -65,7 +65,7 @@ Usually, $k$ is chosen so that the cumulative ratio reaches 90% or 95%.
 
 ## Related Topics
 
-[[linear-algebra]] — the mathematical foundation  
+linear-algebra — the mathematical foundation  
 [[manifold-learning]] — non-linear extensions of PCA (Isomap, t-SNE)  
-[[autoencoders]] — a neural network generalization of PCA
+[[variational-autoencoders|autoencoders]] — a neural network generalization of PCA
 ---

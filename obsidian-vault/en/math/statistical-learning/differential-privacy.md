@@ -64,7 +64,7 @@ The goal of DP research is to find the "Sweet Spot" where privacy is guaranteed 
 
 ## Related Topics
 
-[[statistical-learning-theory]] — the theoretical bounds  
+statistical-learning-theory — the theoretical bounds  
 [[federated-learning]] — often combined with DP for distributed privacy  
 [[adversarial-examples]] — DP models are sometimes more robust to attacks
 ---

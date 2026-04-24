@@ -74,6 +74,6 @@ graph TD
 ## Related Topics
 
 [[tensor-calculus]] — tensors as representations of Lie groups  
-[[gauge-theory]] — physics on Lie groups  
+[[gauge-theory-yang-mills|gauge theory]] — physics on Lie groups  
 [[geometric-deep-learning]] — learning symmetries
 ---

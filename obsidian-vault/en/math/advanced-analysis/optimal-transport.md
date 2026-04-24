@@ -52,6 +52,6 @@ To price options without a model, we use MOT. Here, the coupling $\gamma$ must b
 ## Related Topics
 
 [[measure-theory]] — required for the push-forward definitions  
-[[generative-adversarial-networks]] — WGAN loss derivation  
-[[risk-management]] — DRO applications
+generative-adversarial-networks — WGAN loss derivation  
+risk-management — DRO applications
 ---

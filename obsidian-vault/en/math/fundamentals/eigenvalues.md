@@ -71,6 +71,6 @@ graph LR
 ## Related Topics
 
 [[linear-spaces-basis]] — prerequisite definitions of vectors and spaces  
-[[markov-chains]] — finding stationary distributions via eigenvalues  
+[[discrete-markov-chains|Markov chains]] — finding stationary distributions via eigenvalues  
 [[pca-statarb]] — applying spectral theory to trading strategies
 ---

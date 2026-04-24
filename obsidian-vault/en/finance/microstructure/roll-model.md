@@ -61,7 +61,7 @@ $$s = 2 \sqrt{-\text{Cov}(\Delta P_t, \Delta P_{t-1})}$$
 
 ## Related Topics
 
-[[limit-order-book]] — the physical source of the bounce  
+limit-order-book — the physical source of the bounce  
 [[amihud-illiquidity]] — a volume-based alternative  
 [[vpin]] — liquidity risk in volume-time
 ---

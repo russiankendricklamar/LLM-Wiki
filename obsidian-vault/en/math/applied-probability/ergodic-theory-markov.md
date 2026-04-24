@@ -71,7 +71,7 @@ The speed of mixing is determined by the **spectral gap** $\gamma = 1 - \lambda_
 
 ## Related Topics
 
-[[stochastic-processes]] — the broader family  
+stochastic-processes — the broader family  
 [[spectral-graph-theory]] — link between spectral gap and mixing  
 [[information-theory]] — [[shannon-entropy|entropy]] and convergence speed
 ---

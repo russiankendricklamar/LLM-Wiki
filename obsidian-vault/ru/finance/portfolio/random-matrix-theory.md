@@ -186,5 +186,5 @@ print(f"Доля шумовых собственных значений: {(raw_e
 - [[hierarchical-risk-parity]]
 - [[eigenportfolio-rmt]]
 - [[quantum-entanglement]]
-- [[principal-component-analysis]]
+- principal-component-analysis
 - [[value-at-risk]]

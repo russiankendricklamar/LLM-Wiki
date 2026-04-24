@@ -112,7 +112,7 @@ a result of Lévy. This demonstrates the sharp boundary where continuous sample 
 
 - **[[Brownian bridge]]**: Continuous Gaussian bridge from 0 to 0; similar entropy and Fernique analysis.
 - **[[Fractional Brownian motion]]**: Self-similar Gaussian process; Hölder exponent $H$ is tight.
-- **[[Cameron–Martin formula]]**: Absolutely continuous perturbations on the RKHS.
+- **[[cameron-martin-formula]]**: Absolutely continuous perturbations on the RKHS.
 - **[[Empirical processes]]**: Gaussian processes indexed by classes of functions; Dudley entropy applies.
 - **[[Concentration inequalities]]**: Fernique's exponential integrability is foundational.
 - **[[Martingale representation]]**: Gaussian processes via Wiener chaos expansion.

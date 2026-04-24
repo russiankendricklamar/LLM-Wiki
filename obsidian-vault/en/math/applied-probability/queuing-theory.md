@@ -8,7 +8,7 @@ slug: "queuing-theory"
 
 # Queuing Theory
 
-Queuing theory is the mathematical study of waiting lines, or queues. It uses probability theory and [[stochastic-processes|stochastic models]] to predict line lengths and waiting times. It is a critical field for computer science (server load), telecommunications, and industrial engineering.
+Queuing theory is the mathematical study of waiting lines, or queues. It uses probability theory and stochastic models to predict line lengths and waiting times. It is a critical field for computer science (server load), telecommunications, and industrial engineering.
 
 ## Kendall's Notation
 
@@ -67,6 +67,6 @@ This holds regardless of the arrival distribution, service distribution, or serv
 ## Related Topics
 
 [[poisson-process]] — the standard arrival model  
-[[stochastic-processes]] — the broader mathematical class  
+stochastic-processes — the broader mathematical class  
 [[markov-chain-mixing]] — how fast queues reach equilibrium
 ---

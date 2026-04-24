@@ -62,5 +62,5 @@ DeepSeek uses "fine-grained experts" and **shared experts** (experts that proces
 
 [[mixture-of-experts]] — the core architecture  
 [[mla]] — efficient attention in MoE models  
-[[scaling-laws]] — how MoE affects parameter-compute scaling
+scaling laws — how MoE affects parameter-compute scaling
 ---

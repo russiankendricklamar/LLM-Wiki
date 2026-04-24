@@ -67,7 +67,7 @@ A remarkable result stating that for a sequence of random variables $\{F_n\}$ in
 
 ## Related Topics
 
-- [[stochastic-calculus]] — the foundational calculus
+- stochastic-calculus — the foundational calculus
 - [[malliavin-calculus]] — the differential calculus on Wiener space
 - [[brownian-motion]] — the underlying stochastic process
 - [[characteristic-functions]] — distributional analysis of chaos elements

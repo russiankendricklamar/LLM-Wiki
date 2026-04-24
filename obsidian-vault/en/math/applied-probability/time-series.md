@@ -72,7 +72,7 @@ Instead of looking at the time domain (autocorrelation), spectral analysis looks
 
 ## Related Topics
 
-[[stochastic-processes]] — the theoretical foundation  
+stochastic-processes — the theoretical foundation  
 [[markov-chain-mixing]] — how fast processes "forget" the past  
 [[fourier-analysis]] — the basis of spectral analysis
 ---

@@ -67,5 +67,5 @@ graph TD
 
 [[linear-spaces-basis]] — understanding the geometry of solutions  
 [[eigenvalues-eigenvectors]] — what happens when A is a square operator  
-[[computational-complexity]] — the cost of solving linear systems
+computational-complexity — the cost of solving linear systems
 ---

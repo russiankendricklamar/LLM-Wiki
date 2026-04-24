@@ -52,7 +52,7 @@ graph TD
 
 ## Related Topics
 
-[[asymptotic-stats]] — rigorous proofs of convergence  
+asymptotic-stats — rigorous proofs of convergence  
 [[black-scholes]] — applications of normality in pricing  
 [[monte-carlo-method]] — using LLN to solve integrals by sampling
 ---

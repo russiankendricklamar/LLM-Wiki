@@ -87,7 +87,7 @@ AdS/CFT стало стандартным инструментом не толь
 
 ## Связанные темы
 
-- [[holographic-principle]] — исходная идея
+- holographic-principle — исходная идея
 - [[hawking-radiation]] — термодинамика чёрных дыр, мотивировавшая голографию
 - [[general-relativity]] — объёмный классический предел
 - [[conformal-field-theory]] — граничное описание

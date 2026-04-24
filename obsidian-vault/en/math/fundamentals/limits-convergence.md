@@ -60,5 +60,5 @@ graph LR
 
 [[taylor-series]] — convergence of power series  
 [[differential-equations]] — limits in time-evolution  
-[[backpropagation]] — limits in discrete optimization
+backpropagation — limits in discrete optimization
 ---

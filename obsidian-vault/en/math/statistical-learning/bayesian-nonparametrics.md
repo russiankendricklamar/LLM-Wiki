@@ -58,6 +58,6 @@ The IBP is a BNP prior for **latent feature models**. Instead of assigning each 
 ## Related Topics
 
 [[gaussian-processes]] — the functional subset of BNP  
-[[asymptotic-stats]] — how BNP models behave as $n \to \infty$  
+asymptotic-stats — how BNP models behave as $n \to \infty$  
 [[mixture-of-experts]] — BNP can be used to select the number of experts
 ---

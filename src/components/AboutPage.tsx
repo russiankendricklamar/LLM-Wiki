@@ -40,7 +40,7 @@ const ABOUT = {
     researchTitle: 'Research',
     researchProject: {
       title: 'Domain-Specific SLM for Quantitative Finance',
-      badge: 'Zeta Terminal',
+      badge: 'Nyquist',
       desc: 'Fine-tuned Microsoft Phi-4-mini (3.8B params) on Apple Silicon via MLX into a structured risk intelligence engine — not a chatbot, but a machine-readable stress scenario generator that calls tools, cites regulations, and never hallucinates numbers.',
       stats: [
         { value: '93.3%', label: 'Tool-Use Accuracy' },
@@ -111,7 +111,7 @@ const ABOUT = {
     researchTitle: 'Исследования',
     researchProject: {
       title: 'Domain-specific SLM для количественных финансов',
-      badge: 'Zeta Terminal',
+      badge: 'Nyquist',
       desc: 'Дообучил Microsoft Phi-4-mini (3.8B параметров) на Apple Silicon через MLX в структурированный движок риск-аналитики — не чат-бот, а машиночитаемый генератор стресс-сценариев: вызывает инструменты, цитирует НПА, не галлюцинирует в числах.',
       stats: [
         { value: '93.3%', label: 'точность Tool-Use' },

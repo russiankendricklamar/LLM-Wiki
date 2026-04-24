@@ -61,5 +61,5 @@ $f^*$ is always convex, and $f^{**} = f$ for closed convex functions.
 ## Related Topics
 
 - [[functional-analysis]] — the infinite-dimensional setting
-- [[stochastic-processes]] — optimization in stochastic environments
+- stochastic-processes — optimization in stochastic environments
 - [[high-dimensional-statistics]] — sparse recovery and LASSO

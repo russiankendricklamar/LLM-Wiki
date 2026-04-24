@@ -64,5 +64,5 @@ graph LR
 
 [[taylor-series]] — integration of power series  
 [[measure-theory]] — the advanced view of integration  
-[[stochastic-calculus]] — integrating over random paths (Itô Integral)
+stochastic-calculus — integrating over random paths (Itô Integral)
 ---

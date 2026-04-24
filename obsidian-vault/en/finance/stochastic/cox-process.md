@@ -1,5 +1,5 @@
 ---
-slug: "/finance/cox-process"
+slug: "cox-process"
 title: "Cox Process (Doubly Stochastic)"
 category: "Stochastic Processes"
 order: 6

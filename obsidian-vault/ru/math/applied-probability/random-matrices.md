@@ -3,7 +3,7 @@ title: "Теория случайных матриц"
 category: "Applied Probability"
 order: 27
 lang: "ru"
-slug: "/math/random-matrices"
+slug: "random-matrices"
 growth: "seedling"
 ---
 

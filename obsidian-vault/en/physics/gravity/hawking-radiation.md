@@ -132,4 +132,4 @@ Hawking radiation is the meeting point of three otherwise incompatible framework
 - [[gravitational-entropy]] — entropy bounds and the holographic resolution
 - [[ads-cft]] — where information is manifestly preserved on the boundary
 - [[information-paradox]] — the central open problem Hawking radiation creates
-- [[gravitational-waves]] — complementary observational probes of black holes
+- [[gravitational-waves-gr|gravitational waves]] — complementary observational probes of black holes

@@ -57,5 +57,5 @@ graph TD
 
 [[cedefi-mechanics]] — practical application of cryptography  
 [[combinatorics-induction]] — logic of counting and collisions  
-[[quantum-computing]] — how Shor's algorithm threatens number-theoretic crypto
+quantum-computing — how Shor's algorithm threatens number-theoretic crypto
 ---

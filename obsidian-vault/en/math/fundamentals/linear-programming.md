@@ -29,7 +29,7 @@ Invented by George Dantzig, the **Simplex Algorithm** is the most famous way to 
 Every LP problem (the **Primal**) has a twin brother called the **Dual**.
 - If the Primal is about maximizing profit from products, the Dual is about minimizing the cost of resources.
 - **Strong Duality Theorem**: The maximum value of the Primal equals the minimum value of the Dual.
-- **Shadow Prices**: The solution to the Dual variables $(\mathbf{y})$ tells you how much you should be willing to pay for one extra unit of a resource. This is critical for [[pricing|marginal cost analysis]].
+- **Shadow Prices**: The solution to the Dual variables $(\mathbf{y})$ tells you how much you should be willing to pay for one extra unit of a resource. This is critical for marginal cost analysis.
 
 ## 4. Why it Matters in AI and Finance
 

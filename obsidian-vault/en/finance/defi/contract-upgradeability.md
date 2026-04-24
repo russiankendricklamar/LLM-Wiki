@@ -74,5 +74,5 @@ graph TD
 
 [[cedefi-gateway-architecture]] — managing the admin keys  
 [[mev]] — front-running upgrade transactions  
-[[risk-management]] — evaluating proxy-related vulnerabilities
+risk-management — evaluating proxy-related vulnerabilities
 ---

@@ -34,7 +34,7 @@ The SQL database must always match the blockchain state.
 ## 3. Custody Architecture: MPC vs. Multi-sig
 
 - **MPC (Multi-Party Computation)**: Best for high-frequency operations. Keys are never reconstructed in one place. Using threshold signatures (TSS), the gateway can sign transactions faster and with lower gas than an on-chain multi-sig.
-- **Cold Storage Interaction**: High-value transactions (e.g., > $1M) should require an offline signature from a hardware security module (HSM) located in a physically secure vault.
+- **Cold Storage Interaction**: High-value transactions (e.g., > \$1M) should require an offline signature from a hardware security module (HSM) located in a physically secure vault.
 
 ## 4. Operational Resilience: Circuit Breakers
 

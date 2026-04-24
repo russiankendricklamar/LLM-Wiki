@@ -55,6 +55,6 @@ graph LR
 ## Related Topics
 
 [[hmm-particle-filters]] — continuous state filtering  
-[[markov-processes]] — the underlying state logic  
+markov-processes — the underlying state logic  
 [[asymptotic-stats/mle]] — HMMs are trained via MLE (Baum-Welch)
 ---

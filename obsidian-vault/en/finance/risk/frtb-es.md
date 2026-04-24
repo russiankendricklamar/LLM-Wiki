@@ -53,7 +53,7 @@ If a risk factor lacks sufficient price observations (e.g., a rarely traded bond
   ]
 }
 ```
-*VaR stops at the 99% mark (loss = 95). ES looks at the entire shaded area to the right, capturing the potential $150+ catastrophes that VaR ignores.*
+*VaR stops at the 99% mark (loss = 95). ES looks at the entire shaded area to the right, capturing the potential \$150+ catastrophes that VaR ignores.*
 
 ## Related Topics
 

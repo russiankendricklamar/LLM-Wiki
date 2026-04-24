@@ -62,7 +62,7 @@ This collapses the superposition into a single classical state.
 
 ## Related Topics
 
-[[linear-algebra]] — the fundamental language  
+linear-algebra — the fundamental language  
 [[spectral-theorem-unbounded]] — the math of measurement and observables  
 [[quantum-information-entropy]] — measuring the information in qubits  
 [[quantum-amplitude-estimation]] — financial application

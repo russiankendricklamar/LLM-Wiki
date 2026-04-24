@@ -12,7 +12,7 @@ In classic market microstructure (like the [[kyle-model|Kyle Model]] or [[market
 
 ## The Mechanism of Cross-Impact
 
-Imagine a large fund buys $100 million of Tesla (TSLA) stock.
+Imagine a large fund buys \$100 million of Tesla (TSLA) stock.
 1.  **Direct Impact**: The limit order book of TSLA is depleted, and the price rises.
 2.  **ETF Arbitrage**: The price of TSLA is now "too high" relative to the NASDAQ-100 ETF (QQQ). High-Frequency Traders (HFT) instantly buy QQQ and short TSLA to capture the spread.
 3.  **Cross-Impact**: By buying QQQ, the HFTs force the ETF market makers to buy the underlying components (Apple, Microsoft, Nvidia). Thus, buying TSLA mechanically pushes up the price of Apple.

@@ -263,7 +263,7 @@ Robustness can be tested using [[monte-carlo-method]] to simulate thousands of "
 - **Transaction costs and borrow**: For small-cap pairs, the borrow cost on the short leg can eliminate all alpha. Screening for easy-to-borrow stocks is essential.
 
 ## Related Topics
-- [[mean-reversion-strategies]]
+- mean-reversion-strategies
 - [[mcmc]]
 - [[value-at-risk]]
 - [[monte-carlo-method]]

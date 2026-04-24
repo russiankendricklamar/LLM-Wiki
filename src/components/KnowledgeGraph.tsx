@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useEffect, useState, Suspense } from 'react';
+import React, { useMemo, useRef, useEffect, useState, Suspense, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getGraphData } from '@/lib/content-loader';
 import { useMediaQuery } from '@/hooks/use-media-query';
@@ -23,9 +23,67 @@ const GraphSkeleton: React.FC = () => (
   </div>
 );
 
+// Shared, immutable resources for 3D nodes — created once for the lifetime of
+// the module. Re-allocating SphereGeometry / MeshPhongMaterial on every render
+// for each of ~700 nodes was the dominant cause of UI freezes.
+const HUB_GEOMETRY = new THREE.SphereGeometry(5, 12, 12);
+const NODE_GEOMETRY = new THREE.SphereGeometry(3, 12, 12);
+
+type MaterialKey = 'hub-active' | 'hub-dim' | 'node-active' | 'node-dim';
+const MATERIALS: Record<MaterialKey, THREE.MeshPhongMaterial> = {
+  'hub-active': new THREE.MeshPhongMaterial({
+    color: 0x60a5fa, emissive: 0x60a5fa, emissiveIntensity: 0.6,
+    transparent: true, opacity: 0.9, shininess: 100,
+  }),
+  'hub-dim': new THREE.MeshPhongMaterial({
+    color: 0xa1a1aa, emissive: 0xa1a1aa, emissiveIntensity: 0.1,
+    transparent: true, opacity: 0.2, shininess: 100,
+  }),
+  'node-active': new THREE.MeshPhongMaterial({
+    color: 0xa1a1aa, emissive: 0xa1a1aa, emissiveIntensity: 0.6,
+    transparent: true, opacity: 0.9, shininess: 100,
+  }),
+  'node-dim': new THREE.MeshPhongMaterial({
+    color: 0xa1a1aa, emissive: 0xa1a1aa, emissiveIntensity: 0.1,
+    transparent: true, opacity: 0.2, shininess: 100,
+  }),
+};
+
+const linkEndpointId = (endpoint: any) =>
+  typeof endpoint === 'string' ? endpoint : endpoint?.id;
+
 export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   const navigate = useNavigate();
-  const graphData = useMemo(() => getGraphData(lang), [lang]);
+  const rawGraphData = useMemo(() => getGraphData(lang), [lang]);
+
+  // Drop fully isolated nodes (no in/out wikilinks). They add visual noise
+  // and force-simulation cost without telling the reader anything.
+  const graphData = useMemo(() => {
+    const connected = new Set<string>();
+    for (const l of rawGraphData.links) {
+      connected.add(linkEndpointId(l.source));
+      connected.add(linkEndpointId(l.target));
+    }
+    const nodes = rawGraphData.nodes.filter((n: any) => connected.has(n.id));
+    return { nodes, links: rawGraphData.links };
+  }, [rawGraphData]);
+
+  // Pre-build adjacency once so hover never has to scan all links.
+  const adjacency = useMemo(() => {
+    const map = new Map<string, { nodes: Set<string>; links: Set<any> }>();
+    for (const link of graphData.links) {
+      const s = linkEndpointId(link.source);
+      const t = linkEndpointId(link.target);
+      if (!map.has(s)) map.set(s, { nodes: new Set(), links: new Set() });
+      if (!map.has(t)) map.set(t, { nodes: new Set(), links: new Set() });
+      map.get(s)!.nodes.add(t);
+      map.get(s)!.links.add(link);
+      map.get(t)!.nodes.add(s);
+      map.get(t)!.links.add(link);
+    }
+    return map;
+  }, [graphData]);
+
   const fgRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -33,45 +91,37 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   const isDesktop = useMediaQuery('(min-width: 768px)');
   const [showHint, setShowHint] = useState(true);
 
-  // Highlighting states
-  const [highlightNodes, setHighlightNodes] = useState(new Set());
-  const [highlightLinks, setHighlightLinks] = useState(new Set());
-  const [hoverNode, setHoverNode] = useState<any>(null);
+  // Highlight state — always replaced with fresh Sets so React detects change.
+  const [highlightNodes, setHighlightNodes] = useState<Set<string>>(() => new Set());
+  const [highlightLinks, setHighlightLinks] = useState<Set<any>>(() => new Set());
+  const dimmedMode = highlightNodes.size > 0;
 
-  const updateHighlight = () => {
-    setHighlightNodes(highlightNodes);
-    setHighlightLinks(highlightLinks);
-  };
-
-  const handleNodeHover = (node: any) => {
-    highlightNodes.clear();
-    highlightLinks.clear();
-    if (node) {
-      highlightNodes.add(node.id);
-      graphData.links.forEach((link: any) => {
-        if (link.source === node.id || link.target === node.id) {
-          highlightLinks.add(link);
-          highlightNodes.add(link.source === node.id ? link.target : link.source);
-        }
-      });
+  const handleNodeHover = useCallback((node: any) => {
+    if (!node) {
+      setHighlightNodes(new Set());
+      setHighlightLinks(new Set());
+      return;
     }
-
-    setHoverNode(node || null);
-    updateHighlight();
-  };
-
-  const handleLinkHover = (link: any) => {
-    highlightNodes.clear();
-    highlightLinks.clear();
-
-    if (link) {
-      highlightLinks.add(link);
-      highlightNodes.add(link.source);
-      highlightNodes.add(link.target);
+    const entry = adjacency.get(node.id);
+    const nextNodes = new Set<string>([node.id]);
+    const nextLinks = new Set<any>();
+    if (entry) {
+      for (const n of entry.nodes) nextNodes.add(n);
+      for (const l of entry.links) nextLinks.add(l);
     }
+    setHighlightNodes(nextNodes);
+    setHighlightLinks(nextLinks);
+  }, [adjacency]);
 
-    updateHighlight();
-  };
+  const handleLinkHover = useCallback((link: any) => {
+    if (!link) {
+      setHighlightNodes(new Set());
+      setHighlightLinks(new Set());
+      return;
+    }
+    setHighlightNodes(new Set([linkEndpointId(link.source), linkEndpointId(link.target)]));
+    setHighlightLinks(new Set([link]));
+  }, []);
 
   useEffect(() => {
     setIsClient(true);
@@ -90,14 +140,26 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
     };
   }, [graphData]);
 
-  // 3D-only: zoomToFit relies on the ForceGraph3D ref API
+  // 3D-only: tune the d3-force layout so lonely / weakly-connected nodes get
+  // pulled close to the cluster instead of being flung to the periphery, then
+  // zoom the camera to fit the whole graph.
   useEffect(() => {
-    if (!isDesktop) return;
+    if (!isDesktop || !fgRef.current) return;
+    const fg = fgRef.current;
+    // Shorter, stronger links → lonely nodes cling to their single neighbour.
+    const linkForce = fg.d3Force?.('link');
+    if (linkForce) {
+      linkForce.distance(18).strength(1);
+    }
+    // Softer repulsion → tighter overall cluster, no rogue dots adrift.
+    const chargeForce = fg.d3Force?.('charge');
+    if (chargeForce) {
+      chargeForce.strength(-18).distanceMax(180);
+    }
+    fg.d3ReheatSimulation?.();
     const timer = setTimeout(() => {
-      if (fgRef.current) {
-        fgRef.current.zoomToFit(400);
-      }
-    }, 1000);
+      fg.zoomToFit?.(400);
+    }, 1500);
     return () => clearTimeout(timer);
   }, [graphData, isDesktop]);
 
@@ -108,29 +170,39 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
     return () => window.clearTimeout(timer);
   }, [showHint]);
 
-  const nodeColor = (node: any) => {
-    if (highlightNodes.size > 0 && !highlightNodes.has(node.id)) {
-      return 'rgba(161, 161, 170, 0.1)'; // Dimmed
-    }
-    if (node.val > 1.5) return '#60a5fa'; // Blue for hubs
-    return '#a1a1aa'; // Zinc for regular nodes
-  };
+  // Returns a single shared Mesh per (size, state) bucket — the renderer can
+  // safely reuse Mesh instances since react-force-graph wraps each in its own
+  // scene-graph node.
+  const nodeThreeObject = useCallback((node: any) => {
+    const isHub = node.val > 1.5;
+    const isHighlighted = !dimmedMode || highlightNodes.has(node.id);
+    const matKey: MaterialKey = isHub
+      ? (isHighlighted ? 'hub-active' : 'hub-dim')
+      : (isHighlighted ? 'node-active' : 'node-dim');
+    return new THREE.Mesh(isHub ? HUB_GEOMETRY : NODE_GEOMETRY, MATERIALS[matKey]);
+  }, [dimmedMode, highlightNodes]);
 
-  const nodeThreeObject = (node: any) => {
-    const isHighlighted = highlightNodes.has(node.id) || highlightNodes.size === 0;
-    const color = nodeColor(node);
-    const size = node.val === 2 ? 5 : 3;
-    const geometry = new THREE.SphereGeometry(size, 24, 24);
-    const material = new THREE.MeshPhongMaterial({
-      color: color,
-      emissive: color,
-      emissiveIntensity: isHighlighted ? 0.6 : 0.1,
-      transparent: true,
-      opacity: isHighlighted ? 0.9 : 0.2,
-      shininess: 100
-    });
-    return new THREE.Mesh(geometry, material);
-  };
+  const linkColor = useCallback(
+    (d: any) => highlightLinks.has(d) ? 'rgba(96, 165, 250, 0.8)' : 'rgba(113, 113, 122, 0.1)',
+    [highlightLinks]
+  );
+  const linkWidth = useCallback(
+    (d: any) => highlightLinks.has(d) ? 1.5 : 0.5,
+    [highlightLinks]
+  );
+  const particleCount = useCallback(
+    (d: any) => highlightLinks.has(d) ? 4 : 0,
+    [highlightLinks]
+  );
+
+  const nodeColor2D = useCallback((node: any) => {
+    if (dimmedMode && !highlightNodes.has(node.id)) return 'rgba(161,161,170,0.1)';
+    return node.val > 1.5 ? '#60a5fa' : '#a1a1aa';
+  }, [dimmedMode, highlightNodes]);
+
+  const handleNodeClick = useCallback((node: any) => {
+    navigate(`/${node.id}`);
+  }, [navigate]);
 
   if (!isClient) return null;
 
@@ -167,19 +239,19 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
               nodeThreeObject={nodeThreeObject}
               onNodeHover={handleNodeHover}
               onLinkHover={handleLinkHover}
-              linkDirectionalParticles={4}
-              linkDirectionalParticleSpeed={(d: any) => highlightLinks.has(d) ? 0.006 : 0}
-              linkDirectionalParticleWidth={(d: any) => highlightLinks.has(d) ? 3 : 0}
-              linkDirectionalParticleColor={(d: any) => highlightLinks.has(d) ? '#60a5fa' : 'transparent'}
+              linkDirectionalParticles={particleCount}
+              linkDirectionalParticleSpeed={0.006}
+              linkDirectionalParticleWidth={3}
+              linkDirectionalParticleColor={() => '#60a5fa'}
               backgroundColor="rgba(0,0,0,0)"
               showNavInfo={false}
-              onNodeClick={(node: any) => {
-                navigate(`/${node.id}`);
-              }}
-              linkColor={(d: any) => highlightLinks.has(d) ? 'rgba(96, 165, 250, 0.8)' : 'rgba(113, 113, 122, 0.1)'}
-              linkWidth={(d: any) => highlightLinks.has(d) ? 1.5 : 0.5}
+              onNodeClick={handleNodeClick}
+              linkColor={linkColor}
+              linkWidth={linkWidth}
               enableNodeDrag={false}
               enableNavigationControls={true}
+              cooldownTicks={120}
+              warmupTicks={20}
             />
           ) : (
             <ForceGraph2DLazy
@@ -189,18 +261,16 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
               nodeLabel="name"
               onNodeHover={handleNodeHover}
               onLinkHover={handleLinkHover}
-              nodeColor={nodeColor}
+              nodeColor={nodeColor2D}
               nodeRelSize={4}
-              linkDirectionalParticles={(d: any) => highlightLinks.has(d) ? 4 : 0}
+              linkDirectionalParticles={particleCount}
               linkDirectionalParticleSpeed={0.006}
               linkDirectionalParticleWidth={3}
               linkDirectionalParticleColor={() => '#60a5fa'}
               backgroundColor="rgba(0,0,0,0)"
-              onNodeClick={(node: any) => {
-                navigate(`/${node.id}`);
-              }}
-              linkColor={(d: any) => highlightLinks.has(d) ? 'rgba(96, 165, 250, 0.8)' : 'rgba(113, 113, 122, 0.1)'}
-              linkWidth={(d: any) => highlightLinks.has(d) ? 1.5 : 0.5}
+              onNodeClick={handleNodeClick}
+              linkColor={linkColor}
+              linkWidth={linkWidth}
               enableNodeDrag={false}
               cooldownTicks={100}
               d3VelocityDecay={0.3}

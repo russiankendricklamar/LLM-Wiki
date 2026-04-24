@@ -67,5 +67,5 @@ graph LR
 
 [[oracle-design]] — the critical component for Perp DEXs  
 [[stablecoin-mechanisms]] — using delta-neutral perps to create stability  
-[[risk-management]] — modeling the risk of bad debt in leveraged pools
+risk-management — modeling the risk of bad debt in leveraged pools
 ---

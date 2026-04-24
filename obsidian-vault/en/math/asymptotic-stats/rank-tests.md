@@ -44,6 +44,6 @@ A simple moving average or Pearson correlation will be ruined by a single flash 
 ## Related Topics
 
 [[order-statistics]] — the math of sorting  
-[[robust-statistics]] — the broader field of outlier-resistant math  
+robust-statistics — the broader field of outlier-resistant math  
 [[asymptotic-stats/mle]] — the parametric alternative
 ---

@@ -194,5 +194,5 @@ print(f"Fraction noise eigenvalues: "
 - [[hierarchical-risk-parity]]
 - [[eigenportfolio-rmt]]
 - [[quantum-entanglement]]
-- [[principal-component-analysis]]
+- principal-component-analysis
 - [[value-at-risk]]

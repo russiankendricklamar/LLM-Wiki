@@ -58,6 +58,6 @@ One of the most powerful results in the field, Talagrand's inequality relates th
 ## Related Topics
 
 [[concentration-inequalities]] — the statistical tools (Chernoff, Hoeffding)  
-[[asymptotic-stats]] — limit theorems  
+asymptotic-stats — limit theorems  
 [[random-matrices]] — spectral concentration
 ---

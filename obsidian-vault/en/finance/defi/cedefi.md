@@ -62,5 +62,5 @@ graph TD
 
 [[amm-mechanics]] — the underlying liquidity math  
 [[smart-order-routing]] — how funds move between CeFi and DeFi  
-[[risk-management]] — institutional frameworks for CeDeFi exposure
+risk-management — institutional frameworks for CeDeFi exposure
 ---

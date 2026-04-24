@@ -55,7 +55,7 @@ graph LR
 
 ## Related Topics
 
-[[asymptotic-stats]] — properties of estimators as data grows  
+asymptotic-stats — properties of estimators as data grows  
 [[variational-autoencoders]] — applying Bayes to deep learning  
-[[stochastic-calculus]] — Bayesian filtering in continuous time
+stochastic-calculus — Bayesian filtering in continuous time
 ---

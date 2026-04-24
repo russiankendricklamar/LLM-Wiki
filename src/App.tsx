@@ -1,18 +1,38 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { PageLayout } from './components/PageLayout';
 import { MarkdownRenderer } from './components/MarkdownRenderer';
-import { KnowledgeGraph } from './components/KnowledgeGraph';
 import { HomeHero } from './components/HomeHero';
-import { ProjectsPage } from './components/ProjectsPage';
-import { AboutPage } from './components/AboutPage';
 import { Breadcrumbs } from './components/Breadcrumbs';
 import { ArticleNav } from './components/ArticleNav';
 import { Backlinks } from './components/Backlinks';
 import { RelatedArticles } from './components/RelatedArticles';
+import { CourseBadge } from './components/CourseBadge';
 import { getAllPages } from './lib/content-loader';
 import { cn } from './lib/utils';
+
+// Heavy / non-landing routes are split off the main bundle. KnowledgeGraph
+// alone pulls in three.js + react-force-graph (~1.2 MB before particles).
+const KnowledgeGraph = React.lazy(() =>
+  import('./components/KnowledgeGraph').then(m => ({ default: m.KnowledgeGraph }))
+);
+const ProjectsPage = React.lazy(() =>
+  import('./components/ProjectsPage').then(m => ({ default: m.ProjectsPage }))
+);
+const AboutPage = React.lazy(() =>
+  import('./components/AboutPage').then(m => ({ default: m.AboutPage }))
+);
+const CoursesPage = React.lazy(() =>
+  import('./components/CoursesPage').then(m => ({ default: m.CoursesPage }))
+);
+
+// Tiny placeholder while a route chunk streams in (≈100 ms on cold load).
+const RouteFallback = () => (
+  <div className="flex h-full min-h-[60vh] w-full items-center justify-center">
+    <div className="text-sm text-zinc-400 dark:text-zinc-500 animate-pulse">Loading…</div>
+  </div>
+);
 
 // Growth state metadata — surfaced as a small badge on article pages
 const GROWTH_LABEL = {
@@ -68,6 +88,7 @@ const PageContent = ({ category, title, content, lang, slug, growth }: PageConte
         </div>
       ) : (
         <>
+          <CourseBadge slug={slug} lang={lang} />
           <MarkdownRenderer content={content} category={category} />
           <Backlinks slug={slug} lang={lang} />
           <RelatedArticles slug={slug} lang={lang} />
@@ -84,7 +105,8 @@ const AnimatedRoutes = ({ lang }: { lang: 'en' | 'ru' }) => {
 
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname + lang}>
+      <Suspense fallback={<RouteFallback />}>
+        <Routes location={location} key={location.pathname + lang}>
         {/* Index route — cinematic hero landing */}
         <Route path="/" element={<HomeHero lang={lang} />} />
 
@@ -93,6 +115,9 @@ const AnimatedRoutes = ({ lang }: { lang: 'en' | 'ru' }) => {
 
         {/* Projects index — grid of all projects */}
         <Route path="/projects" element={<ProjectsPage lang={lang} />} />
+
+        {/* Courses index — list of structured learning paths */}
+        <Route path="/courses" element={<CoursesPage lang={lang} />} />
 
         {/* Dynamic routes */}
         {currentPages.map(page => (
@@ -113,7 +138,8 @@ const AnimatedRoutes = ({ lang }: { lang: 'en' | 'ru' }) => {
         ))}
 
         <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+        </Routes>
+      </Suspense>
     </AnimatePresence>
   );
 };
@@ -125,7 +151,8 @@ const RouterShell = ({ lang, setLang }: { lang: 'en' | 'ru'; setLang: (lang: 'en
   // Anything under /projects (the index and individual project pages) has its
   // own dedicated layout — no Knowledge Base sidebar.
   const isProjectsArea = location.pathname.startsWith('/projects');
-  const showSidebar = !isHome && !isAbout && !isProjectsArea;
+  const isCoursesIndex = location.pathname === '/courses';
+  const showSidebar = !isHome && !isAbout && !isProjectsArea && !isCoursesIndex;
 
   return (
     <PageLayout lang={lang} setLang={setLang} fullBleed={isHome} showSidebar={showSidebar}>

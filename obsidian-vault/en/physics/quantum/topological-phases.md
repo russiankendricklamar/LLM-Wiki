@@ -60,7 +60,7 @@ graph LR
 
 ## Related Topics
 
-[[topology]] — the mathematical engine  
+[[topology-basics]] — the mathematical engine  
 [[quantum-information-entropy]] — how anyons store information  
 [[gauge-theory-yang-mills]] — the field theory of topological modes
 ---

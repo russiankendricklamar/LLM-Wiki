@@ -100,6 +100,6 @@ Topology and metric spaces underpin:
 - [[functional-analysis]]: Banach and Hilbert spaces
 - [[sobolev-spaces]]: distributions and weak derivatives
 - [[convex-analysis]]: closure and compactness in product topologies
-- [[baire-category]]: generalizations and applications to analysis on fractal sets
+- baire-category: generalizations and applications to analysis on fractal sets
 
 Mastering topology provides the language for rigorous analysis, enabling precise discussion of proximity, continuity, and compactness independent of any particular metric.
