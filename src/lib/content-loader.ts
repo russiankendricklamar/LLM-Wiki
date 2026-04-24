@@ -268,7 +268,13 @@ export const getNavigation = (lang: 'en' | 'ru') => {
 // ── Hierarchical navigation tree ──────────────────────────────────────────
 
 export interface NavItem { title: string; href: string }
-export interface NavCategory { title: string; items: NavItem[] }
+/**
+ * Optional third-level grouping: when a subsection has pages with meaningfully
+ * different `category:` values, they are partitioned into groups here.
+ * If `groups` is set, the Sidebar renders a 3-level accordion and ignores `items`.
+ */
+export interface NavSubGroup { title: string; items: NavItem[] }
+export interface NavCategory { title: string; items: NavItem[]; groups?: NavSubGroup[] }
 export interface NavSection { title: string; sectionKey: string; categories: NavCategory[] }
 
 const SECTION_LABELS: Record<string, Record<'en' | 'ru', string>> = {
@@ -530,19 +536,71 @@ export const getNavigationTree = (lang: 'en' | 'ru'): NavSection[] => {
     catMap.get(groupKey)!.push(page);
   }
 
+  // Threshold: when a subsection has this many pages AND multiple distinct
+  // translated categories, we split it into third-level subgroups.
+  const SUBGROUP_THRESHOLD = 20;
+  // Minimum pages per subgroup. Smaller buckets are merged into an "Other"
+  // bucket so the tree doesn't explode into 1-page sub-folders.
+  const MIN_GROUP_SIZE = 3;
+  const OTHER_LABEL: Record<'en' | 'ru', string> = { en: 'Other', ru: 'Прочее' };
+
   const sections: NavSection[] = [];
   for (const [sectionKey, catMap] of sectionMap) {
     const labels = SECTION_LABELS[sectionKey];
     const sectionTitle = (labels && labels[lang]) ? labels[lang] : sectionKey;
-    
+
     const categories: NavCategory[] = [];
     for (const [translatedTitle, catPages] of catMap) {
-      categories.push({
-        title: translatedTitle,
-        items: catPages
-          .sort((a, b) => (a.metadata.order ?? 99) - (b.metadata.order ?? 99))
-          .map(p => ({ title: p.metadata.title, href: p.metadata.slug })),
-      });
+      const sorted = catPages
+        .slice()
+        .sort((a, b) => (a.metadata.order ?? 99) - (b.metadata.order ?? 99));
+
+      const items: NavItem[] = sorted.map(p => ({
+        title: p.metadata.title,
+        href: p.metadata.slug,
+      }));
+
+      // Third-level split: partition by translated category when the
+      // subsection is big and has ≥2 distinct categories. Keeps the flat
+      // list as fallback on small / uniform subsections.
+      let groups: NavSubGroup[] | undefined;
+      if (catPages.length >= SUBGROUP_THRESHOLD) {
+        const byCat = new Map<string, PageContent[]>();
+        for (const p of catPages) {
+          const ct = translateCategory(p.metadata.category, lang);
+          if (!byCat.has(ct)) byCat.set(ct, []);
+          byCat.get(ct)!.push(p);
+        }
+        if (byCat.size >= 2) {
+          // Merge tiny long-tail buckets (< MIN_GROUP_SIZE pages) into "Other".
+          const major: [string, PageContent[]][] = [];
+          const minorPages: PageContent[] = [];
+          for (const [ct, pages] of byCat) {
+            if (pages.length >= MIN_GROUP_SIZE) major.push([ct, pages]);
+            else minorPages.push(...pages);
+          }
+          // Only emit groups when at least two substantive buckets remain —
+          // otherwise a single dominant bucket + "Other" is just the flat
+          // list with extra clicks.
+          if (major.length >= 2) {
+            const entries: [string, PageContent[]][] = major
+              .slice()
+              .sort((a, b) => b[1].length - a[1].length);
+            if (minorPages.length > 0) {
+              entries.push([OTHER_LABEL[lang], minorPages]);
+            }
+            groups = entries.map(([title, pages]) => ({
+              title,
+              items: pages
+                .slice()
+                .sort((a, b) => (a.metadata.order ?? 99) - (b.metadata.order ?? 99))
+                .map(p => ({ title: p.metadata.title, href: p.metadata.slug })),
+            }));
+          }
+        }
+      }
+
+      categories.push({ title: translatedTitle, items, groups });
     }
     categories.sort((a, b) => a.title.localeCompare(b.title));
     sections.push({ title: sectionTitle, sectionKey, categories });
