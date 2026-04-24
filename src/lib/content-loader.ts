@@ -498,6 +498,37 @@ export const translateCategory = (rawCategory: string, lang: 'en' | 'ru'): strin
 
 const _navTreeCache = new Map<'en' | 'ru', NavSection[]>();
 
+/**
+ * Resolve a page's position in the hierarchical nav tree for breadcrumbs.
+ * Returns the subsection (2nd level) and — when the page sits inside a
+ * third-level bucket — the group (3rd level) titles, both already translated
+ * to `lang`. Returns an empty object for pages that aren't in the tree
+ * (e.g. `/projects`, `/about`, unknown slugs).
+ */
+export interface BreadcrumbTrail {
+  subsection?: string;
+  group?: string;
+}
+
+export const getBreadcrumbTrail = (slug: string, lang: 'en' | 'ru'): BreadcrumbTrail => {
+  const tree = getNavigationTree(lang);
+  for (const section of tree) {
+    for (const cat of section.categories) {
+      if (cat.groups) {
+        for (const g of cat.groups) {
+          if (g.items.some(i => i.href === slug)) {
+            return { subsection: cat.title, group: g.title };
+          }
+        }
+      }
+      if (cat.items.some(i => i.href === slug)) {
+        return { subsection: cat.title };
+      }
+    }
+  }
+  return {};
+};
+
 export const getNavigationTree = (lang: 'en' | 'ru'): NavSection[] => {
   const cached = _navTreeCache.get(lang);
   if (cached) return cached;
@@ -538,7 +569,7 @@ export const getNavigationTree = (lang: 'en' | 'ru'): NavSection[] => {
 
   // Threshold: when a subsection has this many pages AND multiple distinct
   // translated categories, we split it into third-level subgroups.
-  const SUBGROUP_THRESHOLD = 20;
+  const SUBGROUP_THRESHOLD = 18;
   // Minimum pages per subgroup. Smaller buckets are merged into an "Other"
   // bucket so the tree doesn't explode into 1-page sub-folders.
   const MIN_GROUP_SIZE = 3;

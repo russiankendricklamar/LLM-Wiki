@@ -64,7 +64,7 @@ const PageContent = ({ category, title, content, lang, slug, growth }: PageConte
     >
       {!isGraphPage && (
         <div className="mb-8 flex items-center justify-between gap-4">
-          <Breadcrumbs category={category} title={title} lang={lang} />
+          <Breadcrumbs category={category} title={title} lang={lang} slug={slug} />
           {growthInfo && (
             <span className={cn(
               "shrink-0 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold",
