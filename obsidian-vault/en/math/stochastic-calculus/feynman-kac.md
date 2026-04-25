@@ -157,7 +157,7 @@ for some adapted process $\xi$. The Feynman-Kac formula implicitly encodes this 
 
 ## Related Articles
 
-- [[stochastic-differential-equations|Stochastic Differential Equations]] — foundation for understanding the generator SDE.
+- [[stochastic-differential-equations|Stochastic Differential Equations]] — foundation for understanding the generator [[stochastic-differential-equations|SDE]].
 - Ito's Lemma — key tool in the proof.
 - [[black-scholes|The Black-Scholes Model]] — canonical application.
 - [[risk-neutral-valuation|Risk-Neutral Valuation]] — financial interpretation.

@@ -77,7 +77,7 @@ where $\mathbf{H}^{(0)} = \mathbf{X}$, $\mathbf{W}^{(l)}$ is a trainable weight 
 
 ### Graph [[attention-mechanisms|Attention]] Network (GAT)
 
-GAT replaces uniform aggregation with learned attention weights. For node $i$, the attention coefficient toward neighbour $j$ is:
+GAT replaces uniform aggregation with learned [[attention-mechanisms|attention]] weights. For node $i$, the attention coefficient toward neighbour $j$ is:
 
 $$
 \alpha_{ij} = \frac{\exp\!\bigl(\text{LeakyReLU}(\mathbf{a}^\top [\mathbf{W} \mathbf{h}_i \|\mathbf{W} \mathbf{h}_j])\bigr)}{\sum_{k \in \mathcal{N}(i)} \exp\!\bigl(\text{LeakyReLU}(\mathbf{a}^\top [\mathbf{W} \mathbf{h}_i \|\mathbf{W} \mathbf{h}_k])\bigr)}

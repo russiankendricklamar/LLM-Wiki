@@ -13,7 +13,7 @@ Information theory, founded by Claude Shannon in 1948, formalizes the notion of 
 
 ## Shannon [[shannon-entropy|Entropy]]
 
-**Entropy** of a discrete random variable $X$ with probability distribution $p(x) = \mathbb{P}(X = x)$ is defined as:
+**[[shannon-entropy|Entropy]]** of a discrete random variable $X$ with probability distribution $p(x) = \mathbb{P}(X = x)$ is defined as:
 
 $$H(X) = -\sum_{x \in \mathcal{X}} p(x) \log p(x)$$
 

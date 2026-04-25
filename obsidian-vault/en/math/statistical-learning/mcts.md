@@ -17,7 +17,7 @@ MCTS builds a search tree asynchronously through repeated iterations of four ste
 1.  **Selection**: Starting at the root, the algorithm traverses down the tree using a selection policy (typically **UCT** - Upper Confidence Bound for Trees) until it reaches a "leaf" node.
 2.  **Expansion**: Unless the leaf node represents the end of the game, one or more child nodes are created to represent possible future moves.
 3.  **Simulation (Rollout)**: From the new node, the algorithm performs a random simulation (playing against itself with random moves) until a terminal state is reached.
-4.  **Backpropagation**: The result of the simulation (Win/Loss) is propagated back up the tree, updating the statistics (visit count and total reward) of all nodes along the path.
+4.  **[[automatic-differentiation|Backpropagation]]**: The result of the simulation (Win/Loss) is propagated back up the tree, updating the statistics (visit count and total reward) of all nodes along the path.
 
 ## The UCT Formula
 

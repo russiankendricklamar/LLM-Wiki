@@ -49,7 +49,7 @@ Advantage: statistically coherent negative set without gigantic batch sizes. MoC
 
 **Bootstrap Your Own Latent** (Grill et al., 2020) shows negatives are unnecessary:
 
-- **Online network**: encoder $f$ + projection head $g$ + predictor $q$ (additional MLP)
+- **Online network**: encoder $f$ + projection head $g$ + predictor $q$ (additional [[transformer-architecture|MLP]])
 - **Target network**: copy of $(f, g)$ updated via EMA without gradients: $\theta_{\text{target}} \leftarrow \tau \theta_{\text{target}} + (1 - \tau) \theta_{\text{online}}$
 - **Loss**: MSE between online prediction and stopped target output:
 
@@ -61,7 +61,7 @@ $$L = \|q_\theta(g_\theta(f_\theta(x))) - \text{stopgrad}(g_{\theta_{\text{targe
 
 **CLIP** (Radford et al., 2021) learns joint image-text representations on 400M image-caption pairs:
 
-- **Dual encoders**: $f_{\text{img}}$ (Vision [[transformer-architecture|Transformer]] or ResNet) and $f_{\text{text}}$ (BERT-style Transformer)
+- **Dual encoders**: $f_{\text{img}}$ (Vision [[transformer-architecture|Transformer]] or ResNet) and $f_{\text{text}}$ (BERT-style [[transformer-architecture|Transformer]])
 - **Projections and normalization**: both encoders project to $d = 512$-dim space; embeddings are L2-normalized
 - **Symmetric contrastive loss**:
 

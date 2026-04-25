@@ -183,7 +183,7 @@ Sentiment analysis is vital for **Event-Driven Hedge Funds**. Identifying a CEO'
 
 ## Limitations and Extensions
 
-- **Sarcasm and irony**: Transformer models still struggle with financial sarcasm (e.g., "great, another earnings miss").
+- **Sarcasm and irony**: [[transformer-architecture|Transformer]] models still struggle with financial sarcasm (e.g., "great, another earnings miss").
 - **Multilingual news**: Non-English sources require multilingual BERT or machine translation, both adding latency and error.
 - **Market impact**: If many funds use the same sentiment signal, the alpha decays as the signal becomes crowded.
 - **Regulatory risk**: Trading on material non-public information derived from news scraping can violate securities laws in some jurisdictions.

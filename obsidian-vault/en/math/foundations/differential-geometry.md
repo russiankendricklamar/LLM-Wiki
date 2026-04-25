@@ -45,7 +45,7 @@ The **arc length** of a curve $\gamma: [a,b] \to M$ is:
 
 $$\text{Length}(\gamma) = \int_a^b \sqrt{g_{ij}(\gamma(t)) \dot{\gamma}^i(t) \dot{\gamma}^j(t)} \, dt$$
 
-The **volume form** on a Riemannian manifold is $dV = \sqrt{\det(g_{ij})} \, dx^1 \wedge \cdots \wedge dx^n$, enabling integration:
+The **volume form** on a Riemannian [[manifold-learning|manifold]] is $dV = \sqrt{\det(g_{ij})} \, dx^1 \wedge \cdots \wedge dx^n$, enabling integration:
 
 $$\int_M f \, dV$$
 

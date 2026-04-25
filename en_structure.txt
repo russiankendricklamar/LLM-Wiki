@@ -29,6 +29,7 @@ equivariant-nn.md
 fourier-neural-operators.md
 hamiltonian-nn.md
 kan.md
+kuramoto-model.md
 neural-operators.md
 pinns.md
 

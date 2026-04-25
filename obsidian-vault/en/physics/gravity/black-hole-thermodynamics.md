@@ -19,7 +19,7 @@ Bardeen, Carter, and Hawking (1973) proved four theorems about stationary black 
 |---|---|
 | **0th**: $T$ uniform in thermal equilibrium | **0th**: Surface gravity $\kappa$ is constant over the horizon of a stationary black hole |
 | **1st**: $dE = T\,dS - p\,dV + \ldots$ | **1st**: $dM = \frac{\kappa}{8\pi G}\,dA + \Omega_H\,dJ + \Phi_H\,dQ$ |
-| **2nd**: $dS \ge 0$ (total entropy never decreases) | **2nd**: $dA \ge 0$ (horizon area never decreases — Hawking's area theorem) |
+| **2nd**: $dS \ge 0$ (total [[gravitational-entropy|entropy]] never decreases) | **2nd**: $dA \ge 0$ (horizon area never decreases — Hawking's area theorem) |
 | **3rd**: $T = 0$ unreachable in finite steps | **3rd**: $\kappa = 0$ unreachable in finite steps |
 
 The analogy assigns $\kappa \leftrightarrow T$ and $A \leftrightarrow S$. Before Hawking's calculation, the temperature was purely formal. After it, the identification became quantitative.

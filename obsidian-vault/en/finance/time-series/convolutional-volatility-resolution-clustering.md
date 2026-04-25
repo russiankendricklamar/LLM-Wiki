@@ -94,7 +94,7 @@ Once features are extracted, CVRC identifies distinct **volatility resolution cl
 
 - **Unsupervised**: No labeled regime data required; clusters emerge from the geometry of the volatility surface.
 - **Multi-scale**: Convolutional layers simultaneously capture local (single-maturity) and global (full-surface) features.
-- **Interpretable latent space**: VAE ensures smooth manifold; interpolating between cluster centers reveals regime transition paths.
+- **Interpretable latent space**: VAE ensures smooth [[manifold-learning|manifold]]; interpolating between cluster centers reveals regime transition paths.
 - **Online updating**: The encoder can be updated incrementally as new volatility surfaces arrive.
 
 ## Python Implementation

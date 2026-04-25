@@ -6,7 +6,7 @@ lang: "en"
 slug: "eigenvalues-eigenvectors"
 ---
 
-# Eigenvalues, Eigenvectors, and Spectral Theory
+# [[spectral-theory-operators|Eigenvalues]], Eigenvectors, and Spectral Theory
 
 In linear algebra, most vectors change their direction when multiplied by a matrix. However, some special vectors maintain their direction and are only scaled (stretched or shrunk). These are **Eigenvectors**, and the factor by which they are scaled is the **Eigenvalue**. This "Spectral Theory" is the engine behind stability analysis, vibration physics, and the **PageRank** algorithm.
 

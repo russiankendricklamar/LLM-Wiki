@@ -20,7 +20,7 @@ If you replace them with ranks $\{1, 2, 3\}$, the outlier has no more power than
 
 ### A. Wilcoxon Signed-Rank Test
 The non-parametric alternative to the paired t-test. It tests whether the median of the differences between pairs is zero.
-- **AI Use**: Comparing the performance of two LLM versions on a benchmark where scores are non-normal.
+- **AI Use**: Comparing the performance of two [[llm]] versions on a benchmark where scores are non-normal.
 
 ### B. Mann-Whitney U Test (Wilcoxon Rank-Sum)
 Tests whether two independent samples come from the same distribution. It essentially counts how many times a value from Sample A precedes a value from Sample B in the sorted combined list.

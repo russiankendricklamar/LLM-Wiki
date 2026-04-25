@@ -26,7 +26,7 @@ Does the walk return to the identity element infinitely often?
 - **Polya's Theorem**: A simple random walk on $\mathbb{Z}^d$ is recurrent for $d=1, 2$ but transient for $d \geq 3$ ("A drunk man will find his way home, but a drunk bird may get lost forever").
 
 ### 2. Convergence to Uniform (Mixing)
-For finite groups, the walk eventually distributes itself uniformly over the group (if the support of $\mu$ generates $G$). The **Mixing Time** depends on the eigenvalues of the transition matrix (or the representation theory of the group).
+For finite groups, the walk eventually distributes itself uniformly over the group (if the support of $\mu$ generates $G$). The **Mixing Time** depends on the [[spectral-theory-operators|eigenvalues]] of the transition matrix (or the representation theory of the group).
 
 ### 3. Boundary Theory and Poisson Boundary
 On infinite non-abelian groups (like free groups), the walk "escapes to infinity" in a specific direction. The space of all possible escape directions is called the **Poisson Boundary**. If the boundary is non-trivial, it means the group has "exponential growth" and a very rich geometry.

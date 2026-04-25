@@ -32,7 +32,7 @@ This article covers the technical machinery for deploying LLMs in quantitative f
     {"model": "Gen. BERT", "FinQA": 28, "Sentiment": 75},
     {"model": "FinBERT", "FinQA": 31, "Sentiment": 88},
     {"model": "BloombergGPT", "FinQA": 43, "Sentiment": 82},
-    {"model": "GPT-4 (no RAG)", "FinQA": 61, "Sentiment": 84},
+    {"model": "GPT-4 (no [[rag]])", "FinQA": 61, "Sentiment": 84},
     {"model": "GPT-4 + RAG", "FinQA": 68, "Sentiment": 84},
     {"model": "Claude 3.7 CoT", "FinQA": 71, "Sentiment": 85}
   ],
@@ -47,7 +47,7 @@ This article covers the technical machinery for deploying LLMs in quantitative f
 
 ### Information Extraction as Conditional Generation
 
-Given a financial document $D$ and a task specification $T$ (e.g., "extract revenue guidance range"), the LLM computes:
+Given a financial document $D$ and a task specification $T$ (e.g., "extract revenue guidance range"), the [[llm]] computes:
 
 $$
 P(\text{answer} \mid D, T) = \prod_{i=1}^{n} P(a_i \mid a_{<i}, D, T)
@@ -97,7 +97,7 @@ Open-source alternative: fine-tuned LLaMA / Falcon on curated financial text usi
 
 ### General-Purpose LLMs with Financial Prompting
 
-GPT-4, Claude 3.5/3.7, and Gemini Ultra demonstrate strong financial reasoning out-of-the-box when given well-structured prompts. The primary advantage over domain-specific models is breadth: they can handle novel document types without fine-tuning.
+GPT-4, Claude 3.5/3.7, and Gemini Ultra demonstrate strong financial reasoning out-of-the-box when given well-structured prompts. The primary advantage over domain-specific models is breadth: they can handle novel document types without [[fine-tuning]].
 
 ## Architecture / Algorithm
 

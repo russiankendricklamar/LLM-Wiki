@@ -10,7 +10,7 @@ slug: "information-geometry"
 
 Information Geometry treats the space of probability distributions as a **Riemannian [[manifold-learning|manifold]]**. By applying differential geometry to statistics, it provides a powerful framework for understanding optimization, natural gradients, and the structure of neural networks.
 
-## The Statistical Manifold
+## The Statistical [[manifold-learning|Manifold]]
 
 Consider a family of probability distributions $p(x; \theta)$ parameterized by $\theta \in \Theta \subseteq \mathbb{R}^n$. This set $\mathcal{M} = \{ p_\theta \}$ forms a manifold where each point is a distribution.
 
@@ -32,7 +32,7 @@ Thus, the Fisher metric is the local geometry of the KL divergence.
 
 ## Natural [[convex-optimization|Gradient Descent]]
 
-Standard gradient descent follows the steepest direction in the parameter space (Euclidean). **Natural Gradient Descent** (Amari, 1998) follows the steepest direction on the statistical manifold (Fisher metric):
+Standard [[convex-optimization|gradient descent]] follows the steepest direction in the parameter space (Euclidean). **Natural Gradient Descent** (Amari, 1998) follows the steepest direction on the statistical manifold (Fisher metric):
 
 $$\theta_{t+1} = \theta_t - \eta g(\theta_t)^{-1} \nabla L(\theta_t)$$
 

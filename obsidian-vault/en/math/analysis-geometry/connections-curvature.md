@@ -8,7 +8,7 @@ slug: "connections-curvature"
 
 # Connections, Curvature, and Holonomy
 
-Differential geometry on a curved manifold $M$ requires a method to transport geometric data between distinct tangent spaces $T_p M$ and $T_q M$. An **Affine Connection** $\nabla$ provides this structure, defining the "straightness" of paths and the degree of "twisting" in the manifold's fabric.
+Differential geometry on a curved [[manifold-learning|manifold]] $M$ requires a method to transport geometric data between distinct tangent spaces $T_p M$ and $T_q M$. An **Affine Connection** $\nabla$ provides this structure, defining the "straightness" of paths and the degree of "twisting" in the manifold's fabric.
 
 ## 1. The Covariant Derivative and Christoffel Symbols
 

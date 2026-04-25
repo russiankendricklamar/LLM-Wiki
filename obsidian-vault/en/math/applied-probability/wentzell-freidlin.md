@@ -12,7 +12,7 @@ Wentzell-Freidlin theory is the application of **Large Deviation Principles (LDP
 
 ## The Setting: Small Noise Limits
 
-Consider a system governed by an SDE with a small parameter $\epsilon$:
+Consider a system governed by an [[stochastic-differential-equations|SDE]] with a small parameter $\epsilon$:
 $$dX_t^\epsilon = b(X_t^\epsilon) dt + \sqrt{\epsilon} dW_t$$
 As $\epsilon \to 0$, the trajectory $X_t^\epsilon$ converges to the deterministic path $dX_t = b(X_t) dt$. Wentzell-Freidlin theory studies the probability that $X_t^\epsilon$ stays away from this deterministic path.
 

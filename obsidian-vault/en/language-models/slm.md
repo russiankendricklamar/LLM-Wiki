@@ -45,7 +45,7 @@ The central question for SLMs is how to get as much capability as possible out o
 
 SLMs use the same decoder-only [[transformer-architecture|transformer]] backbone as LLMs but with architectural modifications that reduce memory and compute:
 
-**Grouped Query Attention (GQA)**: instead of $H$ independent key-value heads for $H$ query heads, GQA uses $G < H$ shared key-value heads. Each group of $H/G$ query heads shares one KV head, cutting the KV cache size by $H/G$ and reducing memory bandwidth proportionally.
+**Grouped Query [[attention-mechanisms|Attention]] (GQA)**: instead of $H$ independent key-value heads for $H$ query heads, GQA uses $G < H$ shared key-value heads. Each group of $H/G$ query heads shares one KV head, cutting the KV cache size by $H/G$ and reducing memory bandwidth proportionally.
 
 **Sliding Window Attention (SWA)**: tokens attend only within a window of $w$ past tokens rather than the full context, reducing attention complexity from $O(n^2)$ to $O(nw)$. Long-range context is handled by having higher layers see earlier content through the residual stream.
 
@@ -65,7 +65,7 @@ where $T > 1$ is the temperature that softens both distributions, making the stu
 
 $$W = W_0 + \Delta W = W_0 + BA$$
 
-where $B \in \mathbb{R}^{d \times r}$, $A \in \mathbb{R}^{r \times k}$, and $r \ll \min(d, k)$. Only $A$ and $B$ are updated during fine-tuning; $W_0$ is frozen. The total additional parameters are $r(d + k)$, typically 0.1–1% of the original weight count.
+where $B \in \mathbb{R}^{d \times r}$, $A \in \mathbb{R}^{r \times k}$, and $r \ll \min(d, k)$. Only $A$ and $B$ are updated during [[fine-tuning]]; $W_0$ is frozen. The total additional parameters are $r(d + k)$, typically 0.1–1% of the original weight count.
 
 **QLoRA** extends LoRA by loading $W_0$ in 4-bit NormalFloat (NF4) [[quantization]], reducing the [[inference-serving|GPU]] memory required to fine-tune a large base model from which the small model is distilled.
 
@@ -78,7 +78,7 @@ Key training choices:
 - **Curated pre-training data**: filtering CommonCrawl and web data to retain high-education-value text, code with docstrings, and synthetic problem-solution pairs. Quality per token matters more than token count.
 - **Curriculum training**: ordering training data from simpler to more complex content can improve sample efficiency.
 - **Distillation from a strong teacher**: training the small model to mimic the token-level probability distribution of a larger model, not just the argmax labels.
-- **Quantization-aware training**: fine-tuning with simulated quantization noise prepares the model for INT8 or INT4 inference without significant quality loss.
+- **[[quantization]]-aware training**: fine-tuning with simulated quantization noise prepares the model for INT8 or INT4 inference without significant quality loss.
 
 ## Key Properties & Capabilities
 
@@ -91,14 +91,14 @@ Key training choices:
 
 ## Trade-offs vs Other Types
 
-| Dimension | SLM (≤7B) | [[llm]] (≥70B) | Quantized LLM |
+| Dimension | SLM (≤7B) | [[llm]] (≥70B) | Quantized [[llm]] |
 |---|---|---|---|
 | Parameters active | All | All | All (compressed) |
 | RAM required | 4–16 GB | 40–160 GB | 8–40 GB |
 | Inference speed | Fast | Slow | Moderate |
 | Reasoning quality | Moderate | High | High |
 | Fine-tuning cost | Low (LoRA) | High | High |
-| Deployment target | Edge / local | Cloud | Cloud / high-end GPU |
+| Deployment target | Edge / local | Cloud | Cloud / high-end [[inference-serving|GPU]] |
 
 ## Python Usage Pattern
 

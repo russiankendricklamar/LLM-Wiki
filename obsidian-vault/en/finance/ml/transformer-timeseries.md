@@ -10,7 +10,7 @@ lang: "en"
 
 **Transformers** — the self-[[attention-mechanisms|attention]] architecture from Vaswani et al. (2017) — have become the dominant approach for financial time-series forecasting, capturing long-range dependencies and cross-asset patterns that LSTMs and classical models miss.
 
-## Self-Attention Mechanism
+## Self-[[attention-mechanisms|Attention]] Mechanism
 
 For a sequence of embeddings $\mathbf{X} = [x_1, \ldots, x_L]$:
 
@@ -125,7 +125,7 @@ def train_tft(model: nn.Module, X_train: np.ndarray, y_train: np.ndarray,
 
 ## Related Articles
 
-- [[lob-prediction|LOB Prediction]] — transformer for microstructure
+- [[lob-prediction|LOB Prediction]] — [[transformer-architecture|transformer]] for microstructure
 - [[hidden-markov-models|HMM]] — alternative for regime detection
 - [[lightgbm-xgboost|LightGBM/XGBoost]] — gradient boosting alternative
 - [[kalman-filter|Kalman Filter]] — linear predictor baseline

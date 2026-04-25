@@ -202,7 +202,7 @@ print(f"Variance reduction: {(se/se_av)**2:.1f}x")
 
 - **American options**: Standard MC cannot directly handle early exercise. [[longstaff-schwartz]] solves this via least-squares regression on simulated paths.
 - **Greeks computation**: Finite-difference bumping of parameters is expensive. Pathwise derivatives and likelihood ratio methods allow efficient gradient computation within the MC framework.
-- **[[inference-serving|GPU]] acceleration**: Vectorized MC in NumPy/CuPy scales near-linearly with GPU cores, making million-path simulations feasible in seconds.
+- **[[inference-serving|GPU]] acceleration**: Vectorized MC in NumPy/CuPy scales near-linearly with [[inference-serving|GPU]] cores, making million-path simulations feasible in seconds.
 
 ## Related Topics
 - [[longstaff-schwartz]]

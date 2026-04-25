@@ -29,7 +29,7 @@ A **Hilbert Space** is a special kind of function space equipped with an **Inner
 
 A **Linear Operator** $A$ is a map that takes one function and transforms it into another (e.g., the Derivative operator $D f = f'$).
 - **Eigenfunctions**: If $A f = \lambda f$, then $f$ is an eigenfunction and $\lambda$ is an eigenvalue.
-- **Self-Adjoint Operators**: In quantum physics, physical observables (like Energy or Momentum) are represented by self-adjoint operators. Their eigenvalues are the only values we can actually measure in an experiment.
+- **Self-Adjoint Operators**: In quantum physics, physical observables (like Energy or Momentum) are represented by self-adjoint operators. Their [[spectral-theory-operators|eigenvalues]] are the only values we can actually measure in an experiment.
 
 ## 4. Why it Matters in AI: Kernels and RKHS
 
@@ -57,6 +57,6 @@ graph TD
 ## Related Topics
 
 [[linear-spaces-basis]] — finite-dimensional precursor  
-[[differential-equations]] — operators like the Laplacian  
+[[differential-equations]] — operators like the [[spectral-graph-theory|Laplacian]]  
 [[gaussian-processes]] — practical application of RKHS
 ---

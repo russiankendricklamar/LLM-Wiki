@@ -23,7 +23,7 @@ Setting $(\mathbf{r}_1, s_1) = (\mathbf{r}_2, s_2)$ implies $\Psi = -\Psi$, henc
 For an $N$-fermion system, the antisymmetric wave function is the Slater determinant:
 $$ \Psi(\mathbf{r}_1,\ldots,\mathbf{r}_N) = \frac{1}{\sqrt{N!}}\det\begin{pmatrix} \phi_1(\mathbf{r}_1) & \cdots & \phi_N(\mathbf{r}_1) \\ \vdots & \ddots & \vdots \\ \phi_1(\mathbf{r}_N) & \cdots & \phi_N(\mathbf{r}_N) \end{pmatrix} $$
 
-In second quantization, fermionic creation $a_i^\dagger$ and annihilation $a_i$ operators satisfy canonical anticommutation relations (CAR):
+In second [[quantization]], fermionic creation $a_i^\dagger$ and annihilation $a_i$ operators satisfy canonical anticommutation relations (CAR):
 $$ \{a_i, a_j^\dagger\} = \delta_{ij}, \qquad \{a_i, a_j\} = 0, \qquad \{a_i^\dagger, a_j^\dagger\} = 0 $$
 The exclusion principle follows immediately: $(a_i^\dagger)^2 = 0$, so the occupation number $n_i = a_i^\dagger a_i$ satisfies $n_i \in \{0, 1\}$.
 
@@ -48,7 +48,7 @@ In astrophysics, white dwarfs are supported by electron degeneracy pressure (the
 ## Connections to Information Theory & Holography
 The Pauli exclusion principle imposes a fundamental limit on the density of information storage for fermionic systems: each quantum state can hold at most 1 bit of occupation information ($0$ or $1$). This is the origin of the finite [[gravitational-entropy|entropy]] of a Fermi gas, $S \propto Nk_B(T/T_F)$ at low temperature.
 
-In holography, the exclusion principle appears in the "giant graviton" effect: when the number of single-trace operators in a CFT exceeds the rank $N$ of the gauge group, new wrapped brane states (giant gravitons) must be considered, effectively enforcing a fermionic exclusion rule on the Hilbert space. This provides a holographic realization of the Pauli principle and ensures the consistency of the AdS/CFT state counting with the finite entropy of the bulk.
+In holography, the exclusion principle appears in the "giant graviton" effect: when the number of single-trace operators in a CFT exceeds the rank $N$ of the gauge group, new wrapped brane states (giant gravitons) must be considered, effectively enforcing a fermionic exclusion rule on the Hilbert space. This provides a holographic realization of the Pauli principle and ensures the consistency of the AdS/CFT state counting with the finite [[gravitational-entropy|entropy]] of the bulk.
 
 ## See Also
 * [[quantum-entanglement]]

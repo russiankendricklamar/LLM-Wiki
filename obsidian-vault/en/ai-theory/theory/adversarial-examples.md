@@ -71,7 +71,7 @@ where $\Phi$ is the cumulative normal distribution and $\underline{p_A}$ is a lo
 
 $$\minimize_{\theta} \mathbb{E}_{(x,y) \sim \mathcal{D}}\left[\max_{\|\delta\|_p \leq \varepsilon} \mathcal{L}(f_\theta(x + \delta), y)\right]$$
 
-The outer minimization updates weights $\theta$ (gradient descent), the inner maximization finds adversarial perturbations for each example (typically PGD). In practice, single-step approximations or few PGD steps are often used to reduce computational cost.
+The outer minimization updates weights $\theta$ ([[convex-optimization|gradient descent]]), the inner maximization finds adversarial perturbations for each example (typically PGD). In practice, single-step approximations or few PGD steps are often used to reduce computational cost.
 
 **Trade-offs and Robust Overfitting.** Adversarial training incurs:
 1. **Accuracy trade-off.** Robustness against adversarial examples often comes at the cost of standard accuracy on clean data (Madry et al., 2018).

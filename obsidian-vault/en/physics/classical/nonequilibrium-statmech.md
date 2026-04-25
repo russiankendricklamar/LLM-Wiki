@@ -12,7 +12,7 @@ Standard statistical mechanics describes systems in equilibrium (e.g., a gas at 
 
 ## 1. Beyond the Second Law
 
-The Second Law says that on average, entropy increases ($\Delta S \geq 0$).
+The Second Law says that on average, [[gravitational-entropy|entropy]] increases ($\Delta S \geq 0$).
 But for microscopic systems (like a molecular motor in a cell), thermal noise is huge. Sometimes, for a fraction of a second, entropy can decrease.
 **Nonequilibrium Physics** seeks to quantify the exact probability of these "reversals."
 
@@ -43,7 +43,7 @@ This identifies **Information as a Physical Commodity**. Entropy is simply "hidd
 ## 5. Application in Machine Learning: Diffusion Models
 
 Modern AI (Stable Diffusion, Midjourney) is a direct application of this physics.
-- **Forward SDE**: Adding noise to an image is a nonequilibrium process (increasing entropy).
+- **Forward [[stochastic-differential-equations|SDE]]**: Adding noise to an image is a nonequilibrium process (increasing entropy).
 - **Reverse SDE**: The AI learns to reverse this flow.
 By using the **Fokker-Planck** and **Langevin** equations from nonequilibrium mechanics, AI can "generate order from chaos" by tracing the path of minimum entropy production.
 

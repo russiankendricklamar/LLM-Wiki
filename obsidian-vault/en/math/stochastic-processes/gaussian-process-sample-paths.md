@@ -34,7 +34,7 @@ for constants $C > 0$ and $\alpha > 0$, then there exists a continuous version o
 
 **Application to Brownian motion**: The standard Brownian motion satisfies $E|B_s - B_t|^2 = |s-t|$, so we may take $p=2, \alpha = 0$ in a generalized form, or verify directly that $E|B_s - B_t|^4 \leq C|s-t|^2$, yielding Hölder-$\alpha$ continuity for $\alpha < 1/2$.
 
-## Dudley's Entropy Integral
+## Dudley's [[shannon-entropy|Entropy]] Integral
 
 Kolmogorov's criterion is sufficient but not always tight. **Dudley's theorem** provides a sharp, metric-based characterization using **metric entropy**.
 

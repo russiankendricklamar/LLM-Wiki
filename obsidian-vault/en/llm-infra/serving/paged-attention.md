@@ -8,11 +8,11 @@ slug: "paged-attention"
 
 # PagedAttention and KV Cache Management
 
-PagedAttention is a breakthrough algorithm introduced by Kwon et al. (2023) in the **vLLM** framework. It revolutionized how the Key-Value (KV) cache is stored in GPU memory, drastically increasing the throughput of LLM inference servers.
+PagedAttention is a breakthrough algorithm introduced by Kwon et al. (2023) in the **vLLM** framework. It revolutionized how the Key-Value (KV) cache is stored in [[inference-serving|GPU]] memory, drastically increasing the throughput of [[llm]] inference servers.
 
 ## The Problem: Memory Fragmentation
 
-During autoregressive generation, an LLM must store the Key and Value vectors of all past tokens to compute attention for the next token. This is the **KV Cache**.
+During autoregressive generation, an LLM must store the Key and Value vectors of all past tokens to compute [[attention-mechanisms|attention]] for the next token. This is the **KV Cache**.
 - **Unpredictability**: We don't know in advance how many tokens a user will generate (could be 10, could be 1000).
 - **Contiguous Allocation**: Early frameworks (like HuggingFace `generate`) pre-allocated large, contiguous blocks of VRAM for the maximum possible length. 
 - **Fragmentation**: This caused massive **internal fragmentation** (reserved but unused memory) and **external fragmentation** (gaps between blocks). Up to 60-80% of VRAM was wasted!

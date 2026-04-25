@@ -40,7 +40,7 @@ A space is **Complete** if every [[limits-convergence|Cauchy sequence]] converge
 
 ## 4. Why it Matters in AI and Data Science
 
-1.  **Manifold Learning**: In Deep Learning, we assume high-dimensional data (like photos) actually lies on a lower-dimensional, curved **Manifold**. Algorithms like t-SNE or UMAP use topology to "unroll" this manifold.
+1.  **[[manifold-learning|Manifold]] Learning**: In Deep Learning, we assume high-dimensional data (like photos) actually lies on a lower-dimensional, curved **Manifold**. Algorithms like t-SNE or UMAP use topology to "unroll" this manifold.
 2.  **Robustness**: If a model's performance changes wildly when the input is nudged by a tiny $\epsilon$, the model is not **Topologically Continuous**. Safety researchers use this to detect vulnerabilities to [[adversarial-examples|adversarial attacks]].
 3.  **Embedding Spaces**: Vector databases (Pinecone, Milvus) rely entirely on the metric space properties of embeddings to find "semantically close" documents.
 

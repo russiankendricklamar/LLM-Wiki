@@ -8,7 +8,7 @@ slug: "lie-groups-algebras"
 
 # Lie Groups and Lie Algebras: The Geometry of Symmetry
 
-A **Lie Group** $G$ is a mathematical structure that is simultaneously a **Group** and a **Smooth Manifold**, such that the group operations (multiplication and inversion) are smooth maps. They provide the fundamental framework for studying continuous symmetries in physics, robotics, and machine learning.
+A **Lie Group** $G$ is a mathematical structure that is simultaneously a **Group** and a **Smooth [[manifold-learning|Manifold]]**, such that the group operations (multiplication and inversion) are smooth maps. They provide the fundamental framework for studying continuous symmetries in physics, robotics, and machine learning.
 
 ## 1. The Lie Algebra ($\mathfrak{g}$)
 

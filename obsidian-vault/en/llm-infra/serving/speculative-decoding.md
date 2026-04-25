@@ -8,7 +8,7 @@ slug: "speculative-decoding"
 
 # Speculative Decoding
 
-Speculative Decoding is an optimization technique used to speed up the inference of Large Language Models (LLMs) without changing their output. It addresses the fact that LLM generation is **memory-bound**: most of the time spent is waiting for model weights to load from VRAM, rather than actual computation.
+Speculative Decoding is an optimization technique used to speed up the inference of Large Language Models (LLMs) without changing their output. It addresses the fact that [[llm]] generation is **memory-bound**: most of the time spent is waiting for model weights to load from VRAM, rather than actual computation.
 
 ## The Core Concept
 

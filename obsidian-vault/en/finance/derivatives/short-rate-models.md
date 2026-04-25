@@ -137,7 +137,7 @@ Equilibrium models give economic intuition; no-arbitrage models are needed for t
 ## Related Articles
 
 - [[bond-options-gaussian|Bond Options in Gaussian Models]] -- closed-form bond option formulas
-- [[cir-hull-white|CIR and Hull-White]] -- detailed SDE analysis
+- [[cir-hull-white|CIR and Hull-White]] -- detailed [[stochastic-differential-equations|SDE]] analysis
 - [[swaps|Interest Rate Swaps]] -- the underlying instruments
 - [[girsanov-semimartingales|Girsanov Theorem]] -- measure changes for rates
 - [[brownian-motion|Brownian Motion]] -- the driving process

@@ -85,7 +85,7 @@ with $d_1 = \frac{\ln(S_0/K) + (r + \sigma^2/2)T}{\sigma\sqrt{T}}$, $d_2 = d_1 -
 
 ## Euler-Maruyama Discretization
 
-For simulation, the SDE is discretized over steps $\Delta t = T/N$:
+For simulation, the [[stochastic-differential-equations|SDE]] is discretized over steps $\Delta t = T/N$:
 
 $$
 S_{t+\Delta t} = S_t \exp\!\left[\left(\mu - \frac{1}{2}\sigma^2\right)\Delta t + \sigma\sqrt{\Delta t}\,Z_t\right], \quad Z_t \sim \mathcal{N}(0,1)

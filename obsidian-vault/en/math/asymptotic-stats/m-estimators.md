@@ -154,7 +154,7 @@ where $w_i$ are data-dependent weights. This is equivalent to weighted least squ
 
 For Huber's loss with tuning constant $k$, the weights are $w_i = \min(1, k / |r_i|)$ where $r_i = X_i - \theta$ are residuals.
 
-## Connection to empirical processes and entropy
+## Connection to empirical processes and [[shannon-entropy|entropy]]
 
 The consistency and asymptotic normality of M- and Z-estimators depend on the complexity of the class of functions $\{m_\theta : \theta \in \Theta\}$ or $\{\psi_\theta : \theta \in \Theta\}$. This complexity is quantified by **covering numbers** and **VC-dimension** in [[empirical-processes|empirical process theory]].
 

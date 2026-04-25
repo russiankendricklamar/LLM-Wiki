@@ -6,7 +6,7 @@ lang: "en"
 slug: "quantum-information-entropy"
 ---
 
-# Quantum Information and Von Neumann Entropy
+# Quantum Information and Von Neumann [[gravitational-entropy|Entropy]]
 
 Quantum Information Theory is the study of how information is stored, processed, and transmitted using quantum systems. It bridges the gap between **Quantum Mechanics**, **Information Theory**, and **Thermodynamics**. The central tool in this field is the **Von Neumann Entropy**, which measures the "quantumness" of a state and its entanglement with the environment.
 
@@ -22,7 +22,7 @@ $$\rho = \sum_i p_i |\psi_i\rangle \langle \psi_i|$$
 
 The Von Neumann entropy generalizes [[shannon-entropy|Shannon entropy]] to the quantum domain:
 $$S(\rho) = -\text{Tr}(\rho \ln \rho)$$
-In the basis where $\rho$ is diagonal (with eigenvalues $\lambda_i$), this becomes the familiar $-\sum \lambda_i \ln \lambda_i$.
+In the basis where $\rho$ is diagonal (with [[spectral-theory-operators|eigenvalues]] $\lambda_i$), this becomes the familiar $-\sum \lambda_i \ln \lambda_i$.
 
 ### Key Mathematical Axioms:
 - **Concavity**: $S(\sum w_i \rho_i) \geq \sum w_i S(\rho_i)$. Mixing states always increases uncertainty.

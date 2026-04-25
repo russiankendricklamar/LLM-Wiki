@@ -16,7 +16,7 @@ DPO simplifies this by showing that the RL objective can be solved with a simple
 
 ## The Mathematical Breakthrough
 
-In RLHF, we maximize the reward $r(x, y)$ while staying close to a reference model $\pi_{ref}$ (to prevent "reward hacking"):
+In [[rlhf]], we maximize the reward $r(x, y)$ while staying close to a reference model $\pi_{ref}$ (to prevent "reward hacking"):
 $$\max_{\pi_\theta} \mathbb{E}_{x, y \sim \pi_\theta} [r(x, y)] - \beta \mathbb{D}_{KL}(\pi_\theta \| \pi_{ref})$$
 
 The DPO authors (Rafailov et al., 2023) derived that the optimal policy $\pi^*$ for any reward function $r$ has a closed-form solution:

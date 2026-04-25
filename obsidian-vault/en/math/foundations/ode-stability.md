@@ -92,7 +92,7 @@ $$\dot{V}(x) = \nabla V(x) \cdot f(x) = \sum_{i=1}^{n} \frac{\partial V}{\partia
 
 ### Lyapunov Functions in Linear Systems
 
-For the system $\dot{x} = Ax$ with $A$ Hurwitz (all eigenvalues in the left half-plane), a Lyapunov function can be constructed from the Lyapunov equation:
+For the system $\dot{x} = Ax$ with $A$ Hurwitz (all [[spectral-theory-operators|eigenvalues]] in the left half-plane), a Lyapunov function can be constructed from the Lyapunov equation:
 $$A^T P + PA = -Q$$
 
 where $Q$ is a positive definite matrix (often $Q = I$). The solution $P$ is positive definite, and the function $V(x) = x^T P x$ satisfies:
@@ -122,7 +122,7 @@ For linearization $\dot{x} = Df(x^*) (x - x^*)$ near an equilibrium $x^*$, where
 
 ## Stable [[manifold-learning|Manifold]] Theorem
 
-**Theorem (Stable Manifold Theorem).** Let $x^* = 0$ be a hyperbolic equilibrium of $\dot{x} = f(x)$, meaning the Jacobian matrix $Df(0)$ has no eigenvalues on the imaginary axis. Then there exist smooth manifolds $W^s$ (stable) and $W^u$ (unstable) in a neighborhood of the origin such that:
+**Theorem (Stable [[manifold-learning|Manifold]] Theorem).** Let $x^* = 0$ be a hyperbolic equilibrium of $\dot{x} = f(x)$, meaning the Jacobian matrix $Df(0)$ has no eigenvalues on the imaginary axis. Then there exist smooth manifolds $W^s$ (stable) and $W^u$ (unstable) in a neighborhood of the origin such that:
 - $W^s$ is tangent to $E^s$ at the origin and consists of all trajectories that approach the origin exponentially as $t \to +\infty$
 - $W^u$ is tangent to $E^u$ at the origin and consists of all trajectories that approach the origin exponentially as $t \to -\infty$
 
@@ -161,7 +161,7 @@ In polar coordinates: $\dot{r} = \mu r - r^3$, $\dot{\theta} = 1$. For $\mu > 0$
 
 ### [[convex-optimization|Gradient Descent]] as Gradient Flow
 
-Gradient descent in machine learning approximates the continuous dynamics of gradient flow:
+[[convex-optimization|Gradient descent]] in machine learning approximates the continuous dynamics of gradient flow:
 $$\dot{x} = -\nabla L(x)$$
 
 where $L$ is a loss function. The Lyapunov function $V(x) = L(x)$ gives $\dot{V} = -\|\nabla L\|^2 \leq 0$, guaranteeing that losses decrease. Stationary points correspond to extrema of $L$.

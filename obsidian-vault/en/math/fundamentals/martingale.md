@@ -23,7 +23,7 @@ In plain English: "Your best guess of the future value, given everything you kno
 ## 2. Types of Martingales
 
 - **Submartingale**: $\mathbb{E}[M_{t+s} \mid \mathcal{F}_t] \geq M_t$. A "favorable" game where wealth grows on average (e.g., a stock with positive drift).
-- **Supermartingale**: $\mathbb{E}[M_{t+s} \mid \mathcal{F}_t] \leq M_t$. An "unfavorable" game, like a casino, where entropy or costs consume value over time.
+- **Supermartingale**: $\mathbb{E}[M_{t+s} \mid \mathcal{F}_t] \leq M_t$. An "unfavorable" game, like a casino, where [[shannon-entropy|entropy]] or costs consume value over time.
 
 ## 3. Fundamental Theorems
 

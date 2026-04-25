@@ -53,7 +53,7 @@ The simplest offline approach: supervised learning on $(s, a)$ pairs from $\math
 
 ## Decision [[transformer-architecture|Transformer]]
 
-**Decision Transformer** (Chen et al. 2021) reframes offline RL as a sequence modelling problem. Given a context of past $(R, s, a)$ triples and a target return $\hat{R}$, a GPT-2 style model autoregressively predicts the next action:
+**Decision [[transformer-architecture|Transformer]]** (Chen et al. 2021) reframes offline RL as a sequence modelling problem. Given a context of past $(R, s, a)$ triples and a target return $\hat{R}$, a GPT-2 style model autoregressively predicts the next action:
 
 $$
 a_t = \pi_\theta(\hat{R}_t, s_t, a_{t-1}, \hat{R}_{t-1}, \ldots).

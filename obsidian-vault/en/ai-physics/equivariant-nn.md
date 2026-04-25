@@ -26,7 +26,7 @@ This is in contrast to data augmentation, which teaches a network to be approxim
   "xAxis": "training_samples",
   "data": [
     {"training_samples": 10, "NequIP": 0.52, "SchNet": 0.91, "[[transformer-architecture|MLP]]": 0.95},
-    {"training_samples": 25, "NequIP": 0.31, "SchNet": 0.74, "MLP": 0.89},
+    {"training_samples": 25, "NequIP": 0.31, "SchNet": 0.74, "[[transformer-architecture|MLP]]": 0.89},
     {"training_samples": 50, "NequIP": 0.18, "SchNet": 0.58, "MLP": 0.79},
     {"training_samples": 100, "NequIP": 0.09, "SchNet": 0.42, "MLP": 0.67},
     {"training_samples": 250, "NequIP": 0.04, "SchNet": 0.27, "MLP": 0.51},
@@ -148,7 +148,7 @@ print(f"Equivariance error: {error.item():.2e}")  # Should be ~1e-6
 - **Sample efficiency:** NequIP achieves DFT-quality force field accuracy with 1000x fewer data points than non-equivariant baselines (Batzner et al. 2022).
 - **Exact symmetry:** Rotation error is zero by construction (unlike data-augmented networks which have residual asymmetry).
 - **Physical consistency:** Energy-conserving force fields require $\mathbf{F}_i = -\nabla_{\mathbf{r}_i} E$; equivariant networks ensure this automatically.
-- **AlphaFold insight:** The SE(3)-equivariant frame update ("invariant point attention") in AlphaFold2 is a key architectural component enabling accurate protein structure prediction.
+- **AlphaFold insight:** The SE(3)-equivariant frame update ("invariant point [[attention-mechanisms|attention]]") in AlphaFold2 is a key architectural component enabling accurate protein structure prediction.
 - **Particle physics:** Lorentz-equivariant networks for jet tagging surpass non-equivariant alternatives with far fewer parameters.
 
 ## Limitations

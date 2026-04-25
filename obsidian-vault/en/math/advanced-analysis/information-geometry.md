@@ -8,7 +8,7 @@ slug: "information-geometry"
 
 # Information Geometry: Differential Geometry of Statistical Models
 
-**Information Geometry** (IG) provides a geometric language for statistics and machine learning by treating a family of probability distributions as a **Riemannian Manifold**. In this framework, statistical inference is viewed as a geometric projection, and learning is a movement along a geodesic path.
+**Information Geometry** (IG) provides a geometric language for statistics and machine learning by treating a family of probability distributions as a **Riemannian [[manifold-learning|Manifold]]**. In this framework, statistical inference is viewed as a geometric projection, and learning is a movement along a geodesic path.
 
 ## 1. The Statistical Manifold and the Fisher Metric
 
@@ -44,7 +44,7 @@ A **Divergence** $D(p \| q)$ is a non-negative function that acts like a "square
 
 ## 4. Advanced Machine Learning Applications
 
-### A. Natural Gradient Descent (NGD)
+### A. Natural [[convex-optimization|Gradient Descent]] (NGD)
 Standard SGD assumes the weight space is Euclidean. NGD uses the **Fisher-Rao distance**:
 $$ \theta_{t+1} = \theta_t - \eta g(\theta)^{-1} \nabla L(\theta) $$
 This ensures that the step size is measured in terms of the *change in the model's output distribution*, making the optimization invariant to reparameterization (e.g., switching from weights to logarithms of weights).
@@ -64,7 +64,7 @@ graph TD
     Fisher --> M[m-connection: Mixture Family]
     E -.->|Duality| M
     M --> Proj[m-projection: Maximum Likelihood]
-    E --> Ent[e-projection: Max Entropy]
+    E --> Ent[e-projection: Max [[shannon-entropy|Entropy]]]
     
     style Fisher fill:#3b82f6,color:#fff
     style E fill:#f59e0b,color:#fff

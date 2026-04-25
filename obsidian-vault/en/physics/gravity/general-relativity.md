@@ -46,6 +46,6 @@ Light follows [[manifold|Geodesics]] in curved space. When light passes near a m
 
 [[special-relativity]] — the flat-space limit  
 [[gravitational-waves-gr]] — ripples in the metric  
-[[black-hole-thermodynamics]] — where GR meets Entropy  
+[[black-hole-thermodynamics]] — where GR meets [[gravitational-entropy|Entropy]]  
 [[manifold]] — the mathematical house of GR
 ---

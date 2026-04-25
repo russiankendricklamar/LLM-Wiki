@@ -39,7 +39,7 @@ Schwartz defined a special space of "Slowly Increasing" functions (the **Tempere
 A distribution $G$ is a **Fundamental Solution** for a linear operator $L$ if:
 $$LG = \delta$$
 Once you find $G$, you can solve the equation $Lu = f$ for *any* source $f$ using **Convolution**: $u = G * f$. 
-- In electrostatics, the fundamental solution of the Laplacian is the $1/r$ potential. 
+- In electrostatics, the fundamental solution of the [[spectral-graph-theory|Laplacian]] is the $1/r$ potential. 
 - In [[deep-galerkin|DGM]] and PINNs, the neural network implicitly learns these fundamental solutions to represent physical fields.
 
 ## Visualization: Derivative of a Step

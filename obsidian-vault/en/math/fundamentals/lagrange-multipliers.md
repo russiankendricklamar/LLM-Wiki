@@ -13,7 +13,7 @@ In the real world, optimization is rarely "free." We want to maximize profit **s
 ## 1. The Core Problem
 
 We want to find the extremum of a function $f(x, y)$ subject to a constraint $g(x, y) = c$. 
-Standard gradient descent won't work because it doesn't "know" about the constraint.
+Standard [[convex-optimization|gradient descent]] won't work because it doesn't "know" about the constraint.
 
 ## 2. Geometric Intuition
 

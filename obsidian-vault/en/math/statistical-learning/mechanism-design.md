@@ -30,7 +30,7 @@ Used to match residents to hospitals or students to schools. It ensures that the
 ## Application in AI: Alignment and Governance
 
 Mechanism design is becoming critical for the safety and alignment of Large Language Models:
-1.  **AI Alignment**: Treating the LLM as an agent and designing a reward mechanism that makes it "truth-telling" (preventing reward hacking).
+1.  **AI Alignment**: Treating the [[llm]] as an agent and designing a reward mechanism that makes it "truth-telling" (preventing reward hacking).
 2.  **Multi-Agent Systems**: Designing protocols for a network of autonomous agents to cooperate on a task without a central controller.
 3.  **Data Markets**: Designing auctions for high-quality human data to train future models.
 

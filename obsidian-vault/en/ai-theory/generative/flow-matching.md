@@ -56,7 +56,7 @@ $$x_1 = x_0 + \int_0^1 v_\theta(x_t, t) dt$$
 
 1. **Straight Paths**: Unlike Diffusion, which takes a "curvy" stochastic path, Flow Matching (specifically Optimal Transport FM) learns to move in straight lines. This makes the ODE much easier to solve.
 2. **Speed**: Because the paths are straighter, we can use much larger steps during inference. Models like *Flux* can produce high-quality images in just 1-4 steps.
-3. **No SDE**: FM is fundamentally deterministic. While you can add noise (stochasticity), the base formulation is a clean ODE, making it more stable and easier to analyze.
+3. **No [[stochastic-differential-equations|SDE]]**: FM is fundamentally deterministic. While you can add noise (stochasticity), the base formulation is a clean ODE, making it more stable and easier to analyze.
 
 ## Related Topics
 

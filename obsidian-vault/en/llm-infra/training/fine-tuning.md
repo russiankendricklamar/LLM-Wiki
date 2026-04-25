@@ -65,7 +65,7 @@ Advantage: fit a 65B model into a 48GB [[inference-serving|GPU]] (e.g., A100). L
 
 [[quantization]] fidelity (NF4 vs. INT8 vs. INT4) trades precision against memory. In practice, NF4 with proper calibration incurs minimal quality loss.
 
-## Instruction Tuning vs. RLHF
+## Instruction Tuning vs. [[rlhf]]
 
 **Instruction tuning** is SFT on datasets of (instruction, high-quality response) pairs, often manually curated. This awakens instruction-following ability already latent in the pretrained model, without the overhead of [[rlhf|RLHF]].
 
@@ -98,7 +98,7 @@ LoRA dominates in practice due to simplicity and throughput. Other methods (adap
 - Resources for fine-tuning are unavailable
 - Task is broad and does not warrant retraining
 
-In practice, a hybrid works well: RAG for knowledge synthesis + light LoRA fine-tuning for style.
+In practice, a hybrid works well: [[rag]] for knowledge synthesis + light LoRA fine-tuning for style.
 
 ## Practical Guidelines
 

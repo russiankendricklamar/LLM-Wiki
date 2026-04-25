@@ -22,11 +22,11 @@ Pioneered by Elhage, Olah, and colleagues at Anthropic and OpenAI (2021–2024),
 
 **Residual stream.** [[transformer-architecture|Transformer]] hidden states are vectors $x \in \mathbb{R}^d$ that live in a shared **residual stream**. Each [[attention-mechanisms|attention]] head and [[transformer-architecture|MLP]] layer reads from and writes to this stream via residual connections:
 
-$$x^{(l+1)} = x^{(l)} + \text{Attn}^{(l)}(x^{(l)}) + \text{MLP}^{(l)}(x^{(l)})$$
+$$x^{(l+1)} = x^{(l)} + \text{Attn}^{(l)}(x^{(l)}) + \text{[[transformer-architecture|MLP]]}^{(l)}(x^{(l)})$$
 
 The residual stream is the fundamental unit of analysis in MI.
 
-**Attention head decomposition.** Each attention head $h$ contributes:
+**[[attention-mechanisms|Attention]] head decomposition.** Each attention head $h$ contributes:
 
 $$\text{Attn}_h(x) = \sum_{\text{pos}} \alpha_h(\text{pos}) (W_{OV}^h x_{\text{pos}})$$
 

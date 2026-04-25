@@ -13,7 +13,7 @@ The Transformer is the standard neural network architecture for natural language
 ## 1. The Core Components
 
 A standard Transformer (like GPT or Llama) consists of two main parts:
-- **Attention Layer**: Where tokens "talk" to each other to share context.
+- **[[attention-mechanisms|Attention]] Layer**: Where tokens "talk" to each other to share context.
 - **Feed-Forward Network (FFN)**: A point-wise multi-layer perceptron that processes each token individually to extract features.
 
 ## 2. Normalization: Stability at Scale

@@ -39,7 +39,7 @@ The variance of eigenportfolio $i$ equals its eigenvalue $\lambda_i$, and any tw
 
 ## The Marchenko-Pastur Bound
 
-Under the null hypothesis of i.i.d. Gaussian returns and ratio $q = T/N$, the theoretical upper bound of noise eigenvalues is:
+Under the null hypothesis of i.i.d. Gaussian returns and ratio $q = T/N$, the theoretical upper bound of noise [[spectral-theory-operators|eigenvalues]] is:
 
 $$
 \lambda_+ = \sigma^2 \left(1 + \frac{1}{\sqrt{q}}\right)^2

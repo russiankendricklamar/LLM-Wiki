@@ -35,7 +35,7 @@ A sequence is a **Cauchy Sequence** if its terms get closer to *each other* as $
 
 ## 5. Why it Matters in AI and Optimization
 
-### A. Gradient Descent Convergence
+### A. [[convex-optimization|Gradient Descent]] Convergence
 When training a model, we want the sequence of weights $\theta_t$ to converge to the minimum of the loss function. If the learning rate is too high, the sequence might **Diverge** (the error goes to infinity).
 
 ### B. Fixed-Point Iteration
@@ -60,5 +60,5 @@ graph LR
 
 [[taylor-series]] — convergence of power series  
 [[differential-equations]] — limits in time-evolution  
-backpropagation — limits in discrete optimization
+[[automatic-differentiation|backpropagation]] — limits in discrete optimization
 ---

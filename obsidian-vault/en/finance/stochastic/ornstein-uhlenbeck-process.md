@@ -51,7 +51,7 @@ In quantitative finance, the OU process underlies pairs trading (spread dynamics
 
 Unlike Standard Brownian Motion, which has no tendency to return to a central value, the OU process is pulled back towards a long-term mean. The further the process drifts from the mean, the stronger the pull.
 
-## Stochastic Differential Equation (SDE)
+## Stochastic Differential Equation ([[stochastic-differential-equations|SDE]])
 
 The OU process $X_t$ is defined by the following SDE:
 

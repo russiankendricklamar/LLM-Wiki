@@ -91,7 +91,7 @@ $$
 
 ## Применения
 
-**RLHF / выравнивание [[llm|LLM]].** PPO — алгоритм RL в InstructGPT, Claude, Gemini. Reward model играет роль $r(s,a)$; KL-штраф к референсной политике ограничивает дрейф от базовой модели.
+**[[rlhf|RLHF]] / выравнивание [[llm|LLM]].** PPO — алгоритм RL в InstructGPT, Claude, Gemini. Reward model играет роль $r(s,a)$; KL-штраф к референсной политике ограничивает дрейф от базовой модели.
 
 **Непрерывное управление.** MuJoCo (Ant, Humanoid) — near-SOTA при правильных гиперпараметрах.
 
@@ -100,6 +100,6 @@ $$
 ## Связанные темы
 
 - [[reinforcement-learning]] — MDP, функции ценности, policy gradient
-- [[rlhf]] — PPO применительно к выравниванию LLM
+- [[rlhf]] — PPO применительно к выравниванию [[llm|LLM]]
 - [[soft-actor-critic]] — off-policy альтернатива
 - [[model-based-rl]] — sample-efficient альтернатива PPO

@@ -30,13 +30,13 @@ In distributed training, each expert has a fixed capacity (max tokens per batch)
 
 ## Advanced Routing Strategies
 
-### 1. Switch Transformer (Top-1)
+### 1. Switch [[transformer-architecture|Transformer]] (Top-1)
 Introduced by Google, it uses $k=1$. This is the most memory-efficient but requires very careful load balancing to prevent training instability.
 
 ### 2. Expert Choice Routing
 Instead of tokens choosing experts, **experts choose tokens**. Each expert selects the top-$C$ tokens it is most qualified to process. This naturally solves the load balancing problem.
 
-### 3. DeepSeek-V3: Multi-Head Latent Attention & DeepSeekMoE
+### 3. DeepSeek-V3: Multi-Head Latent [[attention-mechanisms|Attention]] & DeepSeekMoE
 DeepSeek uses "fine-grained experts" and **shared experts** (experts that process every token) to capture common knowledge, while specialized experts handle niche tasks.
 
 ## Visualization: Token Distribution

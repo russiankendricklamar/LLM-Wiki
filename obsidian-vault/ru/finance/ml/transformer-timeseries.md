@@ -8,14 +8,14 @@ lang: "ru"
 
 # [[transformer-architecture|Трансформеры]] для временных рядов
 
-**Трансформеры** — архитектура на основе механизма self-attention, изначально разработанная для NLP (Vaswani et al., 2017). В применении к финансовым временным рядам они позволяют захватывать долгосрочные зависимости и кросс-активные паттерны, часто превосходя LSTM и классические модели.
+**[[transformer-architecture|Трансформеры]]** — архитектура на основе механизма self-attention, изначально разработанная для NLP (Vaswani et al., 2017). В применении к финансовым временным рядам они позволяют захватывать долгосрочные зависимости и кросс-активные паттерны, часто превосходя LSTM и классические модели.
 
 ## Self-[[attention-mechanisms|Attention]] в временных рядах
 
 Для последовательности вложений $\mathbf{X} = [x_1, \ldots, x_L]$ (L — длина окна):
 
 $$
-\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right) V
+\text{[[attention-mechanisms|Attention]]}(Q, K, V) = \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right) V
 $$
 
 - $Q = X W_Q$, $K = X W_K$, $V = X W_V$ — проекции
@@ -49,7 +49,7 @@ $$
 $$
 \text{patches} = [x_{1:P}, x_{P+1:2P}, \ldots]
 $$
-Аналог Vision Transformer (ViT) для временных рядов. Достигает SOTA на большинстве бенчмарков при $16 \leq P \leq 64$.
+Аналог Vision [[transformer-architecture|Transformer]] (ViT) для временных рядов. Достигает SOTA на большинстве бенчмарков при $16 \leq P \leq 64$.
 
 ## Реализация TFT (упрощённая)
 

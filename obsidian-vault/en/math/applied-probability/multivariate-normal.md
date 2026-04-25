@@ -92,7 +92,7 @@ Let $\boldsymbol{\Omega} = \boldsymbol{\Sigma}^{-1}$ be the **precision matrix**
 
 Thus the sparsity pattern of $\boldsymbol{\Omega}$ encodes a **Gaussian graphical model** — the line of work that produced graphical LASSO and modern Bayesian networks.
 
-## 6. Entropy
+## 6. [[shannon-entropy|Entropy]]
 
 $$
 H(\mathbf{X}) = -\int f(\mathbf{x})\log f(\mathbf{x})\, d\mathbf{x} = \tfrac{1}{2}\log\bigl((2\pi e)^k |\boldsymbol{\Sigma}|\bigr).

@@ -49,7 +49,7 @@ The **singular spectrum** $\{\lambda_i\}$ reveals the relative importance of eac
 
 Partition the index set $\{1, \dots, d\}$ into disjoint groups $\mathcal{G}_1, \mathcal{G}_2, \dots$:
 - **Trend**: indices corresponding to slowly-varying EOFs (usually first 1–2 components)
-- **Oscillations**: pairs of indices with similar eigenvalues and approximately sinusoidal EOFs (indicate periodicity at a specific frequency)
+- **Oscillations**: pairs of indices with similar [[spectral-theory-operators|eigenvalues]] and approximately sinusoidal EOFs (indicate periodicity at a specific frequency)
 - **Noise**: remaining indices with small $\lambda_i$ and irregular EOFs
 
 The reconstructed matrix for group $\mathcal{G}$: $\mathbf{X}_\mathcal{G} = \sum_{i \in \mathcal{G}} \sqrt{\lambda_i} \mathbf{U}_i \mathbf{V}_i^T$.

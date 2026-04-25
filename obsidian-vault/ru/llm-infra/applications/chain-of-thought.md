@@ -44,7 +44,7 @@ $$\hat{y} = \arg\max_{y} \sum_{i=1}^{m} \mathbf{1}[\text{answer}(z_i) = y], \qua
 
 Дерево мыслей формулирует задачу как поиск по графу рассуждений $G = (V, E)$, где узлы — частичные состояния рассуждения, а рёбра — шаги рассуждения. Модель выступает одновременно генератором и оценщиком:
 
-$$V_{\text{expand}}(v) = \text{[[llm|LLM]]-generate}(v), \quad V_{\text{value}}(v) = \text{LLM-evaluate}(v)$$
+$$V_{\text{expand}}(v) = \text{[[llm|LLM]]-generate}(v), \quad V_{\text{value}}(v) = \text{[[llm|LLM]]-evaluate}(v)$$
 
 Алгоритмы поиска (BFS, DFS, beam search) обходят $G$ в поиске пути $v_0 \to v_1 \to \ldots \to v_T$, ведущего к правильному ответу. Глубина $T$ и ветвление $b$ определяют стоимость: $O(b^T)$ вызовов модели.
 

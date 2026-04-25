@@ -8,7 +8,7 @@ slug: "distributed-training"
 
 # Distributed Training: Scaling LLMs to Trillions of Parameters
 
-A modern LLM (like GPT-4 or Llama 3) is too large to fit in the memory of a single GPU. Even an H100 with 80GB of VRAM cannot hold the weights, gradients, and optimizer states of a 70B parameter model. **Distributed Training** is the engineering science of splitting a model across thousands of GPUs.
+A modern [[llm]] (like GPT-4 or Llama 3) is too large to fit in the memory of a single [[inference-serving|GPU]]. Even an H100 with 80GB of VRAM cannot hold the weights, gradients, and optimizer states of a 70B parameter model. **Distributed Training** is the engineering science of splitting a model across thousands of GPUs.
 
 ## 1. The Three Pillars of Parallelism
 
@@ -62,6 +62,6 @@ graph TD
 ## Related Topics
 
 [[llm-infra/serving/hardware-io-attention]] — the VRAM bottlenecks  
-[[gpu-architecture]] — the NVLink/HBM context  
+[[gpu-architecture]] — the NVLink/[[flash-attention|HBM]] context  
 [[llm-infra/training/fine-tuning]] — applying these to LoRA/QLoRA
 ---

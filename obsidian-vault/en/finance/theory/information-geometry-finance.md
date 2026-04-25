@@ -10,7 +10,7 @@ slug: "information-geometry-finance"
 
 **Information Geometry**, pioneered by Shun-ichi Amari, applies the tools of differential geometry ([[manifold|Manifolds]], metrics, curvature) to probability theory. In top-tier quantitative finance, it is used to measure the true "distance" between market states and to construct radically robust portfolios.
 
-## The Statistical Manifold
+## The Statistical [[manifold-learning|Manifold]]
 
 In classic geometry, the distance between two points $x$ and $y$ is Euclidean. But what if the "points" are actually probability distributions (e.g., the distribution of market returns)?
 Information Geometry treats the space of all probability distributions as a **Riemannian Manifold**. 
@@ -30,7 +30,7 @@ Standard [[markowitz-mean-variance|Markowitz Optimization]] uses the Euclidean d
 - It naturally handles non-linearities and tail risks.
 - It prevents the optimizer from stepping into "impossible" regions of the probability space, leading to out-of-sample performance that heavily beats standard Mean-Variance.
 
-## Connection to Entropy
+## Connection to [[shannon-entropy|Entropy]]
 
 The Fisher Information Metric is intimately connected to [[shannon-entropy|Shannon Entropy]] and the Kullback-Leibler (KL) divergence. In fact, locally, the KL divergence behaves exactly like the squared distance measured by the Fisher Metric. This unifies Information Geometry with [[entropy-pooling|Entropy Pooling]].
 

@@ -56,7 +56,7 @@ $$L(D) \approx \left(\frac{D_c}{D}\right)^{\alpha_D}, \qquad \alpha_D \approx 0.
 
 $$L(C) \approx \left(\frac{C_c}{C}\right)^{\alpha_C}, \qquad \alpha_C \approx 0.050$$
 
-where $L$ is cross-entropy loss on a held-out set and $N_c, D_c, C_c$ are characteristic scales. The loss under joint scaling:
+where $L$ is cross-[[shannon-entropy|entropy]] loss on a held-out set and $N_c, D_c, C_c$ are characteristic scales. The loss under joint scaling:
 
 $$L(N, D) \approx \left[\left(\frac{N_c}{N}\right)^{\alpha_N/\beta} + \left(\frac{D_c}{D}\right)^{\alpha_D/\beta}\right]^\beta$$
 
@@ -176,7 +176,7 @@ for i in range(0, 40, 8):
 
 **Architecture dependence.** Exponents differ for MoE vs. dense transformers, LSTM vs. [[attention-mechanisms|attention]], different tokenisation strategies. Laws must be re-fit for new architectures.
 
-**Cost and efficiency improvements.** Hardware (H100 vs. A100 vs. TPU v4) and algorithmic improvements (flash attention, gradient checkpointing) shift the effective scaling exponents by changing FLOPs per token.
+**Cost and efficiency improvements.** Hardware (H100 vs. A100 vs. TPU v4) and algorithmic improvements (flash [[attention-mechanisms|attention]], gradient checkpointing) shift the effective scaling exponents by changing FLOPs per token.
 
 **Quality metrics.** Perplexity scaling is clean; benchmark accuracy scaling is noisier and metric-sensitive.
 

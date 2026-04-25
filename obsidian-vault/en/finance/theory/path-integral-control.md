@@ -33,7 +33,7 @@ You don't need to solve a grid. You simply:
 ## Applications in High-Frequency Trading
 
 1.  **High-Dimensional Execution**: You can optimize the execution of 500 stocks simultaneously. Since it uses Monte Carlo paths, the computational cost scales linearly with the number of stocks, not exponentially.
-2.  **Reinforcement Learning**: Path Integral Control is the mathematical foundation for modern RL algorithms like **Soft Actor-Critic (SAC)** and **Maximum Entropy RL**, which are heavily used in automated trading.
+2.  **Reinforcement Learning**: Path Integral Control is the mathematical foundation for modern RL algorithms like **Soft Actor-Critic (SAC)** and **Maximum [[shannon-entropy|Entropy]] RL**, which are heavily used in automated trading.
 
 ## Visualization: The Path Integral
 

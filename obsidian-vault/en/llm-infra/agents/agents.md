@@ -15,7 +15,7 @@ growth: "seedling"
 
 ## Overview
 
-An LLM agent is a system that combines a language model with a loop that enables repeated observation, reasoning, and action. Rather than a single forward pass from prompt to answer, an agent runs iteratively: the model produces reasoning and a structured action (tool call), the environment (or application layer) executes that action and observes the result, the observation is fed back to the model, and the cycle repeats until the model signals completion or a termination condition is met.
+An [[llm]] agent is a system that combines a language model with a loop that enables repeated observation, reasoning, and action. Rather than a single forward pass from prompt to answer, an agent runs iteratively: the model produces reasoning and a structured action (tool call), the environment (or application layer) executes that action and observes the result, the observation is fed back to the model, and the cycle repeats until the model signals completion or a termination condition is met.
 
 This closes the feedback loop that a pure LLM cannot execute. Where a language model is a function $f_\theta: \text{prompt} \to \text{answer}$, an agent is a policy $\pi_\theta$ that learns to map observations and history to actions, iterating until task completion. The mechanism is straightforward — agents are built on three primitives: [[tool-use|tool use]] for structured actions, [[chain-of-thought|chain of thought]] for reasoning transparency, and memory to track state across iterations.
 

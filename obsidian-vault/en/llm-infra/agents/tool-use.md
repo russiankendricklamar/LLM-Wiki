@@ -181,7 +181,7 @@ print(answer)
 User Input
     │
     ▼
-LLM generates tool_use block
+[[llm]] generates tool_use block
     │
     ▼
 Input Validator ──► Reject if schema violated

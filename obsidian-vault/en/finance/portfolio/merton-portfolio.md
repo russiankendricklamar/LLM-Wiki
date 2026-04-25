@@ -18,7 +18,7 @@ Consider an investor with wealth $W_t$. They can invest a fraction $\pi_t$ in a 
 - **Risk-free Bond**: $dB_t = r B_t dt$
 - **Risky Asset (Stock)**: $dS_t = \mu S_t dt + \sigma S_t dZ_t$ (Geometric Brownian Motion)
 
-The wealth equation evolves as a Stochastic Differential Equation (SDE):
+The wealth equation evolves as a Stochastic Differential Equation ([[stochastic-differential-equations|SDE]]):
 $$dW_t = [W_t(\pi_t(\mu - r) + r) - c_t] dt + W_t \pi_t \sigma dZ_t$$
 
 The investor wants to maximize the expected discounted utility of consumption and terminal wealth:

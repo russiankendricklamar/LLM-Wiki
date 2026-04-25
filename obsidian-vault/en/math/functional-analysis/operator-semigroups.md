@@ -48,7 +48,7 @@ graph LR
     style Initial fill:#ef4444,color:#fff
     style Flat fill:#10b981,color:#fff
 ```
-*The action of a diffusion semigroup: over time, the generator A (the Laplacian) "pulls" the peaks down and "fills" the valleys, leading the system toward a global equilibrium.*
+*The action of a diffusion semigroup: over time, the generator A (the [[spectral-graph-theory|Laplacian]]) "pulls" the peaks down and "fills" the valleys, leading the system toward a global equilibrium.*
 
 ## Related Topics
 

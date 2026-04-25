@@ -11,7 +11,7 @@ RLHF (Reinforcement Learning from Human Feedback) is a three-stage pipeline that
 
 ## Three-Stage Pipeline
 
-**Stage 1: Supervised Fine-Tuning (SFT)**
+**Stage 1: Supervised [[fine-tuning]] (SFT)**
 
 Begin with a pretrained base model $\pi_\text{base}$. Collect a dataset of pairs $(x, y^*)$ (prompt, human-written response) annotated by people. Train the language model to maximize log likelihood:
 
@@ -61,7 +61,7 @@ This is a self-reinforcing loop: the model critiques itself, learns from self-cr
 
 ## [[dpo]]: Direct Preference Optimization
 
-DPO skips the reward model and PPO, optimizing the policy directly on preference data. The key insight: solve the Bellman equation for the reward model and express the optimal policy $\pi^*$ in closed form, then optimize it directly.
+[[dpo]] skips the reward model and PPO, optimizing the policy directly on preference data. The key insight: solve the Bellman equation for the reward model and express the optimal policy $\pi^*$ in closed form, then optimize it directly.
 
 The optimal reward (from PPO optimization) has the form:
 

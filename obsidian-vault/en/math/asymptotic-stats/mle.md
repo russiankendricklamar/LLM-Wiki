@@ -30,12 +30,12 @@ MLE is the gold standard because of its behavior as $n \to \infty$:
 The variance of the MLE is determined by the **Fisher Information**, which measures the "sharpness" of the log-likelihood peak:
 $$I(\theta) = -\mathbb{E}\left[ \frac{\partial^2 \ell(\theta)}{\partial \theta^2} \right]$$
 - If $I(\theta)$ is high, the peak is sharp, and our estimate is very precise.
-- In [[information-geometry-finance|Information Geometry]], $I(\theta)$ defines the metric of the statistical manifold.
+- In [[information-geometry-finance|Information Geometry]], $I(\theta)$ defines the metric of the statistical [[manifold-learning|manifold]].
 
 ## 4. Connection to Information Theory
 
 Maximizing Likelihood is mathematically equivalent to minimizing the **Kullback-Leibler (KL) Divergence** between the empirical data distribution and the model distribution. 
-In deep learning, the standard **Cross-Entropy Loss** used to train LLMs is exactly the MLE for a multinomial distribution.
+In deep learning, the standard **Cross-[[shannon-entropy|Entropy]] Loss** used to train LLMs is exactly the MLE for a multinomial distribution.
 
 ## Related Topics
 

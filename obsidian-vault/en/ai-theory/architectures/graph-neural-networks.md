@@ -80,7 +80,7 @@ where $\tilde A = A + I$ and $\tilde D$ is the degree matrix of $\tilde A$. Simp
 
 **GraphSAGE (Hamilton et al. 2017).** An inductive method with learned aggregators (mean/max/LSTM) and neighbour sampling. Suitable for large graphs where training on the full adjacency matrix is infeasible.
 
-**Graph Attention Network (GAT, Veličković et al. 2018).** Weighted aggregation with learned attention:
+**Graph [[attention-mechanisms|Attention]] Network (GAT, Veličković et al. 2018).** Weighted aggregation with learned attention:
 
 $$
 \alpha_{uv} = \frac{\exp(\text{LeakyReLU}(a^\top [W h_v \| W h_u]))}{\sum_{u' \in \mathcal{N}(v)} \exp(\ldots)}.
@@ -100,7 +100,7 @@ GAT does not require the global graph structure and provides interpretable neigh
 
 Two central pathologies of deep GNNs:
 
-**Over-smoothing.** As depth grows, node representations converge to a single vector (the Laplacian spectrum): information is lost. Solutions include residual connections, DropEdge, GCNII, PairNorm.
+**Over-smoothing.** As depth grows, node representations converge to a single vector (the [[spectral-graph-theory|Laplacian]] spectrum): information is lost. Solutions include residual connections, DropEdge, GCNII, PairNorm.
 
 **Over-squashing.** For tasks with long-range dependencies, information is squeezed through graph bottlenecks. Recent work uses graph rewiring, Ricci flow, and positional encodings.
 

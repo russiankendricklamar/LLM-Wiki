@@ -13,13 +13,13 @@ growth: "seedling"
 
 ## Absolute Positional Encodings
 
-**Sinusoidal (Vaswani et al. 2017).** The original transformer uses fixed sinusoidal encodings added to token embeddings before the first layer:
+**Sinusoidal (Vaswani et al. 2017).** The original [[transformer-architecture|transformer]] uses fixed sinusoidal encodings added to token embeddings before the first layer:
 
 $$
 \text{PE}(pos, 2i) = \sin\!\left(\frac{pos}{10000^{2i/d}}\right), \quad \text{PE}(pos, 2i+1) = \cos\!\left(\frac{pos}{10000^{2i/d}}\right).
 $$
 
-Properties: no learned parameters; relative positions encodable as linear functions; but attention patterns don't generalise well beyond training length.
+Properties: no learned parameters; relative positions encodable as linear functions; but [[attention-mechanisms|attention]] patterns don't generalise well beyond training length.
 
 **Learned absolute.** BERT, GPT-2: position embeddings $P \in \mathbb{R}^{T_\text{max} \times d}$ learned end-to-end. Simple and effective but hard-limited to $T_\text{max}$.
 

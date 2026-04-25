@@ -57,7 +57,7 @@ $$g(x) = \text{Softmax}\!\left(\text{TopK}\!\left(x W_g,\; k\right)\right)$$
 
 $$\text{MoE}(x) = \sum_{i \in \text{TopK}} g(x)_i \cdot \text{FFN}_i(x)$$
 
-Обычно $k = 1$ (Switch Transformer) или $k = 2$ (GShard, Mixtral).
+Обычно $k = 1$ (Switch [[transformer-architecture|Transformer]]) или $k = 2$ (GShard, Mixtral).
 
 ## Математический аппарат
 
@@ -121,7 +121,7 @@ $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{LM}} + \mathcal{L}_{\text{aux}
 
 ## Сравнение с другими типами
 
-| Параметр | Плотная [[llm|LLM]] | MoE LLM | SLM |
+| Параметр | Плотная [[llm|LLM]] | MoE [[llm|LLM]] | SLM |
 |---|---|---|---|
 | Суммарные параметры | N | N × эксперты | Малые |
 | Активные параметры на токен | N | N / эксперты × k | Малые |

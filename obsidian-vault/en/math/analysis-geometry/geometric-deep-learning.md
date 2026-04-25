@@ -27,7 +27,7 @@ GDL classifies data domains based on their symmetry groups:
 
 ## 3. Gauge Equivariant CNNs (Geodesic CNNs)
 
-On a curved manifold (like a sphere or a protein surface), there is no global coordinate system. To perform convolution, we must define it locally using the **Tangent Space**.
+On a curved [[manifold-learning|manifold]] (like a sphere or a protein surface), there is no global coordinate system. To perform convolution, we must define it locally using the **Tangent Space**.
 - **The Problem**: When you move a "filter" from point $p$ to $q$, the filter rotates depending on the path taken (due to [[connections-curvature|Holonomy]]).
 - **The Solution**: Use **Gauge Equivariance**. The network is designed so that its output is independent of the local coordinate "gauge" chosen at each point. This requires weights to be constrained by representations of the [[lie-groups-algebras|Lie Group]] of the manifold.
 

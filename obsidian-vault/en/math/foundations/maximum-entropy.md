@@ -7,7 +7,7 @@ slug: "maximum-entropy"
 growth: "evergreen"
 ---
 
-# The Maximum Entropy Principle
+# The Maximum [[shannon-entropy|Entropy]] Principle
 
 The Maximum Entropy (MaxEnt) principle, formulated by **E. T. Jaynes** in 1957, is a constructive answer to the question: *given partial information about a random variable, which distribution should we choose?* Jaynes' answer: choose the distribution that is **maximally uncertain** subject to the known constraints. Any other choice smuggles in unstated assumptions.
 
@@ -128,7 +128,7 @@ These generalisations explain why **fat-tailed distributions** are natural — t
 
 ## 9. Information-geometric view
 
-The space of probability distributions on $\mathcal{X}$ forms a Riemannian manifold under the Fisher metric. MaxEnt under linear constraints projects orthogonally (in the **m-flat** sense) onto an affine subspace, while MLE projects orthogonally (in the **e-flat** sense). The Pythagorean theorem of information geometry then gives the duality from §3 a clean geometric meaning.
+The space of probability distributions on $\mathcal{X}$ forms a Riemannian [[manifold-learning|manifold]] under the Fisher metric. MaxEnt under linear constraints projects orthogonally (in the **m-flat** sense) onto an affine subspace, while MLE projects orthogonally (in the **e-flat** sense). The Pythagorean theorem of information geometry then gives the duality from §3 a clean geometric meaning.
 
 ## 10. Applications in modern ML
 

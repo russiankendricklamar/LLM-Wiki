@@ -82,4 +82,4 @@ The diagonal argument is therefore not a niche set-theoretic curiosity — it is
 - [[godel-incompleteness|Gödel's Incompleteness Theorems]] — diagonalization in logic
 - [[banach-tarski|Banach-Tarski Paradox]] — another counterintuitive result
 - [[kolmogorov-complexity]] — uncomputability of shortest descriptions
-- [[chain-of-thought]] — limits of enumerable LLM reasoning traces
+- [[chain-of-thought]] — limits of enumerable [[llm]] reasoning traces

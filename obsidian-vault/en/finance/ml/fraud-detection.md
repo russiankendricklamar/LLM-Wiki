@@ -162,7 +162,7 @@ print(f"AUC-ROC: {roc_auc_score(y_all, -scores):.3f}")
 
 - **Concept drift**: Fraud patterns evolve rapidly (adversarial adaptation); models require frequent retraining or online learning components.
 - **Adversarial attacks**: Sophisticated fraudsters reverse-engineer decision boundaries; adversarial robustness and GAN-based data augmentation help.
-- **Real-time latency**: Inference must complete in <100ms at card-present POS terminals; lightweight models (LightGBM, shallow MLP) are preferred over deep networks.
+- **Real-time latency**: Inference must complete in <100ms at card-present POS terminals; lightweight models (LightGBM, shallow [[transformer-architecture|MLP]]) are preferred over deep networks.
 - **Explainability**: Regulators (GDPR, SR 11-7) require explanation of adverse decisions; SHAP values on XGBoost provide feature-level attributions.
 - **Graph fraud rings**: Isolated transaction models miss coordinated ring fraud; GNN-based systems modeling cardholder-merchant-IP networks dramatically improve detection of organized schemes.
 

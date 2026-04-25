@@ -91,7 +91,7 @@ Training data for general-purpose embedding models combines: NLI pairs (entailme
 - **Sentence similarity**: rank pairs of sentences by semantic relatedness using cosine similarity.
 - **Anomaly detection**: embed normal examples; flag inputs far from the cluster centroid as anomalies.
 - **Cross-lingual transfer**: multilingual embedding models produce aligned representations across languages; a query in English can retrieve documents in Spanish.
-- **Retrieval-augmented generation**: the retrieval step in RAG systems is an embedding model + approximate nearest neighbor search.
+- **Retrieval-augmented generation**: the retrieval step in [[rag]] systems is an embedding model + approximate nearest neighbor search.
 
 ## Trade-offs vs Other Types
 
@@ -99,7 +99,7 @@ Training data for general-purpose embedding models combines: NLI pairs (entailme
 |---|---|---|---|
 | Output | Fixed vector | Scalar score | Token sequence |
 | Indexable | Yes (ANN) | No | No |
-| Query latency | Fast ($O(d)$ lookup) | Slow (full attention) | Slow (autoregressive) |
+| Query latency | Fast ($O(d)$ lookup) | Slow (full [[attention-mechanisms|attention]]) | Slow (autoregressive) |
 | Accuracy | Good | Best | N/A |
 | Use case | Retrieval (top-k) | Reranking | Generation |
 
@@ -120,7 +120,7 @@ corpus = [
     "Transformers revolutionized NLP in 2017.",
     "The attention mechanism weights token importance.",
     "Bitcoin uses proof-of-work consensus.",
-    "Neural scaling laws predict LLM performance.",
+    "Neural scaling laws predict [[llm]] performance.",
 ]
 corpus_embeddings = model.encode(corpus, normalize_embeddings=True)
 

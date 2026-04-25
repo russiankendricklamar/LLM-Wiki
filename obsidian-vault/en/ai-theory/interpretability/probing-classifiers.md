@@ -85,4 +85,4 @@ Probing reveals *where* information is; it doesn't tell us *how* the model uses 
 - [[mechanistic-interpretability]] — broader interpretability programme
 - [[activation-patching]] — causal complement to probing
 - [[sparse-autoencoders]] — monosemantic decomposition of representations
-- attention-head-analysis — head-level probing of [[attention-mechanisms|attention]] patterns
+- [[attention-mechanisms|attention]]-head-analysis — head-level probing of [[attention-mechanisms|attention]] patterns

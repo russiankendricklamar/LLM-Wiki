@@ -34,7 +34,7 @@ $$Z(\beta) = \sum_{i=1}^{\Omega} e^{-\beta E_i}$$
 Все термодинамические величины следуют из $Z$:
 - Средняя энергия: $\langle E \rangle = -\frac{\partial \ln Z}{\partial \beta}$
 - Свободная энергия Гельмгольца: $F = -kT \ln Z$
-- Энтропия: $S = -\left(\frac{\partial F}{\partial T}\right)_V = k\beta^2 \frac{\partial F}{\partial \beta}$
+- [[gravitational-entropy|Энтропия]]: $S = -\left(\frac{\partial F}{\partial T}\right)_V = k\beta^2 \frac{\partial F}{\partial \beta}$
 - Давление: $P = -\left(\frac{\partial F}{\partial V}\right)_T$
 
 Красота этого подхода: вся термодинамика кодируется в одной функции $Z$.

@@ -9,7 +9,7 @@ growth: "evergreen"
 
 # Fisher Information and the Cramér-Rao Bound
 
-Fisher information is the central invariant of parametric statistics. It endows the space of distributions with a **Riemannian metric**, it sets a **hard lower bound** on the variance of any unbiased estimator (Cramér-Rao), it governs the **asymptotic efficiency** of the MLE, and it underlies **natural-gradient descent** in deep learning.
+Fisher information is the central invariant of parametric statistics. It endows the space of distributions with a **Riemannian metric**, it sets a **hard lower bound** on the variance of any unbiased estimator (Cramér-Rao), it governs the **asymptotic efficiency** of the MLE, and it underlies **natural-[[convex-optimization|gradient descent]]** in deep learning.
 
 ## 1. Definition
 
@@ -54,7 +54,7 @@ The second form — the **negative expected Hessian** of the log-likelihood — 
 
 ## 3. Fisher information as a Riemannian metric
 
-On the statistical manifold $\mathcal{M} = \{p_\theta\}$ the matrix $I(\theta)$ defines a Riemannian inner product on the tangent space:
+On the statistical [[manifold-learning|manifold]] $\mathcal{M} = \{p_\theta\}$ the matrix $I(\theta)$ defines a Riemannian inner product on the tangent space:
 
 $$
 \langle u, v\rangle_\theta := u^\top I(\theta)\, v, \qquad u,v \in T_\theta \mathcal{M}.

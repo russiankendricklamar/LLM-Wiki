@@ -19,7 +19,7 @@ In 2016, Hawking, Perry, and Strominger (HPS) proposed a resolution through soft
 
 The proposal connects three previously separate developments: the BMS asymptotic symmetry group, the Hawking-Perry-Strominger charge algebra on the horizon, and the Pasterski triangle relating soft theorems, memory effects, and asymptotic symmetries. Soft hair does not fully resolve the information paradox — it does not specify how information is decoded from Hawking radiation — but it establishes that black holes have far more internal structure than the no-hair theorem suggests.
 
-## The Area Law of Entropy
+## The Area Law of [[gravitational-entropy|Entropy]]
 
 The core of holography is that the maximum entropy of a region grows with its surface area, not its volume. In a gravitating world, information cannot be packed more densely than the surface area of its boundary allows.
 

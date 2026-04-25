@@ -29,7 +29,7 @@ $$\min_{\theta} \mathbb{E} \left[ \rho(Wealth_T - Payoff) \right]$$
 where $\theta$ are the weights of a Neural Network.
 
 ### 2. The Neural Network
-A Recurrent Neural Network (RNN) or a Transformer takes the current state (price, volatility, current inventory, time to maturity) and outputs the **optimal hedge ratio** $\delta_t$.
+A Recurrent Neural Network (RNN) or a [[transformer-architecture|Transformer]] takes the current state (price, volatility, current inventory, time to maturity) and outputs the **optimal hedge ratio** $\delta_t$.
 - The network is trained on millions of simulated (or historical) price paths.
 - It "learns" to be quiet when transaction costs are high and to move aggressively when a large price jump is imminent.
 

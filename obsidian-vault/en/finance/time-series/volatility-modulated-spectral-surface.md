@@ -75,7 +75,7 @@ $$
 
 ### Spectral [[shannon-entropy|Entropy]] of VMSS
 
-At each time $t$, the spectral distribution $\tilde{S}(t, \cdot)$ normalized to integrate to 1 defines a probability distribution. Its **spectral entropy**:
+At each time $t$, the spectral distribution $\tilde{S}(t, \cdot)$ normalized to integrate to 1 defines a probability distribution. Its **spectral [[shannon-entropy|entropy]]**:
 
 $$
 H_{spec}(t) = -\int_0^{f_N} \tilde{S}(t, f) \ln \tilde{S}(t, f) \, df

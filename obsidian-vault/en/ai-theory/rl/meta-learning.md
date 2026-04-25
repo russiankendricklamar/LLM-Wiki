@@ -47,7 +47,7 @@ $$p(y = k \mid q) = \frac{\exp(-d(\phi_\theta(q), c_k))}{\sum_j \exp(-d(\phi_\th
 
 No gradient-through-gradient; simple and scalable.
 
-**Matching Networks** (Vinyals et al., 2016): [[attention-mechanisms|attention]]-weighted $k$-NN in embedding space. The query is classified as a mixture of support labels, weighted by attention:
+**Matching Networks** (Vinyals et al., 2016): [[attention-mechanisms|attention]]-weighted $k$-NN in embedding space. The query is classified as a mixture of support labels, weighted by [[attention-mechanisms|attention]]:
 
 $$p(y = y_i \mid q, S) = \frac{\exp(e_\theta(q)^T e_\theta(x_i))}{\sum_j \exp(e_\theta(q)^T e_\theta(x_j))}$$
 

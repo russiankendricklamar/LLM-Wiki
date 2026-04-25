@@ -24,7 +24,7 @@ The Schmidt decomposition guarantees that any bipartite pure state can be writte
 $$ |\psi\rangle = \sum_i \sqrt{\lambda_i} |e_i\rangle_A \otimes |f_i\rangle_B $$
 where $\lambda_i \geq 0$, $\sum_i \lambda_i = 1$, and the Schmidt number (number of non-zero $\lambda_i$) equals 1 if and only if the state is separable.
 
-The von Neumann entanglement entropy is defined via the reduced density matrix $\rho_A = \text{Tr}_B(|\psi\rangle\langle\psi|)$:
+The von Neumann entanglement [[gravitational-entropy|entropy]] is defined via the reduced density matrix $\rho_A = \text{Tr}_B(|\psi\rangle\langle\psi|)$:
 $$ S_E = - \text{Tr}(\rho_A \ln \rho_A) = -\sum_i \lambda_i \ln \lambda_i $$
 It vanishes for product states and is maximal ($\ln d$) for maximally entangled states of local dimension $d$.
 

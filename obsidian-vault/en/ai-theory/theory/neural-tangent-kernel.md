@@ -30,7 +30,7 @@ For a fully-connected ReLU network of width $m$ with initialization via He scali
 
 ## Gradient Flow in Function Space
 
-Under gradient flow (continuous-time limit of gradient descent) starting from initialization $\theta_0$ and loss $\mathcal{L}(y_{\text{pred}}) = \frac{1}{2}(y_{\text{pred}} - y)^2$, the change in function values evolves linearly:
+Under gradient flow (continuous-time limit of [[convex-optimization|gradient descent]]) starting from initialization $\theta_0$ and loss $\mathcal{L}(y_{\text{pred}}) = \frac{1}{2}(y_{\text{pred}} - y)^2$, the change in function values evolves linearly:
 
 $$\partial_t f_\theta(x) = -\nabla_\theta f_\theta^T(x) \cdot \dot{\theta}_t = \eta \nabla_\theta f_\theta^T(x) \cdot \nabla_\theta \mathcal{L}$$
 
@@ -85,7 +85,7 @@ Individual parameters change by $O(1/m)$ but collectively drive learning. The NT
 ## NTK for Transformers and Modern Architectures
 
 NTK extends beyond fully-connected networks. For **[[transformer-architecture|transformer]] architectures**, the NTK kernel has been computed for [[attention-mechanisms|attention]] mechanisms (Yang et al., 2020). The kernel encodes interaction patterns:
-- Self-attention preserves position-dependent correlations
+- Self-[[attention-mechanisms|attention]] preserves position-dependent correlations
 - Cross-[[shannon-entropy|entropy]] loss couples inputs nonlinearly
 - Residual connections promote kernel stability
 

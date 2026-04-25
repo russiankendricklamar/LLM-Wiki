@@ -17,7 +17,7 @@ The original [[transformer-architecture|Transformer]] (Vaswani et al. 2017) uses
 
 $$PE_{pos,2i} = \sin\left(\frac{pos}{10000^{2i/d}}\right), \quad PE_{pos,2i+1} = \cos\left(\frac{pos}{10000^{2i/d}}\right)$$
 
-These encodings inject position information directly into embeddings: $\mathbf{x}_t' = \mathbf{x}_t + PE_t$. The approach is elegant—position is encoded at multiple frequency scales—but it has a critical flaw: the encoding assumes positions fall within a training-defined range. Attempting to evaluate the model at longer sequences forces the attention mechanism to operate in an unseen regime where distance metrics break down. Models trained at 2K tokens typically collapse in quality beyond 4K tokens, regardless of architectural capacity. The sinusoidal formula does extrapolate mathematically, but learned attention patterns don't generalize to extrapolated positions.
+These encodings inject position information directly into embeddings: $\mathbf{x}_t' = \mathbf{x}_t + PE_t$. The approach is elegant—position is encoded at multiple frequency scales—but it has a critical flaw: the encoding assumes positions fall within a training-defined range. Attempting to evaluate the model at longer sequences forces the [[attention-mechanisms|attention]] mechanism to operate in an unseen regime where distance metrics break down. Models trained at 2K tokens typically collapse in quality beyond 4K tokens, regardless of architectural capacity. The sinusoidal formula does extrapolate mathematically, but learned attention patterns don't generalize to extrapolated positions.
 
 ## RoPE: Rotary Position Embedding
 
@@ -69,7 +69,7 @@ This reduces complexity to $O(L \cdot W)$. [[llm|Mistral]] uses $W = 4096$; for 
 
 [[inference-serving|Inference serving]] long contexts bottlenecks on memory bandwidth, not compute. FlashAttention (Dao et al. 2022) reorganizes the attention computation to respect [[inference-serving|GPU]] memory hierarchy: compute block-wise, materialize softmax incrementally, avoid materializing the full $L \times L$ attention matrix. This cuts memory from $O(L^2)$ to $O(L)$ while keeping computation $O(L^2)$.
 
-For 100K+ token sequences, FlashAttention is essential—without it, even a single forward pass runs out of GPU memory.
+For 100K+ token sequences, FlashAttention is essential—without it, even a single forward pass runs out of [[inference-serving|GPU]] memory.
 
 ## Retrieval-Augmented Context
 

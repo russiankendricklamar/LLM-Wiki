@@ -37,7 +37,7 @@ $$dB_t^{\text{br}} = -\frac{B_t^{\text{br}}}{T - t} dt + dW_t$$
 
 The defining technical feature is a singularity in the drift coefficient of the form $1/(T-t)$ as $t \to T$. The diffusion coefficient remains regular, but the drift diverges. This means that as $t$ approaches $T$, the bridge develops a strong repulsive force pulling the process toward zero.
 
-When integrating this SDE numerically, adaptive or non-uniform time grids are necessary to stabilize computations near the terminal point. Explicit Euler schemes become unstable; implicit methods or specialized quadrature formulas are preferred. Care must be taken to handle the singularity; standard discretization schemes fail without appropriate modifications.
+When integrating this [[stochastic-differential-equations|SDE]] numerically, adaptive or non-uniform time grids are necessary to stabilize computations near the terminal point. Explicit Euler schemes become unstable; implicit methods or specialized quadrature formulas are preferred. Care must be taken to handle the singularity; standard discretization schemes fail without appropriate modifications.
 
 ## Karhunen-Loève Expansion
 

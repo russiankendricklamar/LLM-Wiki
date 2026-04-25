@@ -48,5 +48,5 @@ slug: "limits-convergence"
 
 [[taylor-series|Ряды Тейлора]] — сходимость степенных рядов  
 [[differential-equations|Дифференциальные уравнения]] — пределы в эволюции систем  
-Backpropagation — пределы в дискретной оптимизации
+[[automatic-differentiation|Backpropagation]] — пределы в дискретной оптимизации
 ---

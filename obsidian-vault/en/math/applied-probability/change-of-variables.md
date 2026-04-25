@@ -34,7 +34,7 @@ The Jacobian of this transformation ensures that the output $Z$ is perfectly nor
 ### B. Log-Normal Distribution
 In finance, if we assume log-returns are normal ($X \sim \mathcal{N}$), then the price $Y = e^X$ follows a **Log-Normal** distribution. The Change of Variables formula provides the exact PDF for stock prices used in the [[black-scholes]] model.
 
-### C. Differential Entropy
+### C. Differential [[shannon-entropy|Entropy]]
 The entropy of a distribution (see [[shannon-entropy]]) changes under a change of variables. If you stretch a distribution, its entropy increases by $\ln |\det J|$. This relationship is vital for **Mutual Information** estimation in machine learning.
 
 ## Visualization: Stretching the Density

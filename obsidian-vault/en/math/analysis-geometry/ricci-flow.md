@@ -8,7 +8,7 @@ slug: "ricci-flow"
 
 # Ricci Flow: The Evolution of Geometry
 
-**Ricci Flow**, introduced by Richard Hamilton in 1982, is a geometric evolution equation that deforms a Riemannian metric $g$ on a manifold $M$ in a way that is analogous to the heat equation for temperature. It is the core mathematical machinery used by Grigori Perelman to prove the **Poincaré Conjecture** and the **Geometrization Conjecture**.
+**Ricci Flow**, introduced by Richard Hamilton in 1982, is a geometric evolution equation that deforms a Riemannian metric $g$ on a [[manifold-learning|manifold]] $M$ in a way that is analogous to the heat equation for temperature. It is the core mathematical machinery used by Grigori Perelman to prove the **Poincaré Conjecture** and the **Geometrization Conjecture**.
 
 ## 1. The Evolution Equation
 
@@ -24,7 +24,7 @@ The primary challenge of Ricci flow is that it can develop **Singularities** whe
 - **Neck-pinch**: A common singularity where a cylinder-like part of the manifold shrinks to a point.
 - **Perelman's Breakthrough**: He developed a method called **Ricci Flow with Surgery**. When the flow approaches a singularity, the manifold is "cut" at the high-curvature points, the singular parts are discarded, and the flow is restarted on the remaining smooth pieces.
 
-## 3. Perelman's Entropy Functional
+## 3. Perelman's [[shannon-entropy|Entropy]] Functional
 
 To control the flow, Perelman introduced the **$\mathcal{W}$-Entropy Functional**, which is non-decreasing along the flow:
 $$ \mathcal{W}(g, f, \tau) = \int_M \left[ \tau (|\nabla f|^2 + R) + f - n \right] (4\pi \tau)^{-n/2} e^{-f} dV $$

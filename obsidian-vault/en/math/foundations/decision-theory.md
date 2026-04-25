@@ -43,7 +43,7 @@ This is used in **Adversarial Machine Learning** and **Robust Control**, where y
 ## 4. Connection to Modern AI
 
 - **Reinforcement Learning**: An RL agent is a dynamic decision-maker that seeks to minimize a cumulative loss (maximize reward) over time. The **Bellman Equation** is essentially a recursive version of the Bayes decision rule.
-- **Classification**: A neural network outputting probabilities is performing decision theory. The **Cross-Entropy Loss** is the "Proper Scoring Rule" that encourages the network to report its true uncertainty.
+- **Classification**: A neural network outputting probabilities is performing decision theory. The **Cross-[[shannon-entropy|Entropy]] Loss** is the "Proper Scoring Rule" that encourages the network to report its true uncertainty.
 
 ## Visualization: Bayes vs. Minimax
 

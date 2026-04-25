@@ -56,6 +56,6 @@ Research has shown a strong correlation between the **flatness** of a minimum an
 ## Related Topics
 
 [[training-dynamics]] — understanding the loss landscape  
-[[fine-tuning]] — SWA is often used in the final stages of fine-tuning  
+[[fine-tuning]] — SWA is often used in the final stages of [[fine-tuning]]  
 [[model-merging]] — merging models can be seen as a form of weight averaging
 ---

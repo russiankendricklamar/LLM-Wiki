@@ -10,7 +10,7 @@ slug: "information-theory"
 
 **Information Theory**, founded by Claude Shannon in 1948, is the mathematical study of the quantification, storage, and communication of information. It answers fundamental questions: "How much can we compress data?" and "How much noise can a channel handle before communication fails?"
 
-## 1. Shannon Entropy ($H$)
+## 1. Shannon [[shannon-entropy|Entropy]] ($H$)
 
 Entropy measures the amount of uncertainty or "surprise" in a random variable $X$. 
 $$ H(X) = -\sum_{i=1}^n P(x_i) \log_2 P(x_i) $$

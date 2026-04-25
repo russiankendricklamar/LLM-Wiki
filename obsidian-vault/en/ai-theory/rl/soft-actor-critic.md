@@ -11,7 +11,7 @@ growth: "seedling"
 
 **Soft Actor-Critic (SAC)** is the leading off-policy deep RL algorithm for continuous action spaces. Introduced by Haarnoja et al. (2018), it maximises expected return plus **policy [[shannon-entropy|entropy]]** at every step — making exploration automatic and hyperparameter tuning far more robust than competing methods.
 
-## Maximum Entropy RL
+## Maximum [[shannon-entropy|Entropy]] RL
 
 Classical RL maximises $\mathbb{E}[\sum_t \gamma^t r_t]$. Maximum entropy RL augments with entropy:
 

@@ -164,7 +164,7 @@ in the case $V = 0$ is solved via $\hat{\psi}(t, \xi) = e^{-it|\xi|^2/(2m)} \hat
 
 ## Information-Theoretic Connections
 
-Harmonic analysis intersects [[information-theory|information theory]] through [[shannon-entropy|entropy]] and divergence measures on spectral densities. The Fourier transform relates the differential entropy of a distribution to its characteristic function, and concepts like Fisher information and mutual information can be expressed in terms of spectral properties.
+Harmonic analysis intersects [[information-theory|information theory]] through [[shannon-entropy|entropy]] and divergence measures on spectral densities. The Fourier transform relates the differential [[shannon-entropy|entropy]] of a distribution to its characteristic function, and concepts like Fisher information and mutual information can be expressed in terms of spectral properties.
 
 ## Concluding Remarks
 

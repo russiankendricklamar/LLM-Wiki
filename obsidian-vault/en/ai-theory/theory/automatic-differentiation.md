@@ -105,7 +105,7 @@ AD composes easily: applying reverse mode to a function that is itself the outpu
 - **Bayesian inference.** Variational methods, Hamiltonian Monte Carlo (NUTS) and stochastic gradient Langevin dynamics require gradients of log densities.
 - **Scientific ML.** [[pinns]] and Neural ODEs use AD to form [[partial-differential-equations|PDE]] residuals without finite-difference approximations.
 - **Differentiable physics.** Rigid body, fluid, and graphics simulators are made differentiable so inverse problems can be solved by [[convex-optimization|gradient descent]].
-- **Meta-learning.** MAML and related algorithms differentiate through inner gradient descent steps.
+- **Meta-learning.** MAML and related algorithms differentiate through inner [[convex-optimization|gradient descent]] steps.
 - **Portfolio optimisation.** Modern [[black-scholes|derivative]] pricers use AD to compute Greeks.
 
 ## Example: PyTorch

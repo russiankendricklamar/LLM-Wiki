@@ -21,7 +21,7 @@ where $\Sigma = \frac{1}{n} X^\top X$ is the **empirical covariance matrix**.
 ## Spectral Theorem Connection
 
 By the Rayleigh quotient, the maximum of $w^\top \Sigma w$ subject to $\|w\| = 1$ is exactly the **largest eigenvalue** $\lambda_1$ of $\Sigma$, and $w_1$ is its corresponding **eigenvector**. 
-Subsequent principal components $w_2, w_3, \dots$ are the eigenvectors associated with the next largest eigenvalues, with the constraint that they are orthogonal to the previous ones.
+Subsequent principal components $w_2, w_3, \dots$ are the eigenvectors associated with the next largest [[spectral-theory-operators|eigenvalues]], with the constraint that they are orthogonal to the previous ones.
 
 ## SVD (Singular Value Decomposition)
 

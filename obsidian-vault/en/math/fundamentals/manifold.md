@@ -6,7 +6,7 @@ lang: "en"
 slug: "manifold"
 ---
 
-# Manifold: The Geometry of Data and Spacetime
+# [[manifold-learning|Manifold]]: The Geometry of Data and Spacetime
 
 A manifold is a topological space that locally resembles Euclidean space near each point. It is the fundamental object of study in differential geometry and general relativity. In modern AI, it provides the formal language for the **Manifold Hypothesis**, which explains how neural networks can make sense of high-dimensional "big data."
 
@@ -32,7 +32,7 @@ A **Riemannian Manifold** is equipped with a **Metric Tensor** $g_{ij}$. This al
 2.  **Curvature**: How much the manifold "bends." In General Relativity, mass curves the manifold of spacetime.
 
 ### Application: Riemannian Optimization
-In some ML tasks (like training on spheres or orthogonal matrices), we use **Riemannian Gradient Descent**. Instead of moving in a straight line (which would jump off the manifold), we move along the geodesic on the curved surface.
+In some ML tasks (like training on spheres or orthogonal matrices), we use **Riemannian [[convex-optimization|Gradient Descent]]**. Instead of moving in a straight line (which would jump off the manifold), we move along the geodesic on the curved surface.
 
 ## 4. Types of Manifolds in Wiki
 

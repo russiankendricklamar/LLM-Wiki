@@ -71,7 +71,7 @@ The extra drift term $\frac{1}{2} b'(X_t) b(X_t)$ (the **Itô correction**) is a
 
 $$dS_t = \mu S_t \, dt + \sigma S_t \circ dW_t.$$
 
-The equivalent Itô SDE is
+The equivalent Itô [[stochastic-differential-equations|SDE]] is
 
 $$dS_t = \left(\mu + \frac{\sigma^2}{2}\right) S_t \, dt + \sigma S_t \, dW_t,$$
 

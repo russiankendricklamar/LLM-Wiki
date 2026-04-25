@@ -32,7 +32,7 @@ $$
 
 For a truly random sequence, $c(n) \to 1$ as $n \to \infty$. For a periodic or structured sequence, $c(n) \to 0$.
 
-The asymptotic convergence rate connects LZ complexity to the Shannon entropy rate $h$ of the source:
+The asymptotic convergence rate connects LZ complexity to the Shannon [[shannon-entropy|entropy]] rate $h$ of the source:
 
 $$
 \lim_{n \to \infty} \frac{C(n)}{n / \log_2 n} = h

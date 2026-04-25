@@ -17,7 +17,7 @@ Modern [[llm]] embeddings live in $\mathbb{R}^{1536}$ (OpenAI) or $\mathbb{R}^{4
 
 Given embeddings $\mathbf{a}, \mathbf{b} \in \mathbb{R}^d$:
 
-- **Cosine similarity**: $\text{sim}(\mathbf{a}, \mathbf{b}) = \frac{\mathbf{a} \cdot \mathbf{b}}{|\mathbf{a}| \cdot |\mathbf{b}|}$. For unit-normalized vectors (standard in LLM workflows), cosine similarity equals inner product and is fastest to compute on GPUs.
+- **Cosine similarity**: $\text{sim}(\mathbf{a}, \mathbf{b}) = \frac{\mathbf{a} \cdot \mathbf{b}}{|\mathbf{a}| \cdot |\mathbf{b}|}$. For unit-normalized vectors (standard in [[llm]] workflows), cosine similarity equals inner product and is fastest to compute on GPUs.
 
 - **L2 distance**: $d_2(\mathbf{a}, \mathbf{b}) = \sqrt{\sum_{i=1}^d (a_i - b_i)^2}$. Minimizes exact NN but less natural for embeddings.
 
@@ -100,7 +100,7 @@ Facebook AI Similarity Search library:
 
 - **IndexFlatL2**: exact brute-force; baseline.
 - **IndexIVFFlat**: IVF + exact distance in clusters; $10$–$100\times$ speedup, tunable recall via `nprobe`.
-- **IndexIVFPQ**: IVF + product quantization; billion-scale, GPU acceleration.
+- **IndexIVFPQ**: IVF + product [[quantization]]; billion-scale, [[inference-serving|GPU]] acceleration.
 - **GPU support**: batch query $10$–$100\times$ faster than CPU.
 
 Typical billion-scale setup: 100k clusters, $C=100$ probes, PQ with $M=96, K=256$. Query latency: 10–50ms; RAM per vector: 1 byte.
@@ -131,7 +131,7 @@ At selectivity $< 1\%$ (e.g., last-7-days documents), pre-filter + ANN dominates
 - Qdrant/Weaviate: open-source, persistent, full control, run your own ops.
 - pgvector: leverage existing Postgres; slower but tight integration, native ACID.
 
-## Role in RAG
+## Role in [[rag]]
 
 [[rag|RAG]] pipeline:
 

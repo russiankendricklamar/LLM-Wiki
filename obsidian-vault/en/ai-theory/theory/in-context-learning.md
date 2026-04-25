@@ -26,7 +26,7 @@ The distinction between few-shot and zero-shot performance reveals critical prop
 - **Zero-shot**: The model responds to a task description alone. Performance depends heavily on whether the task aligns with the model's pretraining distribution.
 - **Few-shot**: With $k \in \{1, 5, 10\}$ labeled examples, the model's accuracy often surges dramatically. This scaling behavior suggests models are not merely "retrieving" memorized associations but performing some form of rapid task inference.
 
-Empirically, few-shot performance frequently outpaces zero-shot by 20–40 percentage points on unseen benchmarks, and in many cases rivals supervised fine-tuning on medium-data regimes. This sample efficiency is extraordinary given that gradient-based learning typically requires hundreds or thousands of examples.
+Empirically, few-shot performance frequently outpaces zero-shot by 20–40 percentage points on unseen benchmarks, and in many cases rivals supervised [[fine-tuning]] on medium-data regimes. This sample efficiency is extraordinary given that gradient-based learning typically requires hundreds or thousands of examples.
 
 ## Bayesian Interpretation and Posterior Inference
 
@@ -75,7 +75,7 @@ A sobering empirical discovery is ICL's brittleness to surface-level variations:
 - **Verbalization sensitivity**: Rephrasing the same concept (e.g., "positive/negative" vs "good/bad") drastically shifts performance.
 - **Spurious correlations**: Models may latch onto label frequency or position rather than semantic task structure.
 
-This sensitivity underscores that ICL is not a principled Bayesian inference but rather a learned heuristic constrained by the transformer's inductive biases. Careful prompt engineering is therefore essential for reliable ICL performance.
+This sensitivity underscores that ICL is not a principled Bayesian inference but rather a learned heuristic constrained by the [[transformer-architecture|transformer]]'s inductive biases. Careful prompt engineering is therefore essential for reliable ICL performance.
 
 ## Task Vectors and Representation Engineering
 

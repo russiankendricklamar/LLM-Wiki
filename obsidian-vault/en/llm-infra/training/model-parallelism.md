@@ -8,14 +8,14 @@ slug: "model-parallelism"
 
 # Model Parallelism: Tensor vs. Pipeline
 
-When a single layer or the entire set of layers of a Large Language Model is too massive to fit into the VRAM of one GPU, we must use **Model Parallelism**. This involves splitting the model itself, rather than the data.
+When a single layer or the entire set of layers of a Large Language Model is too massive to fit into the VRAM of one [[inference-serving|GPU]], we must use **Model Parallelism**. This involves splitting the model itself, rather than the data.
 
 ## 1. Tensor Parallelism (TP)
 
 Tensor Parallelism (also called intra-layer parallelism) splits individual weight matrices across multiple GPUs.
 
 - **The Idea**: A large matrix multiplication $Y = XW$ is split. For example, if we have 2 GPUs, $W$ is split into $W_1$ and $W_2$. Each GPU computes a partial result, and they are combined via an All-Reduce operation.
-- **Pros**: Perfectly scales giant layers (like the FFN or Attention heads).
+- **Pros**: Perfectly scales giant layers (like the FFN or [[attention-mechanisms|Attention]] heads).
 - **Cons**: High communication overhead. It requires extremely fast interconnects (like **NVLink**) between GPUs because synchronization happens *inside* every layer.
 
 ## 2. Pipeline Parallelism (PP)

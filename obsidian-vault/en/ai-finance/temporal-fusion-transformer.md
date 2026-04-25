@@ -12,7 +12,7 @@ slug: "temporal-fusion-transformer"
 This method sits at the intersection of two larger topics, each covered by its own article:
 
 - **Finance:** [[volatility-forecasting]] — the classical volatility-forecasting problem (GARCH, HAR-RV, realised volatility) that TFT tackles at multi-horizon scale.
-- **AI:** [[transformer-architecture]] — the general Transformer architecture with self-[[attention-mechanisms|attention]] and multi-head; TFT adapts it to heterogeneous time series and quantile forecasting.
+- **AI:** [[transformer-architecture]] — the general [[transformer-architecture|Transformer]] architecture with self-[[attention-mechanisms|attention]] and multi-head; TFT adapts it to heterogeneous time series and quantile forecasting.
 
 ## Overview
 
@@ -81,7 +81,7 @@ The forward pass proceeds through five stages:
 1. **Variable selection**: each raw input is projected to a common embedding dimension $d_{\text{model}}$; the VSN selects a weighted combination.
 2. **Sequence encoding**: a two-layer **LSTM** processes the encoder context (past observations) and decoder stub (known future inputs) to capture local temporal patterns.
 3. **Static enrichment**: the static context $\mathbf{c}_e$ is injected into the LSTM hidden states via GRN, conditioning the sequence representation on instrument identity or regime flags.
-4. **Temporal self-attention**: multi-head attention with causal masking operates on the decoder sequence, capturing long-range dependencies the LSTM cannot sustain across hundreds of lags.
+4. **Temporal self-[[attention-mechanisms|attention]]**: multi-head attention with causal masking operates on the decoder sequence, capturing long-range dependencies the LSTM cannot sustain across hundreds of lags.
 5. **Position-wise feed-forward + gating**: final GLU-gated projection produces quantile outputs for each horizon.
 
 ### Interpretability Surface

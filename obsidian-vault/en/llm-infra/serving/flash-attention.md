@@ -6,15 +6,15 @@ lang: "en"
 slug: "flash-attention"
 ---
 
-# FlashAttention: Fast and Memory-Efficient Attention with Tiling
+# FlashAttention: Fast and Memory-Efficient [[attention-mechanisms|Attention]] with Tiling
 
-FlashAttention, introduced by **Tri Dao et al. (2022)**, is one of the most important engineering breakthroughs in the LLM era. It enables training and inference with long context (100k+ tokens) by fundamentally changing how GPUs compute the [[attention-mechanisms|Attention]] matrix.
+FlashAttention, introduced by **Tri Dao et al. (2022)**, is one of the most important engineering breakthroughs in the [[llm]] era. It enables training and inference with long context (100k+ tokens) by fundamentally changing how GPUs compute the [[attention-mechanisms|Attention]] matrix.
 
 ## 1. The Bottleneck: The Memory Wall
 
 Standard attention (Self-Attention) has a time and memory complexity of $O(N^2)$, where $N$ is the sequence length. 
 However, the real bottleneck is not the FLOPs (math), but **Memory IO**.
-1.  To compute $\text{Softmax}(QK^\top)V$, the GPU must write the giant $N \times N$ attention matrix to the slow **HBM (High Bandwidth Memory)** and then read it back.
+1.  To compute $\text{Softmax}(QK^\top)V$, the [[inference-serving|GPU]] must write the giant $N \times N$ attention matrix to the slow **HBM (High Bandwidth Memory)** and then read it back.
 2.  For a sequence of 64k tokens, the matrix takes **16 GB** of memory for just one head!
 
 ## 2. The Solution: Tiling and Recomputation

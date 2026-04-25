@@ -27,7 +27,7 @@ A **Lévy Flight** is a random walk where the step lengths follow a heavy-tailed
 1.  **Brownian Motion**: Steps are small and frequent. The path is continuous. The typical distance traveled scales as $t^{1/2}$.
 2.  **Lévy Flight**: Occasional massive "jumps" occur. The path is discontinuous. The distance scales as $t^{1/\alpha}$, meaning the process spreads out much faster than diffusion (**Super-diffusion**).
 
-## The Fractional Laplacian
+## The Fractional [[spectral-graph-theory|Laplacian]]
 
 Just as Brownian motion is linked to the standard Laplacian $\Delta$, stable processes are linked to the **Fractional Laplacian** $(-\Delta)^{\alpha/2}$. This operator is non-local: the evolution at one point depends on the values of the function everywhere, reflecting the ability of the process to "jump" across space.
 

@@ -8,7 +8,7 @@ slug: "3d-gaussian-splatting"
 
 # 3D Gaussian Splatting: Real-Time Radiance Fields
 
-**3D Gaussian Splatting (3DGS)** is a state-of-the-art technique for real-time radiance field rendering. Unlike [[nerf|NeRF]], which represents a scene as a continuous neural network (MLP), 3DGS represents a scene as a massive collection of millions of 3D Gaussian distributions (ellipsoids).
+**3D Gaussian Splatting (3DGS)** is a state-of-the-art technique for real-time radiance field rendering. Unlike [[nerf|NeRF]], which represents a scene as a continuous neural network ([[transformer-architecture|MLP]]), 3DGS represents a scene as a massive collection of millions of 3D Gaussian distributions (ellipsoids).
 
 ## 1. The Core Idea: Gaussians as Primitives
 
@@ -32,7 +32,7 @@ This is a standard rasterization technique, allowing 3DGS to achieve **100+ FPS*
 3DGS starts with a sparse point cloud (from COLMAP). During training:
 - **Densification**: The system identifies areas with too few Gaussians (under-reconstructed) and splits them into smaller ones.
 - **Pruning**: Gaussians with very low opacity are deleted to save memory.
-- **Backpropagation**: The parameters (position, shape, color) of every Gaussian are optimized using gradient descent to match the input photos.
+- **[[automatic-differentiation|Backpropagation]]**: The parameters (position, shape, color) of every Gaussian are optimized using [[convex-optimization|gradient descent]] to match the input photos.
 
 ## 4. 3DGS vs. NeRF
 

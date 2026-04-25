@@ -12,7 +12,7 @@ Fully Sharded Data Parallel (FSDP) is a type of data parallelism that shards mod
 
 ## How FSDP Works
 
-In standard **Distributed Data Parallel (DDP)**, every GPU keeps a full copy of the model. FSDP breaks this rule.
+In standard **Distributed Data Parallel (DDP)**, every [[inference-serving|GPU]] keeps a full copy of the model. FSDP breaks this rule.
 
 ### The Lifecycle of a Layer
 For each layer (or "FSDP unit") during the training loop:
@@ -62,5 +62,5 @@ For each layer (or "FSDP unit") during the training loop:
 
 [[distributed-training]] — the ZeRO theory behind FSDP  
 [[model-parallelism]] — the alternative for intra-layer scaling  
-[[fine-tuning]] — FSDP is essential for full-parameter fine-tuning of 70B+ models
+[[fine-tuning]] — FSDP is essential for full-parameter [[fine-tuning]] of 70B+ models
 ---

@@ -31,7 +31,7 @@ Since the chord is above the curve, the average of the function is greater.
 ### A. Information Theory (Gibbs' Inequality)
 Jensen's inequality is used to prove that the **Kullback-Leibler (KL) Divergence** is always non-negative:
 $$D_{KL}(P \parallel Q) = \mathbb{E}_P \left[ \ln \frac{P(X)}{Q(X)} \right] \geq 0$$
-By applying Jensen to the concave $\ln(x)$ function, we prove that the "distance" between any two probability distributions is at least zero, which is the foundation of all entropy-based loss functions in AI.
+By applying Jensen to the concave $\ln(x)$ function, we prove that the "distance" between any two probability distributions is at least zero, which is the foundation of all [[shannon-entropy|entropy]]-based loss functions in AI.
 
 ### B. Variational Inference and VAEs
 In machine learning, we often cannot calculate the true log-likelihood of data $\ln P(x)$. Using Jensen's inequality on the logarithm, we derive the **Evidence Lower Bound (ELBO)**:

@@ -22,7 +22,7 @@ The theorem states that for every self-adjoint operator $A$, there exists a uniq
 
 $$A = \int_{-\infty}^{\infty} \lambda \, dE(\lambda)$$
 
-Instead of a sum over discrete eigenvalues ($\sum \lambda_i v_i v_i^*$), we have an integral over a continuous spectrum. $E(\lambda)$ acts as a "projection-valued" measure that tells you which part of the Hilbert space corresponds to which range of "eigenvalues."
+Instead of a sum over discrete [[spectral-theory-operators|eigenvalues]] ($\sum \lambda_i v_i v_i^*$), we have an integral over a continuous spectrum. $E(\lambda)$ acts as a "projection-valued" measure that tells you which part of the Hilbert space corresponds to which range of "eigenvalues."
 
 ## Functional Calculus
 
@@ -33,7 +33,7 @@ This is how we define the matrix exponential $e^{itA}$ for differential operator
 ## Why It Matters in Physics and AI
 
 1.  **Quantum Mechanics**: Every physical observable (Energy, Position, Spin) is a self-adjoint operator. The spectral theorem provides the possible outcomes of measurements.
-2.  **Stochastic PDEs**: The analysis of the Laplacian on complex domains requires the spectral theorem to define fractional powers of the operator (e.g., $(-\Delta)^{1/2}$), which appear in **Stable Processes**.
+2.  **Stochastic PDEs**: The analysis of the [[spectral-graph-theory|Laplacian]] on complex domains requires the spectral theorem to define fractional powers of the operator (e.g., $(-\Delta)^{1/2}$), which appear in **Stable Processes**.
 3.  **Kernel Methods**: The "feature maps" in infinite-dimensional RKHS are often derived from the spectral decomposition of integral operators.
 
 ## Visualization: Discrete vs. Continuous Spectrum

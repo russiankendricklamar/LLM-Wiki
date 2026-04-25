@@ -49,7 +49,7 @@ $$I(z_i; z_j) \geq \text{InfoNCE} = \mathbb{E}\left[\log \frac{p(z_j | z_i)}{p(z
 
 **Bootstrap Your Own Latent** (Grill et al., 2020) показывает, что отрицательные примеры не обязательны:
 
-- **Онлайн-сеть**: энкодер $f$ + проекционная голова $g$ + предиктор $q$ (дополнительный MLP)
+- **Онлайн-сеть**: энкодер $f$ + проекционная голова $g$ + предиктор $q$ (дополнительный [[transformer-architecture|MLP]])
 - **Целевая сеть**: копия параметров $(f, g)$, обновляется через EMA без градиентов: $\theta_{\text{target}} \leftarrow \tau \theta_{\text{target}} + (1 - \tau) \theta_{\text{online}}$
 - **Потеря**: MSE между предсказанием онлайн-сети и стопированным выходом целевой сети:
 
@@ -61,7 +61,7 @@ $$L = \|q_\theta(g_\theta(f_\theta(x))) - \text{stopgrad}(g_{\theta_{\text{targe
 
 **CLIP** (Radford et al., 2021) обучает совместные представления изображений и текста на 400M пар:
 
-- **Два энкодера**: $f_{\text{img}}$ (Vision [[transformer-architecture|Transformer]] или ResNet) и $f_{\text{text}}$ (Transformer BERT-подобный)
+- **Два энкодера**: $f_{\text{img}}$ (Vision [[transformer-architecture|Transformer]] или ResNet) и $f_{\text{text}}$ ([[transformer-architecture|Transformer]] BERT-подобный)
 - **Проекции и нормализация**: оба энкодера проецируют в пространство размера $d = 512$, представления нормализуются
 - **Симметричная контрастивная потеря**: 
 

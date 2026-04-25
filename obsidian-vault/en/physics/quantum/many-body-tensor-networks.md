@@ -22,7 +22,7 @@ This makes the "Exact Diagonalization" of the Hamiltonian impossible for anythin
 Why can we even hope to simulate large systems? **Hastings' Area Law Theorem (2007)** provides the answer. 
 In most physical systems (those with a "gap" in their energy spectrum), the amount of information (entanglement) between a region and its surroundings doesn't grow with the volume of the region, but only with its **surface area**.
 
-This implies that the vast majority of the Hilbert space is "empty" or irrelevant to physics. Real-world quantum states live on a tiny **Low-Entanglement Manifold**.
+This implies that the vast majority of the Hilbert space is "empty" or irrelevant to physics. Real-world quantum states live on a tiny **Low-Entanglement [[differential-geometry|Manifold]]**.
 
 ## 3. Tensor Network Architectures
 
@@ -45,7 +45,7 @@ The 2D generalization of MPS. It is much more powerful but computationally "Hard
 
 ## 5. Applications in Machine Learning
 
-- **LLM Compression**: Viewing the layers of a Transformer as a tensor network allows for "Tensor Train" decomposition, reducing parameters by 10x with minimal accuracy loss.
+- **[[llm]] Compression**: Viewing the layers of a [[transformer-architecture|Transformer]] as a tensor network allows for "Tensor Train" decomposition, reducing parameters by 10x with minimal accuracy loss.
 - **Quantum Machine Learning**: Using Tensor Networks as a bridge to run classical ML tasks on early, noisy quantum computers.
 
 ## Related Topics

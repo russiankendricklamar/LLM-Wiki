@@ -16,9 +16,9 @@ description: "A bilingual Knowledge Garden on quant finance, physics and LLMs. T
 
 # [[llm]]-Wiki
 
-This is not just a notes site — it is a **Knowledge Garden** that I grow together with an LLM. The core idea is adapted from Andrej Karpathy's essay on the [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f): instead of pulling knowledge from raw sources through [[rag]] every single time, I maintain a persistent, compounding, interlinked corpus of markdown notes — the very vault you are reading right now.
+This is not just a notes site — it is a **Knowledge Garden** that I grow together with an [[llm]]. The core idea is adapted from Andrej Karpathy's essay on the [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f): instead of pulling knowledge from raw sources through [[rag]] every single time, I maintain a persistent, compounding, interlinked corpus of markdown notes — the very vault you are reading right now.
 
-## Why not RAG
+## Why not [[rag]]
 
 Classical RAG is a form of amnesia. Every query to the model starts from zero: the agent walks into the documents, pulls out fragments, answers something, and on the next query does it all over again. Knowledge never compounds — it is synthesised on the fly and thrown away immediately after.
 

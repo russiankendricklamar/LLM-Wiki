@@ -100,7 +100,7 @@ Most processes used in practice are fast-mixing (Markov chains with positive spe
 
 ## Connection to information and [[shannon-entropy|entropy]]
 
-Kolmogorov-Sinai entropy of a dynamical system measures its "informational complexity": how many new bits we learn at each step of dynamics. For ergodic systems entropy is well-defined and relates to the speed of mixing.
+Kolmogorov-Sinai [[shannon-entropy|entropy]] of a dynamical system measures its "informational complexity": how many new bits we learn at each step of dynamics. For ergodic systems entropy is well-defined and relates to the speed of mixing.
 
 In machine learning this becomes the concept of **"ergodic accessibility"** in Reinforcement Learning: ergodicity of the environment guarantees that the agent "sees" all states often enough for value estimates to converge.
 

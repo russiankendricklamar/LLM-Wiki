@@ -8,7 +8,7 @@ slug: "attention-kernel"
 
 # Self-[[attention-mechanisms|Attention]] as a Kernel
 
-Recent theoretical work has established a profound connection between the **Self-Attention** mechanism in Transformers and **Kernel Methods** in Hilbert spaces. This perspective allows us to view Transformers as dynamic, input-dependent kernel machines.
+Recent theoretical work has established a profound connection between the **Self-[[attention-mechanisms|Attention]]** mechanism in Transformers and **Kernel Methods** in Hilbert spaces. This perspective allows us to view Transformers as dynamic, input-dependent kernel machines.
 
 ## The Attention Mechanism
 
@@ -25,7 +25,7 @@ If we view the similarity between $q_i$ and $k_j$ as a kernel function $K(q, k) 
 ## Transformers as Non-parametric Learners
 
 In this view, the "weights" of the [[transformer-architecture|Transformer]] aren't just parameters; they define the **feature map** $\phi(x)$ into an implicit **Reproducing Kernel Hilbert Space (RKHS)**.
-- Each layer of a Transformer performs a step of **[[convex-optimization|gradient descent]]** in the feature space.
+- Each layer of a [[transformer-architecture|Transformer]] performs a step of **[[convex-optimization|gradient descent]]** in the feature space.
 - This explains why Transformers are so good at **In-Context Learning**: they are essentially optimizing a local model on the fly using the promp's context as a "training set."
 
 ## Linear Transformers and Feature Maps

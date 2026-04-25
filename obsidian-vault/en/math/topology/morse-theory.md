@@ -8,14 +8,14 @@ slug: "morse-theory"
 
 # Morse Theory
 
-Morse Theory is a powerful tool in differential topology that studies the **topology of a manifold** by examining the **critical points** of a smooth function defined on it. In the words of René Thom, Morse theory shows that "the shape of a space is determined by its bumps."
+Morse Theory is a powerful tool in differential topology that studies the **topology of a [[manifold-learning|manifold]]** by examining the **critical points** of a smooth function defined on it. In the words of René Thom, Morse theory shows that "the shape of a space is determined by its bumps."
 
 ## Morse Functions
 
 A smooth function $f: M \to \mathbb{R}$ is a **Morse function** if all its critical points (where $\nabla f = 0$) are **non-degenerate**. This means the Hessian matrix $H(f)$ at each critical point is invertible.
 
 ### The Morse Index
-The **index** of a critical point is the number of negative eigenvalues of its Hessian.
+The **index** of a critical point is the number of negative [[spectral-theory-operators|eigenvalues]] of its Hessian.
 - **Index 0**: Local minimum.
 - **Index 1**: Saddle point.
 - **Index $n$**: Local maximum.

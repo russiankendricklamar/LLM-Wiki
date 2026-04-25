@@ -51,7 +51,7 @@ The central charge $c$ measures the number of degrees of freedom; more precisely
 The bootstrap philosophy is that all CFTs are defined by their CFT data, not by a Lagrangian. Crossing symmetry — the requirement that four-point functions can be decomposed in different channels consistently — is a powerful constraint that, combined with unitarity, severely limits which CFTs can exist. This non-perturbative approach has solved previously intractable problems.
 
 ## Connections to Information Theory & Holography
-CFT is the boundary theory in AdS/CFT: a $d$-dimensional CFT is dual to $(d+1)$-dimensional gravity in anti-de Sitter space. The CFT partition function equals the gravitational partition function: $Z_{\rm CFT} = Z_{\rm gravity}$. Operator dimensions correspond to bulk particle masses via $\Delta(\Delta - d) = m^2 L^2$. Entanglement entropy in the CFT equals the Ryu-Takayanagi minimal surface area in the bulk.
+CFT is the boundary theory in AdS/CFT: a $d$-dimensional CFT is dual to $(d+1)$-dimensional gravity in anti-de Sitter space. The CFT partition function equals the gravitational partition function: $Z_{\rm CFT} = Z_{\rm gravity}$. Operator dimensions correspond to bulk particle masses via $\Delta(\Delta - d) = m^2 L^2$. Entanglement [[gravitational-entropy|entropy]] in the CFT equals the Ryu-Takayanagi minimal surface area in the bulk.
 
 In [[celestial-holography]], the celestial sphere hosts a 2D CFT with the Virasoro symmetry extended to $w_{1+\infty}$. Unlike standard 2D CFTs, the celestial CFT is non-unitary and has a continuous spectrum, but the same OPE and crossing-symmetry techniques apply, making CFT the universal language of holography.
 

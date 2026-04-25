@@ -92,7 +92,7 @@ where:
 | $\lambda$ (GAE) | 0.95 | Bias-variance tradeoff |
 | Learning rate | 3e-4 | Adam LR |
 | Epochs $K$ | 4–10 | Rollout reuse |
-| Entropy coeff $c_2$ | 0.0–0.01 | Exploration |
+| [[shannon-entropy|Entropy]] coeff $c_2$ | 0.0–0.01 | Exploration |
 
 ## PPO vs TRPO
 
@@ -105,7 +105,7 @@ where:
 
 ## Applications
 
-**RLHF / [[llm]] alignment.** PPO is the RL algorithm in InstructGPT, Claude, and Gemini RLHF pipelines. The reward model plays the role of $r(s,a)$; the reference policy KL penalty constrains drift from the base model.
+**[[rlhf]] / [[llm]] alignment.** PPO is the RL algorithm in InstructGPT, Claude, and Gemini RLHF pipelines. The reward model plays the role of $r(s,a)$; the reference policy KL penalty constrains drift from the base model.
 
 **Continuous control.** MuJoCo locomotion (Ant, Humanoid, HalfCheetah) — PPO achieves near-SOTA with correct hyperparameters.
 

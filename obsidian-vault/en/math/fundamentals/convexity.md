@@ -19,7 +19,7 @@ $$\theta x + (1-\theta) y \in C \quad \text{for } \theta \in [0, 1]$$
 ### B. Convex Functions
 A function $f$ is convex if its "epigraph" (the area above the curve) is a convex set. 
 - **The Hessian Test**: $f$ is convex if its [[gradient-hessian-jacobian|Hessian Matrix]] $H$ is **Positive Semi-Definite** ($H \succeq 0$) everywhere.
-- **Strong Convexity**: A function is $\mu$-strongly convex if it curves at least as much as a parabola. This guarantees that Gradient Descent will converge **exponentially fast**.
+- **Strong Convexity**: A function is $\mu$-strongly convex if it curves at least as much as a parabola. This guarantees that [[convex-optimization|Gradient Descent]] will converge **exponentially fast**.
 
 ## 2. Why it is the "Holy Grail"
 

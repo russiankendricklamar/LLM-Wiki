@@ -6,7 +6,7 @@ lang: "en"
 slug: "entropy-information"
 ---
 
-# Entropy and Information Gain
+# [[shannon-entropy|Entropy]] and Information Gain
 
 Information theory provides a mathematical way to quantify "surprise," "uncertainty," and "information." These concepts are fundamental to everything from data compression to the training of decision trees and neural networks.
 

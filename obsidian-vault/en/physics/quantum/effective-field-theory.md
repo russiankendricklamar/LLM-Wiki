@@ -31,7 +31,7 @@ where $\mathcal{O}_n$ are local operators allowed by the symmetries of the syste
 ## Why it matters
 
 1. **Predictive power without a UV theory** — you can compute observables to fixed accuracy without knowing the deep physics.
-2. **Naturalness** — EFTs make explicit which couplings are "natural" and which require fine-tuning.
+2. **Naturalness** — EFTs make explicit which couplings are "natural" and which require [[fine-tuning]].
 3. **Renormalisation** — non-renormalisable terms are not pathological; they are simply suppressed contributions.
 
 ## Related topics

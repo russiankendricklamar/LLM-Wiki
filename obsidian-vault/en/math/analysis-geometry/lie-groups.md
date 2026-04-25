@@ -36,7 +36,7 @@ For matrix groups, the bracket is simply the commutator: $[X, Y] = XY - YX$.
 
 The link between the Lie algebra (linear) and the Lie group (curved) is the **exponential map**:
 $$\exp: \mathfrak{g} \to G$$
-For matrix groups, this is the literal matrix exponential: $\exp(X) = \sum_{k=0}^\infty \frac{X^k}{k!}$. It maps a direction in the tangent space to a point on the manifold.
+For matrix groups, this is the literal matrix exponential: $\exp(X) = \sum_{k=0}^\infty \frac{X^k}{k!}$. It maps a direction in the tangent space to a point on the [[manifold-learning|manifold]].
 
 ## Representations and Root Systems
 

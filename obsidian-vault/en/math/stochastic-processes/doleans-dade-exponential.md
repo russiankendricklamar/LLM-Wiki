@@ -30,7 +30,7 @@ $$\mathcal{E}(X)_t = \exp\!\left(X_t - \frac{1}{2}\langle X^c \rangle_t\right) \
 
 where $X^c$ is the continuous martingale part of $X$, $\langle X^c \rangle$ is its quadratic variation, and the product is over all jump times of $X$ up to $t$.
 
-**Proof sketch.** Apply Ito's formula to $f(X_t, \langle X^c \rangle_t) = \exp(X_t - \frac{1}{2}\langle X^c \rangle_t)$. For the continuous part, the quadratic variation correction in Ito's formula produces exactly the $-\frac{1}{2}\langle X^c \rangle$ term, so the continuous part works out. For each jump $\Delta X_s$, the exponential $e^{\Delta X_s}$ must be corrected to $(1 + \Delta X_s)$ because the SDE uses the left limit $Z_{s-}$: we need $Z_s = Z_{s-}(1 + \Delta X_s)$, but $e^{\Delta X_s} \neq 1 + \Delta X_s$ in general. The compensating factor $e^{-\Delta X_s}$ in the product fixes this.
+**Proof sketch.** Apply Ito's formula to $f(X_t, \langle X^c \rangle_t) = \exp(X_t - \frac{1}{2}\langle X^c \rangle_t)$. For the continuous part, the quadratic variation correction in Ito's formula produces exactly the $-\frac{1}{2}\langle X^c \rangle$ term, so the continuous part works out. For each jump $\Delta X_s$, the exponential $e^{\Delta X_s}$ must be corrected to $(1 + \Delta X_s)$ because the [[stochastic-differential-equations|SDE]] uses the left limit $Z_{s-}$: we need $Z_s = Z_{s-}(1 + \Delta X_s)$, but $e^{\Delta X_s} \neq 1 + \Delta X_s$ in general. The compensating factor $e^{-\Delta X_s}$ in the product fixes this.
 
 ## Special Cases
 

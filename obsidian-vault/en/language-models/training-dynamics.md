@@ -40,7 +40,7 @@ Training loss does not always decrease smoothly. Documented phase transitions in
 2. **Capability emergence**: certain benchmarks jump from near-chance to competent in a narrow compute range
 3. **Representation geometry shifts**: probing accuracy for syntactic features can jump nonlinearly
 
-These transitions suggest the loss landscape has **barriers** that gradient descent must overcome, after which optimisation drops into a better basin.
+These transitions suggest the loss landscape has **barriers** that [[convex-optimization|gradient descent]] must overcome, after which optimisation drops into a better basin.
 
 ## Gradient Norm Evolution
 
@@ -110,7 +110,7 @@ In [[fine-tuning]] and some pretraining setups, lower layers are assigned smalle
 
 $$\eta_l = \eta_{\text{top}} \cdot \lambda^{L - l}, \quad \lambda \in [0.8, 0.95]$$
 
-Lower layers encode more general syntactic features that should change slowly; upper layers encode task-specific features that adapt more aggressively. This reduces catastrophic forgetting during fine-tuning.
+Lower layers encode more general syntactic features that should change slowly; upper layers encode task-specific features that adapt more aggressively. This reduces catastrophic forgetting during [[fine-tuning]].
 
 ## Training Dynamics Chart
 
@@ -148,7 +148,7 @@ Key metrics to track during training:
 - **Gradient norm per layer**: outlier layers signal architectural instability
 - **Weight norm per layer**: uncontrolled growth indicates learning rate is too high
 - **Activation statistics**: collapsed or saturated activations indicate dead neurons
-- **Attention [[shannon-entropy|entropy]]**: very low entropy means attention is spiky; very high means the model is not attending to anything
+- **[[attention-mechanisms|Attention]] [[shannon-entropy|entropy]]**: very low [[shannon-entropy|entropy]] means attention is spiky; very high means the model is not attending to anything
 
 ## See Also
 

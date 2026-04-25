@@ -25,7 +25,7 @@ The choice of the function $f(t)$ determines the specific type of divergence:
 
 | Divergence Name | Function $f(t)$ | Usage in AI |
 | :--- | :--- | :--- |
-| **KL Divergence** | $t \ln t$ | VAEs, LLM Cross-Entropy, RLHF |
+| **KL Divergence** | $t \ln t$ | VAEs, [[llm]] Cross-[[shannon-entropy|Entropy]], [[rlhf]] |
 | **Reverse KL** | $-\ln t$ | Variational Inference |
 | **Total Variation** | $\frac{1}{2}|t - 1|$ | Theoretical bounds, Differential Privacy |
 | **Pearson $\chi^2$** | $(t - 1)^2$ | Gaussian Mixture calibration |
@@ -58,5 +58,5 @@ graph LR
 [[shannon-entropy]] — the core of KL  
 [[jensens-inequality]] — proving $D_f \geq 0$  
 [[gan]] — application in generative models  
-[[information-geometry-finance]] — the manifold where $D_f$ is the distance
+[[information-geometry-finance]] — the [[manifold-learning|manifold]] where $D_f$ is the distance
 ---

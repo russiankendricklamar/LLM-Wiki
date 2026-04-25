@@ -128,7 +128,7 @@ $$
 
 where $\beta(t)$ is the continuous noise schedule. Its solution matches the discrete marginal $q(x_t \mid x_0)$ as $dt \to 0$.
 
-The **reverse SDE** (Anderson 1982) runs time backward:
+The **reverse [[stochastic-differential-equations|SDE]]** (Anderson 1982) runs time backward:
 
 $$
 dx = \left[-\frac{1}{2} \beta(t) x + \beta(t) \nabla_x \log p_t(x) \right] dt + \sqrt{\beta(t)} \, dW_t,
@@ -195,4 +195,4 @@ where $\gamma > 1$ amplifies the conditional signal. This simple trick dramatica
 - [[fokker-planck-equation]] — governs score evolution
 - [[variational-autoencoders]] — latent-variable generative models
 - [[neural-scaling-laws]] — efficiency of large diffusion models
-- [[transformer-architecture]] — used in diffusion attention mechanisms
+- [[transformer-architecture]] — used in diffusion [[attention-mechanisms|attention]] mechanisms

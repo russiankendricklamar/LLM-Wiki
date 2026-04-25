@@ -10,7 +10,7 @@ slug: "ornstein-uhlenbeck"
 
 The Ornstein-Uhlenbeck (OU) process is a stationary Gauss-Markov process that models the velocity of a massive Brownian particle under the influence of friction. In modern finance and AI, it is the primary model for **mean-reverting** behavior.
 
-## The SDE Definition
+## The [[stochastic-differential-equations|SDE]] Definition
 
 The OU process $X_t$ is defined by the following Stochastic Differential Equation:
 

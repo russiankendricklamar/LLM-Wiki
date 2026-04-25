@@ -26,7 +26,7 @@ Instead of one giant attention operation, MHA runs multiple "heads" in parallel.
 - Each head can learn a different relationship (e.g., one head for grammar, another for factual links).
 - *Analogy*: Instead of one flashlight, you have 12 flashlights pointing at different parts of the dark room simultaneously.
 
-## 3. Efficient Variants (LLM Optimization)
+## 3. Efficient Variants ([[llm]] Optimization)
 
 As models scale to 100k+ tokens, standard MHA becomes too slow because the KV cache grows too large for VRAM.
 
@@ -41,7 +41,7 @@ A middle ground used by **Llama 3**. Query heads are divided into groups, and ea
 
 ## 4. Hardware Optimization: FlashAttention
 
-Standard attention is **Memory-Bound**. Most time is spent moving the $QK^\top$ matrix (which is $N^2$) between GPU HBM and SRAM.
+Standard attention is **Memory-Bound**. Most time is spent moving the $QK^\top$ matrix (which is $N^2$) between [[inference-serving|GPU]] [[flash-attention|HBM]] and [[flash-attention|SRAM]].
 **FlashAttention** (Dao et al., 2022) uses **Tiling** and **Recomputation**:
 1. It breaks the large matrix into small blocks that fit in fast SRAM.
 2. It computes attention block-by-block without ever storing the giant $N^2$ matrix.

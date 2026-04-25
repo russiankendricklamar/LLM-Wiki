@@ -6,7 +6,7 @@ lang: "en"
 slug: "gpu-architecture"
 ---
 
-# GPU Architecture: SMs, Warps, and Tensor Cores
+# [[inference-serving|GPU]] Architecture: SMs, Warps, and Tensor Cores
 
 To understand why Large Language Models are designed the way they are (e.g., why hidden dimensions are multiples of 64), you have to understand the physical silicon they run on. Nvidia's GPU architecture dictates the absolute limits of AI performance.
 
@@ -36,7 +36,7 @@ Nvidia introduced **Tensor Cores** (starting with Volta architecture), which are
 ## 4. The Memory Hierarchy
 
 As discussed in [[hardware-io-attention]], memory movement is the real bottleneck.
-1.  **HBM (Global Memory)**: 80GB, slow. All SMs share it.
+1.  **[[flash-attention|HBM]] (Global Memory)**: 80GB, slow. All SMs share it.
 2.  **L2 Cache**: 50MB, fast. Shared across all SMs.
 3.  **L1 Cache / Shared Memory**: 256KB per SM, extremely fast. Only threads within the same SM can see it.
 4.  **Registers**: Private to each thread, the fastest possible memory.
@@ -63,7 +63,7 @@ graph TD
 
 ## Related Topics
 
-[[hardware-io-attention]] — how memory bottlenecks attention  
+[[hardware-io-attention]] — how memory bottlenecks [[attention-mechanisms|attention]]  
 [[modern-quantization]] — how FP8 utilizes new Hopper Tensor Cores  
 [[dl-compilers]] — how software optimizes for this hardware  
 [[flash-attention]] — the golden standard of memory-fused kernels

@@ -64,7 +64,7 @@ Patching experiments revealed a circuit of ~28 [[attention-mechanisms|attention]
 
 ## Factual Recall Patching
 
-Meng et al. (ROME, 2022) used activation patching to localise where GPT models store factual associations. Patching experiments on "The Eiffel Tower is in ___" revealed that early [[transformer-architecture|MLP]] layers (layers 5–8 in GPT-2-XL) are the primary storage site — not attention heads. This motivated the ROME/MEMIT model editing approach.
+Meng et al. (ROME, 2022) used activation patching to localise where GPT models store factual associations. Patching experiments on "The Eiffel Tower is in ___" revealed that early [[transformer-architecture|MLP]] layers (layers 5–8 in GPT-2-XL) are the primary storage site — not [[attention-mechanisms|attention]] heads. This motivated the ROME/MEMIT model editing approach.
 
 ## Limitations
 

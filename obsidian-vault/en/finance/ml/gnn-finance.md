@@ -22,7 +22,7 @@ $\tilde{A} = A + I$ (with self-loops), $\tilde{D}_{ii} = \sum_j \tilde{A}_{ij}$.
 
 ## Graph [[attention-mechanisms|Attention]] Networks (GAT)
 
-Learnable attention weights over neighbors:
+Learnable [[attention-mechanisms|attention]] weights over neighbors:
 
 $$
 \alpha_{ij} = \frac{\exp(\text{LeakyReLU}(\mathbf{a}^\top[W h_i \| W h_j]))}{\sum_{k\in\mathcal{N}(i)}\exp(\text{LeakyReLU}(\mathbf{a}^\top[W h_i \| W h_k]))}

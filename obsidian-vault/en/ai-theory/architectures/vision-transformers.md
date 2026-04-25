@@ -10,7 +10,7 @@ slug: "vision-transformers"
 
 ## What Is It
 
-The Vision [[transformer-architecture|Transformer]] (ViT) represents a paradigm shift in computer vision, proving that the **Transformer architecture**—originally designed for NLP—can outperform Convolutional Neural Networks (CNNs) when scaled to large datasets. 
+The Vision [[transformer-architecture|Transformer]] (ViT) represents a paradigm shift in computer vision, proving that the **[[transformer-architecture|Transformer]] architecture**—originally designed for NLP—can outperform Convolutional Neural Networks (CNNs) when scaled to large datasets. 
 
 The core philosophy of ViT is: **"An Image is Worth 16x16 Words."** Instead of using local filters (convolutions) to extract features, ViT treats an image as a sequence of flattened patches and applies the same self-[[attention-mechanisms|attention]] mechanism used in BERT or GPT.
 
@@ -23,7 +23,7 @@ The ViT pipeline consists of several key steps:
 3. **Learnable Embeddings**:
     - **Position Embeddings**: Since Transformers are permutation-invariant, 1D learnable position embeddings are added to the patch embeddings to retain spatial information.
     - **[CLS] Token**: A special learnable token is prepended to the sequence. Its state at the output of the Transformer serves as the global image representation for classification.
-4. **Transformer Encoder**: A stack of standard Transformer blocks (Multi-head Self-Attention + [[transformer-architecture|MLP]] + LayerNorm).
+4. **Transformer Encoder**: A stack of standard Transformer blocks (Multi-head Self-[[attention-mechanisms|Attention]] + [[transformer-architecture|MLP]] + LayerNorm).
 
 ## Mathematical Framework
 

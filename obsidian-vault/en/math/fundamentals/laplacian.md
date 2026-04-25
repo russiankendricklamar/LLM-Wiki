@@ -6,7 +6,7 @@ lang: "en"
 slug: "laplacian"
 ---
 
-# The Laplacian Operator ($\Delta$)
+# The [[spectral-graph-theory|Laplacian]] Operator ($\Delta$)
 
 The Laplacian is a second-order differential operator in $n$-dimensional Euclidean space, defined as the divergence of the gradient of a function. It is denoted by $\Delta$ or $\nabla^2$. It is the mathematical language of **equilibrium, diffusion, and smoothness**.
 
@@ -18,7 +18,7 @@ $$\Delta f = \nabla \cdot \nabla f = \sum_{i=1}^n \frac{\partial^2 f}{\partial x
 ### The Discrete Laplacian (Graphs)
 In [[graph-neural-networks|GNNs]], we use the **Graph Laplacian** $L = D - A$, where $D$ is the degree matrix and $A$ is the adjacency matrix. 
 - It measures how a signal changes as it flows across the edges of a network.
-- The eigenvalues of $L$ (the spectrum) reveal the global cluster structure of the graph.
+- The [[spectral-theory-operators|eigenvalues]] of $L$ (the spectrum) reveal the global cluster structure of the graph.
 
 ## 2. Physical and Geometric Intuition
 
@@ -34,7 +34,7 @@ Minimizing this energy (finding the smoothest possible function) leads to the **
 
 ## 3. Role in Modern AI
 
-- **Diffusion Models**: Generative AI (like Stable Diffusion) works by learning to "reverse" the smoothing effect of the Laplacian. It starts with white noise (maximum entropy/smoothing) and iteratively "undoes" the diffusion to reveal the image.
+- **Diffusion Models**: Generative AI (like Stable Diffusion) works by learning to "reverse" the smoothing effect of the Laplacian. It starts with white noise (maximum [[shannon-entropy|entropy]]/smoothing) and iteratively "undoes" the diffusion to reveal the image.
 - **Spectral Bias in Neural Networks**: Neural networks are known to have a "spectral bias"—they learn the low-frequency components (eigenfunctions of the Laplacian with small eigenvalues) before they learn high-frequency details.
 - **Physics-Informed Neural Networks (PINNs)**: By adding $\|\Delta f - g\|^2$ to the loss function, we force a neural network to obey the physical laws of electromagnetism or fluid dynamics.
 

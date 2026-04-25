@@ -61,7 +61,7 @@ This holds regardless of the arrival distribution, service distribution, or serv
 ## Applications in AI/CS
 
 1.  **API Rate Limiting**: Determining buffer sizes for incoming requests.
-2.  **GPU Scheduling**: Managing the queue of inference jobs in large clusters.
+2.  **[[inference-serving|GPU]] Scheduling**: Managing the queue of inference jobs in large clusters.
 3.  **Network Congestion**: Modeling packet drops in routers.
 
 ## Related Topics

@@ -18,7 +18,7 @@ The training process follows a "Self-Correction" cycle:
 2.  **Self-Evaluation**: The model uses its own internal reasoning (often with a special "Judge" prompt) to assign a score (e.g., 1-5) to each of its own responses.
 3.  **Data Curation**: The highest-scored responses become the new "Preferred" data, and the lowest become "Rejected."
 4.  **[[dpo]]/[[fine-tuning]]**: The model is updated using this synthetic preference data.
-5.  **Repeat**: The model is now slightly smarter, and the loop starts again (Iterative DPO).
+5.  **Repeat**: The model is now slightly smarter, and the loop starts again (Iterative [[dpo]]).
 
 ## Why It Works
 
@@ -48,7 +48,7 @@ We then update the model to $\pi_{M+1}$ by minimizing the DPO loss on $\mathcal{
   ]
 }
 ```
-*Unlike traditional fine-tuning, which plateaus at human level, self-rewarding models can continue to improve by refining their internal logic through recursive loops.*
+*Unlike traditional [[fine-tuning]], which plateaus at human level, self-rewarding models can continue to improve by refining their internal logic through recursive loops.*
 
 ## Real-World Examples
 

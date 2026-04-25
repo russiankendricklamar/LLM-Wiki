@@ -52,7 +52,7 @@ $$
 w^* = \frac{\Sigma^{-1}(\mu - r_f \mathbf{1})}{\mathbf{1}^\top \Sigma^{-1}(\mu - r_f \mathbf{1})}
 $$
 
-The critical failure mode is $\Sigma^{-1}$: when [[spectral-theory-operators|eigenvalues]] of $\hat{\Sigma}$ are small (near-collinear assets), the inverse amplifies noise. Random matrix theory ([[random-matrix-theory]]) identifies which eigenvalues carry signal vs. noise.
+The critical failure mode is $\Sigma^{-1}$: when [[spectral-theory-operators|eigenvalues]] of $\hat{\Sigma}$ are small (near-collinear assets), the inverse amplifies noise. Random matrix theory ([[random-matrix-theory]]) identifies which [[spectral-theory-operators|eigenvalues]] carry signal vs. noise.
 
 ## Hierarchical Risk Parity (HRP)
 

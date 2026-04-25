@@ -42,7 +42,7 @@ $$
 
 где CLS$(D)$ — эмбеддинг токена [CLS]. FinBERT достигает ~88% точности на 3-классовом финансовом сентименте против ~75% у общего BERT.
 
-### Извлечение информации через LLM
+### Извлечение информации через [[llm|LLM]]
 
 Для структурированного извлечения из отчетов 8-K LLM вычисляет:
 
@@ -64,7 +64,7 @@ $$
     {"model": "FinBERT", "sentiment_acc": 88, "event_precision": 69, "f1": 78},
     {"model": "BloombergGPT", "sentiment_acc": 82, "event_precision": 72, "f1": 77},
     {"model": "GPT-4 CoT", "sentiment_acc": 85, "event_precision": 78, "f1": 81},
-    {"model": "Claude + RAG", "sentiment_acc": 86, "event_precision": 81, "f1": 83}
+    {"model": "Claude + [[rag|RAG]]", "sentiment_acc": 86, "event_precision": 81, "f1": 83}
   ],
   "lines": [
     {"dataKey": "sentiment_acc", "stroke": "#3b82f6", "name": "Sentiment Accuracy %"},

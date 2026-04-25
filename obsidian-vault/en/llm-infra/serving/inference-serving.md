@@ -7,7 +7,7 @@ slug: "inference-serving"
 growth: "seedling"
 ---
 
-[[llm]] inference serving in production is the problem of delivering predictions with minimal latency and maximum throughput under constrained memory and compute. The critical bottleneck: KV-cache memory grows $O(L \times n_{\text{layers}} \times d_{\text{head}})$ per request, where $L$ is sequence length. For a 7B model at 4096 tokens, KV-cache consumes ~1 GB — inference becomes **memory-bound**, not compute-bound. Classical static batching is inefficient: when requests finish at different times, GPU idle. Modern inference systems (vLLM, TensorRT-LLM, TGI) solve this through **PagedAttention** and **continuous batching**, achieving 3-4× throughput gains by eliminating memory fragmentation and enabling asynchronous request scheduling.
+[[llm]] inference serving in production is the problem of delivering predictions with minimal latency and maximum throughput under constrained memory and compute. The critical bottleneck: KV-cache memory grows $O(L \times n_{\text{layers}} \times d_{\text{head}})$ per request, where $L$ is sequence length. For a 7B model at 4096 tokens, KV-cache consumes ~1 GB — inference becomes **memory-bound**, not compute-bound. Classical static batching is inefficient: when requests finish at different times, GPU idle. Modern inference systems (vLLM, TensorRT-[[llm]], TGI) solve this through **PagedAttention** and **continuous batching**, achieving 3-4× throughput gains by eliminating memory fragmentation and enabling asynchronous request scheduling.
 
 ## KV-cache: the memory-compute trade-off
 
@@ -27,7 +27,7 @@ PagedAttention (Kwon et al., 2023, vLLM) applies OS virtual memory concepts to K
 2. **Prefix sharing**: requests with common prefixes (e.g., few-shot examples) share pages. In beam search, child sequences share parent prefix cache via block table lookup (O(1) instead of recomputing $O(L)$ tokens).
 3. **3-4× throughput**: PagedAttention enables 50+ concurrent requests vs. 15-20 without it.
 
-The fused attention kernel trivially generalizes to paged memory: the block table is passed to kernel, which indexes pages dynamically during computation.
+The fused [[attention-mechanisms|attention]] kernel trivially generalizes to paged memory: the block table is passed to kernel, which indexes pages dynamically during computation.
 
 ## Continuous batching: asynchronous pipeline
 
@@ -52,7 +52,7 @@ Inference splits into two phases with opposite characteristics:
 
 ## Flash Attention for long contexts
 
-Flash Attention (Dao et al., 2022) reorders the attention computation $\text{softmax}(QK^T/\sqrt{d_k})V$ to minimize HBM reads/writes. Classical attention requires $O(L^2)$ HBM I/O; Flash Attention achieves $O(L)$ via fused kernel that materializes computation in fast [[flash-attention|SRAM]].
+Flash Attention (Dao et al., 2022) reorders the attention computation $\text{softmax}(QK^T/\sqrt{d_k})V$ to minimize [[flash-attention|HBM]] reads/writes. Classical attention requires $O(L^2)$ HBM I/O; Flash Attention achieves $O(L)$ via fused kernel that materializes computation in fast [[flash-attention|SRAM]].
 
 For contexts >4K tokens, Flash Attention is critical. On 32K+ contexts, it delivers 2-3× speedup vs. standard attention.
 

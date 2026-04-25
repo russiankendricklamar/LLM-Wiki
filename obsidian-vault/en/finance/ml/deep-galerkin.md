@@ -21,8 +21,8 @@ $$J(\theta) = \|\mathcal{L}f(t, x; \theta)\|^2_{Domain} + \|f(T, x; \theta) - g(
 ## How It Works
 
 1.  **Sampling**: Instead of a fixed grid, the algorithm randomly samples points $(t, x)$ from the domain (e.g., random times and stock prices).
-2.  **Automatic Differentiation**: To calculate the PDE operator $\mathcal{L}$ (which contains partial derivatives $\frac{\partial f}{\partial t}$ and $\frac{\partial^2 f}{\partial x^2}$), DGM uses **Autograd** (exactly like backpropagation). This provides exact derivatives without approximation errors.
-3.  **Optimization**: The network weights $\theta$ are updated using Stochastic Gradient Descent (SGD) to minimize the PDE residual $J(\theta)$. When the loss reaches zero, the neural network *is* the exact solution to the PDE.
+2.  **Automatic Differentiation**: To calculate the PDE operator $\mathcal{L}$ (which contains partial derivatives $\frac{\partial f}{\partial t}$ and $\frac{\partial^2 f}{\partial x^2}$), DGM uses **Autograd** (exactly like [[automatic-differentiation|backpropagation]]). This provides exact derivatives without approximation errors.
+3.  **Optimization**: The network weights $\theta$ are updated using Stochastic [[convex-optimization|Gradient Descent]] (SGD) to minimize the PDE residual $J(\theta)$. When the loss reaches zero, the neural network *is* the exact solution to the PDE.
 
 ## Why Tier-1 Quants Use It
 

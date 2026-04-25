@@ -52,10 +52,10 @@ The analytic regularity of Feller semigroups translates into strict probabilisti
 ## 5. Modern Applications
 
 ### A. Feller Processes in Quantitative Finance
-In mathematical finance, defining a new pricing model usually means proposing a new SDE. To prove that this SDE actually has a unique, non-exploding solution, quants prove that the corresponding differential operator $A$ generates a Feller semigroup. The famous **Cox-Ingersoll-Ross (CIR)** interest rate model and the **Heston stochastic volatility** model are driven by "Feller diffusions" (where the diffusion coefficient is proportional to $\sqrt{x}$ to prevent negative rates).
+In mathematical finance, defining a new pricing model usually means proposing a new [[stochastic-differential-equations|SDE]]. To prove that this SDE actually has a unique, non-exploding solution, quants prove that the corresponding differential operator $A$ generates a Feller semigroup. The famous **Cox-Ingersoll-Ross (CIR)** interest rate model and the **Heston stochastic volatility** model are driven by "Feller diffusions" (where the diffusion coefficient is proportional to $\sqrt{x}$ to prevent negative rates).
 
 ### B. Fractional Kinetics and Anomalous Diffusion
-If the generator is a fractional Laplacian $A = -(-\Delta)^{\alpha/2}$, the resulting Feller process is an $\alpha$-stable Lévy flight. This is used to model anomalous diffusion in turbulent plasmas and extreme jump risks in crypto markets.
+If the generator is a fractional [[spectral-graph-theory|Laplacian]] $A = -(-\Delta)^{\alpha/2}$, the resulting Feller process is an $\alpha$-stable Lévy flight. This is used to model anomalous diffusion in turbulent plasmas and extreme jump risks in crypto markets.
 
 ## Related Topics
 

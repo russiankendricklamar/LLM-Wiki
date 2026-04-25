@@ -44,7 +44,7 @@ $$\hat{y} = \arg\max_{y} \sum_{i=1}^{m} \mathbf{1}[\text{answer}(z_i) = y], \qua
 
 Tree of Thoughts frames the problem as a search over a reasoning graph $G = (V, E)$ where nodes are partial reasoning states and edges are reasoning steps. The model serves as both a generator and an evaluator:
 
-$$V_{\text{expand}}(v) = \text{[[llm]]-generate}(v), \quad V_{\text{value}}(v) = \text{LLM-evaluate}(v)$$
+$$V_{\text{expand}}(v) = \text{[[llm]]-generate}(v), \quad V_{\text{value}}(v) = \text{[[llm]]-evaluate}(v)$$
 
 Search algorithms (BFS, DFS, beam search) traverse $G$ to find a reasoning path $v_0 \to v_1 \to \ldots \to v_T$ leading to a correct answer. The depth $T$ and branching factor $b$ determine computational cost: $O(b^T)$ model calls.
 
@@ -203,7 +203,7 @@ CoT pushes a [[transformer-architecture|transformer]] to use more inference-time
 - **[[cantor-diagonal|Cantor's diagonal argument]]** is the prototype of every "you can't enumerate all of these from inside" result; the same shape proves Turing's halting problem and Chaitin's incompleteness.
 - **[[kolmogorov-complexity|Kolmogorov complexity]]** is the algorithmic version: most binary strings have no description shorter than themselves, so no compression — no matter how clever the reasoning chain — can recover them. CoT cannot magic up information that was never in the prompt or weights.
 
-Empirically, [[mechanistic-interpretability|mechanistic interpretability]] studies what reasoning circuits actually exist inside a transformer and where they break down. The boundary between an LLM's interpretable reasoning circuits and the underivable statements they cannot reach is the modern empirical face of the same wall Gödel and Cantor discovered.
+Empirically, [[mechanistic-interpretability|mechanistic interpretability]] studies what reasoning circuits actually exist inside a [[transformer-architecture|transformer]] and where they break down. The boundary between an LLM's interpretable reasoning circuits and the underivable statements they cannot reach is the modern empirical face of the same wall Gödel and Cantor discovered.
 
 This is why CoT, ToT, and PoT are best understood as **search-time amortisation of a fixed information budget** rather than mechanisms that lift the underlying decidability ceiling.
 

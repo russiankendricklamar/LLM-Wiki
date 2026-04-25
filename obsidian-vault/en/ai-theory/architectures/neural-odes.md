@@ -80,7 +80,7 @@ Shrinking the step size $\Delta t$, we reach the limit of an infinitely deep net
 
 ## Adjoint method for [[automatic-differentiation|backpropagation]]
 
-Naive backpropagation through an integrator stores all intermediate states and requires $O(T)$ memory. Chen et al. proposed using the **adjoint sensitivity method** from optimal control theory: the backpropagation problem is formulated as another ODE that can be integrated backwards in time without storing forward activations.
+Naive [[automatic-differentiation|backpropagation]] through an integrator stores all intermediate states and requires $O(T)$ memory. Chen et al. proposed using the **adjoint sensitivity method** from optimal control theory: the backpropagation problem is formulated as another ODE that can be integrated backwards in time without storing forward activations.
 
 Let $\mathcal{L}(h(T))$ be the loss. Define the adjoint state $a(t) = \partial \mathcal{L}/\partial h(t)$. It obeys:
 

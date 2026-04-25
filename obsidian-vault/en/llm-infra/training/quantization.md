@@ -65,7 +65,7 @@ GGUF (formerly GGML) is a file format widely adopted by **llama.cpp** for effici
 - **Q5_K_M** (medium): 5-bit weights; ~5.6 bits effective; higher quality than Q4
 - **Q8_0** (8-bit): per-block INT8; negligible loss; used for performance-critical layers
 
-A GGUF file specifies the quantization profile in the tensor metadata, enabling heterogeneous precision: critical [[attention-mechanisms|attention]] layers remain at Q8, while feed-forward layers drop to Q4. This granular control is why GGUF became the de facto standard for consumer GPU and CPU inference.
+A GGUF file specifies the quantization profile in the tensor metadata, enabling heterogeneous precision: critical [[attention-mechanisms|attention]] layers remain at Q8, while feed-forward layers drop to Q4. This granular control is why GGUF became the de facto standard for consumer [[inference-serving|GPU]] and CPU inference.
 
 ## Memory Footprint Calculations
 
@@ -111,7 +111,7 @@ Perplexity degradation (evaluated on WikiText) increases sharply as precision dr
 
 Quantized models are commonly used in conjunction with [[speculative-decoding]], where a small INT4 draft model generates candidate tokens in parallel, and a full-precision (or less-aggressive INT8) target model verifies and corrects them. This combination reduces end-to-end latency while maintaining quality.
 
-For [[mixture-of-experts|mixture-of-experts]] [[llm|models]], quantization can be applied selectively: expert layers (which are sparsely activated) remain at higher precision, while shared attention and routing logic are aggressively quantized.
+For [[mixture-of-experts|mixture-of-experts]] [[llm|models]], quantization can be applied selectively: expert layers (which are sparsely activated) remain at higher precision, while shared [[attention-mechanisms|attention]] and routing logic are aggressively quantized.
 
 ## See Also
 

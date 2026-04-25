@@ -78,7 +78,7 @@ This is the theoretical foundation for superposition: sparse features with inter
 
 ## How It Works
 
-**Training pipeline.** SAEs are trained on large collections of activations from a frozen LLM:
+**Training pipeline.** SAEs are trained on large collections of activations from a frozen [[llm]]:
 1. Run many forward passes on a diverse text corpus
 2. Store the activations at a specific layer (e.g., residual stream after layer 12)
 3. Train the SAE on these activations with L1 loss

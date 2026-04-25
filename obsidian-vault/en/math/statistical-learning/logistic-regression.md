@@ -18,12 +18,12 @@ Solving for the probability $p$ gives the **Logistic Function** (Sigmoid):
 $$p = \sigma(z) = \frac{1}{1 + e^{-z}}$$
 where $z = w^\top x + b$.
 
-## 2. Estimation: Cross-Entropy Loss
+## 2. Estimation: Cross-[[shannon-entropy|Entropy]] Loss
 
 We cannot solve Logistic Regression using Ordinary Least Squares because the output is non-linear. Instead, we use **[[asymptotic-stats/mle|Maximum Likelihood Estimation (MLE)]]**.
 The loss function we minimize is the **Binary Cross-Entropy**:
 $$\mathcal{L} = -\sum [y_i \ln p_i + (1-y_i) \ln(1-p_i)]$$
-- **Convexity**: This loss function is strictly [[convexity|Convex]]. This means optimization algorithms like Gradient Descent are guaranteed to find the global minimum.
+- **Convexity**: This loss function is strictly [[convexity|Convex]]. This means optimization algorithms like [[convex-optimization|Gradient Descent]] are guaranteed to find the global minimum.
 
 ## 3. Interpretation: Odds and Ratios
 
@@ -33,7 +33,7 @@ $$\mathcal{L} = -\sum [y_i \ln p_i + (1-y_i) \ln(1-p_i)]$$
 ## 4. Modern Scaling
 
 1.  **Regularization (LASSO/Ridge)**: Adding $\|\beta\|_1$ or $\|\beta\|_2$ to the loss function prevents the weights from exploding, which is essential for high-dimensional data (e.g., predicting click-through rates).
-2.  **Multinomial (Softmax)**: Extending the binary model to $K$ classes leads to the **Softmax** layer, which is the final layer of every Large Language Model (Transformer).
+2.  **Multinomial (Softmax)**: Extending the binary model to $K$ classes leads to the **Softmax** layer, which is the final layer of every Large Language Model ([[transformer-architecture|Transformer]]).
 3.  **Online Learning**: Using Stochastic Gradient Descent (SGD), logistic regression can be trained on infinite data streams (e.g., high-frequency trading data) without storing the dataset in memory.
 
 ## Related Topics

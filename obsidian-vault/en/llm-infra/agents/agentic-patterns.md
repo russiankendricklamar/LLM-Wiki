@@ -80,7 +80,7 @@ By sampling and refining, we move closer to the global optimum of the task objec
 ```python
 def generate_with_reflection(prompt):
     # Step 1: Initial Generation
-    draft = llm.generate(f"Solve this: {prompt}")
+    draft = [[llm]].generate(f"Solve this: {prompt}")
     
     # Step 2: Critique
     critique = llm.generate(f"Critique this solution and find errors: {draft}")

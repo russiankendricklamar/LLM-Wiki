@@ -31,7 +31,7 @@ $$
 Repeatedly integrating out modes can either make couplings blow up, drive them to zero, or approach a non-trivial **fixed point** $g^*$ where $\beta(g^*) = 0$. Near a fixed point, theories organise themselves into:
 
 - **Relevant** directions ([[spectral-theory-operators|eigenvalues]] $> 0$): couplings grow under the flow towards low energies. These are the handful of parameters that matter macroscopically.
-- **Irrelevant** directions (eigenvalues $< 0$): couplings shrink. Microscopic details get washed out.
+- **Irrelevant** directions ([[spectral-theory-operators|eigenvalues]] $< 0$): couplings shrink. Microscopic details get washed out.
 - **Marginal** directions (eigenvalues $= 0$): require two-loop analysis to resolve.
 
 This is the mechanism behind **universality**: vastly different microscopic systems (a fluid near its critical point, a ferromagnet near the Curie temperature, a binary alloy near its ordering transition) all flow to the *same* fixed point and therefore exhibit *identical* critical exponents. Microscopic details are irrelevant; only the symmetry and dimensionality of the order parameter matter. Wilson received the 1982 Nobel Prize for this picture.

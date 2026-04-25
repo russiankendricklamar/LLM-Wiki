@@ -28,7 +28,7 @@ By the end of the course you can:
 1. Read and reproduce NeurIPS / ICML papers on deep-learning theory (PAC-Bayes, NTK, diffusion, OT) without skimming the math.
 2. Reason about loss-landscape geometry and why SGD prefers flat minima.
 3. Derive the forward and reverse SDEs of a diffusion model from scratch.
-4. Explain why natural-gradient descent is invariant to reparameterisation.
+4. Explain why natural-[[convex-optimization|gradient descent]] is invariant to reparameterisation.
 5. Numerically solve a Wasserstein problem with entropic regularisation (Sinkhorn).
 
 ## Course map
@@ -95,7 +95,7 @@ Patch any gaps before the main programme.
 - [[taylor-series|Taylor series as local approximation]]
 - [[laplacian|The Laplacian operator]]
 
-**Exercise:** derive the analytic gradient of softmax-cross-entropy and verify with `torch.autograd.gradcheck`.
+**Exercise:** derive the analytic gradient of softmax-cross-[[shannon-entropy|entropy]] and verify with `torch.autograd.gradcheck`.
 
 ## Week 4 — Optimisation and convexity
 
@@ -144,7 +144,7 @@ Patch any gaps before the main programme.
 
 ## Week 8 — Stochastic processes
 
-**Goal:** the language of time and uncertainty used by diffusion and neural-SDE models.
+**Goal:** the language of time and uncertainty used by diffusion and neural-[[stochastic-differential-equations|SDE]] models.
 
 - [[discrete-markov-chains|Markov chains]]
 - [[poisson-process|Poisson process]]
@@ -179,7 +179,7 @@ Patch any gaps before the main programme.
 
 ## Week 11 — Information geometry
 
-**Goal:** the space of distributions as a Riemannian manifold — natural gradients, K-FAC, TRPO.
+**Goal:** the space of distributions as a Riemannian [[manifold-learning|manifold]] — natural gradients, K-FAC, TRPO.
 
 - [[fisher-information|Fisher information and FIM]]
 - [[information-geometry|Information geometry]]
@@ -202,7 +202,7 @@ Patch any gaps before the main programme.
 
 ## Capstone project
 
-**Information bottleneck inside a transformer.**
+**Information bottleneck inside a [[transformer-architecture|transformer]].**
 
 Using tools from Week 7 (information theory) and Week 11 (information geometry), measure the mutual information between intermediate BERT-base activations and (a) the input, (b) the output target. Plot the IB-plane curve per layer and locate the *memorisation → compression* phase transition.
 

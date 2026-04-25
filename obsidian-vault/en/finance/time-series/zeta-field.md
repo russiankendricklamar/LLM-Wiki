@@ -53,7 +53,7 @@ In the financial analog, the "primes" are information shocks (earnings, macro re
 
 ### Zeta Regularization
 
-In QFT, **zeta regularization** handles divergent sums via analytic continuation. For a market Hamiltonian operator $\hat{H}$ with eigenvalues $\lambda_n$ (e.g., eigenvalues of the market covariance matrix):
+In QFT, **zeta regularization** handles divergent sums via analytic continuation. For a market Hamiltonian operator $\hat{H}$ with [[spectral-theory-operators|eigenvalues]] $\lambda_n$ (e.g., eigenvalues of the market covariance matrix):
 
 $$
 \zeta_H(s) = \sum_n \lambda_n^{-s} = \text{Tr}(\hat{H}^{-s})

@@ -28,7 +28,7 @@ The normalized version is $\mathcal{L} = D^{-1/2} L D^{-1/2} = I - D^{-1/2} A D^
 ## Properties of the Laplacian
 
 The Laplacian is the discrete version of the Laplace-Beltrami operator.
-- **Positive Semi-definiteness**: $L$ is always symmetric and positive semi-definite. Its eigenvalues are $\lambda_0 \leq \lambda_1 \leq \dots \leq \lambda_{n-1}$.
+- **Positive Semi-definiteness**: $L$ is always symmetric and positive semi-definite. Its [[spectral-theory-operators|eigenvalues]] are $\lambda_0 \leq \lambda_1 \leq \dots \leq \lambda_{n-1}$.
 - **Connectivity**: The smallest eigenvalue $\lambda_0$ is always 0. The number of zero eigenvalues equals the number of connected components in the graph.
 - **Algebraic Connectivity**: The second smallest eigenvalue $\lambda_1$ (Fiedler value) measures how well-connected the graph is.
 

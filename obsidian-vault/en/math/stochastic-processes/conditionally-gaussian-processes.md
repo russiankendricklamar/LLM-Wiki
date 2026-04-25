@@ -96,4 +96,4 @@ The computational cost scales as $O(n^2 m + n^3)$ per time step (matrix Riccati 
 - [[hidden-markov-models]] — discrete-state analog: the conditional distribution is a finite mixture.
 - [[particle-filter]] — numerical alternative when conditional Gaussianity fails.
 - [[doleans-dade-exponential]] — the exponential martingale in the reference measure construction.
-- [[stochastic-differential-equations]] — the signal SDE with linear structure.
+- [[stochastic-differential-equations]] — the signal [[stochastic-differential-equations|SDE]] with linear structure.

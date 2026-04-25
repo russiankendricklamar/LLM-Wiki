@@ -40,7 +40,7 @@ $$
 p(\psi \mid D) = \text{softmax}(W_c \cdot \text{CLS}(D) + b_c)
 $$
 
-where CLS$(D)$ is the [CLS] token embedding after BERT encoding. Fine-tuning minimises cross-[[shannon-entropy|entropy]] on a labelled financial phrase bank:
+where CLS$(D)$ is the [CLS] token embedding after BERT encoding. [[fine-tuning]] minimises cross-[[shannon-entropy|entropy]] on a labelled financial phrase bank:
 
 $$
 \mathcal{L} = -\sum_{i} \log p_\theta(\psi_i^* \mid D_i)
@@ -50,7 +50,7 @@ FinBERT achieves ~88% accuracy on 3-class financial sentiment, compared to ~75% 
 
 ### [[llm]]-Based Information Extraction
 
-For structured extraction from 8-K filings, an LLM computes:
+For structured extraction from 8-K filings, an [[llm]] computes:
 
 $$
 P(\text{fields} \mid D, \text{schema}) \propto \prod_{j} P(\text{field}_j \mid D, \text{schema}, \text{fields}_{<j})
@@ -80,7 +80,7 @@ NLP signal quality is measured by the ability to predict the sign and magnitude 
     {"model": "FinBERT", "sentiment_acc": 88, "event_precision": 69, "f1": 78},
     {"model": "BloombergGPT", "sentiment_acc": 82, "event_precision": 72, "f1": 77},
     {"model": "GPT-4 CoT", "sentiment_acc": 85, "event_precision": 78, "f1": 81},
-    {"model": "Claude + RAG", "sentiment_acc": 86, "event_precision": 81, "f1": 83}
+    {"model": "Claude + [[rag]]", "sentiment_acc": 86, "event_precision": 81, "f1": 83}
   ],
   "lines": [
     {"dataKey": "sentiment_acc", "stroke": "#3b82f6", "name": "Sentiment Accuracy %"},
@@ -196,7 +196,7 @@ def compute_earnings_surprise_signal(
 
 **Earnings call NLP alpha (Li et al., 2021)**: A long-short strategy based on earnings call sentiment achieves 3–5% annualised abnormal return with Sharpe ~0.7, surviving controls for momentum and value factors.
 
-**8-K event classification (Kogan et al., 2022)**: Transformer classifiers achieve 94% accuracy in identifying the type of material event from 8-K filing text within 200ms of EDGAR posting, enabling event-driven strategies that capture price impact before full price discovery.
+**8-K event classification (Kogan et al., 2022)**: [[transformer-architecture|Transformer]] classifiers achieve 94% accuracy in identifying the type of material event from 8-K filing text within 200ms of EDGAR posting, enabling event-driven strategies that capture price impact before full price discovery.
 
 ## Limitations and Challenges
 

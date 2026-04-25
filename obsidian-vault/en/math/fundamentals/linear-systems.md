@@ -48,7 +48,7 @@ During the "Inference" phase, when a model generates text, it performs billions 
 
 ## 5. Computational Complexity
 
-Gaussian elimination takes $O(n^3)$ operations. For systems with billions of variables (like in AI), $O(n^3)$ is too slow. Modern solvers use **Iterative Methods** (like Gradient Descent or Conjugate Gradient) to approach the solution without performing full elimination.
+Gaussian elimination takes $O(n^3)$ operations. For systems with billions of variables (like in AI), $O(n^3)$ is too slow. Modern solvers use **Iterative Methods** (like [[convex-optimization|Gradient Descent]] or Conjugate Gradient) to approach the solution without performing full elimination.
 
 ## Visualization: Row Reduction
 

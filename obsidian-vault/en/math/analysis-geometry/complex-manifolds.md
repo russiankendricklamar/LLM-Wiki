@@ -8,7 +8,7 @@ slug: "complex-manifolds"
 
 # Complex and Kähler Manifolds: The Geometry of String Theory
 
-A **Complex Manifold** is a manifold that locally looks like $\mathbb{C}^n$ and has holomorphic transition functions between its coordinate patches. This restriction is extremely rigid, giving complex manifolds a deeply interwoven structure where geometry, topology, and algebra meet. They are the central stage for algebraic geometry and modern theoretical physics.
+A **Complex [[manifold-learning|Manifold]]** is a manifold that locally looks like $\mathbb{C}^n$ and has holomorphic transition functions between its coordinate patches. This restriction is extremely rigid, giving complex manifolds a deeply interwoven structure where geometry, topology, and algebra meet. They are the central stage for algebraic geometry and modern theoretical physics.
 
 ## 1. Almost Complex Structures
 
@@ -33,7 +33,7 @@ $$ d\omega = 0 $$
 
 A Kähler manifold is a mathematical miracle: it is simultaneously a **Riemannian manifold**, a **Complex manifold**, and a **Symplectic manifold**, and the three structures $(g, J, \omega)$ are mutually compatible.
 - **Local Potential**: Locally, the Kähler metric can be derived from a single scalar function $K$ (the Kähler potential): $g_{i\bar{j}} = \partial_i \partial_{\bar{j}} K$.
-- **Hodge Theory on Kähler Manifolds**: The Laplacian splits elegantly, and the cohomology groups exhibit the **Hodge Decomposition**, allowing deep connections between algebraic cycles and differential forms.
+- **Hodge Theory on Kähler Manifolds**: The [[spectral-graph-theory|Laplacian]] splits elegantly, and the cohomology groups exhibit the **Hodge Decomposition**, allowing deep connections between algebraic cycles and differential forms.
 
 ## 4. Calabi-Yau Manifolds
 

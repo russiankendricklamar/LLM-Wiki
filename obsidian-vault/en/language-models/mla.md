@@ -10,7 +10,7 @@ slug: "mla"
 
 ## What Is It
 
-**Multi-Head Latent Attention (MLA)** is a novel attention mechanism introduced by **DeepSeek (V2/V3)** designed to solve the "KV-cache bottleneck." 
+**Multi-Head Latent [[attention-mechanisms|Attention]] (MLA)** is a novel attention mechanism introduced by **DeepSeek (V2/V3)** designed to solve the "KV-cache bottleneck." 
 
 In standard Multi-Head Attention (MHA), the memory required to store the KV-cache grows linearly with the number of heads and layers, becoming a massive cost during inference. Earlier solutions like **Grouped-Query Attention (GQA)** reduced the cache size but sacrificed model capacity. MLA achieves **better compression than GQA** while maintaining (or exceeding) the performance of full MHA.
 

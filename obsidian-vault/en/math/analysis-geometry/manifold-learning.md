@@ -26,7 +26,7 @@ Isomap attempts to preserve the **geodesic distances** between points (distance 
 LLE assumes the manifold is locally linear. It represents each point as a linear combination of its neighbors and tries to preserve these weights in the low-dimensional projection.
 
 ### 3. [[spectral-graph-theory|Laplacian]] Eigenmaps
-Based on **Spectral Graph Theory**. It constructs a graph Laplacian $L$ from the data and uses its bottom eigenvectors to find a projection that keeps nearby points close to each other.
+Based on **Spectral Graph Theory**. It constructs a graph [[spectral-graph-theory|Laplacian]] $L$ from the data and uses its bottom eigenvectors to find a projection that keeps nearby points close to each other.
 
 ### 4. UMAP and t-SNE
 Modern SOTA methods. While t-SNE focuses on local structure, **UMAP** (Uniform Manifold Approximation and Projection) uses algebraic topology and Riemannian geometry to preserve both local and global structure more efficiently.

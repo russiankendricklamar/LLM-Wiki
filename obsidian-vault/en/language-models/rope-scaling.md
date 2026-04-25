@@ -55,7 +55,7 @@ YaRN improves upon NTK-aware scaling by applying different scaling factors to di
 
 Even if the positional encodings work, long context is limited by:
 - **KV-Cache**: Memory usage grows $O(L)$. Solutions: [[inference-serving|PagedAttention]], [[mla|MLA]].
-- **Quadratic Attention**: Computation grows $O(L^2)$. Solutions: [[flash-attention|FlashAttention]], **Ring Attention**.
+- **Quadratic [[attention-mechanisms|Attention]]**: Computation grows $O(L^2)$. Solutions: [[flash-attention|FlashAttention]], **Ring Attention**.
 
 ## Related Topics
 

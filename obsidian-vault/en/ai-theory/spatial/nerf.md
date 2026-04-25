@@ -8,7 +8,7 @@ slug: "nerf"
 
 # Neural Radiance Fields (NeRF): Synthesizing 3D from 2D
 
-**Neural Radiance Fields (NeRF)** represent a breakthrough in computer vision that uses a continuous neural function to represent a 3D scene. Unlike traditional 3D models (meshes or voxels), a NeRF stores the scene within the weights of a multilayer perceptron (MLP).
+**Neural Radiance Fields (NeRF)** represent a breakthrough in computer vision that uses a continuous neural function to represent a 3D scene. Unlike traditional 3D models (meshes or voxels), a NeRF stores the scene within the weights of a multilayer perceptron ([[transformer-architecture|MLP]]).
 
 ## 1. The Core Concept: Volumetric Rendering
 

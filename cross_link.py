@@ -20,7 +20,8 @@ terms_en = {
     "Manifold": "manifold-learning",
     "Eigenvalues": "spectral-theory-operators",
     "Laplacian": "spectral-graph-theory",
-    "SDE": "stochastic-differential-equations"
+    "SDE": "stochastic-differential-equations",
+    "Kuramoto": "kuramoto-model"
 }
 
 terms_ru = {
@@ -45,7 +46,8 @@ terms_ru = {
     "Многообразие": "manifold-learning",
     "Собственные числа": "spectral-theory-operators",
     "Лапласиан": "spectral-graph-theory",
-    "SDE": "stochastic-differential-equations"
+    "SDE": "stochastic-differential-equations",
+    "Курамото": "kuramoto-model"
 }
 
 # Add some common English terms to RU as they are often used

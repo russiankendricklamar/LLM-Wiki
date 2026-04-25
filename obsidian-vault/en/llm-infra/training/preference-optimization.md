@@ -8,7 +8,7 @@ slug: "preference-optimization"
 
 # Beyond [[dpo]]: KTO and IPO
 
-While **Direct Preference Optimization (DPO)** simplified model alignment, it has limitations, such as a tendency to overfit to the preferred data and a requirement for strict binary pairs (Chosen vs. Rejected). New methods like **KTO** and **IPO** address these issues by using different mathematical foundations.
+While **Direct Preference Optimization ([[dpo]])** simplified model alignment, it has limitations, such as a tendency to overfit to the preferred data and a requirement for strict binary pairs (Chosen vs. Rejected). New methods like **KTO** and **IPO** address these issues by using different mathematical foundations.
 
 ## 1. KTO: Kahneman-Tversky Optimization
 

@@ -52,13 +52,13 @@ Modern LLMs are built on the **decoder-only [[transformer-architecture|transform
 
 $$q_m = R_m q, \quad k_n = R_n k$$
 
-where $R_\theta$ is a block-diagonal rotation matrix. RoPE enables the model to generalize to context lengths beyond those seen during training. ALiBi (Attention with Linear Biases) is an alternative that subtracts a linear bias proportional to distance directly in the attention logits.
+where $R_\theta$ is a block-diagonal rotation matrix. RoPE enables the model to generalize to context lengths beyond those seen during training. ALiBi ([[attention-mechanisms|Attention]] with Linear Biases) is an alternative that subtracts a linear bias proportional to distance directly in the attention logits.
 
 **Grouped Query Attention (GQA)** reduces the key-value cache footprint: multiple query heads share a single key-value head, reducing memory bandwidth by a factor equal to the number of groups.
 
 ## Mathematical Framework
 
-The attention mechanism at the heart of every transformer block:
+The attention mechanism at the heart of every [[transformer-architecture|transformer]] block:
 
 $$\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right) V$$
 
@@ -84,7 +84,7 @@ LLM training proceeds in three stages:
 
 **2. Supervised [[fine-tuning]] (SFT).** The pre-trained model is fine-tuned on a curated dataset of (instruction, response) pairs. This shapes the model's output format and tone, teaching it to follow instructions.
 
-**3. Alignment via [[rlhf]] or [[dpo]].** Reinforcement Learning from Human Feedback trains a reward model on human preference rankings, then uses PPO to maximize reward. Direct Preference Optimization (DPO) eliminates the separate reward model by reparameterizing the RL objective as a classification loss directly on preference pairs:
+**3. Alignment via [[rlhf]] or [[dpo]].** Reinforcement Learning from Human Feedback trains a reward model on human preference rankings, then uses PPO to maximize reward. Direct Preference Optimization ([[dpo]]) eliminates the separate reward model by reparameterizing the RL objective as a classification loss directly on preference pairs:
 
 $$\mathcal{L}_{\text{DPO}} = -\mathbb{E}\!\left[\log \sigma\!\left(\beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_\theta(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)}\right)\right]$$
 

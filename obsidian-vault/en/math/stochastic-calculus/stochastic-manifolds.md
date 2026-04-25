@@ -12,7 +12,7 @@ Stochastic Calculus on Manifolds integrates **Differential Geometry** with **Pro
 
 ## The Challenge of Curvature
 
-In Euclidean space, we define Brownian motion as $W_t$. On a manifold $M$, we cannot simply write $dX_t = dW_t$ because the sum of two points is not defined, and "moving in a straight line" depends on the curvature.
+In Euclidean space, we define Brownian motion as $W_t$. On a [[manifold-learning|manifold]] $M$, we cannot simply write $dX_t = dW_t$ because the sum of two points is not defined, and "moving in a straight line" depends on the curvature.
 
 ## Stratonovich vs. Itô
 
@@ -22,7 +22,7 @@ On manifolds, the **Stratonovich integral** is usually preferred over the Itô i
 
 ## Stochastic Differential Equations (SDEs) on Manifolds
 
-An SDE on a manifold is typically defined using a family of vector fields $\{A_1, \dots, A_k\}$ and is written in Stratonovich form:
+An [[stochastic-differential-equations|SDE]] on a manifold is typically defined using a family of vector fields $\{A_1, \dots, A_k\}$ and is written in Stratonovich form:
 $$dX_t = A_0(X_t) dt + \sum_{i=1}^k A_i(X_t) \circ dW^i_t$$
 The solution $X_t$ is a process that stays on the manifold $M$ for all time.
 

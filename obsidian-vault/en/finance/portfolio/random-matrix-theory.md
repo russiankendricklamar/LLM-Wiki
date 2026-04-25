@@ -13,7 +13,7 @@ lang: "en"
 
 When estimating a correlation matrix for $N$ assets using $T$ observations, the estimator $\hat{\Sigma}$ has $O(N^2)$ parameters but only $T \cdot N$ data points. When $Q = T/N$ is moderate (e.g., $Q = 2$), most of the observed correlations are statistical artifacts — noise masquerading as signal. Feeding a "raw" sample covariance matrix into Markowitz mean-variance optimization causes the optimizer to exploit estimation error, resulting in extreme concentrated positions and catastrophic out-of-sample performance degradation.
 
-The **condition number** of a sample covariance matrix grows as $O(N/T)$ for random data, meaning tiny perturbations to returns can cause enormous swings in optimal weights. RMT provides a principled way to identify and suppress these noise eigenvalues.
+The **condition number** of a sample covariance matrix grows as $O(N/T)$ for random data, meaning tiny perturbations to returns can cause enormous swings in optimal weights. RMT provides a principled way to identify and suppress these noise [[spectral-theory-operators|eigenvalues]].
 
 ## Mathematical Framework
 

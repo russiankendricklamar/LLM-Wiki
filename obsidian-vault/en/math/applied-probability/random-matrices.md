@@ -9,7 +9,7 @@ growth: "seedling"
 
 # Random Matrix Theory (RMT)
 
-**Random Matrix Theory (RMT)** studies the statistical properties (specifically the eigenvalues and eigenvectors) of matrices whose entries are drawn from various probability distributions. Originally developed by Eugene Wigner in the 1950s to model the energy levels of heavy atomic nuclei, RMT has evolved into a cornerstone of **high-dimensional statistics**, **machine learning**, and **quantitative finance**.
+**Random Matrix Theory (RMT)** studies the statistical properties (specifically the [[spectral-theory-operators|eigenvalues]] and eigenvectors) of matrices whose entries are drawn from various probability distributions. Originally developed by Eugene Wigner in the 1950s to model the energy levels of heavy atomic nuclei, RMT has evolved into a cornerstone of **high-dimensional statistics**, **machine learning**, and **quantitative finance**.
 
 RMT reveals deep, universal patterns that emerge in high dimensions, fundamentally proving that our intuition from low-dimensional statistics breaks down when dealing with massive datasets.
 

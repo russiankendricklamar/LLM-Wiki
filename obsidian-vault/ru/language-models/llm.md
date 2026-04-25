@@ -60,7 +60,7 @@ $$q_m = R_m q, \quad k_n = R_n k$$
 
 Механизм внимания в каждом трансформерном блоке:
 
-$$\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right) V$$
+$$\text{[[attention-mechanisms|Attention]]}(Q, K, V) = \text{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right) V$$
 
 где $Q = XW_Q$, $K = XW_K$, $V = XW_V \in \mathbb{R}^{n \times d_k}$, а $\sqrt{d_k}$ предотвращает уход в насыщенные области softmax.
 
@@ -86,7 +86,7 @@ $$\mathcal{L}(N, D) \approx E + \frac{A}{N^\alpha} + \frac{B}{D^\beta}$$
 
 **3. Согласование через [[rlhf|RLHF]] или [[dpo|DPO]].** Reinforcement Learning from Human Feedback обучает модель вознаграждения на ранжировании предпочтений людей, затем использует PPO для максимизации награды. Direct Preference Optimization устраняет отдельную модель вознаграждения, переформулируя задачу RL как потерю классификации на парах предпочтений:
 
-$$\mathcal{L}_{\text{DPO}} = -\mathbb{E}\!\left[\log \sigma\!\left(\beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_\theta(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)}\right)\right]$$
+$$\mathcal{L}_{\text{[[dpo|DPO]]}} = -\mathbb{E}\!\left[\log \sigma\!\left(\beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_\theta(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)}\right)\right]$$
 
 ## Ключевые свойства и возможности
 

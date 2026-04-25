@@ -6,7 +6,7 @@ lang: "en"
 slug: "entropy-pooling"
 ---
 
-# Entropy Pooling: Advanced Portfolio Construction
+# [[shannon-entropy|Entropy]] Pooling: Advanced Portfolio Construction
 
 The [[bayesian-black-litterman|Black-Litterman]] model revolutionized portfolio construction by combining a market prior with subjective investor views. However, it assumes that all returns are **normally distributed** and that all views are **linear** expressions of expected returns.
 

@@ -6,7 +6,7 @@ lang: "en"
 slug: "qat"
 ---
 
-# Quantization Aware Training (QAT)
+# [[quantization]] Aware Training (QAT)
 
 While [[modern-quantization|Post-Training Quantization (PTQ)]] (like GPTQ or AWQ) happens after the model is trained, **Quantization Aware Training (QAT)** integrates the precision loss directly into the training loop. This allows the neural network to "adapt" its weights to the lower precision, resulting in significantly higher accuracy for 2-bit or 3-bit models.
 
@@ -16,7 +16,7 @@ Neural networks are trained using floating-point numbers (FP32 or BF16) because 
 In QAT, we use **Fake Quantization** nodes:
 1.  During the forward pass, weights are rounded to the target precision (e.g., INT4).
 2.  The model performs calculations using these "noisy" rounded weights.
-3.  **The Core Problem**: The rounding function (Step function) has a derivative of zero almost everywhere. Standard backpropagation breaks.
+3.  **The Core Problem**: The rounding function (Step function) has a derivative of zero almost everywhere. Standard [[automatic-differentiation|backpropagation]] breaks.
 
 ## 2. Straight-Through Estimator (STE)
 
@@ -35,7 +35,7 @@ By training $s$, the model automatically decides if it needs a wide dynamic rang
 ## 4. QAT vs. PTQ: When to use which?
 
 - **PTQ (Post-Training)**: Fast (minutes). Good for 4-bit or 8-bit. Almost free. Use it first.
-- **QAT (Aware Training)**: Expensive (requires full training/fine-tuning). Necessary for **2-bit or 3-bit** extreme compression, or when the model is very sensitive to noise (e.g., small edge-AI models).
+- **QAT (Aware Training)**: Expensive (requires full training/[[fine-tuning]]). Necessary for **2-bit or 3-bit** extreme compression, or when the model is very sensitive to noise (e.g., small edge-AI models).
 
 ## 5. Modern Variant: QLoRA
 

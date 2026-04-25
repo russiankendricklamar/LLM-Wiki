@@ -92,7 +92,7 @@ $$
 
 Следовательно, структура нулей в $\boldsymbol{\Omega}$ задаёт **гауссовский графический модель** — направление исследования, давшее graphical LASSO и современные Bayesian networks.
 
-## 6. Энтропия и дифференциальная энтропия
+## 6. [[shannon-entropy|Энтропия]] и дифференциальная энтропия
 
 $$
 H(\mathbf{X}) = -\int f(\mathbf{x})\log f(\mathbf{x})\, d\mathbf{x} = \tfrac{1}{2}\log\bigl((2\pi e)^k |\boldsymbol{\Sigma}|\bigr).

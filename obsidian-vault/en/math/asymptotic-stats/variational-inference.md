@@ -36,7 +36,7 @@ Maximizing the ELBO is mathematically equivalent to minimizing the KL divergence
 | Feature | MCMC | Variational Inference |
 |---|---|---|
 | **Approach** | Stochastic Sampling | Optimization |
-| **Speed** | Slow (long chains) | Fast (gradient descent) |
+| **Speed** | Slow (long chains) | Fast ([[convex-optimization|gradient descent]]) |
 | **Accuracy** | Asymptotically exact | Approximate (biased) |
 | **Scalability** | Hard for giant datasets | Highly scalable (Stochastic VI) |
 

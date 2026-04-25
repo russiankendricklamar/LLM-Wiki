@@ -16,17 +16,17 @@ Consider a simple LayerNorm operation in PyTorch:
 `y = (x - mean) / std * weight + bias`
 
 If executed naively, PyTorch will:
-1.  Read `x` from HBM to compute `mean`, write `mean` back to HBM.
+1.  Read `x` from [[flash-attention|HBM]] to compute `mean`, write `mean` back to HBM.
 2.  Read `x` and `mean` to compute `std`, write `std` to HBM.
 3.  Read `x`, `mean`, `std`, subtract and divide, write result to HBM.
 4.  Read result, `weight`, `bias`, multiply and add, write final `y` to HBM.
 
-The GPU spends 95% of its time moving temporary variables in and out of the slow HBM memory, and only 5% actually doing math. 
+The [[inference-serving|GPU]] spends 95% of its time moving temporary variables in and out of the slow HBM memory, and only 5% actually doing math. 
 
 ## The Solution: Operator Fusion
 
 **Operator Fusion** (Kernel Fusion) merges all these small steps into a single, massive CUDA kernel.
-In a fused kernel, a chunk of `x` is loaded into the ultra-fast SRAM (registers), all the math (mean, std, sub, div, mul, add) is done on-chip without ever saving intermediate results to HBM, and only the final `y` is written back. 
+In a fused kernel, a chunk of `x` is loaded into the ultra-fast [[flash-attention|SRAM]] (registers), all the math (mean, std, sub, div, mul, add) is done on-chip without ever saving intermediate results to HBM, and only the final `y` is written back. 
 
 This can speed up operations by 10x to 50x.
 

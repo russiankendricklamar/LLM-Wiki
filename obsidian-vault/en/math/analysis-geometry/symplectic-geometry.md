@@ -12,7 +12,7 @@ slug: "symplectic-geometry"
 
 ## 1. The Symplectic Form ($\omega$)
 
-A symplectic manifold $(M, \omega)$ is a smooth manifold $M$ equipped with a closed, non-degenerate differential 2-form $\omega$, called the **Symplectic Form**.
+A symplectic [[manifold-learning|manifold]] $(M, \omega)$ is a smooth manifold $M$ equipped with a closed, non-degenerate differential 2-form $\omega$, called the **Symplectic Form**.
 - **Closed**: $d\omega = 0$.
 - **Non-degenerate**: For any non-zero vector $v$, there exists a vector $u$ such that $\omega(v, u) \neq 0$. This implies that $M$ must be **even-dimensional** ($dim = 2n$).
 

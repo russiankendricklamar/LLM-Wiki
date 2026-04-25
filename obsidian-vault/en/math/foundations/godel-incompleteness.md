@@ -98,5 +98,5 @@ For language models, this matters concretely. [[chain-of-thought|Chain-of-though
 - [[cantor-diagonal|Cantor's Diagonal Argument]] — self-reference in set theory
 - [[banach-tarski|Banach-Tarski Paradox]] — axiom of choice consequences
 - [[kolmogorov-complexity]] — algorithmic version of incompleteness
-- [[chain-of-thought]] — Gödel ceiling on LLM derivability
+- [[chain-of-thought]] — Gödel ceiling on [[llm]] derivability
 - [[information-paradox]] — self-referential limits of black-hole semi-classical descriptions

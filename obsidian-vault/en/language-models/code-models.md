@@ -83,7 +83,7 @@ For example, with $n = 10$ samples and $c = 4$ passing, $\text{pass@}1 = 1 - \bi
 1. **General pre-training** on mixed code + text corpus.
 2. **Code-focused continued pre-training** with higher weight on high-quality code.
 3. **FIM training** — either mixed into pre-training (SPM format) or as a continued pre-training stage.
-4. **Supervised fine-tuning (SFT)** on instruction-following pairs: natural language problem descriptions paired with correct solutions, with chain-of-thought reasoning.
+4. **Supervised [[fine-tuning]] (SFT)** on instruction-following pairs: natural language problem descriptions paired with correct solutions, with chain-of-thought reasoning.
 5. **RLEF** — execution feedback fine-tuning on problems with test suites.
 
 ## Key Properties & Capabilities

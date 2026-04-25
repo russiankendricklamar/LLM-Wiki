@@ -8,7 +8,7 @@ slug: "hodge-theory"
 
 # Hodge Theory: Bridging Topology and Differential Equations
 
-**Hodge Theory**, developed by W.V.D. Hodge in the 1930s, is a profound mathematical framework that connects the global topology of a manifold with the solutions to local partial differential equations (PDEs). It generalizes classical vector calculus (Gradient, Curl, Divergence) to higher dimensions and curved spaces using differential forms.
+**Hodge Theory**, developed by W.V.D. Hodge in the 1930s, is a profound mathematical framework that connects the global topology of a [[manifold-learning|manifold]] with the solutions to local partial differential equations (PDEs). It generalizes classical vector calculus (Gradient, Curl, Divergence) to higher dimensions and curved spaces using differential forms.
 
 ## 1. De Rham Cohomology
 
@@ -31,7 +31,7 @@ While $d$ acts like the Curl or Gradient, $\delta$ acts like the **Divergence**.
 
 ## 3. The Laplace-de Rham Operator
 
-We can now define the **Laplacian** on differential forms:
+We can now define the **[[spectral-graph-theory|Laplacian]]** on differential forms:
 $$ \Delta = d\delta + \delta d $$
 A $k$-form $\omega$ is called **Harmonic** if $\Delta \omega = 0$. By definition, a harmonic form is both closed ($d\omega = 0$) and co-closed ($\delta\omega = 0$).
 

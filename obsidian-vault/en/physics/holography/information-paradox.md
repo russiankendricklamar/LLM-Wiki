@@ -31,7 +31,7 @@ This is not a subtle tension between two unfamiliar theories. It is a clean cont
 
 A sharp version of the paradox, due to Don Page (1993): track the entanglement [[gravitational-entropy|entropy]] $S_\text{rad}(t)$ between the outside radiation and whatever is left of the black hole as the evaporation proceeds.
 
-- If evaporation is **unitary**, $S_\text{rad}$ must rise, turn over at the **Page time** $t_P$ (when half the black hole entropy has been radiated), and fall back to zero as the black hole finishes evaporating. Plotted, this gives the famous triangular **Page curve**.
+- If evaporation is **unitary**, $S_\text{rad}$ must rise, turn over at the **Page time** $t_P$ (when half the black hole [[gravitational-entropy|entropy]] has been radiated), and fall back to zero as the black hole finishes evaporating. Plotted, this gives the famous triangular **Page curve**.
 - If Hawking's semi-classical calculation is correct, $S_\text{rad}$ just rises monotonically, reaching $\sim S_\text{BH}$ and staying there — the information is simply lost.
 
 The difference between "pure final state" and "mixed final state" is the shape of this curve. Reproducing the Page curve from a gravity calculation became the concrete technical goal.

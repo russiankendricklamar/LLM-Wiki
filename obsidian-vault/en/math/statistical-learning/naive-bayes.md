@@ -37,7 +37,7 @@ Even when features are highly correlated (violating the "naive" assumption), Nai
 ## 4. Modern Use Cases in AI
 
 - **Real-time Filtering**: Due to its speed, it is used in production systems to filter millions of messages for toxicity or spam in milliseconds.
-- **Zero-Shot Baseline**: In many [[llm-infra/applications/rag|RAG]] systems, a quick Naive Bayes check can filter out irrelevant documents before they are sent to an expensive LLM.
+- **Zero-Shot Baseline**: In many [[llm-infra/applications/rag|RAG]] systems, a quick Naive Bayes check can filter out irrelevant documents before they are sent to an expensive [[llm]].
 
 ## Related Topics
 

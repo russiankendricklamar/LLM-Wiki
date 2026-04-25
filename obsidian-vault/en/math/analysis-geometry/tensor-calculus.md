@@ -8,7 +8,7 @@ slug: "tensor-calculus"
 
 # Tensor Calculus: Invariant Descriptions of Curvature and Flow
 
-**Tensor Calculus** provides the formal language to describe geometric and physical quantities that are independent of coordinate choice on a **Smooth Manifold** $M$. It generalizes linear algebra to the case where the basis changes from point to point, requiring a precise distinction between vectors, covectors, and their higher-order combinations.
+**Tensor Calculus** provides the formal language to describe geometric and physical quantities that are independent of coordinate choice on a **Smooth [[manifold-learning|Manifold]]** $M$. It generalizes linear algebra to the case where the basis changes from point to point, requiring a precise distinction between vectors, covectors, and their higher-order combinations.
 
 ## 1. Multilinear Algebra and Tensor Spaces
 
@@ -29,7 +29,7 @@ A special class of tensors are **Antisymmetric Tensors**, which form the basis o
 
 The **Metric Tensor** $g_{\mu\nu}$ defines the geometry (distance, angle). 
 - **Determinant and Volume**: The volume element is given by $dV = \sqrt{|g|} d^n x$.
-- **Levi-Civita Symbol ($\epsilon_{\mu\nu\rho\sigma}$)**: A totally antisymmetric pseudo-tensor used to define cross products and the **Hodge Dual** ($*$). The Hodge star allows us to relate $k$-forms to $(n-k)$-forms, which is essential for defining the Laplacian operator on curved spaces.
+- **Levi-Civita Symbol ($\epsilon_{\mu\nu\rho\sigma}$)**: A totally antisymmetric pseudo-tensor used to define cross products and the **Hodge Dual** ($*$). The Hodge star allows us to relate $k$-forms to $(n-k)$-forms, which is essential for defining the [[spectral-graph-theory|Laplacian]] operator on curved spaces.
 
 ## 4. The Lie Derivative ($\mathcal{L}_X$)
 

@@ -8,7 +8,7 @@ slug: "neural-sdes-finance"
 
 # Neural SDEs in Finance
 
-**Neural Stochastic Differential Equations (Neural SDEs)** represent the ultimate fusion of deep learning and mathematical finance. They generalize both **Neural ODEs** and classical stochastic models (like Heston or SABR) by using neural networks to approximate the drift and diffusion coefficients of an SDE.
+**Neural Stochastic Differential Equations (Neural SDEs)** represent the ultimate fusion of deep learning and mathematical finance. They generalize both **Neural ODEs** and classical stochastic models (like Heston or SABR) by using neural networks to approximate the drift and diffusion coefficients of an [[stochastic-differential-equations|SDE]].
 
 ## The Mathematical Framework
 

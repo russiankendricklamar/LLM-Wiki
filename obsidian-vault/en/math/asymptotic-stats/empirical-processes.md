@@ -55,7 +55,7 @@ $$N(\mathcal{F}, L^2(P), \varepsilon) = \min\left\{ k: \exists f_1, \ldots, f_k 
 
 The logarithm of these quantities controls the modulus of continuity of $G_n$ in $\ell^\infty(\mathcal{F})$.
 
-## Donsker Condition via Entropy Integral
+## Donsker Condition via [[shannon-entropy|Entropy]] Integral
 
 A **sufficient condition** for a class to be Donsker is:
 

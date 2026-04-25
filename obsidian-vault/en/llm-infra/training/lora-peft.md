@@ -6,7 +6,7 @@ lang: "en"
 slug: "lora-peft"
 ---
 
-# LoRA and Parameter-Efficient Fine-Tuning (PEFT)
+# LoRA and Parameter-Efficient [[fine-tuning]] (PEFT)
 
 **LoRA** (Low-Rank Adaptation) is the most popular technique for **Parameter-Efficient Fine-Tuning (PEFT)**. It allows adapting a giant model (e.g., Llama 70B) to a specific task by training only a tiny fraction (often <1%) of its parameters, while keeping the original weights frozen.
 
@@ -22,7 +22,7 @@ where $B \in \mathbb{R}^{d \times r}$ and $A \in \mathbb{R}^{r \times d}$ with *
 ## Advantages of LoRA
 
 1.  **VRAM Savings**: We only need to store gradients and optimizer states for the tiny $A$ and $B$ matrices.
-2.  **Zero Inference Latency**: At deployment, the learned matrices can be merged back into the base weights: $W_{merged} = W_{base} + BA$. The model remains a standard Transformer.
+2.  **Zero Inference Latency**: At deployment, the learned matrices can be merged back into the base weights: $W_{merged} = W_{base} + BA$. The model remains a standard [[transformer-architecture|Transformer]].
 3.  **Portability**: A "LoRA adapter" for a 7B model is typically only 10MB-100MB, compared to 14GB for a full checkpoint.
 4.  **Multi-tenancy**: You can keep one copy of the base model in memory and swap tiny adapters for different users or tasks instantly.
 
@@ -31,7 +31,7 @@ where $B \in \mathbb{R}^{d \times r}$ and $A \in \mathbb{R}^{r \times d}$ with *
 - **Prefix Tuning**: Adding learnable "virtual tokens" to the beginning of the sequence.
 - **Prompt Tuning**: Similar to prefix tuning but only at the input layer.
 - **IA3**: Scaling internal activations by learnable vectors.
-- **QLoRA**: Combining LoRA with 4-bit quantization (NF4) to fine-tune 70B models on a single consumer GPU (24GB VRAM).
+- **QLoRA**: Combining LoRA with 4-bit [[quantization]] (NF4) to fine-tune 70B models on a single consumer [[inference-serving|GPU]] (24GB VRAM).
 
 ## Visualization: Rank vs. Parameters
 

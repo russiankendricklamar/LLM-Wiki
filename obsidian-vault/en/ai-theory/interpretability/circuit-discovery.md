@@ -17,7 +17,7 @@ Olah et al. (2020) proposed that neural networks consist of **features** (direct
 
 ## [[attention-mechanisms|Attention]] Head Roles
 
-Before finding circuits, individual attention heads must be characterised. Key roles discovered in GPT-2 and similar models:
+Before finding circuits, individual [[attention-mechanisms|attention]] heads must be characterised. Key roles discovered in GPT-2 and similar models:
 
 **Induction heads** (Olsson et al. 2022). Given pattern `[A][B]...[A]`, predict `[B]`. Composed of two heads: a "previous token head" (attends to token at position $-1$) and an "induction head" (attends to the token after the previous occurrence of the current token). Responsible for in-context learning.
 
@@ -85,7 +85,7 @@ Manual circuit discovery is slow and expert-intensive. **ACDC** (Conmy et al. 20
 
 ## Superposition and Polysemanticity
 
-A challenge for circuit discovery: transformer neurons are **polysemantic** — a single neuron activates for multiple unrelated concepts. This is a consequence of **superposition**: networks represent more features than they have dimensions by encoding features as near-orthogonal directions rather than basis vectors.
+A challenge for circuit discovery: [[transformer-architecture|transformer]] neurons are **polysemantic** — a single neuron activates for multiple unrelated concepts. This is a consequence of **superposition**: networks represent more features than they have dimensions by encoding features as near-orthogonal directions rather than basis vectors.
 
 This makes circuits harder to read — a single neuron participating in a circuit may be implementing multiple features simultaneously.
 

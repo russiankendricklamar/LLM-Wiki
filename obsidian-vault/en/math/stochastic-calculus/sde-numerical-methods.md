@@ -13,7 +13,7 @@ Stochastic differential equations (SDEs) rarely admit closed-form solutions; num
 
 ## The Standard [[stochastic-differential-equations|SDE]]
 
-Consider an Itô SDE:
+Consider an Itô [[stochastic-differential-equations|SDE]]:
 $$dX_t = \mu(X_t, t)\,dt + \sigma(X_t, t)\,dW_t,$$
 with initial condition $X_0 = x_0$. The drift $\mu$ and diffusion $\sigma$ are assumed sufficiently regular. Our goal is to compute $X_{t_0}, X_{t_1}, \ldots, X_{t_N}$ on a time grid $0 = t_0 < t_1 < \cdots < t_N = T$ with uniform step $h = T/N$.
 

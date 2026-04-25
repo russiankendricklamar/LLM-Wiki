@@ -10,7 +10,7 @@ slug: "vision-transformers"
 
 ## Что это такое
 
-Vision [[transformer-architecture|Transformer]] (ViT) представляет собой смену парадигмы в компьютерном зрении, доказывая, что архитектура **Transformer**, изначально разработанная для NLP, может превзойти сверточные нейронные сети (CNN) при масштабировании на больших наборах данных.
+Vision [[transformer-architecture|Transformer]] (ViT) представляет собой смену парадигмы в компьютерном зрении, доказывая, что архитектура **[[transformer-architecture|Transformer]]**, изначально разработанная для NLP, может превзойти сверточные нейронные сети (CNN) при масштабировании на больших наборах данных.
 
 Основная философия ViT: **«Изображение стоит 16x16 слов»**. Вместо использования локальных фильтров (сверток) для извлечения признаков, ViT рассматривает изображение как последовательность плоских патчей и применяет тот же механизм self-attention, что и в BERT или GPT.
 
@@ -35,7 +35,7 @@ $$z_0 = [x_{\text{class}}; x_p^1 E; x_p^2 E; \dots; x_p^N E] + E_{pos}$$
 где $E \in \mathbb{R}^{(P^2 C) \times D}$ — матрица проекции патчей, а $E_{pos} \in \mathbb{R}^{(N+1) \times D}$ — позиционные эмбеддинги.
 
 Self-attention позволяет каждому патчу «смотреть» на любой другой патч:
-$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+$$\text{[[attention-mechanisms|Attention]]}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
 ## ViT vs. CNN
 

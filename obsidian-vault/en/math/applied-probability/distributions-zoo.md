@@ -23,7 +23,7 @@ Single binary trial.
 - **Mean / variance.** $\mathbb{E}[X] = p$, $\operatorname{Var}(X) = p(1-p)$.
 - **MGF.** $M(t) = (1-p) + pe^t$.
 - **Exponential family.** $\eta = \log\frac{p}{1-p}$, $T(x) = x$, $A(\eta) = \log(1+e^\eta)$.
-- **MaxEnt.** Maximum entropy on $\{0,1\}$ with fixed mean.
+- **MaxEnt.** Maximum [[shannon-entropy|entropy]] on $\{0,1\}$ with fixed mean.
 
 ### Binomial($n, p$)
 

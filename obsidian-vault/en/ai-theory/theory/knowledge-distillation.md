@@ -60,7 +60,7 @@ $$
 \mathcal{L}_{feat} = \|W h_s - h_t\|_2^2
 $$
 
-**Pedagogical Knowledge Distillation (PKD)** extends this by distilling [[attention-mechanisms|attention]] maps, encouraging the student to attend to the same regions as the teacher. This is particularly effective for vision transformers and attention-based architectures.
+**Pedagogical Knowledge Distillation (PKD)** extends this by distilling [[attention-mechanisms|attention]] maps, encouraging the student to attend to the same regions as the teacher. This is particularly effective for vision transformers and [[attention-mechanisms|attention]]-based architectures.
 
 The benefit: student learns not just what to predict, but *how* the teacher solves the problem internally—the computational strategy, feature hierarchy, and decision path.
 
@@ -99,7 +99,7 @@ This directly penalizes divergence from the teacher's policy while encouraging l
 
 ## [[quantization]]-aware distillation
 
-**QAT (Quantization-Aware Training)** combines distillation with low-precision weights. The student is quantized (INT8 or INT4) while the teacher runs in full precision. Distillation loss helps the student overcome quantization error:
+**QAT ([[quantization]]-Aware Training)** combines distillation with low-precision weights. The student is quantized (INT8 or INT4) while the teacher runs in full precision. Distillation loss helps the student overcome quantization error:
 
 $$
 \mathcal{L}_{QAT} = \mathcal{L}_{task}(\text{quantize}(\theta_s), y) + \gamma \mathcal{L}_{KL}(p_T \| p_s)

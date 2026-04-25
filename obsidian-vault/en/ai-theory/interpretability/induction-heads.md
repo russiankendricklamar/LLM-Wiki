@@ -39,7 +39,7 @@ In an induction head:
 - The **Key (K)** represents the *previous* token at some earlier position.
 - The **Value (V)** carries the identity of the token at that earlier position.
 
-The circuit is completed when the attention score is high for positions where the token at $t-1$ matches the current token.
+The circuit is completed when the [[attention-mechanisms|attention]] score is high for positions where the token at $t-1$ matches the current token.
 
 ## Phase Transition in Training
 

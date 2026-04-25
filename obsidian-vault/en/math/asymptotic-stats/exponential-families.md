@@ -78,7 +78,7 @@ $$
 
 So **the Fisher information matrix coincides with the Hessian of the log-partition function**. This is one of the most elegant facts in parametric statistics. Consequences:
 
-- $A(\eta)$ defines the Fisher–Rao Riemannian metric on the manifold $\mathcal{M}$.
+- $A(\eta)$ defines the Fisher–Rao Riemannian metric on the [[manifold-learning|manifold]] $\mathcal{M}$.
 - The MLE is asymptotically efficient: $\sqrt n (\hat\eta_n - \eta_0) \xrightarrow{d} \mathcal{N}(0, I(\eta_0)^{-1})$.
 
 ## 6. Conjugate priors
@@ -103,7 +103,7 @@ This is what makes EM and variational inference algebraically closed for GMMs, L
 
 This explains why exponential families are the universal object: they are the only families for which the parametric information compresses into a finite number of summaries, no matter how much data you collect.
 
-## 8. Maximum entropy
+## 8. Maximum [[shannon-entropy|entropy]]
 
 **Theorem.** Among all distributions on $\mathcal{X}$ with fixed expectations $\mathbb{E}[T_j(X)] = \mu_j$ for $j=1,\dots,d$, the maximum of differential entropy is achieved by the **exponential family** with sufficient statistic $T = (T_1,\dots,T_d)$.
 
@@ -141,7 +141,7 @@ All of these are convex MLE problems; IRLS (iteratively reweighted least squares
 
 ## 11. Variational inference
 
-In modern ML, exponential families power **mean-field VI**: the approximate posterior is parameterised by a natural parameter $\eta$, and ELBO optimisation reduces to coordinate updates over $\eta$-blocks (CAVI). Blei et al. (2017) showed that if the variational family is exponential and updates are performed in mean-parameter coordinates, CAVI is exactly natural gradient descent in statistical geometry.
+In modern ML, exponential families power **mean-field VI**: the approximate posterior is parameterised by a natural parameter $\eta$, and ELBO optimisation reduces to coordinate updates over $\eta$-blocks (CAVI). Blei et al. (2017) showed that if the variational family is exponential and updates are performed in mean-parameter coordinates, CAVI is exactly natural [[convex-optimization|gradient descent]] in statistical geometry.
 
 ## 12. Visualisation: mean → natural parameter
 

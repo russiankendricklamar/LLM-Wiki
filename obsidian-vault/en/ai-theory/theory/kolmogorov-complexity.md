@@ -77,7 +77,7 @@ This is the a priori probability assigned to $x$ by the universal prior. It sati
 
 At least $2^n - 2^{n-c}$ strings of length $n$ are $c$-incompressible (most strings are random).
 
-**Connection to Shannon entropy.** For i.i.d. sequences $x^n = x_1\ldots x_n$ drawn from distribution $P$ with entropy $H$:
+**Connection to Shannon [[shannon-entropy|entropy]].** For i.i.d. sequences $x^n = x_1\ldots x_n$ drawn from distribution $P$ with entropy $H$:
 
 $$K(x^n) \approx n H(X) + O(\log n)$$
 

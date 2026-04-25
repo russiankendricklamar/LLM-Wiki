@@ -17,11 +17,11 @@ growth: "seedling"
 
 Даны эмбеддинги $\mathbf{a}, \mathbf{b} \in \mathbb{R}^d$:
 
-- **Косинусное сходство**: $\text{sim}(\mathbf{a}, \mathbf{b}) = \frac{\mathbf{a} \cdot \mathbf{b}}{|\mathbf{a}| \cdot |\mathbf{b}|}$. Для единичных нормализованных векторов (стандарт в LLM workflow), косинусное сходство равно скалярному произведению и быстрее всего вычисляется на [[inference-serving|GPU]].
+- **Косинусное сходство**: $\text{sim}(\mathbf{a}, \mathbf{b}) = \frac{\mathbf{a} \cdot \mathbf{b}}{|\mathbf{a}| \cdot |\mathbf{b}|}$. Для единичных нормализованных векторов (стандарт в [[llm|LLM]] workflow), косинусное сходство равно скалярному произведению и быстрее всего вычисляется на [[inference-serving|GPU]].
 
 - **L2-расстояние**: $d_2(\mathbf{a}, \mathbf{b}) = \sqrt{\sum_{i=1}^d (a_i - b_i)^2}$. Находит точных соседей, но менее естественно для эмбеддингов.
 
-- **Скалярное произведение**: $\langle \mathbf{a}, \mathbf{b} \rangle = \mathbf{a}^T \mathbf{b}$. Идентично косинусу для нормализованных векторов; родное для GPU матрица-матрица операций.
+- **Скалярное произведение**: $\langle \mathbf{a}, \mathbf{b} \rangle = \mathbf{a}^T \mathbf{b}$. Идентично косинусу для нормализованных векторов; родное для [[inference-serving|GPU]] матрица-матрица операций.
 
 **Соглашение**: храним единичные нормализованные эмбеддинги; вычисляем скалярное произведение для скорости.
 
@@ -131,7 +131,7 @@ Facebook AI Similarity Search библиотека:
 - Qdrant/Weaviate: open-source, persistent, полный контроль, управляй сам.
 - pgvector: используй существующий Postgres; медленнее но тесная интеграция, native ACID.
 
-## Роль в RAG
+## Роль в [[rag|RAG]]
 
 [[rag|RAG]] pipeline:
 

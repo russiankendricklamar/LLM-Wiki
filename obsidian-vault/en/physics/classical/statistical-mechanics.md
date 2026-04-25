@@ -34,7 +34,7 @@ $$Z(\beta) = \sum_{i=1}^{\Omega} e^{-\beta E_i}$$
 All thermodynamic quantities follow from $Z$:
 - Mean energy: $\langle E \rangle = -\frac{\partial \ln Z}{\partial \beta}$
 - Helmholtz free energy: $F = -kT \ln Z$
-- Entropy: $S = -\left(\frac{\partial F}{\partial T}\right)_V = k\beta^2 \frac{\partial F}{\partial \beta}$
+- [[gravitational-entropy|Entropy]]: $S = -\left(\frac{\partial F}{\partial T}\right)_V = k\beta^2 \frac{\partial F}{\partial \beta}$
 - Pressure: $P = -\left(\frac{\partial F}{\partial V}\right)_T$
 
 The beauty of this approach: all thermodynamics is encoded in a single function $Z$.

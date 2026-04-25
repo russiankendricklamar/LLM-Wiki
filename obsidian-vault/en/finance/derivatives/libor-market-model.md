@@ -41,7 +41,7 @@ $$
 \mu_k(t) = -\sum_{j=k+1}^{N-1} \frac{\delta_j L_j(t)}{1 + \delta_j L_j(t)} \, \rho_{kj} \, \sigma_k(t) \, \sigma_j(t)
 $$
 
-where $\rho_{kj}$ is the instantaneous correlation between $L_k$ and $L_j$. The full SDE becomes:
+where $\rho_{kj}$ is the instantaneous correlation between $L_k$ and $L_j$. The full [[stochastic-differential-equations|SDE]] becomes:
 
 $$
 \frac{dL_k(t)}{L_k(t)} = \mu_k(t)\, dt + \sigma_k(t) \cdot dW_k^{T_N}(t)

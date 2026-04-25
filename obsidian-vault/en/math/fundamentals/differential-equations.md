@@ -59,7 +59,7 @@ graph TD
 
 ## Related Topics
 
-[[geometric-brownian-motion]] — the primary SDE in finance  
+[[geometric-brownian-motion]] — the primary [[stochastic-differential-equations|SDE]] in finance  
 [[ricci-flow]] — a PDE that evolves geometry itself  
-backpropagation — viewed as a discrete-time ODE solver
+[[automatic-differentiation|backpropagation]] — viewed as a discrete-time ODE solver
 ---

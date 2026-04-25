@@ -425,3 +425,4 @@ physics/quantum/uncertainty-principle.md
 physics/quantum/goldstone-modes.md
 physics/quantum/wave-particle-duality.md
 physics/quantum/anomalies.md
+ai-physics/kuramoto-model.md

@@ -8,7 +8,7 @@ slug: "nonlinear-shrinkage"
 
 # Nonlinear Shrinkage of Covariance (Ledoit-Wolf)
 
-In large-scale portfolio optimization (e.g., managing a 5000-stock universe), the **sample covariance matrix** $S$ is a disastrous estimator. Due to the "Curse of Dimensionality," when the number of assets $N$ is large relative to the number of observations $T$, the eigenvalues of $S$ become extremely distorted. **Nonlinear Shrinkage** (Ledoit & Wolf, 2017) is the cutting-edge solution based on **Random Matrix Theory (RMT)**.
+In large-scale portfolio optimization (e.g., managing a 5000-stock universe), the **sample covariance matrix** $S$ is a disastrous estimator. Due to the "Curse of Dimensionality," when the number of assets $N$ is large relative to the number of observations $T$, the [[spectral-theory-operators|eigenvalues]] of $S$ become extremely distorted. **Nonlinear Shrinkage** (Ledoit & Wolf, 2017) is the cutting-edge solution based on **Random Matrix Theory (RMT)**.
 
 ## The Eigenvalue Distortion (Marchenko-Pastur)
 

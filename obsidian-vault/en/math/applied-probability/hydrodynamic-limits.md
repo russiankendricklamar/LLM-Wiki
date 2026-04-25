@@ -26,7 +26,7 @@ As $\epsilon \to 0$, this random measure converges to a deterministic density $\
 $$\partial_t \rho = \text{div}(D(\rho) \nabla \rho)$$
 where $D(\rho)$ is the **diffusion coefficient**, calculated from the microscopic interaction rules.
 
-## Entropy Method and Large Deviations
+## [[shannon-entropy|Entropy]] Method and Large Deviations
 
 Proving hydrodynamic limits often requires showing that the system stays near "local equilibrium."
 - **Entropy Method (Guo-Papanicolaou-Varadhan)**: Uses the relative entropy between the true particle distribution and the local Gibbs measure to prove convergence.

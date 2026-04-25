@@ -26,7 +26,7 @@ slug: "equivariant-nn"
   "xAxis": "training_samples",
   "data": [
     {"training_samples": 10, "NequIP": 0.52, "SchNet": 0.91, "[[transformer-architecture|MLP]]": 0.95},
-    {"training_samples": 25, "NequIP": 0.31, "SchNet": 0.74, "MLP": 0.89},
+    {"training_samples": 25, "NequIP": 0.31, "SchNet": 0.74, "[[transformer-architecture|MLP]]": 0.89},
     {"training_samples": 50, "NequIP": 0.18, "SchNet": 0.58, "MLP": 0.79},
     {"training_samples": 100, "NequIP": 0.09, "SchNet": 0.42, "MLP": 0.67},
     {"training_samples": 250, "NequIP": 0.04, "SchNet": 0.27, "MLP": 0.51},

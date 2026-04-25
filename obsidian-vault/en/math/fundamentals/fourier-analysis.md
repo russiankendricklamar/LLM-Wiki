@@ -32,7 +32,7 @@ In the digital world, we use the **Discrete Fourier Transform (DFT)**.
 ## 4. Why it Matters in AI and Science
 
 ### A. Spectral Graph Theory and GNNs
-In **Geometric Deep Learning**, we use the Fourier transform to perform "convolutions" on graphs. By finding the eigenvalues of the Graph Laplacian, we can filter noise from network data just like we filter noise from audio.
+In **Geometric Deep Learning**, we use the Fourier transform to perform "convolutions" on graphs. By finding the [[spectral-theory-operators|eigenvalues]] of the Graph [[spectral-graph-theory|Laplacian]], we can filter noise from network data just like we filter noise from audio.
 
 ### B. Computer Vision
 JPEG compression works by discarding high-frequency components of an image (details the human eye can't see) using the Discrete Cosine Transform (a relative of Fourier).

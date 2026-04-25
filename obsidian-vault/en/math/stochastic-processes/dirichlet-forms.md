@@ -10,7 +10,7 @@ slug: "dirichlet-forms"
 
 Dirichlet forms provide a powerful functional-analytic framework for studying **Markov processes**. They establish a one-to-one correspondence between a class of stochastic processes (symmetric Markov processes) and certain closed quadratic forms on a Hilbert space.
 
-## The Core Concept: Energy and Entropy
+## The Core Concept: Energy and [[shannon-entropy|Entropy]]
 
 A Dirichlet form is a quadratic form $\mathcal{E}(u, v)$ on $L^2(X, \mu)$ that can be thought of as the **energy** of a function. The classic example is the Dirichlet integral on $\mathbb{R}^n$:
 $$\mathcal{E}(u, u) = \int_{\mathbb{R}^n} |\nabla u|^2 dx$$

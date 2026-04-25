@@ -49,7 +49,7 @@ In atomic spectroscopy, the finite lifetime $\tau$ of an excited state implies a
 ## Connections to Information Theory & Holography
 The entropic uncertainty relation is the correct information-theoretic formulation: it bounds the sum of Shannon entropies of complementary measurement outcomes from below, independent of the state. This bound is tight and can be strengthened in the presence of quantum memory: if a party $B$ holds a quantum memory correlated with $A$'s system, then $H(X|B) + H(Z|B) \geq \log_2(1/c)$, with reductions possible when $B$ and $A$ share entanglement.
 
-In holographic scenarios, the uncertainty principle manifests as the GUP, which implies a minimum length at the Planck scale. This fundamentally modifies the density of states and the entropy of black holes, providing a natural UV cutoff that renders the Bekenstein-Hawking entropy finite. The Planck-scale modification of phase space also alters thermodynamics, potentially connecting the GUP to the holographic entropy bound.
+In holographic scenarios, the uncertainty principle manifests as the GUP, which implies a minimum length at the Planck scale. This fundamentally modifies the density of states and the [[gravitational-entropy|entropy]] of black holes, providing a natural UV cutoff that renders the Bekenstein-Hawking entropy finite. The Planck-scale modification of phase space also alters thermodynamics, potentially connecting the GUP to the holographic entropy bound.
 
 ## See Also
 * [[wave-particle-duality]]

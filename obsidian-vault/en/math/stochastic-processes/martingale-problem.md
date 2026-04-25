@@ -25,7 +25,7 @@ is a $P$-martingale with respect to the canonical filtration.
 
 ## Connection to SDEs
 
-Consider the SDE $dX_t = b(X_t)\,dt + \sigma(X_t)\,dW_t$ in $\mathbb{R}^d$. Applying Ito's formula to any $f \in C^2_c(\mathbb{R}^d)$ yields
+Consider the [[stochastic-differential-equations|SDE]] $dX_t = b(X_t)\,dt + \sigma(X_t)\,dW_t$ in $\mathbb{R}^d$. Applying Ito's formula to any $f \in C^2_c(\mathbb{R}^d)$ yields
 
 $$f(X_t) - f(X_0) - \int_0^t Lf(X_s)\,ds = \text{local martingale},$$
 
