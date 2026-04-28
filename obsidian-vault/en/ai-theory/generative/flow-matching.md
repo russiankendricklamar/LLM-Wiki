@@ -1,66 +1,46 @@
 ---
 title: "Flow Matching"
-category: "AI Theory"
-order: 15
-lang: "en"
-slug: "flow-matching"
+category: "Generative Models"
+date: 2026-04-28
+tags:
+  - generative-models
+  - optimal-transport
+  - diffusion
+  - ai-theory
+aliases:
+  - Flow Matching
+  - Continuous Normalizing Flows
 ---
 
 # Flow Matching
 
-## What Is It
+**Flow Matching (FM)** is a state-of-the-art framework for training Continuous Normalizing Flows (CNFs). It has recently emerged as a powerful successor to Diffusion Models, powering models like **Stable Diffusion 3**, **Flux**, and **Sora**.
 
-Flow Matching (FM) is a generative modeling framework that unifies and generalizes Diffusion Models and Normalizing Flows. While diffusion models rely on a stochastic differential equation ([[stochastic-differential-equations|SDE]]) to transform noise into data, Flow Matching focuses on learning the **deterministic vector field** that generates a probability flow.
+## Beyond Diffusion
 
-In essence, Flow Matching defines a path in the space of probability distributions $p_t$ that connects a simple noise distribution $p_0$ (e.g., Gaussian) to the data distribution $p_1$. Instead of simulating complex diffusion steps, we train a neural network $v_\theta(x, t)$ to "match" the ideal velocity that would move samples along this path.
+Traditional Diffusion Models learn to reverse a stochastic process (SDE) by predicting noise (the score function). This often results in curved, complex trajectories that require many sampling steps.
 
-## Visualization
+Flow Matching, instead, learns to approximate a **vector field** $v_t(x)$ that transports a simple base distribution (noise) $p_0$ to the complex data distribution $p_1$ along efficient paths.
 
-```chart
-{
-  "type": "line",
-  "xAxis": "t",
-  "data": [
-    {"t": 0.0, "path": 0.0, "variance": 1.0},
-    {"t": 0.2, "path": 0.2, "variance": 0.8},
-    {"t": 0.4, "path": 0.4, "variance": 0.6},
-    {"t": 0.6, "path": 0.6, "variance": 0.4},
-    {"t": 0.8, "path": 0.8, "variance": 0.2},
-    {"t": 1.0, "path": 1.0, "variance": 0.0}
-  ],
-  "lines": [
-    {"dataKey": "path", "stroke": "#3b82f6", "name": "Optimal Transport Path"},
-    {"dataKey": "variance", "stroke": "#ef4444", "name": "Noise Level"}
-  ]
-}
-```
+## Mathematical Foundation
 
-## Mathematical Framework
+Given a trajectory $x_t$ starting from noise $x_0 \sim p_0$ and ending at data $x_1 \sim p_1$, FM seeks a vector field $v_t$ such that:
+$$ \frac{dx_t}{dt} = v_t(x_t) $$
 
-The core idea is to find a vector field $v_t(x)$ such that the Ordinary Differential Equation (ODE) $\frac{dx}{dt} = v_t(x)$ pushes the distribution $p_0$ to $p_1$.
+### Optimal Transport Paths
+A key innovation in FM is the use of **Conditional Flow Matching**. By choosing a linear interpolation:
+$$ x_t = (1 - t)x_0 + t x_1 $$
+we obtain **straight-line trajectories**. This aligns with the principles of **Optimal Transport**, allowing the model to bridge the gap between noise and data in the most efficient way possible.
 
-**Optimal Transport (OT) Displacement**: In the simplest case of "Conditional Flow Matching", we define a straight-line path between a noise sample $x_0 \sim p_0$ and a data sample $x_1 \sim p_1$:
+## Why Flow Matching?
 
-$$x_t = (1 - t)x_0 + t x_1$$
+1. **Efficiency:** Straight paths allow for much faster sampling. Higher-quality images can be generated in fewer steps compared to traditional DDPMs.
+2. **ODE-based Inference:** Since the process is a deterministic ODE, we can use advanced numerical solvers with error control.
+3. **Simpler Training:** FM provides a simulation-free objective that is often more stable to train than score-matching or GANs.
 
-The velocity of this path is constant: $\dot{x}_t = x_1 - x_0$. 
-
-**Flow Matching Objective**: We train a network $v_\theta(x, t)$ to minimize the expected distance between its prediction and the ideal velocity:
-
-$$\mathcal{L}_{\text{CFM}}(\theta) = \mathbb{E}_{t, q(x_1), p(x_0)} \| v_\theta(x_t, t) - (x_1 - x_0) \|^2$$
-
-At inference time, we generate data by solving the ODE:
-$$x_1 = x_0 + \int_0^1 v_\theta(x_t, t) dt$$
-
-## Why It Matters (vs Diffusion)
-
-1. **Straight Paths**: Unlike Diffusion, which takes a "curvy" stochastic path, Flow Matching (specifically Optimal Transport FM) learns to move in straight lines. This makes the ODE much easier to solve.
-2. **Speed**: Because the paths are straighter, we can use much larger steps during inference. Models like *Flux* can produce high-quality images in just 1-4 steps.
-3. **No [[stochastic-differential-equations|SDE]]**: FM is fundamentally deterministic. While you can add noise (stochasticity), the base formulation is a clean ODE, making it more stable and easier to analyze.
+## Current Impact
+- **Rectified Flows:** A specific type of FM used in industry-leading image generators to achieve high fidelity with minimal inference cost.
+- **Consistency:** FM's smooth vector fields are ideal for video generation, ensuring that objects don't "flicker" or morph unnaturally between frames.
 
 ## Related Topics
-
-[[diffusion-models]] — the stochastic predecessor  
-[[normalizing-flows]] — the deterministic foundation  
-[[neural-odes]] — the underlying mathematical engine  
-[[generative-models]] — the broader family
+[[optimal-transport|Optimal Transport]] | [[sde-ito|SDE & Itô]] | [[transformer-architecture|DiT (Diffusion Transformers)]]

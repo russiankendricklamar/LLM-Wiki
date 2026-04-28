@@ -1,80 +1,66 @@
 ---
-title: "Spectral Graph Theory"
-category: "Analysis & Geometry"
-order: 3
-lang: "en"
-slug: "spectral-graph-theory"
+title: Spectral Graph Theory
+date: 2026-04-28
+tags:
+  - math
+  - graphs
+  - spectral-theory
+  - gnn
+aliases:
+  - Graph Laplacian
 ---
 
 # Spectral Graph Theory
 
-Spectral Graph Theory is the study of the properties of a graph in connection to the [[spectral-theory-operators|eigenvalues]] and eigenvectors of matrices associated with it, such as its **Adjacency Matrix** or **Laplacian Matrix**. It provides the mathematical foundation for Graph Neural Networks (GNNs), community detection, and network analysis.
+Spectral Graph Theory studies the properties of graphs through the eigenvalues (spectrum) and eigenvectors of their matrices (primarily the **Laplacian**). it serves as a bridge between discrete mathematics (graph structure) and continuous analysis. In machine learning, it is the foundation for **Spectral Clustering** and **Graph Convolutional Networks (GCN)**.
 
-## Key Matrices
+## The Graph Laplacian
 
-Given a graph $G = (V, E)$:
+Let $G = (V, E)$ be an undirected graph with $n$ vertices.
+1. **Adjacency Matrix $A$**: $A_{ij} = 1$ if there is an edge $(i, j)$, and $0$ otherwise.
+2. **Degree Matrix $D$**: A diagonal matrix where $D_{ii} = \sum_j A_{ij}$ (the degree of vertex $i$).
 
-### 1. Adjacency Matrix ($A$)
-$A_{ij} = 1$ if there is an edge between node $i$ and $j$, and $0$ otherwise.
+The **Unnormalized Laplacian** is defined as:
+$$
+L = D - A
+$$
 
-### 2. Degree Matrix ($D$)
-A diagonal matrix where $D_{ii} = \sum_j A_{ij}$ is the degree of node $i$.
+### Properties of the Laplacian:
+- $L$ is a symmetric and positive semi-definite matrix.
+- Eigenvalues: $0 = \lambda_1 \le \lambda_2 \le \dots \le \lambda_n$.
+- The number of eigenvalues equal to 0 corresponds to the number of connected components in the graph.
+- **$\lambda_2$ (Fiedler Value)**: Describes the "algebraic connectivity" of the graph. The larger it is, the harder it is to cut the graph into two pieces.
 
-### 3. Graph Laplacian ($L$)
-The Laplacian is defined as:
-$$L = D - A$$
-The normalized version is $\mathcal{L} = D^{-1/2} L D^{-1/2} = I - D^{-1/2} A D^{-1/2}$.
+## Spectral Decomposition and the Laplace-Beltrami Operator
 
-## Properties of the Laplacian
+The Graph Laplacian is a discrete analog of the Laplace operator $\Delta f = \nabla^2 f$ in continuous space. The eigenvectors of the Graph Laplacian can be viewed as "harmonics" or "frequencies" on the graph:
+- Eigenvectors corresponding to small $\lambda$ change slowly across the graph (low frequencies).
+- Eigenvectors corresponding to large $\lambda$ change rapidly (high frequencies).
 
-The Laplacian is the discrete version of the Laplace-Beltrami operator.
-- **Positive Semi-definiteness**: $L$ is always symmetric and positive semi-definite. Its [[spectral-theory-operators|eigenvalues]] are $\lambda_0 \leq \lambda_1 \leq \dots \leq \lambda_{n-1}$.
-- **Connectivity**: The smallest eigenvalue $\lambda_0$ is always 0. The number of zero eigenvalues equals the number of connected components in the graph.
-- **Algebraic Connectivity**: The second smallest eigenvalue $\lambda_1$ (Fiedler value) measures how well-connected the graph is.
+## Spectral Graph Convolutions
 
-## Graph Fourier Transform
+Classical convolution in CNNs is multiplication in the Fourier domain (Convolution Theorem). For a graph, we define the **Graph Fourier Transform** using the eigenvectors $U = [u_1, u_2, \dots, u_n]$ of the Laplacian:
 
-Just as the classical Fourier Transform uses the eigenfunctions of the continuous Laplacian ($\Delta e^{i \omega x} = -\omega^2 e^{i \omega x}$), the **Graph Fourier Transform** uses the eigenvectors $u_l$ of the graph Laplacian:
+$$
+\hat{x} = U^T x
+$$
 
-$$\hat{x}(l) = \sum_{i=1}^N x(i) u_l(i)$$
+The convolution of a signal $x$ with a filter $g_\theta$ is defined as:
+$$
+x \ast_G g_\theta = U g_\theta(\Lambda) U^T x
+$$
+where $g_\theta(\Lambda)$ is a diagonal matrix of filters in the spectral domain.
 
-where $x$ is a signal on the graph (a vector of values on nodes). This allows us to perform "convolutions" on graphs.
+### From Theory to Practice: GCNs
+Computing the full spectral decomposition $U$ costs $O(n^3)$, which is infeasible for large graphs. **Thomas Kipf** proposed approximating the filter $g_\theta$ using 1st-order Chebyshev polynomials, leading to the classic Graph Convolutional Network (GCN) formula:
 
-## Spectral Convolutions and GCNs
+$$
+H^{(l+1)} = \sigma(\tilde{D}^{-1/2} \tilde{A} \tilde{D}^{-1/2} H^{(l)} W^{(l)})
+$$
 
-A convolution on a graph is defined as a multiplication in the spectral domain:
-$$x * g_\theta = U g_\theta(\Lambda) U^T x$$
-where $U$ are the eigenvectors and $\Lambda$ the eigenvalues of $L$. 
-
-Modern **Graph Convolutional Networks (GCNs)** use polynomial approximations of $g_\theta(\Lambda)$ (like Chebyshev polynomials) to avoid the expensive $O(N^3)$ eigendecomposition, making convolutions local and efficient.
-
-## Visualization: Spectral Embedding
-
-```chart
-{
-  "type": "scatter",
-  "xAxis": "v1",
-  "data": [
-    {"v1": -0.5, "v2": 0.2, "label": "Cluster A"},
-    {"v1": -0.4, "v2": 0.1, "label": "Cluster A"},
-    {"v1": 0.4, "v2": -0.1, "label": "Cluster B"},
-    {"v1": 0.5, "v2": -0.2, "label": "Cluster B"}
-  ],
-  "lines": [
-    {"dataKey": "v2", "stroke": "#10b981", "name": "Eigenvector 2 (Fiedler)"}
-  ]
-}
-```
-*Projecting nodes using the first few non-trivial eigenvectors of the Laplacian (Spectral Embedding) naturally reveals the community structure (clusters).*
+where $\tilde{A} = A + I$ (adding self-loops), which effectively acts as a low-pass filter (smoothing) of the signal on the graph.
 
 ## Applications
-
-1.  **Spectral Clustering**: Using Laplacian eigenvectors to partition graphs.
-2.  **GNNs**: Architectures like Defferrard's ChebNet or Kipf & Welling's GCN.
-3.  **Network Robustness**: Evaluating the vulnerability of infrastructure.
-
-## Related Topics
-
-[[graph-neural-networks]] — the primary AI application  
-[[random-matrices]] — behavior of spectra for large random graphs  
-[[manifold-learning]] — discrete vs continuous spectral properties
+1. **Spectral Clustering**: Using the first $k$ eigenvectors for dimensionality reduction and clustering.
+2. **Manifold Learning**: The Laplacian Eigenmaps algorithm for data visualization.
+3. **GNNs**: Spectral filters allow for extracting structural patterns in graphs (molecules, social networks).
