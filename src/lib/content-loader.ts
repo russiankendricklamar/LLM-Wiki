@@ -34,6 +34,22 @@ export interface PageMetadata {
   duration?: string;
 }
 
+export interface CourseLesson {
+  title: string;
+  slug: string;
+}
+
+export interface CourseModule {
+  title: string;
+  lessons: CourseLesson[];
+}
+
+export interface CourseStructure {
+  title: string;
+  slug: string;
+  modules: CourseModule[];
+}
+
 export interface PageContent {
   metadata: PageMetadata;
   content: string;
@@ -112,6 +128,7 @@ export const getAllPages = (): PageContent[] => {
 
     // Detect content type: explicit `type: project` in frontmatter, or path-based fallback
     const isProjectPath = filePath.includes('/projects/') || slug.startsWith('/projects');
+    const isCourse = data.type === 'course' || section === 'courses';
     const type: ContentType = data.type === 'project' || isProjectPath ? 'project' : 'article';
 
     return {
@@ -135,11 +152,73 @@ export const getAllPages = (): PageContent[] => {
         hideOpen: data.hideOpen === true,
         section,
         subsection,
+        courseType: isCourse ? 'course' : undefined,
+        difficulty: data.difficulty,
+        duration: data.duration,
       },
       content
     };
   });
   return _cachedPages;
+};
+
+/**
+ * Parses a course markdown file to extract its modular structure.
+ * Headings (H2/H3) become modules, wikilinks inside them become lessons.
+ */
+export const getCourseStructure = (slug: string, lang: 'en' | 'ru'): CourseStructure | undefined => {
+  const pages = getAllPages().filter(p => p.metadata.lang === lang);
+  const coursePage = pages.find(p => p.metadata.slug === slug);
+  if (!coursePage) return undefined;
+
+  const structure: CourseStructure = {
+    title: coursePage.metadata.title,
+    slug: coursePage.metadata.slug,
+    modules: []
+  };
+
+  // Split content by headings (H2 or H3)
+  const sections = coursePage.content.split(/\n(?=#{2,3}\s)/);
+  
+  for (const section of sections) {
+    const lines = section.trim().split('\n');
+    const headerLine = lines[0];
+    const headerMatch = headerLine.match(/^#{2,3}\s+(.*)$/);
+    
+    if (headerMatch) {
+      const moduleTitle = headerMatch[1].trim();
+      // Skip generic sections
+      if (['Prerequisites', 'Outcomes', 'Course map', 'Capstone project', 'Recommended reading', 'Пререквизиты', 'Результаты', 'Карта курса', 'Курсовой проект', 'Рекомендуемая литература'].includes(moduleTitle)) {
+        continue;
+      }
+
+      const lessons: CourseLesson[] = [];
+      const body = lines.slice(1).join('\n');
+      
+      // Find all wikilinks in this section
+      for (const m of body.matchAll(/\[\[([^\]\n]+?)\]\]/g)) {
+        const fullLink = m[1];
+        const [target, alias] = fullLink.split('|').map(s => s.trim());
+        const resolved = resolveWikilink(target, pages);
+        
+        if (resolved) {
+          lessons.push({
+            title: alias || resolved.metadata.title,
+            slug: resolved.metadata.slug
+          });
+        }
+      }
+
+      if (lessons.length > 0) {
+        structure.modules.push({
+          title: moduleTitle,
+          lessons
+        });
+      }
+    }
+  }
+
+  return structure;
 };
 
 /**

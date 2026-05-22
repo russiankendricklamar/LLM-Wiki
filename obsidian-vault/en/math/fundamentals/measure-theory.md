@@ -43,10 +43,19 @@ This is critical for proving that a neural network's loss will actually converge
 - **Expected Shortfall (ES)**: To calculate risk in the extreme tails (where data is sparse), you need measure theory to define integration over non-smooth distributions.
 - **Continuous-time Martingales**: All of stochastic calculus (Itô's lemma, etc.) is built on top of measure-theoretic probability. Without it, you cannot rigorously define the behavior of prices in continuous time.
 
+## Detailed Sections
+
+For an in-depth study of measure theory and its stochastic applications, refer to:
+- [[sigma-algebra-measurability|$\sigma$-algebras and Measurability]] — defining the "legal" sets
+- [[lebesgue-integral|The Lebesgue Integral]] — modern approach to summation
+- [[radon-nikodym|Radon-Nikodym Theorem]] — the base for changing measures
+- [[lp-spaces|$L^p$ Spaces]] — fundamental function spaces
+- [[kolmogorov-probability-axioms|Kolmogorov Axioms]] — when measure becomes probability
+
 ## Related Topics
 
-probability-theory — measure theory where the total size is 1  
+[[probability-foundations|Probability Theory]] — measure theory where the total size is 1  
 [[frtb-es]] — computing averages over tail measures  
-stochastic-calculus — integrals based on random measures  
+[[stochastic-calculus]] — integrals based on random measures  
 [[martingale]] — a property of measurable functions over time
 ---
