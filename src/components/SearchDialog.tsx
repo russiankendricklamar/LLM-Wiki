@@ -44,22 +44,40 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({ open, onOpenChange, 
     if (!search) return [];
     
     const query = search.toLowerCase();
+    const queryTerms = query.split(/\s+/).filter(t => t.length > 2);
+
     return allPages
       .map(page => {
         let score = 0;
         const title = page.metadata.title.toLowerCase();
         const content = page.content.toLowerCase();
+        const category = page.metadata.category.toLowerCase();
         
-        if (title === query) score += 100;
-        else if (title.startsWith(query)) score += 50;
-        else if (title.includes(query)) score += 30;
+        // 1. Title Match (Highest priority)
+        if (title === query) score += 200;
+        else if (title.startsWith(query)) score += 100;
+        else if (title.includes(query)) score += 50;
         
-        const contentMatches = (content.match(new RegExp(query, 'g')) || []).length;
-        score += Math.min(contentMatches, 20); // Cap content score
+        // 2. Term proximity in title
+        queryTerms.forEach(term => {
+          if (title.includes(term)) score += 20;
+        });
+
+        // 3. Category Match
+        if (category.includes(query)) score += 30;
+
+        // 4. Content Match & Density
+        queryTerms.forEach(term => {
+          const count = (content.match(new RegExp(term, 'g')) || []).length;
+          score += Math.min(count * 2, 40); // Cap content term score
+        });
+
+        // 5. Featured pages boost
+        if (page.metadata.featured) score *= 1.1;
         
         return { ...page, score };
       })
-      .filter(page => page.score > 0)
+      .filter(page => page.score > 5)
       .sort((a, b) => b.score - a.score)
       .slice(0, 10);
   }, [search, allPages]);

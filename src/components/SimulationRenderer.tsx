@@ -190,12 +190,158 @@ const SDESimulation = () => {
   );
 };
 
+// --- Market Making (Avellaneda-Stoikov) Simulation ---
+const MarketMakingSimulation = () => {
+  const [riskAversion, setRiskAversion] = useState(0.1);
+  const [volatility, setVolatility] = useState(0.3);
+  const [inventory, setInventory] = useState(0);
+  const [midPrice, setMidPrice] = useState(100);
+  const [lob, setLob] = useState<any[]>([]);
+
+  const calculateQuotes = useCallback(() => {
+    const T = 1; // time to horizon
+    const kappa = 1.5; // order arrival intensity
+    const gamma = riskAversion;
+    const sigma = volatility;
+    
+    const reservationPrice = midPrice - inventory * gamma * (sigma ** 2) * T;
+    const spread = (gamma * (sigma ** 2) * T) / 2 + (1 / gamma) * Math.log(1 + gamma / kappa);
+    
+    const bid = reservationPrice - spread;
+    const ask = reservationPrice + spread;
+    
+    return { bid, ask, reservationPrice };
+  }, [midPrice, inventory, riskAversion, volatility]);
+
+  const { bid, ask, reservationPrice } = useMemo(() => calculateQuotes(), [calculateQuotes]);
+
+  // Generate synthetic LOB visualization
+  useEffect(() => {
+    const levels = 8;
+    const tickSize = 0.05;
+    const data = [];
+    
+    for (let i = levels; i >= 1; i--) {
+      data.push({
+        price: midPrice + i * tickSize,
+        type: 'ask',
+        volume: Math.random() * 50 + 20,
+        isQuote: (midPrice + i * tickSize) >= ask && (midPrice + (i-1) * tickSize) < ask
+      });
+    }
+    for (let i = 1; i <= levels; i++) {
+      data.push({
+        price: midPrice - i * tickSize,
+        type: 'bid',
+        volume: Math.random() * 50 + 20,
+        isQuote: (midPrice - i * tickSize) <= bid && (midPrice - (i-1) * tickSize) > bid
+      });
+    }
+    setLob(data.sort((a, b) => b.price - a.price));
+  }, [midPrice, bid, ask]);
+
+  return (
+    <div className="bg-zinc-50 dark:bg-zinc-900/50 p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 my-8">
+      <div className="flex items-center gap-3 mb-6">
+        <Activity className="w-5 h-5 text-cyan-500" />
+        <h4 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">AI Market Making Simulator</h4>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="space-y-6">
+          <div className="space-y-4">
+            <div className="flex justify-between items-end">
+              <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Risk Aversion (γ)</label>
+              <span className="text-sm font-mono font-bold text-cyan-500">{riskAversion.toFixed(2)}</span>
+            </div>
+            <input 
+              type="range" min="0.01" max="0.5" step="0.01" value={riskAversion} 
+              onChange={(e) => setRiskAversion(parseFloat(e.target.value))}
+              className="w-full h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+            />
+            
+            <div className="flex justify-between items-end">
+              <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Volatility (σ)</label>
+              <span className="text-sm font-mono font-bold text-cyan-500">{(volatility * 100).toFixed(0)}%</span>
+            </div>
+            <input 
+              type="range" min="0.1" max="1.0" step="0.05" value={volatility} 
+              onChange={(e) => setVolatility(parseFloat(e.target.value))}
+              className="w-full h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+            />
+
+            <div className="flex justify-between items-end">
+              <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Inventory (q)</label>
+              <span className={cn("text-sm font-mono font-bold", inventory === 0 ? "text-zinc-400" : (inventory > 0 ? "text-emerald-500" : "text-rose-500"))}>
+                {inventory > 0 ? `+${inventory}` : inventory}
+              </span>
+            </div>
+            <input 
+              type="range" min="-10" max="10" step="1" value={inventory} 
+              onChange={(e) => setInventory(parseInt(e.target.value))}
+              className="w-full h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 pt-4 border-t border-zinc-200 dark:border-zinc-800">
+            <div className="p-3 rounded-lg bg-white dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-800">
+              <p className="text-[9px] text-zinc-500 uppercase font-bold mb-1">Your Bid</p>
+              <p className="text-xl font-mono font-bold text-emerald-500">{bid.toFixed(2)}</p>
+            </div>
+            <div className="p-3 rounded-lg bg-white dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-800">
+              <p className="text-[9px] text-zinc-500 uppercase font-bold mb-1">Your Ask</p>
+              <p className="text-xl font-mono font-bold text-rose-500">{ask.toFixed(2)}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-zinc-950 rounded-xl p-4 border border-zinc-100 dark:border-zinc-800">
+          <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-4 text-center">Live Order Book</div>
+          <div className="space-y-1">
+            {lob.map((level, i) => (
+              <div key={i} className={cn(
+                "relative flex items-center justify-between px-3 py-1.5 rounded text-[11px] font-mono transition-all",
+                level.isQuote ? (level.type === 'ask' ? "bg-rose-500/20 ring-1 ring-rose-500/50" : "bg-emerald-500/20 ring-1 ring-emerald-500/50") : "bg-zinc-50 dark:bg-zinc-900/30"
+              )}>
+                <div 
+                  className={cn("absolute inset-y-0 right-0 opacity-10", level.type === 'ask' ? "bg-rose-500" : "bg-emerald-500")}
+                  style={{ width: `${(level.volume / 100) * 100}%` }}
+                />
+                <span className={cn("font-bold", level.type === 'ask' ? "text-rose-500" : "text-emerald-500")}>
+                  {level.price.toFixed(2)}
+                </span>
+                <span className="text-zinc-500 dark:text-zinc-400 z-10">{level.volume.toFixed(0)}</span>
+                {level.isQuote && (
+                  <span className="absolute -left-12 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded bg-cyan-500 text-[8px] text-white font-bold animate-pulse">YOU</span>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="mt-4 flex items-center justify-between text-[10px] text-zinc-500 px-2">
+            <span>Mid: {midPrice.toFixed(2)}</span>
+            <span>Res: {reservationPrice.toFixed(2)}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div className="mt-6 p-3 bg-cyan-500/5 rounded-lg border border-cyan-500/20 flex gap-3">
+        <Info className="w-4 h-4 text-cyan-500 shrink-0 mt-0.5" />
+        <p className="text-[11px] text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          Notice how increasing **Inventory (q)** shifts your quotes downward (skewing) to attract buyers and reduce your position, while increasing **Volatility** widens your spread to protect against risk.
+        </p>
+      </div>
+    </div>
+  );
+};
+
 export const SimulationRenderer: React.FC<SimulationRendererProps> = ({ type, config }) => {
   switch (type) {
     case 'kelly':
       return <KellySimulation />;
     case 'sde':
       return <SDESimulation />;
+    case 'market-making':
+      return <MarketMakingSimulation />;
     default:
       return (
         <div className="p-4 bg-zinc-100 dark:bg-zinc-800 rounded-lg text-sm text-zinc-500">

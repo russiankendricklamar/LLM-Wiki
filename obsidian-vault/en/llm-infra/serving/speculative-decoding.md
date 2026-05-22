@@ -21,6 +21,19 @@ Speculative decoding uses a smaller, faster **Draft Model** to predict several t
     - If the draft matches what the large model would have generated, all $K$ tokens are accepted.
     - If a token is rejected, the process restarts from the first mistake.
 
+## Advanced Variations
+
+Beyond the basic Draft-Target model pair, several advanced techniques have emerged:
+
+### 1. Medusa (Draft-less Speculative Decoding)
+Instead of a separate small model, **Medusa** adds multiple "heads" to the last layer of the target model itself. Each head predicts a token at a specific future offset ($t+1, t+2, \dots$). This eliminates the need to manage two different models in memory.
+
+### 2. EAGLE (Extrapolation Algorithm for Greater Language-model Efficiency)
+EAGLE uses a lightweight plugin that works on the feature level (latents) rather than tokens. It predicts the next feature vector, which is much more stable than predicting tokens, leading to higher acceptance rates.
+
+### 3. Self-Speculative Decoding
+Uses the model itself as its own draft model by skipping certain layers or using [[kv-cache-compression|KV cache]] thinning during the drafting phase.
+
 ## Mathematical Foundation: Rejection Sampling
 
 To ensure the output follows the *exact* distribution of the target model $p(x)$ using the draft model $q(x)$, speculative decoding uses a modified rejection sampling:
@@ -34,7 +47,9 @@ This guarantees that speculative decoding is **lossless**: the final text is ide
 
 ## Performance Gains
 
-The speedup factor depends on the **Acceptance Rate** (how often the small model guesses correctly). In typical tasks like code generation or simple chat, speculative decoding can achieve **2x to 3x throughput gains**.
+The speedup factor depends on the **Acceptance Rate** (how often the small model guesses correctly). 
+- **Code/Prose**: High acceptance rate (2x–3x speedup).
+- **Mathematical Reasoning**: Lower acceptance rate (1.2x–1.5x speedup) as small models struggle with logic.
 
 ## Visualization: Parallel Verification
 
@@ -52,11 +67,10 @@ The speedup factor depends on the **Acceptance Rate** (how often the small model
   ]
 }
 ```
-*Standard decoding is slow because it waits for weights 5 times. Speculative decoding guesses 5 times cheaply and verifies them in one big "gulp," drastically reducing the average time per token.*
 
 ## Related Topics
 
 [[inference-serving]] — where speculative decoding is deployed  
-[[tokenization]] — why predicting tokens is hard  
-[[prm]] — process rewards help verify reasoning steps
----
+[[multi-token-prediction]] — training models to be "native" speculators  
+[[prm]] — process rewards help verify reasoning steps  
+[[llm-infra/serving/continuous-batching]] — how speculators interact with batching

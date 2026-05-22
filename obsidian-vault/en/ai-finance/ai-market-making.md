@@ -99,6 +99,12 @@ $$
 
 The skew parameter $\alpha$ is a design choice in classical models; the RL agent learns an optimal nonlinear skew function from experience.
 
+```simulation
+{
+  "type": "market-making"
+}
+```
+
 ## Strategy Performance Comparison
 
 ```chart

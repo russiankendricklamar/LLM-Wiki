@@ -1,5 +1,5 @@
 ---
-title: "RoPE Scaling & Long Context"
+title: "RoPE Scaling & YaRN"
 category: "Language Models"
 order: 14
 lang: "en"
@@ -17,19 +17,22 @@ The challenge is to "stretch" or "interpolate" the positional information so the
 ## Techniques
 
 ### 1. Linear Interpolation
-The simplest method: just scale the position indices by a factor $k = L_{new} / L_{old}$.
-$$pos' = pos / k$$
-This effectively "squeezes" the new context into the old range. However, it causes the model to lose resolution for nearby tokens, leading to a drop in performance.
+The simplest method: just scale the position indices by a factor $s = L_{new} / L_{old}$.
+$$pos' = pos / s$$
+This effectively "squeezes" the new context into the old range. However, it causes the model to lose resolution for nearby tokens, leading to a significant drop in performance (perplexity spikes).
 
 ### 2. NTK-aware Scaling
 Based on Neural Tangent Kernel theory, this method rescales the **base frequency** $\theta$ of the RoPE rotations instead of the position indices.
-$$\theta_{base}' = \theta_{base} \cdot k^{\frac{d}{d-2}}$$
-This preserves high-frequency information (for local structure) while stretching low-frequency information (for global structure).
+$$\theta_{base}' = \theta_{base} \cdot s^{\frac{d}{d-2}}$$
+where $d$ is the hidden dimension. This preserves high-frequency information (for local structure) while stretching low-frequency information (for global structure). It works because high-frequency dimensions rotate many times within the original context, while low-frequency ones haven't even finished a single rotation.
 
 ### 3. YaRN (Yet another RoPE extensioN)
-YaRN improves upon NTK-aware scaling by applying different scaling factors to different dimensions of the embedding. It "interpolates" the dimensions that can't extrapolate and "extrapolates" those that can, while also applying a "temperature" correction to the [[attention-mechanisms|attention]] scores to keep them stable.
+YaRN is the current state-of-the-art for context extension (up to 128k+). It addresses two issues in NTK-aware scaling:
+1.  **Dimension Sensitivity**: It applies different scaling to different frequency bands. It uses a ramp function to interpolate between dimensions that need interpolation and those that can extrapolate.
+2.  **Attention Logit Decay**: Scaling RoPE changes the distribution of the dot products in [[attention-mechanisms|attention]]. YaRN applies a temperature $T$ to the attention logits to restore the original distribution:
+    $$\text{Attn}(Q, K) = \text{softmax}\left(\frac{QK^T}{T \sqrt{d_k}}\right)$$
 
-## Visualization: Perplexity vs. Context Length
+## Comparison of Methods
 
 ```chart
 {
@@ -49,16 +52,17 @@ YaRN improves upon NTK-aware scaling by applying different scaling factors to di
   ]
 }
 ```
-*YaRN and NTK-aware methods maintain much lower perplexity as the context window grows.*
 
-## Practical Constraints: Memory and Compute
+## Practical Constraints
 
-Even if the positional encodings work, long context is limited by:
-- **KV-Cache**: Memory usage grows $O(L)$. Solutions: [[inference-serving|PagedAttention]], [[mla|MLA]].
-- **Quadratic [[attention-mechanisms|Attention]]**: Computation grows $O(L^2)$. Solutions: [[flash-attention|FlashAttention]], **Ring Attention**.
+Even with RoPE scaling, long context is limited by:
+- **Memory**: The KV-cache grows linearly with sequence length. Techniques like [[mla|Multi-Head Latent Attention (MLA)]] and **PagedAttention** are required.
+- **Compute**: Standard attention is $O(L^2)$. **FlashAttention-2** and **Ring Attention** (distributing the sequence across multiple GPUs) are necessary for 1M+ contexts.
+- **Retrieval Accuracy**: The "Lost in the Middle" phenomenon shows that models often struggle to retrieve information from the middle of a very long prompt, regardless of whether the positional encoding works.
 
 ## Related Topics
 
 [[positional-encodings]] — the foundation (RoPE)  
 [[flash-attention]] — enabling the compute for long context  
+[[mla]] — DeepSeek's efficient attention variant  
 [[inference-serving]] — managing the memory (KV-cache)

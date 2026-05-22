@@ -1,68 +1,31 @@
 ---
-title: "Sobolev Spaces"
-category: "Functional Analysis"
-order: 1
-lang: "en"
-slug: "sobolev-spaces"
+title: Sobolev Spaces & Weak Solutions
+category: Functional Analysis
+order: 65
+lang: en
+slug: sobolev-spaces
 ---
 
-# Sobolev Spaces
-
-Sobolev spaces are vector spaces of functions equipped with a norm that combines properties of both the function's size and its derivatives. They are the natural setting for the modern theory of **Partial Differential Equations (PDEs)** and are increasingly important in Machine Learning for analyzing **Neural Operators** and **PINNs**.
+# Sobolev Spaces & Weak Solutions
 
 ## Weak Derivatives
+A locally integrable function $u \in L^1_{loc}(\Omega)$ has a weak derivative $v = D^\alpha u$ if for all test functions $\phi \in C_c^\infty(\Omega)$:
+$$ \int_\Omega u D^\alpha \phi \,dx = (-1)^{|\alpha|} \int_\Omega v \phi \,dx $$
 
-The core idea of Sobolev spaces is the **weak derivative**. A function $u$ has a weak derivative $v = \partial_i u$ if for all infinitely differentiable functions $\phi$ with compact support (test functions), the integration-by-parts formula holds:
+## Sobolev Spaces $W^{k,p}$
+The Sobolev space $W^{k,p}(\Omega)$ consists of functions in $L^p(\Omega)$ whose weak derivatives up to order $k$ also belong to $L^p(\Omega)$. The norm is:
+$$ \|u\|_{W^{k,p}(\Omega)} = \left( \sum_{|\alpha| \le k} \|D^\alpha u\|_{L^p(\Omega)}^p \right)^{1/p} $$
+For $p=2$, $H^k(\Omega) = W^{k,2}(\Omega)$ is a Hilbert space.
 
-$$\int_{\Omega} u \frac{\partial \phi}{\partial x_i} dx = -\int_{\Omega} v \phi dx$$
+## Sobolev Embeddings
+The Gagliardo-Nirenberg-Sobolev inequality states that for $1 \le p < n$, $W^{1,p}(\mathbb{R}^n)$ is continuously embedded in $L^{p^*}(\mathbb{R}^n)$, where $p^* = \frac{np}{n-p}$.
+If $p > n$, $W^{1,p}(\Omega)$ embeds into Hölder spaces $C^{0,\gamma}(\bar{\Omega})$.
 
-This allows us to differentiate functions that are not differentiable in the classical sense (e.g., functions with "kinks").
+## Rellich-Kondrachov Theorem
+On a bounded domain $\Omega$ with Lipschitz boundary, the embedding $W^{1,p}(\Omega) \hookrightarrow L^q(\Omega)$ is *compact* for $1 \le q < p^*$.
 
-## Definition: $W^{k,p}$ Spaces
+## Physics-Informed Neural Networks (PINNs)
+In modern computational mechanics, weak solutions are approximated via Neural Networks. PINNs often solve variational formulations in Sobolev spaces (e.g., Deep Ritz Method), minimizing the energy functional:
+$$ J(u) = \frac{1}{2} \int_\Omega |\nabla u|^2 dx - \int_\Omega f u \,dx $$
+which is well-posed in $H^1_0(\Omega)$ by the Lax-Milgram theorem.
 
-The Sobolev space $W^{k,p}(\Omega)$ consists of functions whose weak derivatives up to order $k$ are in the $L^p$ space:
-
-$$\|u\|_{W^{k,p}} = \left( \sum_{|\alpha| \leq k} \|D^\alpha u\|_{L^p}^p \right)^{1/p}$$
-
-- **$H^k$ Spaces**: When $p=2$, the space is a Hilbert space, denoted as $H^k(\Omega)$. These are most common in physics and engineering.
-- **$H^1$**: Functions are square-integrable and have square-integrable first derivatives. This is where "energy" is usually defined.
-
-## Sobolev Embedding Theorems
-
-One of the most powerful aspects of the theory is the **Embedding Theorem**. It tells us when a function in a Sobolev space (defined by integrability) is actually continuous or differentiable in the classical sense.
-
-For example, if $u \in W^{k,p}(\mathbb{R}^n)$ and $kp > n$, then $u$ is continuous ($u \in C^0$). This "trade-off" between the number of derivatives $k$ and the dimension $n$ is fundamental to the existence of solutions for PDEs.
-
-## Application in AI: Physics-Informed NNs (PINNs)
-
-In PINNs, we train a neural network to minimize a residual that involves derivatives:
-$$\mathcal{L} = \| \Delta u_\theta - f \|_{L^2}^2$$
-For this loss to be well-defined and for the optimizer to converge to a meaningful solution, the network $u_\theta$ must live in an appropriate Sobolev space. Sobolev norms are also used as regularizers to ensure the learned functions are "smooth" not just in values, but in their derivatives.
-
-## Visualization: Smoothness vs. Integrability
-
-```chart
-{
-  "type": "line",
-  "xAxis": "x",
-  "data": [
-    {"x": -1.0, "l2": 1.0, "h1": 1.0},
-    {"x": -0.5, "l2": 1.0, "h1": 0.5},
-    {"x": 0.0, "l2": 1.0, "h1": 0.0},
-    {"x": 0.5, "l2": 1.0, "h1": 0.5},
-    {"x": 1.0, "l2": 1.0, "h1": 1.0}
-  ],
-  "lines": [
-    {"dataKey": "l2", "stroke": "#ef4444", "name": "L2 (Discontinuous)"},
-    {"dataKey": "h1", "stroke": "#10b981", "name": "H1 (Weakly Differentiable)"}
-  ]
-}
-```
-*An L2 function can be wildly discontinuous (red). An H1 function (green) must be "tied together" by its derivative, ensuring a higher degree of structural integrity.*
-
-## Related Topics
-
-[[measure-theory]] — the foundation of L-p spaces  
-[[physics/classical/partial-differential-equations]] — where Sobolev spaces are used  
-[[neural-operators]] — mapping between Sobolev spaces
----

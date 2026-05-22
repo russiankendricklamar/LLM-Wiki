@@ -1,68 +1,58 @@
 ---
-title: "Kernel Methods and RKHS"
+title: "Kernel Methods & RKHS"
 category: "Statistical Learning"
-order: 2
+order: 83
 lang: "en"
 slug: "kernel-methods-rkhs"
 ---
 
-# Kernel Methods and RKHS
+# Kernel Methods & Reproducing Kernel Hilbert Spaces (RKHS)
 
-Kernel methods are a class of algorithms for pattern analysis, the best known of which is the **Support Vector Machine (SVM)**. They allow us to operate in a high-dimensional, implicit feature space without ever computing the coordinates of the data in that space. This is made mathematically rigorous through the theory of **Reproducing Kernel Hilbert Spaces (RKHS)**.
+Kernel methods provide a powerful framework for extending linear algorithms to nonlinear settings by implicitly mapping data into a high-dimensional feature space. The mathematical foundation of these methods lies in the theory of Reproducing Kernel Hilbert Spaces (RKHS).
 
-## The Kernel Trick
+## Reproducing Kernel Hilbert Space
 
-Given data $x \in \mathcal{X}$, we want to learn a non-linear function. We map the data into a feature space $\mathcal{H}$ via a map $\phi: \mathcal{X} \to \mathcal{H}$. A linear function in $\mathcal{H}$ corresponds to a non-linear function in $\mathcal{X}$. 
-
-The "trick" is that if we only need to compute inner products $\langle \phi(x), \phi(x') \rangle_\mathcal{H}$, we can replace them with a **kernel function** $k(x, x')$.
-
-## Reproducing Kernel Hilbert Space (RKHS)
-
-A Hilbert space $\mathcal{H}$ of functions $f: \mathcal{X} \to \mathbb{R}$ is an RKHS if the evaluation functional $L_x(f) = f(x)$ is continuous for all $x \in \mathcal{X}$. By the Riesz Representation Theorem, this implies there exists a unique element $k_x \in \mathcal{H}$ such that:
-$$f(x) = \langle f, k_x \rangle_\mathcal{H}$$
-This is the **reproducing property**. The kernel is $k(x, x') = \langle k_x, k_{x'} \rangle_\mathcal{H}$.
-
-## The Representer Theorem
-
-The Representer Theorem (Kimeldorf & Wahba, 1970) provides the functional foundation for kernel methods. It states that for any empirical risk minimization problem:
-$$\min_{f \in \mathcal{H}} \sum_{i=1}^n L(y_i, f(x_i)) + \lambda \|f\|_\mathcal{H}^2$$
-the optimal solution $f^*$ has a finite-dimensional representation:
-$$f^*(x) = \sum_{i=1}^n \alpha_i k(x, x_i)$$
-This is profound: even though $\mathcal{H}$ might be infinite-dimensional (like for the RBF kernel), the optimal function is always a linear combination of kernels centered at the training points.
+A Hilbert space $\mathcal{H}$ of functions $f : \mathcal{X} \to \mathbb{R}$ is an RKHS if the point evaluation functional $E_x(f) = f(x)$ is continuous for all $x \in \mathcal{X}$. By the Riesz Representation Theorem, there exists a unique element $k_x \in \mathcal{H}$ such that:
+$$
+f(x) = \langle f, k_x \rangle_{\mathcal{H}} \quad \forall f \in \mathcal{H}
+$$
+This is the **reproducing property**. We define the kernel function $k : \mathcal{X} \times \mathcal{X} \to \mathbb{R}$ as:
+$$
+k(x, y) = \langle k_x, k_y \rangle_{\mathcal{H}}
+$$
+A symmetric function $k(x, y)$ is a reproducing kernel if and only if it is positive semi-definite (Moore-Aronszajn theorem); that is, for any $x_1, \dots, x_n \in \mathcal{X}$ and $c_1, \dots, c_n \in \mathbb{R}$:
+$$
+\sum_{i=1}^n \sum_{j=1}^n c_i c_j k(x_i, x_j) \geq 0
+$$
 
 ## Mercer's Theorem
 
-Mercer's Theorem explains when a function $k(x, x')$ is a valid kernel. It must be symmetric and positive semi-definite (PSD), meaning the **Gram matrix** $K_{ij} = k(x_i, x_j)$ is PSD for any set of points.
+Mercer's theorem formalizes the connection between kernels and integral operators. Let $\mathcal{X}$ be a compact metric space and $k$ a continuous positive semi-definite kernel. Then there exists an orthonormal basis of eigenfunctions $\{\phi_i\}_{i=1}^\infty$ of $L^2(\mathcal{X})$ and non-negative eigenvalues $\{\lambda_i\}_{i=1}^\infty$ such that:
+$$
+k(x, y) = \sum_{i=1}^\infty \lambda_i \phi_i(x) \phi_i(y)
+$$
+where the convergence is absolute and uniform. The implicit feature map is thus $\Phi(x) = (\sqrt{\lambda_1} \phi_1(x), \sqrt{\lambda_2} \phi_2(x), \dots)$.
 
-## Common Kernels
+## The Representer Theorem
 
-1.  **Linear**: $k(x, x') = x^\top x'$
-2.  **Polynomial**: $k(x, x') = (x^\top x' + c)^d$
-3.  **Gaussian (RBF)**: $k(x, x') = \exp(-\frac{\|x - x'\|^2}{2\sigma^2})$. This corresponds to an **infinite-dimensional** feature space.
+The Representer Theorem is the cornerstone of practical kernel methods. It states that the minimizer $f^* \in \mathcal{H}$ of a regularized empirical risk functional:
+$$
+f^* = \arg\min_{f \in \mathcal{H}} \left( \sum_{i=1}^n L(y_i, f(x_i)) + \lambda \|f\|_{\mathcal{H}}^2 \right)
+$$
+admits a representation as a finite linear combination of the kernel evaluated at the training points:
+$$
+f^*(x) = \sum_{i=1}^n \alpha_i k(x_i, x)
+$$
+This theorem reduces an optimization problem over an infinite-dimensional space to a finite-dimensional optimization over $\alpha \in \mathbb{R}^n$, independent of the dimensionality of the feature space.
 
-## Visualization: Kernel Mapping
+## Kernel Mean Embeddings
 
-```chart
-{
-  "type": "scatter",
-  "xAxis": "x",
-  "data": [
-    {"x": -2, "phi_x": 4, "label": "Class A"},
-    {"x": -1, "phi_x": 1, "label": "Class A"},
-    {"x": 0, "phi_x": 0, "label": "Class B"},
-    {"x": 1, "phi_x": 1, "label": "Class A"},
-    {"x": 2, "phi_x": 4, "label": "Class A"}
-  ],
-  "lines": [
-    {"dataKey": "phi_x", "stroke": "#3b82f6", "name": "Feature Map φ(x) = x²"}
-  ]
-}
-```
-*In 1D, Class A and B are not linearly separable. By mapping $x \to x^2$ (a simple kernel), they become perfectly separable by a straight line in the feature space.*
-
-## Related Topics
-
-[[functional-analysis]] — the Hilbert space background  
-[[gaussian-processes]] — Bayesian view of kernel methods  
-[[neural-tangent-kernel]] — connecting kernels to deep learning
----
+Kernel mean embeddings extend RKHS concepts to probability distributions. The embedding of a distribution $\mathbb{P}$ is defined as the expected feature map:
+$$
+\mu_{\mathbb{P}} = \mathbb{E}_{X \sim \mathbb{P}}[k(X, \cdot)] \in \mathcal{H}
+$$
+If the kernel is **characteristic** (e.g., the Gaussian RBF kernel), the embedding is injective: $\mu_{\mathbb{P}} = \mu_{\mathbb{Q}} \iff \mathbb{P} = \mathbb{Q}$. This allows for the computation of the Maximum Mean Discrepancy (MMD) as a metric between distributions:
+$$
+\text{MMD}^2(\mathbb{P}, \mathbb{Q}) = \|\mu_{\mathbb{P}} - \mu_{\mathbb{Q}}\|_{\mathcal{H}}^2
+$$
+which can be evaluated efficiently without density estimation.

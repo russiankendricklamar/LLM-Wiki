@@ -1,53 +1,32 @@
 ---
-title: Optimal Transport
-date: 2026-04-28
-tags:
-  - math
-  - probability
-  - generative-models
-  - optimal-transport
-aliases:
-  - Wasserstein Distance
-  - Earth Mover's Distance
+title: Optimal Transport & Wasserstein Metrics
+category: Analysis & Geometry
+order: 60
+lang: en
+slug: optimal-transport
 ---
 
-# Optimal Transport
+# Optimal Transport & Wasserstein Metrics
 
-Optimal Transport (OT) is a mathematical framework for studying the most efficient ways to transform one probability distribution into another. In machine learning, it provides a powerful metric (Wasserstein distance) and a geometric structure for robust optimization and generative modeling.
+## Introduction
+The Monge-Kantorovich problem seeks the most cost-effective way to transport mass from one distribution to another. Given two probability measures $\mu \in \mathcal{P}(X)$ and $\nu \in \mathcal{P}(Y)$, the Monge formulation is:
+$$ \inf_{T_\# \mu = \nu} \int_X c(x, T(x)) \,d\mu(x) $$
 
-## Monge's Formulation (1781)
+## Kantorovich Relaxation
+The Kantorovich formulation relaxes the deterministic map $T$ to a coupling $\pi \in \Pi(\mu, \nu)$:
+$$ W_p(\mu, \nu) = \left( \inf_{\pi \in \Pi(\mu, \nu)} \int_{X \times Y} d(x,y)^p \,d\pi(x,y) \right)^{1/p} $$
 
-Find a transport map $T: X \rightarrow Y$ that minimizes the total cost:
-$$ \inf_{T: T_{\#} \mu = \nu} \int_X c(x, T(x)) d\mu(x) $$
-where $T_{\#} \mu = \nu$ is the mass conservation constraint.
+## Entropic Regularization and Sinkhorn Divergence
+To overcome the computational burden, we introduce entropic regularization:
+$$ W_{c,\epsilon}(\mu, \nu) = \inf_{\pi \in \Pi(\mu, \nu)} \int c(x,y) d\pi(x,y) + \epsilon \text{KL}(\pi \| \mu \otimes \nu) $$
+The solution takes the form $\pi = \text{diag}(u) K \text{diag}(v)$, where $K_{i,j} = \exp(-c(x_i, y_j)/\epsilon)$, computable via the Sinkhorn-Knopp algorithm.
 
-## Kantorovich's Relaxation (1942)
+Sinkhorn divergence is defined as:
+$$ S_\epsilon(\mu, \nu) = W_{c,\epsilon}(\mu, \nu) - \frac{1}{2} W_{c,\epsilon}(\mu, \mu) - \frac{1}{2} W_{c,\epsilon}(\nu, \nu) $$
+It interpolates between optimal transport ($\epsilon \to 0$) and Maximum Mean Discrepancy ($\epsilon \to \infty$).
 
-Instead of a map, we seek a **transport plan** $\pi$ (joint distribution), allowing mass splitting:
-$$ OT(\mu, \nu) = \inf_{\pi \in \Pi(\mu, \nu)} \int_{X \times Y} c(x, y) d\pi(x, y) $$
-This linear programming problem always has a solution.
+## Applications
+In Generative Adversarial Networks (WGAN), the Wasserstein-1 distance is used:
+$$ W_1(\mu, \nu) = \sup_{\|f\|_L \le 1} \mathbb{E}_{x \sim \mu}[f(x)] - \mathbb{E}_{y \sim \nu}[f(y)] $$
+This follows from the Kantorovich-Rubinstein duality.
 
-## Wasserstein Distance
-
-When $c(x,y) = d(x,y)^p$, the $p$-th root of the cost is the **p-Wasserstein distance**:
-$$ W_p(\mu, \nu) = \left( \inf_{\pi \in \Pi(\mu, \nu)} \int_{X \times Y} d(x, y)^p d\pi(x, y) \right)^{1/p} $$
-
-Unlike KL-divergence, $W_p$ is continuous and provides stable gradients even for distributions with non-overlapping supports, which is fundamental for **WGAN**.
-
-## Computational OT and Sinkhorn
-
-Standard OT is $O(N^3)$. Adding **entropic regularization** $\epsilon H(\pi)$ makes the problem strictly convex, solvable by the **Sinkhorn Algorithm** in $O(N^2)$ on GPUs.
-
-## Advanced Applications
-
-### A. Benamou-Brenier Formulation
-A hydrodynamic view of OT as minimizing the kinetic energy of a density flow $\rho_t$. This bridges OT with **Flow Matching** and diffusion models.
-
-### B. Distributionally Robust Optimization (DRO)
-Used in finance to protect portfolios against model uncertainty by optimizing over a "Wasserstein ball" $B_\delta(\nu)$ of distributions.
-
-### C. Martingale OT (MOT)
-Used for model-independent option pricing by enforcing the martingale property $\mathbb{E}_\pi [Y | X] = X$ on the transport plan.
-
-## Related Topics
-[[measure-theory|Measure Theory]] | [[convex-optimization|Convex Optimization]] | [[flow-matching|Flow Matching]]

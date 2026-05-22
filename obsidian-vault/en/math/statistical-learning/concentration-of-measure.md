@@ -1,63 +1,28 @@
 ---
-title: "Concentration of Measure"
-category: "Statistical Learning"
-order: 4
-lang: "en"
-slug: "concentration-of-measure"
+title: Concentration of Measure
+category: Statistical Learning
+order: 62
+lang: en
+slug: concentration-of-measure
 ---
 
 # Concentration of Measure
 
-Concentration of Measure is a geometric phenomenon that occurs in high-dimensional spaces. It states that a function that depends on many independent random variables, but does not depend too much on any single one, is nearly constant. In high dimensions, "most of the mass" of a distribution is concentrated in a tiny region, such as near the surface of a sphere or the equator.
+## The Phenomenon
+Concentration of measure studies how functions of many independent random variables tend to take values close to their expectation. 
 
-## The Law of Large Numbers as Concentration
+## McDiarmid's Inequality
+Let $X_1, \dots, X_n$ be independent and $f: \mathcal{X}^n \to \mathbb{R}$ satisfy the bounded differences property:
+$$ \sup_{x, x_i'} |f(x_1, \dots, x_i, \dots, x_n) - f(x_1, \dots, x_i', \dots, x_n)| \le c_i $$
+Then for any $t > 0$:
+$$ \mathbb{P}(|f(X) - \mathbb{E}f(X)| \ge t) \le 2 \exp\left(-\frac{2t^2}{\sum_{i=1}^n c_i^2}\right) $$
 
-The classical Law of Large Numbers is the simplest example: the average of $n$ variables $\bar{X}$ concentrates around the mean $\mu$. Concentration of measure generalizes this to complex functions of many variables.
+## Talagrand's Concentration Inequality
+Talagrand established concentration for empirical processes. If $Z = \sup_{f \in \mathcal{F}} \sum_{i=1}^n f(X_i)$, where $\mathcal{F}$ is a class of bounded functions, then $Z$ concentrates around its mean $\mathbb{E}Z$.
 
-## Concentration on the Sphere
+## Rademacher Complexity and Generalization
+The empirical Rademacher complexity of a hypothesis class $\mathcal{H}$ on a sample $S$ is:
+$$ \hat{\mathcal{R}}_S(\mathcal{H}) = \mathbb{E}_\sigma \left[ \sup_{h \in \mathcal{H}} \frac{1}{n} \sum_{i=1}^n \sigma_i h(x_i) \right] $$
+where $\sigma_i$ are independent Rademacher variables. By McDiarmid's inequality, with probability $1 - \delta$, the expected error $L(h)$ is bounded by the empirical error $\hat{L}(h)$ as:
+$$ L(h) \le \hat{L}(h) + 2\hat{\mathcal{R}}_S(\mathcal{H}) + 3\sqrt{\frac{\log(2/\delta)}{2n}} $$
 
-Consider a unit sphere $S^{n-1}$ in $\mathbb{R}^n$ with a uniform probability measure. If we take any set $A$ that covers half the sphere, then the "$\epsilon$-neighborhood" of $A$ (all points at distance $\epsilon$ from $A$) covers almost the entire sphere as $n$ grows:
-$$P(A_\epsilon) \geq 1 - \exp(-cn\epsilon^2)$$
-For large $n$, almost all points on a sphere are within a distance of $O(1/\sqrt{n})$ from any "equator."
-
-## Lévy's Lemma
-
-For any 1-Lipschitz function $f: S^n \to \mathbb{R}$ (where $|f(x) - f(y)| \leq d(x, y)$), the probability that $f$ deviates from its median $M_f$ is exponentially small:
-$$P(|f - M_f| > \epsilon) \leq 2 \exp(-cn\epsilon^2)$$
-This means that in high dimensions, **every Lipschitz function is essentially constant.**
-
-## Talagrand's Inequality
-
-One of the most powerful results in the field, Talagrand's inequality relates the concentration of a random variable to the distance to a convex set in a product space. It is a cornerstone for proving bounds in **random matrix theory** and **stochastic processes**.
-
-## Why It Matters for AI
-
-1.  **Generalization**: High-dimensional concentration explains why models can generalize from finite samples. The empirical risk concentrates around the true risk.
-2.  **Architecture Initialization**: In deep networks, the norms of activations and gradients concentrate, preventing "vanishing" or "exploding" signals if initialized correctly.
-3.  **Adversarial Examples**: Concentration of measure suggests that in high dimensions, small perturbations can easily push a point across a decision boundary, potentially explaining the ubiquity of adversarial attacks.
-
-## Visualization: Volume Concentration
-
-```chart
-{
-  "type": "bar",
-  "xAxis": "distance_from_center",
-  "data": [
-    {"distance_from_center": "0.0-0.8", "volume_frac": 2},
-    {"distance_from_center": "0.8-0.9", "volume_frac": 8},
-    {"distance_from_center": "0.9-0.95", "volume_frac": 25},
-    {"distance_from_center": "0.95-1.0", "volume_frac": 65}
-  ],
-  "lines": [
-    {"dataKey": "volume_frac", "stroke": "#8b5cf6", "name": "Volume in n=100 dimensions (%)"}
-  ]
-}
-```
-*In 100 dimensions, more than 90% of the volume of a sphere is located in the outer "shell" of thickness 0.05. High-dimensional objects are "all skin and no guts."*
-
-## Related Topics
-
-[[concentration-inequalities]] — the statistical tools (Chernoff, Hoeffding)  
-asymptotic-stats — limit theorems  
-[[random-matrices]] — spectral concentration
----
