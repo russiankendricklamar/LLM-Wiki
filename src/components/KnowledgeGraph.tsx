@@ -111,10 +111,10 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
 
   const fgRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const graphContainerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [isClient, setIsClient] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
-  const [showHint, setShowHint] = useState(true);
 
   const [highlightNodes, setHighlightNodes] = useState<Set<string>>(() => new Set());
   const [highlightLinks, setHighlightLinks] = useState<Set<any>>(() => new Set());
@@ -156,25 +156,26 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   useEffect(() => {
     setIsClient(true);
     const updateDimensions = () => {
-      if (containerRef.current) {
+      if (graphContainerRef.current) {
         setDimensions({
-          width: containerRef.current.offsetWidth,
-          height: containerRef.current.offsetHeight,
+          width: graphContainerRef.current.offsetWidth,
+          height: graphContainerRef.current.offsetHeight,
         });
       }
     };
+    
+    // Initial call
     updateDimensions();
-    // Use a small delay to ensure container is fully rendered
-    const timer = setTimeout(updateDimensions, 100);
-    window.addEventListener('resize', updateDimensions);
-    return () => {
-      window.removeEventListener('resize', updateDimensions);
-      clearTimeout(timer);
-    };
+    
+    // Resize observer is more reliable than window resize for container changes
+    const observer = new ResizeObserver(updateDimensions);
+    if (graphContainerRef.current) observer.observe(graphContainerRef.current);
+    
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
-    if (!isDesktop || !fgRef.current) return;
+    if (!isDesktop || !fgRef.current || dimensions.height <= 0) return;
     const fg = fgRef.current;
     const linkForce = fg.d3Force?.('link');
     if (linkForce) linkForce.distance(35).strength(0.8);
@@ -183,17 +184,16 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
     fg.d3ReheatSimulation?.();
     const timer = setTimeout(() => fg.zoomToFit?.(400, 100), 1000);
     return () => clearTimeout(timer);
-  }, [graphData, isDesktop]);
+  }, [graphData, isDesktop, dimensions.height]);
 
   const nodeThreeObject = useCallback((node: any) => {
     const isHub = node.val > 1.5;
-    const section = node.id.split('/')[0];
+    const section = String(node.id || '').split('/')[0];
     const isHighlighted = !dimmedMode || highlightNodes.has(node.id);
     const geometry = isHub ? HUB_GEOMETRY : NODE_GEOMETRY;
     const material = getMaterial(section, isHighlighted, dimmedMode && !isHighlighted, isHub);
     const mesh = new THREE.Mesh(geometry, material);
     
-    // Add a very subtle glow to highlighted nodes
     if (isHighlighted && dimmedMode) {
       const glowGeometry = isHub ? new THREE.SphereGeometry(6, 12, 12) : new THREE.SphereGeometry(4, 12, 12);
       const glowMaterial = new THREE.MeshBasicMaterial({
@@ -217,7 +217,7 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   const particleCount = useCallback((d: any) => highlightLinks.has(d) ? 6 : 0, [highlightLinks]);
 
   const nodeColor2D = useCallback((node: any) => {
-    const section = node.id.split('/')[0];
+    const section = String(node.id || '').split('/')[0];
     const hex = SECTION_COLORS[section] || SECTION_COLORS._other;
     const color = `#${hex.toString(16).padStart(6, '0')}`;
     if (dimmedMode && !highlightNodes.has(node.id)) return `${color}11`;
@@ -225,13 +225,13 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   }, [dimmedMode, highlightNodes]);
 
   const handleNodeClick = useCallback((node: any) => {
-    navigate(`/${node.id}`);
+    if (node && node.id) navigate(`/${node.id}`);
   }, [navigate]);
 
   if (!isClient) return null;
 
   return (
-    <div ref={containerRef} className="w-full h-full min-h-[700px] md:min-h-[850px] flex flex-col rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-xl">
+    <div ref={containerRef} className="w-full h-full min-h-[600px] md:min-h-[800px] flex flex-col rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-xl">
       {/* Header Toolbar */}
       <div className="shrink-0 bg-zinc-50/50 dark:bg-zinc-900/30 border-b border-zinc-200 dark:border-zinc-800 px-6 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="space-y-1">
@@ -301,7 +301,7 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
       </div>
 
       {/* Graph Area */}
-      <div className="flex-1 relative min-h-0 bg-zinc-50/30 dark:bg-black/20">
+      <div ref={graphContainerRef} className="flex-1 relative min-h-0 bg-zinc-50/30 dark:bg-black/20">
         {/* Absolute HUD Overlays (Essential Controls Only) */}
         <div className="absolute bottom-6 right-6 z-20 flex flex-col items-end gap-3 pointer-events-none">
           <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-white/80 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 text-[9px] text-zinc-500 dark:text-zinc-400 font-bold uppercase tracking-widest backdrop-blur-md shadow-lg pointer-events-auto">
@@ -329,12 +329,12 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
         </div>
 
         <Suspense fallback={<GraphSkeleton />}>
-          {dimensions.width > 0 && (
+          {dimensions.width > 0 && dimensions.height > 0 && (
             isDesktop ? (
               <ForceGraph3DLazy
                 ref={fgRef}
                 width={dimensions.width}
-                height={dimensions.height - 84} // Approximate header height
+                height={dimensions.height}
                 graphData={graphData as any}
                 nodeLabel="name"
                 nodeThreeObject={nodeThreeObject}
@@ -355,7 +355,7 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
             ) : (
               <ForceGraph2DLazy
                 width={dimensions.width}
-                height={dimensions.height - 120} // Account for mobile multi-line header
+                height={dimensions.height}
                 graphData={graphData as any}
                 nodeLabel="name"
                 onNodeHover={handleNodeHover}
