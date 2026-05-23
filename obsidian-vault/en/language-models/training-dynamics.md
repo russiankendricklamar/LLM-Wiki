@@ -148,7 +148,7 @@ Key metrics to track during training:
 - **Gradient norm per layer**: outlier layers signal architectural instability
 - **Weight norm per layer**: uncontrolled growth indicates learning rate is too high
 - **Activation statistics**: collapsed or saturated activations indicate dead neurons
-- **[[attention-mechanisms|Attention]] [[shannon-entropy|entropy]]**: very low [[shannon-entropy|entropy]] means attention is spiky; very high means the model is not attending to anything
+- **[[attention-mechanisms|Attention]] [[shannon-entropy|entropy]]**: very low [[shannon-entropy|entropy]] means [[attention-mechanisms|attention]] is spiky; very high means the model is not attending to anything
 
 ## See Also
 

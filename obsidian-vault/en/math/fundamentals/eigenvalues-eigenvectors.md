@@ -6,7 +6,7 @@ lang: "en"
 slug: "eigenvalues-eigenvectors"
 ---
 
-# Eigenvalues and Eigenvectors: The DNA of Linear Logic
+# [[spectral-theory-operators|Eigenvalues]] and Eigenvectors: The DNA of Linear Logic
 
 Eigenvalues and eigenvectors reveal the fixed "axes" of a transformation and decompose complex operations into simple scaling. They are the engine behind everything from Google Search and vibration physics to the stability of neural networks and portfolio optimization at firms like Citadel and Jane Street.
 

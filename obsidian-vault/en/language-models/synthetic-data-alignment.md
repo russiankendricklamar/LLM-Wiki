@@ -19,7 +19,7 @@ The **Self-Instruct** framework (introduced by Wang et al., 2022) allows a vanil
 2.  **Task Generation**: Use the model to generate new tasks based on the seeds.
 3.  **Input/Output Generation**: For each new task, the model generates possible inputs and the corresponding outputs.
 4.  **Filtering**: Heuristics are used to remove low-quality or repetitive tasks.
-5.  **Fine-tuning**: The model is fine-tuned on the resulting high-quality synthetic dataset.
+5.  **[[fine-tuning]]**: The model is fine-tuned on the resulting high-quality synthetic dataset.
 
 This was the basis for many early open-source models like **Alpaca**.
 
@@ -27,7 +27,7 @@ This was the basis for many early open-source models like **Alpaca**.
 
 Developed by Anthropic, **Constitutional AI** aligns models using a set of rules (a "Constitution") instead of thousands of human preference labels.
 - **Supervised Phase**: The model generates responses, then critiques them based on the Constitution and revises them. The model is then fine-tuned on these self-corrected responses.
-- **RL Phase**: A "Preference Model" is trained on the model's own self-critiques, and the model is then aligned via RL (similar to RLHF but with AI feedback instead of human feedback, or **RLAIF**).
+- **RL Phase**: A "Preference Model" is trained on the model's own self-critiques, and the model is then aligned via RL (similar to [[rlhf]] but with AI feedback instead of human feedback, or **RLAIF**).
 
 ## 3. ReST (Reinforced Self-Training)
 

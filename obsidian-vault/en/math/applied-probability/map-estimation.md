@@ -24,7 +24,7 @@ $$\hat{\theta}_{MAP} = \arg \max_{\theta} p(\theta | X) = \arg \max_{\theta} [\l
 ## 3. Relation to MLE and Regularization
 
 If the prior $p(\theta)$ is uniform, the MAP estimator reduces to the [[mle-estimation|MLE estimator]].
-When the prior is Gaussian or Laplacian, MAP estimation is equivalent to adding a penalty term (regularization) to the MLE:
+When the prior is Gaussian or [[spectral-graph-theory|Laplacian]], MAP estimation is equivalent to adding a penalty term (regularization) to the MLE:
 
 - **Gaussian Prior**: $p(\theta) \sim \mathcal{N}(0, \tau^2) \implies \text{L2 Regularization (Ridge Regression)}$.
 - **Laplacian Prior**: $p(\theta) \propto e^{-\lambda |\theta|} \implies \text{L1 Regularization (LASSO)}$.

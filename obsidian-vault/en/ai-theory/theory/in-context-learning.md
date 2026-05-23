@@ -53,7 +53,7 @@ Specifically, an induction head implements:
 
 This simple circuit enables the model to replay label patterns: seeing `A → B` in the demos and then `A` in the query, the induction head "looks back," finds `A`, and attends to the subsequent label. Induction heads emerge sharply at model scale (typically $\sim 200$M parameters) and scale predictably with depth and width, suggesting they are a learned solution to a fundamental ICL problem.
 
-## In-Context Learning vs Fine-Tuning
+## In-Context Learning vs [[fine-tuning]]
 
 ICL and gradient-based fine-tuning represent complementary adaptation strategies with distinct tradeoffs:
 

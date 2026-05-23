@@ -8,7 +8,7 @@ slug: "preference-optimization-variants"
 
 # Advanced Preference Optimization
 
-## Beyond DPO
+## Beyond [[dpo]]
 
 While [[dpo|Direct Preference Optimization (DPO)]] revolutionized alignment by removing the need for a separate reward model and PPO, it has limitations, such as sensitivity to the quality of the reference model and a tendency to overfit on the preference pair margins. Several variants have emerged to address these issues.
 

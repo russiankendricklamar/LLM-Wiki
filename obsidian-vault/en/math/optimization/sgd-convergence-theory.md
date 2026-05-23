@@ -6,7 +6,7 @@ lang: en
 slug: sgd-convergence-theory
 ---
 
-# Convergence Theory of Stochastic Gradient Descent
+# Convergence Theory of Stochastic [[convex-optimization|Gradient Descent]]
 
 Stochastic Gradient Descent (SGD) is the predominant optimization algorithm in machine learning. Understanding its convergence properties under various assumptions—convexity, strong convexity, and the Polyak-Łojasiewicz (PL) condition—is fundamental to algorithm design.
 
@@ -65,7 +65,8 @@ $$
 Using a decaying step size $\eta_t = rac{2}{\mu(t+1)}$, the convergence rate improves to:
 
 $$
-\mathbb{E}[F(ar{w}_T) - F(w^*)] \leq rac{2 L \sigma^2}{\mu^2 T} = \mathcal{O}\left(rac{1}{T}ight)
+\mathbb{E}[F(ar{w}_T) - F(w^*)] \leq rac{2 L \sigma^2}{\mu^2 T} = \mathcal{O}\left(rac{1}{T}
+ight)
 $$
 
 ## Non-Convex Optimization and the PL Condition

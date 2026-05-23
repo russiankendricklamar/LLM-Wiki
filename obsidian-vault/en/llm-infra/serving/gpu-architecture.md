@@ -8,7 +8,7 @@ slug: "gpu-architecture"
 
 # [[inference-serving|GPU]] Architecture: SMs, Warps, and Tensor Cores
 
-To understand why Large Language Models are designed the way they are (e.g., why hidden dimensions are multiples of 64), you have to understand the physical silicon they run on. Nvidia's GPU architecture dictates the absolute limits of AI performance.
+To understand why Large Language Models are designed the way they are (e.g., why hidden dimensions are multiples of 64), you have to understand the physical silicon they run on. Nvidia's [[inference-serving|GPU]] architecture dictates the absolute limits of AI performance.
 
 ## 1. Streaming Multiprocessors (SMs)
 
@@ -41,7 +41,7 @@ As discussed in [[hardware-io-attention]], memory movement is the real bottlenec
 3.  **L1 Cache / Shared Memory**: 256KB per SM, extremely fast. Only threads within the same SM can see it.
 4.  **Registers**: Private to each thread, the fastest possible memory.
 
-Optimized CUDA kernels (like [[flash-attention]]) carefully orchestrate moving chunks of matrices from HBM $\to$ Shared Memory $\to$ Registers $\to$ Tensor Cores.
+Optimized CUDA kernels (like [[flash-attention]]) carefully orchestrate moving chunks of matrices from [[flash-attention|HBM]] $\to$ Shared Memory $\to$ Registers $\to$ Tensor Cores.
 
 ## Visualization: Matrix Multiplication
 

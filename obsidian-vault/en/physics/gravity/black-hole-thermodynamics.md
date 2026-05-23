@@ -24,7 +24,7 @@ Bardeen, Carter, and Hawking (1973) proved four theorems about stationary black 
 
 The analogy assigns $\kappa \leftrightarrow T$ and $A \leftrightarrow S$. Before Hawking's calculation, the temperature was purely formal. After it, the identification became quantitative.
 
-## Bekenstein-Hawking Entropy
+## Bekenstein-Hawking [[gravitational-entropy|Entropy]]
 
 Bekenstein (1972) argued that thermodynamic consistency requires black holes to carry genuine entropy proportional to their horizon area. Swallowing a high-entropy object into a black hole would otherwise decrease the total entropy of the universe — violating the second law. The only candidate quantity that never decreases is the area.
 

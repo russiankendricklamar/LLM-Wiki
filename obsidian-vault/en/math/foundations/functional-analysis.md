@@ -19,7 +19,7 @@ Functional analysis studies infinite-dimensional vector spaces (function spaces)
 ## Operators and Spectrum
 
 A **linear operator** $A: \mathcal{H} \to \mathcal{H}$ maps one function to another.
-- **Eigenfunctions:** Functions satisfying $Af = \lambda f$. In quantum physics, eigenvalues of operators represent measurable physical quantities.
+- **Eigenfunctions:** Functions satisfying $Af = \lambda f$. In quantum physics, [[spectral-theory-operators|eigenvalues]] of operators represent measurable physical quantities.
 - **Spectral Theorem:** Generalizes matrix decomposition to infinite-dimensional operators, allowing them to be decomposed into a spectrum of simpler components.
 
 ## Applications in Machine Learning

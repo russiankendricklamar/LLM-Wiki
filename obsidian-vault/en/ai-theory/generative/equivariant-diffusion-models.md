@@ -18,7 +18,7 @@ f(g \cdot x) = g \cdot f(x) \quad \forall g \in G, x \in \mathcal{X}
 $$
 In the context of [[diffusion-models|diffusion models]], we want the score function (or noise predictor) $s_\theta(x_t, t)$ to be equivariant. For physical systems, $G$ is typically the **Euclidean group** $E(n)$ or the **Special Euclidean group** $SE(n)$, consisting of rotations, translations, and (for $E(n)$) reflections.
 
-## Equivariant SDE Framework
+## Equivariant [[stochastic-differential-equations|SDE]] Framework
 
 Equivariant diffusion can be formalised using [[stochastic-differential-equations|Stochastic Differential Equations (SDEs)]]. Consider the forward SDE:
 $$
@@ -46,7 +46,7 @@ The use of relative distances $\|x_i - x_j\|^2$ ensures invariance of messages, 
 ## Diffusion on Manifolds and Lie Groups
 
 Some applications require diffusion on non-Euclidean spaces, such as [[lie-groups|Lie groups]] (e.g., $SO(3)$ for rotations).
-1. **Riemannian Diffusion:** The SDE is defined using the [[laplacian|Laplace-Beltrami operator]] $\Delta_{\mathcal{M}}$ on the manifold $\mathcal{M}$.
+1. **Riemannian Diffusion:** The SDE is defined using the [[laplacian|Laplace-Beltrami operator]] $\Delta_{\mathcal{M}}$ on the [[manifold-learning|manifold]] $\mathcal{M}$.
 2. **Geodesic Random Walks:** Transitions are defined via exponential maps $\exp_x(v)$, where $v$ is sampled from the tangent space $T_x \mathcal{M}$.
 
 For $SO(3)$, the "noise" is typically a concentrated distribution like the **Isotropic Gaussian** on the sphere, and the denoising network predicts the rotation gradient in the corresponding [[lie-algebras-physics|Lie algebra]] $\mathfrak{so}(3)$.

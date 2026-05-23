@@ -33,7 +33,7 @@ where $v_i = x_i W_E$ with $x_i$ being a flattened patch and $E_{\text{pos}}$ a 
 - **Q-Former** (BLIP-2): a small [[transformer-architecture|transformer]] with a fixed set of learned query tokens that cross-attend to visual features, compressing $N$ visual tokens to $K \ll N$ query embeddings.
 - **Cross-[[attention-mechanisms|attention]] layers**: interleaved cross-[[attention-mechanisms|attention]] in the language decoder attends to visual features at each layer.
 
-**Language decoder** — a pre-trained [[llm]] (decoder-only transformer) that receives visual tokens prepended to or interleaved with text tokens. The visual tokens are treated as a special prefix; the autoregressive generation applies only to text tokens.
+**Language decoder** — a pre-trained [[llm]] (decoder-only [[transformer-architecture|transformer]]) that receives visual tokens prepended to or interleaved with text tokens. The visual tokens are treated as a special prefix; the autoregressive generation applies only to text tokens.
 
 ## Mathematical Framework
 
@@ -61,7 +61,7 @@ Generative VLMs typically train in two stages:
 
 **Stage 1 — Visual-language alignment.** Only the cross-modal connector is trained while the visual encoder and language decoder are frozen. The model learns to map image features into the token space the [[llm]] understands, using image-caption data at scale (LAION, CC3M, etc.). Loss is the standard autoregressive captioning loss.
 
-**Stage 2 — Visual instruction tuning.** The connector and the language decoder (or LoRA adapters on the LLM) are fine-tuned jointly on visual instruction-following data: VQA pairs, image-description dialogues, chart understanding, and document reading tasks. The visual encoder often remains frozen because it was pre-trained on a large contrastive corpus and generalizes well.
+**Stage 2 — Visual instruction tuning.** The connector and the language decoder (or LoRA adapters on the [[llm]]) are fine-tuned jointly on visual instruction-following data: VQA pairs, image-description dialogues, chart understanding, and document reading tasks. The visual encoder often remains frozen because it was pre-trained on a large contrastive corpus and generalizes well.
 
 ## Key Properties & Capabilities
 

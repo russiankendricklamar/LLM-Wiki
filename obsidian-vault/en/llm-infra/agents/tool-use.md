@@ -219,7 +219,7 @@ Sandboxing strategies:
 
 **Multi-agent tool delegation**: an orchestrator model calls a specialized sub-agent as a tool (agent-as-tool pattern). The sub-agent returns its result as structured output.
 
-**[[mcp]] (Model Context Protocol)**: an open standard that generalizes tool use by defining a transport-agnostic protocol for exposing tools, resources, and prompts to any compliant LLM client.
+**[[mcp]] (Model Context Protocol)**: an open standard that generalizes tool use by defining a transport-agnostic protocol for exposing tools, resources, and prompts to any compliant [[llm]] client.
 
 **ToolBench / Gorilla**: research benchmarks that evaluate LLM capability to correctly select and use APIs from large tool libraries (10,000+ APIs).
 

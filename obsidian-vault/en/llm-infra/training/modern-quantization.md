@@ -8,7 +8,7 @@ slug: "modern-quantization"
 
 # Modern [[quantization]]: NF4, GPTQ, and AWQ
 
-Quantization is the process of reducing the precision of neural network weights (e.g., from 16-bit to 4-bit) to save VRAM and increase speed. Without modern quantization, running a 70B parameter model would require a server rack; with it, it fits on a single consumer [[inference-serving|GPU]].
+[[quantization]] is the process of reducing the precision of neural network weights (e.g., from 16-bit to 4-bit) to save VRAM and increase speed. Without modern quantization, running a 70B parameter model would require a server rack; with it, it fits on a single consumer [[inference-serving|GPU]].
 
 ## 1. The Challenge of Low Precision
 

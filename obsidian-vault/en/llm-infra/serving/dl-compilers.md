@@ -16,7 +16,7 @@ Consider a simple LayerNorm operation in PyTorch:
 `y = (x - mean) / std * weight + bias`
 
 If executed naively, PyTorch will:
-1.  Read `x` from [[flash-attention|HBM]] to compute `mean`, write `mean` back to HBM.
+1.  Read `x` from [[flash-attention|HBM]] to compute `mean`, write `mean` back to [[flash-attention|HBM]].
 2.  Read `x` and `mean` to compute `std`, write `std` to HBM.
 3.  Read `x`, `mean`, `std`, subtract and divide, write result to HBM.
 4.  Read result, `weight`, `bias`, multiply and add, write final `y` to HBM.
@@ -35,7 +35,7 @@ This can speed up operations by 10x to 50x.
 Writing fused CUDA kernels by hand in C++ is incredibly difficult and requires deep knowledge of hardware. DL Compilers automate this.
 
 ### 1. XLA (Accelerated Linear Algebra)
-Developed by Google, XLA takes a computational graph (from JAX or TensorFlow), analyzes the whole graph, and generates highly optimized fused kernels specifically for the target hardware (GPU or TPU).
+Developed by Google, XLA takes a computational graph (from JAX or TensorFlow), analyzes the whole graph, and generates highly optimized fused kernels specifically for the target hardware ([[inference-serving|GPU]] or TPU).
 
 ### 2. Triton
 Developed by OpenAI, Triton is a Python-like language that lets AI researchers write custom GPU kernels without knowing C++. It automatically handles memory coalescing, shared memory allocation, and thread synchronization. (FlashAttention was famously re-written in Triton, making it accessible to the community).

@@ -10,7 +10,7 @@ slug: "attention-kernel"
 
 Recent theoretical work has established a profound connection between the **Self-[[attention-mechanisms|Attention]]** mechanism in Transformers and **Kernel Methods** in Hilbert spaces. This perspective allows us to view Transformers as dynamic, input-dependent kernel machines.
 
-## The Attention Mechanism
+## The [[attention-mechanisms|Attention]] Mechanism
 
 Recall standard self-attention:
 $$\text{Attn}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$

@@ -99,7 +99,7 @@ This directly penalizes divergence from the teacher's policy while encouraging l
 
 ## [[quantization]]-aware distillation
 
-**QAT ([[quantization]]-Aware Training)** combines distillation with low-precision weights. The student is quantized (INT8 or INT4) while the teacher runs in full precision. Distillation loss helps the student overcome quantization error:
+**QAT ([[quantization]]-Aware Training)** combines distillation with low-precision weights. The student is quantized (INT8 or INT4) while the teacher runs in full precision. Distillation loss helps the student overcome [[quantization]] error:
 
 $$
 \mathcal{L}_{QAT} = \mathcal{L}_{task}(\text{quantize}(\theta_s), y) + \gamma \mathcal{L}_{KL}(p_T \| p_s)

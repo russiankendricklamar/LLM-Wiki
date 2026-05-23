@@ -28,7 +28,7 @@ Subsequent principal components $w_2, w_3, \dots$ are the eigenvectors associate
 In practice, PCA is computed using SVD directly on the data matrix $X$, rather than computing the covariance matrix $\Sigma$ (which can be numerically unstable).
 $$X = U \Lambda V^\top$$
 - The columns of $V$ (right singular vectors) are the principal directions $w_i$.
-- The diagonal entries of $\Lambda$ (singular values $\sigma_i$) relate to the eigenvalues of $\Sigma$ via $\lambda_i = \frac{\sigma_i^2}{n}$.
+- The diagonal entries of $\Lambda$ (singular values $\sigma_i$) relate to the [[spectral-theory-operators|eigenvalues]] of $\Sigma$ via $\lambda_i = \frac{\sigma_i^2}{n}$.
 - The columns of $U \Lambda$ are the **principal components** (the coordinates of the data in the new space).
 
 ## Explained Variance

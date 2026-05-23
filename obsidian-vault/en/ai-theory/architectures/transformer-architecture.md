@@ -24,7 +24,7 @@ In the original paper, **Post-Norm** was used (Normalize *after* the residual co
 
 ## 3. Positional Embeddings: Giving Time to Space
 
-Since Attention is permutation-invariant (it doesn't care about order), we must manually inject order information.
+Since [[attention-mechanisms|Attention]] is permutation-invariant (it doesn't care about order), we must manually inject order information.
 - **Sinusoidal**: The original "static" wave-based approach.
 - **RoPE (Rotary Positional Embeddings)**: The current SOTA (used in Llama/Mistral). It rotates the Query and Key vectors in complex space. This preserves **Relative Distance** information perfectly and allows the model to generalize to context lengths it has never seen during training.
 

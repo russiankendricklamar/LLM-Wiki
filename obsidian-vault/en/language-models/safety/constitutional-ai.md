@@ -10,7 +10,7 @@ slug: "constitutional-ai"
 
 **Constitutional AI (CAI)**, pioneered by Anthropic, is a framework for aligning AI models with human values using a set of high-level principles (a "Constitution") instead of direct human feedback for every single output. It replaces **[[rlhf]]** (Reinforcement Learning from Human Feedback) with **RLAIF** (Reinforcement Learning from AI Feedback).
 
-## 1. The Core Problem with RLHF
+## 1. The Core Problem with [[rlhf]]
 
 Standard RLHF is:
 1.  **Expensive**: Requires thousands of human annotators to rank outputs.

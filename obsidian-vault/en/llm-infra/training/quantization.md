@@ -79,7 +79,7 @@ For a 7B parameter model in different formats:
 | INT4 | 4 | 3.5 GB | 8× |
 | INT2 | 2 | 1.75 GB | 16× |
 
-With INT8 quantization, a 7B model fits in a 16 GB VRAM GPU with room for KV cache (roughly $2 \cdot \text{seq\_len} \cdot 7B \cdot 2 \text{ bytes}$ per sequence). At INT4, even 13B models fit in consumer GPUs.
+With INT8 quantization, a 7B model fits in a 16 GB VRAM [[inference-serving|GPU]] with room for KV cache (roughly $2 \cdot \text{seq\_len} \cdot 7B \cdot 2 \text{ bytes}$ per sequence). At INT4, even 13B models fit in consumer GPUs.
 
 ## Accuracy Trade-offs
 

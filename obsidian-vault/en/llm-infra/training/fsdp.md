@@ -16,7 +16,7 @@ In standard **Distributed Data Parallel (DDP)**, every [[inference-serving|GPU]]
 
 ### The Lifecycle of a Layer
 For each layer (or "FSDP unit") during the training loop:
-1.  **All-Gather**: Before the forward pass, the GPU collects the shards of the weights it needs from other GPUs to reconstruct the full layer.
+1.  **All-Gather**: Before the forward pass, the [[inference-serving|GPU]] collects the shards of the weights it needs from other GPUs to reconstruct the full layer.
 2.  **Forward Pass**: The computation is performed locally.
 3.  **Discard**: Immediately after the layer is finished, the full weights are discarded, and only the local shard is kept in memory.
 4.  **Backward Pass**: The process is repeated to compute gradients.

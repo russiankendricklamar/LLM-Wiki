@@ -27,7 +27,7 @@ The Hessian is a square matrix of second-order partial derivatives of a scalar f
 $$H_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j}$$
 - **Geometric Meaning**: It describes the local "bending" of the landscape.
 - **[[spectral-theory-operators|Eigenvalues]] and Stability**:
-    - If all eigenvalues $\lambda_i > 0$, the point is a **Local Minimum** (a bowl).
+    - If all [[spectral-theory-operators|eigenvalues]] $\lambda_i > 0$, the point is a **Local Minimum** (a bowl).
     - If all $\lambda_i < 0$, it is a **Local Maximum** (a peak).
     - If there is a mix of signs, it is a **Saddle Point** (a major obstacle for deep learning optimizers).
 

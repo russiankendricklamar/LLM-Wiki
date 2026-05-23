@@ -49,7 +49,7 @@ Decades of proposals, all with problems:
 
 ## The island formula
 
-The modern formula for the entropy of the Hawking radiation is
+The modern formula for the [[gravitational-entropy|entropy]] of the Hawking radiation is
 
 $$
 S_\text{rad} = \min_I\!\left[\, \text{ext}\!\left( \frac{A(\partial I)}{4 G} + S_\text{matter}(\text{rad} \cup I) \right)\,\right],

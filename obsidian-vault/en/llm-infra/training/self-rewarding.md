@@ -24,7 +24,7 @@ The training process follows a "Self-Correction" cycle:
 
 The key insight is that **Evaluation is easier than Generation**. A model might not be able to generate a perfect solution in one go, but it can often recognize which of its three attempts is the best. By training on its own judgments, the model improves its evaluation ability, which in turn improves its generation ability in the next round.
 
-## Mathematical Formulation: Iterative DPO
+## Mathematical Formulation: Iterative [[dpo]]
 
 At iteration $M$, we have model $\pi_M$. We generate a dataset $\mathcal{D}_M$ where:
 $$y_w, y_l \sim \pi_M(x), \quad \text{ModelScore}(y_w) > \text{ModelScore}(y_l)$$

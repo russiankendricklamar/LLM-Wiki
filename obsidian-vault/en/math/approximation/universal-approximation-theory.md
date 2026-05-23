@@ -37,7 +37,8 @@ $$
 Then there exists a feedforward network with one hidden layer of size $N$ that achieves a mean squared error bounded by:
 
 $$
-\int_{B} \left( f(x) - F(x) ight)^2 \mu(dx) \leq rac{(2 C_f)^2}{N}
+\int_{B} \left( f(x) - F(x) 
+ight)^2 \mu(dx) \leq rac{(2 C_f)^2}{N}
 $$
 
 where $\mu$ is an arbitrary probability measure on the domain $B$.
@@ -50,10 +51,11 @@ For ReLU networks, the number of linear regions grows as $\mathcal{O}(W^L)$, whe
 
 ## Approximation by Transformers
 
-More recently, UAT has been extended to [[transformer-architectures|Transformers]]. A sequence-to-sequence function $f: (\mathbb{R}^d)^N 	o (\mathbb{R}^d)^N$ is permutation-equivariant if it commutes with the action of the symmetric group $S_N$. Yun et al. (2020) proved that self-attention layers with position encodings can universally approximate any continuous permutation-equivariant sequence-to-sequence function defined on a compact domain.
+More recently, UAT has been extended to [[transformer-architectures|Transformers]]. A sequence-to-sequence function $f: (\mathbb{R}^d)^N 	o (\mathbb{R}^d)^N$ is permutation-equivariant if it commutes with the action of the symmetric group $S_N$. Yun et al. (2020) proved that self-[[attention-mechanisms|attention]] layers with position encodings can universally approximate any continuous permutation-equivariant sequence-to-sequence function defined on a compact domain.
 
 $$
-	ext{SelfAttention}(X) = 	ext{softmax}\left( rac{X W_Q W_K^T X^T}{\sqrt{d_k}} ight) X W_V
+	ext{SelfAttention}(X) = 	ext{softmax}\left( rac{X W_Q W_K^T X^T}{\sqrt{d_k}} 
+ight) X W_V
 $$
 
-With an arbitrary number of heads and layers, the class of Transformer networks is dense in the space of continuous functions with respect to the $L^p$ metric.
+With an arbitrary number of heads and layers, the class of [[transformer-architecture|Transformer]] networks is dense in the space of continuous functions with respect to the $L^p$ metric.

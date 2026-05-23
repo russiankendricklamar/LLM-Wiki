@@ -120,7 +120,7 @@ def self_consistent_cot(
 
 def program_of_thought(problem: str) -> str:
     """
-    Program of Thought: ask the LLM to write code as the reasoning step.
+    Program of Thought: ask the [[llm]] to write code as the reasoning step.
     The code is then handed to a tool (see tool-use pattern) for execution.
     Returns the generated code string; execution is handled by the caller.
     """

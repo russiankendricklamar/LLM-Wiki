@@ -71,7 +71,7 @@ $$r^*(x, y) = \frac{1}{\beta} \log \frac{\pi^*(y|x)}{\pi_\text{ref}(y|x)}$$
 
 $$\pi^*(y|x) = \frac{1}{Z(x)} \pi_\text{ref}(y|x) e^{\beta r^*(x,y)}$$
 
-где $Z(x)$ — нормализатор. DPO минимизирует логарифмическую вероятность выбрать неправильный ответ:
+где $Z(x)$ — нормализатор. [[dpo|DPO]] минимизирует логарифмическую вероятность выбрать неправильный ответ:
 
 $$\mathcal{L}_\text{DPO} = -\log \sigma\left(\beta \log \frac{\pi_\theta(y_w|x)}{\pi_\text{ref}(y_w|x)} - \beta \log \frac{\pi_\theta(y_l|x)}{\pi_\text{ref}(y_l|x)}\right)$$
 

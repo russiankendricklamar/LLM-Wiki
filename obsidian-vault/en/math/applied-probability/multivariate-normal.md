@@ -98,7 +98,7 @@ $$
 H(\mathbf{X}) = -\int f(\mathbf{x})\log f(\mathbf{x})\, d\mathbf{x} = \tfrac{1}{2}\log\bigl((2\pi e)^k |\boldsymbol{\Sigma}|\bigr).
 $$
 
-**Maximum-entropy principle:** among all distributions on $\mathbb{R}^k$ with fixed $\boldsymbol{\mu},\boldsymbol{\Sigma}$, the entropy maximiser is exactly the Gaussian. This is why MaxEnt returns a Gaussian whenever the constraints fix only the first two moments.
+**Maximum-[[shannon-entropy|entropy]] principle:** among all distributions on $\mathbb{R}^k$ with fixed $\boldsymbol{\mu},\boldsymbol{\Sigma}$, the entropy maximiser is exactly the Gaussian. This is why MaxEnt returns a Gaussian whenever the constraints fix only the first two moments.
 
 ## 7. KL divergence between normals
 

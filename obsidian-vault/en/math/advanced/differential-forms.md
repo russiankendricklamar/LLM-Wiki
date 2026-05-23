@@ -17,4 +17,4 @@ The exterior derivative $d: \Omega^k(M) \to \Omega^{k+1}(M)$ satisfies $d^2 = 0$
 ### Generalized Stokes' Theorem
 The pinnacle is the elegant integration formula:
 $\int_M d\omega = \int_{\partial M} \omega$
-where $M$ is an oriented manifold and $\partial M$ is its boundary. This beautifully unifies the fundamental theorem of calculus, Green's, Stokes', and Divergence theorems.
+where $M$ is an oriented [[manifold-learning|manifold]] and $\partial M$ is its boundary. This beautifully unifies the fundamental theorem of calculus, Green's, Stokes', and Divergence theorems.

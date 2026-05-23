@@ -8,7 +8,7 @@ slug: "information-theory-basics"
 
 # Information Theory Basics: Measuring Surprise
 
-Information theory, founded by Claude Shannon, provides the mathematical framework for quantifying communication, compression, and the "uncertainty" in data. In AI, it is the language we use to define loss functions like Cross-Entropy.
+Information theory, founded by Claude Shannon, provides the mathematical framework for quantifying communication, compression, and the "uncertainty" in data. In AI, it is the language we use to define loss functions like Cross-[[shannon-entropy|Entropy]].
 
 ## 1. Entropy: The Measure of Uncertainty
 

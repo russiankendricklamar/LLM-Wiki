@@ -8,7 +8,7 @@ slug: information-geometry-nn
 
 # Information Geometry of Neural Networks
 
-Information Geometry applies differential geometry to probability and statistics. In the context of neural networks, we treat the parameterized space of neural networks not as a Euclidean space, but as a Riemannian manifold where the metric tensor is given by the Fisher Information Matrix (FIM).
+Information Geometry applies differential geometry to probability and statistics. In the context of neural networks, we treat the parameterized space of neural networks not as a Euclidean space, but as a Riemannian [[manifold-learning|manifold]] where the metric tensor is given by the Fisher Information Matrix (FIM).
 
 ## Fisher Information Metric
 
@@ -23,12 +23,13 @@ Here, $F(	heta)$ is the Fisher Information Matrix:
 $$
 F(	heta) = \mathbb{E}_{x \sim \mathcal{D}, y \sim p_	heta} \left[ 
 abla_	heta \log p(y|x; 	heta) 
-abla_	heta \log p(y|x; 	heta)^T ight]
+abla_	heta \log p(y|x; 	heta)^T 
+ight]
 $$
 
 $F(	heta)$ is a symmetric, positive semi-definite matrix acting as the Riemannian metric tensor on the parameter space.
 
-## Natural Gradient Descent
+## Natural [[convex-optimization|Gradient Descent]]
 
 Standard gradient descent follows the steepest descent in Euclidean space. However, parameter spaces have intrinsic curvature. Amari's Natural Gradient Descent (NGD) follows the path of steepest descent in the Riemannian manifold defined by the FIM.
 
@@ -56,4 +57,4 @@ $$
 
 ## Curvature and Flat Minima
 
-In deep learning, the FIM is highly degenerate. Most of its eigenvalues are close to zero, with only a few large eigenvalues. This implies that the probability distribution is highly sensitive to changes along a few parameter directions (high curvature), while it is invariant along most other directions (flat minima).
+In deep learning, the FIM is highly degenerate. Most of its [[spectral-theory-operators|eigenvalues]] are close to zero, with only a few large eigenvalues. This implies that the probability distribution is highly sensitive to changes along a few parameter directions (high curvature), while it is invariant along most other directions (flat minima).

@@ -58,6 +58,6 @@ The performance of MRL embeddings typically degrades gracefully as the number of
 ## Related Topics
 
 [[embedding-models]] — the general class of models that MRL improves  
-[[llm]] — many MRL models are built on top of LLM encoders  
+[[llm]] — many MRL models are built on top of [[llm]] encoders  
 [[vlm]] — MRL is also used for multi-modal (image-text) embeddings  
 [[vector-databases]] — the primary infrastructure that benefits from MRL

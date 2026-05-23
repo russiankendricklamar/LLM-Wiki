@@ -164,7 +164,7 @@ for i in range(0, 40, 8):
 
 - **Log-linear reliability:** Loss decreases log-linearly with log-compute over 7+ orders of magnitude; one of the most reliable empirical regularities in deep learning.
 - **Chinchilla correction:** GPT-3 class models were undertrained by 5-10x in data; compute-optimal training requires ~20 tokens per parameter.
-- **Irreducible entropy:** As $N, D \to \infty$, loss approaches irreducible entropy $L_\infty > 0$ — the true entropy of natural language.
+- **Irreducible [[shannon-entropy|entropy]]:** As $N, D \to \infty$, loss approaches irreducible entropy $L_\infty > 0$ — the true entropy of natural language.
 - **Emergent abilities controversy:** GPT-4 technical report and subsequent work argue most apparent emergent abilities disappear when using smooth metrics; others argue phase transitions are real.
 - **Scaling beats architecture search:** For fixed compute, scaling laws predict that training a larger model for fewer steps beats training an optimal-architecture smaller model — in practice simplifying NAS.
 

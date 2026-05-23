@@ -18,7 +18,7 @@ This method sits at the intersection of two larger topics, each covered by its o
 
 Classical time series models — ARIMA, GARCH, exponential smoothing — were designed for stationary or weakly nonstationary data with a fixed, hand-engineered feature set. They struggle to incorporate heterogeneous inputs (price history, macro indicators, calendar effects, instrument metadata) simultaneously, and they produce point forecasts that give no uncertainty information.
 
-The **Temporal Fusion Transformer (TFT)**, introduced by Bryan Lim, Sercan Arik, Nicolas Loeff, and Tomas Pfister at Google (2019, published at IJCAI 2021), addresses these limitations through a unified architecture that explicitly handles three categories of inputs, learns which variables matter at each horizon, and outputs calibrated quantile forecasts.
+The **Temporal Fusion [[transformer-architecture|Transformer]] (TFT)**, introduced by Bryan Lim, Sercan Arik, Nicolas Loeff, and Tomas Pfister at Google (2019, published at IJCAI 2021), addresses these limitations through a unified architecture that explicitly handles three categories of inputs, learns which variables matter at each horizon, and outputs calibrated quantile forecasts.
 
 In quantitative finance TFT finds natural applications wherever multi-horizon probabilistic forecasts matter: intraday volatility prediction, term-structure modelling, macro factor forecasting, and portfolio rebalancing signals.
 
@@ -81,7 +81,7 @@ The forward pass proceeds through five stages:
 1. **Variable selection**: each raw input is projected to a common embedding dimension $d_{\text{model}}$; the VSN selects a weighted combination.
 2. **Sequence encoding**: a two-layer **LSTM** processes the encoder context (past observations) and decoder stub (known future inputs) to capture local temporal patterns.
 3. **Static enrichment**: the static context $\mathbf{c}_e$ is injected into the LSTM hidden states via GRN, conditioning the sequence representation on instrument identity or regime flags.
-4. **Temporal self-[[attention-mechanisms|attention]]**: multi-head attention with causal masking operates on the decoder sequence, capturing long-range dependencies the LSTM cannot sustain across hundreds of lags.
+4. **Temporal self-[[attention-mechanisms|attention]]**: multi-head [[attention-mechanisms|attention]] with causal masking operates on the decoder sequence, capturing long-range dependencies the LSTM cannot sustain across hundreds of lags.
 5. **Position-wise feed-forward + gating**: final GLU-gated projection produces quantile outputs for each horizon.
 
 ### Interpretability Surface

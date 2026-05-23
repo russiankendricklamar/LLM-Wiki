@@ -92,7 +92,7 @@ Order can be improved by reversing the splits in alternating steps (**Strang spl
 
 **Generative Modeling**: Diffusion-based models generate images via SDEs of the form $dX_t = f(X_t, t)\,dt + g(t)\,dW_t$. Score-matching learns the drift, and simulation (via Euler–Maruyama or higher-order schemes) reverses the noise. Weak convergence suffices; the choice of scheme trades off speed vs. sample quality.
 
-**Physics Simulations**: Langevin dynamics for molecular simulation require stable, reversible integrators. Leapfrog and similar symplectic schemes are used; one must balance fidelity to the continuous-time SDE with conservation laws.
+**Physics Simulations**: Langevin dynamics for molecular simulation require stable, reversible integrators. Leapfrog and similar symplectic schemes are used; one must balance fidelity to the continuous-time [[stochastic-differential-equations|SDE]] with conservation laws.
 
 **Mathematical Finance**: Pricing derivatives under stochastic volatility or jump models (Heston, jump-diffusion) relies on Monte Carlo with Euler–Maruyama. Weak convergence $O(h)$ is standard; multilevel schemes reduce variance for nested expectations (American options, CVA).
 

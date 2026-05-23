@@ -8,11 +8,11 @@ slug: "continuous-batching"
 
 # Continuous Batching (In-Flight Batching)
 
-Continuous batching (often called in-flight batching or cellular batching) is an advanced scheduling technique used in modern [[llm]] inference engines (like vLLM, TGI, and TensorRT-LLM) to maximize [[inference-serving|GPU]] utilization. It solves the severe inefficiency of traditional static batching.
+Continuous batching (often called in-flight batching or cellular batching) is an advanced scheduling technique used in modern [[llm]] inference engines (like vLLM, TGI, and TensorRT-[[llm]]) to maximize [[inference-serving|GPU]] utilization. It solves the severe inefficiency of traditional static batching.
 
 ## The Problem with Static Batching
 
-To fully utilize a GPU's Tensor Cores, requests must be grouped into a **batch**. In early inference systems, requests were grouped statically:
+To fully utilize a [[inference-serving|GPU]]'s Tensor Cores, requests must be grouped into a **batch**. In early inference systems, requests were grouped statically:
 - Four requests arrive: lengths 10, 50, 20, and 100 tokens.
 - The engine batches them together and runs the model.
 - Because matrix math requires uniform shapes, the shorter requests must be **padded** with zeros (or dummy tokens) to match the longest request (100 tokens).

@@ -22,7 +22,7 @@ Coordinate ascent variational inference (CAVI) optimizes each $q_j$ iteratively.
 $$ q_j^*(z_j) \propto \exp\left( \mathbb{E}_{i \neq j} [\log p(x, z)] \right) $$
 
 ## The Reparameterization Trick
-To optimize the ELBO using stochastic gradient descent (like in VAEs), we need $\nabla_\theta \mathbb{E}_{q_\theta(z)}[f(z)]$. If $q_\theta$ is a Gaussian $\mathcal{N}(\mu, \sigma^2)$, we reparameterize $z = \mu + \sigma \epsilon$ where $\epsilon \sim \mathcal{N}(0, 1)$.
+To optimize the ELBO using stochastic [[convex-optimization|gradient descent]] (like in VAEs), we need $\nabla_\theta \mathbb{E}_{q_\theta(z)}[f(z)]$. If $q_\theta$ is a Gaussian $\mathcal{N}(\mu, \sigma^2)$, we reparameterize $z = \mu + \sigma \epsilon$ where $\epsilon \sim \mathcal{N}(0, 1)$.
 Then:
 $$ \nabla_\theta \mathbb{E}_{q_\theta}[f(z)] = \mathbb{E}_{\epsilon}[\nabla_\theta f(\mu + \sigma \epsilon)] $$
 This allows gradients to backpropagate through the sampling process.

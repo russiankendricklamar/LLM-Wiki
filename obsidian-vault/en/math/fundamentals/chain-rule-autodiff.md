@@ -8,7 +8,7 @@ slug: "chain-rule-autodiff"
 
 # The Chain Rule & Auto-Diff: The Engine of Deep Learning
 
-Behind every modern AI "learning" something lies a single mathematical principle: the **Chain Rule**. When we talk about **Backpropagation**, we are really talking about the efficient application of the chain rule to compute gradients across millions of parameters.
+Behind every modern AI "learning" something lies a single mathematical principle: the **Chain Rule**. When we talk about **[[automatic-differentiation|Backpropagation]]**, we are really talking about the efficient application of the chain rule to compute gradients across millions of parameters.
 
 ## 1. The Single Variable Chain Rule
 

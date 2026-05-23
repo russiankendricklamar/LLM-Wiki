@@ -27,7 +27,7 @@ $$
 
 ## Mercer's Theorem
 
-Mercer's theorem formalizes the connection between kernels and integral operators. Let $\mathcal{X}$ be a compact metric space and $k$ a continuous positive semi-definite kernel. Then there exists an orthonormal basis of eigenfunctions $\{\phi_i\}_{i=1}^\infty$ of $L^2(\mathcal{X})$ and non-negative eigenvalues $\{\lambda_i\}_{i=1}^\infty$ such that:
+Mercer's theorem formalizes the connection between kernels and integral operators. Let $\mathcal{X}$ be a compact metric space and $k$ a continuous positive semi-definite kernel. Then there exists an orthonormal basis of eigenfunctions $\{\phi_i\}_{i=1}^\infty$ of $L^2(\mathcal{X})$ and non-negative [[spectral-theory-operators|eigenvalues]] $\{\lambda_i\}_{i=1}^\infty$ such that:
 $$
 k(x, y) = \sum_{i=1}^\infty \lambda_i \phi_i(x) \phi_i(y)
 $$

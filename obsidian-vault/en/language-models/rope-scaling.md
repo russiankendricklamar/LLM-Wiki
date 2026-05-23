@@ -29,7 +29,7 @@ where $d$ is the hidden dimension. This preserves high-frequency information (fo
 ### 3. YaRN (Yet another RoPE extensioN)
 YaRN is the current state-of-the-art for context extension (up to 128k+). It addresses two issues in NTK-aware scaling:
 1.  **Dimension Sensitivity**: It applies different scaling to different frequency bands. It uses a ramp function to interpolate between dimensions that need interpolation and those that can extrapolate.
-2.  **Attention Logit Decay**: Scaling RoPE changes the distribution of the dot products in [[attention-mechanisms|attention]]. YaRN applies a temperature $T$ to the attention logits to restore the original distribution:
+2.  **[[attention-mechanisms|Attention]] Logit Decay**: Scaling RoPE changes the distribution of the dot products in [[attention-mechanisms|attention]]. YaRN applies a temperature $T$ to the attention logits to restore the original distribution:
     $$\text{Attn}(Q, K) = \text{softmax}\left(\frac{QK^T}{T \sqrt{d_k}}\right)$$
 
 ## Comparison of Methods

@@ -107,7 +107,7 @@ import torch
 import torch.nn as nn
 
 class SparseAutoencoder(nn.Module):
-    """L1-penalised Sparse Autoencoder for LLM activation decomposition."""
+    """L1-penalised Sparse Autoencoder for [[llm]] activation decomposition."""
 
     def __init__(self, d_model: int, n_features: int, l1_coeff: float = 1e-3):
         super().__init__()

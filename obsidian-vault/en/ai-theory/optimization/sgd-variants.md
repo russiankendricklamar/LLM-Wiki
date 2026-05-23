@@ -7,7 +7,7 @@ slug: sgd-variants
 ---
 
 ## Overview
-Stochastic Gradient Descent (SGD) optimizes an objective function by updating parameters based on a randomly selected subset (mini-batch) of the data.
+Stochastic [[convex-optimization|Gradient Descent]] (SGD) optimizes an objective function by updating parameters based on a randomly selected subset (mini-batch) of the data.
 
 ## Variants
 - **Vanilla SGD:** $\theta_{t+1} = \theta_t - \eta \nabla L(\theta_t; x_i)$

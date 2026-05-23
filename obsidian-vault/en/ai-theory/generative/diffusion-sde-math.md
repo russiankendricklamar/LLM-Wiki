@@ -10,7 +10,7 @@ slug: "diffusion-sde-math"
 
 Diffusion models map complex data distributions to simple noise distributions via a forward stochastic process, and then learn a reverse process to generate data from noise. The framework can be elegantly unified using Stochastic Differential Equations (SDEs).
 
-## Forward SDE
+## Forward [[stochastic-differential-equations|SDE]]
 
 Let $x(0) \sim p_0(x)$ be the data distribution. We construct a continuous-time forward process $x(t)$ for $t \in [0, T]$ described by the Ito SDE:
 $$

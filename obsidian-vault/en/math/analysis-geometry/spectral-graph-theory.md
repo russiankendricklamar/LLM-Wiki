@@ -13,7 +13,7 @@ For a simple, undirected graph $G=(V,E)$, the unnormalized Laplacian is $L = D -
 $$ \mathcal{L} = I - D^{-1/2} A D^{-1/2} $$
 For any vector $x \in \mathbb{R}^{|V|}$:
 $$ x^T L x = \sum_{(u,v) \in E} (x_u - x_v)^2 $$
-This shows $L$ is positive semi-definite. The eigenvalues of $L$ are $0 = \lambda_1 \le \lambda_2 \le \dots \le \lambda_n$.
+This shows $L$ is positive semi-definite. The [[spectral-theory-operators|eigenvalues]] of $L$ are $0 = \lambda_1 \le \lambda_2 \le \dots \le \lambda_n$.
 
 ## Cheeger's Inequality
 The algebraic connectivity $\lambda_2$ (Fiedler value) is intimately related to the graph's bottleneck or isoperimetric number $h(G)$:

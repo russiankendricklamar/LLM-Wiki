@@ -67,6 +67,6 @@ The smooth embedding is obtained by mapping $x \to (\phi_1(x), \phi_2(x), \dots,
 
 ## Related Topics
 
-[[spectral-graph-theory]] — the mathematical basis for Laplacian Eigenmaps  
+[[spectral-graph-theory]] — the mathematical basis for [[spectral-graph-theory|Laplacian]] Eigenmaps  
 [[information-geometry]] — studying the manifold of distributions  
 [[differential-geometry]] — the theory of manifolds

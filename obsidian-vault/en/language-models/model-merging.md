@@ -47,7 +47,7 @@ This allows for a model with many parameters but the inference cost of a smaller
 
 | Feature | Advantage | Limitation |
 |---|---|---|
-| **Compute** | Extremely low (minutes on CPU/GPU). | No "new" knowledge is created; only existing knowledge is combined. |
+| **Compute** | Extremely low (minutes on CPU/[[inference-serving|GPU]]). | No "new" knowledge is created; only existing knowledge is combined. |
 | **Performance** | Often beats individual models on benchmarks. | Can lead to "catastrophic interference" if models are too different. |
 | **Flexibility** | Mix and match specialized fine-tunes (code, math, chat). | Requires models to share the same base architecture and dimensionality. |
 

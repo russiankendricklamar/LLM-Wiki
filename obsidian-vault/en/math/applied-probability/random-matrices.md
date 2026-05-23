@@ -23,7 +23,7 @@ The fundamental objects of RMT are the **Gaussian Orthogonal Ensemble (GOE)** an
 - Off-diagonal entries: $H_{ij} \sim \mathcal{N}(0, 1) + i\mathcal{N}(0, 1)$ for $i < j$
 - $H_{ij} = \overline{H_{ji}}$
 
-The joint probability density of the eigenvalues $\lambda_1, \ldots, \lambda_n$ of a matrix from GOE/GUE is given by:
+The joint probability density of the [[spectral-theory-operators|eigenvalues]] $\lambda_1, \ldots, \lambda_n$ of a matrix from GOE/GUE is given by:
 
 $$P(\lambda_1, \ldots, \lambda_n) = C_n \prod_{i < j} |\lambda_i - \lambda_j|^\beta \exp\left(-\frac{\beta}{4} \sum_{i=1}^n \lambda_i^2\right)$$
 

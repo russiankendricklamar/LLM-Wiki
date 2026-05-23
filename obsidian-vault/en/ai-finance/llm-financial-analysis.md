@@ -33,7 +33,7 @@ This article covers the technical machinery for deploying LLMs in quantitative f
     {"model": "FinBERT", "FinQA": 31, "Sentiment": 88},
     {"model": "BloombergGPT", "FinQA": 43, "Sentiment": 82},
     {"model": "GPT-4 (no [[rag]])", "FinQA": 61, "Sentiment": 84},
-    {"model": "GPT-4 + RAG", "FinQA": 68, "Sentiment": 84},
+    {"model": "GPT-4 + [[rag]]", "FinQA": 68, "Sentiment": 84},
     {"model": "Claude 3.7 CoT", "FinQA": 71, "Sentiment": 85}
   ],
   "lines": [
@@ -122,7 +122,7 @@ SEC EDGAR API
  Prompt: [system] + [retrieved chunks] + [user question]
       │
       ▼
- LLM generate → structured JSON → trading signal
+ [[llm]] generate → structured JSON → trading signal
 ```
 
 ### Tool Use for Live Data

@@ -44,7 +44,7 @@ The probability density of finding a particle at a specific point is given by th
 $$ P(x, t) = |\psi(x, t)|^2 $$
 
 ### Operators and Observables
-In QM, physical quantities (observables) are represented by linear Hermitian operators acting on the Hilbert space of states. The possible results of a measurement are the eigenvalues of these operators.
+In QM, physical quantities (observables) are represented by linear Hermitian operators acting on the Hilbert space of states. The possible results of a measurement are the [[spectral-theory-operators|eigenvalues]] of these operators.
 
 ## Interpretation of Quantum Mechanics
 

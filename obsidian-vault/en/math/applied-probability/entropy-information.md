@@ -10,7 +10,7 @@ slug: "entropy-information"
 
 Information theory provides a mathematical way to quantify "surprise," "uncertainty," and "information." These concepts are fundamental to everything from data compression to the training of decision trees and neural networks.
 
-## 1. Shannon Entropy ($H$)
+## 1. Shannon [[shannon-entropy|Entropy]] ($H$)
 
 Entropy measures the average level of "uncertainty" or "surprise" inherent in a variable's possible outcomes. For a discrete random variable $X$ with outcomes $x_1, \dots, x_n$:
 

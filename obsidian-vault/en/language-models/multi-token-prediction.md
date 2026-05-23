@@ -21,7 +21,7 @@ The MTP architecture typically consists of:
 
 ## The Modified Loss Function
 
-The model is trained using a multi-task objective. For each position $t$, the total loss is a weighted sum of the individual cross-entropy losses for each predicted token:
+The model is trained using a multi-task objective. For each position $t$, the total loss is a weighted sum of the individual cross-[[shannon-entropy|entropy]] losses for each predicted token:
 
 $$\mathcal{L}_{MTP} = \sum_{t} \sum_{i=1}^{n} \lambda_i \mathcal{L}(P(x_{t+i} \mid x_{1:t}), x_{t+i})$$
 

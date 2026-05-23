@@ -1,6 +1,7 @@
 a-star-search.md
 absolute-continuity-process-measures.md
 account-abstraction.md
+activation-functions-math.md
 activation-patching.md
 adalora.md
 admm.md
@@ -12,6 +13,8 @@ adversarial-stress-testing.md
 agentic-patterns.md
 agents.md
 ai-market-making.md
+algebraic-geometry-slt.md
+algebraic-topology-persistent.md
 algebraic-topology.md
 alpha-factor-discovery.md
 alpha-factor-research.md
@@ -36,6 +39,7 @@ asymptotic-expansion-integrals.md
 asymptotic-spacetime.md
 asymptotic-symmetries.md
 attention-kernel.md
+attention-linear-kernel.md
 attention-mechanisms.md
 automata-theory.md
 automatic-differentiation.md
@@ -68,6 +72,7 @@ black-scholes-derivations.md
 black-scholes.md
 black-swan-scenarios.md
 blacks-model.md
+bmo-martingales.md
 bms-group.md
 bond-options-gaussian.md
 boolean-algebra.md
@@ -80,6 +85,7 @@ bridge-security.md
 brownian-bridge.md
 brownian-motion.md
 bs-market-self-financing.md
+bsdes-nonlinear-pdes.md
 calculus-of-variations-jacobi.md
 calculus-of-variations.md
 cameron-martin-formula.md
@@ -106,6 +112,7 @@ characteristic-functions.md
 chi-squared-tests.md
 cir-hull-white.md
 circuit-discovery.md
+clark-ocone-formula.md
 clark-ocone.md
 clifford-algebras.md
 clt.md
@@ -119,6 +126,7 @@ complete-incomplete-markets.md
 complex-analysis.md
 complex-manifolds.md
 compressed-sensing.md
+computational-complexity-pac-bayes.md
 computational-geometry.md
 concentration-inequalities.md
 concentration-of-measure.md
@@ -136,6 +144,7 @@ continuous-batching.md
 continuous-random-variables.md
 contract-upgradeability.md
 contrastive-learning.md
+convergence-of-semimartingales.md
 convergence-semimartingales.md
 convergence-stochastic-integrals.md
 convergence-types.md
@@ -181,6 +190,7 @@ deep-hedging.md
 deep-lob.md
 deep-ritz-method.md
 deep-rl-execution.md
+deepseek-v3-mla-compression.md
 delay-differential-equations.md
 delta-hedging-practice.md
 delta-method.md
@@ -189,6 +199,7 @@ determinant-properties.md
 dft.md
 differential-equations.md
 differential-forms.md
+differential-galois-theory.md
 differential-geometry.md
 differential-privacy.md
 differentiation-of-measures.md
@@ -205,6 +216,7 @@ discrete-martingales.md
 discrete-random-variables.md
 dispersion-trading.md
 distributed-systems-consensus.md
+distributed-training-3d.md
 distributed-training.md
 distributions-zoo.md
 divergence-theorem.md
@@ -239,6 +251,7 @@ equivariant-nn.md
 erdos-renyi.md
 ergodic-theorems-birkhoff.md
 ergodic-theory-markov.md
+ergodic-theory-sgd.md
 ergodic-theory.md
 error-correcting-codes.md
 estimator-properties.md
@@ -270,6 +283,7 @@ fisher-transform.md
 fixed-point-theorems.md
 flash-attention.md
 flow-matching.md
+fluid-dynamics-navier-stokes.md
 fluid-dynamics.md
 fluid-turbulence.md
 fokker-planck-equation.md
@@ -277,6 +291,7 @@ follmer-schweizer.md
 formal-proof-techniques.md
 fourier-neural-operators.md
 fourier-transform.md
+fractional-brownian-motion-integration.md
 fractional-brownian-motion.md
 fractional-calculus.md
 fractional-cointegration.md
@@ -285,11 +300,13 @@ fraud-detection.md
 fredholm-theory.md
 free-boundary-american.md
 free-probability.md
+freidlin-wentzell-theory.md
 frtb-es.md
 frtb-sa-mr.md
 frtb.md
 fsdp.md
 ftap-first-fundamental-theorem.md
+functional-analysis-c-star.md
 functional-analysis.md
 functional-limit-theorems.md
 fundamental-inequalities.md
@@ -314,6 +331,8 @@ genetic-algorithms-math.md
 geometric-brownian-motion.md
 geometric-deep-learning.md
 geometric-ergodicity.md
+geometric-mechanics-lie-groups.md
+geometry-loss-landscapes.md
 geometry-of-attention.md
 gff.md
 girsanov-semimartingales.md
@@ -323,6 +342,7 @@ gmm-estimation.md
 gmm.md
 gnn-credit-risk.md
 gnn-finance.md
+gnn-weisfeiler-lehman.md
 godel-incompleteness.md
 goldstone-modes.md
 gpt-architecture.md
@@ -363,6 +383,7 @@ heston-model.md
 hidden-markov-models.md
 hierarchical-risk-parity.md
 high-dimensional-statistics.md
+higher-category-theory-ai.md
 hilbert-banach-spaces.md
 hilbert-huang-transform.md
 hjb-equation.md
@@ -385,10 +406,12 @@ inference-serving.md
 infinitely-divisible-distributions.md
 information-bottleneck-theory.md
 information-geometry-finance.md
+information-geometry-natural-gradient.md
 information-geometry-nn.md
 information-geometry.md
 information-paradox.md
 information-theory-basics.md
+information-theory-rate-distortion.md
 information-theory.md
 inner-product-spaces.md
 innovation-process.md
@@ -477,6 +500,7 @@ local-time-tanaka.md
 logic-set-theory.md
 logistic-regression-math.md
 logistic-regression.md
+long-context-yarn-longrope.md
 longrope.md
 longstaff-schwartz.md
 lora-peft.md
@@ -489,6 +513,7 @@ lwe-crypto.md
 m-estimators.md
 mac-bc-channels.md
 malliavin-calculus.md
+malliavin-greeks.md
 mamba-ssm.md
 manifold-learning.md
 manifold.md
@@ -507,6 +532,7 @@ martingale-problem.md
 martingale-representation.md
 martingale.md
 math-for-ai.md
+math-reasoning-chains-rl.md
 matrix-calculus.md
 matrix-decompositions.md
 matrix-exponential.md
@@ -519,6 +545,7 @@ maximum-entropy-irl.md
 maximum-entropy.md
 maxwell-electromagnetism.md
 maxwells-equations.md
+mckean-vlasov-sdes.md
 mcmc.md
 mcp.md
 mcts.md
@@ -528,6 +555,7 @@ mean-field-games.md
 measure-theoretic-probability.md
 measure-theory.md
 mechanism-design.md
+mechanistic-interpretability-sae.md
 mechanistic-interpretability.md
 memory-effects.md
 merton-jump-diffusion.md
@@ -541,6 +569,7 @@ mgf.md
 microlocal-analysis.md
 minimax-estimation.md
 mixture-of-depths.md
+mixture-of-experts-routing.md
 mixture-of-experts.md
 ml-options-pricing.md
 mla.md
@@ -548,6 +577,7 @@ mle-estimation.md
 mle.md
 model-based-rl.md
 model-free-rl-factors.md
+model-merging-procrustes.md
 model-merging.md
 model-parallelism.md
 modern-quantization.md
@@ -560,6 +590,7 @@ multi-armed-bandits.md
 multi-curve-framework.md
 multi-token-prediction.md
 multifractal-processes.md
+multimodal-alignment-clip.md
 multiple-testing.md
 multivariable-calculus.md
 multivariable-taylor-series.md
@@ -579,6 +610,7 @@ network-coding.md
 network-risk-cascades.md
 neural-ode-stability.md
 neural-odes.md
+neural-operators-fno.md
 neural-operators.md
 neural-radiance-fields-math.md
 neural-scaling-laws.md
@@ -590,23 +622,29 @@ neyman-pearson.md
 nlp-financial-analysis.md
 nlse-solitons.md
 noether-theorem.md
+non-commutative-geometry.md
 non-euclidean-geometry.md
+nonequilibrium-stat-mech-diffusion.md
 nonequilibrium-statmech.md
 nonlinear-dim-reduction.md
 nonlinear-filtering.md
 nonlinear-shrinkage.md
 nonparametric-regression.md
+normalization-layers-math.md
 normalizing-flows-math.md
 normalizing-flows.md
 ntk.md
+number-theory-l-functions.md
 number-theory.md
 numeraire-invariant-hedging.md
 numerical-integration.md
+numerical-methods-jump-diffusions.md
 numerical-pde-finance.md
 numerical-stability.md
 nyquist-shannon.md
 nyquist.md
 oas.md
+occupation-measures-local-times.md
 ode-stability.md
 offline-rl.md
 onchain-credit.md
@@ -617,6 +655,7 @@ operator-semigroups.md
 optimal-execution.md
 optimal-stopping-american.md
 optimal-stopping-markov.md
+optimal-transport-gromov-wasserstein.md
 optimal-transport.md
 optimization-basics.md
 option-strategies.md
@@ -647,12 +686,14 @@ pbft.md
 pca-math.md
 pca-statarb.md
 pca.md
+pde-hamilton-jacobi.md
 pe-fund-metrics.md
 percolation-theory.md
 percolation.md
 persistent-homology.md
 phase-space-reconstruction.md
 pin-easley-ohara.md
+pinns-convergence.md
 pinns.md
 point-processes.md
 poisson-approximation.md
@@ -687,14 +728,18 @@ q-learning-convergence.md
 qat.md
 qcd.md
 qft-basic.md
+qft-curved-spacetime.md
 qlora.md
 quadratic-variation.md
 quantization-error-math.md
+quantization-ptq-information.md
 quantization.md
 quantum-amplitude-estimation.md
+quantum-computing-vqe.md
 quantum-entanglement.md
 quantum-error-correction.md
 quantum-information-entropy.md
+quantum-machine-learning-kernels.md
 quantum-math.md
 quantum-mechanics.md
 quantum-phase-estimation.md
@@ -705,6 +750,7 @@ radon-nikodym.md
 rag.md
 random-graphs.md
 random-matrices.md
+random-matrix-theory-marchenko.md
 random-matrix-theory.md
 random-walks-groups.md
 random-walks.md
@@ -713,13 +759,17 @@ rank-nullity-theorem.md
 rank-tests.md
 real-options.md
 realized-kernels.md
+reasoning-models-prm-orm.md
 reasoning-models.md
 recursion-recurrence.md
+reflected-sdes-skorokhod.md
 regime-switching-factors.md
 regular-conditional-probability.md
+regularization-implicit-bias.md
 regularization-math.md
 reinforcement-learning.md
 renewal-theory.md
+renormalization-group-dl.md
 renormalization-group.md
 repo-market-systemic.md
 representation-theory-ml.md
@@ -736,6 +786,7 @@ roll-model.md
 rope-scaling.md
 rough-path-signatures.md
 rough-paths.md
+rough-volatility-bergomi.md
 rough-volatility.md
 runge-kutta.md
 sabr-model.md
@@ -752,6 +803,7 @@ self-rewarding.md
 self-similarity-fractality.md
 semidefinite-programming.md
 semimartingale-models.md
+semimartingales-on-manifolds.md
 semiparametric-efficiency.md
 sequences-series-convergence.md
 sequential-hypothesis-testing.md
@@ -772,10 +824,12 @@ simulated-annealing.md
 singular-learning-theory.md
 singular-spectral-analysis.md
 sketching-hyperloglog.md
+skorokhod-integral.md
 skorokhod-topology.md
 sle.md
 slm.md
 slutsky-theorem.md
+small-ball-probabilities.md
 smart-order-routing.md
 sobolev-embeddings.md
 sobolev-spaces.md
@@ -793,7 +847,9 @@ spectral-graph-theory.md
 spectral-representation-processes.md
 spectral-theorem-unbounded.md
 spectral-theory-operators.md
+speculative-decoding-medusa.md
 speculative-decoding.md
+spin-glasses-hopfield.md
 spin-memory.md
 spread.md
 stable-convergence.md
@@ -808,15 +864,19 @@ statistical-mechanics.md
 statistical-paradoxes.md
 stefan-problem-american.md
 stein-method.md
+stochastic-calculus-manifolds.md
+stochastic-control-partial-info.md
 stochastic-control.md
 stochastic-differential-equations.md
 stochastic-games.md
 stochastic-manifolds.md
+stochastic-maximum-principle.md
 stochastic-processes.md
 stochastic-recursive-sequences.md
 stokes-theorem.md
 stratonovich-integral.md
 streaming-algorithms.md
+string-theory-calabi-yau.md
 strongly-connected-components.md
 stylized-facts-returns.md
 subordinators.md
@@ -824,12 +884,14 @@ sufficient-statistics.md
 supergravity.md
 superposition-collapse.md
 superposition.md
+supersymmetry-formalism.md
 surface-integrals.md
 survival-analysis.md
 survival-risk-prediction.md
 svi-model.md
 swaps.md
 symplectic-geometry.md
+symplectic-hamiltonian-nn.md
 synthetic-data-alignment.md
 systemic-contagion-debtrank.md
 taylor-series.md
@@ -845,10 +907,12 @@ tightness-semimartingales.md
 time-series-basics.md
 time-series.md
 timegan.md
+tokenization-bpe-unigram.md
 tokenization.md
 tool-use.md
 topological-phases.md
 topology-basics.md
+topos-neural-networks.md
 topos-theory.md
 tor-ext-functors.md
 total-probability-variance.md
@@ -885,6 +949,7 @@ vector-spaces-orthogonality.md
 vibefix.md
 vine-copulas.md
 vision-mamba.md
+vision-transformers-scaling.md
 vision-transformers.md
 vlm.md
 volatility-arbitrage.md
@@ -901,6 +966,7 @@ wavelet-transform.md
 wavelets.md
 weak-convergence-prokhorov.md
 weight-averaging.md
+weight-initialization-signal.md
 weight-initialization.md
 wentzell-freidlin.md
 wiener-chaos.md

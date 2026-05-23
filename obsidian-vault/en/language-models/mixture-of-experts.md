@@ -18,7 +18,7 @@ Mixture of Experts is an architectural paradigm that decouples the number of par
 
 The consequence is striking: you can have a model with, say, 200 billion total parameters but use only the compute equivalent of a 20 billion dense model at inference time, because only $k/N$ of the experts are active per token. This gives MoE models a favorable point on the quality-versus-compute curve: same FLOP budget as a dense model, but access to far more parameters, and therefore more representational capacity.
 
-MoE is not a new idea — Jacobs et al. introduced it in 1991 — but it became practical for large-scale language modeling with Switch Transformer (2021) and has since become a dominant architecture for frontier models.
+MoE is not a new idea — Jacobs et al. introduced it in 1991 — but it became practical for large-scale language modeling with Switch [[transformer-architecture|Transformer]] (2021) and has since become a dominant architecture for frontier models.
 
 ## Visualization
 
@@ -122,7 +122,7 @@ The key challenges are:
 
 ## Trade-offs vs Other Types
 
-| Dimension | Dense [[llm]] | MoE LLM | SLM |
+| Dimension | Dense [[llm]] | MoE [[llm]] | SLM |
 |---|---|---|---|
 | Total parameters | N | N × experts | Small |
 | Active params per token | N | N / experts × k | Small |

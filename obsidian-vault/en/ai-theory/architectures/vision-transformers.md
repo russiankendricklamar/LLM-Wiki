@@ -22,7 +22,7 @@ The ViT pipeline consists of several key steps:
 2. **Linear Projection**: Flatten each patch and project it into a $D$-dimensional embedding space.
 3. **Learnable Embeddings**:
     - **Position Embeddings**: Since Transformers are permutation-invariant, 1D learnable position embeddings are added to the patch embeddings to retain spatial information.
-    - **[CLS] Token**: A special learnable token is prepended to the sequence. Its state at the output of the Transformer serves as the global image representation for classification.
+    - **[CLS] Token**: A special learnable token is prepended to the sequence. Its state at the output of the [[transformer-architecture|Transformer]] serves as the global image representation for classification.
 4. **Transformer Encoder**: A stack of standard Transformer blocks (Multi-head Self-[[attention-mechanisms|Attention]] + [[transformer-architecture|MLP]] + LayerNorm).
 
 ## Mathematical Framework
@@ -34,7 +34,7 @@ $$z_0 = [x_{\text{class}}; x_p^1 E; x_p^2 E; \dots; x_p^N E] + E_{pos}$$
 
 where $E \in \mathbb{R}^{(P^2 C) \times D}$ is the patch embedding matrix and $E_{pos} \in \mathbb{R}^{(N+1) \times D}$ is the position embedding.
 
-The self-attention allows every patch to "look" at every other patch:
+The self-[[attention-mechanisms|attention]] allows every patch to "look" at every other patch:
 $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
 ## ViT vs. CNNs

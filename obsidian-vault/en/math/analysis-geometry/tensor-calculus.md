@@ -50,7 +50,7 @@ In **Geometric Deep Learning**, we use the Lie Derivative to define operators th
 
 ## Related Topics
 
-[[connections-curvature]] — how tensors "interact" with the manifold  
+[[connections-curvature]] — how tensors "interact" with the [[manifold-learning|manifold]]  
 [[geometric-deep-learning]] — implementation of tensor symmetries  
 [[hodge-theory]] — the calculus of differential forms
 ---

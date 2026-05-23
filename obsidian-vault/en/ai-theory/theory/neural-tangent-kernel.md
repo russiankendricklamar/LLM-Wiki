@@ -62,7 +62,7 @@ Most practical deep learning operates between these extremes, making NTK a limit
 
 ## Convergence Guarantees and Over-Parameterization
 
-The NTK framework provides **PAC-style guarantees**: if $\Theta$ is positive definite with minimum eigenvalue $\lambda$, and the network is sufficiently over-parameterized (width $m \gtrsim \text{poly}(n, d, \|y\|_{\infty}) / \lambda^2$), then gradient descent converges to zero training loss in polynomial time with polynomial width.
+The NTK framework provides **PAC-style guarantees**: if $\Theta$ is positive definite with minimum eigenvalue $\lambda$, and the network is sufficiently over-parameterized (width $m \gtrsim \text{poly}(n, d, \|y\|_{\infty}) / \lambda^2$), then [[convex-optimization|gradient descent]] converges to zero training loss in polynomial time with polynomial width.
 
 This explains the *interpolation* phenomenon: sufficiently wide networks can fit arbitrary labels, and NTK predicts this is feasible without overfitting when regularized appropriately.
 

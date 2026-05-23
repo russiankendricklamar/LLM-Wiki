@@ -42,6 +42,6 @@ Shor's algorithm reduces the problem of factoring an integer $N$ to finding the 
 
 1. Construct the unitary operator $U_a |x\rangle = |a x \pmod N\rangle$.
 2. The eigenstates of $U_a$ are $|u_s\rangle = \frac{1}{\sqrt{r}} \sum_{k=0}^{r-1} e^{-2\pi i s k / r} |a^k \pmod N\rangle$ for $s \in \{0, \dots, r-1\}$.
-3. The corresponding eigenvalues are $e^{2\pi i s / r}$.
+3. The corresponding [[spectral-theory-operators|eigenvalues]] are $e^{2\pi i s / r}$.
 4. By applying QPE to $U_a$ with the input state $|1\rangle = \frac{1}{\sqrt{r}} \sum_{s=0}^{r-1} |u_s\rangle$, the algorithm outputs an approximation to $s/r$.
 5. Using continued fractions on the measured phase, one can extract the exact period $r$, which then trivially leads to the factors of $N$ via $\gcd(a^{r/2} \pm 1, N)$.

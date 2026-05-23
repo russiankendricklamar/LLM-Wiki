@@ -52,7 +52,7 @@ Modern LLMs are built on the **decoder-only [[transformer-architecture|transform
 
 $$q_m = R_m q, \quad k_n = R_n k$$
 
-where $R_\theta$ is a block-diagonal rotation matrix. RoPE enables the model to generalize to context lengths beyond those seen during training. ALiBi ([[attention-mechanisms|Attention]] with Linear Biases) is an alternative that subtracts a linear bias proportional to distance directly in the attention logits.
+where $R_\theta$ is a block-diagonal rotation matrix. RoPE enables the model to generalize to context lengths beyond those seen during training. ALiBi ([[attention-mechanisms|Attention]] with Linear Biases) is an alternative that subtracts a linear bias proportional to distance directly in the [[attention-mechanisms|attention]] logits.
 
 **Grouped Query Attention (GQA)** reduces the key-value cache footprint: multiple query heads share a single key-value head, reducing memory bandwidth by a factor equal to the number of groups.
 
@@ -86,7 +86,7 @@ LLM training proceeds in three stages:
 
 **3. Alignment via [[rlhf]] or [[dpo]].** Reinforcement Learning from Human Feedback trains a reward model on human preference rankings, then uses PPO to maximize reward. Direct Preference Optimization ([[dpo]]) eliminates the separate reward model by reparameterizing the RL objective as a classification loss directly on preference pairs:
 
-$$\mathcal{L}_{\text{DPO}} = -\mathbb{E}\!\left[\log \sigma\!\left(\beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_\theta(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)}\right)\right]$$
+$$\mathcal{L}_{\text{[[dpo]]}} = -\mathbb{E}\!\left[\log \sigma\!\left(\beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_\theta(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)}\right)\right]$$
 
 ## Key Properties & Capabilities
 

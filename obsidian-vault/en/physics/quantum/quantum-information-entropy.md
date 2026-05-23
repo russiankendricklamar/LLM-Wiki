@@ -8,7 +8,7 @@ slug: "quantum-information-entropy"
 
 # Quantum Information and Von Neumann [[gravitational-entropy|Entropy]]
 
-Quantum Information Theory is the study of how information is stored, processed, and transmitted using quantum systems. It bridges the gap between **Quantum Mechanics**, **Information Theory**, and **Thermodynamics**. The central tool in this field is the **Von Neumann Entropy**, which measures the "quantumness" of a state and its entanglement with the environment.
+Quantum Information Theory is the study of how information is stored, processed, and transmitted using quantum systems. It bridges the gap between **Quantum Mechanics**, **Information Theory**, and **Thermodynamics**. The central tool in this field is the **Von Neumann [[gravitational-entropy|Entropy]]**, which measures the "quantumness" of a state and its entanglement with the environment.
 
 ## 1. The Density Matrix ($\rho$) and Purity
 

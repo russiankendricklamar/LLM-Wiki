@@ -45,7 +45,7 @@ $$
 \lambda_+ = \sigma^2 \left(1 + \frac{1}{\sqrt{q}}\right)^2
 $$
 
-where $\sigma^2$ is the variance of the off-diagonal correlations. Eigenvalues $\lambda_i > \lambda_+$ carry genuine cross-sectional signal:
+where $\sigma^2$ is the variance of the off-diagonal correlations. [[spectral-theory-operators|Eigenvalues]] $\lambda_i > \lambda_+$ carry genuine cross-sectional signal:
 
 - **First Eigenvector** ($v_1$): The **Market Factor** — all weights typically have the same sign, capturing broad market risk.
 - **Subsequent significant vectors**: Represent **Sector Factors** or **Style Factors** (Value, Momentum, Quality).

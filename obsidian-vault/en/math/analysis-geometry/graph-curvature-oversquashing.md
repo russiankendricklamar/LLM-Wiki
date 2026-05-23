@@ -33,7 +33,7 @@ Toews et al. showed that the Jacobian of the message passing operation is bounde
 
 ## Spectral Gap and Cheeger Constant
 
-The spectral gap $\lambda_2$ (second eigenvalue of the Laplacian) and the Cheeger constant $h(G)$ are global measures of graph connectivity. Negatively curved edges directly contribute to a small $\lambda_2$, as seen in the Buser-type inequalities for graphs.
+The spectral gap $\lambda_2$ (second eigenvalue of the [[spectral-graph-theory|Laplacian]]) and the Cheeger constant $h(G)$ are global measures of graph connectivity. Negatively curved edges directly contribute to a small $\lambda_2$, as seen in the Buser-type inequalities for graphs.
 
 ## Graph Rewiring (SDRF)
 
@@ -57,7 +57,7 @@ $$\kappa(x, y) = \frac{k+1}{d} - 1 + \dots$$ (simplified).
 If $k \approx d$, $\kappa$ is positive. If $k=0$, $\kappa \approx 1/d - 1$, which is strongly negative for large $d$.
 
 ## Related Topics
-[[spectral-graph-theory|Spectral Graph Theory]] — eigenvalues and connectivity  
+[[spectral-graph-theory|Spectral Graph Theory]] — [[spectral-theory-operators|eigenvalues]] and connectivity  
 [[graph-neural-networks|Graph Neural Networks]] — the architectural context  
 [[optimal-transport|Optimal Transport]] — defining Wasserstein distances  
 [[ricci-flow|Ricci Flow]] — the continuous inspiration  

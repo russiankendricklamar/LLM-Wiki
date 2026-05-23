@@ -6,7 +6,7 @@ lang: en
 slug: implicit-function-theorem
 ---
 
-These theorems are central to multivariable calculus and manifold theory.
+These theorems are central to multivariable calculus and [[manifold-learning|manifold]] theory.
 
 ### Inverse Function Theorem
 If a function $f: \mathbb{R}^n \to \mathbb{R}^n$ is continuously differentiable and its [[coordinate-systems|Jacobian determinant]] is non-zero at a point $a$, then $f$ is locally invertible near $a$.

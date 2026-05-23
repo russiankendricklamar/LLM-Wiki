@@ -50,9 +50,9 @@ Inference splits into two phases with opposite characteristics:
 
 **Disaggregation**: some systems separate prefill and decode across different GPU tiers or even separate machines. Prefill GPU handles many prompt-heavy requests in parallel; decode GPU with modest memory capacity serves generation. Requires network overhead but balances load across heterogeneous hardware.
 
-## Flash Attention for long contexts
+## Flash [[attention-mechanisms|Attention]] for long contexts
 
-Flash Attention (Dao et al., 2022) reorders the attention computation $\text{softmax}(QK^T/\sqrt{d_k})V$ to minimize [[flash-attention|HBM]] reads/writes. Classical attention requires $O(L^2)$ HBM I/O; Flash Attention achieves $O(L)$ via fused kernel that materializes computation in fast [[flash-attention|SRAM]].
+Flash Attention (Dao et al., 2022) reorders the attention computation $\text{softmax}(QK^T/\sqrt{d_k})V$ to minimize [[flash-attention|HBM]] reads/writes. Classical attention requires $O(L^2)$ [[flash-attention|HBM]] I/O; Flash Attention achieves $O(L)$ via fused kernel that materializes computation in fast [[flash-attention|SRAM]].
 
 For contexts >4K tokens, Flash Attention is critical. On 32K+ contexts, it delivers 2-3× speedup vs. standard attention.
 
@@ -74,7 +74,7 @@ Optimization requires trade-offs: aggressive batching increases TBT; SLO-constra
 
 **vLLM** (Berkeley LMSYS): most popular open-source system. PagedAttention by default, [[speculative-decoding|speculative decoding]] support, distributed inference via Ray. De facto standard for research and production.
 
-**TensorRT-LLM** (NVIDIA): proprietary, fused kernels optimized for NVIDIA GPUs, best single-GPU latency on A100/H100, steeper configuration learning curve.
+**TensorRT-[[llm]]** (NVIDIA): proprietary, fused kernels optimized for NVIDIA GPUs, best single-GPU latency on A100/H100, steeper configuration learning curve.
 
 **Text Generation Inference** (HuggingFace): optimizes single-GPU latency, good for edge deployments, fewer batch optimizations.
 

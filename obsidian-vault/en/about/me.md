@@ -29,7 +29,7 @@ I am currently a **Principal Economist at the Bank of Russia**, where I focus on
 
 - **Nyquist**: An AI-native workspace for financial analysis. Integrates real-time market data, QuantLib-powered numerical computing, and [[llm]] assistance into a single terminal. Stack: Python, TypeScript, FastAPI, Claude.
 - **Ultima Thule**: A travel and exploration app — intelligent itinerary planning, offline maps, contextual place discovery. Stack: React Native, Supabase, Mapbox.
-- **LLM Wiki**: A personal knowledge base on AI, quantitative finance, and quantum physics — this site.
+- **[[llm]] Wiki**: A personal knowledge base on AI, quantitative finance, and quantum physics — this site.
 
 ---
 

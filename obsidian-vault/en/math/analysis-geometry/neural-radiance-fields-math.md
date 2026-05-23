@@ -53,8 +53,8 @@ The gradient of the loss with respect to the network parameters flows through th
 
 ## Relationship to Other Techniques
 
-- **[[gaussian-splatting|Gaussian Splatting]]:** Replaces the continuous MLP with a discrete set of 3D Gaussians, allowing for faster rasterisation but losing the continuous coordinate-based representation.
-- **[[manifold-learning|Manifold Learning]]:** NeRF can be viewed as learning a 2D manifold (the image plane) as a projection of a 3D volumetric manifold.
+- **[[gaussian-splatting|Gaussian Splatting]]:** Replaces the continuous [[transformer-architecture|MLP]] with a discrete set of 3D Gaussians, allowing for faster rasterisation but losing the continuous coordinate-based representation.
+- **[[manifold-learning|Manifold Learning]]:** NeRF can be viewed as learning a 2D [[manifold-learning|manifold]] (the image plane) as a projection of a 3D volumetric manifold.
 - **[[pdes|Partial Differential Equations]]:** The volume rendering equation is a solution to the simplified **Radiative Transfer Equation (RTE)** in a non-scattering medium.
 
 ## Extensions and Generalisations

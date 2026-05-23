@@ -133,7 +133,7 @@ Patch any gaps before the main programme.
 
 ## Week 7 — Information theory
 
-**Goal:** entropy and KL as the natural ruler for distributions and learning.
+**Goal:** [[shannon-entropy|entropy]] and KL as the natural ruler for distributions and learning.
 
 - [[information-theory|Information theory]]
 - [[entropy-information|Entropy and information gain]]
@@ -186,7 +186,7 @@ Patch any gaps before the main programme.
 - [[exponential-families|Exponential families]]
 - [[geometric-deep-learning|Geometric deep learning]]
 
-**Exercise:** implement natural-gradient descent for logistic regression and compare iteration count vs. plain SGD.
+**Exercise:** implement natural-[[convex-optimization|gradient descent]] for logistic regression and compare iteration count vs. plain SGD.
 
 ## Week 12 — Optimal transport
 

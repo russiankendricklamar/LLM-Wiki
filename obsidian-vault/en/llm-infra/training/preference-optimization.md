@@ -19,7 +19,7 @@ Humans don't perceive absolute values; we perceive changes relative to a referen
 
 ### Advantages
 - **Data Efficiency**: Can use unpaired datasets (e.g., just a list of good responses).
-- **Human-Centric**: Better matches how humans actually judge quality compared to the Bradley-Terry model used in DPO.
+- **Human-Centric**: Better matches how humans actually judge quality compared to the Bradley-Terry model used in [[dpo]].
 
 ## 2. IPO: Identity Preference Optimization
 

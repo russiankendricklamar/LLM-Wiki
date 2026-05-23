@@ -45,7 +45,7 @@ Representations are ways to realize abstract groups as transformations of vector
 ## Lie Groups in Modern AI
 
 1.  **Equivariant Neural Networks**: Designing architectures that are invariant or equivariant to rotations ($SO(3)$) or translations. For example, SE(3)-Transformers for molecular docking.
-2.  **Manifold Optimization**: Optimizing neural network weights that live on a manifold (e.g., orthogonal weights in RNNs to prevent gradient explosion).
+2.  **[[manifold-learning|Manifold]] Optimization**: Optimizing neural network weights that live on a manifold (e.g., orthogonal weights in RNNs to prevent gradient explosion).
 3.  **Pose Estimation**: Representing 3D rotations using Lie algebras ($\mathfrak{so}(3)$) avoids the gimbal lock and singularities of Euler angles.
 
 ## Visualization: Group vs. Algebra

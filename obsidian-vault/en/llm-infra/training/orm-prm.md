@@ -34,7 +34,7 @@ A PRM rewards the model for **each individual step** in its reasoning chain.
 
 ## Implementation in [[rlhf]]
 
-In a typical RLHF loop, the reward model $R(x, y)$ is used to compute the advantage for PPO or GRPO. 
+In a typical [[rlhf]] loop, the reward model $R(x, y)$ is used to compute the advantage for PPO or GRPO. 
 - Using **PRM** effectively turns the [[llm]] into a "Tree Searcher" (like [[mcts|MCTS]]), where it evaluates which branch to take next based on step-wise rewards.
 
 ## Visualization: Reward Density

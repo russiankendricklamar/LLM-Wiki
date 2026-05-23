@@ -12,7 +12,7 @@ slug: "hodge-theory"
 
 ## 1. De Rham Cohomology
 
-On a smooth manifold $M$, we study differential $k$-forms $\Omega^k(M)$.
+On a smooth [[manifold-learning|manifold]] $M$, we study differential $k$-forms $\Omega^k(M)$.
 The exterior derivative $d: \Omega^k \to \Omega^{k+1}$ satisfies the fundamental property $d^2 = 0$.
 - A form $\omega$ is **closed** if $d\omega = 0$.
 - A form $\omega$ is **exact** if $\omega = d\alpha$ for some $\alpha$.
@@ -77,5 +77,5 @@ graph TD
 ## Related Topics
 
 [[tensor-calculus]] — required for computing the Hodge star  
-[[connections-curvature]] — relationship between Laplacian and curvature (Bochner formula)
+[[connections-curvature]] — relationship between [[spectral-graph-theory|Laplacian]] and curvature (Bochner formula)
 ---

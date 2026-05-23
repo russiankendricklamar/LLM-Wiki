@@ -30,7 +30,7 @@ The Hessian is the matrix of second-order partial derivatives for a scalar funct
 $$ \mathbf{H}_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j} $$
 - **Curvature**: The Hessian describes the "shape" of the local landscape.
 - **[[spectral-theory-operators|Eigenvalues]] of H**:
-  - If all eigenvalues are $> 0$: The point is a **Local Minimum** (valley).
+  - If all [[spectral-theory-operators|eigenvalues]] are $> 0$: The point is a **Local Minimum** (valley).
   - If all eigenvalues are $< 0$: The point is a **Local Maximum** (peak).
   - If eigenvalues have mixed signs: The point is a **Saddle Point**.
 
@@ -65,6 +65,6 @@ graph TD
 ## Related Topics
 
 [[taylor-series]] — 2nd order Taylor expansion uses the Hessian  
-backpropagation — implementing the multivariable chain rule  
+[[automatic-differentiation|backpropagation]] — implementing the multivariable chain rule  
 [[information-geometry]] — the Fisher Information matrix as a specialized metric
 ---

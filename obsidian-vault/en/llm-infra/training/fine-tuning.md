@@ -69,7 +69,7 @@ Advantage: fit a 65B model into a 48GB [[inference-serving|GPU]] (e.g., A100). L
 
 **Instruction tuning** is SFT on datasets of (instruction, high-quality response) pairs, often manually curated. This awakens instruction-following ability already latent in the pretrained model, without the overhead of [[rlhf|RLHF]].
 
-**RLHF** adds a reinforcement learning stage where the model optimizes against a reward model trained on human preferences. RLHF is costlier and requires careful tuning, but can improve alignment beyond SFT alone.
+**[[rlhf]]** adds a reinforcement learning stage where the model optimizes against a reward model trained on human preferences. RLHF is costlier and requires careful tuning, but can improve alignment beyond SFT alone.
 
 In practice: plain instruction tuning often suffices and offers better quality-to-cost ratio.
 

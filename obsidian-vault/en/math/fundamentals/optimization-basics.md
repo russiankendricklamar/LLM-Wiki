@@ -10,7 +10,7 @@ slug: "optimization-basics"
 
 Optimization is the process of finding the inputs that minimize (or maximize) a function. In AI, this usually means finding the weights that minimize a **Loss Function**. Most optimization algorithms are iterative: they start with a guess and refine it step-by-step.
 
-## 1. Gradient Descent: The First-Order Workhorse
+## 1. [[convex-optimization|Gradient Descent]]: The First-Order Workhorse
 
 Gradient Descent (GD) is based on the observation that if you want to find the minimum of a function $f(x)$, you should move in the direction of the negative gradient $-\nabla f(x)$.
 
@@ -42,7 +42,7 @@ Where $H(x_t)$ is the Hessian matrix.
 
 The Hessian $H$ tells you how the gradient is changing.
 - If $H$ is **Positive Definite**, the function is locally convex (like a bowl).
-- The eigenvalues of $H$ determine the "sharpness" of the minimum. Large eigenvalues mean the loss surface is very steep in those directions.
+- The [[spectral-theory-operators|eigenvalues]] of $H$ determine the "sharpness" of the minimum. Large eigenvalues mean the loss surface is very steep in those directions.
 
 ## 4. Key Challenges
 

@@ -44,7 +44,7 @@ $$
 
 ### Извлечение информации через [[llm|LLM]]
 
-Для структурированного извлечения из отчетов 8-K LLM вычисляет:
+Для структурированного извлечения из отчетов 8-K [[llm|LLM]] вычисляет:
 
 $$
 P(\text{fields} \mid D, \text{schema}) \propto \prod_{j} P(\text{field}_j \mid D, \text{schema}, \text{fields}_{<j})
@@ -125,7 +125,7 @@ class FinancialSentimentAnalyser:
 
 ## Родственные темы
 
-[[llm-financial-analysis|LLM в финансовом анализе]] — полный RAG-пайплайн
+[[llm-financial-analysis|LLM в финансовом анализе]] — полный [[rag|RAG]]-пайплайн
 
 [[alpha-factor-research|Исследование факторов]] — построение факторов с использованием NLP
 

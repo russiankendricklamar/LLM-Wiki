@@ -13,7 +13,7 @@ slug: "information-geometry-finance"
 ## The Statistical [[manifold-learning|Manifold]]
 
 In classic geometry, the distance between two points $x$ and $y$ is Euclidean. But what if the "points" are actually probability distributions (e.g., the distribution of market returns)?
-Information Geometry treats the space of all probability distributions as a **Riemannian Manifold**. 
+Information Geometry treats the space of all probability distributions as a **Riemannian [[manifold-learning|Manifold]]**. 
 
 The natural metric on this manifold is the **Fisher Information Metric (FIM)**.
 - If two normal distributions have the same variance but different means, the Euclidean distance between their parameters might be small, but the Fisher distance measures how much they *statistically overlap*.

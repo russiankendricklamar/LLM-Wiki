@@ -15,7 +15,7 @@ lang: "en"
 For a sequence of embeddings $\mathbf{X} = [x_1, \ldots, x_L]$:
 
 $$
-\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right) V
+\text{[[attention-mechanisms|Attention]]}(Q, K, V) = \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right) V
 $$
 
 Projections: $Q = XW_Q$, $K = XW_K$, $V = XW_V$. Each time step attends to all others — no exponential decay as in RNNs.

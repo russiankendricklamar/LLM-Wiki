@@ -6,11 +6,11 @@ lang: "en"
 slug: "bitnet"
 ---
 
-# BitNet & 1.58-bit LLMs (Ternary Quantization)
+# BitNet & 1.58-bit LLMs (Ternary [[quantization]])
 
 ## What Is It
 
-BitNet is a transformer architecture designed for extreme quantization, where weights are represented using only a few bits—most notably the 1.58-bit variant. Unlike traditional [[llm|LLMs]] that use 16-bit (FP16 or BF16) or 8-bit weights, BitNet binarizes or ternarizes its weights, effectively replacing resource-intensive floating-point multiplications with simple additions and subtractions.
+BitNet is a [[transformer-architecture|transformer]] architecture designed for extreme quantization, where weights are represented using only a few bits—most notably the 1.58-bit variant. Unlike traditional [[llm|LLMs]] that use 16-bit (FP16 or BF16) or 8-bit weights, BitNet binarizes or ternarizes its weights, effectively replacing resource-intensive floating-point multiplications with simple additions and subtractions.
 
 The "1.58-bit" moniker comes from $\log_2(3) \approx 1.58$, representing the information capacity of a ternary system $\{-1, 0, 1\}$. This approach allows the model to achieve performance comparable to full-precision models while offering massive improvements in memory efficiency, latency, and energy consumption.
 

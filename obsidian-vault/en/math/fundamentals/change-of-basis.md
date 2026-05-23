@@ -15,4 +15,4 @@ $\mathbf{x} = P [\mathbf{x}]_B$
 ### Similarity Transforms
 A linear transformation represented by matrix $A$ in the standard basis is represented by matrix $B$ in the new basis:
 $B = P^{-1} A P$
-Matrices $A$ and $B$ are **similar**. They share the same eigenvalues, determinant, and [[rank-nullity-theorem|Rank]].
+Matrices $A$ and $B$ are **similar**. They share the same [[spectral-theory-operators|eigenvalues]], determinant, and [[rank-nullity-theorem|Rank]].

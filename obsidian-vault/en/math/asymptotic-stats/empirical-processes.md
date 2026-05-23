@@ -68,7 +68,7 @@ This single integral subsumes an enormous variety of function classes:
 - **VC-classes** (below)
 - Smooth classes and Besov classes
 
-This explains why Donsker classes are so common in practice: entropy growth is usually sub-exponential.
+This explains why Donsker classes are so common in practice: [[shannon-entropy|entropy]] growth is usually sub-exponential.
 
 ## VC-Classes and Vapnik–Chervonenkis Dimension
 

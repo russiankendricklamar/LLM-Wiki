@@ -17,7 +17,7 @@ The original [[transformer-architecture|Transformer]] (Vaswani et al. 2017) uses
 
 $$PE_{pos,2i} = \sin\left(\frac{pos}{10000^{2i/d}}\right), \quad PE_{pos,2i+1} = \cos\left(\frac{pos}{10000^{2i/d}}\right)$$
 
-These encodings inject position information directly into embeddings: $\mathbf{x}_t' = \mathbf{x}_t + PE_t$. The approach is elegant—position is encoded at multiple frequency scales—but it has a critical flaw: the encoding assumes positions fall within a training-defined range. Attempting to evaluate the model at longer sequences forces the [[attention-mechanisms|attention]] mechanism to operate in an unseen regime where distance metrics break down. Models trained at 2K tokens typically collapse in quality beyond 4K tokens, regardless of architectural capacity. The sinusoidal formula does extrapolate mathematically, but learned attention patterns don't generalize to extrapolated positions.
+These encodings inject position information directly into embeddings: $\mathbf{x}_t' = \mathbf{x}_t + PE_t$. The approach is elegant—position is encoded at multiple frequency scales—but it has a critical flaw: the encoding assumes positions fall within a training-defined range. Attempting to evaluate the model at longer sequences forces the [[attention-mechanisms|attention]] mechanism to operate in an unseen regime where distance metrics break down. Models trained at 2K tokens typically collapse in quality beyond 4K tokens, regardless of architectural capacity. The sinusoidal formula does extrapolate mathematically, but learned [[attention-mechanisms|attention]] patterns don't generalize to extrapolated positions.
 
 ## RoPE: Rotary Position Embedding
 

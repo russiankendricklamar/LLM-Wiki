@@ -12,7 +12,7 @@ Founded by Claude Shannon in 1948, Information Theory formalizes the concept of 
 
 ## Core Concepts
 
-### 1. Shannon Entropy $H(X)$
+### 1. Shannon [[shannon-entropy|Entropy]] $H(X)$
 The measure of uncertainty in a random variable $X$:
 $$H(X) = -\sum_{x \in \mathcal{X}} p(x) \log p(x)$$
 

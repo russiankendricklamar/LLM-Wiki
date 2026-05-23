@@ -17,4 +17,4 @@ $\mathcal{L}(\theta, \phi; x) = \mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x|z)] - D
 ### Reparameterization Trick
 To backpropagate through the stochastic sampling $z \sim q_\phi(z|x) = \mathcal{N}(\mu, \sigma^2I)$, we reparameterize:
 $z = \mu + \sigma \odot \epsilon, \quad \epsilon \sim \mathcal{N}(0, I)$
-This separates the random noise from the network parameters, enabling end-to-end gradient descent.
+This separates the random noise from the network parameters, enabling end-to-end [[convex-optimization|gradient descent]].

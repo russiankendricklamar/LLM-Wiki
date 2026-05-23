@@ -37,7 +37,8 @@ $$
 То существует сеть с одним скрытым слоем размера $N$, которая достигает среднеквадратичной ошибки, ограниченной как:
 
 $$
-\int_{B} \left( f(x) - F(x) ight)^2 \mu(dx) \leq rac{(2 C_f)^2}{N}
+\int_{B} \left( f(x) - F(x) 
+ight)^2 \mu(dx) \leq rac{(2 C_f)^2}{N}
 $$
 
 ## Аппроксимация Трансформерами
@@ -45,7 +46,8 @@ $$
 Недавно UAT была расширена для [[transformer-architectures|Трансформеров]]. Yun et al. (2020) доказали, что слои self-attention с позиционным кодированием могут универсально аппроксимировать любую непрерывную функцию sequence-to-sequence.
 
 $$
-	ext{SelfAttention}(X) = 	ext{softmax}\left( rac{X W_Q W_K^T X^T}{\sqrt{d_k}} ight) X W_V
+	ext{SelfAttention}(X) = 	ext{softmax}\left( rac{X W_Q W_K^T X^T}{\sqrt{d_k}} 
+ight) X W_V
 $$
 
-При произвольном количестве голов и слоев класс сетей Transformer всюду плотен в пространстве непрерывных функций относительно метрики $L^p$.
+При произвольном количестве голов и слоев класс сетей [[transformer-architecture|Transformer]] всюду плотен в пространстве непрерывных функций относительно метрики $L^p$.

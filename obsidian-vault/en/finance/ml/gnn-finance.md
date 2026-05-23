@@ -100,5 +100,5 @@ def systemic_risk_gnn(adjacency: np.ndarray,
 
 - [[systemic-contagion-debtrank|DebtRank]] — risk propagation on graphs
 - [[fraud-detection|Fraud Detection]] — transaction classification
-- [[transformer-timeseries|Transformers]] — attention in neural networks
+- [[transformer-timeseries|Transformers]] — [[attention-mechanisms|attention]] in neural networks
 - [[eigenportfolio-rmt|Eigenportfolio and RMT]] — asset correlation matrices

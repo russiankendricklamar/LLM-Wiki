@@ -12,7 +12,7 @@ The Hamilton-Jacobi-Bellman (HJB) equation is a partial differential equation (P
 
 ## Mathematical Formulation
 
-Consider a continuous-time dynamical system governed by the stochastic differential equation (SDE):
+Consider a continuous-time dynamical system governed by the stochastic differential equation ([[stochastic-differential-equations|SDE]]):
 
 $$
 dx_t = f(x_t, u_t, t)dt + \sigma(x_t, u_t, t)dW_t
@@ -23,7 +23,8 @@ where $x_t \in \mathbb{R}^n$ is the state, $u_t \in U \subset \mathbb{R}^m$ is t
 The objective is to minimize the expected cost functional from time $t$ to $T$:
 
 $$
-V(x, t) = \min_{u_{[t, T]}} \mathbb{E} \left[ \int_{t}^{T} L(x_s, u_s, s)ds + \Phi(x_T) \Big| x_t = x ight]
+V(x, t) = \min_{u_{[t, T]}} \mathbb{E} \left[ \int_{t}^{T} L(x_s, u_s, s)ds + \Phi(x_T) \Big| x_t = x 
+ight]
 $$
 
 where $V(x, t)$ is the value function, $L$ is the running cost, and $\Phi$ is the terminal cost.
@@ -35,7 +36,9 @@ By applying Itô's Lemma to $V(x_t, t)$ and utilizing Bellman's Principle of Opt
 $$
 -rac{\partial V(x, t)}{\partial t} = \min_{u \in U} \left\{ L(x, u, t) + 
 abla_x V(x, t)^T f(x, u, t) + rac{1}{2} 	ext{Tr}\left( \sigma(x, u, t) \sigma(x, u, t)^T 
-abla_{xx}^2 V(x, t) ight) ight\}
+abla_{xx}^2 V(x, t) 
+ight) 
+ight\}
 $$
 
 with the terminal condition $V(x, T) = \Phi(x)$.
@@ -45,7 +48,8 @@ with the terminal condition $V(x, T) = \Phi(x)$.
 We can define the Hamiltonian $H$ as:
 
 $$
-H(x, u, p, P, t) = L(x, u, t) + p^T f(x, u, t) + rac{1}{2} 	ext{Tr}\left( \sigma(x, u, t) \sigma(x, u, t)^T P ight)
+H(x, u, p, P, t) = L(x, u, t) + p^T f(x, u, t) + rac{1}{2} 	ext{Tr}\left( \sigma(x, u, t) \sigma(x, u, t)^T P 
+ight)
 $$
 
 where $p = 

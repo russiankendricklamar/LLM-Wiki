@@ -29,7 +29,7 @@ where $D(\rho)$ is the **diffusion coefficient**, calculated from the microscopi
 ## [[shannon-entropy|Entropy]] Method and Large Deviations
 
 Proving hydrodynamic limits often requires showing that the system stays near "local equilibrium."
-- **Entropy Method (Guo-Papanicolaou-Varadhan)**: Uses the relative entropy between the true particle distribution and the local Gibbs measure to prove convergence.
+- **[[shannon-entropy|Entropy]] Method (Guo-Papanicolaou-Varadhan)**: Uses the relative entropy between the true particle distribution and the local Gibbs measure to prove convergence.
 - **Large Deviations**: Hydrodynamic limits describe the "most likely" path. The **Macroscopic Fluctuation Theory (MFT)** uses large deviation principles to describe the small, random fluctuations around this path.
 
 ## Why It Matters

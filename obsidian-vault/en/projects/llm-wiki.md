@@ -20,9 +20,9 @@ This is not just a notes site — it is a **Knowledge Garden** that I grow toget
 
 ## Why not [[rag]]
 
-Classical RAG is a form of amnesia. Every query to the model starts from zero: the agent walks into the documents, pulls out fragments, answers something, and on the next query does it all over again. Knowledge never compounds — it is synthesised on the fly and thrown away immediately after.
+Classical [[rag]] is a form of amnesia. Every query to the model starts from zero: the agent walks into the documents, pulls out fragments, answers something, and on the next query does it all over again. Knowledge never compounds — it is synthesised on the fly and thrown away immediately after.
 
-A Knowledge Garden works differently. When I read a paper on optimal execution or stochastic processes, the LLM not only answers my question but also **updates 10–15 notes in the vault**: adds a summary, extends related pages, wires up bidirectional wiki links, refreshes the index. The next time I need that topic, I don't go back to the original source — I go to the already-filtered, already-stitched version inside the garden.
+A Knowledge Garden works differently. When I read a paper on optimal execution or stochastic processes, the [[llm]] not only answers my question but also **updates 10–15 notes in the vault**: adds a summary, extends related pages, wires up bidirectional wiki links, refreshes the index. The next time I need that topic, I don't go back to the original source — I go to the already-filtered, already-stitched version inside the garden.
 
 The duplicated work disappears: the same reasoning is not re-executed a thousand times. That frees up time to think about new things.
 

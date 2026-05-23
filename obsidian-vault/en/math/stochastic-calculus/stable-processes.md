@@ -29,7 +29,7 @@ A **Lévy Flight** is a random walk where the step lengths follow a heavy-tailed
 
 ## The Fractional [[spectral-graph-theory|Laplacian]]
 
-Just as Brownian motion is linked to the standard Laplacian $\Delta$, stable processes are linked to the **Fractional Laplacian** $(-\Delta)^{\alpha/2}$. This operator is non-local: the evolution at one point depends on the values of the function everywhere, reflecting the ability of the process to "jump" across space.
+Just as Brownian motion is linked to the standard [[spectral-graph-theory|Laplacian]] $\Delta$, stable processes are linked to the **Fractional Laplacian** $(-\Delta)^{\alpha/2}$. This operator is non-local: the evolution at one point depends on the values of the function everywhere, reflecting the ability of the process to "jump" across space.
 
 ## Applications
 

@@ -105,7 +105,7 @@ This explains why exponential families are the universal object: they are the on
 
 ## 8. Maximum [[shannon-entropy|entropy]]
 
-**Theorem.** Among all distributions on $\mathcal{X}$ with fixed expectations $\mathbb{E}[T_j(X)] = \mu_j$ for $j=1,\dots,d$, the maximum of differential entropy is achieved by the **exponential family** with sufficient statistic $T = (T_1,\dots,T_d)$.
+**Theorem.** Among all distributions on $\mathcal{X}$ with fixed expectations $\mathbb{E}[T_j(X)] = \mu_j$ for $j=1,\dots,d$, the maximum of differential [[shannon-entropy|entropy]] is achieved by the **exponential family** with sufficient statistic $T = (T_1,\dots,T_d)$.
 
 Examples:
 

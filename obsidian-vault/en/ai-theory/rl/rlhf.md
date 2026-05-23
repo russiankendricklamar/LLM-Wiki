@@ -71,7 +71,7 @@ Rearranging:
 
 $$\pi^*(y|x) = \frac{1}{Z(x)} \pi_\text{ref}(y|x) e^{\beta r^*(x,y)}$$
 
-where $Z(x)$ is a partition function. DPO minimizes the log-likelihood of choosing the wrong response:
+where $Z(x)$ is a partition function. [[dpo]] minimizes the log-likelihood of choosing the wrong response:
 
 $$\mathcal{L}_\text{DPO} = -\log \sigma\left(\beta \log \frac{\pi_\theta(y_w|x)}{\pi_\text{ref}(y_w|x)} - \beta \log \frac{\pi_\theta(y_l|x)}{\pi_\text{ref}(y_l|x)}\right)$$
 
@@ -85,7 +85,7 @@ InstructGPT (OpenAI, 2022) showed that a 1.3B RLHF model outperforms a 175B SFT 
 
 ## Alignment Tax: Capability-Alignment Tradeoff
 
-RLHF improves alignment (safety, helpfulness, honesty) but often reduces raw capability (performance on MMLU, HumanEval). The model spends "capacity" on politeness, refusal of harmful requests, structured reasoning—at the cost of narrow specialization. This is the **alignment tax**: we add fine-tuning and reduce peak performance. In production, this tradeoff is acceptable (safer and helpful beats powerful and dangerous), but in research it remains an open problem: how to raise both frontiers simultaneously.
+RLHF improves alignment (safety, helpfulness, honesty) but often reduces raw capability (performance on MMLU, HumanEval). The model spends "capacity" on politeness, refusal of harmful requests, structured reasoning—at the cost of narrow specialization. This is the **alignment tax**: we add [[fine-tuning]] and reduce peak performance. In production, this tradeoff is acceptable (safer and helpful beats powerful and dangerous), but in research it remains an open problem: how to raise both frontiers simultaneously.
 
 ## Open Problems
 

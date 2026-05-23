@@ -7,7 +7,7 @@ slug: bert
 ---
 
 ## Обзор
-BERT (Bidirectional Encoder Representations from Transformers) — это архитектура языковой модели, состоящая только из энкодеров Transformer, предложенная Google.
+BERT (Bidirectional Encoder Representations from Transformers) — это архитектура языковой модели, состоящая только из энкодеров [[transformer-architecture|Transformer]], предложенная Google.
 
 ## Предобучение
 В отличие от однонаправленных моделей, BERT является глубоко двунаправленной. Она обучается на двух задачах без учителя:

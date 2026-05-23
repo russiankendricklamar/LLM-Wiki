@@ -71,7 +71,7 @@ where $[X, Y]$ is the quadratic covariation.
 $$dZ = \mathcal{E}(X)_{-} \mathcal{E}(Y)_{-} \, dX + \mathcal{E}(X)_{-} \mathcal{E}(Y)_{-} \, dY + \mathcal{E}(X)_{-} \mathcal{E}(Y)_{-} \, d[X,Y]$$
 $$= Z_{-} \, d(X + Y + [X,Y]).$$
 
-So $Z$ solves the SDE for $\mathcal{E}(X + Y + [X,Y])$, and uniqueness gives the result.
+So $Z$ solves the [[stochastic-differential-equations|SDE]] for $\mathcal{E}(X + Y + [X,Y])$, and uniqueness gives the result.
 
 **Consequence.** The inverse of $\mathcal{E}(X)$ is $\mathcal{E}(\tilde{X})$, where $\tilde{X}$ is the unique semimartingale satisfying $X + \tilde{X} + [X, \tilde{X}] = 0$. For a continuous $X$, this gives $\tilde{X}_t = -X_t + \langle X \rangle_t$.
 

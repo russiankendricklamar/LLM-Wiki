@@ -162,7 +162,7 @@ For finite-dimensional parameters, uniform convergence holds under:
 - **Donsker condition**: The function class is Donsker (has bracketing integral finite).
 - **VC-subgraph condition**: The graphs of the functions form a VC-subgraph with finite VC-dimension.
 
-For high-dimensional or infinite-dimensional parameters, more delicate arguments (Rademacher complexity, metric entropy) are needed. The theory becomes especially important in modern applications like sparse models ($\ell_1$-penalized regression) where dimension grows with $n$.
+For high-dimensional or infinite-dimensional parameters, more delicate arguments (Rademacher complexity, metric [[shannon-entropy|entropy]]) are needed. The theory becomes especially important in modern applications like sparse models ($\ell_1$-penalized regression) where dimension grows with $n$.
 
 ## Special case: Maximum likelihood and local asymptotic normality
 

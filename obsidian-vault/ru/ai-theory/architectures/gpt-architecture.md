@@ -7,7 +7,7 @@ slug: gpt-architecture
 ---
 
 ## Обзор
-GPT (Generative Pre-trained Transformer) — это архитектура языковой модели, состоящая только из декодеров Transformer, разработанная OpenAI.
+GPT (Generative Pre-trained [[transformer-architecture|Transformer]]) — это архитектура языковой модели, состоящая только из декодеров Transformer, разработанная OpenAI.
 
 ## Механизм
 GPT использует маскированное внимание (masked self-attention), гарантируя, что предсказание для позиции $i$ зависит только от токенов до $i$. Обучается на задаче каузального моделирования языка (предсказание следующего токена):

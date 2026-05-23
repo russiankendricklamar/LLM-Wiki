@@ -80,7 +80,7 @@ where $\tilde A = A + I$ and $\tilde D$ is the degree matrix of $\tilde A$. Simp
 
 **GraphSAGE (Hamilton et al. 2017).** An inductive method with learned aggregators (mean/max/LSTM) and neighbour sampling. Suitable for large graphs where training on the full adjacency matrix is infeasible.
 
-**Graph [[attention-mechanisms|Attention]] Network (GAT, Veličković et al. 2018).** Weighted aggregation with learned attention:
+**Graph [[attention-mechanisms|Attention]] Network (GAT, Veličković et al. 2018).** Weighted aggregation with learned [[attention-mechanisms|attention]]:
 
 $$
 \alpha_{uv} = \frac{\exp(\text{LeakyReLU}(a^\top [W h_v \| W h_u]))}{\sum_{u' \in \mathcal{N}(v)} \exp(\ldots)}.

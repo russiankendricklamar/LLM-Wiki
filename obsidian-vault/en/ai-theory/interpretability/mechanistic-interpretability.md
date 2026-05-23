@@ -15,7 +15,7 @@ Mechanistic Interpretability (MI) aims to reverse-engineer the internal computat
 
 ## Mathematical Core
 
-1. **Residual Stream:** The $d$-dimensional space where information is stored and modified by attention and MLP blocks.
+1. **Residual Stream:** The $d$-dimensional space where information is stored and modified by [[attention-mechanisms|attention]] and [[transformer-architecture|MLP]] blocks.
 2. **Superposition Hypothesis:** The idea that models pack more features than they have dimensions by using near-orthogonal directions. This causes **polysemanticity** (neurons firing for multiple unrelated concepts).
 3. **Induction Heads:** Specific circuits that enable in-context learning.
 

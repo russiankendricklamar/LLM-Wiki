@@ -12,7 +12,7 @@ slug: hjb-equation
 
 ## Математическая формулировка
 
-Рассмотрим динамическую систему в непрерывном времени, заданную стохастическим дифференциальным уравнением (SDE):
+Рассмотрим динамическую систему в непрерывном времени, заданную стохастическим дифференциальным уравнением ([[stochastic-differential-equations|SDE]]):
 
 $$
 dx_t = f(x_t, u_t, t)dt + \sigma(x_t, u_t, t)dW_t
@@ -23,7 +23,8 @@ $$
 Цель состоит в минимизации ожидаемой функции затрат:
 
 $$
-V(x, t) = \min_{u_{[t, T]}} \mathbb{E} \left[ \int_{t}^{T} L(x_s, u_s, s)ds + \Phi(x_T) \Big| x_t = x ight]
+V(x, t) = \min_{u_{[t, T]}} \mathbb{E} \left[ \int_{t}^{T} L(x_s, u_s, s)ds + \Phi(x_T) \Big| x_t = x 
+ight]
 $$
 
 ### Вывод с использованием принципа оптимальности Беллмана
@@ -33,7 +34,9 @@ $$
 $$
 -rac{\partial V(x, t)}{\partial t} = \min_{u \in U} \left\{ L(x, u, t) + 
 abla_x V(x, t)^T f(x, u, t) + rac{1}{2} 	ext{Tr}\left( \sigma(x, u, t) \sigma(x, u, t)^T 
-abla_{xx}^2 V(x, t) ight) ight\}
+abla_{xx}^2 V(x, t) 
+ight) 
+ight\}
 $$
 
 с терминальным условием $V(x, T) = \Phi(x)$.
@@ -43,7 +46,8 @@ $$
 Определим Гамильтониан $H$:
 
 $$
-H(x, u, p, P, t) = L(x, u, t) + p^T f(x, u, t) + rac{1}{2} 	ext{Tr}\left( \sigma(x, u, t) \sigma(x, u, t)^T P ight)
+H(x, u, p, P, t) = L(x, u, t) + p^T f(x, u, t) + rac{1}{2} 	ext{Tr}\left( \sigma(x, u, t) \sigma(x, u, t)^T P 
+ight)
 $$
 
 где $p = 

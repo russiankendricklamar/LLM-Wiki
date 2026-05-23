@@ -13,7 +13,7 @@ $$ x^T A x > 0 $$
 If $x^T A x \ge 0$, the matrix is **positive semi-definite (PSD)** ($A \succeq 0$).
 
 ## Properties
-1. **Eigenvalues:** All eigenvalues of a PD matrix are strictly positive ($\lambda_i > 0$). For a PSD matrix, $\lambda_i \ge 0$.
+1. **[[spectral-theory-operators|Eigenvalues]]:** All eigenvalues of a PD matrix are strictly positive ($\lambda_i > 0$). For a PSD matrix, $\lambda_i \ge 0$.
 2. **Invertibility:** Every PD matrix is non-singular and its inverse is also positive definite.
 3. **Trace and Determinant:** Because eigenvalues are positive, $\text{Tr}(A) > 0$ and $\det(A) > 0$.
 4. **Principal Minors:** By Sylvester's criterion, $A$ is PD iff all its leading principal minors are strictly positive.

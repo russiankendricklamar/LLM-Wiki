@@ -12,7 +12,7 @@ slug: "neural-sdes-finance"
 
 ## The Mathematical Framework
 
-A Neural SDE models the price process $X_t$ as:
+A Neural [[stochastic-differential-equations|SDE]] models the price process $X_t$ as:
 $$dX_t = \mu_\theta(t, X_t) dt + \sigma_\phi(t, X_t) dW_t$$
 where:
 - $\mu_\theta$ is a neural network (the **Drift Network**).

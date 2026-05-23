@@ -115,7 +115,7 @@ Nullclines are curves where $\dot{x} = 0$ or $\dot{y} = 0$. Their intersections 
 ### Classification of Singular Points
 
 For linearization $\dot{x} = Df(x^*) (x - x^*)$ near an equilibrium $x^*$, where $Df$ is the Jacobian matrix:
-- **Node:** both eigenvalues are real with the same sign; trajectories are tangent to one direction.
+- **Node:** both [[spectral-theory-operators|eigenvalues]] are real with the same sign; trajectories are tangent to one direction.
 - **Focus (spiral):** complex conjugate eigenvalues; trajectories spiral around the equilibrium.
 - **Saddle:** eigenvalues with opposite signs; there exist stable and unstable manifolds.
 - **Center:** purely imaginary eigenvalues; closed trajectories surround the equilibrium (though nonlinear effects may alter this).

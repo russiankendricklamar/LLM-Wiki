@@ -54,7 +54,7 @@ $$
 \hat{\lambda}_i^{\text{clean}} = \begin{cases} \hat{\lambda}_i & \text{if } \hat{\lambda}_i > \lambda_+ \quad (\text{signal}) \\ \bar{\lambda}_{noise} & \text{if } \hat{\lambda}_i \le \lambda_+ \quad (\text{noise}) \end{cases}
 $$
 
-where $\bar{\lambda}_{noise}$ is the average of all noise eigenvalues, chosen to preserve the matrix trace (total variance):
+where $\bar{\lambda}_{noise}$ is the average of all noise [[spectral-theory-operators|eigenvalues]], chosen to preserve the matrix trace (total variance):
 
 $$
 \sum_{i: \hat{\lambda}_i \le \lambda_+} \hat{\lambda}_i^{\text{clean}} = \sum_{i: \hat{\lambda}_i \le \lambda_+} \hat{\lambda}_i

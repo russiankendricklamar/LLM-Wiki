@@ -196,7 +196,7 @@ Experiment with drift and volatility to see how they shape the random trajectori
 
 ```simulation
 {
-  "type": "sde"
+  "type": "[[stochastic-differential-equations|sde]]"
 }
 ```
 

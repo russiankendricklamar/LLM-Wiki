@@ -8,7 +8,7 @@ slug: "financial-entropy"
 
 # [[shannon-entropy|Entropy]] in Finance: Lempel-Ziv and Market Complexity
 
-Traditional finance relies on **variance** to measure risk. However, variance only measures the magnitude of fluctuations, not their **structure** or **predictability**. Information Theory, specifically concepts like **Shannon Entropy** and **Lempel-Ziv complexity**, provides a way to quantify the "disorder" and "informational richness" of financial markets.
+Traditional finance relies on **variance** to measure risk. However, variance only measures the magnitude of fluctuations, not their **structure** or **predictability**. Information Theory, specifically concepts like **Shannon [[shannon-entropy|Entropy]]** and **Lempel-Ziv complexity**, provides a way to quantify the "disorder" and "informational richness" of financial markets.
 
 ## 1. Shannon Entropy as Predictability
 

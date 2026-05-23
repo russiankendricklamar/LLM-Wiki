@@ -13,7 +13,7 @@ growth: "seedling"
 
 ## Maximum [[shannon-entropy|Entropy]] RL
 
-Classical RL maximises $\mathbb{E}[\sum_t \gamma^t r_t]$. Maximum entropy RL augments with entropy:
+Classical RL maximises $\mathbb{E}[\sum_t \gamma^t r_t]$. Maximum [[shannon-entropy|entropy]] RL augments with entropy:
 
 $$
 J(\pi) = \mathbb{E}_\pi\left[\sum_{t=0}^\infty \gamma^t \left(r(s_t, a_t) + \alpha \,\mathcal{H}(\pi(\cdot \mid s_t))\right)\right],

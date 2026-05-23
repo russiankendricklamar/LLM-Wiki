@@ -25,7 +25,7 @@ Properties: no learned parameters; relative positions encodable as linear functi
 
 ## Relative Positional Encodings
 
-Relative encodings make attention scores depend on the *relative offset* $i-j$ rather than absolute positions $i$ and $j$.
+Relative encodings make [[attention-mechanisms|attention]] scores depend on the *relative offset* $i-j$ rather than absolute positions $i$ and $j$.
 
 **T5 Relative Bias.** Add a learned scalar bias $b_{i-j}$ to each attention score before softmax:
 
@@ -94,7 +94,7 @@ With YaRN, LLaMA-2 (trained on 4096 tokens) extends to 128K tokens with minimal 
 
 | Method | Type | Extrapolation | Parameters | Used in |
 |--------|------|--------------|------------|---------|
-| Sinusoidal | Absolute | Poor | 0 | Original Transformer |
+| Sinusoidal | Absolute | Poor | 0 | Original [[transformer-architecture|Transformer]] |
 | Learned | Absolute | None | $T_\text{max} \times d$ | BERT, GPT-2 |
 | T5 Bias | Relative | Moderate | Small | T5, mT5 |
 | ALiBi | Relative | Good | 0 | BLOOM, MPT |

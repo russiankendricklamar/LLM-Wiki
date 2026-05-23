@@ -192,7 +192,7 @@ def compute_vmss(
     if smooth_sigma > 0:
         vmss_surface = gaussian_filter(vmss_surface, sigma=smooth_sigma)
 
-    # Step 6: spectral entropy at each time step
+    # Step 6: spectral [[shannon-entropy|entropy]] at each time step
     total_power = vmss_surface.sum(axis=0, keepdims=True) + 1e-300
     prob_dist = vmss_surface / total_power
     prob_dist = np.clip(prob_dist, 1e-300, None)

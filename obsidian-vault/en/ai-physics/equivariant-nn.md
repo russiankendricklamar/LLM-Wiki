@@ -27,7 +27,7 @@ This is in contrast to data augmentation, which teaches a network to be approxim
   "data": [
     {"training_samples": 10, "NequIP": 0.52, "SchNet": 0.91, "[[transformer-architecture|MLP]]": 0.95},
     {"training_samples": 25, "NequIP": 0.31, "SchNet": 0.74, "[[transformer-architecture|MLP]]": 0.89},
-    {"training_samples": 50, "NequIP": 0.18, "SchNet": 0.58, "MLP": 0.79},
+    {"training_samples": 50, "NequIP": 0.18, "SchNet": 0.58, "[[transformer-architecture|MLP]]": 0.79},
     {"training_samples": 100, "NequIP": 0.09, "SchNet": 0.42, "MLP": 0.67},
     {"training_samples": 250, "NequIP": 0.04, "SchNet": 0.27, "MLP": 0.51},
     {"training_samples": 500, "NequIP": 0.02, "SchNet": 0.16, "MLP": 0.38},
@@ -164,7 +164,7 @@ print(f"Equivariance error: {error.item():.2e}")  # Should be ~1e-6
 ## Applications
 
 - **Molecular dynamics:** Equivariant force fields (NequIP, MACE) for simulation of biomolecules at ab initio accuracy.
-- **Protein structure prediction:** SE(3)-equivariant attention in AlphaFold2 and RoseTTAFold.
+- **Protein structure prediction:** SE(3)-equivariant [[attention-mechanisms|attention]] in AlphaFold2 and RoseTTAFold.
 - **Drug discovery:** Predicting molecular properties (binding affinity, solubility) from 3D structures.
 - **Particle physics:** Jet classification, event reconstruction in LHC detectors with Lorentz-equivariant networks.
 - **Crystal property prediction:** Equivariant GNNs for bandgap and formation energy prediction.

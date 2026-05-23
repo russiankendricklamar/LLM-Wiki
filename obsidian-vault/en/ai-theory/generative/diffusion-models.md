@@ -134,7 +134,7 @@ $$
 dx = \left[-\frac{1}{2} \beta(t) x + \beta(t) \nabla_x \log p_t(x) \right] dt + \sqrt{\beta(t)} \, dW_t,
 $$
 
-where $\nabla_x \log p_t$ is the score at noise level $t$. Solving this SDE from $t=1$ to $t=0$ samples from the data distribution. The **probability flow ODE** (Song et al. 2021) removes stochasticity:
+where $\nabla_x \log p_t$ is the score at noise level $t$. Solving this [[stochastic-differential-equations|SDE]] from $t=1$ to $t=0$ samples from the data distribution. The **probability flow ODE** (Song et al. 2021) removes stochasticity:
 
 $$
 \frac{dx}{dt} = -\frac{1}{2} \beta(t) x + \frac{1}{2} \beta(t) \nabla_x \log p_t(x),

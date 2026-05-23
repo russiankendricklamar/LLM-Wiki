@@ -30,7 +30,7 @@ $$
 Специализирован для многошаговых прогнозов с ковариатами:
 - **Gate Residual Networks** — адаптивная глубина
 - **Variable Selection**: веса важности каждого признака
-- **Temporal Self-Attention**: отдельно по temporal dimension
+- **Temporal Self-[[attention-mechanisms|Attention]]**: отдельно по temporal dimension
 - **Quantile outputs**: вероятностный прогноз (10/50/90 персентили)
 
 ### Informer (Zhou et al. 2021)

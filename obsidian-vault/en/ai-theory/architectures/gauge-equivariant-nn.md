@@ -12,7 +12,7 @@ Gauge equivariant neural networks generalize Convolutional Neural Networks (CNNs
 
 ## Mathematical Formulation
 
-Let $\mathcal{M}$ be a $d$-dimensional Riemannian manifold. A feature map is defined not as a scalar function, but as a section of a vector bundle $E \to \mathcal{M}$. The choice of frame at each point $x \in \mathcal{M}$ is arbitrary, representing a local gauge symmetry.
+Let $\mathcal{M}$ be a $d$-dimensional Riemannian [[manifold-learning|manifold]]. A feature map is defined not as a scalar function, but as a section of a vector bundle $E \to \mathcal{M}$. The choice of frame at each point $x \in \mathcal{M}$ is arbitrary, representing a local gauge symmetry.
 
 Let $F_x : \mathbb{R}^n \to E_x$ be a choice of basis (frame) for the fiber $E_x$ at $x$. A change of frame is given by a gauge transformation $g(x) \in G$, where $G$ is the structure group (e.g., $SO(d)$). Under a gauge transformation, the coefficients $f(x) \in \mathbb{R}^n$ of a section transform as:
 $$

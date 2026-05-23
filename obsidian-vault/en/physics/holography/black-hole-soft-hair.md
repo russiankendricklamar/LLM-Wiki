@@ -21,7 +21,7 @@ The proposal connects three previously separate developments: the BMS asymptotic
 
 ## The Area Law of [[gravitational-entropy|Entropy]]
 
-The core of holography is that the maximum entropy of a region grows with its surface area, not its volume. In a gravitating world, information cannot be packed more densely than the surface area of its boundary allows.
+The core of holography is that the maximum [[gravitational-entropy|entropy]] of a region grows with its surface area, not its volume. In a gravitating world, information cannot be packed more densely than the surface area of its boundary allows.
 
 ```chart
 {

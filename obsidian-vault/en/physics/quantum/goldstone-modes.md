@@ -62,7 +62,7 @@ Degree-of-freedom counting is conserved: a massless spin-1 has 2 polarisations, 
 
 ## Effective field theory of Goldstones
 
-Because Goldstones are massless, they dominate the low-energy behaviour of any spontaneously broken phase. Their dynamics is governed by an **effective Lagrangian** on the vacuum manifold $G/H$:
+Because Goldstones are massless, they dominate the low-energy behaviour of any spontaneously broken phase. Their dynamics is governed by an **effective Lagrangian** on the vacuum [[differential-geometry|manifold]] $G/H$:
 
 $$
 \mathcal L_\text{eff} = \frac{f^2}{2}\,\text{Tr}\!\left(\partial_\mu U\,\partial^\mu U^{-1}\right) + \cdots,

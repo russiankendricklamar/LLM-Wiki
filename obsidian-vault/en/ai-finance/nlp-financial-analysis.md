@@ -210,7 +210,7 @@ def compute_earnings_surprise_signal(
 
 ## Related Topics
 
-[[llm-financial-analysis]] — full LLM pipeline for structured information extraction
+[[llm-financial-analysis]] — full [[llm]] pipeline for structured information extraction
 
 [[temporal-fusion-transformer]] — forecasting framework that can consume NLP-derived features
 

@@ -15,7 +15,7 @@ aliases:
 
 Information Geometry (IG) treats families of probability distributions as **Riemannian manifolds**. It provides a geometric language for statistical inference and neural network optimization.
 
-## Statistical Manifold and Fisher Metric
+## Statistical [[manifold-learning|Manifold]] and Fisher Metric
 
 A family of distributions $p(x|\theta)$ forms a manifold where $\theta$ are coordinates. The unique invariant metric is the **Fisher Information Matrix** $F(\theta)$:
 $$ F_{ij}(\theta) = \mathbb{E}_\theta \left[ \frac{\partial \log p(x|\theta)}{\partial \theta_i} \frac{\partial \log p(x|\theta)}{\partial \theta_j} \right] $$
@@ -27,7 +27,7 @@ IG studies pairs of **dual connections** $(\nabla, \nabla^*)$. The **Amari-Chent
 - **m-connection ($\alpha=-1$):** Flat for mixture families.
 This duality leads to a **Generalized Pythagorean Theorem** for divergences (like KL-divergence).
 
-## Natural Gradient Descent (NGD)
+## Natural [[convex-optimization|Gradient Descent]] (NGD)
 
 Euclidean gradient descent is sensitive to parameterization. NGD corrects this by using the inverse Fisher matrix:
 $$ \theta_{t+1} = \theta_t - \eta F^{-1}(\theta) \nabla L(\theta) $$
@@ -36,7 +36,7 @@ This ensures optimization follows the steepest descent on the manifold of distri
 ## Applications in Deep Learning
 
 1. **Information Bottleneck:** Formalizing $\min I(X; \hat{X}) - \beta I(Y; \hat{X})$ as a geometric projection.
-2. **LLM Latent Spaces:** Analyzing the curvature of Transformer activations to detect semantic boundaries.
+2. **[[llm]] Latent Spaces:** Analyzing the curvature of [[transformer-architecture|Transformer]] activations to detect semantic boundaries.
 3. **Cramér-Rao Bound:** Using the metric to define fundamental limits of estimation accuracy.
 
 ## Related Topics

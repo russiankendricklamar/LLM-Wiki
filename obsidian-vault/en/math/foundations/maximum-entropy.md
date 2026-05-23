@@ -9,7 +9,7 @@ growth: "evergreen"
 
 # The Maximum [[shannon-entropy|Entropy]] Principle
 
-The Maximum Entropy (MaxEnt) principle, formulated by **E. T. Jaynes** in 1957, is a constructive answer to the question: *given partial information about a random variable, which distribution should we choose?* Jaynes' answer: choose the distribution that is **maximally uncertain** subject to the known constraints. Any other choice smuggles in unstated assumptions.
+The Maximum [[shannon-entropy|Entropy]] (MaxEnt) principle, formulated by **E. T. Jaynes** in 1957, is a constructive answer to the question: *given partial information about a random variable, which distribution should we choose?* Jaynes' answer: choose the distribution that is **maximally uncertain** subject to the known constraints. Any other choice smuggles in unstated assumptions.
 
 This single principle generates almost every standard distribution in statistics, justifies Boltzmann's distribution in physics, builds the bridge between exponential families and information theory, and supplies a non-arbitrary recipe for constructing Bayesian priors.
 
@@ -164,7 +164,7 @@ The space of probability distributions on $\mathcal{X}$ forms a Riemannian [[man
 
 - [[information-theory|Information theory]] — the Shannon entropy being maximised.
 - [[exponential-families|Exponential families]] — the universal form of MaxEnt solutions.
-- [[fisher-information|Fisher information]] — the curvature of the manifold MaxEnt lives on.
+- [[fisher-information|Fisher information]] — the curvature of the [[manifold-learning|manifold]] MaxEnt lives on.
 - [[bayesian-inference|Bayesian inference]] — non-informative priors via MaxEnt.
 - [[information-geometry|Information geometry]] — Pythagorean duality of MaxEnt and MLE.
 - [[mle|Maximum likelihood]] — convex dual of the MaxEnt problem.

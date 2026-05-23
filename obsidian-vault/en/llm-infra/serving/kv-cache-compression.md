@@ -18,18 +18,18 @@ In the [[transformer-architecture|Transformer]] architecture, the KV cache store
 - **Model Hidden Dimension** ($D$)
 - **Number of Layers** ($L$)
 
-For a Llama-3 70B model with a 128k context, the KV cache can exceed **100 GB**, making it impossible to fit long-context sessions on a single GPU.
+For a Llama-3 70B model with a 128k context, the KV cache can exceed **100 GB**, making it impossible to fit long-context sessions on a single [[inference-serving|GPU]].
 
 ## Compression Techniques
 
 ### 1. Structural Methods: GQA and MLA
 Before applying post-training compression, architectural changes can reduce the cache size from the start:
-- **Grouped-Query Attention (GQA)**: Instead of each query head having its own K and V heads, multiple query heads share a single KV head. This reduces the KV cache size by a factor of 8x or more (e.g., in Llama-3).
+- **Grouped-Query [[attention-mechanisms|Attention]] (GQA)**: Instead of each query head having its own K and V heads, multiple query heads share a single KV head. This reduces the KV cache size by a factor of 8x or more (e.g., in Llama-3).
 - **Multi-Head Latent Attention (MLA)**: Introduced by **DeepSeek-V2**, this technique compresses KV vectors into a low-rank latent vector, drastically reducing the storage requirements while maintaining high performance.
 
-### 2. KV Cache Quantization
+### 2. KV Cache [[quantization]]
 Just as model weights are quantized, KV cache activations can be stored in lower precision:
-- **INT8/FP8**: Standard in many serving frameworks (vLLM, TensorRT-LLM), providing a 2x reduction with minimal quality loss.
+- **INT8/FP8**: Standard in many serving frameworks (vLLM, TensorRT-[[llm]]), providing a 2x reduction with minimal quality loss.
 - **INT4**: More aggressive quantization that requires careful scaling factors (per-channel or per-token) to maintain accuracy.
 
 ### 3. Eviction Policies (Sparsification)

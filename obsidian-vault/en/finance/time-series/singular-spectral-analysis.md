@@ -91,7 +91,7 @@ Components with $|\rho^W_{ij}| \approx 0$ are well-separated; high W-correlation
 - **No stationarity assumption**: SSA works on deterministic, stochastic, and mixed processes without requiring constant mean or variance.
 - **Data-adaptive**: The decomposition basis (EOFs) is derived from the data itself, unlike Fourier (fixed sine/cosine basis) or wavelet (fixed mother wavelet).
 - **Window length choice**: $L \approx N/4$ to $N/3$ is typically recommended; $L$ must be large enough to capture the lowest frequency of interest.
-- **Identifiability**: Periodic components appear as pairs $(\lambda_i, \lambda_{i+1})$ with similar eigenvalues and quadrature-phase EOFs. Trend appears as a single dominant eigenvalue.
+- **Identifiability**: Periodic components appear as pairs $(\lambda_i, \lambda_{i+1})$ with similar [[spectral-theory-operators|eigenvalues]] and quadrature-phase EOFs. Trend appears as a single dominant eigenvalue.
 - **Computational cost**: SVD of $L \times K$ matrix costs $O(L^2 K)$; for large series, randomized SVD (RSVD) is used.
 
 ## Python Implementation

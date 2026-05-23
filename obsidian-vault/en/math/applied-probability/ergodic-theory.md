@@ -19,7 +19,7 @@ Let $f \in L^1(X, \mu)$. For almost every $x \in X$, the time average converges 
 $$ \lim_{n \to \infty} \frac{1}{n} \sum_{k=0}^{n-1} f(T^k(x)) = \int_X f \,d\mu $$
 If the system is not ergodic, it converges to the conditional expectation $\mathbb{E}[f \mid \mathcal{I}]$, where $\mathcal{I}$ is the $\sigma$-algebra of invariant sets.
 
-## Mixing and Entropy
+## Mixing and [[shannon-entropy|Entropy]]
 Strong mixing implies that events become asymptotically independent:
 $$ \lim_{n \to \infty} \mu(A \cap T^{-n}(B)) = \mu(A)\mu(B) $$
 Kolmogorov-Sinai entropy $h_\mu(T)$ measures the average rate of information production of the system, taking values from the Shannon entropy of measurable partitions:

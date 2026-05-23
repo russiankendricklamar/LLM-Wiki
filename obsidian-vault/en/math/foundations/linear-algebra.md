@@ -44,20 +44,20 @@ The maximum number of linearly independent rows or columns in a matrix. It repre
 
 ## Spectral Theory
 
-### Eigenvalues and Eigenvectors
+### [[spectral-theory-operators|Eigenvalues]] and Eigenvectors
 For a square matrix $A$, a non-zero vector $v$ is an **eigenvector** if:
 $$ Av = \lambda v $$
 where $\lambda$ is the **eigenvalue**. Eigenvectors represent directions that are only scaled (not rotated) by the transformation. They are fundamental in [[spectral-theory-operators]] and [[spectral-graph-theory]].
 
 ### Singular Value Decomposition (SVD)
-A factorization of any matrix $A$ into $U \Sigma V^T$, where $U$ and $V$ are orthogonal matrices and $\Sigma$ is diagonal. SVD is the mathematical foundation for [[principal-component-analysis]] and manifold learning.
+A factorization of any matrix $A$ into $U \Sigma V^T$, where $U$ and $V$ are orthogonal matrices and $\Sigma$ is diagonal. SVD is the mathematical foundation for [[principal-component-analysis]] and [[manifold-learning|manifold]] learning.
 
 ## Applications in AI
 
 - **Embeddings**: Representing tokens as vectors in a high-dimensional space.
 - **Weights**: Model parameters are stored as matrices.
-- **Attention**: The [[attention-mechanisms|Attention mechanism]] uses dot products (inner products) between query, key, and value vectors.
-- **Optimization**: Gradient descent operates in the vector space of model parameters.
+- **[[attention-mechanisms|Attention]]**: The [[attention-mechanisms|Attention mechanism]] uses dot products (inner products) between query, key, and value vectors.
+- **Optimization**: [[convex-optimization|Gradient descent]] operates in the vector space of model parameters.
 
 ## Related Topics
 - [[spectral-theory-operators]] — analysis of eigenvalues

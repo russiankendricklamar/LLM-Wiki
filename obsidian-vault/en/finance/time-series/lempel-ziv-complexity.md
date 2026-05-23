@@ -38,7 +38,7 @@ $$
 \lim_{n \to \infty} \frac{C(n)}{n / \log_2 n} = h
 $$
 
-This means LZ complexity is an estimator of the entropy rate — but unlike traditional entropy estimators, it captures the *sequential* structure of the data, not just the marginal distribution.
+This means LZ complexity is an estimator of the [[shannon-entropy|entropy]] rate — but unlike traditional entropy estimators, it captures the *sequential* structure of the data, not just the marginal distribution.
 
 ## Key Properties
 

@@ -43,7 +43,7 @@ A middle ground used by **Llama 3**. Query heads are divided into groups, and ea
 
 Standard attention is **Memory-Bound**. Most time is spent moving the $QK^\top$ matrix (which is $N^2$) between [[inference-serving|GPU]] [[flash-attention|HBM]] and [[flash-attention|SRAM]].
 **FlashAttention** (Dao et al., 2022) uses **Tiling** and **Recomputation**:
-1. It breaks the large matrix into small blocks that fit in fast SRAM.
+1. It breaks the large matrix into small blocks that fit in fast [[flash-attention|SRAM]].
 2. It computes attention block-by-block without ever storing the giant $N^2$ matrix.
 3. This allows training on contexts of 1M+ tokens.
 

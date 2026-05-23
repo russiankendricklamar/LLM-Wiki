@@ -28,10 +28,12 @@ $$
 rac{d}{dt} J(t) = rac{\partial f}{\partial z}(z(t), t, 	heta) J(t)
 $$
 
-The spectral abscissa (the largest real part of the eigenvalues) of $rac{\partial f}{\partial z}$ dictates the exponential growth or decay of perturbations. For the system to be *Lyapunov stable*, we require:
+The spectral abscissa (the largest real part of the [[spectral-theory-operators|eigenvalues]]) of $rac{\partial f}{\partial z}$ dictates the exponential growth or decay of perturbations. For the system to be *Lyapunov stable*, we require:
 
 $$
-\lambda_{max} \left( rac{\partial f}{\partial z} + \left(rac{\partial f}{\partial z}ight)^T ight) \leq 0
+\lambda_{max} \left( rac{\partial f}{\partial z} + \left(rac{\partial f}{\partial z}
+ight)^T 
+ight) \leq 0
 $$
 
 This ensures the ODE flow is contractive or volume-preserving.

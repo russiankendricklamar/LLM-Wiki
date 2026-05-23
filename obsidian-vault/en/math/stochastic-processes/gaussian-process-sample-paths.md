@@ -36,7 +36,7 @@ for constants $C > 0$ and $\alpha > 0$, then there exists a continuous version o
 
 ## Dudley's [[shannon-entropy|Entropy]] Integral
 
-Kolmogorov's criterion is sufficient but not always tight. **Dudley's theorem** provides a sharp, metric-based characterization using **metric entropy**.
+Kolmogorov's criterion is sufficient but not always tight. **Dudley's theorem** provides a sharp, metric-based characterization using **metric [[shannon-entropy|entropy]]**.
 
 **Definition** — The **metric entropy** is $N(T, d, \varepsilon) = $ minimum number of $d$-balls of radius $\varepsilon$ needed to cover $T$.
 

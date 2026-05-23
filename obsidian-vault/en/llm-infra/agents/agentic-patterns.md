@@ -83,7 +83,7 @@ def generate_with_reflection(prompt):
     draft = [[llm]].generate(f"Solve this: {prompt}")
     
     # Step 2: Critique
-    critique = llm.generate(f"Critique this solution and find errors: {draft}")
+    critique = [[llm]].generate(f"Critique this solution and find errors: {draft}")
     
     # Step 3: Revision
     final = llm.generate(f"Improve the solution based on this critique: {critique}")

@@ -27,7 +27,7 @@ The central result of Morse theory states that the topology of $M$ is closely ti
 ### Morse Inequalities
 Let $c_k$ be the number of critical points of index $k$, and $b_k$ be the $k$-th Betti number (the number of "$k$-dimensional holes"). Then:
 $$c_k \geq b_k$$
-This means that the complexity of any function on a manifold (its "bumps") is bounded from below by the complexity of the manifold's shape.
+This means that the complexity of any function on a [[manifold-learning|manifold]] (its "bumps") is bounded from below by the complexity of the manifold's shape.
 
 ## Morse Theory and Neural Networks
 

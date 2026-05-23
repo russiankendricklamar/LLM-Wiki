@@ -53,7 +53,7 @@ Unlike Standard Brownian Motion, which has no tendency to return to a central va
 
 ## Stochastic Differential Equation ([[stochastic-differential-equations|SDE]])
 
-The OU process $X_t$ is defined by the following SDE:
+The OU process $X_t$ is defined by the following [[stochastic-differential-equations|SDE]]:
 
 $$
 dX_t = \theta(\mu - X_t)\,dt + \sigma\, dW_t

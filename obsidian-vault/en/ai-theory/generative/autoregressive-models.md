@@ -16,5 +16,5 @@ This formulation allows exact likelihood calculation, making it straightforward 
 ### Masked Architectures
 To parallelize training, models use masking.
 - **Masked Convolutions (PixelCNN):** Kernels are zeroed out for future pixels.
-- **Causal Attention (Transformers):** Self-attention layers use a lower-triangular mask to prevent positions from attending to future tokens.
+- **Causal [[attention-mechanisms|Attention]] (Transformers):** Self-attention layers use a lower-triangular mask to prevent positions from attending to future tokens.
 While exact and stable, sequence generation is intrinsically sequential and therefore slow, taking $O(T)$ steps.

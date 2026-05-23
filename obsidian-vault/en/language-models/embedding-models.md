@@ -118,7 +118,7 @@ model = SentenceTransformer("BAAI/bge-large-en-v1.5")
 # Embed a corpus
 corpus = [
     "Transformers revolutionized NLP in 2017.",
-    "The attention mechanism weights token importance.",
+    "The [[attention-mechanisms|attention]] mechanism weights token importance.",
     "Bitcoin uses proof-of-work consensus.",
     "Neural scaling laws predict [[llm]] performance.",
 ]
@@ -152,7 +152,7 @@ short_query = query_embedding[:, :256]
 
 ## Related Topics
 
-[[llm]] — generative models that benefit from embedding-based retrieval (RAG)  
+[[llm]] — generative models that benefit from embedding-based retrieval ([[rag]])  
 [[vlm]] — contrastive VLMs (CLIP) apply the same training framework to image-text pairs  
 [[mixture-of-experts]] — routing in MoE can be understood as a learned embedding-based dispatch  
 [[shannon-entropy]] — [[shannon-entropy|entropy]] of the embedding distribution measures isotropy and expressiveness

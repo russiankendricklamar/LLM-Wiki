@@ -18,7 +18,7 @@ $$ f(x) \approx f(x_0) + \nabla f(x_0)^T \Delta x + \frac{1}{2} \Delta x^T \nabl
 
 ## Hessian Properties and Optimization
 By analyzing the second-order term $\frac{1}{2} \Delta x^T H \Delta x$ (where $H = \nabla^2 f(x_0)$), we can classify critical points (where $\nabla f(x_0) = 0$):
-- **Local Minimum:** $H$ is [[positive-definite-matrices|Positive Definite]] ($H \succ 0$). All eigenvalues are strictly positive.
+- **Local Minimum:** $H$ is [[positive-definite-matrices|Positive Definite]] ($H \succ 0$). All [[spectral-theory-operators|eigenvalues]] are strictly positive.
 - **Local Maximum:** $H$ is Negative Definite ($H \prec 0$). All eigenvalues are strictly negative.
 - **Saddle Point:** $H$ is Indefinite (has both positive and negative eigenvalues).
 

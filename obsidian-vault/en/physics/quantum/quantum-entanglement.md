@@ -35,7 +35,7 @@ Bell's CHSH inequality provides an experimentally testable bound: for local hidd
 - **Monogamy**: If $A$ and $B$ are maximally entangled, $A$ cannot be entangled with any third party $C$ — a constraint central to black hole firewall arguments.
 - **Entanglement as resource**: Entanglement enables quantum teleportation (transmission of an unknown qubit using two classical bits and one Bell pair) and superdense coding.
 - **Entanglement distillation**: Multiple partially-entangled copies can be concentrated into fewer maximally entangled pairs using local operations and classical communication (LOCC).
-- **Area law**: In ground states of gapped local Hamiltonians, entanglement entropy satisfies an area law $S \propto |\partial A|$, much like the Bekenstein-Hawking entropy of a black hole horizon.
+- **Area law**: In ground states of gapped local Hamiltonians, entanglement [[gravitational-entropy|entropy]] satisfies an area law $S \propto |\partial A|$, much like the Bekenstein-Hawking entropy of a black hole horizon.
 
 ## Physical Interpretation
 The key physical insight is that entanglement is not about particles "communicating" — it is about the structure of the joint quantum state. Before measurement, there is no fact about the individual subsystems; the correlations are inherent in the global state. When one particle is measured, the other's state is instantaneously determined — but this determination carries no information because the outcomes are random.

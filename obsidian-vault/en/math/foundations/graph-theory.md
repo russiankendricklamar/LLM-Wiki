@@ -47,7 +47,7 @@ A graph is **connected** if there is a path between every pair of vertices. In d
 A square matrix $A$ where $A_{ij} = 1$ if there is an edge between vertex $i$ and vertex $j$, and 0 otherwise.
 For weighted graphs, $A_{ij}$ stores the weight of the edge.
 
-### Laplacian Matrix
+### [[spectral-graph-theory|Laplacian]] Matrix
 Defined as $L = D - A$, where $D$ is the degree matrix (a diagonal matrix of vertex degrees). The Laplacian is central to **Spectral Graph Theory** and is used in [[graph-neural-networks]] to define graph convolutions.
 
 ## Important Theorems
@@ -68,5 +68,5 @@ Defined as $L = D - A$, where $D$ is the degree matrix (a diagonal matrix of ver
 - [[knowledge-graph]] — structured data representation
 - [[complex-networks]] — large-scale real-world graphs
 - [[systemic-contagion-debtrank]] — financial network risk
-- [[spectral-theory-operators]] — eigenvalues and the graph Laplacian
+- [[spectral-theory-operators]] — [[spectral-theory-operators|eigenvalues]] and the graph Laplacian
 - [[linear-algebra]] — adjacency and Laplacian matrices

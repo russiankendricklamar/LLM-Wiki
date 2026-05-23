@@ -10,7 +10,7 @@ slug: "entropy-pooling"
 
 The [[bayesian-black-litterman|Black-Litterman]] model revolutionized portfolio construction by combining a market prior with subjective investor views. However, it assumes that all returns are **normally distributed** and that all views are **linear** expressions of expected returns.
 
-**Entropy Pooling**, introduced by Attilio Meucci (2008), is a profound generalization that solves these limitations using Information Theory. It allows quantitative funds to process *any* distribution (fat tails, skewness) and *any* type of view (e.g., "The 99% VaR of sector A will not exceed 5%").
+**[[shannon-entropy|Entropy]] Pooling**, introduced by Attilio Meucci (2008), is a profound generalization that solves these limitations using Information Theory. It allows quantitative funds to process *any* distribution (fat tails, skewness) and *any* type of view (e.g., "The 99% VaR of sector A will not exceed 5%").
 
 ## The Core Concept: Minimum Relative Entropy
 

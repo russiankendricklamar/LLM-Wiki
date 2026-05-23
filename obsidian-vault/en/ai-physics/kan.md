@@ -73,7 +73,7 @@ $$\text{KAN}(\mathbf{x}) = (\Phi_{L-1} \circ \cdots \circ \Phi_1 \circ \Phi_0)(\
 **Symbolic regression interface.** After pruning, individual $\phi_{i,j}$ can be replaced with symbolic candidates ($\sin$, $\exp$, $x^2$, etc.) by fitting the activation plot visually or via automatic formula search. The network can then be exported as a closed-form expression.
 
 **vs [[transformer-architecture|MLP]]:**
-| Feature | MLP | KAN |
+| Feature | [[transformer-architecture|MLP]] | KAN |
 |---|---|---|
 | Activations | Fixed at nodes | Learnable on edges |
 | Parameters per layer | $n \times m$ weight matrix | $n \times m$ spline functions |

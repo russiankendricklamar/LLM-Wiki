@@ -29,7 +29,7 @@ QR is essentially the **Gram-Schmidt process** in matrix form. It takes a set of
 
 ### Why it matters
 - **Least Squares**: Used to solve overdetermined systems in [[linear-regression-ols|Linear Regression]].
-- **Eigenvalue Algorithms**: The iterative QR algorithm is the standard way to find all eigenvalues of a matrix.
+- **Eigenvalue Algorithms**: The iterative QR algorithm is the standard way to find all [[spectral-theory-operators|eigenvalues]] of a matrix.
 
 ## 3. Singular Value Decomposition (SVD): The Master Key
 

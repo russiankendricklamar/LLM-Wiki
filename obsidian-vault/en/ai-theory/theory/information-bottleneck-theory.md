@@ -39,7 +39,7 @@ $$
 $$
 H(X) \geq I(X; T_1) \geq I(X; T_2) \dots \geq I(X; T_L)
 $$
-Tishby argued that the training process of a DNN using Stochastic Gradient Descent (SGD) consists of two distinct phases:
+Tishby argued that the training process of a DNN using Stochastic [[convex-optimization|Gradient Descent]] (SGD) consists of two distinct phases:
 1. **Fitting Phase**: High SNR in the gradients leads to an increase in both $I(T_i; Y)$ (learning the labels) and $I(X; T_i)$ (memorizing the input).
 2. **Compression Phase**: As the error saturates, the gradients become noise-dominated (due to the mini-batch stochasticity). The network undergoes a random walk that diffuses the weights, effectively minimizing $I(X; T_i)$ and discarding irrelevant information.
 

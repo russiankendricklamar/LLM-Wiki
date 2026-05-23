@@ -27,4 +27,4 @@ Einstein summation notation simplifies the writing of tensor contractions by omi
 - **Matrix Multiplication:** $C_{ik} = A_{ij} B_{jk}$
 - **Trace:** $\text{Tr}(A) = A_{ii}$
 
-Einstein notation is heavily used in physics and modern Deep Learning frameworks (e.g., `torch.einsum`) as it provides an unambiguous way to specify complex tensor contractions, attention mechanisms, and backpropagation steps in [[matrix-calculus|Matrix Calculus]].
+Einstein notation is heavily used in physics and modern Deep Learning frameworks (e.g., `torch.einsum`) as it provides an unambiguous way to specify complex tensor contractions, [[attention-mechanisms|attention]] mechanisms, and [[automatic-differentiation|backpropagation]] steps in [[matrix-calculus|Matrix Calculus]].

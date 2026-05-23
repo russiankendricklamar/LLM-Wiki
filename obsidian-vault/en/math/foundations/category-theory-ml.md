@@ -10,7 +10,7 @@ slug: "category-theory-ml"
 
 ## What Is It
 
-Category Theory provides a high-level, compositional framework for understanding the structural foundations of machine learning. Rather than focusing on specific architectures, the categorical approach views learning systems as morphisms in specialized categories. This perspective enables the rigorous definition of complex architectures (like neural networks) as compositions of simpler, independent components, and formalizes the process of backpropagation through **lenses** and **optics**.
+Category Theory provides a high-level, compositional framework for understanding the structural foundations of machine learning. Rather than focusing on specific architectures, the categorical approach views learning systems as morphisms in specialized categories. This perspective enables the rigorous definition of complex architectures (like neural networks) as compositions of simpler, independent components, and formalizes the process of [[automatic-differentiation|backpropagation]] through **lenses** and **optics**.
 
 ## Learning as a Morphism
 

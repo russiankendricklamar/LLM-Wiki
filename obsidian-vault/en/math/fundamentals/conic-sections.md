@@ -14,7 +14,7 @@ $\mathbf{x}^T Q \mathbf{x} + \mathbf{p}^T \mathbf{x} + F = 0$
 where $Q$ is a symmetric matrix.
 
 ### Diagonalization
-By applying a [[change-of-basis|Change of Basis]] (specifically, orthogonal diagonalization of $Q$), we eliminate the cross-term $Bxy$. The eigenvalues of $Q$ dictate the shape:
+By applying a [[change-of-basis|Change of Basis]] (specifically, orthogonal diagonalization of $Q$), we eliminate the cross-term $Bxy$. The [[spectral-theory-operators|eigenvalues]] of $Q$ dictate the shape:
 - Both positive/negative: Ellipse.
 - Opposite signs: Hyperbola.
 - One zero: Parabola.

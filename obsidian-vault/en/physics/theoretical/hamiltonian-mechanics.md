@@ -18,4 +18,4 @@ $\dot{q}_i = \frac{\partial H}{\partial p_i}, \quad \dot{p}_i = -\frac{\partial 
 The time evolution of any observable $f(\mathbf{q}, \mathbf{p}, t)$ is governed by the Poisson bracket:
 $\frac{df}{dt} = \{f, H\} + \frac{\partial f}{\partial t}$
 where $\{f, g\} = \sum_i \left( \frac{\partial f}{\partial q_i}\frac{\partial g}{\partial p_i} - \frac{\partial f}{\partial p_i}\frac{\partial g}{\partial q_i} \right)$.
-In quantum mechanics, Dirac replaced Poisson brackets with commutators: $\{f, g\} \to \frac{1}{i\hbar} [\hat{F}, \hat{G}]$, founding canonical quantization.
+In quantum mechanics, Dirac replaced Poisson brackets with commutators: $\{f, g\} \to \frac{1}{i\hbar} [\hat{F}, \hat{G}]$, founding canonical [[quantization]].

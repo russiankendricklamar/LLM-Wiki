@@ -6,7 +6,7 @@ lang: en
 slug: spectral-clustering
 ---
 
-Spectral clustering groups data points using the spectrum (eigenvalues) of the similarity graph's Laplacian matrix.
+Spectral clustering groups data points using the spectrum ([[spectral-theory-operators|eigenvalues]]) of the similarity graph's [[spectral-graph-theory|Laplacian]] matrix.
 
 ### Graph Laplacian
 Given an affinity matrix $W$ and degree matrix $D$, the unnormalized graph Laplacian is:

@@ -6,7 +6,7 @@ lang: en
 slug: special-relativity
 ---
 
-Special Relativity reformulates kinematics by unifying space and time into a 4-dimensional manifold called **Minkowski space** $\mathcal{M}$.
+Special Relativity reformulates kinematics by unifying space and time into a 4-dimensional [[differential-geometry|manifold]] called **Minkowski space** $\mathcal{M}$.
 
 ### Lorentz Transformations
 The fundamental invariant is the spacetime interval:

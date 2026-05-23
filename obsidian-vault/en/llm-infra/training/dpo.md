@@ -32,7 +32,7 @@ Where:
 - $\sigma$ is the sigmoid function.
 - $\beta$ is a hyperparameter controlling the strength of the KL penalty.
 
-## Comparison: DPO vs. RLHF
+## Comparison: DPO vs. [[rlhf]]
 
 | Feature | RLHF (PPO) | DPO |
 |---|---|---|

@@ -6,7 +6,7 @@ lang: en
 slug: sac-math
 ---
 
-Soft Actor-Critic is an off-policy maximum entropy actor-critic algorithm.
+Soft Actor-Critic is an off-policy maximum [[shannon-entropy|entropy]] actor-critic algorithm.
 
 ### Maximum Entropy Objective
 Instead of just maximizing expected reward, SAC maximizes a trade-off between expected reward and policy entropy:

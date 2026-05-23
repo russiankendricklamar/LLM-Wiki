@@ -101,7 +101,7 @@ Facebook AI Similarity Search library:
 - **IndexFlatL2**: exact brute-force; baseline.
 - **IndexIVFFlat**: IVF + exact distance in clusters; $10$–$100\times$ speedup, tunable recall via `nprobe`.
 - **IndexIVFPQ**: IVF + product [[quantization]]; billion-scale, [[inference-serving|GPU]] acceleration.
-- **GPU support**: batch query $10$–$100\times$ faster than CPU.
+- **[[inference-serving|GPU]] support**: batch query $10$–$100\times$ faster than CPU.
 
 Typical billion-scale setup: 100k clusters, $C=100$ probes, PQ with $M=96, K=256$. Query latency: 10–50ms; RAM per vector: 1 byte.
 
@@ -139,7 +139,7 @@ At selectivity $< 1\%$ (e.g., last-7-days documents), pre-filter + ANN dominates
 2. **Storage**: vectors → vector DB (with chunk IDs, metadata).
 3. **Query**: embed user question with same model.
 4. **Retrieval**: top-$K$ ANN (e.g., $K=10$) from vector DB.
-5. **Context**: retrieve chunk text, pass to LLM in system prompt or context window.
+5. **Context**: retrieve chunk text, pass to [[llm]] in system prompt or context window.
 
 [[llm|LLM]] augmentation via vector retrieval achieves:
 - Reduced hallucination (grounded in retrieved facts).

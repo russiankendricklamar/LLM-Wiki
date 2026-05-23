@@ -21,7 +21,7 @@ KL divergence is the driving force behind Variational Inference and the [[em-alg
 ## Mutual Information
 Mutual Information (MI) quantifies the amount of information obtained about one random variable by observing another. It measures non-linear dependence, unlike correlation.
 $$ I(X; Y) = \sum_{x, y} P(x, y) \log \frac{P(x, y)}{P(x)P(y)} $$
-This can be expressed using KL Divergence or Entropy ($H$):
+This can be expressed using KL Divergence or [[shannon-entropy|Entropy]] ($H$):
 $$ I(X; Y) = D_{KL}(P(X,Y) \| P(X)P(Y)) $$
 $$ I(X; Y) = H(X) - H(X|Y) = H(Y) - H(Y|X) $$
 MI is symmetric: $I(X; Y) = I(Y; X)$.

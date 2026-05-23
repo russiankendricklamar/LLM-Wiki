@@ -22,7 +22,7 @@ The theorem states that for every self-adjoint operator $A$, there exists a uniq
 
 $$A = \int_{-\infty}^{\infty} \lambda \, dE(\lambda)$$
 
-Instead of a sum over discrete [[spectral-theory-operators|eigenvalues]] ($\sum \lambda_i v_i v_i^*$), we have an integral over a continuous spectrum. $E(\lambda)$ acts as a "projection-valued" measure that tells you which part of the Hilbert space corresponds to which range of "eigenvalues."
+Instead of a sum over discrete [[spectral-theory-operators|eigenvalues]] ($\sum \lambda_i v_i v_i^*$), we have an integral over a continuous spectrum. $E(\lambda)$ acts as a "projection-valued" measure that tells you which part of the Hilbert space corresponds to which range of "[[spectral-theory-operators|eigenvalues]]."
 
 ## Functional Calculus
 

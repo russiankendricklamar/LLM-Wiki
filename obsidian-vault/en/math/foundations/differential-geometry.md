@@ -59,7 +59,7 @@ In local coordinates, a connection is encoded by **Christoffel symbols** $\Gamma
 
 $$\nabla_{\partial_i} \partial_j = \Gamma^k_{ij} \partial_k$$
 
-For a Riemannian manifold, the unique metric-compatible, torsion-free connection is the **Levi-Civita connection**, whose Christoffel symbols are:
+For a Riemannian [[manifold-learning|manifold]], the unique metric-compatible, torsion-free connection is the **Levi-Civita connection**, whose Christoffel symbols are:
 
 $$\Gamma^k_{ij} = \frac{1}{2} g^{kl} \left( \frac{\partial g_{lj}}{\partial x^i} + \frac{\partial g_{il}}{\partial x^j} - \frac{\partial g_{ij}}{\partial x^l} \right)$$
 

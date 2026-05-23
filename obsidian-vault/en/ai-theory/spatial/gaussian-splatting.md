@@ -38,7 +38,7 @@ This is a standard rasterization technique, allowing 3DGS to achieve **100+ FPS*
 
 | Feature | NeRF | 3D Gaussian Splatting |
 | :--- | :--- | :--- |
-| **Representation** | MLP (Weights) | Explicit Gaussians (Cloud) |
+| **Representation** | [[transformer-architecture|MLP]] (Weights) | Explicit Gaussians (Cloud) |
 | **Training Speed** | Minutes to Hours | Minutes |
 | **Rendering Speed** | Slow (Ray-marching) | Instant (Rasterization) |
 | **Storage** | Very Compact (MBs) | Large (Hundreds of MBs) |

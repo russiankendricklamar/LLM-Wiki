@@ -6,7 +6,7 @@ lang: en
 slug: quantization-error-math
 ---
 
-# Mathematical Error Analysis in Model Quantization
+# Mathematical Error Analysis in Model [[quantization]]
 
 Model quantization reduces the precision of weights and activations from 32-bit floats to lower bit-widths (e.g., 8-bit, 4-bit). The mathematical analysis of this process involves understanding the propagation of quantization noise through deep networks.
 
@@ -15,7 +15,8 @@ Model quantization reduces the precision of weights and activations from 32-bit 
 A uniform quantizer maps a real value $x \in [lpha, eta]$ to a discrete set of $2^b$ levels, where $b$ is the bit-width. The scale factor is $\Delta = rac{eta - lpha}{2^b - 1}$. The quantization function is:
 
 $$
-Q(x) = \Delta \lfloor rac{x - lpha}{\Delta} ceil + lpha
+Q(x) = \Delta \lfloor rac{x - lpha}{\Delta} 
+ceil + lpha
 $$
 
 The quantization error is $e = Q(x) - x$. For large enough $b$ and smooth input distributions, $e$ is modeled as uniform white noise: $e \sim \mathcal{U}(-\Delta/2, \Delta/2)$. 

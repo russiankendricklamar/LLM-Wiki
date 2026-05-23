@@ -8,7 +8,7 @@ slug: "complex-manifolds"
 
 # Complex and Kähler Manifolds: The Geometry of String Theory
 
-A **Complex [[manifold-learning|Manifold]]** is a manifold that locally looks like $\mathbb{C}^n$ and has holomorphic transition functions between its coordinate patches. This restriction is extremely rigid, giving complex manifolds a deeply interwoven structure where geometry, topology, and algebra meet. They are the central stage for algebraic geometry and modern theoretical physics.
+A **Complex [[manifold-learning|Manifold]]** is a [[manifold-learning|manifold]] that locally looks like $\mathbb{C}^n$ and has holomorphic transition functions between its coordinate patches. This restriction is extremely rigid, giving complex manifolds a deeply interwoven structure where geometry, topology, and algebra meet. They are the central stage for algebraic geometry and modern theoretical physics.
 
 ## 1. Almost Complex Structures
 

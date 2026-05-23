@@ -12,7 +12,7 @@ FlashAttention, introduced by **Tri Dao et al. (2022)**, is one of the most impo
 
 ## 1. The Bottleneck: The Memory Wall
 
-Standard attention (Self-Attention) has a time and memory complexity of $O(N^2)$, where $N$ is the sequence length. 
+Standard [[attention-mechanisms|attention]] (Self-Attention) has a time and memory complexity of $O(N^2)$, where $N$ is the sequence length. 
 However, the real bottleneck is not the FLOPs (math), but **Memory IO**.
 1.  To compute $\text{Softmax}(QK^\top)V$, the [[inference-serving|GPU]] must write the giant $N \times N$ attention matrix to the slow **HBM (High Bandwidth Memory)** and then read it back.
 2.  For a sequence of 64k tokens, the matrix takes **16 GB** of memory for just one head!
@@ -22,7 +22,7 @@ However, the real bottleneck is not the FLOPs (math), but **Memory IO**.
 FlashAttention makes attention **IO-Aware**. It avoids writing the $N \times N$ matrix to HBM entirely.
 
 ### A. Tiling (SRAM Management)
-The algorithm breaks the $Q, K, V$ matrices into small blocks (tiles) that fit into the GPU's ultra-fast **SRAM** (the L1 cache, which is ~200x faster than HBM).
+The algorithm breaks the $Q, K, V$ matrices into small blocks (tiles) that fit into the [[inference-serving|GPU]]'s ultra-fast **SRAM** (the L1 cache, which is ~200x faster than HBM).
 - It loads a block of $Q$ and a block of $K$.
 - It computes the attention scores for that small block.
 - It updates the output incrementally.

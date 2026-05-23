@@ -79,7 +79,7 @@ which matches the standard lognormal model (the $\frac{\sigma^2}{2}$ adjustment 
 
 ## The Wong-Zakai Theorem
 
-A central theorem motivating Stratonovich integration is **Wong-Zakai**, which states that SDEs driven by smooth (Lipschitz continuous) approximations to Brownian motion converge to the **Stratonovich SDE**, not the Itô SDE.
+A central theorem motivating Stratonovich integration is **Wong-Zakai**, which states that SDEs driven by smooth (Lipschitz continuous) approximations to Brownian motion converge to the **Stratonovich [[stochastic-differential-equations|SDE]]**, not the Itô SDE.
 
 **Theorem (Wong-Zakai).** Let $W^\varepsilon$ be a smooth approximation to $W$ (e.g., $W^\varepsilon_t = \int_0^t K^\varepsilon(t-s) \, dW_s$ with smooth kernel $K^\varepsilon$). Let $X^\varepsilon$ satisfy the Itô SDE
 

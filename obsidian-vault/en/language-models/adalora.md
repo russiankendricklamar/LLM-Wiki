@@ -8,4 +8,4 @@ slug: "adalora"
 
 # AdaLoRA
 
-[[AdaLoRA]] adaptively allocates the parameter budget among weight matrices during fine-tuning. It relies on singular value decomposition of increments to prune less important updates, improving efficiency over standard LoRA.
+[[AdaLoRA]] adaptively allocates the parameter budget among weight matrices during [[fine-tuning]]. It relies on singular value decomposition of increments to prune less important updates, improving efficiency over standard LoRA.

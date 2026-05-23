@@ -42,7 +42,7 @@ Number of events in a unit interval of a Poisson process.
 - **MGF.** $\exp(\lambda(e^t - 1))$.
 - **Exponential family.** $\eta = \log\lambda$, $T(x)=x$, $A(\eta)=e^\eta$, $h(x) = 1/x!$.
 - **Limit.** Binomial$(n, \lambda/n)$ → Poisson$(\lambda)$ as $n \to \infty$ (rare-events law).
-- **MaxEnt.** Max entropy on $\mathbb{N}$ with $\mathbb{E}[X]$ and base measure $1/x!$.
+- **MaxEnt.** Max [[shannon-entropy|entropy]] on $\mathbb{N}$ with $\mathbb{E}[X]$ and base measure $1/x!$.
 
 ### Geometric / Negative Binomial
 

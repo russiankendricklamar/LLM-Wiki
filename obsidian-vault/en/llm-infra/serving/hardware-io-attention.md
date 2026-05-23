@@ -10,14 +10,14 @@ slug: "hardware-io-attention"
 
 To understand why [[flash-attention|FlashAttention]] is so revolutionary, one must look at the physical architecture of a [[inference-serving|GPU]]. Modern deep learning is no longer limited by how many calculations (FLOPs) a chip can perform, but by how fast it can move data between different types of memory.
 
-## The Memory Hierarchy of a GPU
+## The Memory Hierarchy of a [[inference-serving|GPU]]
 
 A GPU (like an Nvidia A100 or H100) has two main memory levels:
 
 1.  **[[flash-attention|HBM]] (High Bandwidth Memory)**:
     - **Size**: 40GB–80GB.
     - **Speed**: ~1.5–3.0 TB/s.
-    - **Role**: This is the main "VRAM" where model weights and activations live. Accessing HBM is "slow" in relative terms.
+    - **Role**: This is the main "VRAM" where model weights and activations live. Accessing [[flash-attention|HBM]] is "slow" in relative terms.
 2.  **[[flash-attention|SRAM]] (Static RAM)**:
     - **Size**: ~20MB–50MB total (spread across Streaming Multiprocessors).
     - **Speed**: ~20 TB/s.
@@ -25,7 +25,7 @@ A GPU (like an Nvidia A100 or H100) has two main memory levels:
 
 ## The "Memory Wall" Problem
 
-In standard [[attention-mechanisms|attention]], the $N \times N$ attention matrix is too large to fit in SRAM.
+In standard [[attention-mechanisms|attention]], the $N \times N$ [[attention-mechanisms|attention]] matrix is too large to fit in [[flash-attention|SRAM]].
 1.  Compute $QK^\top$ in cores $\to$ Write result to HBM.
 2.  Read $QK^\top$ from HBM $\to$ Compute Softmax in cores $\to$ Write result back to HBM.
 3.  Read Softmax from HBM $\to$ Compute Attention $\to$ Write final result to HBM.

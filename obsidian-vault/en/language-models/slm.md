@@ -47,7 +47,7 @@ SLMs use the same decoder-only [[transformer-architecture|transformer]] backbone
 
 **Grouped Query [[attention-mechanisms|Attention]] (GQA)**: instead of $H$ independent key-value heads for $H$ query heads, GQA uses $G < H$ shared key-value heads. Each group of $H/G$ query heads shares one KV head, cutting the KV cache size by $H/G$ and reducing memory bandwidth proportionally.
 
-**Sliding Window Attention (SWA)**: tokens attend only within a window of $w$ past tokens rather than the full context, reducing attention complexity from $O(n^2)$ to $O(nw)$. Long-range context is handled by having higher layers see earlier content through the residual stream.
+**Sliding Window [[attention-mechanisms|Attention]] (SWA)**: tokens attend only within a window of $w$ past tokens rather than the full context, reducing attention complexity from $O(n^2)$ to $O(nw)$. Long-range context is handled by having higher layers see earlier content through the residual stream.
 
 **Tied embeddings**: the input embedding matrix and the output projection (unembedding) matrix share weights. This halves the parameter count of the embedding table, which can be a substantial fraction of total parameters in small models with large vocabularies.
 
@@ -78,7 +78,7 @@ Key training choices:
 - **Curated pre-training data**: filtering CommonCrawl and web data to retain high-education-value text, code with docstrings, and synthetic problem-solution pairs. Quality per token matters more than token count.
 - **Curriculum training**: ordering training data from simpler to more complex content can improve sample efficiency.
 - **Distillation from a strong teacher**: training the small model to mimic the token-level probability distribution of a larger model, not just the argmax labels.
-- **[[quantization]]-aware training**: fine-tuning with simulated quantization noise prepares the model for INT8 or INT4 inference without significant quality loss.
+- **[[quantization]]-aware training**: [[fine-tuning]] with simulated [[quantization]] noise prepares the model for INT8 or INT4 inference without significant quality loss.
 
 ## Key Properties & Capabilities
 
@@ -107,11 +107,11 @@ Key training choices:
 from llama_cpp import Llama
 
 # Load a GGUF-quantized model (Q4_K_M quantization)
-llm = Llama(
+[[llm]] = Llama(
     model_path="phi-3-mini-4k-instruct.Q4_K_M.gguf",
     n_ctx=4096,
     n_threads=8,
-    n_gpu_layers=0,  # set > 0 to offload layers to GPU
+    n_gpu_layers=0,  # set > 0 to offload layers to [[inference-serving|GPU]]
 )
 
 response = llm.create_chat_completion(

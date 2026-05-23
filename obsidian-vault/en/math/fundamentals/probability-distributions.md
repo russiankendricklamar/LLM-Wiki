@@ -52,7 +52,7 @@ Moments describe the characteristics of the distribution's shape:
 ## 4. Key Relationships
 
 - **Central Limit Theorem**: The sum of many independent random variables tends toward a Normal distribution, regardless of the original distribution.
-- **Entropy**: Distributions like the Uniform (maximum uncertainty) or Normal (maximum entropy for a given variance) play key roles in [[information-theory-basics|Information Theory]].
+- **[[shannon-entropy|Entropy]]**: Distributions like the Uniform (maximum uncertainty) or Normal (maximum entropy for a given variance) play key roles in [[information-theory-basics|Information Theory]].
 
 ## Related Topics
 [[bayes-theorem|Bayes' Theorem]] — Updating distributions with data  

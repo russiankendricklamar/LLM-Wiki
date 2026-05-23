@@ -29,7 +29,7 @@ Before finding circuits, individual [[attention-mechanisms|attention]] heads mus
 
 ## The OV and QK Circuits
 
-Every attention head decomposes into two circuits:
+Every [[attention-mechanisms|attention]] head decomposes into two circuits:
 
 **QK circuit** (what to attend to):
 $$

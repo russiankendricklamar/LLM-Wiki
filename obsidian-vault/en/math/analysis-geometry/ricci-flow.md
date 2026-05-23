@@ -15,7 +15,7 @@ slug: "ricci-flow"
 The Ricci flow is defined by the following non-linear partial differential equation (PDE) for the metric tensor $g_{ij}(t)$:
 $$ \frac{\partial g_{ij}}{\partial t} = -2 R_{ij} $$
 where $R_{ij}$ is the **Ricci Curvature Tensor**.
-- **Intuition**: The flow contracts regions of positive Ricci curvature and expands regions of negative Ricci curvature. It acts to "smooth out" the geometry of the manifold over time.
+- **Intuition**: The flow contracts regions of positive Ricci curvature and expands regions of negative Ricci curvature. It acts to "smooth out" the geometry of the [[manifold-learning|manifold]] over time.
 - **Short-time Existence**: For any smooth metric on a compact manifold, a unique solution exists for a small time interval.
 
 ## 2. Singularities and Surgery
@@ -26,7 +26,7 @@ The primary challenge of Ricci flow is that it can develop **Singularities** whe
 
 ## 3. Perelman's [[shannon-entropy|Entropy]] Functional
 
-To control the flow, Perelman introduced the **$\mathcal{W}$-Entropy Functional**, which is non-decreasing along the flow:
+To control the flow, Perelman introduced the **$\mathcal{W}$-[[shannon-entropy|Entropy]] Functional**, which is non-decreasing along the flow:
 $$ \mathcal{W}(g, f, \tau) = \int_M \left[ \tau (|\nabla f|^2 + R) + f - n \right] (4\pi \tau)^{-n/2} e^{-f} dV $$
 This "energy" approach proved that Ricci flow cannot perform "infinite oscillations" and that singularities must have a specific, manageable structure (ruling out the dreaded "cigar" singularity).
 

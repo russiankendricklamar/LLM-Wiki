@@ -48,7 +48,7 @@ where the grand partition function is $\mathcal{Z} = \sum_{N=0}^{\infty} \sum_{i
 
 The choice of ensemble is dictated by physical boundary conditions, but all three give identical results in the thermodynamic limit ($N \to \infty$).
 
-## Entropy and information
+## [[gravitational-entropy|Entropy]] and information
 
 For a probability distribution over states, **Gibbs entropy** quantifies ignorance about the microscopic state:
 

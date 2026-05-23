@@ -13,7 +13,7 @@ Both Eigenvalue Decomposition (EVD) and Singular Value Decomposition (SVD) are f
 ## Eigenvalue Decomposition (EVD)
 For a square matrix $A \in \mathbb{R}^{n \times n}$, if it possesses $n$ linearly independent eigenvectors, it can be factorized as:
 $$ A = Q \Lambda Q^{-1} $$
-where $Q$ is the matrix of eigenvectors and $\Lambda$ is a diagonal matrix of eigenvalues $\lambda_i$.
+where $Q$ is the matrix of eigenvectors and $\Lambda$ is a diagonal matrix of [[spectral-theory-operators|eigenvalues]] $\lambda_i$.
 - **Spectral Theorem:** If $A$ is a real symmetric matrix, then $A$ is orthogonally diagonalizable. That is, $Q$ is an orthogonal matrix ($Q^T Q = I$), and eigenvalues are purely real. $A = Q \Lambda Q^T$.
 
 ## Singular Value Decomposition (SVD)

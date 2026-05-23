@@ -8,7 +8,7 @@ slug: "lora-peft"
 
 # LoRA and Parameter-Efficient [[fine-tuning]] (PEFT)
 
-**LoRA** (Low-Rank Adaptation) is the most popular technique for **Parameter-Efficient Fine-Tuning (PEFT)**. It allows adapting a giant model (e.g., Llama 70B) to a specific task by training only a tiny fraction (often <1%) of its parameters, while keeping the original weights frozen.
+**LoRA** (Low-Rank Adaptation) is the most popular technique for **Parameter-Efficient [[fine-tuning]] (PEFT)**. It allows adapting a giant model (e.g., Llama 70B) to a specific task by training only a tiny fraction (often <1%) of its parameters, while keeping the original weights frozen.
 
 ## The Mathematical Intuition
 

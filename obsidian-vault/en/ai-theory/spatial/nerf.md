@@ -16,7 +16,7 @@ A NeRF represents a scene as a function $F_\theta: (x, y, z, \theta, \phi) \to (
 - **Input**: A 3D location $(x, y, z)$ and a viewing direction $(\theta, \phi)$.
 - **Output**: An emitted color $c = (r, g, b)$ and a volume density $\sigma$ (opacity).
 
-To render a pixel, NeRF casts a ray through the scene, samples points along that ray, queries the MLP for their color and density, and integrates them using **Volume Rendering** equations.
+To render a pixel, NeRF casts a ray through the scene, samples points along that ray, queries the [[transformer-architecture|MLP]] for their color and density, and integrates them using **Volume Rendering** equations.
 
 ## 2. Key Innovations
 

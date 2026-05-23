@@ -168,7 +168,7 @@ class TopKSparseAutoencoder(nn.Module):
 
 
 def train_sae(model, activations, n_epochs=50, lr=2e-4, batch_size=512):
-    """Обучение SAE на заранее собранных активациях LLM."""
+    """Обучение SAE на заранее собранных активациях [[llm|LLM]]."""
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
     dataset_size = activations.shape[0]
 

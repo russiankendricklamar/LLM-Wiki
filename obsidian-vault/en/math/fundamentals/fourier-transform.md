@@ -37,7 +37,7 @@ In computers, we use the **Discrete Fourier Transform (DFT)**. The **Fast Fourie
 ## 5. Why it Matters in AI and Science
 
 - **Fourier Neural Operators (FNO)**: Architectures that learn in the spectral domain, solving PDEs (like Navier-Stokes) much faster than numerical solvers.
-- **Geometric Deep Learning (GNNs)**: Convolutions on graphs are defined via the spectrum of the Graph Laplacian (the network equivalent of frequency analysis).
+- **Geometric Deep Learning (GNNs)**: Convolutions on graphs are defined via the spectrum of the Graph [[spectral-graph-theory|Laplacian]] (the network equivalent of frequency analysis).
 - **Positional Encodings**: Transformers and NeRFs use Fourier features (sinusoidal encodings) to represent high-frequency details and textures.
 - **Quantitative Finance**: Spectral analysis helps identify cycles in time series and filter out market noise.
 
