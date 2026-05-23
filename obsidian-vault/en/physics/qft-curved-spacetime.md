@@ -4,6 +4,7 @@ category: "physics"
 order: 291
 lang: "en"
 slug: "qft-curved-spacetime"
+author: "PhD Physics Team"
 ---
 
 # Quantum Field Theory on Curved Spacetime

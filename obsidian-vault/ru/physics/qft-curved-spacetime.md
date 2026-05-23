@@ -4,6 +4,7 @@ category: "physics"
 order: 291
 lang: "ru"
 slug: "qft-curved-spacetime"
+author: "Группа теоретической физики"
 ---
 
 # Квантовая теория поля на искривленном пространстве-времени

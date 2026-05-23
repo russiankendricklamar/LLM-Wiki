@@ -132,9 +132,16 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({ open, onOpenChange, 
                       <span className="font-semibold text-zinc-900 dark:text-zinc-100 truncate">
                         {page.metadata.title}
                       </span>
-                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 uppercase font-medium">
-                        {page.metadata.category}
-                      </span>
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        {page.metadata.author && (
+                          <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 font-medium">
+                            {page.metadata.author}
+                          </span>
+                        )}
+                        <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 uppercase font-medium">
+                          {page.metadata.category}
+                        </span>
+                      </div>
                     </div>
                     <div className="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 mt-1 italic">
                       {excerpt}

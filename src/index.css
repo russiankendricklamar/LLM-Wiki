@@ -44,3 +44,45 @@
     max-width: 100%;
   }
 }
+
+@media print {
+  @page {
+    margin: 2cm;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  header, footer, aside, .print\:hidden {
+    display: none !important;
+  }
+
+  main {
+    display: block !important;
+    overflow: visible !important;
+    width: 100% !important;
+  }
+
+  .prose {
+    max-width: none !important;
+    color: black !important;
+  }
+
+  a {
+    text-decoration: underline !important;
+    color: black !important;
+  }
+
+  pre, code {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    background: #f4f4f5 !important;
+    border: 1px solid #e4e4e7 !important;
+  }
+
+  .katex-display {
+    overflow: visible !important;
+  }
+}

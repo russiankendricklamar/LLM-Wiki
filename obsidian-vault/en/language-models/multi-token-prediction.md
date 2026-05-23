@@ -4,6 +4,7 @@ category: "Language Models"
 order: 20
 lang: "en"
 slug: "multi-token-prediction"
+author: "Meta AI Research (reproduced)"
 ---
 
 # Multi-Token Prediction (MTP)

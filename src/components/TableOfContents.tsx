@@ -60,7 +60,7 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ className, lan
   if (headings.length === 0) return null;
 
   return (
-    <aside className={cn("w-64 flex-shrink-0 hidden xl:block", className)}>
+    <aside className={cn("w-64 flex-shrink-0", className)}>
       <div className="sticky top-20 pt-8 pb-8 pr-4">
         <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight">
           {lang === 'en' ? 'On this page' : 'На этой странице'}

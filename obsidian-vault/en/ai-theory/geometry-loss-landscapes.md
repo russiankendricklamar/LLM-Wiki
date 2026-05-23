@@ -4,6 +4,7 @@ category: "ai-theory"
 order: 293
 lang: "en"
 slug: "geometry-loss-landscapes"
+author: "Egor Galkin"
 ---
 
 # The Geometry of Deep Learning Loss Landscapes

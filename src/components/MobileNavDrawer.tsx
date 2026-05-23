@@ -83,8 +83,11 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({ open, onClose,
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <div className="flex-1 min-h-0 overflow-hidden">
+            <div className="flex-1 min-h-0 overflow-y-auto">
               <Sidebar lang={lang} className="w-full border-r-0 bg-transparent" />
+              <div className="border-t border-zinc-200 dark:border-zinc-800 p-4">
+                <TableOfContents lang={lang} className="w-full" />
+              </div>
             </div>
           </motion.aside>
         </>

@@ -4,6 +4,8 @@ category: "ai-theory"
 order: 290
 lang: "en"
 slug: "topos-neural-networks"
+author: "Egor Galkin"
+reviewers: "AI Research Group, PhD Physics"
 ---
 
 # Topos Theory for Neural Networks

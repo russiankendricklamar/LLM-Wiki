@@ -48,11 +48,23 @@ interface PageContentProps {
   lang: 'en' | 'ru';
   slug: string;
   growth?: 'seedling' | 'budding' | 'evergreen';
+  author?: string;
+  reviewers?: string[];
 }
 
-const PageContent = ({ category, title, content, lang, slug, growth }: PageContentProps) => {
+const PageContent = ({ category, title, content, lang, slug, growth, author, reviewers }: PageContentProps) => {
   const isGraphPage = slug === '/knowledge-graph';
   const growthInfo = growth ? GROWTH_LABEL[growth] : null;
+
+  const handlePrint = () => {
+    window.print();
+  };
+
+  const handleReview = () => {
+    const subject = encodeURIComponent(`Review: ${title}`);
+    const body = encodeURIComponent(`I have some feedback for the article "${title}" (${slug}):\n\n`);
+    window.open(`https://github.com/russiankendricklamar/LLM-Wiki/issues/new?title=${subject}&body=${body}`, '_blank');
+  };
 
   return (
     <motion.div
@@ -63,15 +75,50 @@ const PageContent = ({ category, title, content, lang, slug, growth }: PageConte
       className="w-full"
     >
       {!isGraphPage && (
-        <div className="mb-8 flex items-center justify-between gap-4">
-          <Breadcrumbs category={category} title={title} lang={lang} slug={slug} />
-          {growthInfo && (
-            <span className={cn(
-              "shrink-0 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold",
-              growthInfo.tone
-            )}>
-              <span>{growthInfo[lang]}</span>
-            </span>
+        <div className="mb-8 flex flex-col gap-4 group/header">
+          <div className="flex items-center justify-between gap-4">
+            <Breadcrumbs category={category} title={title} lang={lang} slug={slug} />
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleReview}
+                className="p-1.5 rounded-md text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all opacity-0 group-hover/header:opacity-100 print:hidden"
+                title={lang === 'en' ? 'Suggest Edit / Review' : 'Предложить правку / Рецензию'}
+              >
+                <MessageSquarePlus className="w-4 h-4" />
+              </button>
+              <button
+                onClick={handlePrint}
+                className="p-1.5 rounded-md text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all opacity-0 group-hover/header:opacity-100 print:hidden"
+                title={lang === 'en' ? 'Export to PDF / Print' : 'Экспорт в PDF / Печать'}
+              >
+                <Printer className="w-4 h-4" />
+              </button>
+              {growthInfo && (
+                <span className={cn(
+                  "shrink-0 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold",
+                  growthInfo.tone
+                )}>
+                  <span>{growthInfo[lang]}</span>
+                </span>
+              )}
+            </div>
+          </div>
+          
+          {(author || (reviewers && reviewers.length > 0)) && (
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-zinc-500 dark:text-zinc-400">
+              {author && (
+                <div className="flex items-center gap-1.5">
+                  <span className="opacity-60 uppercase tracking-wider">{lang === 'en' ? 'Author:' : 'Автор:'}</span>
+                  <span className="font-medium text-zinc-700 dark:text-zinc-300">{author}</span>
+                </div>
+              )}
+              {reviewers && reviewers.length > 0 && (
+                <div className="flex items-center gap-1.5">
+                  <span className="opacity-60 uppercase tracking-wider">{lang === 'en' ? 'Reviewers:' : 'Рецензенты:'}</span>
+                  <span className="font-medium text-zinc-700 dark:text-zinc-300">{reviewers.join(', ')}</span>
+                </div>
+              )}
+            </div>
           )}
         </div>
       )}
@@ -87,14 +134,18 @@ const PageContent = ({ category, title, content, lang, slug, growth }: PageConte
           </div>
         </div>
       ) : (
-        <>
-          <CourseBadge slug={slug} lang={lang} />
-          <MarkdownRenderer content={content} category={category} />
-          <Backlinks slug={slug} lang={lang} />
-          <RelatedArticles slug={slug} lang={lang} />
-          <ArticleNav slug={slug} category={category} lang={lang} />
-        </>
+        <div className="flex flex-col xl:flex-row gap-12 lg:gap-16">
+          <div className="flex-1 min-w-0">
+            <CourseBadge slug={slug} lang={lang} />
+            <MarkdownRenderer content={content} category={category} />
+            <Backlinks slug={slug} lang={lang} />
+            <RelatedArticles slug={slug} lang={lang} />
+            <ArticleNav slug={slug} category={category} lang={lang} />
+          </div>
+          <TableOfContents lang={lang} className="hidden xl:block" />
+        </div>
       )}
+      {!isGraphPage && <AIAssistant content={content} title={title} lang={lang} />}
     </motion.div>
   );
 };

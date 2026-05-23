@@ -4,6 +4,8 @@ category: "language-models"
 order: 298
 lang: "en"
 slug: "deepseek-v3-mla-compression"
+author: "DeepSeek Lab"
+reviewers: "Egor Galkin, ML Engineering"
 ---
 
 # DeepSeek-V3 Architecture: MLA & Deep-Compression

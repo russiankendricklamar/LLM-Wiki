@@ -2,8 +2,10 @@
 title: McKean-Vlasov SDEs
 category: Stochastic Calculus
 order: 155
-lang: en
-slug: mckean-vlasov-sdes
+lang: "en"
+slug: "mckean-vlasov-sdes"
+author: "Mathematical Finance Team"
+reviewers: "Egor Galkin"
 ---
 
 # McKean-Vlasov SDEs

@@ -155,6 +155,8 @@ export const getAllPages = (): PageContent[] => {
         courseType: isCourse ? 'course' : undefined,
         difficulty: data.difficulty,
         duration: data.duration,
+        author: data.author || undefined,
+        reviewers: data.reviewers ? String(data.reviewers).split(',').map(s => s.trim()) : undefined,
       },
       content
     };

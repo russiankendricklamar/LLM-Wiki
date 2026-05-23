@@ -4,6 +4,8 @@ category: "ai-theory"
 order: 290
 lang: "ru"
 slug: "topos-neural-networks"
+author: "Егор Галкин"
+reviewers: "AI Research Group, PhD Physics"
 ---
 
 # Теория топосов для нейронных сетей
