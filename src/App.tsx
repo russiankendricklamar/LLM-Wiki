@@ -141,11 +141,11 @@ const PageContent = ({ category, title, content, lang, slug, growth, author, rev
             <Backlinks slug={slug} lang={lang} />
             <RelatedArticles slug={slug} lang={lang} />
             <ArticleNav slug={slug} category={category} lang={lang} />
+            <ResearchToolbox title={title} slug={slug} author={author} lang={lang} />
           </div>
           <TableOfContents lang={lang} className="hidden xl:block" />
         </div>
       )}
-      {!isGraphPage && <AIAssistant content={content} title={title} lang={lang} />}
     </motion.div>
   );
 };
