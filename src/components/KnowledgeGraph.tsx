@@ -168,10 +168,30 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
     updateDimensions();
     
     // Resize observer is more reliable than window resize for container changes
-    const observer = new ResizeObserver(updateDimensions);
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { width, height } = entry.contentRect;
+        if (width > 0 && height > 0) {
+          setDimensions({ width, height });
+        }
+      }
+    });
+    
     if (graphContainerRef.current) observer.observe(graphContainerRef.current);
     
-    return () => observer.disconnect();
+    // Fallback: if after 500ms we still have 0 height, try to force it
+    const timeout = setTimeout(() => {
+      if (dimensions.height === 0 && graphContainerRef.current) {
+        const h = graphContainerRef.current.offsetHeight;
+        const w = graphContainerRef.current.offsetWidth;
+        if (h > 0) setDimensions({ width: w, height: h });
+      }
+    }, 500);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timeout);
+    };
   }, []);
 
   useEffect(() => {
