@@ -72,6 +72,20 @@ const ABOUT = {
       { title: 'Quantum Gravity & Information', desc: 'Hawking radiation, the black hole information paradox, Page curves, and the island formula — how unitarity is restored where quantum fields meet event horizons.' },
       { title: 'Digital Gardening', desc: 'Running this site as an Obsidian vault rendered into a living knowledge graph — markdown-first, bilingual, wikilinks resolved client-side, 3D force-graph visualisation.' },
     ],
+    pdfResearchTitle: 'Technical Papers',
+    pdfResearch: [
+      { title: 'Why LLMs fail in Quantitative Finance', file: 'why-llms-fail-quantitative-finance.pdf' },
+      { title: 'Bloomberg was not built in a weekend', file: 'bloomberg-not-built-in-weekend.pdf' },
+      { title: 'Finance Data Layer Ontology', file: 'finance-data-layer-ontology.pdf' },
+      { title: 'CeDeFi: Institutional DeFi', file: 'cedefi-institutional-defi.pdf' },
+      { title: 'R-Quant: New Profession in AI Finance', file: 'r-quant-new-profession-ai-finance.pdf' },
+      { title: 'Market Digital Twin', file: 'market-digital-twin.pdf' },
+      { title: 'Dirty Market Data & Backtest', file: 'dirty-market-data-backtest.pdf' },
+      { title: 'Hybrid Quant Architecture', file: 'hybrid-quant-architecture.pdf' },
+      { title: 'AI Agents: Trading Boundary', file: 'ai-agents-trading-boundary.pdf' },
+      { title: 'Running 36 AI Agents Infrastructure', file: 'running-36-ai-agents-infrastructure.pdf' },
+      { title: 'Quantum Finance 2026', file: 'quantum-finance-2026.pdf' },
+    ],
     projectsTitle: 'Projects',
     viewAll: 'View all projects',
     wikiStatsTitle: 'Knowledge Base',
@@ -142,6 +156,20 @@ const ABOUT = {
       { title: 'Высокопроизводительные вычисления', desc: 'Ускорение движков GARCH, HMM и Монте-Карло в 200+ раз с помощью расширений C++ через pybind11 и параллельных вычислений на OpenMP.' },
       { title: 'Квантовая гравитация и информация', desc: 'Излучение Хокинга, парадокс информации чёрных дыр, кривая Пейджа и формула островов — как восстанавливается унитарность там, где квантовые поля встречаются с горизонтами событий.' },
       { title: 'Цифровое садоводство', desc: 'Веду эту вики как Obsidian-вольт, рендерящийся в живой граф знаний — markdown-first, билингв, с wikilinks на клиенте и 3D force-graph визуализацией.' },
+    ],
+    pdfResearchTitle: 'Технические статьи',
+    pdfResearch: [
+      { title: 'Почему LLM ошибаются в квант-финансах', file: 'why-llms-fail-quantitative-finance.pdf' },
+      { title: 'Bloomberg не строился за выходные', file: 'bloomberg-not-built-in-weekend.pdf' },
+      { title: 'Онтология уровней финансовых данных', file: 'finance-data-layer-ontology.pdf' },
+      { title: 'CeDeFi: Институциональный DeFi', file: 'cedefi-institutional-defi.pdf' },
+      { title: 'R-Quant: Новая профессия в AI-финансах', file: 'r-quant-new-profession-ai-finance.pdf' },
+      { title: 'Цифровой двойник рынка', file: 'market-digital-twin.pdf' },
+      { title: 'Грязные данные и бэктесты', file: 'dirty-market-data-backtest.pdf' },
+      { title: 'Гибридная квант-архитектура', file: 'hybrid-quant-architecture.pdf' },
+      { title: 'AI-агенты: границы трейдинга', file: 'ai-agents-trading-boundary.pdf' },
+      { title: 'Инфраструктура для 36 AI-агентов', file: 'running-36-ai-agents-infrastructure.pdf' },
+      { title: 'Квантовые финансы 2026', file: 'quantum-finance-2026.pdf' },
     ],
     projectsTitle: 'Проекты',
     viewAll: 'Все проекты',
@@ -393,6 +421,32 @@ export const AboutPage: React.FC<AboutPageProps> = ({ lang }) => {
             {d.wikiStatsViewGraph}
             <ArrowRight className="h-3 w-3" />
           </Link>
+        </div>
+      </section>
+
+      {/* ── PDF Research ── */}
+      <section>
+        <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+          {d.pdfResearchTitle}
+        </h2>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {d.pdfResearch.map((paper, i) => (
+            <motion.a
+              key={i}
+              href={`/research/${paper.file}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
+              className="group flex items-center justify-between gap-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 p-3 hover:border-emerald-500/50 hover:bg-emerald-500/[0.02] transition-all"
+            >
+              <span className="text-xs font-medium text-zinc-700 dark:text-zinc-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 truncate">
+                {paper.title}
+              </span>
+              <FileDown className="h-3.5 w-3.5 shrink-0 text-zinc-400 dark:text-zinc-500 group-hover:text-emerald-500 transition-colors" />
+            </motion.a>
+          ))}
         </div>
       </section>
 
