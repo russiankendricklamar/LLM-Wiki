@@ -1,6 +1,6 @@
 ---
 title: "Карта знаний"
-category: "Главная"
+category: "Обо мне"
 order: 2
 lang: "ru"
 slug: "/knowledge-graph"

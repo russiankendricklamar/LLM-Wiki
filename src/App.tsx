@@ -203,11 +203,12 @@ const RouterShell = ({ lang, setLang }: { lang: 'en' | 'ru'; setLang: (lang: 'en
   const location = useLocation();
   const isHome = location.pathname === '/' || location.pathname === '';
   const isAbout = location.pathname === '/about';
+  const isGraph = location.pathname === '/knowledge-graph';
   // Anything under /projects (the index and individual project pages) has its
   // own dedicated layout — no Knowledge Base sidebar.
   const isProjectsArea = location.pathname.startsWith('/projects');
   const isCoursesIndex = location.pathname === '/courses';
-  const showSidebar = !isHome && !isAbout && !isProjectsArea && !isCoursesIndex;
+  const showSidebar = !isHome && !isAbout && !isGraph && !isProjectsArea && !isCoursesIndex;
 
   return (
     <PageLayout lang={lang} setLang={setLang} fullBleed={isHome} showSidebar={showSidebar}>

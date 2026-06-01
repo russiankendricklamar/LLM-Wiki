@@ -1,6 +1,6 @@
 ---
 title: "Knowledge Map"
-category: "Home"
+category: "About Me"
 order: 2
 lang: "en"
 slug: "/knowledge-graph"

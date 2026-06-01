@@ -1,6 +1,6 @@
 ---
 title: "About Me"
-category: "Home"
+category: "About Me"
 order: 1
 lang: "en"
 slug: "/about"

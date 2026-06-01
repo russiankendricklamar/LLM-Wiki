@@ -1,6 +1,6 @@
 ---
 title: "Обо мне"
-category: "Главная"
+category: "Обо мне"
 order: 1
 lang: "ru"
 slug: "/about"
