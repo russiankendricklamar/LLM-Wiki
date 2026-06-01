@@ -360,27 +360,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({ lang }) => {
         </div>
       </section>
 
-      {/* ── Interests ── */}
-      <section>
-        <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-          {d.interestsTitle}
-        </h2>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {d.interests.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
-              className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 p-4"
-            >
-              <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{item.title}</p>
-              <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
       {/* ── Wiki stats ── */}
       <section>
         <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
