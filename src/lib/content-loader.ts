@@ -12,6 +12,7 @@ export interface PageMetadata {
   featured?: boolean;
   image?: string;
   description?: string;
+  author?: string;
   // Content type — 'project' for /projects pages, 'article' for everything else
   type: ContentType;
   // Article-only: maturity in the digital garden

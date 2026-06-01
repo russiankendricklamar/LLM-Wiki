@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { getGraphData } from '@/lib/content-loader';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import * as THREE from 'three';
-import { Maximize2, MousePointer2, RotateCcw } from 'lucide-react';
+import { Maximize2, MousePointer2, RotateCcw, Network } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const ForceGraph3DLazy = React.lazy(() =>

@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { useLocation } from 'react-router-dom';
 import { X } from 'lucide-react';
 import { Sidebar } from './Sidebar';
+import { TableOfContents } from './TableOfContents';
 
 interface MobileNavDrawerProps {
   open: boolean;

@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
+import { MessageSquarePlus, Printer } from 'lucide-react';
 import { PageLayout } from './components/PageLayout';
 import { MarkdownRenderer } from './components/MarkdownRenderer';
 import { HomeHero } from './components/HomeHero';
@@ -9,6 +10,8 @@ import { ArticleNav } from './components/ArticleNav';
 import { Backlinks } from './components/Backlinks';
 import { RelatedArticles } from './components/RelatedArticles';
 import { CourseBadge } from './components/CourseBadge';
+import { ResearchToolbox } from './components/ResearchToolbox';
+import { TableOfContents } from './components/TableOfContents';
 import { getAllPages } from './lib/content-loader';
 import { cn } from './lib/utils';
 
