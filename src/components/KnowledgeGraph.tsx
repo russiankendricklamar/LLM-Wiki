@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { getGraphData } from '@/lib/content-loader';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import * as THREE from 'three';
-import { Maximize2, MousePointer2, RotateCcw, Network } from 'lucide-react';
+import { Maximize2, MousePointer2, RotateCcw, Network, Home, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { SearchDialog } from './SearchDialog';
 
 const ForceGraph3DLazy = React.lazy(() =>
   import('react-force-graph-3d').then(m => ({ default: m.default }))
@@ -65,6 +66,7 @@ const linkEndpointId = (endpoint: any) =>
 export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   const navigate = useNavigate();
   const rawGraphData = useMemo(() => getGraphData(lang), [lang]);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const graphData = useMemo(() => {
     return rawGraphData;
@@ -245,7 +247,25 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
           </div>
         </div>
 
-        <div className="shrink-0">
+        <div className="shrink-0 flex items-center gap-2">
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            className="p-2 rounded-lg bg-white dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all shadow-sm flex items-center gap-2"
+            title={lang === 'en' ? 'Search Articles' : 'Поиск статей'}
+          >
+            <Search className="w-4 h-4" />
+            <span className="text-[10px] font-bold uppercase hidden md:inline">{lang === 'en' ? 'Search' : 'Поиск'}</span>
+          </button>
+
+          <button
+            onClick={() => navigate('/')}
+            className="p-2 rounded-lg bg-white dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all shadow-sm flex items-center gap-2"
+            title={lang === 'en' ? 'Back to Home' : 'На главную'}
+          >
+            <Home className="w-4 h-4" />
+            <span className="text-[10px] font-bold uppercase hidden md:inline">{lang === 'en' ? 'Home' : 'Домой'}</span>
+          </button>
+          
           <button
             onClick={handleResetCamera}
             className="p-2 rounded-lg bg-white dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all shadow-sm"
@@ -315,6 +335,8 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
           )}
         </Suspense>
       </div>
+
+      <SearchDialog open={isSearchOpen} onOpenChange={setIsSearchOpen} lang={lang} />
     </div>
   );
 };
