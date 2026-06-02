@@ -179,7 +179,7 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
               <span className="font-medium">{copy.ctaProjects}</span>
             </Link>
             <Link
-              to="/knowledge-graph"
+              to="/about"
               className="group flex flex-col items-start gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm text-zinc-200 backdrop-blur-md transition hover:bg-white/10"
             >
               <BookOpen className="h-4 w-4 text-zinc-400 transition group-hover:text-white" />
