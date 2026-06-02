@@ -75,7 +75,6 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   const adjacency = useMemo(() => {
     const map = new Map<string, { nodes: Set<string>; links: Set<any> }>();
     
-    // Initialize map with all nodes to ensure adjacency exists for every node
     for (const node of graphData.nodes) {
       map.set(node.id, { nodes: new Set(), links: new Set() });
     }
@@ -94,7 +93,6 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   }, [graphData]);
 
   const fgRef = useRef<any>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
   const graphContainerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [isClient, setIsClient] = useState(false);
@@ -137,18 +135,21 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
     }
   }, []);
 
+  // Robust dimension tracking
   useEffect(() => {
     setIsClient(true);
+    
     const updateDimensions = () => {
       if (graphContainerRef.current) {
-        setDimensions({
-          width: graphContainerRef.current.offsetWidth,
-          height: graphContainerRef.current.offsetHeight,
-        });
+        const { offsetWidth, offsetHeight } = graphContainerRef.current;
+        if (offsetWidth > 0 && offsetHeight > 0) {
+          setDimensions({ width: offsetWidth, height: offsetHeight });
+        }
       }
     };
     
-    updateDimensions();
+    // Initial check with a slight delay to allow layout to settle
+    const initialTimer = setTimeout(updateDimensions, 100);
     
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
@@ -159,33 +160,53 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
       }
     });
     
-    if (graphContainerRef.current) observer.observe(graphContainerRef.current);
+    if (graphContainerRef.current) {
+      observer.observe(graphContainerRef.current);
+    }
+
+    window.addEventListener('resize', updateDimensions);
     
-    const timeout = setTimeout(() => {
-      if (dimensions.height === 0 && graphContainerRef.current) {
-        const h = graphContainerRef.current.offsetHeight;
-        const w = graphContainerRef.current.offsetWidth;
-        if (h > 0) setDimensions({ width: w, height: h });
+    // Periodic check if still zero (fallback for tricky layouts)
+    const retryInterval = setInterval(() => {
+      if (dimensions.width === 0 || dimensions.height === 0) {
+        updateDimensions();
+      } else {
+        clearInterval(retryInterval);
       }
     }, 500);
 
     return () => {
+      clearTimeout(initialTimer);
+      clearInterval(retryInterval);
       observer.disconnect();
-      clearTimeout(timeout);
+      window.removeEventListener('resize', updateDimensions);
     };
-  }, []);
+  }, [dimensions.width, dimensions.height]);
 
+  // Force graph configuration and reheat
   useEffect(() => {
-    if (!isDesktop || !fgRef.current || dimensions.height <= 0) return;
+    if (!fgRef.current) return;
+    
     const fg = fgRef.current;
-    const linkForce = fg.d3Force?.('link');
-    if (linkForce) linkForce.distance(35).strength(0.8);
-    const chargeForce = fg.d3Force?.('charge');
-    if (chargeForce) chargeForce.strength(-40).distanceMax(300);
+    
+    // Configure forces
+    if (isDesktop) {
+      const linkForce = fg.d3Force?.('link');
+      if (linkForce) linkForce.distance(35).strength(0.8);
+      
+      const chargeForce = fg.d3Force?.('charge');
+      if (chargeForce) chargeForce.strength(-40).distanceMax(300);
+    }
+    
     fg.d3ReheatSimulation?.();
-    const timer = setTimeout(() => fg.zoomToFit?.(400, 100), 1000);
+    
+    // Fit to view once data is loaded
+    const timer = setTimeout(() => {
+      if (fg.zoomToFit) fg.zoomToFit(400, 100);
+    }, 500);
+    
     return () => clearTimeout(timer);
-  }, [graphData, isDesktop, dimensions.height]);
+  }, [graphData, isDesktop, dimensions.width, dimensions.height]);
 
   const nodeThreeObject = useCallback((node: any) => {
     const isHub = node.val > 1.5;
@@ -232,7 +253,7 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   if (!isClient) return null;
 
   return (
-    <div ref={containerRef} className="w-full h-full min-h-[700px] md:min-h-[900px] flex flex-col overflow-hidden bg-white dark:bg-zinc-950">
+    <div className="w-full h-full min-h-[700px] md:min-h-[900px] flex flex-col overflow-hidden bg-white dark:bg-zinc-950">
       {/* Header Toolbar */}
       <div className="shrink-0 bg-zinc-50/50 dark:bg-zinc-900/30 border-b border-zinc-200 dark:border-zinc-800 px-6 py-4 flex items-center justify-between gap-4">
         <div className="space-y-1">
@@ -278,7 +299,6 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
 
       {/* Graph Area */}
       <div ref={graphContainerRef} className="flex-1 relative min-h-0 bg-zinc-50/30 dark:bg-black/20">
-        {/* Absolute HUD Overlays (Essential Controls Only) */}
         <div className="absolute bottom-6 right-6 z-20 flex flex-col items-end gap-3 pointer-events-none">
           <div className="flex items-center gap-3 px-3 py-2 rounded-xl bg-white/80 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 text-[9px] text-zinc-500 dark:text-zinc-400 font-bold uppercase tracking-widest backdrop-blur-md shadow-lg pointer-events-auto">
             <div className="flex items-center gap-2"><MousePointer2 className="w-3 h-3 text-blue-500" /><span>{lang === 'en' ? 'Click to Navigate' : 'Клик для перехода'}</span></div>
@@ -291,6 +311,7 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
           {dimensions.width > 0 && dimensions.height > 0 && (
             isDesktop ? (
               <ForceGraph3DLazy
+                key={`3d-${lang}`}
                 ref={fgRef}
                 width={dimensions.width}
                 height={dimensions.height}
@@ -313,6 +334,7 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
               />
             ) : (
               <ForceGraph2DLazy
+                key={`2d-${lang}`}
                 width={dimensions.width}
                 height={dimensions.height}
                 graphData={graphData as any}
