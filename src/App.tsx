@@ -56,7 +56,7 @@ interface PageContentProps {
 }
 
 const PageContent = ({ category, title, content, lang, slug, growth, author, reviewers }: PageContentProps) => {
-  const isGraphPage = slug.includes('knowledge-graph');
+  const isGraphPage = slug === '/knowledge-graph';
   const growthInfo = growth ? GROWTH_LABEL[growth] : null;
 
   const handlePrint = () => {
@@ -75,85 +75,78 @@ const PageContent = ({ category, title, content, lang, slug, growth, author, rev
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className={cn("w-full flex flex-col", isGraphPage && "min-h-[calc(100vh-12rem)]")}
+      className={cn("w-full flex flex-col", isGraphPage && "min-h-[calc(100vh-8rem)]")}
     >
-      {isGraphPage ? (
-        <div className="flex flex-col flex-1 min-h-0">
-          <div className="mb-6 shrink-0">
+      <div className="flex-1">
+        <div className="mb-8 flex flex-col gap-4 group/header">
+          <div className="flex items-center justify-between gap-4">
             <Breadcrumbs category={category} title={title} lang={lang} slug={slug} />
-            <h1 className="text-3xl font-bold tracking-tight mt-2">{title}</h1>
-            <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1">
-              {lang === 'en' 
-                ? 'Interactive visualization of the knowledge base connections.' 
-                : 'Интерактивная визуализация связей базы знаний.'}
-            </p>
-          </div>
-          <div className="flex-1 min-h-[600px] md:min-h-[800px] w-full relative bg-zinc-50/50 dark:bg-zinc-900/10 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden">
-            <KnowledgeGraph lang={lang} />
-          </div>
-        </div>
-      ) : (
-        <div className="flex-1">
-          <div className="mb-8 flex flex-col gap-4 group/header">
-            <div className="flex items-center justify-between gap-4">
-              <Breadcrumbs category={category} title={title} lang={lang} slug={slug} />
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={handleReview}
-                  className="p-1.5 rounded-md text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all opacity-0 group-hover/header:opacity-100 print:hidden"
-                  title={lang === 'en' ? 'Suggest Edit / Review' : 'Предложить правку / Рецензию'}
-                >
-                  <MessageSquarePlus className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={handlePrint}
-                  className="p-1.5 rounded-md text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all opacity-0 group-hover/header:opacity-100 print:hidden"
-                  title={lang === 'en' ? 'Export to PDF / Print' : 'Экспорт в PDF / Печать'}
-                >
-                  <Printer className="w-4 h-4" />
-                </button>
-                {growthInfo && (
-                  <span className={cn(
-                    "shrink-0 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold",
-                    growthInfo.tone
-                  )}>
-                    <span>{growthInfo[lang]}</span>
-                  </span>
-                )}
-              </div>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleReview}
+                className="p-1.5 rounded-md text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all opacity-0 group-hover/header:opacity-100 print:hidden"
+                title={lang === 'en' ? 'Suggest Edit / Review' : 'Предложить правку / Рецензию'}
+              >
+                <MessageSquarePlus className="w-4 h-4" />
+              </button>
+              <button
+                onClick={handlePrint}
+                className="p-1.5 rounded-md text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all opacity-0 group-hover/header:opacity-100 print:hidden"
+                title={lang === 'en' ? 'Export to PDF / Print' : 'Экспорт в PDF / Печать'}
+              >
+                <Printer className="w-4 h-4" />
+              </button>
+              {growthInfo && (
+                <span className={cn(
+                  "shrink-0 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold",
+                  growthInfo.tone
+                )}>
+                  <span>{growthInfo[lang]}</span>
+                </span>
+              )}
             </div>
-            
-            {(author || (reviewers && reviewers.length > 0)) && (
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-zinc-500 dark:text-zinc-400">
-                {author && (
-                  <div className="flex items-center gap-1.5">
-                    <span className="opacity-60 uppercase tracking-wider">{lang === 'en' ? 'Author:' : 'Автор:'}</span>
-                    <span className="font-medium text-zinc-700 dark:text-zinc-300">{author}</span>
-                  </div>
-                )}
-                {reviewers && reviewers.length > 0 && (
-                  <div className="flex items-center gap-1.5">
-                    <span className="opacity-60 uppercase tracking-wider">{lang === 'en' ? 'Reviewers:' : 'Рецензенты:'}</span>
-                    <span className="font-medium text-zinc-700 dark:text-zinc-300">{reviewers.join(', ')}</span>
-                  </div>
-                )}
+          </div>
+          
+          <h1 className="text-3xl font-bold tracking-tight mt-2">{title}</h1>
+
+          {(author || (reviewers && reviewers.length > 0)) && (
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-zinc-500 dark:text-zinc-400">
+              {author && (
+                <div className="flex items-center gap-1.5">
+                  <span className="opacity-60 uppercase tracking-wider">{lang === 'en' ? 'Author:' : 'Автор:'}</span>
+                  <span className="font-medium text-zinc-700 dark:text-zinc-300">{author}</span>
+                </div>
+              )}
+              {reviewers && reviewers.length > 0 && (
+                <div className="flex items-center gap-1.5">
+                  <span className="opacity-60 uppercase tracking-wider">{lang === 'en' ? 'Reviewers:' : 'Рецензенты:'}</span>
+                  <span className="font-medium text-zinc-700 dark:text-zinc-300">{reviewers.join(', ')}</span>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
+        <div className="flex flex-col xl:flex-row gap-12 lg:gap-16">
+          <div className="flex-1 min-w-0">
+            <CourseBadge slug={slug} lang={lang} />
+            {isGraphPage ? (
+              <div className="w-full min-h-[600px] md:min-h-[800px] relative bg-zinc-50/50 dark:bg-zinc-900/10 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden mt-4">
+                <KnowledgeGraph lang={lang} />
               </div>
+            ) : (
+              <>
+                <MarkdownRenderer content={content} category={category} />
+                <Backlinks slug={slug} lang={lang} />
+                <RelatedArticles slug={slug} lang={lang} />
+                <ArticleNav slug={slug} category={category} lang={lang} />
+                <ResearchToolbox title={title} slug={slug} author={author} lang={lang} />
+              </>
             )}
           </div>
-
-          <div className="flex flex-col xl:flex-row gap-12 lg:gap-16">
-            <div className="flex-1 min-w-0">
-              <CourseBadge slug={slug} lang={lang} />
-              <MarkdownRenderer content={content} category={category} />
-              <Backlinks slug={slug} lang={lang} />
-              <RelatedArticles slug={slug} lang={lang} />
-              <ArticleNav slug={slug} category={category} lang={lang} />
-              <ResearchToolbox title={title} slug={slug} author={author} lang={lang} />
-            </div>
-            <TableOfContents lang={lang} className="hidden xl:block" />
-          </div>
+          {!isGraphPage && <TableOfContents lang={lang} className="hidden xl:block" />}
         </div>
-      )}
+      </div>
     </motion.div>
   );
 };
