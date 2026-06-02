@@ -253,8 +253,9 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   if (!isClient) return null;
 
   return (
-    <div className="w-full h-full min-h-[700px] md:min-h-[900px] flex flex-col overflow-hidden bg-white dark:bg-zinc-950">
+    <div ref={containerRef} className="w-full h-full flex flex-col overflow-hidden bg-white dark:bg-zinc-950">
       {/* Header Toolbar */}
+
       <div className="shrink-0 bg-zinc-50/50 dark:bg-zinc-900/30 border-b border-zinc-200 dark:border-zinc-800 px-6 py-4 flex items-center justify-between gap-4">
         <div className="space-y-1">
           <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 tracking-tight uppercase flex items-center gap-2">

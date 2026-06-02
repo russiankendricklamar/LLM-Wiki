@@ -75,11 +75,20 @@ const PageContent = ({ category, title, content, lang, slug, growth, author, rev
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className={cn("w-full flex flex-col", isGraphPage ? "h-screen" : "")}
+      className={cn("w-full flex flex-col", isGraphPage && "min-h-[calc(100vh-12rem)]")}
     >
       {isGraphPage ? (
-        <div className="flex flex-col h-full min-h-0">
-          <div className="flex-1 min-h-0 w-full relative bg-zinc-50/50 dark:bg-zinc-900/10 overflow-hidden">
+        <div className="flex flex-col flex-1 min-h-0">
+          <div className="mb-6 shrink-0">
+            <Breadcrumbs category={category} title={title} lang={lang} slug={slug} />
+            <h1 className="text-3xl font-bold tracking-tight mt-2">{title}</h1>
+            <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1">
+              {lang === 'en' 
+                ? 'Interactive visualization of the knowledge base connections.' 
+                : 'Интерактивная визуализация связей базы знаний.'}
+            </p>
+          </div>
+          <div className="flex-1 min-h-[600px] md:min-h-[800px] w-full relative bg-zinc-50/50 dark:bg-zinc-900/10 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden">
             <KnowledgeGraph lang={lang} />
           </div>
         </div>
@@ -203,10 +212,10 @@ const RouterShell = ({ lang, setLang }: { lang: 'en' | 'ru'; setLang: (lang: 'en
   // own dedicated layout — no Knowledge Base sidebar.
   const isProjectsArea = location.pathname.startsWith('/projects');
   const isCoursesIndex = location.pathname === '/courses';
-  const showSidebar = !isHome && !isAbout && !isGraph && !isProjectsArea && !isCoursesIndex;
+  const showSidebar = !isHome && !isAbout && !isProjectsArea && !isCoursesIndex;
 
   return (
-    <PageLayout lang={lang} setLang={setLang} fullBleed={isHome || isGraph} showSidebar={showSidebar}>
+    <PageLayout lang={lang} setLang={setLang} fullBleed={isHome} showSidebar={showSidebar}>
       <AnimatedRoutes lang={lang} />
     </PageLayout>
   );
