@@ -43,7 +43,7 @@ const SECTION_COLORS: Record<string, number> = {
   'research':        0x10b981,
   'about':           0x71717a,
   '_other':          0x71717a,
-  };
+};
 
 const getMaterial = (section: string, isHighlighted: boolean, isDimmed: boolean, isHub: boolean) => {
   const color = SECTION_COLORS[section] || SECTION_COLORS._other;
@@ -65,30 +65,9 @@ const linkEndpointId = (endpoint: any) =>
 export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   const navigate = useNavigate();
   const rawGraphData = useMemo(() => getGraphData(lang), [lang]);
-  const [selectedSection, setSelectedSection] = useState<string | null>(null);
 
   const graphData = useMemo(() => {
-    let nodes = rawGraphData.nodes;
-    
-    if (selectedSection) {
-      nodes = nodes.filter((n: any) => n.id.startsWith(selectedSection));
-    }
-
-    const visibleNodeIds = new Set(nodes.map((n: any) => n.id));
-    const links = rawGraphData.links.filter((l: any) => 
-      visibleNodeIds.has(linkEndpointId(l.source)) && visibleNodeIds.has(linkEndpointId(l.target))
-    );
-
-    return { nodes, links };
-  }, [rawGraphData, selectedSection]);
-
-  const sections = useMemo(() => {
-    const s = new Set<string>();
-    rawGraphData.nodes.forEach((n: any) => {
-      const section = n.id.split('/')[0];
-      if (section && section !== 'knowledge-graph') s.add(section);
-    });
-    return Array.from(s).sort();
+    return rawGraphData;
   }, [rawGraphData]);
 
   const adjacency = useMemo(() => {
@@ -167,10 +146,8 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
       }
     };
     
-    // Initial call
     updateDimensions();
     
-    // Resize observer is more reliable than window resize for container changes
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
         const { width, height } = entry.contentRect;
@@ -182,7 +159,6 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
     
     if (graphContainerRef.current) observer.observe(graphContainerRef.current);
     
-    // Fallback: if after 500ms we still have 0 height, try to force it
     const timeout = setTimeout(() => {
       if (dimensions.height === 0 && graphContainerRef.current) {
         const h = graphContainerRef.current.offsetHeight;
@@ -254,7 +230,7 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   if (!isClient) return null;
 
   return (
-    <div ref={containerRef} className="w-full h-full min-h-[700px] md:min-h-[900px] flex flex-col rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-xl">
+    <div ref={containerRef} className="w-full h-full min-h-[700px] md:min-h-[900px] flex flex-col overflow-hidden bg-white dark:bg-zinc-950">
       {/* Header Toolbar */}
       <div className="shrink-0 bg-zinc-50/50 dark:bg-zinc-900/30 border-b border-zinc-200 dark:border-zinc-800 px-6 py-4 flex items-center justify-between gap-4">
         <div className="space-y-1">
@@ -333,88 +309,6 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
                 onNodeClick={handleNodeClick}
                 linkColor={linkColor}
                 linkWidth={linkWidth}
-                enableNodeDrag={false}
-              />
-            )
-          )}
-        </Suspense>
-      </div>
-    </div>
-  );
-};
- linkWidth={linkWidth}
-                enableNodeDrag={false}
-              />
-            )
-          )}
-        </Suspense>
-      </div>
-    </div>
-  );
-};
-               return (
-                  <div key={section} className="flex items-center gap-2 overflow-hidden">
-                    <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: color }} />
-                    <span className="text-[9px] text-zinc-500 dark:text-zinc-400 font-bold uppercase truncate">{section.replace(/-/g, ' ')}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
-        <Suspense fallback={<GraphSkeleton />}>
-          {dimensions.width > 0 && dimensions.height > 0 && (
-            isDesktop ? (
-              <ForceGraph3DLazy
-                ref={fgRef}
-                width={dimensions.width}
-                height={dimensions.height}
-                graphData={graphData as any}
-                nodeLabel="name"
-                nodeThreeObject={nodeThreeObject}
-                onNodeHover={handleNodeHover}
-                onLinkHover={handleLinkHover}
-                linkDirectionalParticles={particleCount}
-                linkDirectionalParticleSpeed={0.004}
-                linkDirectionalParticleWidth={2}
-                linkDirectionalParticleColor={() => '#60a5fa'}
-                backgroundColor="rgba(0,0,0,0)"
-                showNavInfo={false}
-                onNodeClick={handleNodeClick}
-                linkColor={linkColor}
-                linkWidth={linkWidth}
-                enableNodeDrag={false}
-                enableNavigationControls={true}
-              />
-            ) : (
-              <ForceGraph2DLazy
-                width={dimensions.width}
-                height={dimensions.height}
-                graphData={graphData as any}
-                nodeLabel="name"
-                onNodeHover={handleNodeHover}
-                onLinkHover={handleLinkHover}
-                nodeColor={nodeColor2D}
-                nodeRelSize={5}
-                linkDirectionalParticles={particleCount}
-                linkDirectionalParticleSpeed={0.004}
-                linkDirectionalParticleWidth={2}
-                linkDirectionalParticleColor={() => '#60a5fa'}
-                backgroundColor="rgba(0,0,0,0)"
-                onNodeClick={handleNodeClick}
-                linkColor={linkColor}
-                linkWidth={linkWidth}
-                enableNodeDrag={false}
-              />
-            )
-          )}
-        </Suspense>
-      </div>
-    </div>
-  );
-};
- linkWidth={linkWidth}
                 enableNodeDrag={false}
               />
             )

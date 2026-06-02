@@ -75,16 +75,11 @@ const PageContent = ({ category, title, content, lang, slug, growth, author, rev
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className={cn("w-full flex flex-col", isGraphPage && "h-[calc(100vh-4rem)] md:h-[calc(100vh-6rem)]")}
+      className={cn("w-full flex flex-col", isGraphPage ? "h-screen" : "")}
     >
       {isGraphPage ? (
-        <div className="flex flex-col flex-1 min-h-0">
-          <div className="mb-4 shrink-0 px-1">
-            <Breadcrumbs category={category} title={title} lang={lang} slug={slug} />
-            <h1 className="text-3xl font-bold tracking-tight mt-2">{title}</h1>
-            <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1">{content}</p>
-          </div>
-          <div className="flex-1 min-h-0 w-full relative bg-zinc-50/50 dark:bg-zinc-900/10 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden">
+        <div className="flex flex-col h-full min-h-0">
+          <div className="flex-1 min-h-0 w-full relative bg-zinc-50/50 dark:bg-zinc-900/10 overflow-hidden">
             <KnowledgeGraph lang={lang} />
           </div>
         </div>
@@ -211,7 +206,7 @@ const RouterShell = ({ lang, setLang }: { lang: 'en' | 'ru'; setLang: (lang: 'en
   const showSidebar = !isHome && !isAbout && !isGraph && !isProjectsArea && !isCoursesIndex;
 
   return (
-    <PageLayout lang={lang} setLang={setLang} fullBleed={isHome} showSidebar={showSidebar}>
+    <PageLayout lang={lang} setLang={setLang} fullBleed={isHome || isGraph} showSidebar={showSidebar}>
       <AnimatedRoutes lang={lang} />
     </PageLayout>
   );
