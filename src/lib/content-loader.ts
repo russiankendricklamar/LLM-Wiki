@@ -370,6 +370,7 @@ const SECTION_LABELS: Record<string, Record<'en' | 'ru', string>> = {
   'finance':         { en: 'Finance', ru: 'Финансы' },
   'physics':         { en: 'Physics', ru: 'Физика' },
   'projects':        { en: 'Projects', ru: 'Проекты' },
+  'research':        { en: 'Research', ru: 'Исследования' },
   'about':           { en: 'About', ru: 'О проекте' },
   'courses':         { en: 'Learning Paths', ru: 'Учебные курсы' },
   '_other':          { en: 'Other', ru: 'Разное' },
@@ -377,6 +378,7 @@ const SECTION_LABELS: Record<string, Record<'en' | 'ru', string>> = {
 
 const SECTION_ORDER = [
   'courses',
+  'research',
   'language-models', 
   'llm-infra', 
   'ai-theory', 

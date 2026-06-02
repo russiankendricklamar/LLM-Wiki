@@ -37,10 +37,13 @@ const SECTION_COLORS: Record<string, number> = {
   'math':            0xec4899,
   'finance':         0x14b8a6,
   'physics':         0x6366f1,
+  'cs':              0xef4444,
+  'courses':         0xfacc15,
   'projects':        0xf97316,
+  'research':        0x10b981,
   'about':           0x71717a,
   '_other':          0x71717a,
-};
+  };
 
 const getMaterial = (section: string, isHighlighted: boolean, isDimmed: boolean, isHub: boolean) => {
   const color = SECTION_COLORS[section] || SECTION_COLORS._other;
@@ -65,13 +68,7 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   const [selectedSection, setSelectedSection] = useState<string | null>(null);
 
   const graphData = useMemo(() => {
-    const connected = new Set<string>();
-    for (const l of rawGraphData.links) {
-      connected.add(linkEndpointId(l.source));
-      connected.add(linkEndpointId(l.target));
-    }
-    
-    let nodes = rawGraphData.nodes.filter((n: any) => connected.has(n.id));
+    let nodes = rawGraphData.nodes;
     
     if (selectedSection) {
       nodes = nodes.filter((n: any) => n.id.startsWith(selectedSection));
@@ -96,15 +93,21 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
 
   const adjacency = useMemo(() => {
     const map = new Map<string, { nodes: Set<string>; links: Set<any> }>();
+    
+    // Initialize map with all nodes to ensure adjacency exists for every node
+    for (const node of graphData.nodes) {
+      map.set(node.id, { nodes: new Set(), links: new Set() });
+    }
+
     for (const link of graphData.links) {
       const s = linkEndpointId(link.source);
       const t = linkEndpointId(link.target);
-      if (!map.has(s)) map.set(s, { nodes: new Set(), links: new Set() });
-      if (!map.has(t)) map.set(t, { nodes: new Set(), links: new Set() });
-      map.get(s)!.nodes.add(t);
-      map.get(s)!.links.add(link);
-      map.get(t)!.nodes.add(s);
-      map.get(t)!.links.add(link);
+      if (map.has(s) && map.has(t)) {
+        map.get(s)!.nodes.add(t);
+        map.get(s)!.links.add(link);
+        map.get(t)!.nodes.add(s);
+        map.get(t)!.links.add(link);
+      }
     }
     return map;
   }, [graphData]);
@@ -251,9 +254,9 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
   if (!isClient) return null;
 
   return (
-    <div ref={containerRef} className="w-full h-full min-h-[600px] md:min-h-[800px] flex flex-col rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-xl">
+    <div ref={containerRef} className="w-full h-full min-h-[700px] md:min-h-[900px] flex flex-col rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-xl">
       {/* Header Toolbar */}
-      <div className="shrink-0 bg-zinc-50/50 dark:bg-zinc-900/30 border-b border-zinc-200 dark:border-zinc-800 px-6 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="shrink-0 bg-zinc-50/50 dark:bg-zinc-900/30 border-b border-zinc-200 dark:border-zinc-800 px-6 py-4 flex items-center justify-between gap-4">
         <div className="space-y-1">
           <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 tracking-tight uppercase flex items-center gap-2">
             <Network className="w-4 h-4 text-emerald-500" />
@@ -264,49 +267,6 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
             <span className="opacity-30">•</span>
             <span>{graphData.links.length} Links</span>
           </div>
-        </div>
-
-        {/* Section Chips - Horizontal Scrollable */}
-        <div className="flex-1 flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 md:pb-0 px-1">
-          <button
-            onClick={() => setSelectedSection(null)}
-            className={cn(
-              "shrink-0 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all border",
-              !selectedSection 
-                ? "bg-zinc-900 dark:bg-zinc-100 border-zinc-900 dark:border-zinc-100 text-white dark:text-zinc-900 shadow-sm" 
-                : "bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-zinc-500 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 shadow-sm"
-            )}
-          >
-            {lang === 'en' ? 'All' : 'Все'}
-          </button>
-          
-          {sections.map(section => {
-            if (section === 'knowledge-graph') return null;
-            const hex = SECTION_COLORS[section] || SECTION_COLORS._other;
-            const color = `#${hex.toString(16).padStart(6, '0')}`;
-            const isActive = selectedSection === section;
-            return (
-              <button
-                key={section}
-                onClick={() => setSelectedSection(isActive ? null : section)}
-                className={cn(
-                  "shrink-0 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all border group/btn flex items-center gap-2",
-                  isActive 
-                    ? "text-white border-transparent shadow-sm" 
-                    : "bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-zinc-500 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 shadow-sm"
-                )}
-                style={{ 
-                  backgroundColor: isActive ? color : undefined,
-                }}
-              >
-                <div 
-                  className="w-1.5 h-1.5 rounded-full transition-transform group-hover/btn:scale-125" 
-                  style={{ backgroundColor: isActive ? 'white' : color }} 
-                />
-                <span className="truncate">{section.replace(/-/g, ' ')}</span>
-              </button>
-            );
-          })}
         </div>
 
         <div className="shrink-0">
@@ -331,13 +291,68 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
           </div>
         </div>
 
-        <div className="absolute bottom-6 left-6 z-20 hidden lg:block pointer-events-none">
-          <div className="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-xl p-3 shadow-lg max-w-[240px]">
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
-              {Object.entries(SECTION_COLORS).map(([section, hex]) => {
-                if (section === '_other' || !sections.includes(section)) return null;
-                const color = `#${hex.toString(16).padStart(6, '0')}`;
-                return (
+        <Suspense fallback={<GraphSkeleton />}>
+          {dimensions.width > 0 && dimensions.height > 0 && (
+            isDesktop ? (
+              <ForceGraph3DLazy
+                ref={fgRef}
+                width={dimensions.width}
+                height={dimensions.height}
+                graphData={graphData as any}
+                nodeLabel="name"
+                nodeThreeObject={nodeThreeObject}
+                onNodeHover={handleNodeHover}
+                onLinkHover={handleLinkHover}
+                linkDirectionalParticles={particleCount}
+                linkDirectionalParticleSpeed={0.004}
+                linkDirectionalParticleWidth={2}
+                linkDirectionalParticleColor={() => '#60a5fa'}
+                backgroundColor="rgba(0,0,0,0)"
+                showNavInfo={false}
+                onNodeClick={handleNodeClick}
+                linkColor={linkColor}
+                linkWidth={linkWidth}
+                enableNodeDrag={false}
+                enableNavigationControls={true}
+              />
+            ) : (
+              <ForceGraph2DLazy
+                width={dimensions.width}
+                height={dimensions.height}
+                graphData={graphData as any}
+                nodeLabel="name"
+                onNodeHover={handleNodeHover}
+                onLinkHover={handleLinkHover}
+                nodeColor={nodeColor2D}
+                nodeRelSize={5}
+                linkDirectionalParticles={particleCount}
+                linkDirectionalParticleSpeed={0.004}
+                linkDirectionalParticleWidth={2}
+                linkDirectionalParticleColor={() => '#60a5fa'}
+                backgroundColor="rgba(0,0,0,0)"
+                onNodeClick={handleNodeClick}
+                linkColor={linkColor}
+                linkWidth={linkWidth}
+                enableNodeDrag={false}
+              />
+            )
+          )}
+        </Suspense>
+      </div>
+    </div>
+  );
+};
+ linkWidth={linkWidth}
+                enableNodeDrag={false}
+              />
+            )
+          )}
+        </Suspense>
+      </div>
+    </div>
+  );
+};
+               return (
                   <div key={section} className="flex items-center gap-2 overflow-hidden">
                     <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: color }} />
                     <span className="text-[9px] text-zinc-500 dark:text-zinc-400 font-bold uppercase truncate">{section.replace(/-/g, ' ')}</span>
@@ -390,6 +405,16 @@ export const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({ lang }) => {
                 onNodeClick={handleNodeClick}
                 linkColor={linkColor}
                 linkWidth={linkWidth}
+                enableNodeDrag={false}
+              />
+            )
+          )}
+        </Suspense>
+      </div>
+    </div>
+  );
+};
+ linkWidth={linkWidth}
                 enableNodeDrag={false}
               />
             )

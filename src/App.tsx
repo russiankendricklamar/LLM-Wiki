@@ -75,7 +75,7 @@ const PageContent = ({ category, title, content, lang, slug, growth, author, rev
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className={cn("w-full flex flex-col", isGraphPage && "h-[calc(100vh-8rem)] md:h-[calc(100vh-10rem)]")}
+      className={cn("w-full flex flex-col", isGraphPage && "h-[calc(100vh-4rem)] md:h-[calc(100vh-6rem)]")}
     >
       {isGraphPage ? (
         <div className="flex flex-col flex-1 min-h-0">
