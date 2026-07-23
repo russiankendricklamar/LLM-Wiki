@@ -18,13 +18,13 @@ where:
 - $\mu_\theta$ is a neural network (the **Drift Network**).
 - $\sigma_\phi$ is a neural network (the **Diffusion Network**).
 
-Unlike a standard GAN or LSTM, which are discrete-time and often lack probabilistic rigor, a Neural SDE provides a **continuous-time generative model** that is consistent with the laws of stochastic calculus.
+Unlike a standard GAN or LSTM, which are discrete-time and often lack probabilistic rigor, a Neural [[stochastic-differential-equations|SDE]] provides a **continuous-time generative model** that is consistent with the laws of stochastic calculus.
 
 ## Why Use Neural SDEs?
 
 1.  **Model Discovery**: Instead of assuming the market follows Geometric Brownian Motion, the model "learns" the true physics of the price movement from data.
 2.  **Calibration**: Neural SDEs can be trained to match the entire [[volatility-surface|Volatility Surface]] simultaneously. The networks find the optimal non-linear shapes for drift and vol that minimize the distance to market prices.
-3.  **Path-Dependency**: By making the networks depend on a hidden state $h_t$ (Latent SDE), the model can capture complex memory effects like [[rough-volatility|Rough Volatility]].
+3.  **Path-Dependency**: By making the networks depend on a hidden state $h_t$ (Latent [[stochastic-differential-equations|SDE]]), the model can capture complex memory effects like [[rough-volatility|Rough Volatility]].
 
 ## Training via Adjoint Sensitivity
 

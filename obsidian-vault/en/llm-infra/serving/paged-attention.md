@@ -25,7 +25,7 @@ Instead of storing the KV cache as a single contiguous tensor, it is broken down
 1.  **Logical vs. Physical**: The tokens in a sequence are logically contiguous, but their physical blocks can be scattered randomly across the VRAM.
 2.  **Block Tables**: The engine maintains a "Block Table" mapping logical tokens to physical block addresses.
 
-When computing [[attention-mechanisms|attention]], the CUDA kernel looks up the block table, fetches the scattered blocks on the fly, and computes the attention scores seamlessly.
+When computing [[attention-mechanisms|attention]], the CUDA kernel looks up the block table, fetches the scattered blocks on the fly, and computes the [[attention-mechanisms|attention]] scores seamlessly.
 
 ## Key Advantages
 

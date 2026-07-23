@@ -54,7 +54,7 @@ PagedAttention (Kwon et al., 2023, vLLM) переносит идею вирту�
 
 Flash [[attention-mechanisms|Attention]] (Dao et al., 2022) переупорядочивает вычисление внимания $\text{softmax}(QK^T/\sqrt{d_k})V$ так, чтобы минимизировать чтения/записи в высокополосную память ([[flash-attention|HBM]]). Классический attention требует $O(L^2)$ [[flash-attention|HBM]] I/O; Flash [[attention-mechanisms|Attention]] достигает $O(L)$ за счёт фьюжд кернела, выполняющего computation на-лету в быстрой памяти ([[flash-attention|SRAM]]).
 
-Для контекстов >4K токенов Flash Attention критичен. На длинных контекстах (32K+) это дает 2-3× ускорение против стандартной реализации.
+Для контекстов >4K токенов Flash [[attention-mechanisms|Attention]] критичен. На длинных контекстах (32K+) это дает 2-3× ускорение против стандартной реализации.
 
 ## Спекулятивное декодирование
 

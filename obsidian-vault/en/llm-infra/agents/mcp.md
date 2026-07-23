@@ -18,7 +18,7 @@ The Model Context Protocol (MCP) is an open standard introduced by Anthropic in 
 
 The analogy Anthropic uses is instructive: MCP is to [[llm]] tool use what LSP (Language Server Protocol) is to code editors. Before LSP, every editor had to build its own integration with every language toolchain. After LSP, a single protocol allowed any editor to talk to any language server. MCP aims for the same composability in the [[llm]] ecosystem.
 
-The practical problem MCP solves is fragmentation. As LLM applications proliferate, developers build isolated tool integrations: Claude gets a file-reading tool, GPT-4 gets its own, Gemini gets another. Each integration duplicates access control, schema definition, transport code, and error handling. MCP externalizes all of that into a server that any client can connect to. A single MCP server exposing a company's internal database can be connected to any agent, IDE plugin, or chat interface that speaks MCP.
+The practical problem MCP solves is fragmentation. As [[llm]] applications proliferate, developers build isolated tool integrations: Claude gets a file-reading tool, GPT-4 gets its own, Gemini gets another. Each integration duplicates access control, schema definition, transport code, and error handling. MCP externalizes all of that into a server that any client can connect to. A single MCP server exposing a company's internal database can be connected to any agent, IDE plugin, or chat interface that speaks MCP.
 
 ## Architecture
 
@@ -33,7 +33,7 @@ MCP defines three roles: **host**, **client**, and **server**.
 │              HOST APPLICATION           │
 │                                         │
 │  ┌──────────┐    ┌──────────────────┐  │
-│  │  LLM API │    │   MCP Client 1   │──┼──► MCP Server A (filesystem)
+│  │  [[llm]] API │    │   MCP Client 1   │──┼──► MCP Server A (filesystem)
 │  │ (Claude) │    │   MCP Client 2   │──┼──► MCP Server B (database)
 │  └──────────┘    │   MCP Client 3   │──┼──► MCP Server C (web search)
 │                  └──────────────────┘  │

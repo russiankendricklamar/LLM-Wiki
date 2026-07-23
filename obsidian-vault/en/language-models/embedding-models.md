@@ -130,7 +130,7 @@ index = faiss.IndexFlatIP(dim)  # Inner product = cosine sim on normalized vecs
 index.add(corpus_embeddings.astype(np.float32))
 
 # Query
-query = "How does self-attention work?"
+query = "How does self-[[attention-mechanisms|attention]] work?"
 query_embedding = model.encode([query], normalize_embeddings=True)
 
 distances, indices = index.search(query_embedding.astype(np.float32), k=2)

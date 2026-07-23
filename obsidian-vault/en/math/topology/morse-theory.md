@@ -27,11 +27,11 @@ The central result of Morse theory states that the topology of $M$ is closely ti
 ### Morse Inequalities
 Let $c_k$ be the number of critical points of index $k$, and $b_k$ be the $k$-th Betti number (the number of "$k$-dimensional holes"). Then:
 $$c_k \geq b_k$$
-This means that the complexity of any function on a [[manifold-learning|manifold]] (its "bumps") is bounded from below by the complexity of the manifold's shape.
+This means that the complexity of any function on a [[manifold-learning|manifold]] (its "bumps") is bounded from below by the complexity of the [[manifold-learning|manifold]]'s shape.
 
 ## Morse Theory and Neural Networks
 
-In deep learning, the **loss landscape** $\mathcal{L}(\theta)$ is a function on a high-dimensional manifold of weights. Morse theory provides a framework for understanding:
+In deep learning, the **loss landscape** $\mathcal{L}(\theta)$ is a function on a high-dimensional [[manifold-learning|manifold]] of weights. Morse theory provides a framework for understanding:
 1.  **Topology of Loss Surfaces**: How many minima, maxima, and saddles exist.
 2.  **Gradient Flows**: The trajectories of SGD can be viewed as paths on the manifold guided by the Morse function.
 3.  **Mode Connectivity**: Explaining why different local minima are often connected by paths of low loss (this relates to the "mountain pass" structures studied in Morse theory).

@@ -12,7 +12,7 @@ To understand why [[flash-attention|FlashAttention]] is so revolutionary, one mu
 
 ## The Memory Hierarchy of a [[inference-serving|GPU]]
 
-A GPU (like an Nvidia A100 or H100) has two main memory levels:
+A [[inference-serving|GPU]] (like an Nvidia A100 or H100) has two main memory levels:
 
 1.  **[[flash-attention|HBM]] (High Bandwidth Memory)**:
     - **Size**: 40GB–80GB.
@@ -26,17 +26,17 @@ A GPU (like an Nvidia A100 or H100) has two main memory levels:
 ## The "Memory Wall" Problem
 
 In standard [[attention-mechanisms|attention]], the $N \times N$ [[attention-mechanisms|attention]] matrix is too large to fit in [[flash-attention|SRAM]].
-1.  Compute $QK^\top$ in cores $\to$ Write result to HBM.
-2.  Read $QK^\top$ from HBM $\to$ Compute Softmax in cores $\to$ Write result back to HBM.
-3.  Read Softmax from HBM $\to$ Compute Attention $\to$ Write final result to HBM.
+1.  Compute $QK^\top$ in cores $\to$ Write result to [[flash-attention|HBM]].
+2.  Read $QK^\top$ from [[flash-attention|HBM]] $\to$ Compute Softmax in cores $\to$ Write result back to HBM.
+3.  Read Softmax from HBM $\to$ Compute [[attention-mechanisms|Attention]] $\to$ Write final result to HBM.
 
-The processor spends **90% of its time waiting** for data to travel back and forth over the HBM-SRAM bus. This is an **IO-bound** operation.
+The processor spends **90% of its time waiting** for data to travel back and forth over the HBM-[[flash-attention|SRAM]] bus. This is an **IO-bound** operation.
 
 ## FlashAttention: IO-Awareness
 
 FlashAttention eliminates these intermediate HBM writes by using **Tiling**:
-- It breaks the matrices into small blocks that *do* fit in SRAM.
-- It performs the entire Attention calculation (Dot product + Softmax + Weighted sum) for a block **entirely within SRAM**.
+- It breaks the matrices into small blocks that *do* fit in [[flash-attention|SRAM]].
+- It performs the entire [[attention-mechanisms|Attention]] calculation (Dot product + Softmax + Weighted sum) for a block **entirely within SRAM**.
 - It only writes the final result back to HBM.
 
 ## Visualization: Memory Speed vs. Access

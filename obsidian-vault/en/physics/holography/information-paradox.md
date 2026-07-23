@@ -61,7 +61,7 @@ This calculation, derived within the Euclidean gravity [[path-integral]] rather 
 
 ## Open questions
 
-- How is the information encoded in the radiation *microscopically*? The island formula gives the entropy but not an explicit unitary operator.
+- How is the information encoded in the radiation *microscopically*? The island formula gives the [[gravitational-entropy|entropy]] but not an explicit unitary operator.
 - What is the bulk interpretation of the island? Why does a region inside the black hole "belong" to the outside radiation?
 - How does this reconcile with the firewall argument? Where does AMPS fail?
 - Is the resolution in [[ads-cft|AdS/CFT]] (where unitarity is manifest on the boundary side) the same as in flat-space evaporation?
@@ -75,6 +75,6 @@ The information paradox is no longer "is unitarity broken?" but "how exactly doe
 - [[general-relativity]] — the classical theory of black holes
 - [[qft-basic]] — quantum fields on curved backgrounds
 - [[black-hole-soft-hair]] — one proposed microstate mechanism
-- holographic-principle — area-law entropy as a clue
+- holographic-principle — area-law [[gravitational-entropy|entropy]] as a clue
 - [[ads-cft]] — the setting in which unitarity is cleanest
 - [[celestial-holography]] — the flat-space analogue, tied to [[pasterski-triangle]]

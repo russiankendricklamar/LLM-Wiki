@@ -35,13 +35,13 @@ The core of holography is that the maximum [[gravitational-entropy|entropy]] of 
     {"radius": 5, "area": 25, "volume": 125}
   ],
   "lines": [
-    {"dataKey": "area", "stroke": "#10b981", "name": "Holographic Entropy (∝ r²)"},
+    {"dataKey": "area", "stroke": "#10b981", "name": "Holographic [[gravitational-entropy|Entropy]] (∝ r²)"},
     {"dataKey": "volume", "stroke": "#ef4444", "name": "Classical Prediction (∝ r³)"}
   ]
 }
 ```
 
-## Visualization: Entropy Scaling
+## Visualization: [[gravitational-entropy|Entropy]] Scaling
 
 ```chart
 {

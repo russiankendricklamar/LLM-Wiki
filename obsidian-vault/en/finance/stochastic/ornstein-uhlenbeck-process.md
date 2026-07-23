@@ -256,7 +256,7 @@ $$
 
 - **Negative values**: The OU process can go negative, which is appropriate for spreads and interest differentials but not for asset prices. The geometric OU (exponential OU) $Y_t = e^{X_t}$ stays positive.
 - **Time-varying parameters**: Regime-switching OU with [[hidden-markov-models]] allows $(\theta, \mu, \sigma)$ to switch between states, capturing structural breaks in spread relationships.
-- **Multidimensional OU**: For a vector $\mathbf{X}_t$, the SDE is $d\mathbf{X}_t = A(\mu - \mathbf{X}_t)\,dt + \Sigma\,d\mathbf{W}_t$ with matrix $A$. Used in multi-pair trading and multi-factor interest rate models.
+- **Multidimensional OU**: For a vector $\mathbf{X}_t$, the [[stochastic-differential-equations|SDE]] is $d\mathbf{X}_t = A(\mu - \mathbf{X}_t)\,dt + \Sigma\,d\mathbf{W}_t$ with matrix $A$. Used in multi-pair trading and multi-factor interest rate models.
 - **Non-Gaussian noise**: Replacing $dW_t$ with a Lévy process yields an OU-type process with jumps, appropriate for spread dynamics around earnings events.
 
 ## Related Topics

@@ -14,7 +14,7 @@ McKean-Vlasov Stochastic Differential Equations (SDEs) characterize the mean-fie
 
 ## Definition
 
-A typical McKean-Vlasov SDE is given by:
+A typical McKean-Vlasov [[stochastic-differential-equations|SDE]] is given by:
 $$ dX_t = b(t, X_t, \mu_t) dt + \sigma(t, X_t, \mu_t) dW_t, \quad X_0 \sim \mu_0 $$
 where $\mu_t = \text{Law}(X_t)$. This is the continuous state space analog of a [[mean-field-game]].
 

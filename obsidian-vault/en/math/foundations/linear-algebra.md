@@ -60,7 +60,7 @@ A factorization of any matrix $A$ into $U \Sigma V^T$, where $U$ and $V$ are ort
 - **Optimization**: [[convex-optimization|Gradient descent]] operates in the vector space of model parameters.
 
 ## Related Topics
-- [[spectral-theory-operators]] — analysis of eigenvalues
+- [[spectral-theory-operators]] — analysis of [[spectral-theory-operators|eigenvalues]]
 - [[manifold-learning]] — non-linear dimensionality reduction
 - [[transformer-architecture]] — matrix-heavy neural architectures
 - [[quantization]] — low-precision matrix operations

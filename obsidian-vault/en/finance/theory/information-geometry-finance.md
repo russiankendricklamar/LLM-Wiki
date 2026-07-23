@@ -15,13 +15,13 @@ slug: "information-geometry-finance"
 In classic geometry, the distance between two points $x$ and $y$ is Euclidean. But what if the "points" are actually probability distributions (e.g., the distribution of market returns)?
 Information Geometry treats the space of all probability distributions as a **Riemannian [[manifold-learning|Manifold]]**. 
 
-The natural metric on this manifold is the **Fisher Information Metric (FIM)**.
+The natural metric on this [[manifold-learning|manifold]] is the **Fisher Information Metric (FIM)**.
 - If two normal distributions have the same variance but different means, the Euclidean distance between their parameters might be small, but the Fisher distance measures how much they *statistically overlap*.
 
 ## Application: Distance Between Market Regimes
 
 Quants use the Fisher distance to detect **Regime Shifts** (e.g., moving from a bull market to a crash). 
-Instead of looking at simple volatility spikes, they calculate the geodesic distance on the statistical manifold between the probability distribution of returns last week and this week. A large Fisher distance indicates a fundamental structural break in the market.
+Instead of looking at simple volatility spikes, they calculate the geodesic distance on the statistical [[manifold-learning|manifold]] between the probability distribution of returns last week and this week. A large Fisher distance indicates a fundamental structural break in the market.
 
 ## Application: Portfolio Optimization
 

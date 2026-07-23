@@ -12,12 +12,12 @@ Recent theoretical work has established a profound connection between the **Self
 
 ## The [[attention-mechanisms|Attention]] Mechanism
 
-Recall standard self-attention:
+Recall standard self-[[attention-mechanisms|attention]]:
 $$\text{Attn}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
 ## The Kernel Interpretation
 
-We can rewrite the attention operation for a single query $q_i$ and keys $k_j$ as:
+We can rewrite the [[attention-mechanisms|attention]] operation for a single query $q_i$ and keys $k_j$ as:
 $$y_i = \sum_j w_{ij} v_j, \quad w_{ij} = \frac{\exp(\langle q_i, k_j \rangle / \sqrt{d})}{\sum_m \exp(\langle q_i, k_m \rangle / \sqrt{d})}$$
 
 If we view the similarity between $q_i$ and $k_j$ as a kernel function $K(q, k) = \exp(\langle q, k \rangle)$, then attention is essentially a **Nadaraya-Watson Kernel Regression** where the kernel is computed dynamically based on the input tokens.

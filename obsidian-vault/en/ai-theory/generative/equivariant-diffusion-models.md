@@ -20,13 +20,13 @@ In the context of [[diffusion-models|diffusion models]], we want the score funct
 
 ## Equivariant [[stochastic-differential-equations|SDE]] Framework
 
-Equivariant diffusion can be formalised using [[stochastic-differential-equations|Stochastic Differential Equations (SDEs)]]. Consider the forward SDE:
+Equivariant diffusion can be formalised using [[stochastic-differential-equations|Stochastic Differential Equations (SDEs)]]. Consider the forward [[stochastic-differential-equations|SDE]]:
 $$
 dx = f(x, t) dt + g(t) dW_t
 $$
 For the distribution to remain equivariant throughout the diffusion process, the drift coefficient $f(x, t)$ must be equivariant and the diffusion coefficient $g(t)$ must be invariant. If the initial distribution $p_0(x)$ is $G$-invariant, then all marginal distributions $p_t(x)$ will also be $G$-invariant.
 
-The **reverse SDE** involves the score $\nabla_x \log p_t(x)$. A crucial property is that the gradient of an invariant scalar field is an equivariant vector field:
+The **reverse [[stochastic-differential-equations|SDE]]** involves the score $\nabla_x \log p_t(x)$. A crucial property is that the gradient of an invariant scalar field is an equivariant vector field:
 $$
 \nabla_{g \cdot x} \log p_t(g \cdot x) = g \cdot \nabla_x \log p_t(x)
 $$

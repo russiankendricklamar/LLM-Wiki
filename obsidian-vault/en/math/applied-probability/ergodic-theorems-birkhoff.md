@@ -111,7 +111,7 @@ In machine learning this becomes the concept of **"ergodic accessibility"** in R
 - [[law-iterated-logarithm]] — extends to ergodic sequences.
 - [[discrete-markov-chains]] — main class of ergodic processes.
 - [[brownian-motion]] — continuous example of an ergodic process.
-- [[shannon-entropy]] — connection to Kolmogorov-Sinai entropy.
+- [[shannon-entropy]] — connection to Kolmogorov-Sinai [[shannon-entropy|entropy]].
 - [[arch-models]], [[garch-models]] — econometric models for which ergodicity is required.
 - [[kolmogorov-probability-axioms]] — foundation.
 - [[stochastic-recursive-sequences]] — ergodic theory applied to iterated random maps.

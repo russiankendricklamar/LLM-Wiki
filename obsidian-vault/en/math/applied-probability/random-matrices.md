@@ -31,7 +31,7 @@ where $\beta = 1$ for GOE, $\beta = 2$ for GUE, and $C_n$ is a normalization con
 
 ## Wigner Semi-Circle Law
 
-One of the central theorems of RMT is the **Wigner Semi-Circle Law**. For matrices from GOE/GUE normalized by dividing by $\sqrt{n}$, the limiting distribution of eigenvalues at point $x$ is given by:
+One of the central theorems of RMT is the **Wigner Semi-Circle Law**. For matrices from GOE/GUE normalized by dividing by $\sqrt{n}$, the limiting distribution of [[spectral-theory-operators|eigenvalues]] at point $x$ is given by:
 
 $$\rho_{sc}(x) = \frac{1}{2\pi}\sqrt{4 - x^2} \mathbf{1}_{|x| \leq 2}$$
 
@@ -47,7 +47,7 @@ $$\mu_{MP}(x) = \frac{\sqrt{(b-x)(x-a)}}{2\pi \gamma x} \mathbf{1}_{a \leq x \le
 
 where $a = (1-\sqrt{\gamma})^2$ and $b = (1+\sqrt{\gamma})^2$ are the support boundaries. As $\gamma \to 0$, this distribution degenerates into a Dirac distribution at point 1.
 
-The Marchenko-Pastur law plays a critical role in signal detection in [[high-dimensional-statistics]]: when a structured signal is added to the data, its eigenvalues move beyond the Marchenko-Pastur boundaries, allowing the signal to be distinguished from noise.
+The Marchenko-Pastur law plays a critical role in signal detection in [[high-dimensional-statistics]]: when a structured signal is added to the data, its [[spectral-theory-operators|eigenvalues]] move beyond the Marchenko-Pastur boundaries, allowing the signal to be distinguished from noise.
 
 ## Stieltjes Transform and Self-Consistent Equations
 

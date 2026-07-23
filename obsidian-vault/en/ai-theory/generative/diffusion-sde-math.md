@@ -12,7 +12,7 @@ Diffusion models map complex data distributions to simple noise distributions vi
 
 ## Forward [[stochastic-differential-equations|SDE]]
 
-Let $x(0) \sim p_0(x)$ be the data distribution. We construct a continuous-time forward process $x(t)$ for $t \in [0, T]$ described by the Ito SDE:
+Let $x(0) \sim p_0(x)$ be the data distribution. We construct a continuous-time forward process $x(t)$ for $t \in [0, T]$ described by the Ito [[stochastic-differential-equations|SDE]]:
 $$
 dx = f(x, t) dt + g(t) dw
 $$
@@ -23,7 +23,7 @@ $$
 \frac{\partial p_t(x)}{\partial t} = -\nabla \cdot (f(x, t) p_t(x)) + \frac{1}{2} g(t)^2 \Delta p_t(x)
 $$
 
-## Reverse SDE and Score Matching
+## Reverse [[stochastic-differential-equations|SDE]] and Score Matching
 
 A remarkable result by Anderson (1982) states that the reverse-time process (from $t=T$ to $t=0$) is also an SDE, given by:
 $$

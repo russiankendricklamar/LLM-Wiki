@@ -14,7 +14,7 @@ This article delves into the absolute frontiers of DeepSeek-V3 Architecture: MLA
 
 ## Architecture Mechanics: [[attention-mechanisms|Attention]] and Dimensionality
 
-In modern sequential models, the core interaction is defined by the multi-head attention mechanism. Given queries $Q$, keys $K$, and values $V$ in $\mathbb{R}^{N \times d}$, the attention kernel is:
+In modern sequential models, the core interaction is defined by the multi-head [[attention-mechanisms|attention]] mechanism. Given queries $Q$, keys $K$, and values $V$ in $\mathbb{R}^{N \times d}$, the [[attention-mechanisms|attention]] kernel is:
 $$ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V $$
 To inject positional information preserving relative distances, we apply Rotary Position Embeddings (RoPE). The transformation rotates feature pairs:
 $$ f_q(x_m, m) = (W_q x_m) e^{im\theta}, \quad f_k(x_n, n) = (W_k x_n) e^{in\theta} $$

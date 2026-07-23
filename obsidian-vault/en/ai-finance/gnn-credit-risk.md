@@ -89,7 +89,7 @@ $$
 \mathbf{h}'_i = \sigma\!\left(\sum_{j \in \mathcal{N}(i)} \alpha_{ij} \mathbf{W} \mathbf{h}_j\right)
 $$
 
-Multi-head attention with $K$ heads and concatenation provides richer representations:
+Multi-head [[attention-mechanisms|attention]] with $K$ heads and concatenation provides richer representations:
 
 $$
 \mathbf{h}'_i = \Big\|_{k=1}^{K} \sigma\!\left(\sum_{j \in \mathcal{N}(i)} \alpha_{ij}^{(k)} \mathbf{W}^{(k)} \mathbf{h}_j\right)
@@ -289,7 +289,7 @@ lr_results = train_and_assess(LogisticBaseline(n_features), graph_data, n_epochs
 
 **Scalability**: full-graph GAT on a network of 10M obligors is computationally prohibitive. GraphSAGE with mini-batch sampling is the practical alternative, but neighbourhood sampling introduces variance in gradient estimates.
 
-**Interpretability**: attention weights in GAT identify which neighbours influenced a prediction, but regulators require explanations in terms of business variables, not graph topology. Hybrid approaches combine GNN embeddings with an interpretable downstream classifier.
+**Interpretability**: [[attention-mechanisms|attention]] weights in GAT identify which neighbours influenced a prediction, but regulators require explanations in terms of business variables, not graph topology. Hybrid approaches combine GNN embeddings with an interpretable downstream classifier.
 
 **Label scarcity**: default events are rare. A 3-year corporate default rate of 1–2% means most positive labels occur only in credit cycle downturns. Class imbalance handling (focal loss, over-sampling) is critical.
 

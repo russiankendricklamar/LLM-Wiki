@@ -50,7 +50,7 @@ A GDL layer typically consists of:
 graph TD
     Data[Data Domain] --> Grid[Grid: CNNs]
     Data --> Graph[Graph: GNNs]
-    Data --> Manifold[Manifold: Gauge CNNs]
+    Data --> [[manifold-learning|Manifold]][[[manifold-learning|Manifold]]: Gauge CNNs]
     Data --> Set[Set: Transformers]
     
     Grid -->|Symmetry| Trans[Translation]

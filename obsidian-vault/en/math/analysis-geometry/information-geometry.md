@@ -17,7 +17,7 @@ Information Geometry (IG) treats families of probability distributions as **Riem
 
 ## Statistical [[manifold-learning|Manifold]] and Fisher Metric
 
-A family of distributions $p(x|\theta)$ forms a manifold where $\theta$ are coordinates. The unique invariant metric is the **Fisher Information Matrix** $F(\theta)$:
+A family of distributions $p(x|\theta)$ forms a [[manifold-learning|manifold]] where $\theta$ are coordinates. The unique invariant metric is the **Fisher Information Matrix** $F(\theta)$:
 $$ F_{ij}(\theta) = \mathbb{E}_\theta \left[ \frac{\partial \log p(x|\theta)}{\partial \theta_i} \frac{\partial \log p(x|\theta)}{\partial \theta_j} \right] $$
 
 ## Dual Connections and $\alpha$-Geometry
@@ -29,9 +29,9 @@ This duality leads to a **Generalized Pythagorean Theorem** for divergences (lik
 
 ## Natural [[convex-optimization|Gradient Descent]] (NGD)
 
-Euclidean gradient descent is sensitive to parameterization. NGD corrects this by using the inverse Fisher matrix:
+Euclidean [[convex-optimization|gradient descent]] is sensitive to parameterization. NGD corrects this by using the inverse Fisher matrix:
 $$ \theta_{t+1} = \theta_t - \eta F^{-1}(\theta) \nabla L(\theta) $$
-This ensures optimization follows the steepest descent on the manifold of distributions. Key implementations include **K-FAC** and **TRPO/PPO**.
+This ensures optimization follows the steepest descent on the [[manifold-learning|manifold]] of distributions. Key implementations include **K-FAC** and **TRPO/PPO**.
 
 ## Applications in Deep Learning
 

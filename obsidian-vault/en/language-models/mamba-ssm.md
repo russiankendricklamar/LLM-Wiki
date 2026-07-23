@@ -16,7 +16,7 @@ aliases:
 
 **State Space Models (SSM)** are a class of architectures that unify the strengths of Recurrent Neural Networks (RNNs) and Convolutional Neural Networks (CNNs). The **Mamba** architecture (Gu & Dao, 2023) represents a milestone in the field, enabling **linear-time complexity** for sequence processing while matching [[transformer-architecture|Transformer]] performance.
 
-## The Transformer Bottleneck
+## The [[transformer-architecture|Transformer]] Bottleneck
 
 Standard [[attention-mechanisms|Attention]] mechanisms scale quadratically $O(L^2)$ with sequence length $L$. This becomes a massive computational barrier for processing very long contexts (100k+ tokens). SSMs bypass this by treating sequence processing as a continuous state update.
 
@@ -40,7 +40,7 @@ Traditional SSMs use static matrices $\mathbf{A, B, C}$. **Mamba** introduces **
 3. **Hardware-Aware Design:** Mamba utilizes a custom CUDA kernel to minimize memory IO between [[inference-serving|GPU]] [[flash-attention|SRAM]] and [[flash-attention|HBM]], making it incredibly fast on modern hardware.
 
 ## Limitations
-While powerful, Mamba can sometimes struggle with tasks requiring precise "copying" or "recalling" of information from specific distant positions, an area where the global look-up of Attention still excels.
+While powerful, Mamba can sometimes struggle with tasks requiring precise "copying" or "recalling" of information from specific distant positions, an area where the global look-up of [[attention-mechanisms|Attention]] still excels.
 
 ## Related Topics
 [[transformer-architecture|Transformer Architecture]] | [[linear-algebra|Linear Algebra]] | [[time-series|Time Series Analysis]]

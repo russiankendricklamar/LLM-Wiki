@@ -114,7 +114,7 @@ def ssa_decompose(
         n_components: number of SVD components to retain (default: all)
 
     Returns:
-        dict with 'eigenvalues', 'eof' (U), 'pc' (V), 'components' (reconstructed 1D series)
+        dict with '[[spectral-theory-operators|eigenvalues]]', 'eof' (U), 'pc' (V), 'components' (reconstructed 1D series)
     """
     N = len(series)
     K = N - L + 1
@@ -125,7 +125,7 @@ def ssa_decompose(
 
     # SVD
     U, s, Vt = np.linalg.svd(X, full_matrices=False)
-    eigenvalues = s**2
+    [[spectral-theory-operators|eigenvalues]] = s**2
 
     if n_components is not None:
         U = U[:, :n_components]

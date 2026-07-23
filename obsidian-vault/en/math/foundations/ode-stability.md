@@ -116,8 +116,8 @@ Nullclines are curves where $\dot{x} = 0$ or $\dot{y} = 0$. Their intersections 
 
 For linearization $\dot{x} = Df(x^*) (x - x^*)$ near an equilibrium $x^*$, where $Df$ is the Jacobian matrix:
 - **Node:** both [[spectral-theory-operators|eigenvalues]] are real with the same sign; trajectories are tangent to one direction.
-- **Focus (spiral):** complex conjugate eigenvalues; trajectories spiral around the equilibrium.
-- **Saddle:** eigenvalues with opposite signs; there exist stable and unstable manifolds.
+- **Focus (spiral):** complex conjugate [[spectral-theory-operators|eigenvalues]]; trajectories spiral around the equilibrium.
+- **Saddle:** [[spectral-theory-operators|eigenvalues]] with opposite signs; there exist stable and unstable manifolds.
 - **Center:** purely imaginary eigenvalues; closed trajectories surround the equilibrium (though nonlinear effects may alter this).
 
 ## Stable [[manifold-learning|Manifold]] Theorem

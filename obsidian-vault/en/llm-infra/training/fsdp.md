@@ -24,7 +24,7 @@ For each layer (or "FSDP unit") during the training loop:
 
 ## Key Advantages
 
-1.  **Massive Memory Savings**: Memory usage per GPU decreases linearly as you add more GPUs. This allows training models that are far larger than any single GPU's VRAM.
+1.  **Massive Memory Savings**: Memory usage per [[inference-serving|GPU]] decreases linearly as you add more GPUs. This allows training models that are far larger than any single [[inference-serving|GPU]]'s VRAM.
 2.  **Communication Efficiency**: FSDP overlaps the communication (All-Gather) with the computation of the *previous* layer, hiding latency.
 3.  **Hybrid Sharding**: FSDP can be configured to shard weights within a node (fast NVLink) but replicate them across nodes (slower Ethernet), balancing speed and scale.
 

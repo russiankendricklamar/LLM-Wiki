@@ -10,9 +10,9 @@ slug: "information-theory-basics"
 
 Information theory, founded by Claude Shannon, provides the mathematical framework for quantifying communication, compression, and the "uncertainty" in data. In AI, it is the language we use to define loss functions like Cross-[[shannon-entropy|Entropy]].
 
-## 1. Entropy: The Measure of Uncertainty
+## 1. [[shannon-entropy|Entropy]]: The Measure of Uncertainty
 
-**Entropy ($H$)** measures the average amount of "surprise" or uncertainty in a random variable $X$.
+**[[shannon-entropy|Entropy]] ($H$)** measures the average amount of "surprise" or uncertainty in a random variable $X$.
 $$H(X) = -\sum_{i} p(x_i) \log p(x_i)$$
 - If an event is certain ($p=1$), entropy is 0.
 - If all events are equally likely (uniform distribution), entropy is maximized.

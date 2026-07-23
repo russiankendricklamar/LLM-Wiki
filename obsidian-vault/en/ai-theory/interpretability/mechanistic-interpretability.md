@@ -21,7 +21,7 @@ Mechanistic Interpretability (MI) aims to reverse-engineer the internal computat
 
 ## Key Methodology
 
-- **Circuit Analysis:** Identifying subgraphs of neurons and attention heads that implement specific tasks (e.g., indirect object identification).
+- **Circuit Analysis:** Identifying subgraphs of neurons and [[attention-mechanisms|attention]] heads that implement specific tasks (e.g., indirect object identification).
 - **Activation Patching:** Swapping activations between different runs to establish causal links between components and outputs.
 - **Logit Lens:** Projecting internal states back into the vocabulary space to see how predictions evolve layer by layer.
 - **Sparse Autoencoders (SAE):** Decomposing polysemantic activations into clean, monosemanic features.

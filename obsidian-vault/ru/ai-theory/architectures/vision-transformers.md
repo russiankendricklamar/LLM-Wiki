@@ -23,7 +23,7 @@ Vision [[transformer-architecture|Transformer]] (ViT) представляет �
 3. **Обучаемые эмбеддинги**:
     - **Position Embeddings**: Поскольку трансформеры инвариантны к перестановкам, добавляются 1D обучаемые позиционные эмбеддинги, чтобы сохранить пространственную информацию.
     - **[CLS] Token**: В начало последовательности добавляется специальный обучаемый токен. Его состояние на выходе трансформера служит глобальным представлением изображения для классификации.
-4. **[[transformer-architecture|Transformer]] Encoder**: Стек стандартных блоков Transformer (Multi-head Self-[[attention-mechanisms|Attention]] + [[transformer-architecture|MLP]] + LayerNorm).
+4. **[[transformer-architecture|Transformer]] Encoder**: Стек стандартных блоков [[transformer-architecture|Transformer]] (Multi-head Self-[[attention-mechanisms|Attention]] + [[transformer-architecture|MLP]] + LayerNorm).
 
 ## Математический аппарат
 
@@ -39,7 +39,7 @@ $$\text{[[attention-mechanisms|Attention]]}(Q, K, V) = \text{softmax}\left(\frac
 
 ## ViT vs. CNN
 
-| Характеристика | CNN (например, ResNet) | Vision Transformer (ViT) |
+| Характеристика | CNN (например, ResNet) | Vision [[transformer-architecture|Transformer]] (ViT) |
 |---|---|---|
 | **Индуктивное смещение** | Сильное (инвариантность к сдвигу, локальность) | Слабое (должен выучивать структуру с нуля) |
 | **Требования к данным** | Эффективны на малых данных | Требует масштабного предобучения (JFT-300M) |

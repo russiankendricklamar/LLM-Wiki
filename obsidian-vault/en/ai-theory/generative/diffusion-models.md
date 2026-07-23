@@ -140,7 +140,7 @@ $$
 \frac{dx}{dt} = -\frac{1}{2} \beta(t) x + \frac{1}{2} \beta(t) \nabla_x \log p_t(x),
 $$
 
-an efficient deterministic path achieving comparable quality to the SDE in fewer steps.
+an efficient deterministic path achieving comparable quality to the [[stochastic-differential-equations|SDE]] in fewer steps.
 
 ## Why Diffusion Surpassed GANs
 
@@ -191,7 +191,7 @@ where $\gamma > 1$ amplifies the conditional signal. This simple trick dramatica
 
 - [[generative-models]] — overview of VAEs, GANs, flows, and diffusion
 - [[stochastic-differential-equations]] — continuous-time extension
-- [[ornstein-uhlenbeck-process]] — the SDE underlying forward diffusion
+- [[ornstein-uhlenbeck-process]] — the [[stochastic-differential-equations|SDE]] underlying forward diffusion
 - [[fokker-planck-equation]] — governs score evolution
 - [[variational-autoencoders]] — latent-variable generative models
 - [[neural-scaling-laws]] — efficiency of large diffusion models

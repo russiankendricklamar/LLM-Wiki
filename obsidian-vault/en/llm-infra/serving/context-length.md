@@ -29,7 +29,7 @@ where the rotation depends on position index and frequency dimension:
 
 $$R_m(\theta) = \begin{pmatrix} \cos m\theta_i & -\sin m\theta_i \\ \sin m\theta_i & \cos m\theta_i \end{pmatrix}$$
 
-and $\theta_i = 10000^{-2i/d}$ (mirroring sinusoidal frequencies). The critical insight: the attention dot product becomes
+and $\theta_i = 10000^{-2i/d}$ (mirroring sinusoidal frequencies). The critical insight: the [[attention-mechanisms|attention]] dot product becomes
 
 $$\mathbf{q}_m'^T \mathbf{k}_n' = f(\mathbf{q}, \mathbf{k}, m - n)$$
 
@@ -47,7 +47,7 @@ $$m_{\text{interp}} = \frac{m}{s}, \quad n_{\text{interp}} = \frac{n}{s}$$
 
 This compresses the relative position space so that training-length distances remain stable. Empirically, scaling enables extrapolation to $2–4\times$ training length with minimal perplexity increase and modest [[fine-tuning]].
 
-## ALiBi: Attention with Linear Biases
+## ALiBi: [[attention-mechanisms|Attention]] with Linear Biases
 
 ALiBi (Press et al. 2022) takes a different approach: eliminate positional embeddings entirely and inject position through attention bias. The attention score becomes:
 

@@ -73,7 +73,7 @@ $$\pi^*(y|x) = \frac{1}{Z(x)} \pi_\text{ref}(y|x) e^{\beta r^*(x,y)}$$
 
 где $Z(x)$ — нормализатор. [[dpo|DPO]] минимизирует логарифмическую вероятность выбрать неправильный ответ:
 
-$$\mathcal{L}_\text{DPO} = -\log \sigma\left(\beta \log \frac{\pi_\theta(y_w|x)}{\pi_\text{ref}(y_w|x)} - \beta \log \frac{\pi_\theta(y_l|x)}{\pi_\text{ref}(y_l|x)}\right)$$
+$$\mathcal{L}_\text{[[dpo|DPO]]} = -\log \sigma\left(\beta \log \frac{\pi_\theta(y_w|x)}{\pi_\text{ref}(y_w|x)} - \beta \log \frac{\pi_\theta(y_l|x)}{\pi_\text{ref}(y_l|x)}\right)$$
 
 **Достоинства:** отсутствует модель вознаграждения (меньше параметров), отсутствует PPO (проще, стабильнее), одна фаза обучения.
 

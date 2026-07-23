@@ -74,7 +74,7 @@ Generative VLMs typically train in two stages:
 
 ## Trade-offs vs Other Types
 
-| Dimension | Contrastive VLM | Generative VLM | Text-only LLM |
+| Dimension | Contrastive VLM | Generative VLM | Text-only [[llm]] |
 |---|---|---|---|
 | Modality | Image + text | Image + text | Text only |
 | Output | Embedding | Text | Text |

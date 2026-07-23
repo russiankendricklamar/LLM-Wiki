@@ -26,7 +26,7 @@ The ReAct pattern (Yao et al., 2022) formalized this as interleaved **Reasoning*
 The basic agent loop consists of five steps:
 
 1. **Initialization:** Construct the initial prompt with task description, available tools, and optional system context.
-2. **Model invocation:** Send current state (conversation history + observations) to the LLM. The model generates both reasoning text and a structured action (tool call or FINISH token).
+2. **Model invocation:** Send current state (conversation history + observations) to the [[llm]]. The model generates both reasoning text and a structured action (tool call or FINISH token).
 3. **Action parsing:** Extract the tool name and arguments from the model output. Validate against schema. If invalid JSON or unknown tool, return an error observation and loop.
 4. **Execution:** Execute the tool in a controlled environment (sandbox, permission layer, or external API). Capture result (success or error).
 5. **Observation injection:** Append the result as a `tool_result` message to the conversation history. Increment step counter. If the model emitted a FINISH token, extract and return the final answer. Otherwise, go to step 2.
@@ -39,7 +39,7 @@ A bounded loop adds a **max_steps** parameter to prevent infinite loops; a **tim
 function run_agent(task, tools, max_steps=10):
   messages = [{"role": "user", "content": task}]
   for step = 1 to max_steps:
-    response = llm(messages, tools=tools)
+    response = [[llm]](messages, tools=tools)
     messages.append({"role": "assistant", "content": response})
     
     if response.stop_reason == "FINISH":

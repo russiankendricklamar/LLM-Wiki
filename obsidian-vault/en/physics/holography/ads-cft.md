@@ -48,7 +48,7 @@ The most computationally useful limit is $N \to \infty$ with 't Hooft coupling $
 
 ## The Ryu-Takayanagi formula
 
-One of the most beautiful consequences: the **entanglement entropy** of a region $A$ on the boundary is computed by the area of a minimal surface $\gamma_A$ in the bulk anchored to $\partial A$:
+One of the most beautiful consequences: the **entanglement [[gravitational-entropy|entropy]]** of a region $A$ on the boundary is computed by the area of a minimal surface $\gamma_A$ in the bulk anchored to $\partial A$:
 
 $$
 S_A = \frac{\text{Area}(\gamma_A)}{4 G_N}.

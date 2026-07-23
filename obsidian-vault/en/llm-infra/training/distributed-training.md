@@ -13,8 +13,8 @@ A modern [[llm]] (like GPT-4 or Llama 3) is too large to fit in the memory of a 
 ## 1. The Three Pillars of Parallelism
 
 ### A. Data Parallelism (DP)
-Each [[inference-serving|GPU]] has a full copy of the model. The dataset is split, and each GPU processes a different batch.
-- **Problem**: Model must fit in one GPU. 
+Each [[inference-serving|GPU]] has a full copy of the model. The dataset is split, and each [[inference-serving|GPU]] processes a different batch.
+- **Problem**: Model must fit in one [[inference-serving|GPU]]. 
 - **Modern Solution**: **DDP (Distributed Data Parallel)** and **ZeRO**.
 
 ### B. Tensor Parallelism (TP)

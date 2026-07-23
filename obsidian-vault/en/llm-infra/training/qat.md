@@ -10,10 +10,10 @@ slug: "qat"
 
 While [[modern-quantization|Post-Training Quantization (PTQ)]] (like GPTQ or AWQ) happens after the model is trained, **[[quantization]] Aware Training (QAT)** integrates the precision loss directly into the training loop. This allows the neural network to "adapt" its weights to the lower precision, resulting in significantly higher accuracy for 2-bit or 3-bit models.
 
-## 1. The Simulated Quantization (Fake Quant)
+## 1. The Simulated [[quantization]] (Fake Quant)
 
 Neural networks are trained using floating-point numbers (FP32 or BF16) because gradients require high precision. You cannot "train" a 4-bit integer directly using SGD.
-In QAT, we use **Fake Quantization** nodes:
+In QAT, we use **Fake [[quantization]]** nodes:
 1.  During the forward pass, weights are rounded to the target precision (e.g., INT4).
 2.  The model performs calculations using these "noisy" rounded weights.
 3.  **The Core Problem**: The rounding function (Step function) has a derivative of zero almost everywhere. Standard [[automatic-differentiation|backpropagation]] breaks.

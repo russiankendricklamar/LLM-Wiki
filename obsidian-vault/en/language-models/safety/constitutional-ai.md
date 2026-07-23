@@ -12,7 +12,7 @@ slug: "constitutional-ai"
 
 ## 1. The Core Problem with [[rlhf]]
 
-Standard RLHF is:
+Standard [[rlhf]] is:
 1.  **Expensive**: Requires thousands of human annotators to rank outputs.
 2.  **Subjective**: Human preferences are often inconsistent and biased.
 3.  **Black-box**: It is hard to know *why* a model prefers one output over another.
@@ -41,7 +41,7 @@ The Constitution is a list of written rules. Examples include:
 
 - **Transparency**: Alignment is driven by readable rules, not hidden human biases.
 - **Scalability**: AI feedback is millions of times faster and cheaper than human feedback.
-- **Safety-Efficiency Frontier**: CAI models often outperform RLHF models in safety benchmarks without sacrificing reasoning capability.
+- **Safety-Efficiency Frontier**: CAI models often outperform [[rlhf]] models in safety benchmarks without sacrificing reasoning capability.
 
 ## Visualization: The CAI Feedback Loop
 

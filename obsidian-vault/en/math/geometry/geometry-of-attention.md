@@ -8,11 +8,11 @@ slug: geometry-of-attention
 
 # The Geometry of [[attention-mechanisms|Attention]] Mechanisms
 
-The self-attention mechanism in [[transformer-architectures|Transformers]] has profound geometric interpretations, bridging kernel methods, measure theory, and differential geometry.
+The self-[[attention-mechanisms|attention]] mechanism in [[transformer-architectures|Transformers]] has profound geometric interpretations, bridging kernel methods, measure theory, and differential geometry.
 
 ## Softmax as a Kernel Smoother
 
-Given a sequence of queries $Q \in \mathbb{R}^{N 	imes d}$, keys $K \in \mathbb{R}^{N 	imes d}$, and values $V \in \mathbb{R}^{N 	imes d}$, the attention operation is:
+Given a sequence of queries $Q \in \mathbb{R}^{N 	imes d}$, keys $K \in \mathbb{R}^{N 	imes d}$, and values $V \in \mathbb{R}^{N 	imes d}$, the [[attention-mechanisms|attention]] operation is:
 
 $$
 	ext{Attn}(Q, K, V) = 	ext{softmax}\left(rac{QK^T}{\sqrt{d}}

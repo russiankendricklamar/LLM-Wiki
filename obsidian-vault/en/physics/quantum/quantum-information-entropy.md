@@ -18,9 +18,9 @@ $$\rho = \sum_i p_i |\psi_i\rangle \langle \psi_i|$$
 - **Pure States**: If the system is perfectly isolated and in a known state $|\psi\rangle$, then $\rho = |\psi\rangle \langle \psi|$ and $\text{Tr}(\rho^2) = 1$.
 - **Mixed States**: If the system is entangled with an unknown environment or is part of a statistical ensemble, $\text{Tr}(\rho^2) < 1$. The "Purity" measures how much information we have preserved.
 
-## 2. Von Neumann Entropy ($S$)
+## 2. Von Neumann [[gravitational-entropy|Entropy]] ($S$)
 
-The Von Neumann entropy generalizes [[shannon-entropy|Shannon entropy]] to the quantum domain:
+The Von Neumann [[gravitational-entropy|entropy]] generalizes [[shannon-entropy|Shannon entropy]] to the quantum domain:
 $$S(\rho) = -\text{Tr}(\rho \ln \rho)$$
 In the basis where $\rho$ is diagonal (with [[spectral-theory-operators|eigenvalues]] $\lambda_i$), this becomes the familiar $-\sum \lambda_i \ln \lambda_i$.
 

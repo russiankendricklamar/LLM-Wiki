@@ -14,7 +14,7 @@ While [[dpo|Direct Preference Optimization (DPO)]] revolutionized alignment by r
 
 ## 1. KTO (Kahneman-Tversky Optimization)
 
-KTO is inspired by **Prospect Theory**. Unlike DPO, which requires pairs of (chosen, rejected) responses, KTO can work with **unpaired data** (just a binary label of "good" or "bad" for a single response).
+KTO is inspired by **Prospect Theory**. Unlike [[dpo]], which requires pairs of (chosen, rejected) responses, KTO can work with **unpaired data** (just a binary label of "good" or "bad" for a single response).
 
 The KTO loss function incorporates a utility function that mirrors how humans perceive gains and losses (being more sensitive to losses than gains):
 $$\mathcal{L}_{KTO} = \mathbb{E}_{x,y,z} [ w(z) \cdot \text{v}(\pi_\theta, \pi_{ref}, x, y, z) ]$$
@@ -22,7 +22,7 @@ where $z \in \{+1, -1\}$ is the binary signal. This makes it much easier to scal
 
 ## 2. IPO (Identity Preference Optimization)
 
-IPO adds a regularization term to the DPO objective to prevent the model's likelihood from diverging too far from the reference model, which is a common failure mode in standard DPO (leading to decreased output diversity or "mode collapse").
+IPO adds a regularization term to the [[dpo]] objective to prevent the model's likelihood from diverging too far from the reference model, which is a common failure mode in standard DPO (leading to decreased output diversity or "mode collapse").
 
 $$\mathcal{L}_{IPO} = \mathbb{E}_{(x, y_w, y_l)} \left[ \left( \log \frac{\pi_\theta(y_w|x)}{\pi_{ref}(y_w|x)} - \log \frac{\pi_\theta(y_l|x)}{\pi_{ref}(y_l|x)} - \frac{\beta}{2} \right)^2 \right]$$
 

@@ -12,10 +12,10 @@ The [[spectral-graph-theory|Laplacian]] is a second-order differential operator 
 
 ## 1. Mathematical Definition
 
-For a scalar function $f(x_1, \dots, x_n)$, the Laplacian is the sum of all unmixed second partial derivatives:
+For a scalar function $f(x_1, \dots, x_n)$, the [[spectral-graph-theory|Laplacian]] is the sum of all unmixed second partial derivatives:
 $$\Delta f = \nabla \cdot \nabla f = \sum_{i=1}^n \frac{\partial^2 f}{\partial x_i^2}$$
 
-### The Discrete Laplacian (Graphs)
+### The Discrete [[spectral-graph-theory|Laplacian]] (Graphs)
 In [[graph-neural-networks|GNNs]], we use the **Graph Laplacian** $L = D - A$, where $D$ is the degree matrix and $A$ is the adjacency matrix. 
 - It measures how a signal changes as it flows across the edges of a network.
 - The [[spectral-theory-operators|eigenvalues]] of $L$ (the spectrum) reveal the global cluster structure of the graph.
@@ -42,7 +42,7 @@ Minimizing this energy (finding the smoothest possible function) leads to the **
 
 The Laplacian is the **Trace** of the [[gradient-hessian-jacobian|Hessian Matrix]]:
 $$\Delta f = \text{Tr}(H(f)) = \sum \lambda_i$$
-Where $\lambda_i$ are the eigenvalues of the Hessian. This links the Laplacian to the overall "steepness" of a multidimensional landscape.
+Where $\lambda_i$ are the [[spectral-theory-operators|eigenvalues]] of the Hessian. This links the Laplacian to the overall "steepness" of a multidimensional landscape.
 
 ## Related Topics
 

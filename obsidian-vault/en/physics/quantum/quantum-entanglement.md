@@ -35,7 +35,7 @@ Bell's CHSH inequality provides an experimentally testable bound: for local hidd
 - **Monogamy**: If $A$ and $B$ are maximally entangled, $A$ cannot be entangled with any third party $C$ — a constraint central to black hole firewall arguments.
 - **Entanglement as resource**: Entanglement enables quantum teleportation (transmission of an unknown qubit using two classical bits and one Bell pair) and superdense coding.
 - **Entanglement distillation**: Multiple partially-entangled copies can be concentrated into fewer maximally entangled pairs using local operations and classical communication (LOCC).
-- **Area law**: In ground states of gapped local Hamiltonians, entanglement [[gravitational-entropy|entropy]] satisfies an area law $S \propto |\partial A|$, much like the Bekenstein-Hawking entropy of a black hole horizon.
+- **Area law**: In ground states of gapped local Hamiltonians, entanglement [[gravitational-entropy|entropy]] satisfies an area law $S \propto |\partial A|$, much like the Bekenstein-Hawking [[gravitational-entropy|entropy]] of a black hole horizon.
 
 ## Physical Interpretation
 The key physical insight is that entanglement is not about particles "communicating" — it is about the structure of the joint quantum state. Before measurement, there is no fact about the individual subsystems; the correlations are inherent in the global state. When one particle is measured, the other's state is instantaneously determined — but this determination carries no information because the outcomes are random.
@@ -45,7 +45,7 @@ A vivid thought experiment: place two electrons in a singlet state $|\psi^-\rang
 Quantum teleportation operationalizes entanglement: Alice holds one half of a Bell pair and an unknown qubit $|\chi\rangle$. She performs a Bell-basis measurement on her two particles, sending 2 classical bits to Bob, who applies a corresponding unitary to reconstruct $|\chi\rangle$ — without the state ever traversing the space between them.
 
 ## Connections to Information Theory & Holography
-Entanglement entropy is the central quantity in quantum information theory. The Ryu-Takayanagi formula in AdS/CFT directly identifies the entanglement entropy of a boundary region $A$ with the area of the minimal bulk surface $\gamma_A$:
+Entanglement [[gravitational-entropy|entropy]] is the central quantity in quantum information theory. The Ryu-Takayanagi formula in AdS/CFT directly identifies the entanglement entropy of a boundary region $A$ with the area of the minimal bulk surface $\gamma_A$:
 $$ S_E(A) = \frac{\text{Area}(\gamma_A)}{4G_N\hbar} $$
 This formula translates quantum information into spacetime geometry, suggesting that spacetime itself may be built from entanglement.
 

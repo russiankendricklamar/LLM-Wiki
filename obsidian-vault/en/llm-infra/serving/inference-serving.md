@@ -52,7 +52,7 @@ Inference splits into two phases with opposite characteristics:
 
 ## Flash [[attention-mechanisms|Attention]] for long contexts
 
-Flash Attention (Dao et al., 2022) reorders the attention computation $\text{softmax}(QK^T/\sqrt{d_k})V$ to minimize [[flash-attention|HBM]] reads/writes. Classical attention requires $O(L^2)$ [[flash-attention|HBM]] I/O; Flash Attention achieves $O(L)$ via fused kernel that materializes computation in fast [[flash-attention|SRAM]].
+Flash [[attention-mechanisms|Attention]] (Dao et al., 2022) reorders the [[attention-mechanisms|attention]] computation $\text{softmax}(QK^T/\sqrt{d_k})V$ to minimize [[flash-attention|HBM]] reads/writes. Classical attention requires $O(L^2)$ [[flash-attention|HBM]] I/O; Flash Attention achieves $O(L)$ via fused kernel that materializes computation in fast [[flash-attention|SRAM]].
 
 For contexts >4K tokens, Flash Attention is critical. On 32K+ contexts, it delivers 2-3× speedup vs. standard attention.
 

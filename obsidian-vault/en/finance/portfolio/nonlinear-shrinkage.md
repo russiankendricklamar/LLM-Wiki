@@ -12,8 +12,8 @@ In large-scale portfolio optimization (e.g., managing a 5000-stock universe), th
 
 ## The Eigenvalue Distortion (Marchenko-Pastur)
 
-When you estimate covariance from finite data, the largest [[spectral-theory-operators|eigenvalues]] are biased upwards (making some risks look too high) and the smallest eigenvalues are biased downwards (making some combinations look like free money).
-- Naive optimizers see these tiny eigenvalues and put massive leverage on them.
+When you estimate covariance from finite data, the largest [[spectral-theory-operators|eigenvalues]] are biased upwards (making some risks look too high) and the smallest [[spectral-theory-operators|eigenvalues]] are biased downwards (making some combinations look like free money).
+- Naive optimizers see these tiny [[spectral-theory-operators|eigenvalues]] and put massive leverage on them.
 - In reality, these are just "noise" (eigenvectors of luck).
 
 ## Linear vs. Nonlinear Shrinkage

@@ -47,7 +47,7 @@ SLMs use the same decoder-only [[transformer-architecture|transformer]] backbone
 
 **Grouped Query [[attention-mechanisms|Attention]] (GQA)**: instead of $H$ independent key-value heads for $H$ query heads, GQA uses $G < H$ shared key-value heads. Each group of $H/G$ query heads shares one KV head, cutting the KV cache size by $H/G$ and reducing memory bandwidth proportionally.
 
-**Sliding Window [[attention-mechanisms|Attention]] (SWA)**: tokens attend only within a window of $w$ past tokens rather than the full context, reducing attention complexity from $O(n^2)$ to $O(nw)$. Long-range context is handled by having higher layers see earlier content through the residual stream.
+**Sliding Window [[attention-mechanisms|Attention]] (SWA)**: tokens attend only within a window of $w$ past tokens rather than the full context, reducing [[attention-mechanisms|attention]] complexity from $O(n^2)$ to $O(nw)$. Long-range context is handled by having higher layers see earlier content through the residual stream.
 
 **Tied embeddings**: the input embedding matrix and the output projection (unembedding) matrix share weights. This halves the parameter count of the embedding table, which can be a substantial fraction of total parameters in small models with large vocabularies.
 
@@ -97,7 +97,7 @@ Key training choices:
 | RAM required | 4–16 GB | 40–160 GB | 8–40 GB |
 | Inference speed | Fast | Slow | Moderate |
 | Reasoning quality | Moderate | High | High |
-| Fine-tuning cost | Low (LoRA) | High | High |
+| [[fine-tuning]] cost | Low (LoRA) | High | High |
 | Deployment target | Edge / local | Cloud | Cloud / high-end [[inference-serving|GPU]] |
 
 ## Python Usage Pattern
@@ -106,7 +106,7 @@ Key training choices:
 # On-device inference with llama.cpp Python bindings
 from llama_cpp import Llama
 
-# Load a GGUF-quantized model (Q4_K_M quantization)
+# Load a GGUF-quantized model (Q4_K_M [[quantization]])
 [[llm]] = Llama(
     model_path="phi-3-mini-4k-instruct.Q4_K_M.gguf",
     n_ctx=4096,
@@ -114,7 +114,7 @@ from llama_cpp import Llama
     n_gpu_layers=0,  # set > 0 to offload layers to [[inference-serving|GPU]]
 )
 
-response = llm.create_chat_completion(
+response = [[llm]].create_chat_completion(
     messages=[
         {"role": "user", "content": "Solve: if x^2 - 5x + 6 = 0, find x."}
     ],
@@ -123,7 +123,7 @@ response = llm.create_chat_completion(
 )
 print(response["choices"][0]["message"]["content"])
 
-# LoRA fine-tuning with PEFT
+# LoRA [[fine-tuning]] with PEFT
 from peft import LoraConfig, get_peft_model
 from transformers import AutoModelForCausalLM
 
@@ -144,7 +144,7 @@ model.print_trainable_parameters()
 
 - **Reasoning ceiling**: multi-step mathematical reasoning and formal logic are fundamentally harder when the model has fewer layers to build up intermediate representations.
 - **Knowledge breadth**: smaller parameter count means less memorized knowledge; SLMs require retrieval augmentation for knowledge-intensive tasks.
-- **Context length**: GQA and sliding window attention reduce the effective context budget; very long-document tasks are less reliable.
+- **Context length**: GQA and sliding window [[attention-mechanisms|attention]] reduce the effective context budget; very long-document tasks are less reliable.
 - **Prompt sensitivity**: small models are more sensitive to prompt phrasing than large models, which have enough capacity to be robust to minor variations.
 - **Distillation ceiling**: a student cannot exceed the capability ceiling of its teacher on the training distribution; SLMs distilled from mediocre teachers inherit their weaknesses.
 

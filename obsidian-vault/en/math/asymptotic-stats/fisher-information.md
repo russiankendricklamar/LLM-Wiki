@@ -136,13 +136,13 @@ The first factor converges to $I(\theta_0)^{-1}$ by the LLN; the second to $\mat
 
 ## 7. Natural-[[convex-optimization|gradient descent]]
 
-Plain gradient descent on a parameter $\theta$ in the Euclidean metric,
+Plain [[convex-optimization|gradient descent]] on a parameter $\theta$ in the Euclidean metric,
 
 $$
 \theta_{t+1} = \theta_t - \eta\, \nabla_\theta \mathcal{L}(\theta_t),
 $$
 
-is **not reparameterisation-invariant**. Natural-gradient descent (Amari, 1998) takes the steepest direction **on the statistical [[manifold-learning|manifold]]**:
+is **not reparameterisation-invariant**. Natural-[[convex-optimization|gradient descent]] (Amari, 1998) takes the steepest direction **on the statistical [[manifold-learning|manifold]]**:
 
 $$
 \theta_{t+1} = \theta_t - \eta\, I(\theta_t)^{-1}\nabla_\theta \mathcal{L}(\theta_t).

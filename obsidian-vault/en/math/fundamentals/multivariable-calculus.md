@@ -31,8 +31,8 @@ $$ \mathbf{H}_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j} $$
 - **Curvature**: The Hessian describes the "shape" of the local landscape.
 - **[[spectral-theory-operators|Eigenvalues]] of H**:
   - If all [[spectral-theory-operators|eigenvalues]] are $> 0$: The point is a **Local Minimum** (valley).
-  - If all eigenvalues are $< 0$: The point is a **Local Maximum** (peak).
-  - If eigenvalues have mixed signs: The point is a **Saddle Point**.
+  - If all [[spectral-theory-operators|eigenvalues]] are $< 0$: The point is a **Local Maximum** (peak).
+  - If [[spectral-theory-operators|eigenvalues]] have mixed signs: The point is a **Saddle Point**.
 
 ## 4. Why it Matters for High-Finance
 

@@ -226,7 +226,7 @@ def vmss_regime_indicator(
     window: int = 10
 ) -> np.ndarray:
     """
-    Rolling mean of spectral entropy as a regime indicator.
+    Rolling mean of spectral [[shannon-entropy|entropy]] as a regime indicator.
     Low values suggest structured (potentially predictable) market.
     High values suggest efficient (random) market.
     """
@@ -254,7 +254,7 @@ print(f"VMSS surface shape: {vmss_result['surface'].shape}")
 print(f"Frequency bins: {len(vmss_result['freqs'])}")
 print(f"Time bins: {len(vmss_result['time'])}")
 print(f"Resonance zone fraction: {resonance.mean():.3%}")
-print(f"Mean spectral entropy: {np.nanmean(vmss_result['spectral_entropy']):.4f}")
+print(f"Mean spectral [[shannon-entropy|entropy]]: {np.nanmean(vmss_result['spectral_entropy']):.4f}")
 
 # Dominant frequency from VMSS
 avg_power_by_freq = vmss_result["surface"].mean(axis=1)

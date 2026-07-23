@@ -28,7 +28,7 @@ The key insight is that **Evaluation is easier than Generation**. A model might 
 
 At iteration $M$, we have model $\pi_M$. We generate a dataset $\mathcal{D}_M$ where:
 $$y_w, y_l \sim \pi_M(x), \quad \text{ModelScore}(y_w) > \text{ModelScore}(y_l)$$
-We then update the model to $\pi_{M+1}$ by minimizing the DPO loss on $\mathcal{D}_M$.
+We then update the model to $\pi_{M+1}$ by minimizing the [[dpo]] loss on $\mathcal{D}_M$.
 
 ## Visualization: Performance Scaling
 

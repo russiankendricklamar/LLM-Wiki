@@ -22,7 +22,7 @@ A learner can be modeled as a morphism in a category $\text{Learn}$. A morphism 
 
 This structure captures how a model produces an output, updates its internal parameters, and propagates the error back to its inputs.
 
-## Lenses and Backpropagation
+## Lenses and [[automatic-differentiation|Backpropagation]]
 
 The fundamental mechanism of gradient-based learning is mathematically equivalent to a **Lens**. In the category of sets, a lens $L: X \rightleftarrows Y$ consists of:
 - A forward map $f: X \to Y$ (the "get" or forward pass).
@@ -42,7 +42,7 @@ Composition in $\text{Para}(\mathcal{C})$ involves tensor products of parameter 
 
 Modern ML is increasingly viewed through the lens of **Categorical Cybernetics**, which models systems that interact with an environment and adapt. This framework unifies supervised learning, reinforcement learning, and game theory under the umbrella of **Open Games** and **Optics**.
 
-## DERIVATION: Backpropagation as Lens Composition
+## DERIVATION: [[automatic-differentiation|Backpropagation]] as Lens Composition
 
 Let $L_1 = (f_1, b_1)$ and $L_2 = (f_2, b_2)$ be two lenses representing layers.
 The composition $L = L_2 \circ L_1 = (f, b)$ is defined as:

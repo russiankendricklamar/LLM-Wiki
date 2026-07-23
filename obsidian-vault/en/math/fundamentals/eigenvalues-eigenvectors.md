@@ -8,7 +8,7 @@ slug: "eigenvalues-eigenvectors"
 
 # [[spectral-theory-operators|Eigenvalues]] and Eigenvectors: The DNA of Linear Logic
 
-Eigenvalues and eigenvectors reveal the fixed "axes" of a transformation and decompose complex operations into simple scaling. They are the engine behind everything from Google Search and vibration physics to the stability of neural networks and portfolio optimization at firms like Citadel and Jane Street.
+[[spectral-theory-operators|Eigenvalues]] and eigenvectors reveal the fixed "axes" of a transformation and decompose complex operations into simple scaling. They are the engine behind everything from Google Search and vibration physics to the stability of neural networks and portfolio optimization at firms like Citadel and Jane Street.
 
 ## 1. The Core Equation
 
@@ -21,7 +21,7 @@ The scalar $\lambda$ is the **eigenvalue**.
 ## 2. Theoretical Gems
 
 ### The Characteristic Equation
-To find eigenvalues, we solve the **Characteristic Equation**:
+To find [[spectral-theory-operators|eigenvalues]], we solve the **Characteristic Equation**:
 $$ \det(A - \lambda I) = 0 $$
 This yields a polynomial of degree $n$, where the roots are the eigenvalues.
 - **Trace**: $\sum \lambda_i = \text{Tr}(A)$ (The sum of the diagonal elements).

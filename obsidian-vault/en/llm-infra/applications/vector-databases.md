@@ -118,7 +118,7 @@ At selectivity $< 1\%$ (e.g., last-7-days documents), pre-filter + ANN dominates
 
 ## Production Systems
 
-| System | Storage | GPU | Filters | Scale |
+| System | Storage | [[inference-serving|GPU]] | Filters | Scale |
 |--------|---------|-----|---------|-------|
 | **Pinecone** | Managed | ✓ | ✓ | 100B+ vectors |
 | **Qdrant** | Self-hosted | ✓ | ✓✓ | 100M–1B |

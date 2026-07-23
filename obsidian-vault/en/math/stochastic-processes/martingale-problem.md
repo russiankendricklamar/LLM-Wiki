@@ -33,13 +33,13 @@ where the generator is
 
 $$Lf(x) = \sum_i b_i(x)\,\partial_i f(x) + \frac{1}{2}\sum_{i,j} a_{ij}(x)\,\partial_i\partial_j f(x), \qquad a = \sigma\sigma^\top.$$
 
-Thus any weak solution of the [[stochastic-differential-equations|SDE]] solves the martingale problem for $(L, \nu)$, and conversely, any solution to the martingale problem yields a weak solution. **Weak existence and uniqueness in law for the SDE are equivalent to well-posedness of the martingale problem.**
+Thus any weak solution of the [[stochastic-differential-equations|SDE]] solves the martingale problem for $(L, \nu)$, and conversely, any solution to the martingale problem yields a weak solution. **Weak existence and uniqueness in law for the [[stochastic-differential-equations|SDE]] are equivalent to well-posedness of the martingale problem.**
 
 **Theorem (Stroock-Varadhan).** If $b:\mathbb{R}^d \to \mathbb{R}^d$ is bounded measurable and $a:\mathbb{R}^d \to \mathbb{R}^{d \times d}$ is continuous and uniformly elliptic ($a(x) \geq \lambda I$ for some $\lambda > 0$), then the martingale problem for $L$ is well-posed.
 
 ## Why Martingale Problems Are Easier
 
-The martingale problem formulation avoids several difficulties inherent in the pathwise SDE approach:
+The martingale problem formulation avoids several difficulties inherent in the pathwise [[stochastic-differential-equations|SDE]] approach:
 
 - **No reference probability space needed.** One works directly on canonical path space; there is no need to construct a Brownian motion or a filtration supporting it.
 - **Weak convergence is natural.** Showing that a sequence of probability measures $P_n$ converges weakly to a solution of the martingale problem requires only verifying convergence of the martingale conditions — there is no need to construct a coupling or a common probability space.

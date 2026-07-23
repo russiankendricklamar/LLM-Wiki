@@ -12,14 +12,14 @@ Optimization is the process of finding the inputs that minimize (or maximize) a 
 
 ## 1. [[convex-optimization|Gradient Descent]]: The First-Order Workhorse
 
-Gradient Descent (GD) is based on the observation that if you want to find the minimum of a function $f(x)$, you should move in the direction of the negative gradient $-\nabla f(x)$.
+[[convex-optimization|Gradient Descent]] (GD) is based on the observation that if you want to find the minimum of a function $f(x)$, you should move in the direction of the negative gradient $-\nabla f(x)$.
 
 ### The Update Rule
 $$x_{t+1} = x_t - \eta \nabla f(x_t)$$
 - $\eta$ (eta): The **Learning Rate**. If it's too high, the algorithm overshoots; if too low, it takes forever to converge.
 
 ### Variations in ML
-- **Stochastic Gradient Descent (SGD)**: Updates parameters using only one random sample at a time. Much faster for large datasets.
+- **Stochastic [[convex-optimization|Gradient Descent]] (SGD)**: Updates parameters using only one random sample at a time. Much faster for large datasets.
 - **Adam**: An adaptive optimizer that computes individual learning rates for different parameters based on past gradients.
 
 ## 2. Newton's Method: The Second-Order Specialist
@@ -42,7 +42,7 @@ Where $H(x_t)$ is the Hessian matrix.
 
 The Hessian $H$ tells you how the gradient is changing.
 - If $H$ is **Positive Definite**, the function is locally convex (like a bowl).
-- The [[spectral-theory-operators|eigenvalues]] of $H$ determine the "sharpness" of the minimum. Large eigenvalues mean the loss surface is very steep in those directions.
+- The [[spectral-theory-operators|eigenvalues]] of $H$ determine the "sharpness" of the minimum. Large [[spectral-theory-operators|eigenvalues]] mean the loss surface is very steep in those directions.
 
 ## 4. Key Challenges
 

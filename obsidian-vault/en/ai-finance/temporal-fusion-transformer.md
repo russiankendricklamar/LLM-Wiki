@@ -86,9 +86,9 @@ The forward pass proceeds through five stages:
 
 ### Interpretability Surface
 
-Because attention weights and variable selection softmax scores are computed as explicit tensors, TFT exposes:
+Because [[attention-mechanisms|attention]] weights and variable selection softmax scores are computed as explicit tensors, TFT exposes:
 
-- **Temporal attention patterns**: which past lags the model focuses on for each forecast horizon.
+- **Temporal [[attention-mechanisms|attention]] patterns**: which past lags the model focuses on for each forecast horizon.
 - **Variable importance scores**: per-input-group ranked importance averaged across the test set.
 
 Both are auditable by risk management and explainable to regulators under MiFID II / SR 11-7 model risk requirements.

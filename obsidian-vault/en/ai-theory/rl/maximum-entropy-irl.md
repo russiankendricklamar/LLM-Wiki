@@ -8,4 +8,4 @@ slug: "maximum-entropy-irl"
 
 # Maximum [[shannon-entropy|Entropy]] IRL
 
-[[Inverse Reinforcement Learning]] (IRL) with Maximum Entropy seeks a reward function that makes the expert demonstrations optimal while maximizing the entropy of the resulting policy to resolve ambiguities.
+[[Inverse Reinforcement Learning]] (IRL) with Maximum [[shannon-entropy|Entropy]] seeks a reward function that makes the expert demonstrations optimal while maximizing the [[shannon-entropy|entropy]] of the resulting policy to resolve ambiguities.

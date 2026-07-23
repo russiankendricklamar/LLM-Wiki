@@ -17,8 +17,8 @@ Consider a simple LayerNorm operation in PyTorch:
 
 If executed naively, PyTorch will:
 1.  Read `x` from [[flash-attention|HBM]] to compute `mean`, write `mean` back to [[flash-attention|HBM]].
-2.  Read `x` and `mean` to compute `std`, write `std` to HBM.
-3.  Read `x`, `mean`, `std`, subtract and divide, write result to HBM.
+2.  Read `x` and `mean` to compute `std`, write `std` to [[flash-attention|HBM]].
+3.  Read `x`, `mean`, `std`, subtract and divide, write result to [[flash-attention|HBM]].
 4.  Read result, `weight`, `bias`, multiply and add, write final `y` to HBM.
 
 The [[inference-serving|GPU]] spends 95% of its time moving temporary variables in and out of the slow HBM memory, and only 5% actually doing math. 
@@ -38,7 +38,7 @@ Writing fused CUDA kernels by hand in C++ is incredibly difficult and requires d
 Developed by Google, XLA takes a computational graph (from JAX or TensorFlow), analyzes the whole graph, and generates highly optimized fused kernels specifically for the target hardware ([[inference-serving|GPU]] or TPU).
 
 ### 2. Triton
-Developed by OpenAI, Triton is a Python-like language that lets AI researchers write custom GPU kernels without knowing C++. It automatically handles memory coalescing, shared memory allocation, and thread synchronization. (FlashAttention was famously re-written in Triton, making it accessible to the community).
+Developed by OpenAI, Triton is a Python-like language that lets AI researchers write custom [[inference-serving|GPU]] kernels without knowing C++. It automatically handles memory coalescing, shared memory allocation, and thread synchronization. (FlashAttention was famously re-written in Triton, making it accessible to the community).
 
 ### 3. `torch.compile` (PyTorch 2.0)
 The modern PyTorch solution. You simply add `@torch.compile` above your model, and PyTorch will:
@@ -54,7 +54,7 @@ graph LR
     Graph --> Optimize[Graph Optimizations / Fusion]
     Optimize --> Triton[Triton Intermediate Code]
     Triton --> PTX[PTX / CUDA Assembly]
-    PTX --> GPU[GPU Execution]
+    PTX --> [[inference-serving|GPU]][GPU Execution]
     
     style Optimize fill:#3b82f6,color:#fff
     style GPU fill:#10b981,color:#fff

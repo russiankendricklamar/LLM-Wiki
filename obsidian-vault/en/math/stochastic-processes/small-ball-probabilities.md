@@ -16,12 +16,12 @@ Let $X_t$ be a centered Gaussian process (e.g., fractional Brownian motion). The
 $$ \mathbb{P} \left( \sup_{t \in [0,T]} |X_t| \le \epsilon \right) \text{ as } \epsilon \to 0 $$
 By scaling properties, this is often equivalent to studying the behavior as $T \to \infty$.
 
-## Connection to Entropy and Spectra
+## Connection to [[shannon-entropy|Entropy]] and Spectra
 
-The small ball probability is deeply linked to the metric entropy of the reproducing kernel Hilbert space (RKHS) associated with $X$, and the spectral asymptotics of the corresponding covariance operator.
+The small ball probability is deeply linked to the metric [[shannon-entropy|entropy]] of the reproducing kernel Hilbert space (RKHS) associated with $X$, and the spectral asymptotics of the corresponding covariance operator.
 For a standard Brownian motion $W$, classical results state:
 $$ \mathbb{P} \left( \sup_{0 \le t \le 1} |W_t| \le \epsilon \right) \sim \frac{4}{\pi} \exp\left( - \frac{\pi^2}{8 \epsilon^2} \right) $$
 
 ## Applications
 
-Small ball estimates are crucial for proving laws of the iterated logarithm (LIL) via Borel-Cantelli lemmas, studying the packing measure of sample paths, and analyzing approximation rates in quantization and [[machine-learning]] algorithms applied to functional data.
+Small ball estimates are crucial for proving laws of the iterated logarithm (LIL) via Borel-Cantelli lemmas, studying the packing measure of sample paths, and analyzing approximation rates in [[quantization]] and [[machine-learning]] algorithms applied to functional data.

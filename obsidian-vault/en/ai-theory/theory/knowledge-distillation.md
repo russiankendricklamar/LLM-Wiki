@@ -105,7 +105,7 @@ $$
 \mathcal{L}_{QAT} = \mathcal{L}_{task}(\text{quantize}(\theta_s), y) + \gamma \mathcal{L}_{KL}(p_T \| p_s)
 $$
 
-The distillation term acts as regularization, stabilizing training and preventing the quantization noise from derailing convergence. On [[quantization]], KD can yield 2-3% accuracy recovery versus task loss alone.
+The distillation term acts as regularization, stabilizing training and preventing the [[quantization]] noise from derailing convergence. On [[quantization]], KD can yield 2-3% accuracy recovery versus task loss alone.
 
 ## Theoretical analysis: PAC-Bayes bounds
 

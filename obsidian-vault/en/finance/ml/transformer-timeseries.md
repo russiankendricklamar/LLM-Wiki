@@ -25,10 +25,10 @@ Projections: $Q = XW_Q$, $K = XW_K$, $V = XW_V$. Each time step attends to all o
 ### Temporal Fusion [[transformer-architecture|Transformer]] (TFT, Lim et al. 2021)
 - **Gate Residual Networks** — adaptive depth
 - **Variable Selection**: per-feature importance weights
-- **Temporal Self-Attention**: quantile probabilistic outputs (10/50/90th percentile)
+- **Temporal Self-[[attention-mechanisms|Attention]]**: quantile probabilistic outputs (10/50/90th percentile)
 
 ### Informer (Zhou et al. 2021)
-ProbSparse Attention reduces $O(L^2)$ to $O(L \log L)$:
+ProbSparse [[attention-mechanisms|Attention]] reduces $O(L^2)$ to $O(L \log L)$:
 
 $$
 \hat{A}(Q, K, V) = \text{softmax}\!\left(\frac{\bar{Q}K^\top}{\sqrt{d_k}}\right) V

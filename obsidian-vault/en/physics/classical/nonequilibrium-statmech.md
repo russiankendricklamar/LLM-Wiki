@@ -22,7 +22,7 @@ This theorem provides the most precise mathematical definition of the **Arrow of
 
 $$\frac{P_{forward}(W)}{P_{backward}(-W)} = e^{\beta(W - \Delta F)}$$
 
-- If a process is highly irreversible (creates lots of entropy), the probability of the reverse process is exponentially small.
+- If a process is highly irreversible (creates lots of [[gravitational-entropy|entropy]]), the probability of the reverse process is exponentially small.
 - This formula proves that the "future" is simply the direction in which we are more likely to observe state transitions.
 
 ## 3. The Jarzynski Equality: Equilibrium from Chaos
@@ -38,7 +38,7 @@ This is used in **Computational Drug Discovery**. To find how well a medicine bi
 The **Maxwell's Demon** paradox (how can a tiny being sort molecules without doing work?) was solved using nonequilibrium mechanics. 
 The demon must store information about the molecules. To reset its memory for the next round, it must **erase information**.
 - **Landauer’s Limit**: Erasing 1 bit costs at least $k_B T \ln 2$ of heat.
-This identifies **Information as a Physical Commodity**. Entropy is simply "hidden information."
+This identifies **Information as a Physical Commodity**. [[gravitational-entropy|Entropy]] is simply "hidden information."
 
 ## 5. Application in Machine Learning: Diffusion Models
 

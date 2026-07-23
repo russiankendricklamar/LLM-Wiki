@@ -54,11 +54,11 @@ $$q_m = R_m q, \quad k_n = R_n k$$
 
 where $R_\theta$ is a block-diagonal rotation matrix. RoPE enables the model to generalize to context lengths beyond those seen during training. ALiBi ([[attention-mechanisms|Attention]] with Linear Biases) is an alternative that subtracts a linear bias proportional to distance directly in the [[attention-mechanisms|attention]] logits.
 
-**Grouped Query Attention (GQA)** reduces the key-value cache footprint: multiple query heads share a single key-value head, reducing memory bandwidth by a factor equal to the number of groups.
+**Grouped Query [[attention-mechanisms|Attention]] (GQA)** reduces the key-value cache footprint: multiple query heads share a single key-value head, reducing memory bandwidth by a factor equal to the number of groups.
 
 ## Mathematical Framework
 
-The attention mechanism at the heart of every [[transformer-architecture|transformer]] block:
+The [[attention-mechanisms|attention]] mechanism at the heart of every [[transformer-architecture|transformer]] block:
 
 $$\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right) V$$
 

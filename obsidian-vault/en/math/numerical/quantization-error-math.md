@@ -8,7 +8,7 @@ slug: quantization-error-math
 
 # Mathematical Error Analysis in Model [[quantization]]
 
-Model quantization reduces the precision of weights and activations from 32-bit floats to lower bit-widths (e.g., 8-bit, 4-bit). The mathematical analysis of this process involves understanding the propagation of quantization noise through deep networks.
+Model [[quantization]] reduces the precision of weights and activations from 32-bit floats to lower bit-widths (e.g., 8-bit, 4-bit). The mathematical analysis of this process involves understanding the propagation of [[quantization]] noise through deep networks.
 
 ## Uniform Quantization
 

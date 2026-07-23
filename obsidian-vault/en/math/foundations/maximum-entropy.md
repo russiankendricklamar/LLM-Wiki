@@ -105,7 +105,7 @@ $$
 
 with $\beta$ identified as **inverse temperature** $1/(k_B T)$. The log-partition $\log Z(\beta)$ becomes the negative Helmholtz free energy. The whole apparatus of statistical mechanics — Boltzmann distribution, partition functions, free energy — is one application of MaxEnt with energy as the constraint.
 
-This is the deepest sense in which **entropy is a unifying concept**: the same variational principle governs information theory, statistical inference, and thermodynamics.
+This is the deepest sense in which **[[shannon-entropy|entropy]] is a unifying concept**: the same variational principle governs information theory, statistical inference, and thermodynamics.
 
 ## 7. Bayesian priors via MaxEnt
 
@@ -115,7 +115,7 @@ When you need a prior but have only weak structural information, MaxEnt gives a 
 - Known mean of a positive quantity → exponential prior.
 - Known mean and variance on $\mathbb{R}$ → Gaussian prior.
 
-This is Jaynes' answer to the **non-informative prior problem** that plagued early Bayesian statistics: instead of arbitrary "Jeffreys priors", choose the prior with maximum entropy under the structural constraints you actually believe in.
+This is Jaynes' answer to the **non-informative prior problem** that plagued early Bayesian statistics: instead of arbitrary "Jeffreys priors", choose the prior with maximum [[shannon-entropy|entropy]] under the structural constraints you actually believe in.
 
 ## 8. Generalisations: Tsallis and Rényi
 

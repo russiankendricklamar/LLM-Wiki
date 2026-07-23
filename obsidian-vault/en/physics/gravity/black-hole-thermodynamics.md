@@ -26,7 +26,7 @@ The analogy assigns $\kappa \leftrightarrow T$ and $A \leftrightarrow S$. Before
 
 ## Bekenstein-Hawking [[gravitational-entropy|Entropy]]
 
-Bekenstein (1972) argued that thermodynamic consistency requires black holes to carry genuine entropy proportional to their horizon area. Swallowing a high-entropy object into a black hole would otherwise decrease the total entropy of the universe — violating the second law. The only candidate quantity that never decreases is the area.
+Bekenstein (1972) argued that thermodynamic consistency requires black holes to carry genuine [[gravitational-entropy|entropy]] proportional to their horizon area. Swallowing a high-[[gravitational-entropy|entropy]] object into a black hole would otherwise decrease the total entropy of the universe — violating the second law. The only candidate quantity that never decreases is the area.
 
 Hawking's calculation fixed the coefficient: the **Bekenstein-Hawking entropy** is
 

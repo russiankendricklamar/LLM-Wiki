@@ -12,7 +12,7 @@ Information Geometry applies differential geometry to probability and statistics
 
 ## Fisher Information Metric
 
-Let a neural network parameterize a conditional probability distribution $p(y|x; 	heta)$. The parameter space $\Theta$ is a Riemannian manifold with the local distance measured by KL divergence:
+Let a neural network parameterize a conditional probability distribution $p(y|x; 	heta)$. The parameter space $\Theta$ is a Riemannian [[manifold-learning|manifold]] with the local distance measured by KL divergence:
 
 $$
 D_{KL}(p_{	heta} \| p_{	heta + d	heta}) pprox rac{1}{2} d	heta^T F(	heta) d	heta
@@ -31,7 +31,7 @@ $F(	heta)$ is a symmetric, positive semi-definite matrix acting as the Riemannia
 
 ## Natural [[convex-optimization|Gradient Descent]]
 
-Standard gradient descent follows the steepest descent in Euclidean space. However, parameter spaces have intrinsic curvature. Amari's Natural Gradient Descent (NGD) follows the path of steepest descent in the Riemannian manifold defined by the FIM.
+Standard [[convex-optimization|gradient descent]] follows the steepest descent in Euclidean space. However, parameter spaces have intrinsic curvature. Amari's Natural [[convex-optimization|Gradient Descent]] (NGD) follows the path of steepest descent in the Riemannian [[manifold-learning|manifold]] defined by the FIM.
 
 The natural gradient direction $	ilde{
 abla} \mathcal{L}$ is defined as the solution to:
@@ -57,4 +57,4 @@ $$
 
 ## Curvature and Flat Minima
 
-In deep learning, the FIM is highly degenerate. Most of its [[spectral-theory-operators|eigenvalues]] are close to zero, with only a few large eigenvalues. This implies that the probability distribution is highly sensitive to changes along a few parameter directions (high curvature), while it is invariant along most other directions (flat minima).
+In deep learning, the FIM is highly degenerate. Most of its [[spectral-theory-operators|eigenvalues]] are close to zero, with only a few large [[spectral-theory-operators|eigenvalues]]. This implies that the probability distribution is highly sensitive to changes along a few parameter directions (high curvature), while it is invariant along most other directions (flat minima).

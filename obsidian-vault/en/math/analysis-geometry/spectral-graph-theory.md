@@ -18,7 +18,7 @@ This shows $L$ is positive semi-definite. The [[spectral-theory-operators|eigenv
 ## Cheeger's Inequality
 The algebraic connectivity $\lambda_2$ (Fiedler value) is intimately related to the graph's bottleneck or isoperimetric number $h(G)$:
 $$ h(G) = \min_{S \subset V, 0 < |S| \le \frac{n}{2}} \frac{|E(S, \bar{S})|}{|S|} $$
-Cheeger's inequality bounds $h(G)$ using the spectrum of the normalized Laplacian (with eigenvalues $\mu_i$):
+Cheeger's inequality bounds $h(G)$ using the spectrum of the normalized Laplacian (with [[spectral-theory-operators|eigenvalues]] $\mu_i$):
 $$ \frac{\mu_2}{2} \le h(G) \le \sqrt{2\mu_2} $$
 This forms the basis of spectral clustering algorithms.
 

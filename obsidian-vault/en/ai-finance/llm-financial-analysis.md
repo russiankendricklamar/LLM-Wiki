@@ -57,7 +57,7 @@ Prompt engineering manipulates the conditioning context $T$ to elicit factual, c
 
 ### Retrieval-Augmented Generation
 
-For corpora too large to fit in context, RAG decomposes the problem:
+For corpora too large to fit in context, [[rag]] decomposes the problem:
 
 $$
 P(\text{answer} \mid Q, \mathcal{C}) = \sum_{d \in \text{Retrieve}(Q, \mathcal{C})} P(\text{answer} \mid Q, d) \cdot P(d \mid Q, \mathcal{C})
@@ -101,7 +101,7 @@ GPT-4, Claude 3.5/3.7, and Gemini Ultra demonstrate strong financial reasoning o
 
 ## Architecture / Algorithm
 
-### RAG Pipeline for SEC Filings
+### [[rag]] Pipeline for SEC Filings
 
 ```
 SEC EDGAR API
@@ -183,7 +183,7 @@ JSON output:"""
     try:
         result = json.loads(raw)
     except json.JSONDecodeError as e:
-        raise ValueError(f"LLM returned non-JSON output: {e}\nRaw: {raw}") from e
+        raise ValueError(f"[[llm]] returned non-JSON output: {e}\nRaw: {raw}") from e
 
     return result
 
@@ -248,7 +248,7 @@ signal = assess_guidance_surprise(extracted, consensus_revenue_mm=4100, consensu
 
 **Timeliness**: Knowledge cut-off means models cannot reason about very recent events without RAG or tool use.
 
-**Regulatory liability**: Automated investment signals derived from LLM output require human-in-the-loop oversight and clear audit trails to satisfy MiFID II suitability requirements.
+**Regulatory liability**: Automated investment signals derived from [[llm]] output require human-in-the-loop oversight and clear audit trails to satisfy MiFID II suitability requirements.
 
 **Adversarial inputs**: Earnings calls are curated communications; models trained to extract positive signals may be systematically misled by management spin, requiring tone-of-hedge and uncertainty detection layers.
 

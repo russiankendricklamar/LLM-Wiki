@@ -38,12 +38,12 @@ $$
 \lim_{n \to \infty} \frac{C(n)}{n / \log_2 n} = h
 $$
 
-This means LZ complexity is an estimator of the [[shannon-entropy|entropy]] rate — but unlike traditional entropy estimators, it captures the *sequential* structure of the data, not just the marginal distribution.
+This means LZ complexity is an estimator of the [[shannon-entropy|entropy]] rate — but unlike traditional [[shannon-entropy|entropy]] estimators, it captures the *sequential* structure of the data, not just the marginal distribution.
 
 ## Key Properties
 
 - **Model-free**: No assumptions about the underlying stochastic process are required.
-- **Non-parametric**: Captures structural features that Shannon entropy misses by ignoring event order.
+- **Non-parametric**: Captures structural features that Shannon [[shannon-entropy|entropy]] misses by ignoring event order.
 - **Finite-sample applicability**: Works on sequences as short as ~100 observations.
 - **Asymptotic consistency**: Converges to true entropy rate as $n \to \infty$.
 - **Sensitivity to order**: Two sequences with identical symbol frequencies but different orderings will have different LZ complexities.

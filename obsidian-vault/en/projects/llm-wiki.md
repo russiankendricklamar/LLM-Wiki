@@ -28,10 +28,10 @@ The duplicated work disappears: the same reasoning is not re-executed a thousand
 
 ## Role separation
 
-Humans and the LLM do different things in this process:
+Humans and the [[llm]] do different things in this process:
 
 - **The human** picks sources, asks the non-trivial questions, shapes the schema, and makes the meaningful judgement calls.
-- **The LLM** runs the card catalogue: summarising, cross-referencing, filing into folders, hunting for contradictions, updating related pages. All the bookkeeping I hate doing by hand.
+- **The [[llm]]** runs the card catalogue: summarising, cross-referencing, filing into folders, hunting for contradictions, updating related pages. All the bookkeeping I hate doing by hand.
 
 A typical workflow has Obsidian open on the left, an agent on the right. The vault becomes a codebase, and Obsidian becomes the IDE for it.
 

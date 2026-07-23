@@ -12,11 +12,11 @@ Information theory provides a mathematical way to quantify "surprise," "uncertai
 
 ## 1. Shannon [[shannon-entropy|Entropy]] ($H$)
 
-Entropy measures the average level of "uncertainty" or "surprise" inherent in a variable's possible outcomes. For a discrete random variable $X$ with outcomes $x_1, \dots, x_n$:
+[[shannon-entropy|Entropy]] measures the average level of "uncertainty" or "surprise" inherent in a variable's possible outcomes. For a discrete random variable $X$ with outcomes $x_1, \dots, x_n$:
 
 $$H(X) = -\sum_{i=1}^n p(x_i) \log_2 p(x_i)$$
 
-- **High Entropy**: Uniform distribution (everything is equally likely, maximum uncertainty).
+- **High [[shannon-entropy|Entropy]]**: Uniform distribution (everything is equally likely, maximum uncertainty).
 - **Low Entropy**: Spiky distribution (one outcome is very likely, almost no uncertainty).
 
 ## 2. Conditional Entropy $H(Y \mid X)$

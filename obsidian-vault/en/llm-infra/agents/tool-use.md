@@ -221,7 +221,7 @@ Sandboxing strategies:
 
 **[[mcp]] (Model Context Protocol)**: an open standard that generalizes tool use by defining a transport-agnostic protocol for exposing tools, resources, and prompts to any compliant [[llm]] client.
 
-**ToolBench / Gorilla**: research benchmarks that evaluate LLM capability to correctly select and use APIs from large tool libraries (10,000+ APIs).
+**ToolBench / Gorilla**: research benchmarks that evaluate [[llm]] capability to correctly select and use APIs from large tool libraries (10,000+ APIs).
 
 ## Practical Applications
 
@@ -233,7 +233,7 @@ Sandboxing strategies:
 
 ## Tool-use as agent action space
 
-Tool-use is the bridge from a language model that generates text to an **agent** that can act on the world. Once you accept that "decide which tool to call" is a learned policy, the same theoretical apparatus that governs reinforcement learning applies: the LLM is a policy, tool calls are actions, observations are tool returns, and the reward is task completion. This frames CoT-style reasoning between tool calls as **inference-time planning** in an MDP.
+Tool-use is the bridge from a language model that generates text to an **agent** that can act on the world. Once you accept that "decide which tool to call" is a learned policy, the same theoretical apparatus that governs reinforcement learning applies: the [[llm]] is a policy, tool calls are actions, observations are tool returns, and the reward is task completion. This frames CoT-style reasoning between tool calls as **inference-time planning** in an MDP.
 
 This view directly connects tool-use to the broader RL literature:
 

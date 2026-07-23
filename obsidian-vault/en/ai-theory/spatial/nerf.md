@@ -31,7 +31,7 @@ By including the viewing direction as an input, NeRF can model non-Lambertian ef
 
 1.  **Capture**: Take 20-100 photos of an object from different angles.
 2.  **Pose Estimation**: Use COLMAP to determine the exact position and orientation of the camera for each photo.
-3.  **Training**: Optimize the MLP to minimize the difference between the rendered rays and the actual pixels in the photos.
+3.  **Training**: Optimize the [[transformer-architecture|MLP]] to minimize the difference between the rendered rays and the actual pixels in the photos.
 4.  **Inference**: Move a virtual camera anywhere in the scene to generate new, photorealistic views.
 
 ## 4. Limitations and Evolution
@@ -50,7 +50,7 @@ graph LR
         Scene --> S2[Sample 2]
         Scene --> S3[Sample 3]
     end
-    S1 --> MLP[Neural Network: MLP]
+    S1 --> [[transformer-architecture|MLP]][Neural Network: MLP]
     S2 --> MLP
     S3 --> MLP
     MLP -->|Color + Density| Integ[Volume Integration]

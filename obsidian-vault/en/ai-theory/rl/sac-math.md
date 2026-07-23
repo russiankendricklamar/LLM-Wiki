@@ -8,8 +8,8 @@ slug: sac-math
 
 Soft Actor-Critic is an off-policy maximum [[shannon-entropy|entropy]] actor-critic algorithm.
 
-### Maximum Entropy Objective
-Instead of just maximizing expected reward, SAC maximizes a trade-off between expected reward and policy entropy:
+### Maximum [[shannon-entropy|Entropy]] Objective
+Instead of just maximizing expected reward, SAC maximizes a trade-off between expected reward and policy [[shannon-entropy|entropy]]:
 $J(\pi) = \sum_{t=0}^T \mathbb{E}_{(s_t, a_t) \sim \rho_\pi} [r(s_t, a_t) + \alpha \mathcal{H}(\pi(\cdot|s_t))]$
 where $\alpha$ is the temperature parameter controlling exploration.
 

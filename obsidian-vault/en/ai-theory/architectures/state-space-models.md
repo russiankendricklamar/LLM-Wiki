@@ -86,9 +86,9 @@ On language modeling, Mamba-3B is competitive with [[transformer-architecture|Tr
 
 ## Mamba-2: Structured State Space Duality
 
-Mamba-2 (Dao et al., 2024) unifies SSMs and [[attention-mechanisms|attention]] through **Structured State Space Duality** (SSD). A diagonal SSM with [[attention-mechanisms|attention]]-like updates can approximate attention's expressiveness while retaining linear complexity. This enables:
+Mamba-2 (Dao et al., 2024) unifies SSMs and [[attention-mechanisms|attention]] through **Structured State Space Duality** (SSD). A diagonal SSM with [[attention-mechanisms|attention]]-like updates can approximate [[attention-mechanisms|attention]]'s expressiveness while retaining linear complexity. This enables:
 
-- **Hybrid architectures** mixing SSM and attention layers
+- **Hybrid architectures** mixing SSM and [[attention-mechanisms|attention]] layers
 - **Theoretical understanding** of when attention vs. SSM is optimal
 - **Bridging** between fixed (S4) and selective (Mamba) mechanisms
 

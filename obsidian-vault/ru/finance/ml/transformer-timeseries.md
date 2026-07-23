@@ -35,7 +35,7 @@ $$
 
 ### Informer (Zhou et al. 2021)
 
-Решает проблему $O(L^2)$ attention для длинных рядов через **ProbSparse Attention**:
+Решает проблему $O(L^2)$ attention для длинных рядов через **ProbSparse [[attention-mechanisms|Attention]]**:
 
 $$
 \hat{A}(Q, K, V) = \text{softmax}\!\left(\frac{\bar{Q}K^\top}{\sqrt{d_k}}\right) V

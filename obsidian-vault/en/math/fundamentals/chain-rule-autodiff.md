@@ -45,7 +45,7 @@ To perform Reverse-Mode Auto-Diff:
 
 ## 5. Why it Matters in AI
 
-- **Efficiency**: Backpropagation allows us to compute gradients for *all* weights in a single backward pass, with the same computational cost as the forward pass (roughly 2-3x).
+- **Efficiency**: [[automatic-differentiation|Backpropagation]] allows us to compute gradients for *all* weights in a single backward pass, with the same computational cost as the forward pass (roughly 2-3x).
 - **Optimization**: Without the chain rule, we couldn't use [[optimization-basics|Gradient Descent]] to update weights.
 
 ## Related Topics

@@ -12,10 +12,10 @@ To understand why Large Language Models are designed the way they are (e.g., why
 
 ## 1. Streaming Multiprocessors (SMs)
 
-A GPU is not a single giant processor; it is a cluster of mini-processors called **Streaming Multiprocessors (SMs)**. 
+A [[inference-serving|GPU]] is not a single giant processor; it is a cluster of mini-processors called **Streaming Multiprocessors (SMs)**. 
 - An Nvidia H100 has 132 SMs.
 - Each SM is an independent execution unit with its own L1 Cache / Shared Memory, instruction fetchers, and execution cores.
-- If a matrix multiplication doesn't have enough parallel independent chunks to give work to all 132 SMs, the GPU is "underutilized."
+- If a matrix multiplication doesn't have enough parallel independent chunks to give work to all 132 SMs, the [[inference-serving|GPU]] is "underutilized."
 
 ## 2. Threads and Warps
 
@@ -47,7 +47,7 @@ Optimized CUDA kernels (like [[flash-attention]]) carefully orchestrate moving c
 
 ```mermaid
 graph TD
-    HBM[(Global HBM: Slow)] -->|Load Block A| SM1_Mem[SM 1 Shared Memory]
+    [[flash-attention|HBM]][(Global [[flash-attention|HBM]]: Slow)] -->|Load Block A| SM1_Mem[SM 1 Shared Memory]
     HBM -->|Load Block B| SM1_Mem
     SM1_Mem -->|Load to Registers| Core1[Tensor Core 1]
     SM1_Mem -->|Load to Registers| Core2[Tensor Core 2]

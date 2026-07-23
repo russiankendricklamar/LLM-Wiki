@@ -46,7 +46,7 @@ In the final layer, the model predicts the next token from a vocabulary of ~100,
 graph TD
     In[Input Tokens] --> Emb[Token + Positional Embeddings]
     subgraph Block [Transformer Layer xN]
-        Norm1[RMSNorm] --> Attn[Self-Attention]
+        Norm1[RMSNorm] --> Attn[Self-[[attention-mechanisms|Attention]]]
         Attn --> Res1[Residual Connection]
         Res1 --> Norm2[RMSNorm]
         Norm2 --> FFN[Feed Forward MLP]

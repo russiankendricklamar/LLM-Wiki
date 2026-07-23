@@ -27,7 +27,7 @@ Properties: no learned parameters; relative positions encodable as linear functi
 
 Relative encodings make [[attention-mechanisms|attention]] scores depend on the *relative offset* $i-j$ rather than absolute positions $i$ and $j$.
 
-**T5 Relative Bias.** Add a learned scalar bias $b_{i-j}$ to each attention score before softmax:
+**T5 Relative Bias.** Add a learned scalar bias $b_{i-j}$ to each [[attention-mechanisms|attention]] score before softmax:
 
 $$
 e_{ij} = \frac{(x_i W_Q)(x_j W_K)^\top}{\sqrt{d_k}} + b_{i-j}.
@@ -45,7 +45,7 @@ The linear penalty makes the model "prefer" recent tokens, naturally enabling le
 
 ## RoPE: Rotary Position Embedding
 
-**RoPE** (Su et al. 2021) is the dominant approach in modern LLMs (LLaMA, Mistral, Qwen, Gemma, GPT-4). Instead of adding positional encodings, RoPE *rotates* query and key vectors before computing attention:
+**RoPE** (Su et al. 2021) is the dominant approach in modern LLMs (LLaMA, Mistral, Qwen, Gemma, GPT-4). Instead of adding positional encodings, RoPE *rotates* query and key vectors before computing [[attention-mechanisms|attention]]:
 
 $$
 (R_m q)^\top (R_n k) = q^\top R_m^\top R_n k = q^\top R_{n-m} k,

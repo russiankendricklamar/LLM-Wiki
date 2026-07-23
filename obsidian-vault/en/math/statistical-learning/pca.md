@@ -61,7 +61,7 @@ Usually, $k$ is chosen so that the cumulative ratio reaches 90% or 95%.
 
 1.  **Data Compression**: Reducing high-dimensional embeddings to feed into simpler models.
 2.  **Visualization**: Projecting data to 2D or 3D for human inspection.
-3.  **Noise Reduction**: Discarding components with tiny eigenvalues often removes random noise from the data.
+3.  **Noise Reduction**: Discarding components with tiny [[spectral-theory-operators|eigenvalues]] often removes random noise from the data.
 
 ## Related Topics
 

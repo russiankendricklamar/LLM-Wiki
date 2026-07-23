@@ -12,9 +12,9 @@ FlashAttention, introduced by **Tri Dao et al. (2022)**, is one of the most impo
 
 ## 1. The Bottleneck: The Memory Wall
 
-Standard [[attention-mechanisms|attention]] (Self-Attention) has a time and memory complexity of $O(N^2)$, where $N$ is the sequence length. 
+Standard [[attention-mechanisms|attention]] (Self-[[attention-mechanisms|Attention]]) has a time and memory complexity of $O(N^2)$, where $N$ is the sequence length. 
 However, the real bottleneck is not the FLOPs (math), but **Memory IO**.
-1.  To compute $\text{Softmax}(QK^\top)V$, the [[inference-serving|GPU]] must write the giant $N \times N$ attention matrix to the slow **HBM (High Bandwidth Memory)** and then read it back.
+1.  To compute $\text{Softmax}(QK^\top)V$, the [[inference-serving|GPU]] must write the giant $N \times N$ [[attention-mechanisms|attention]] matrix to the slow **HBM (High Bandwidth Memory)** and then read it back.
 2.  For a sequence of 64k tokens, the matrix takes **16 GB** of memory for just one head!
 
 ## 2. The Solution: Tiling and Recomputation
@@ -44,7 +44,7 @@ Instead, it re-calculates the necessary attention blocks on the fly during the b
 
 ## 4. FlashAttention-2 and Beyond
 
-FlashAttention-2 (2023) further optimized the algorithm by better partitioning work across the GPU's **Streaming Multiprocessors (SMs)** and using asynchronous memory copies, reaching close to the theoretical maximum throughput of the H100 GPU.
+FlashAttention-2 (2023) further optimized the algorithm by better partitioning work across the [[inference-serving|GPU]]'s **Streaming Multiprocessors (SMs)** and using asynchronous memory copies, reaching close to the theoretical maximum throughput of the H100 [[inference-serving|GPU]].
 
 ## Visualization: Memory Flow
 

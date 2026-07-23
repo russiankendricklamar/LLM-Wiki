@@ -92,7 +92,7 @@ GAT does not require the global graph structure and provides interpretable neigh
 
 **Graph Isomorphism Network (GIN, Xu et al. 2019).** Proven to be as expressive as the Weisfeiler-Lehman 1-WL test; simple and powerful.
 
-**Graph [[transformer-architecture|Transformer]] (Dwivedi & Bresson 2020, Graphormer 2021).** Attention over all pairs of nodes with a positional encoding (e.g., [[spectral-graph-theory|Laplacian]] eigenvectors). More expressive but $O(N^2)$.
+**Graph [[transformer-architecture|Transformer]] (Dwivedi & Bresson 2020, Graphormer 2021).** [[attention-mechanisms|Attention]] over all pairs of nodes with a positional encoding (e.g., [[spectral-graph-theory|Laplacian]] eigenvectors). More expressive but $O(N^2)$.
 
 **Equivariant GNNs.** [[equivariant-nn|$E(3)$-equivariant networks]] — a specialised class for 3D molecules, where features transform as irreducible representations of $SO(3)$.
 
@@ -110,7 +110,7 @@ A full forward pass through a GNN on a graph with millions of nodes (social netw
 
 - **Neighbour mini-batches** (GraphSAGE) — sample a subgraph for each batch.
 - **Cluster-GCN** — partition the graph into clusters and train on each.
-- **Graph Attention Diffusion (GRAND)** — continuous propagation via an [[neural-odes|ODE]].
+- **Graph [[attention-mechanisms|Attention]] Diffusion (GRAND)** — continuous propagation via an [[neural-odes|ODE]].
 - **LazyGNN / pre-computation** — pre-computing feature parts.
 
 ## Applications

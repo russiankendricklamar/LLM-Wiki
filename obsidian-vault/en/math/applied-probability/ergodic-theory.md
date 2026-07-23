@@ -22,7 +22,7 @@ If the system is not ergodic, it converges to the conditional expectation $\math
 ## Mixing and [[shannon-entropy|Entropy]]
 Strong mixing implies that events become asymptotically independent:
 $$ \lim_{n \to \infty} \mu(A \cap T^{-n}(B)) = \mu(A)\mu(B) $$
-Kolmogorov-Sinai entropy $h_\mu(T)$ measures the average rate of information production of the system, taking values from the Shannon entropy of measurable partitions:
+Kolmogorov-Sinai [[shannon-entropy|entropy]] $h_\mu(T)$ measures the average rate of information production of the system, taking values from the Shannon [[shannon-entropy|entropy]] of measurable partitions:
 $$ H_\mu(P) = -\sum_{A \in P} \mu(A) \log \mu(A) $$
 $$ h_\mu(T) = \sup_P \lim_{n \to \infty} \frac{1}{n} H_\mu\left(\bigvee_{k=0}^{n-1} T^{-k} P\right) $$
 

@@ -55,7 +55,7 @@ Every linear transformation can be decomposed into:
 | Method | Matrix Type | Complexity | Primary Use Case |
 | :--- | :--- | :--- | :--- |
 | **LU** | Square | $O(n^3/3)$ | Solving $Ax=b$ efficiently |
-| **QR** | Rectangular | $O(n^3)$ | Stable Least Squares, Eigenvalues |
+| **QR** | Rectangular | $O(n^3)$ | Stable Least Squares, [[spectral-theory-operators|Eigenvalues]] |
 | **SVD** | Any | $O(mn^2)$ | PCA, Compression, Noise Reduction |
 
 ## Related Topics

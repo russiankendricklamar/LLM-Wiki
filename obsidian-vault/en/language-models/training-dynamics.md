@@ -154,5 +154,5 @@ Key metrics to track during training:
 
 - [[neural-scaling-laws]] — how dynamics at scale predict final loss
 - [[transformer-architecture]] — architecture choices that affect stability
-- [[attention-mechanisms]] — attention instability as a source of loss spikes
+- [[attention-mechanisms]] — [[attention-mechanisms|attention]] instability as a source of loss spikes
 - large-language-models — practical training setups

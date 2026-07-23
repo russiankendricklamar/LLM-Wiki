@@ -50,7 +50,7 @@ The choice of ensemble is dictated by physical boundary conditions, but all thre
 
 ## [[gravitational-entropy|Entropy]] and information
 
-For a probability distribution over states, **Gibbs entropy** quantifies ignorance about the microscopic state:
+For a probability distribution over states, **Gibbs [[gravitational-entropy|entropy]]** quantifies ignorance about the microscopic state:
 
 $$S = -k \sum_{i=1}^{\Omega} p_i \ln p_i$$
 
@@ -58,7 +58,7 @@ This is exactly $k$ times the [[shannon-entropy|Shannon entropy]] of information
 
 $$S = -k \cdot \Omega \cdot \frac{1}{\Omega} \ln\frac{1}{\Omega} = k \ln \Omega$$
 
-recovering Boltzmann's formula. This connection shows that entropy is the *information-theoretic uncertainty* about the microscopic configuration.
+recovering Boltzmann's formula. This connection shows that [[gravitational-entropy|entropy]] is the *information-theoretic uncertainty* about the microscopic configuration.
 
 ## The ergodic hypothesis
 

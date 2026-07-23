@@ -19,7 +19,7 @@ The exterior derivative $d: \Omega^k \to \Omega^{k+1}$ satisfies the fundamental
 
 Since every exact form is closed ($d(d\alpha) = 0$), we can define the **$k$-th De Rham Cohomology Group**:
 $$ H^k_{dR}(M) = \frac{\ker(d)}{\text{im}(d)} = \frac{\text{Closed Forms}}{\text{Exact Forms}} $$
-The dimension of $H^k_{dR}(M)$ is the $k$-th **Betti Number** ($b_k$), which counts the number of $k$-dimensional "holes" in the manifold.
+The dimension of $H^k_{dR}(M)$ is the $k$-th **Betti Number** ($b_k$), which counts the number of $k$-dimensional "holes" in the [[manifold-learning|manifold]].
 
 ## 2. The Hodge Star and Codifferential
 
@@ -37,7 +37,7 @@ A $k$-form $\omega$ is called **Harmonic** if $\Delta \omega = 0$. By definition
 
 ## 4. The Hodge Decomposition Theorem
 
-The crown jewel of Hodge theory is the **Hodge Decomposition**. On a compact Riemannian manifold, any $k$-form $\omega$ can be uniquely decomposed into three mutually orthogonal parts:
+The crown jewel of Hodge theory is the **Hodge Decomposition**. On a compact Riemannian [[manifold-learning|manifold]], any $k$-form $\omega$ can be uniquely decomposed into three mutually orthogonal parts:
 $$ \omega = d\alpha + \delta\beta + \gamma $$
 Where:
 1.  $d\alpha$ is an **exact** form (pure gradient).

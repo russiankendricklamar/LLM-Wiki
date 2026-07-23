@@ -14,14 +14,14 @@ Both Eigenvalue Decomposition (EVD) and Singular Value Decomposition (SVD) are f
 For a square matrix $A \in \mathbb{R}^{n \times n}$, if it possesses $n$ linearly independent eigenvectors, it can be factorized as:
 $$ A = Q \Lambda Q^{-1} $$
 where $Q$ is the matrix of eigenvectors and $\Lambda$ is a diagonal matrix of [[spectral-theory-operators|eigenvalues]] $\lambda_i$.
-- **Spectral Theorem:** If $A$ is a real symmetric matrix, then $A$ is orthogonally diagonalizable. That is, $Q$ is an orthogonal matrix ($Q^T Q = I$), and eigenvalues are purely real. $A = Q \Lambda Q^T$.
+- **Spectral Theorem:** If $A$ is a real symmetric matrix, then $A$ is orthogonally diagonalizable. That is, $Q$ is an orthogonal matrix ($Q^T Q = I$), and [[spectral-theory-operators|eigenvalues]] are purely real. $A = Q \Lambda Q^T$.
 
 ## Singular Value Decomposition (SVD)
 SVD generalizes EVD to any rectangular matrix $A \in \mathbb{R}^{m \times n}$:
 $$ A = U \Sigma V^T $$
 - $U \in \mathbb{R}^{m \times m}$: Orthogonal matrix of **left singular vectors** (eigenvectors of $A A^T$).
 - $V \in \mathbb{R}^{n \times n}$: Orthogonal matrix of **right singular vectors** (eigenvectors of $A^T A$).
-- $\Sigma \in \mathbb{R}^{m \times n}$: Diagonal matrix of non-negative **singular values** $\sigma_i$ (square roots of the non-zero eigenvalues of $A^T A$ or $A A^T$).
+- $\Sigma \in \mathbb{R}^{m \times n}$: Diagonal matrix of non-negative **singular values** $\sigma_i$ (square roots of the non-zero [[spectral-theory-operators|eigenvalues]] of $A^T A$ or $A A^T$).
 
 ## Technical Comparison
 1. **Applicability:** EVD is strictly for diagonalizable square matrices. SVD exists for *every* matrix.

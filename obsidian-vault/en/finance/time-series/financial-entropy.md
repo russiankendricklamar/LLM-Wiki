@@ -10,9 +10,9 @@ slug: "financial-entropy"
 
 Traditional finance relies on **variance** to measure risk. However, variance only measures the magnitude of fluctuations, not their **structure** or **predictability**. Information Theory, specifically concepts like **Shannon [[shannon-entropy|Entropy]]** and **Lempel-Ziv complexity**, provides a way to quantify the "disorder" and "informational richness" of financial markets.
 
-## 1. Shannon Entropy as Predictability
+## 1. Shannon [[shannon-entropy|Entropy]] as Predictability
 
-For a discretized price return $X$, Shannon entropy $H(X) = -\sum p_i \log p_i$ measures the uncertainty. 
+For a discretized price return $X$, Shannon [[shannon-entropy|entropy]] $H(X) = -\sum p_i \log p_i$ measures the uncertainty. 
 - **Efficiency Connection**: According to the Efficient Market Hypothesis (EMH), returns should be maximum-entropy (random walk). 
 - **Anomalies**: Any drop in entropy indicates a gain in information or predictability, suggesting that the market is in a "non-efficient" regime where patterns can be exploited.
 

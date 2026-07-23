@@ -12,11 +12,11 @@ A **Complex [[manifold-learning|Manifold]]** is a [[manifold-learning|manifold]]
 
 ## 1. Almost Complex Structures
 
-Before making a manifold truly complex, we define an **Almost Complex Structure** $J$.
+Before making a [[manifold-learning|manifold]] truly complex, we define an **Almost Complex Structure** $J$.
 - $J$ is a tensor field of type $(1,1)$ (a linear map $T_p M \to T_p M$) such that **$J^2 = -I$**.
 - This $J$ acts as a geometric analog to the imaginary unit $i = \sqrt{-1}$, rotating tangent vectors by 90 degrees.
 
-An almost complex manifold $(M, J)$ is a true **Complex Manifold** if and only if $J$ is **integrable**. By the **Newlander-Nirenberg Theorem**, this is true if the **Nijenhuis Tensor** vanishes: $N_J(X, Y) = 0$.
+An almost complex [[manifold-learning|manifold]] $(M, J)$ is a true **Complex Manifold** if and only if $J$ is **integrable**. By the **Newlander-Nirenberg Theorem**, this is true if the **Nijenhuis Tensor** vanishes: $N_J(X, Y) = 0$.
 
 ## 2. Hermitian Metrics
 

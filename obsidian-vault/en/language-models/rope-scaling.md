@@ -29,7 +29,7 @@ where $d$ is the hidden dimension. This preserves high-frequency information (fo
 ### 3. YaRN (Yet another RoPE extensioN)
 YaRN is the current state-of-the-art for context extension (up to 128k+). It addresses two issues in NTK-aware scaling:
 1.  **Dimension Sensitivity**: It applies different scaling to different frequency bands. It uses a ramp function to interpolate between dimensions that need interpolation and those that can extrapolate.
-2.  **[[attention-mechanisms|Attention]] Logit Decay**: Scaling RoPE changes the distribution of the dot products in [[attention-mechanisms|attention]]. YaRN applies a temperature $T$ to the attention logits to restore the original distribution:
+2.  **[[attention-mechanisms|Attention]] Logit Decay**: Scaling RoPE changes the distribution of the dot products in [[attention-mechanisms|attention]]. YaRN applies a temperature $T$ to the [[attention-mechanisms|attention]] logits to restore the original distribution:
     $$\text{Attn}(Q, K) = \text{softmax}\left(\frac{QK^T}{T \sqrt{d_k}}\right)$$
 
 ## Comparison of Methods
@@ -57,7 +57,7 @@ YaRN is the current state-of-the-art for context extension (up to 128k+). It add
 
 Even with RoPE scaling, long context is limited by:
 - **Memory**: The KV-cache grows linearly with sequence length. Techniques like [[mla|Multi-Head Latent Attention (MLA)]] and **PagedAttention** are required.
-- **Compute**: Standard attention is $O(L^2)$. **FlashAttention-2** and **Ring Attention** (distributing the sequence across multiple GPUs) are necessary for 1M+ contexts.
+- **Compute**: Standard [[attention-mechanisms|attention]] is $O(L^2)$. **FlashAttention-2** and **Ring Attention** (distributing the sequence across multiple GPUs) are necessary for 1M+ contexts.
 - **Retrieval Accuracy**: The "Lost in the Middle" phenomenon shows that models often struggle to retrieve information from the middle of a very long prompt, regardless of whether the positional encoding works.
 
 ## Related Topics

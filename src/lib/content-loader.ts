@@ -33,6 +33,8 @@ export interface PageMetadata {
   courseType?: 'course';
   difficulty?: string;
   duration?: string;
+  notebookUrl?: string;
+  audioUrl?: string;
 }
 
 export interface CourseLesson {
@@ -156,6 +158,8 @@ export const getAllPages = (): PageContent[] => {
         courseType: isCourse ? 'course' : undefined,
         difficulty: data.difficulty,
         duration: data.duration,
+        notebookUrl: data.notebookUrl || data.notebook_url || undefined,
+        audioUrl: data.audioUrl || data.audio_url || undefined,
         author: data.author || undefined,
         reviewers: data.reviewers ? String(data.reviewers).split(',').map(s => s.trim()) : undefined,
       },
@@ -881,25 +885,56 @@ export const getGraphData = (lang: 'en' | 'ru') => {
 
   const idx = getLangIndex(lang);
   const visible = idx.pages.filter(p => !GRAPH_EXCLUDED_CATEGORIES.has(p.metadata.category));
-  const visibleSlugs = new Set(visible.map(p => p.metadata.slug));
 
-  const nodes = visible.map(page => ({
-    id: page.metadata.slug.replace(/^\//, ''),
-    name: page.metadata.title,
-    category: page.metadata.category,
-    val: page.metadata.category === 'Home' || page.metadata.category === 'Главная' ? 2 : 1,
-  }));
+  // Deduplicate pages by normalized title to eliminate duplicate nodes
+  const titleToCanonicalSlug = new Map<string, string>();
+  const canonicalNodesMap = new Map<string, any>();
 
+  visible.forEach(page => {
+    const rawId = page.metadata.slug.replace(/^\//, '');
+    const normTitle = page.metadata.title.trim().toLowerCase();
+
+    const existingId = titleToCanonicalSlug.get(normTitle);
+    if (!existingId) {
+      titleToCanonicalSlug.set(normTitle, rawId);
+      canonicalNodesMap.set(rawId, {
+        id: rawId,
+        name: page.metadata.title,
+        category: page.metadata.category,
+        section: page.metadata.section,
+        subsection: page.metadata.subsection,
+        val: page.metadata.category === 'Home' || page.metadata.category === 'Главная' ? 2 : 1,
+      });
+    }
+  });
+
+  const slugToCanonicalId = new Map<string, string>();
+  visible.forEach(page => {
+    const rawId = page.metadata.slug.replace(/^\//, '');
+    const normTitle = page.metadata.title.trim().toLowerCase();
+    const canonicalId = titleToCanonicalSlug.get(normTitle) || rawId;
+    slugToCanonicalId.set(page.metadata.slug, canonicalId);
+    slugToCanonicalId.set(rawId, canonicalId);
+  });
+
+  const nodes = Array.from(canonicalNodesMap.values());
+  const linkSet = new Set<string>();
   const links: { source: string; target: string }[] = [];
+
   for (const p of visible) {
-    const sourceSlug = p.metadata.slug;
-    const sourceId = sourceSlug.replace(/^\//, '');
-    const out = idx.outLinks.get(sourceSlug);
+    const sourceId = slugToCanonicalId.get(p.metadata.slug);
+    if (!sourceId) continue;
+    const out = idx.outLinks.get(p.metadata.slug);
     if (!out) continue;
     for (const targetSlug of out) {
-      if (!visibleSlugs.has(targetSlug)) continue;
-      const targetId = targetSlug.replace(/^\//, '');
-      if (targetId !== sourceId) links.push({ source: sourceId, target: targetId });
+      const targetId = slugToCanonicalId.get(targetSlug);
+      if (targetId && targetId !== sourceId) {
+        const linkKey = `${sourceId}->${targetId}`;
+        if (!linkSet.has(linkKey)) {
+          linkSet.add(linkKey);
+          links.push({ source: sourceId, target: targetId });
+        }
+      }
     }
   }
 

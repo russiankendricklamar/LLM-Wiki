@@ -8,7 +8,7 @@ slug: "quantization-ptq-information"
 
 # [[quantization]]: Information Loss in PTQ
 
-This article delves into the absolute frontiers of Quantization: Information Loss in PTQ, uniting multidisciplinary theorems to present an immersion-level formulation. We approach this subject with rigorous mathematically backed assertions.
+This article delves into the absolute frontiers of [[quantization]]: Information Loss in PTQ, uniting multidisciplinary theorems to present an immersion-level formulation. We approach this subject with rigorous mathematically backed assertions.
 
 ## Optimal Transport and Wasserstein Metrics
 
@@ -32,4 +32,4 @@ This provides a profound equivalence between thermodynamic dissipation and algor
 
 ## Conclusion
 
-By mapping Quantization: Information Loss in PTQ into these explicit geometric and topological frameworks, we uncover a unified theory. The convergence of these methodologies allows us to construct robust, theoretically sound mechanisms for future AI and physical systems.
+By mapping [[quantization]]: Information Loss in PTQ into these explicit geometric and topological frameworks, we uncover a unified theory. The convergence of these methodologies allows us to construct robust, theoretically sound mechanisms for future AI and physical systems.

@@ -22,7 +22,7 @@ where $\rho : G \to GL(\mathbb{R}^n)$ is a representation of the structure group
 
 ## Gauge Equivariant Convolution
 
-A generalized convolution on a manifold must be independent of the choice of frame. To achieve this, we use the exponential map $\exp_x : T_x\mathcal{M} \to \mathcal{M}$ and parallel transport $\Gamma_{x \leftarrow y}$ along geodesics.
+A generalized convolution on a [[manifold-learning|manifold]] must be independent of the choice of frame. To achieve this, we use the exponential map $\exp_x : T_x\mathcal{M} \to \mathcal{M}$ and parallel transport $\Gamma_{x \leftarrow y}$ along geodesics.
 
 The convolution of a feature field $f$ with a kernel $K$ at point $x$ is defined as:
 $$

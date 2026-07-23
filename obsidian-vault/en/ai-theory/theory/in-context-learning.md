@@ -55,9 +55,9 @@ This simple circuit enables the model to replay label patterns: seeing `A → B`
 
 ## In-Context Learning vs [[fine-tuning]]
 
-ICL and gradient-based fine-tuning represent complementary adaptation strategies with distinct tradeoffs:
+ICL and gradient-based [[fine-tuning]] represent complementary adaptation strategies with distinct tradeoffs:
 
-| Aspect | ICL | Fine-tuning |
+| Aspect | ICL | [[fine-tuning]] |
 |--------|-----|------------|
 | Gradient updates | None | Yes, all layers |
 | Sample efficiency | High (few examples) | Lower (needs 100s–1000s) |

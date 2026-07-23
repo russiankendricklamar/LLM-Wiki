@@ -36,7 +36,7 @@ $$
 A = \text{softmax}\!\left(\frac{(x W_Q)(x W_K)^\top}{\sqrt{d_k}}\right).
 $$
 
-**OV circuit** (what to write given attention pattern):
+**OV circuit** (what to write given [[attention-mechanisms|attention]] pattern):
 $$
 \text{output} = A \cdot (x W_V) W_O.
 $$
@@ -47,7 +47,7 @@ The OV circuit is a linear map from attended positions to output residual stream
 
 **Step 1: Task definition.** Define a clean/corrupted pair and a metric (logit difference between correct and incorrect tokens).
 
-**Step 2: Activation patching.** Identify which components (attention heads, [[transformer-architecture|MLP]] layers, token positions) matter.
+**Step 2: Activation patching.** Identify which components ([[attention-mechanisms|attention]] heads, [[transformer-architecture|MLP]] layers, token positions) matter.
 
 **Step 3: Path patching.** Identify which edges (connections between components) matter.
 

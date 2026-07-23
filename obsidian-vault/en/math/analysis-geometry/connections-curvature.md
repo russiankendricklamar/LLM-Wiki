@@ -20,7 +20,7 @@ The **Christoffel Symbols** $\Gamma^\nu_{\mu\lambda}$ represent the connection c
 
 ## 2. Holonomy: The Geometric Signature of Curvature
 
-If you parallel transport a vector $v$ along a closed loop $\gamma$ on a curved manifold, the resulting vector $v'$ will generally differ from $v$.
+If you parallel transport a vector $v$ along a closed loop $\gamma$ on a curved [[manifold-learning|manifold]], the resulting vector $v'$ will generally differ from $v$.
 - The linear transformation $v \to v'$ is an element of the **Holonomy Group** $Hol(\nabla)$.
 - For a flat space, the holonomy is trivial (the identity).
 - For a sphere $S^2$, the holonomy is the rotation group $SO(2)$.
@@ -45,7 +45,7 @@ Curvature can be split into two parts:
 
 ## 5. Geometric Flow: The Ricci Flow
 
-The **Ricci Flow** equation, $\frac{\partial g_{\mu\nu}}{\partial t} = -2 R_{\mu\nu}$, describes how a metric evolves to "smooth out" its curvature. This process was the key tool used by Grigori Perelman to prove the **Poincaré Conjecture**, treating the manifold like a heat-conducting body where curvature is the "temperature."
+The **Ricci Flow** equation, $\frac{\partial g_{\mu\nu}}{\partial t} = -2 R_{\mu\nu}$, describes how a metric evolves to "smooth out" its curvature. This process was the key tool used by Grigori Perelman to prove the **Poincaré Conjecture**, treating the [[manifold-learning|manifold]] like a heat-conducting body where curvature is the "temperature."
 
 ## Related Topics
 

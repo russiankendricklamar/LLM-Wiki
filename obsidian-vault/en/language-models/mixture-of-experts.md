@@ -44,7 +44,7 @@ MoE is not a new idea — Jacobs et al. introduced it in 1991 — but it became 
 
 ## Architecture
 
-In a transformer MoE, each standard FFN layer is replaced by an **MoE layer** consisting of:
+In a [[transformer-architecture|transformer]] MoE, each standard FFN layer is replaced by an **MoE layer** consisting of:
 
 1. **$N$ expert FFNs**: each expert is an independent two-layer [[transformer-architecture|MLP]] with the same structure as a standard FFN, but they are initialized differently and learn to specialize.
 2. **Router (gating network)**: a linear layer $W_g \in \mathbb{R}^{d \times N}$ followed by softmax that produces a probability distribution over experts for each token.
@@ -57,7 +57,7 @@ where $\text{TopK}(z, k)$ keeps the top-$k$ logits and sets the rest to $-\infty
 
 $$\text{MoE}(x) = \sum_{i \in \text{TopK}} g(x)_i \cdot \text{FFN}_i(x)$$
 
-Typically $k = 1$ (Switch Transformer) or $k = 2$ (GShard, Mixtral). With $k = 1$, routing is a hard selection and the output is simply the single selected expert's output.
+Typically $k = 1$ (Switch [[transformer-architecture|Transformer]]) or $k = 2$ (GShard, Mixtral). With $k = 1$, routing is a hard selection and the output is simply the single selected expert's output.
 
 ## Mathematical Framework
 

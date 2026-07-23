@@ -76,8 +76,8 @@ where $\rho$ is selected by minimizing the Frobenius norm of the estimation erro
 - **IID assumption**: MP law holds exactly for matrices with independent, identically distributed entries; real returns have serial correlations, so the threshold $\lambda_+$ is approximate.
 - **Bulk universality**: The bulk spectral statistics are universal — they do not depend on the specific distribution of matrix entries, only on the variance $\sigma^2$.
 - **Large-$N$ limit**: The cleaning is asymptotically valid; for $N < 50$ assets, exact finite-sample corrections should be applied.
-- **Factor model interpretation**: Eigenvalues above $\lambda_+$ correspond to market-wide or sector-level risk factors, often matching the Fama-French factor structure.
-- **No shrinkage of direction**: RMT cleaning modifies eigenvalues but preserves eigenvectors; this is optimal only when eigenvectors are estimated without error (rarely true).
+- **Factor model interpretation**: [[spectral-theory-operators|Eigenvalues]] above $\lambda_+$ correspond to market-wide or sector-level risk factors, often matching the Fama-French factor structure.
+- **No shrinkage of direction**: RMT cleaning modifies [[spectral-theory-operators|eigenvalues]] but preserves eigenvectors; this is optimal only when eigenvectors are estimated without error (rarely true).
 
 ## Python Implementation
 

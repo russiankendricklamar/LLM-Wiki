@@ -6,9 +6,9 @@ lang: "en"
 slug: "attention-linear-kernel"
 ---
 
-# [[attention-mechanisms|Attention]] Mechanisms: Linear Attention
+# [[attention-mechanisms|Attention]] Mechanisms: Linear [[attention-mechanisms|Attention]]
 
-This article delves into the absolute frontiers of Attention Mechanisms: Linear Attention, uniting multidisciplinary theorems to present an immersion-level formulation. We approach this subject with rigorous mathematically backed assertions.
+This article delves into the absolute frontiers of [[attention-mechanisms|Attention]] Mechanisms: Linear Attention, uniting multidisciplinary theorems to present an immersion-level formulation. We approach this subject with rigorous mathematically backed assertions.
 
 ## Architecture Mechanics: Attention and Dimensionality
 

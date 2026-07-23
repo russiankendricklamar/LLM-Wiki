@@ -63,7 +63,7 @@ The "king" — the [[central-limit-theorem|CLT]] makes it the limit of every wel
 - **Mean / variance.** $\mu$, $\sigma^2$.
 - **MGF.** $\exp(\mu t + \tfrac{1}{2}\sigma^2 t^2)$.
 - **Exponential family.** $\eta = (\mu/\sigma^2,\, -1/(2\sigma^2))$, $T(x)=(x, x^2)$.
-- **MaxEnt.** Max entropy on $\mathbb{R}$ given mean and variance.
+- **MaxEnt.** Max [[shannon-entropy|entropy]] on $\mathbb{R}$ given mean and variance.
 - **Stable.** Sums of Gaussians are Gaussian; the $\alpha$-stable family with $\alpha=2$.
 
 ### Exponential($\lambda$)
@@ -74,7 +74,7 @@ Inter-arrival time of a Poisson process.
 - **Mean / variance.** $1/\lambda$, $1/\lambda^2$.
 - **MGF.** $\lambda/(\lambda - t)$ for $t < \lambda$.
 - **Memorylessness.** $P(X > s+t \mid X > s) = P(X > t)$ — the only continuous distribution with this property.
-- **MaxEnt.** Max entropy on $[0,\infty)$ with fixed mean.
+- **MaxEnt.** Max [[shannon-entropy|entropy]] on $[0,\infty)$ with fixed mean.
 
 ### Gamma($\alpha, \beta$)
 

@@ -8,7 +8,7 @@ slug: hjm-framework
 
 # HJM (Heath-Jarrow-Morton) Framework
 
-The Heath-Jarrow-Morton (HJM) framework models the evolution of the entire forward rate curve over time, rather than a single short rate, making it an infinite-dimensional SDE.
+The Heath-Jarrow-Morton (HJM) framework models the evolution of the entire forward rate curve over time, rather than a single short rate, making it an infinite-dimensional [[stochastic-differential-equations|SDE]].
 
 ## Forward Rate Dynamics
 

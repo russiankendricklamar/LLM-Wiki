@@ -184,7 +184,7 @@ for name, series in [("random_walk", random_walk), ("trending", trending), ("per
 - **Incompressible strings are "random."** Martin-Löf randomness: $x$ is ML-random $\iff$ $K(x^n) \geq n - O(1)$.
 - **Kolmogorov-Levin theorem:** $K(x, y) = K(x) + K(y|x) + O(\log K(x))$ — the joint complexity equals the sum of marginal and conditional.
 - **Coding theorem:** $-\log \mathbf{m}(x) = K(x) + O(1)$, relating algorithmic probability to complexity.
-- **Shannon-Kolmogorov duality:** $H(X) = E[K(x)]$ for computable $P$ (up to constants) — Shannon entropy is the expected Kolmogorov complexity.
+- **Shannon-Kolmogorov duality:** $H(X) = E[K(x)]$ for computable $P$ (up to constants) — Shannon [[shannon-entropy|entropy]] is the expected Kolmogorov complexity.
 - **NCD works in practice:** NCD using gzip successfully clusters languages, species (from DNA), music styles, and market regimes.
 
 ## Limitations
@@ -195,7 +195,7 @@ for name, series in [("random_walk", random_walk), ("trending", trending), ("per
 
 **Compressor-dependence.** NCD results depend on which compressor is used. Different compressors capture different structure (dictionary compression vs. context modelling).
 
-**No finite-sample guarantees.** Unlike Shannon entropy, there is no law of large numbers for $K$ — it is defined on individual strings.
+**No finite-sample guarantees.** Unlike Shannon [[shannon-entropy|entropy]], there is no law of large numbers for $K$ — it is defined on individual strings.
 
 ## Applications
 

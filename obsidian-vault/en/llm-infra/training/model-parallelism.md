@@ -22,7 +22,7 @@ Tensor Parallelism (also called intra-layer parallelism) splits individual weigh
 
 Pipeline Parallelism (inter-layer parallelism) splits the model by layers.
 
-- **The Idea**: If a model has 80 layers, GPU 1 handles layers 1-20, GPU 2 handles 21-40, and so on.
+- **The Idea**: If a model has 80 layers, [[inference-serving|GPU]] 1 handles layers 1-20, [[inference-serving|GPU]] 2 handles 21-40, and so on.
 - **The Problem: Pipeline Bubbles**: While GPU 4 is processing the 80th layer, GPUs 1, 2, and 3 are sitting idle, waiting for the next batch. This idleness is called a "bubble."
 - **The Solution: Micro-batching**: Splitting a batch into tiny micro-batches and "pipelining" them through the GPUs so that all cards are busy most of the time.
 

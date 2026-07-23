@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Quote, Github, Check, Copy, FileCode, Share2 } from 'lucide-react';
+import { Quote, Github, Check, Copy, FileCode, Share2, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ResearchToolboxProps {
@@ -7,9 +7,10 @@ interface ResearchToolboxProps {
   slug: string;
   author?: string;
   lang: 'en' | 'ru';
+  notebookUrl?: string;
 }
 
-export const ResearchToolbox: React.FC<ResearchToolboxProps> = ({ title, slug, author, lang }) => {
+export const ResearchToolbox: React.FC<ResearchToolboxProps> = ({ title, slug, author, lang, notebookUrl }) => {
   const [copied, setCopied] = useState<'bib' | 'link' | null>(null);
 
   const getBibTeX = () => {
@@ -73,6 +74,18 @@ export const ResearchToolbox: React.FC<ResearchToolboxProps> = ({ title, slug, a
             {copied === 'link' ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Share2 className="w-3.5 h-3.5" />}
             {lang === 'en' ? 'Share Link' : 'Поделиться'}
           </button>
+
+          {notebookUrl && (
+            <a
+              href={notebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-indigo-50 dark:bg-indigo-950/30 px-3 py-2 text-xs font-medium text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-colors border border-indigo-200 dark:border-indigo-800"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              {lang === 'en' ? 'NotebookLM Insights' : 'Инсайты NotebookLM'}
+            </a>
+          )}
         </div>
       </div>
 

@@ -11,6 +11,7 @@ import { Backlinks } from './components/Backlinks';
 import { RelatedArticles } from './components/RelatedArticles';
 import { CourseBadge } from './components/CourseBadge';
 import { ResearchToolbox } from './components/ResearchToolbox';
+import { NotebookLMPlayer } from './components/NotebookLMPlayer';
 import { TableOfContents } from './components/TableOfContents';
 import { getAllPages } from './lib/content-loader';
 import { cn } from './lib/utils';
@@ -53,9 +54,11 @@ interface PageContentProps {
   growth?: 'seedling' | 'budding' | 'evergreen';
   author?: string;
   reviewers?: string[];
+  notebookUrl?: string;
+  audioUrl?: string;
 }
 
-const PageContent = ({ category, title, content, lang, slug, growth, author, reviewers }: PageContentProps) => {
+const PageContent = ({ category, title, content, lang, slug, growth, author, reviewers, notebookUrl, audioUrl }: PageContentProps) => {
   const isGraphPage = slug === '/knowledge-graph';
   const growthInfo = growth ? GROWTH_LABEL[growth] : null;
 
@@ -130,6 +133,14 @@ const PageContent = ({ category, title, content, lang, slug, growth, author, rev
         <div className="flex flex-col xl:flex-row gap-12 lg:gap-16">
           <div className="flex-1 min-w-0">
             <CourseBadge slug={slug} lang={lang} />
+            {audioUrl && (
+              <NotebookLMPlayer 
+                audioUrl={audioUrl} 
+                notebookUrl={notebookUrl} 
+                lang={lang} 
+                title={title} 
+              />
+            )}
             {isGraphPage ? (
               <div className="w-full min-h-[600px] md:min-h-[800px] relative bg-zinc-50/50 dark:bg-zinc-900/10 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden mt-4">
                 <KnowledgeGraph lang={lang} />
@@ -140,7 +151,13 @@ const PageContent = ({ category, title, content, lang, slug, growth, author, rev
                 <Backlinks slug={slug} lang={lang} />
                 <RelatedArticles slug={slug} lang={lang} />
                 <ArticleNav slug={slug} category={category} lang={lang} />
-                <ResearchToolbox title={title} slug={slug} author={author} lang={lang} />
+                <ResearchToolbox 
+                  title={title} 
+                  slug={slug} 
+                  author={author} 
+                  lang={lang} 
+                  notebookUrl={notebookUrl}
+                />
               </>
             )}
           </div>
@@ -184,6 +201,8 @@ const AnimatedRoutes = ({ lang }: { lang: 'en' | 'ru' }) => {
                 lang={lang}
                 slug={page.metadata.slug}
                 growth={page.metadata.growth}
+                notebookUrl={page.metadata.notebookUrl}
+                audioUrl={page.metadata.audioUrl}
               />
             }
           />
@@ -205,10 +224,10 @@ const RouterShell = ({ lang, setLang }: { lang: 'en' | 'ru'; setLang: (lang: 'en
   // own dedicated layout — no Knowledge Base sidebar.
   const isProjectsArea = location.pathname.startsWith('/projects');
   const isCoursesIndex = location.pathname === '/courses';
-  const showSidebar = !isHome && !isAbout && !isProjectsArea && !isCoursesIndex;
+  const showSidebar = !isHome && !isAbout && !isProjectsArea && !isCoursesIndex && !isGraph;
 
   return (
-    <PageLayout lang={lang} setLang={setLang} fullBleed={isHome} showSidebar={showSidebar}>
+    <PageLayout lang={lang} setLang={setLang} fullBleed={isHome || isGraph} showSidebar={showSidebar}>
       <AnimatedRoutes lang={lang} />
     </PageLayout>
   );

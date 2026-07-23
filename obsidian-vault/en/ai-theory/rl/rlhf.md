@@ -73,7 +73,7 @@ $$\pi^*(y|x) = \frac{1}{Z(x)} \pi_\text{ref}(y|x) e^{\beta r^*(x,y)}$$
 
 where $Z(x)$ is a partition function. [[dpo]] minimizes the log-likelihood of choosing the wrong response:
 
-$$\mathcal{L}_\text{DPO} = -\log \sigma\left(\beta \log \frac{\pi_\theta(y_w|x)}{\pi_\text{ref}(y_w|x)} - \beta \log \frac{\pi_\theta(y_l|x)}{\pi_\text{ref}(y_l|x)}\right)$$
+$$\mathcal{L}_\text{[[dpo]]} = -\log \sigma\left(\beta \log \frac{\pi_\theta(y_w|x)}{\pi_\text{ref}(y_w|x)} - \beta \log \frac{\pi_\theta(y_l|x)}{\pi_\text{ref}(y_l|x)}\right)$$
 
 **Advantages:** no reward model (fewer parameters), no PPO (simpler, more stable), single training phase.
 

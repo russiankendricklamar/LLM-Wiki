@@ -8,7 +8,7 @@ slug: "ergodic-theory-sgd"
 
 # Ergodic Theory of Stochastic [[convex-optimization|Gradient Descent]]
 
-This article delves into the absolute frontiers of Ergodic Theory of Stochastic Gradient Descent, uniting multidisciplinary theorems to present an immersion-level formulation. We approach this subject with rigorous mathematically backed assertions.
+This article delves into the absolute frontiers of Ergodic Theory of Stochastic [[convex-optimization|Gradient Descent]], uniting multidisciplinary theorems to present an immersion-level formulation. We approach this subject with rigorous mathematically backed assertions.
 
 ## Stochastic Dynamics and Statistical Mechanics
 
@@ -24,11 +24,11 @@ This provides a profound equivalence between thermodynamic dissipation and algor
 
 The foundation of this domain rests upon the geometric properties of the underlying [[manifold-learning|manifold]]. We define the Riemannian metric tensor, often derived from the Fisher Information in probability spaces:
 $$ g_{ij}(\theta) = \mathbb{E}_{x \sim p(x|\theta)}\left[ \frac{\partial \log p(x|\theta)}{\partial \theta^i} \frac{\partial \log p(x|\theta)}{\partial \theta^j} \right] $$
-This metric allows us to compute distances along the manifold. The natural gradient descent follows the steepest descent in this non-Euclidean space, updating parameters via:
+This metric allows us to compute distances along the [[manifold-learning|manifold]]. The natural [[convex-optimization|gradient descent]] follows the steepest descent in this non-Euclidean space, updating parameters via:
 $$ \theta_{t+1} = \theta_t - \eta G^{-1}(\theta_t) \nabla L(\theta_t) $$
 Furthermore, using Amari's $\alpha$-connections, we define the affine connection $\nabla^{(\alpha)}$ with Christoffel symbols:
 $$ \Gamma^{(\alpha)}_{ij,k} = \mathbb{E}\left[ \left( \partial_i \partial_j \log p + \frac{1-\alpha}{2} \partial_i \log p \partial_j \log p \right) \partial_k \log p \right] $$
-This rigorous formulation reveals how optimization pathways are inherently bounded by the curvature of the statistical manifold.
+This rigorous formulation reveals how optimization pathways are inherently bounded by the curvature of the statistical [[manifold-learning|manifold]].
 
 ## Conclusion
 

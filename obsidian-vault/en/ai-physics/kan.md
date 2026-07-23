@@ -130,7 +130,7 @@ results2 = model.train(dataset, opt="LBFGS", steps=100)
 ## Key Results & Properties
 
 - **Scientific discovery benchmark.** On Feynman symbolic regression benchmarks, KANs recover known physical formulas in several cases where MLPs plateau.
-- **Representation efficiency.** For smooth scientific functions, KANs with $O(n)$ parameters per layer can match or exceed MLP accuracy requiring $O(n^2)$.
+- **Representation efficiency.** For smooth scientific functions, KANs with $O(n)$ parameters per layer can match or exceed [[transformer-architecture|MLP]] accuracy requiring $O(n^2)$.
 - **Compositional structure.** KANs naturally represent functions that decompose as compositions of simpler functions — a common pattern in physical laws.
 - **Theorem:** A KAN of shape $[n, 2n+1, 1]$ can represent any continuous function on $[0,1]^n$ (direct KAT realisation).
 - **Extrapolation:** B-spline activations can be extended outside the training domain by the spline's polynomial continuation; empirically better extrapolation than ReLU MLPs.
@@ -145,7 +145,7 @@ results2 = model.train(dataset, opt="LBFGS", steps=100)
 
 **Symbolic regression fragility.** Automatic symbolic assignment depends on activation plots that can be noisy for complex functions. Human inspection often required.
 
-**Still maturing.** The architecture was published in 2024; the software ecosystem is less mature than PyTorch-native MLP stacks. Many best practices are still being established.
+**Still maturing.** The architecture was published in 2024; the software ecosystem is less mature than PyTorch-native [[transformer-architecture|MLP]] stacks. Many best practices are still being established.
 
 ## Applications
 

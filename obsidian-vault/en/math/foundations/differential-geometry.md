@@ -87,7 +87,7 @@ $$\exp_p: T_p M \to M, \quad \exp_p(v) = \gamma_v(1)$$
 
 where $\gamma_v$ is the unique geodesic starting at $p$ with initial velocity $v$. For small enough $v$, $\exp_p$ is a diffeomorphism onto a neighborhood of $p$, called a **normal neighborhood**.
 
-A manifold is **geodesically complete** if every geodesic extends indefinitely: $\exp_p$ is defined on all of $T_p M$ for all $p$. The **Hopf–Rinow theorem** states that for a Riemannian manifold, geodesic completeness is equivalent to metric completeness and compactness implies completeness.
+A [[manifold-learning|manifold]] is **geodesically complete** if every geodesic extends indefinitely: $\exp_p$ is defined on all of $T_p M$ for all $p$. The **Hopf–Rinow theorem** states that for a Riemannian [[manifold-learning|manifold]], geodesic completeness is equivalent to metric completeness and compactness implies completeness.
 
 ## Curvature and the Riemann Tensor
 

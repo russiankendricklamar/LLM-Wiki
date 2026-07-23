@@ -43,7 +43,11 @@ When performing research tasks:
 2. **Draft**: Create a new file in `research/` using the template.
 3. **Link**: Connect the research to the "core" knowledge (ai-theory, finance, etc.).
 4. **Index**: Run indexing scripts.
-5. **Summarize**: If processing a PDF from `public/research/`, create a corresponding `.md` file in `research/` with a comprehensive summary.
+5. **NotebookLM Integration**:
+    - Run `python3 prepare_notebook_sources.py` to aggregate content for grounding.
+    - Upload to NotebookLM to generate "Audio Overviews" or deep-dive insights.
+    - Link back using `audio_url` and `notebook_url` in frontmatter.
+6. **Summarize**: If processing a PDF from `public/research/`, create a corresponding `.md` file in `research/` with a comprehensive summary.
 
 ## 5. Directory Mapping
 - `/src`: Frontend code (Vite + React).

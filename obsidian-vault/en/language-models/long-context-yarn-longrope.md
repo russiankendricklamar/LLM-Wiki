@@ -12,7 +12,7 @@ This article delves into the absolute frontiers of Long Context: YaRN and LongRo
 
 ## Architecture Mechanics: [[attention-mechanisms|Attention]] and Dimensionality
 
-In modern sequential models, the core interaction is defined by the multi-head attention mechanism. Given queries $Q$, keys $K$, and values $V$ in $\mathbb{R}^{N \times d}$, the attention kernel is:
+In modern sequential models, the core interaction is defined by the multi-head [[attention-mechanisms|attention]] mechanism. Given queries $Q$, keys $K$, and values $V$ in $\mathbb{R}^{N \times d}$, the [[attention-mechanisms|attention]] kernel is:
 $$ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V $$
 To inject positional information preserving relative distances, we apply Rotary Position Embeddings (RoPE). The transformation rotates feature pairs:
 $$ f_q(x_m, m) = (W_q x_m) e^{im\theta}, \quad f_k(x_n, n) = (W_k x_n) e^{in\theta} $$
@@ -24,11 +24,11 @@ This formulation underpins the length extrapolation capabilities and KV-cache co
 
 The foundation of this domain rests upon the geometric properties of the underlying [[manifold-learning|manifold]]. We define the Riemannian metric tensor, often derived from the Fisher Information in probability spaces:
 $$ g_{ij}(\theta) = \mathbb{E}_{x \sim p(x|\theta)}\left[ \frac{\partial \log p(x|\theta)}{\partial \theta^i} \frac{\partial \log p(x|\theta)}{\partial \theta^j} \right] $$
-This metric allows us to compute distances along the manifold. The natural [[convex-optimization|gradient descent]] follows the steepest descent in this non-Euclidean space, updating parameters via:
+This metric allows us to compute distances along the [[manifold-learning|manifold]]. The natural [[convex-optimization|gradient descent]] follows the steepest descent in this non-Euclidean space, updating parameters via:
 $$ \theta_{t+1} = \theta_t - \eta G^{-1}(\theta_t) \nabla L(\theta_t) $$
 Furthermore, using Amari's $\alpha$-connections, we define the affine connection $\nabla^{(\alpha)}$ with Christoffel symbols:
 $$ \Gamma^{(\alpha)}_{ij,k} = \mathbb{E}\left[ \left( \partial_i \partial_j \log p + \frac{1-\alpha}{2} \partial_i \log p \partial_j \log p \right) \partial_k \log p \right] $$
-This rigorous formulation reveals how optimization pathways are inherently bounded by the curvature of the statistical manifold.
+This rigorous formulation reveals how optimization pathways are inherently bounded by the curvature of the statistical [[manifold-learning|manifold]].
 
 ## Conclusion
 

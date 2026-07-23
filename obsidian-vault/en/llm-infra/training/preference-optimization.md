@@ -23,7 +23,7 @@ Humans don't perceive absolute values; we perceive changes relative to a referen
 
 ## 2. IPO: Identity Preference Optimization
 
-IPO (Azar et al., 2023) was designed to solve the **overfitting problem** in DPO. DPO can drive the log-likelihood of preferred completions to infinity, causing the model to collapse and lose its creative diversity.
+IPO (Azar et al., 2023) was designed to solve the **overfitting problem** in [[dpo]]. [[dpo]] can drive the log-likelihood of preferred completions to infinity, causing the model to collapse and lose its creative diversity.
 
 ### The Key Idea
 IPO adds a regularization term that forces the difference in log-probabilities between chosen and rejected responses to stay close to a target value, rather than just maximizing it indefinitely.

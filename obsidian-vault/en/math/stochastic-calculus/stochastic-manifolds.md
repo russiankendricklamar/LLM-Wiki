@@ -24,9 +24,9 @@ On manifolds, the **Stratonovich integral** is usually preferred over the Itô i
 
 An [[stochastic-differential-equations|SDE]] on a [[manifold-learning|manifold]] is typically defined using a family of vector fields $\{A_1, \dots, A_k\}$ and is written in Stratonovich form:
 $$dX_t = A_0(X_t) dt + \sum_{i=1}^k A_i(X_t) \circ dW^i_t$$
-The solution $X_t$ is a process that stays on the manifold $M$ for all time.
+The solution $X_t$ is a process that stays on the [[manifold-learning|manifold]] $M$ for all time.
 
-## Brownian Motion on a Manifold
+## Brownian Motion on a [[manifold-learning|Manifold]]
 
 Brownian motion on a Riemannian manifold $(M, g)$ is the Markov process whose generator is **half the Laplace-Beltrami operator**:
 $$\mathcal{G} = \frac{1}{2} \Delta_M$$

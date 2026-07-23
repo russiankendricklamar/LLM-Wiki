@@ -34,7 +34,7 @@ Where:
 
 ## Comparison: DPO vs. [[rlhf]]
 
-| Feature | RLHF (PPO) | DPO |
+| Feature | [[rlhf]] (PPO) | DPO |
 |---|---|---|
 | **Reward Model** | Required (Separate training) | Not required |
 | **Complexity** | High (4 models in memory: Policy, Ref, Reward, Value) | Low (2 models: Policy, Ref) |

@@ -64,7 +64,7 @@ $$
 \det(\hat{H}) = \exp(-\zeta_H'(0))
 $$
 
-This technique, borrowed from QFT, stabilizes the computation of risk measures when the eigenvalue spectrum of the covariance matrix contains near-zero eigenvalues (ill-conditioned matrices), connecting directly to RMT cleaning methods.
+This technique, borrowed from QFT, stabilizes the computation of risk measures when the eigenvalue spectrum of the covariance matrix contains near-zero [[spectral-theory-operators|eigenvalues]] (ill-conditioned matrices), connecting directly to RMT cleaning methods.
 
 ### Riemann-Siegel Z-Function
 
@@ -87,7 +87,7 @@ $$
 This same distribution governs eigenvalue spacings in:
 1. Energy levels of heavy atomic nuclei (Wigner)
 2. Large random correlation matrices (Marchenko-Pastur edges)
-3. Eigenvalues of financial correlation matrices above the noise floor
+3. [[spectral-theory-operators|Eigenvalues]] of financial correlation matrices above the noise floor
 
 The **level repulsion** — zeros avoid clustering — translates financially to: large market factors avoid collapsing into a single eigenvalue, providing natural diversification in the eigenbasis.
 

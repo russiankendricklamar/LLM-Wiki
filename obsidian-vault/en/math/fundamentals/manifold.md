@@ -8,11 +8,11 @@ slug: "manifold"
 
 # [[manifold-learning|Manifold]]: The Geometry of Data and Spacetime
 
-A [[manifold-learning|manifold]] is a topological space that locally resembles Euclidean space near each point. It is the fundamental object of study in differential geometry and general relativity. In modern AI, it provides the formal language for the **Manifold Hypothesis**, which explains how neural networks can make sense of high-dimensional "big data."
+A [[manifold-learning|manifold]] is a topological space that locally resembles Euclidean space near each point. It is the fundamental object of study in differential geometry and general relativity. In modern AI, it provides the formal language for the **[[manifold-learning|Manifold]] Hypothesis**, which explains how neural networks can make sense of high-dimensional "big data."
 
 ## 1. The Intuition: Atlas and Charts
 
-A manifold $M$ is a global shape that is too complex to describe with a single coordinate system. Instead, we use an **Atlas**:
+A [[manifold-learning|manifold]] $M$ is a global shape that is too complex to describe with a single coordinate system. Instead, we use an **Atlas**:
 - **Charts**: Small local patches that can be mapped to a flat plane $\mathbb{R}^n$.
 - **Transition Maps**: Functions that tell you how to move from one map to another. If these maps are differentiable, we have a **Differentiable Manifold**.
 

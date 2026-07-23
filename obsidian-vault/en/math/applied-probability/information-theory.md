@@ -26,13 +26,13 @@ $$D_{\text{KL}}(P \| Q) = \sum_x p(x) \log \frac{p(x)}{q(x)}$$
 
 ## Fundamental Theorems
 
-1. **Source Coding Theorem:** Entropy $H(X)$ is the absolute limit for lossless data compression.
+1. **Source Coding Theorem:** [[shannon-entropy|Entropy]] $H(X)$ is the absolute limit for lossless data compression.
 2. **Channel Capacity Theorem:** For any transmission rate $R < C$ (where $C = \max I(X;Y)$), there exists a coding scheme with vanishing error probability.
 3. **Data Processing Inequality:** $I(X;Z) \leq I(X;Y)$ for a Markov chain $X \to Y \to Z$. Information can only be lost or preserved during processing, never created.
 
 ## Applications in AI
 
-- **Cross-Entropy Loss:** Used in classification tasks to minimize the divergence between ground truth and model predictions.
+- **Cross-[[shannon-entropy|Entropy]] Loss:** Used in classification tasks to minimize the divergence between ground truth and model predictions.
 - **ELBO (Variational Inference):** Using KL-divergence to approximate complex posterior distributions.
 - **Information Bottleneck:** A framework for understanding deep learning as a trade-off between compression and predictive power.
 

@@ -101,7 +101,7 @@ Facebook AI Similarity Search библиотека:
 - **IndexFlatL2**: точный brute-force; базовый.
 - **IndexIVFFlat**: IVF + точное расстояние в кластерах; $10$–$100\times$ ускорение, настраиваемый recall через `nprobe`.
 - **IndexIVFPQ**: IVF + product quantization; миллиардные масштабы, [[inference-serving|GPU]] ускорение.
-- **GPU поддержка**: batch query в $10$–$100\times$ раз быстрее чем CPU.
+- **[[inference-serving|GPU]] поддержка**: batch query в $10$–$100\times$ раз быстрее чем CPU.
 
 Типичная миллиардная конфигурация: 100k кластеров, $C=100$ проб, PQ с $M=96, K=256$. Latency запроса: 10–50ms; RAM на вектор: 1 байт.
 
@@ -118,7 +118,7 @@ Facebook AI Similarity Search библиотека:
 
 ## Production системы
 
-| Система | Хранение | GPU | Фильтры | Масштаб |
+| Система | Хранение | [[inference-serving|GPU]] | Фильтры | Масштаб |
 |---------|----------|-----|---------|---------|
 | **Pinecone** | Managed | ✓ | ✓ | 100B+ векторов |
 | **Qdrant** | Self-hosted | ✓ | ✓✓ | 100M–1B |

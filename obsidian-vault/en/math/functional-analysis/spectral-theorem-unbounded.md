@@ -50,7 +50,7 @@ This is how we define the matrix exponential $e^{itA}$ for differential operator
     {"lambda": 4, "discrete": 0, "continuous": 0.1}
   ],
   "lines": [
-    {"dataKey": "discrete", "stroke": "#ef4444", "name": "Discrete Eigenvalues (Matrix)"},
+    {"dataKey": "discrete", "stroke": "#ef4444", "name": "Discrete [[spectral-theory-operators|Eigenvalues]] (Matrix)"},
     {"dataKey": "continuous", "stroke": "#3b82f6", "name": "Continuous Spectrum (Operator)"}
   ]
 }

@@ -12,12 +12,12 @@ The [[bayesian-black-litterman|Black-Litterman]] model revolutionized portfolio 
 
 **[[shannon-entropy|Entropy]] Pooling**, introduced by Attilio Meucci (2008), is a profound generalization that solves these limitations using Information Theory. It allows quantitative funds to process *any* distribution (fat tails, skewness) and *any* type of view (e.g., "The 99% VaR of sector A will not exceed 5%").
 
-## The Core Concept: Minimum Relative Entropy
+## The Core Concept: Minimum Relative [[shannon-entropy|Entropy]]
 
 Imagine you have a highly complex, non-normal joint distribution of 10,000 assets. This is your **Prior**. It is usually represented non-parametrically as a massive matrix of Monte Carlo scenarios, with each scenario having an initial probability (weight) $p_i$.
 
 Now, a proprietary Alpha model generates a "View" (e.g., "The correlation between Tech and Oil will be zero").
-The goal of Entropy Pooling is to find a new set of probabilities (the **Posterior** $q_i$) for those scenarios such that:
+The goal of [[shannon-entropy|Entropy]] Pooling is to find a new set of probabilities (the **Posterior** $q_i$) for those scenarios such that:
 1.  The new probabilities $q_i$ exactly satisfy the Alpha model's views.
 2.  The new probabilities are "as close as possible" to the prior $p_i$.
 

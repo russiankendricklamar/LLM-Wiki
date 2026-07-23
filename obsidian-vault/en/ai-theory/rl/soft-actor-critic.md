@@ -13,7 +13,7 @@ growth: "seedling"
 
 ## Maximum [[shannon-entropy|Entropy]] RL
 
-Classical RL maximises $\mathbb{E}[\sum_t \gamma^t r_t]$. Maximum [[shannon-entropy|entropy]] RL augments with entropy:
+Classical RL maximises $\mathbb{E}[\sum_t \gamma^t r_t]$. Maximum [[shannon-entropy|entropy]] RL augments with [[shannon-entropy|entropy]]:
 
 $$
 J(\pi) = \mathbb{E}_\pi\left[\sum_{t=0}^\infty \gamma^t \left(r(s_t, a_t) + \alpha \,\mathcal{H}(\pi(\cdot \mid s_t))\right)\right],
@@ -21,7 +21,7 @@ $$
 
 where $\mathcal{H}(\pi(\cdot|s)) = -\mathbb{E}_{a\sim\pi}[\log\pi(a|s)]$ and $\alpha > 0$ is the temperature.
 
-A high-entropy policy explores without explicit $\epsilon$-greedy, avoids premature convergence, and learns multiple near-optimal behaviours simultaneously.
+A high-[[shannon-entropy|entropy]] policy explores without explicit $\epsilon$-greedy, avoids premature convergence, and learns multiple near-optimal behaviours simultaneously.
 
 ## Soft Bellman Equations
 

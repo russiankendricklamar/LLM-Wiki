@@ -12,7 +12,7 @@ The Stochastic Maximum Principle (SMP) extends Pontryagin's maximum principle to
 
 ## Hamiltonian and Adjoint Equations
 
-Consider the controlled SDE:
+Consider the controlled [[stochastic-differential-equations|SDE]]:
 $$ dX_t = b(t, X_t, u_t) dt + \sigma(t, X_t, u_t) dW_t $$
 with cost functional $J(u) = \mathbb{E}\left[ \int_0^T f(t, X_t, u_t) dt + g(X_T) \right]$.
 

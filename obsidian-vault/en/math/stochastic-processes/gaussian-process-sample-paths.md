@@ -38,14 +38,14 @@ for constants $C > 0$ and $\alpha > 0$, then there exists a continuous version o
 
 Kolmogorov's criterion is sufficient but not always tight. **Dudley's theorem** provides a sharp, metric-based characterization using **metric [[shannon-entropy|entropy]]**.
 
-**Definition** — The **metric entropy** is $N(T, d, \varepsilon) = $ minimum number of $d$-balls of radius $\varepsilon$ needed to cover $T$.
+**Definition** — The **metric [[shannon-entropy|entropy]]** is $N(T, d, \varepsilon) = $ minimum number of $d$-balls of radius $\varepsilon$ needed to cover $T$.
 
 **Theorem (Dudley, 1967)** — Let $(X_t)_{t \in T}$ be a centered Gaussian process with canonical metric $d(s,t) = \sqrt{E|X_s-X_t|^2}$. Then
 $$E\left[\sup_{t \in T} X_t\right] \leq C \int_0^\infty \sqrt{\log N(T, d, \varepsilon)}\, d\varepsilon.$$
 
 Conversely, this bound is sharp: the right-hand side captures the supremum asymptotics up to constants.
 
-**Interpretation**: High metric entropy (many points spread far apart in $d$-metric) requires large supremum. Processes on "intrinsically low-dimensional" spaces have small entropy and thus controlled suprema.
+**Interpretation**: High metric [[shannon-entropy|entropy]] (many points spread far apart in $d$-metric) requires large supremum. Processes on "intrinsically low-dimensional" spaces have small entropy and thus controlled suprema.
 
 **Corollary** — If $\int_0^\infty \sqrt{\log N(T, d, \varepsilon)}\, d\varepsilon < \infty$, then with probability 1, $t \mapsto X_t$ has a continuous version (after modifying on a null set).
 

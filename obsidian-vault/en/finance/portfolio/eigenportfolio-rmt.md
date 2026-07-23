@@ -53,7 +53,7 @@ where $\sigma^2$ is the variance of the off-diagonal correlations. [[spectral-th
 
 ## Denoised Correlation Matrix
 
-Once the signal eigenvalues and their vectors are identified, a **denoised** correlation matrix is reconstructed:
+Once the signal [[spectral-theory-operators|eigenvalues]] and their vectors are identified, a **denoised** correlation matrix is reconstructed:
 
 $$
 \tilde{C} = \sum_{i: \lambda_i > \lambda_+} \lambda_i v_i v_i^T + \hat{\lambda}_{\text{noise}} \sum_{i: \lambda_i \leq \lambda_+} v_i v_i^T
@@ -87,7 +87,7 @@ def get_signal_eigenportfolios(corr_matrix: np.ndarray, T: int):
     q = T / N
     lambda_plus = get_marchenko_pastur_upper(q)
 
-    eigenvalues, eigenvectors = np.linalg.eigh(corr_matrix)  # ascending order
+    [[spectral-theory-operators|eigenvalues]], eigenvectors = np.linalg.eigh(corr_matrix)  # ascending order
 
     # Identify signal eigenvalues
     signal_mask = eigenvalues > lambda_plus

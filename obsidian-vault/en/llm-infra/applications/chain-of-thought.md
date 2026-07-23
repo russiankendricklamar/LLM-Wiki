@@ -203,7 +203,7 @@ CoT pushes a [[transformer-architecture|transformer]] to use more inference-time
 - **[[cantor-diagonal|Cantor's diagonal argument]]** is the prototype of every "you can't enumerate all of these from inside" result; the same shape proves Turing's halting problem and Chaitin's incompleteness.
 - **[[kolmogorov-complexity|Kolmogorov complexity]]** is the algorithmic version: most binary strings have no description shorter than themselves, so no compression — no matter how clever the reasoning chain — can recover them. CoT cannot magic up information that was never in the prompt or weights.
 
-Empirically, [[mechanistic-interpretability|mechanistic interpretability]] studies what reasoning circuits actually exist inside a [[transformer-architecture|transformer]] and where they break down. The boundary between an LLM's interpretable reasoning circuits and the underivable statements they cannot reach is the modern empirical face of the same wall Gödel and Cantor discovered.
+Empirically, [[mechanistic-interpretability|mechanistic interpretability]] studies what reasoning circuits actually exist inside a [[transformer-architecture|transformer]] and where they break down. The boundary between an [[llm]]'s interpretable reasoning circuits and the underivable statements they cannot reach is the modern empirical face of the same wall Gödel and Cantor discovered.
 
 This is why CoT, ToT, and PoT are best understood as **search-time amortisation of a fixed information budget** rather than mechanisms that lift the underlying decidability ceiling.
 

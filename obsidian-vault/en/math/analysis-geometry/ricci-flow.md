@@ -16,12 +16,12 @@ The Ricci flow is defined by the following non-linear partial differential equat
 $$ \frac{\partial g_{ij}}{\partial t} = -2 R_{ij} $$
 where $R_{ij}$ is the **Ricci Curvature Tensor**.
 - **Intuition**: The flow contracts regions of positive Ricci curvature and expands regions of negative Ricci curvature. It acts to "smooth out" the geometry of the [[manifold-learning|manifold]] over time.
-- **Short-time Existence**: For any smooth metric on a compact manifold, a unique solution exists for a small time interval.
+- **Short-time Existence**: For any smooth metric on a compact [[manifold-learning|manifold]], a unique solution exists for a small time interval.
 
 ## 2. Singularities and Surgery
 
 The primary challenge of Ricci flow is that it can develop **Singularities** where the curvature becomes infinite in finite time.
-- **Neck-pinch**: A common singularity where a cylinder-like part of the manifold shrinks to a point.
+- **Neck-pinch**: A common singularity where a cylinder-like part of the [[manifold-learning|manifold]] shrinks to a point.
 - **Perelman's Breakthrough**: He developed a method called **Ricci Flow with Surgery**. When the flow approaches a singularity, the manifold is "cut" at the high-curvature points, the singular parts are discarded, and the flow is restarted on the remaining smooth pieces.
 
 ## 3. Perelman's [[shannon-entropy|Entropy]] Functional
