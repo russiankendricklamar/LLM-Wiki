@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { BookOpen, Clock, Signal, GraduationCap } from 'lucide-react';
 import { MarkdownRenderer } from './MarkdownRenderer';
 import { NotebookLMPlayer } from './NotebookLMPlayer';
+import { HeadingNavLink } from './HeadingNavLink';
+import { useActiveHeading } from '../hooks/use-active-heading';
 import { cn } from '../lib/utils';
 import type { PageMetadata } from '../lib/content-loader';
+
+const COURSE_HEADING_SELECTOR = '.prose h2[id]';
 
 interface CourseLayoutProps {
   metadata: PageMetadata;
@@ -29,60 +33,9 @@ export const CourseLayout: React.FC<CourseLayoutProps> = ({ metadata, content, l
   const difficulty = metadata.difficulty || 'intermediate';
   const duration = metadata.duration || (lang === 'en' ? 'Self-paced' : 'В своем темпе');
 
-  const [headings, setHeadings] = useState<{ title: string; id: string }[]>([]);
-  const [activeId, setActiveId] = useState<string>('');
+  const { headings, activeId } = useActiveHeading(COURSE_HEADING_SELECTOR, content);
 
-  useEffect(() => {
-    const updateHeadings = () => {
-      // Find all H2s that have an ID (which MarkdownRenderer automatically adds via rehype-slug)
-      const elements = Array.from(document.querySelectorAll('.prose h2[id]')).map((el) => ({
-        title: (el as HTMLElement).innerText,
-        id: el.id,
-      }));
-      setHeadings(elements);
-    };
-
-    updateHeadings();
-    
-    // We observe DOM mutations in case MarkdownRenderer renders asynchronously
-    const observer = new MutationObserver(updateHeadings);
-    observer.observe(document.body, { childList: true, subtree: true });
-    
-    return () => observer.disconnect();
-  }, [content]);
-
-  useEffect(() => {
-    const mainEl = document.querySelector('main');
-
-    const handleScroll = () => {
-      const elements = Array.from(document.querySelectorAll('.prose h2[id]')) as HTMLElement[];
-      if (!elements.length) return;
-
-      const topOffset = 150;
-      let currentActiveId = elements[0].id;
-
-      for (const el of elements) {
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= topOffset) {
-          currentActiveId = el.id;
-        } else {
-          break;
-        }
-      }
-      if (currentActiveId) {
-        setActiveId(currentActiveId);
-      }
-    };
-
-    handleScroll();
-
-    const scrollTarget = mainEl || window;
-    scrollTarget.addEventListener('scroll', handleScroll, { passive: true });
-    return () => scrollTarget.removeEventListener('scroll', handleScroll);
-  }, [headings]);
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
+  const handleNavigate = (id: string) => {
     const target = document.getElementById(id);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
@@ -104,25 +57,14 @@ export const CourseLayout: React.FC<CourseLayoutProps> = ({ metadata, content, l
             </Link>
 
             <nav className="flex flex-col gap-6">
-              {headings.map(heading => {
-                const isModuleActive = activeId === heading.id;
-
-                return (
-                  <a 
-                    key={heading.id}
-                    href={`#${heading.id}`}
-                    onClick={(e) => handleNavClick(e, heading.id)}
-                    className={cn(
-                      "block transition-all duration-500 ease-out origin-left",
-                      isModuleActive 
-                        ? "text-xl sm:text-2xl font-bold text-blue-600 dark:text-blue-400 scale-100" 
-                        : "text-sm sm:text-base font-medium text-zinc-400 hover:text-zinc-600 dark:text-zinc-600 dark:hover:text-zinc-400 scale-95"
-                    )}
-                  >
-                    {heading.title}
-                  </a>
-                );
-              })}
+              {headings.map(heading => (
+                <HeadingNavLink
+                  key={heading.id}
+                  heading={heading}
+                  isActive={activeId === heading.id}
+                  onNavigate={handleNavigate}
+                />
+              ))}
             </nav>
           </div>
         </aside>
