@@ -33,6 +33,19 @@ slug: "/about"
 
 ---
 
+## Исследования и статьи
+
+- **Correlation Is a Hyperbolic Distance**: Доказательство геометрической природы корреляции в моделях стохастической волатильности. [[hyperbolic-vol-geometry]]
+  <br><a href="https://github.com/russiankendricklamar/hyperbolic-vol-geometry"><button>GitHub Repo</button></a> <a href="https://github.com/russiankendricklamar/hyperbolic-vol-geometry/blob/main/Correlation%20is%20a%20Hyperbolic%20Distance.pdf"><button>Скачать PDF</button></a>
+
+- **Lévy Processes and Stochastic-Volatility Models**: Эффективность процессов Леви (VG, NIG, CGMY) и моделей стохастической волатильности (Heston, Bates) в ценообразовании структурных продуктов. [[levy-structured-products]]
+  <br><a href="https://github.com/russiankendricklamar/levy-sp"><button>GitHub Repo</button></a> <a href="https://github.com/russiankendricklamar/levy-sp/blob/main/thesis.pdf"><button>Скачать PDF</button></a>
+
+- **Student-t HMM for Bank Bond Portfolio Regimes**: Моделирование режимов рыночного риска портфеля облигаций с помощью скрытых марковских моделей (HMM). [[student-t-hmm-bond-regimes]]
+  <br><a href="https://github.com/russiankendricklamar/thmm"><button>GitHub Repo</button></a> <a href="https://github.com/russiankendricklamar/thmm/blob/main/Hidden%20Markov%20Model%20with%20Student's-t%20Emissions%20for%20Regimes%20of%20a%20Bank%20Bond%20Portfolio%20Return.pdf"><button>Скачать PDF</button></a>
+
+---
+
 ## Интересы
 
 - **AI в финансах**: Исследую, как [[llm|LLM]] (Claude, Gemini, Phi-4) могут интерпретировать макроэкономические протоколы и автоматизировать количественный анализ.
