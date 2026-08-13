@@ -1,74 +1,13 @@
----
-title: "Дорожная Карта Подготовки Quant Researcher / Trader"
-category: "finance"
-order: 290
-lang: "ru"
-slug: "quant-interview-roadmap"
----
+import os
 
-# Дорожная Карта Подготовки Quant Researcher / Analyst / Trader
+filepath_course = "/Users/egorgalkin/projects/LLM-Wiki/obsidian-vault/ru/courses/quant-trading-guide.md"
+filepath_roadmap = "/Users/egorgalkin/projects/LLM-Wiki/obsidian-vault/ru/finance/quant-interview-roadmap.md"
 
-Настоящее руководство объединяет ключевые рекомендации по математике, программированию (Python / C++) и рыночной микроструктуре для успешного прохождения отбора в топовые квантовые фирмы (Jane Street, Optiver, Citadel Securities, SIG, Flow Traders, HRT, Jump Trading).
+library_section = """
 
 ---
 
-## 1. Блок Математики и Вероятностей
-
-### 1.1 Основные математические дисциплины
-- **Условная вероятность и формула Байеса:** Априорные вероятности, апостериорный вывод при поступлении рыночных сигналов.
-- **Справочник распределений:**
-  - *Нормальное $\mathcal{N}(\mu, \sigma^2)$:* Правило $3\sigma$, Z-оценки, свойства многомерного нормального распределения.
-  - *Биномиальное $Bin(n, p)$:* $E[X] = np$, $\text{Var}(X) = np(1-p)$.
-  - *Геометрическое $Geom(p)$:* $E[X] = 1/p$, отсутствие памяти.
-  - *Равномерное $Unif[a, b]$:* $E[X] = \frac{a+b}{2}$, $\text{Var}(X) = \frac{(b-a)^2}{12}$.
-- **Предельные теоремы:** Закон больших чисел (ЗБЧ), Центральная предельная теорема (ЦПТ).
-- **Логические головоломки и Brainteasers:** Задача о секретаре (правило $1/e$), парадокс Монти Холла, задачи о взвешиваниях и переливаниях.
-
-### 1.2 Задачники и литература
-- Xinfeng Zhou — *A Practical Guide to Quantitative Finance Interviews* ("Зеленая книга").
-- Paul Wilmott — *Frequently Asked Questions in Quantitative Finance*.
-- База 1000+ задач с реальных интервью: `https://yk4r2.github.io/`.
-
----
-
-## 2. Блок Программирования (Python & Алгоритмы)
-
-### 2.1 Обязательный стек алгоритмов и структур данных
-- **Базовые структуры (сложность операций):**
-  - `list` (динамический массив: O(1) доступ, O(n) вставка).
-  - `set` и `dict` (хеш-таблицы: O(1) среднее время поиска/вставки).
-  - `collections.deque` (двусторонняя очередь: O(1) по краям).
-  - `heapq` (двоичная куча: O(log n) добавление/извлечение).
-- **Алгоритмические шаблоны:**
-  - Скользящее окно (Sliding Window) и Метод двух указателей (Two Pointers).
-  - Бинарный поиск (`bisect.bisect_left`).
-  - Быстрая сортировка (Quicksort) и Сортировка слиянием (Mergesort).
-- **Работа со строками и логами:**
-  - Регулярные выражения (`import re`), токенизация логов, парсинг JSON (`requests`, `json`).
-- **Обработка временных рядов в `pandas` & `numpy`:**
-  - Оконные функции `.rolling().mean()`, `.rolling().std()`.
-  - Заполнение пропусков `.fillna(method='ffill')`, `.interpolate()`.
-  - Полиномиальная и линейная регрессия (`np.polyfit`, `sklearn.linear_model.LinearRegression`).
-
----
-
-## 3. Блок Трейдинга и Микроструктуры Рынка
-
-### 3.1 Ключевые понятия
-- **Order Book (Биржевой стакан):** Дерево лимитных ордеров на покупку (Bids) и продажу (Asks).
-- **Bid-Ask Spread:** Разница между минимальной ценой продажи и максимальной ценой покупки.
-- **Adverse Selection (Неблагоприятный выбор):** Ситуация, когда маркет-мейкер исполняет ордер против более информированного участника (информационный сдвиг цены).
-- **Iceberg Orders (Айсберги):** Заявки с скрытым объемом для минимизации рыночного воздействия.
-
-### 3.2 Рекомендуемые видеокурсы и книги
-- Курс лекций по алготрейдингу (osa.net): Биржа, банки, алготрейдеры и управление рисками.
-- Emanuel Derman — *My Life as a Quant: Reflections on Physics and Finance*.
-- Статьи ITI Capital и Habr: Исповедь хакера, устройства биржевых механизмов, HFT и социология алгоритмов.
-
-
----
-
-## Раздел 4. Полная Книжная Полка и Библиотека Ресурсов (Quant Library & Media)
+## Раздел 6. Полная Книжная Полка и Библиотека Ресурсов (Quant Library & Media)
 
 Для максимальной полноты в базу знаний интегрированы все ключевые книги, учебные курсы, видеоматериалы и интерактивные тренажеры, рекомендованные индустриальными квантами и составителями программы Notion Quant Preparation.
 
@@ -137,3 +76,23 @@ slug: "quant-interview-roadmap"
 - **Торговля на бирже ч. 1 и ч. 2 (ITI Capital):** Архитектура биржевого стакана, алгоритмы скрытия крупных объемов (Iceberg orders) и механизмы сведения заявок (Matching Engine).
 - **Словарик трейдера (ATAS):** Терминология ордербука (Level 2/3 data, Time & Sales, VWAP, Delta).
 - **Day in the Life of a Quantitative Researcher at Citadel Securities:** Очерки и видеоинтервью о ежедневной работе квант-исследователей в Майами и Нью-Йорке.
+"""
+
+# Append to course
+with open(filepath_course, "r", encoding="utf-8") as f:
+    c_content = f.read()
+
+if "## Раздел 6. Полная Книжная Полка и Библиотека Ресурсов (Quant Library & Media)" not in c_content:
+    with open(filepath_course, "w", encoding="utf-8") as f:
+        f.write(c_content.strip() + "\n" + library_section)
+    print("Appended complete library to quant-trading-guide.md!")
+
+# Append to roadmap
+with open(filepath_roadmap, "r", encoding="utf-8") as f:
+    r_content = f.read()
+
+if "## Раздел 4. Полная Книжная Полка и Библиотека Ресурсов (Quant Library & Media)" not in r_content:
+    r_section = library_section.replace("## Раздел 6.", "## Раздел 4.")
+    with open(filepath_roadmap, "w", encoding="utf-8") as f:
+        f.write(r_content.strip() + "\n" + r_section)
+    print("Appended complete library to quant-interview-roadmap.md!")
