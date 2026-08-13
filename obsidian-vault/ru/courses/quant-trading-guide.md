@@ -7,6 +7,8 @@ slug: "course-quant-trading"
 type: "course"
 difficulty: "Intermediate / Advanced"
 duration: "6 недель"
+audioUrl: "/research/audio-overview-quant-trading.mp3"
+notebookUrl: "https://notebooklm.google.com"
 ---
 
 # Quant Trading Guide (Каллум Макдугалл, Ноябрь 2020) — Полная Версия Курса
@@ -486,7 +488,7 @@ $$\sqrt{X} \approx \sqrt{A} + \frac{X - A}{2\sqrt{A}}$$
 - **День 4–7:** Изучение свойств Геометрического, Биномиального и Равномерного распределений.
 
 #### Дни 8–15: Классические Логические Головоломки
-- **День 8–11:** Разбор 16 задач из [[quant-trading-guide#Неделя 3 — Задачник: Логические проблемы (Logic Problems)|раздела Логики]].
+- **День 8–11:** Разбор 16 задач из [[quant-trading-guide#Задачник: Логические проблемы (Logic Problems)|раздела Логики]].
 - **День 12–15:** Тренировка проговаривания хода решений вслух (Out-loud narration).
 
 #### Дни 16–22: Игры с костями, Критерий Келли и Оптимальная остановка

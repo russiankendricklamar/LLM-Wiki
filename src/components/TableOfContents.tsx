@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { BookOpen } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface TableOfContentsProps {
@@ -57,32 +59,53 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ className, lan
     return () => observerRef.current?.disconnect();
   }, [headings]);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Update URL hash without jumping
+      window.history.pushState(null, '', `#${id}`);
+    }
+  };
+
   if (headings.length === 0) return null;
 
   return (
-    <aside className={cn("w-64 flex-shrink-0", className)}>
-      <div className="sticky top-20 pt-8 pb-8 pr-4">
-        <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight">
-          {lang === 'en' ? 'On this page' : 'На этой странице'}
-        </h4>
-        <nav>
-          <ul className="space-y-2.5 text-sm">
-            {headings.map((item) => (
-              <li key={item.id} style={{ paddingLeft: `${(item.level - 2) * 1}rem` }}>
-                <a
-                  href={`#${item.id}`}
-                  className={cn(
-                    "block transition-colors line-clamp-2",
-                    activeId === item.id
-                      ? "text-blue-600 dark:text-blue-400 font-medium"
-                      : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
-                  )}
-                >
-                  {item.title}
-                </a>
-              </li>
-            ))}
-          </ul>
+    <aside className={cn("hidden lg:block w-64 xl:w-72 flex-shrink-0 sticky top-24 self-start z-10", className)}>
+      <div className="pt-4 pb-8 pr-6">
+        <Link 
+          to="/articles" 
+          className="inline-flex items-center gap-1 text-sm font-semibold text-zinc-500 hover:text-blue-600 transition-colors mb-8 uppercase tracking-wider"
+        >
+          <BookOpen className="w-4 h-4" />
+          {lang === 'en' ? 'All Articles' : 'Все статьи'}
+        </Link>
+
+        <nav className="flex flex-col gap-6">
+          {headings.map(heading => {
+            const isModuleActive = activeId === heading.id;
+            
+            // Indent h3 headers slightly
+            const paddingLeft = heading.level === 3 ? 'pl-4' : '';
+
+            return (
+              <a 
+                key={heading.id}
+                href={`#${heading.id}`}
+                onClick={(e) => handleNavClick(e, heading.id)}
+                className={cn(
+                  "block transition-all duration-500 ease-out origin-left",
+                  paddingLeft,
+                  isModuleActive 
+                    ? "text-xl sm:text-2xl font-bold text-blue-600 dark:text-blue-400 scale-100" 
+                    : "text-sm sm:text-base font-medium text-zinc-400 hover:text-zinc-600 dark:text-zinc-600 dark:hover:text-zinc-400 scale-95"
+                )}
+              >
+                {heading.title}
+              </a>
+            );
+          })}
         </nav>
       </div>
     </aside>

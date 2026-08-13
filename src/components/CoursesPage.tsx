@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { BookOpen, GraduationCap, Clock, BarChart } from 'lucide-react';
+import { BookOpen, GraduationCap, Clock, BarChart, Headphones } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getAllPages } from '@/lib/content-loader';
 import { cn } from '@/lib/utils';
@@ -48,10 +48,16 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({ lang }) => {
                 <div className="p-3 rounded-xl bg-zinc-100 dark:bg-zinc-800 group-hover:bg-blue-500/10 group-hover:text-blue-500 transition-colors">
                   <BookOpen className="w-6 h-6" />
                 </div>
-                <div className="flex gap-2">
-                   <div className="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-[10px] font-bold uppercase tracking-wider text-zinc-500">
-                     {course.metadata.difficulty || 'Advanced'}
-                   </div>
+                <div className="flex gap-2 items-center">
+                  {course.metadata.audioUrl && (
+                    <div className="flex items-center gap-1 px-2 py-1 rounded bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-[10px] font-bold uppercase tracking-wider">
+                      <Headphones className="w-3 h-3" />
+                      <span>AI Overview</span>
+                    </div>
+                  )}
+                  <div className="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-[10px] font-bold uppercase tracking-wider text-zinc-500">
+                    {course.metadata.difficulty || 'Advanced'}
+                  </div>
                 </div>
               </div>
 

@@ -93,7 +93,7 @@ export const CourseLayout: React.FC<CourseLayoutProps> = ({ metadata, content, l
     <div className="w-full mx-auto py-12 px-4 sm:px-8 lg:px-12 flex flex-col lg:flex-row items-start gap-8 lg:gap-16 xl:gap-24">
       {/* Dynamic Sizing Navigation — Shows Course Modules */}
       {headings.length > 0 && (
-        <aside className="w-full lg:w-64 shrink-0 lg:sticky lg:top-24 hidden lg:block">
+        <aside className="w-full lg:w-64 shrink-0 lg:sticky lg:top-24 hidden lg:block z-10">
           <div className="pl-2">
             <Link 
               to="/courses" 

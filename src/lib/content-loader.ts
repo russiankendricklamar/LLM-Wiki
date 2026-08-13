@@ -68,7 +68,24 @@ const parseFrontmatter = (fileContent: string) => {
   if (!match) return { data: {} as any, content: fileContent };
   
   const yaml = match[1];
-  const content = match[2];
+  let content = match[2];
+  
+  const cleanContentLines = [];
+  let inRelated = false;
+  const lines = content.split('\n');
+  for (const line of lines) {
+    if (line.match(/^##\s+(Родственные темы|Related topics|Related exploration)/i)) {
+      inRelated = true;
+      continue;
+    }
+    if (inRelated && line.match(/^##\s+/)) {
+      inRelated = false;
+    }
+    if (!inRelated) {
+      cleanContentLines.push(line);
+    }
+  }
+  content = cleanContentLines.join('\n').trim();
   const data: any = {};
   
   yaml.split('\n').forEach(line => {

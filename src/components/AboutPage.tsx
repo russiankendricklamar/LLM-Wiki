@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Github, Linkedin, Mail, ArrowRight, Network, FileDown } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowRight, Network, FileDown, Headphones, Sparkles } from 'lucide-react';
 import { getNavigation } from '../lib/content-loader';
+import { NotebookLMPlayer } from './NotebookLMPlayer';
 
 const WIKI_EXCLUDED_CATEGORIES = new Set([
   'Home', 'Главная',
@@ -39,6 +40,7 @@ const ABOUT = {
       { label: 'HPC & Low-Level', items: ['OpenMP', 'pybind11', 'Cython'] },
     ],
     researchTitle: 'Main Research',
+    audioOverviewsTitle: 'Research Audio Overviews (NotebookLM)',
     additionalResearchTitle: 'Technical Papers & Additional Research',
     mainResearch: [
       {
@@ -139,6 +141,7 @@ const ABOUT = {
       { label: 'HPC & Низкий уровень', items: ['OpenMP', 'pybind11', 'Cython'] },
     ],
     researchTitle: 'Основные исследования',
+    audioOverviewsTitle: 'Аудио-обзоры исследований (NotebookLM)',
     additionalResearchTitle: 'Технические статьи & Дополнительные исследования',
     mainResearch: [
       {
@@ -387,6 +390,22 @@ export const AboutPage: React.FC<AboutPageProps> = ({ lang }) => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* ── Audio Overviews Highlight ── */}
+        <div className="mt-8">
+          <div className="flex items-center gap-2 mb-2">
+            <Headphones className="w-4 h-4 text-indigo-500" />
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+              {d.audioOverviewsTitle}
+            </h3>
+          </div>
+          <NotebookLMPlayer
+            audioUrl="/research/audio-overview-hyperbolic-geometry.mp3"
+            notebookUrl="https://notebooklm.google.com"
+            lang={lang}
+            title="Correlation Is a Hyperbolic Distance — Deep Dive"
+          />
         </div>
       </section>
 

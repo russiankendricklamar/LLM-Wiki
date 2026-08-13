@@ -77,17 +77,30 @@ const PageContent = ({ category, title, content, lang, slug, growth, author, rev
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -15 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      className={cn("w-full flex flex-col", isGraphPage && "min-h-[calc(100vh-8rem)]")}
-    >
-      <div className="flex-1">
-        <div className="mb-8 flex flex-col gap-4 group/header">
-          <div className="flex items-center justify-between gap-4">
+    <div className="w-full mx-auto py-12 px-4 sm:px-8 lg:px-12 flex flex-col lg:flex-row items-start gap-8 lg:gap-16 xl:gap-24">
+      {/* Left Navigation Area */}
+      {!isGraphPage && (
+        <TableOfContents lang={lang} />
+      )}
+
+      {/* Main Content Area */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -15 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className={cn("flex-1 min-w-0 w-full", isGraphPage && "min-h-[calc(100vh-8rem)]")}
+      >
+        <div className="mb-12 flex flex-col gap-4 group/header">
+          {/* Mobile Back Link (TableOfContents will handle Desktop) */}
+          <div className="lg:hidden mb-2">
             <Breadcrumbs category={category} title={title} lang={lang} slug={slug} />
+          </div>
+
+          <div className="flex items-center justify-between gap-4">
+            <div className="hidden lg:block">
+              <Breadcrumbs category={category} title={title} lang={lang} slug={slug} />
+            </div>
             <div className="flex items-center gap-2">
               <button
                 onClick={handleReview}
@@ -114,10 +127,12 @@ const PageContent = ({ category, title, content, lang, slug, growth, author, rev
             </div>
           </div>
           
-          <h1 className="text-3xl font-bold tracking-tight mt-2">{title}</h1>
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white mt-2 leading-tight">
+            {title}
+          </h1>
 
           {(author || (reviewers && reviewers.length > 0)) && (
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-zinc-500 dark:text-zinc-400">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-zinc-500 dark:text-zinc-400 mt-2">
               {author && (
                 <div className="flex items-center gap-1.5">
                   <span className="opacity-60 uppercase tracking-wider">{lang === 'en' ? 'Author:' : 'Автор:'}</span>
@@ -134,41 +149,38 @@ const PageContent = ({ category, title, content, lang, slug, growth, author, rev
           )}
         </div>
 
-        <div className="flex flex-col xl:flex-row gap-12 lg:gap-16">
-          <div className="flex-1 min-w-0">
-            <CourseBadge slug={slug} lang={lang} />
-            {audioUrl && (
-              <NotebookLMPlayer 
-                audioUrl={audioUrl} 
-                notebookUrl={notebookUrl} 
-                lang={lang} 
-                title={title} 
-              />
-            )}
-            {isGraphPage ? (
-              <div className="w-full min-h-[600px] md:min-h-[800px] relative bg-zinc-50/50 dark:bg-zinc-900/10 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden mt-4">
-                <KnowledgeGraph lang={lang} />
-              </div>
-            ) : (
-              <>
-                <MarkdownRenderer content={content} category={category} />
-                <Backlinks slug={slug} lang={lang} />
-                <RelatedArticles slug={slug} lang={lang} />
-                <ArticleNav slug={slug} category={category} lang={lang} />
-                <ResearchToolbox 
-                  title={title} 
-                  slug={slug} 
-                  author={author} 
-                  lang={lang} 
-                  notebookUrl={notebookUrl}
-                />
-              </>
-            )}
+        <CourseBadge slug={slug} lang={lang} />
+        {audioUrl && (
+          <div className="mb-8">
+            <NotebookLMPlayer 
+              audioUrl={audioUrl} 
+              notebookUrl={notebookUrl} 
+              lang={lang} 
+              title={title} 
+            />
           </div>
-          {!isGraphPage && <TableOfContents lang={lang} className="hidden xl:block" />}
-        </div>
-      </div>
-    </motion.div>
+        )}
+        {isGraphPage ? (
+          <div className="w-full min-h-[600px] md:min-h-[800px] relative bg-zinc-50/50 dark:bg-zinc-900/10 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden mt-4">
+            <KnowledgeGraph lang={lang} />
+          </div>
+        ) : (
+          <div className="prose prose-zinc dark:prose-invert max-w-none prose-h2:scroll-mt-24 prose-h3:scroll-mt-24">
+            <MarkdownRenderer content={content} category={category} />
+            <Backlinks slug={slug} lang={lang} />
+            <RelatedArticles slug={slug} lang={lang} />
+            <ArticleNav slug={slug} category={category} lang={lang} />
+            <ResearchToolbox 
+              title={title} 
+              slug={slug} 
+              author={author} 
+              lang={lang} 
+              notebookUrl={notebookUrl}
+            />
+          </div>
+        )}
+      </motion.div>
+    </div>
   );
 };
 
@@ -249,7 +261,7 @@ const RouterShell = ({ lang, setLang }: { lang: 'en' | 'ru'; setLang: (lang: 'en
   
   const isArticlesIndex = location.pathname === '/articles';
   
-  const showSidebar = !isHome && !isAbout && !isProjectsArea && !isCoursesArea && !isArticlesIndex && !isGraph;
+  const showSidebar = false; // Disabled globally as per user request
 
   return (
     <PageLayout lang={lang} setLang={setLang} fullBleed={isHome || isGraph} showSidebar={showSidebar}>
