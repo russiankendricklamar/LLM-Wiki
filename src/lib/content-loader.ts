@@ -13,6 +13,7 @@ export interface PageMetadata {
   image?: string;
   description?: string;
   author?: string;
+  reviewers?: string[];
   // Content type — 'project' for /projects pages, 'article' for everything else
   type: ContentType;
   // Article-only: maturity in the digital garden
@@ -35,6 +36,7 @@ export interface PageMetadata {
   duration?: string;
   notebookUrl?: string;
   audioUrl?: string;
+  sourceUrl?: string;
 }
 
 export interface CourseLesson {
@@ -160,6 +162,7 @@ export const getAllPages = (): PageContent[] => {
         duration: data.duration,
         notebookUrl: data.notebookUrl || data.notebook_url || undefined,
         audioUrl: data.audioUrl || data.audio_url || undefined,
+        sourceUrl: data.sourceUrl || data.source_url || undefined,
         author: data.author || undefined,
         reviewers: data.reviewers ? String(data.reviewers).split(',').map(s => s.trim()) : undefined,
       },
@@ -382,7 +385,6 @@ const SECTION_LABELS: Record<string, Record<'en' | 'ru', string>> = {
 
 const SECTION_ORDER = [
   'courses',
-  'research',
   'language-models', 
   'llm-infra', 
   'ai-theory', 
@@ -391,9 +393,7 @@ const SECTION_ORDER = [
   'cs',
   'math',
   'finance', 
-  'physics', 
-  'projects',
-  'about'
+  'physics'
 ];
 
 // Canonical category → { en: display, ru: display } map.
@@ -527,7 +527,7 @@ const CATEGORY_LABELS: Record<string, Record<'en' | 'ru', string>> = {
   'Обо мне':                      { en: 'About Me', ru: 'Обо мне' },
 };
 
-const SKIP_SECTIONS = new Set(['courses']);
+const SKIP_SECTIONS = new Set(['courses', 'research', 'projects', 'about']);
 const SKIP_CATS = new Set(['Home', 'Главная']);
 
 // Path-derived subsection labels. The vault already splits every large section

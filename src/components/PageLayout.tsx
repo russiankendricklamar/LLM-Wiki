@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Search, Moon, Sun, Leaf, Menu, UserCircle2, FolderGit2, Network, BookOpen } from 'lucide-react';
+import { Search, Moon, Sun, Leaf, Menu, UserCircle2, FolderGit2, Network, BookOpen, BookText } from 'lucide-react';
 import { SearchDialog } from './SearchDialog';
 import { Footer } from './Footer';
 import { Sidebar } from './Sidebar';
@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils';
 const preloadGraph = () => import('./KnowledgeGraph');
 const preloadProjects = () => import('./ProjectsPage');
 const preloadCourses = () => import('./CoursesPage');
+const preloadArticles = () => import('./ArticlesPage');
 const preloadAbout = () => import('./AboutPage');
 
 interface PageLayoutProps {
@@ -100,11 +101,12 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
                 <FolderGit2 className="w-4 h-4 opacity-70" />
                 <span>{lang === 'en' ? 'Projects' : 'Проекты'}</span>
               </NavLink>
-              {/* Knowledge Graph — accentuated as the entry to "exploration mode" */}
+
+
               <NavLink
-                to="/knowledge-graph"
-                onMouseEnter={preloadGraph}
-                onFocus={preloadGraph}
+                to="/articles"
+                onMouseEnter={preloadArticles}
+                onFocus={preloadArticles}
                 className={({ isActive }) => cn(
                   "flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm transition-all border",
                   isActive
@@ -112,9 +114,10 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, lang = 'ru', s
                     : "border-transparent text-zinc-600 dark:text-zinc-400 hover:border-emerald-500/30 hover:bg-emerald-500/5 hover:text-emerald-700 dark:hover:text-emerald-300"
                 )}
               >
-                <Network className="w-4 h-4 opacity-80" />
-                <span>{lang === 'en' ? 'Graph' : 'Граф'}</span>
+                <BookText className="w-4 h-4 opacity-80" />
+                <span>{lang === 'en' ? 'Articles' : 'Статьи'}</span>
               </NavLink>
+
               <NavLink
                 to="/courses"
                 onMouseEnter={preloadCourses}

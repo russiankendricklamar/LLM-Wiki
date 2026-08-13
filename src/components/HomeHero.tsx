@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight, FolderGit2, BookOpen, UserCircle2, GithubIcon, Network } from 'lucide-react';
+import { ArrowRight, FolderGit2, BookOpen, UserCircle2, GithubIcon, BookText } from 'lucide-react';
 
 interface HomeHeroProps {
   lang: 'en' | 'ru';
@@ -15,7 +15,7 @@ const COPY = {
     ctaAbout: 'About me',
     ctaProjects: 'Projects',
     ctaKnowledge: 'Knowledge base',
-    ctaGraph: 'Graph',
+    ctaArticles: 'Articles',
   },
   ru: {
     eyebrow: 'КОЛИЧЕСТВЕННЫЙ АНАЛИТИК · AI-ИНЖЕНЕР',
@@ -24,7 +24,7 @@ const COPY = {
     ctaAbout: 'Обо мне',
     ctaProjects: 'Проекты',
     ctaKnowledge: 'База знаний',
-    ctaGraph: 'Граф',
+    ctaArticles: 'Статьи',
   },
 };
 
@@ -128,7 +128,7 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
                 <span className="font-medium">{copy.ctaProjects}</span>
               </Link>
               <Link
-                to="/knowledge-graph"
+                to="/articles"
                 className="group flex flex-1 items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-zinc-200 backdrop-blur-md transition hover:bg-white/10"
               >
                 <BookOpen className="h-4 w-4 shrink-0 text-zinc-400 transition group-hover:text-white" />
@@ -148,11 +148,11 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
                 <span className="font-medium">GitHub</span>
               </a>
               <Link
-                to="/knowledge-graph"
+                to="/articles"
                 className="group flex flex-1 items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-zinc-200 backdrop-blur-md transition hover:bg-white/10"
               >
-                <Network className="h-4 w-4 shrink-0 text-zinc-400 transition group-hover:text-white" />
-                <span className="font-medium">{copy.ctaGraph}</span>
+                <BookText className="h-4 w-4 shrink-0 text-zinc-400 transition group-hover:text-white" />
+                <span className="font-medium">{copy.ctaArticles}</span>
               </Link>
             </div>
           </motion.div>
@@ -186,11 +186,11 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ lang }) => {
               <span className="font-medium">{copy.ctaKnowledge}</span>
             </Link>
             <Link
-              to="/knowledge-graph"
+              to="/articles"
               className="group flex flex-col items-start gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm text-zinc-200 backdrop-blur-md transition hover:bg-white/10"
             >
-              <Network className="h-4 w-4 text-zinc-400 transition group-hover:text-white" />
-              <span className="font-medium">{copy.ctaGraph}</span>
+              <BookText className="h-4 w-4 text-zinc-400 transition group-hover:text-white" />
+              <span className="font-medium">{copy.ctaArticles}</span>
             </Link>
           </motion.div>
         </div>

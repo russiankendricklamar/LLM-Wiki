@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { FileText, ChevronDown, ChevronRight, Network, BookOpen, GraduationCap } from 'lucide-react';
+import { FileText, ChevronDown, ChevronRight, Network, BookOpen, GraduationCap, BookText } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { 
@@ -224,7 +224,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className, lang = 'ru' }) => {
             {/* Mobile-only quick links */}
             <div className="mb-4 flex flex-col gap-0.5 lg:hidden">
               <NavLink
-                to="/knowledge-graph"
+                to="/articles"
                 className={({ isActive }) => cn(
                   "flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors border",
                   isActive
@@ -232,8 +232,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ className, lang = 'ru' }) => {
                     : "border-transparent text-zinc-600 dark:text-zinc-400 hover:border-emerald-500/30 hover:bg-emerald-500/5 hover:text-emerald-700 dark:hover:text-emerald-300"
                 )}
               >
-                <Network className="w-4 h-4 opacity-80 shrink-0" />
-                {lang === 'en' ? 'Open Knowledge Graph' : 'Открыть граф знаний'}
+                <BookText className="w-4 h-4 opacity-80 shrink-0" />
+                {lang === 'en' ? 'All Articles' : 'Все статьи'}
               </NavLink>
             </div>
 

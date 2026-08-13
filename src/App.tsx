@@ -13,6 +13,7 @@ import { CourseBadge } from './components/CourseBadge';
 import { ResearchToolbox } from './components/ResearchToolbox';
 import { NotebookLMPlayer } from './components/NotebookLMPlayer';
 import { TableOfContents } from './components/TableOfContents';
+import { CourseLayout } from './components/CourseLayout';
 import { getAllPages } from './lib/content-loader';
 import { cn } from './lib/utils';
 
@@ -29,6 +30,9 @@ const AboutPage = React.lazy(() =>
 );
 const CoursesPage = React.lazy(() =>
   import('./components/CoursesPage').then(m => ({ default: m.CoursesPage }))
+);
+const ArticlesPage = React.lazy(() =>
+  import('./components/ArticlesPage').then(m => ({ default: m.ArticlesPage }))
 );
 
 // Tiny placeholder while a route chunk streams in (≈100 ms on cold load).
@@ -188,25 +192,40 @@ const AnimatedRoutes = ({ lang }: { lang: 'en' | 'ru' }) => {
         {/* Courses index — list of structured learning paths */}
         <Route path="/courses" element={<CoursesPage lang={lang} />} />
 
+        {/* Articles index — full knowledge base list */}
+        <Route path="/articles" element={<ArticlesPage lang={lang} />} />
+
         {/* Dynamic routes */}
-        {currentPages.map(page => (
-          <Route
-            key={page.metadata.slug}
-            path={page.metadata.slug}
-            element={
-              <PageContent
-                category={page.metadata.category}
-                title={page.metadata.title}
-                content={page.content}
-                lang={lang}
-                slug={page.metadata.slug}
-                growth={page.metadata.growth}
-                notebookUrl={page.metadata.notebookUrl}
-                audioUrl={page.metadata.audioUrl}
-              />
-            }
-          />
-        ))}
+        {currentPages.map(page => {
+          const isCourse = page.metadata.section === 'courses';
+
+          return (
+            <Route
+              key={page.metadata.slug}
+              path={page.metadata.slug}
+              element={
+                isCourse ? (
+                  <CourseLayout
+                    metadata={page.metadata}
+                    content={page.content}
+                    lang={lang}
+                  />
+                ) : (
+                  <PageContent
+                    category={page.metadata.category}
+                    title={page.metadata.title}
+                    content={page.content}
+                    lang={lang}
+                    slug={page.metadata.slug}
+                    growth={page.metadata.growth}
+                    notebookUrl={page.metadata.notebookUrl}
+                    audioUrl={page.metadata.audioUrl}
+                  />
+                )
+              }
+            />
+          );
+        })}
 
         <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
@@ -223,8 +242,14 @@ const RouterShell = ({ lang, setLang }: { lang: 'en' | 'ru'; setLang: (lang: 'en
   // Anything under /projects (the index and individual project pages) has its
   // own dedicated layout — no Knowledge Base sidebar.
   const isProjectsArea = location.pathname.startsWith('/projects');
-  const isCoursesIndex = location.pathname === '/courses';
-  const showSidebar = !isHome && !isAbout && !isProjectsArea && !isCoursesIndex && !isGraph;
+  
+  // Disable global sidebar for courses index AND individual courses, 
+  // because courses have their own internal navigation (CourseLayout)
+  const isCoursesArea = location.pathname.startsWith('/course-') || location.pathname === '/courses' || location.pathname.startsWith('/math-for-ai') || location.pathname.startsWith('/cedefi');
+  
+  const isArticlesIndex = location.pathname === '/articles';
+  
+  const showSidebar = !isHome && !isAbout && !isProjectsArea && !isCoursesArea && !isArticlesIndex && !isGraph;
 
   return (
     <PageLayout lang={lang} setLang={setLang} fullBleed={isHome || isGraph} showSidebar={showSidebar}>
