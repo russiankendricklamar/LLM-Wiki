@@ -45,6 +45,28 @@
   }
 }
 
+@layer components {
+  /*
+   * Side-navigation entry. The active one grows from 16px to 24px, and in a
+   * ~248px column that re-wraps the label — several sections go from three
+   * lines to four. A reflow cannot be eased, so the two halves of the change
+   * are given different speeds: the geometry moves fast enough that the
+   * re-wrap reads as one crisp step instead of a drawn-out wobble, while the
+   * colour fades slowly and carries the sense of a smooth transition.
+   */
+  .heading-nav-link {
+    transition-property: font-size, line-height, color, transform;
+    transition-duration: 130ms, 130ms, 340ms, 340ms;
+    transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .heading-nav-link {
+      transition: none;
+    }
+  }
+}
+
 @media print {
   @page {
     margin: 2cm;

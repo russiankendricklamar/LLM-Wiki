@@ -18,9 +18,8 @@ interface HeadingNavLinkProps {
  * size therefore has to be real, which means easing font-size and line-height.
  *
  * That is affordable here only because nothing reads layout synchronously while
- * the transition runs — see useActiveHeading. It is also why the transition is
- * kept short: every frame re-wraps the label, and a long duration makes that
- * reflow visible as jitter.
+ * the transition runs — see useActiveHeading. The timing is split between the
+ * geometry and the colour; `.heading-nav-link` in index.css explains why.
  */
 export const HeadingNavLink: React.FC<HeadingNavLinkProps> = ({
   heading,
@@ -39,7 +38,7 @@ export const HeadingNavLink: React.FC<HeadingNavLinkProps> = ({
       onClick={handleClick}
       aria-current={isActive ? 'location' : undefined}
       className={cn(
-        'block origin-left transition-[font-size,line-height,color,transform] duration-200 ease-out motion-reduce:transition-none',
+        'heading-nav-link block origin-left',
         indentSubheadings && heading.level === 3 && 'pl-4',
         isActive
           ? 'text-xl sm:text-2xl font-bold text-blue-600 dark:text-blue-400 scale-100'

@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
-    "deploy": "npm run build && yc --profile yc-ru storage s3 cp dist s3://www.knowledgegarden.ru/ --recursive --only-show-errors && yc --profile yc-ru cdn cache purge --resource-id bc8rrrhurgok7ajbkocq --all"
+    "deploy": "npm run build && yc --profile yc-ru storage s3 cp dist s3://www.knowledgegarden.ru/ --recursive --exclude '*.DS_Store' --only-show-errors && yc --profile yc-ru cdn cache purge --resource-id bc8rrrhurgok7ajbkocq --all"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",
